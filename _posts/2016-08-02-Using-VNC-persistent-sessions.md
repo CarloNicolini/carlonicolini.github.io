@@ -33,9 +33,9 @@ After the installation ended, fire up **TightVNC Viewer**
 
 1. Start **TightVNC Viewer**
 2. You will get the following screen 
-3. ![tightvnc5]
+3. This is the TightVNC Viewer default window <br>![tightvnc5]
 4. In the *Remote host* text box insert the server address followed by colon and the specific VNC port that you received. Change `serveraddress` with your server IP address and `ID` with the **ID** I've provided.
-5. ![tightvnc6]
+5. For example: <br>![tightvnc6]
 6. Press **connect** and you should get your remote session up and running!
 
 ## EXAMPLE ##
