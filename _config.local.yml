@@ -1,7 +1,7 @@
 # Site settings
 title: Carlo Nicolini
-email: ""
-description: ""
+email: "carlo.nicolini@iit.it"
+description: "My personal website"
 baseurl: "" 
 url: "http://carlonicolini.github.io"
 github_username:  carlonicolini
