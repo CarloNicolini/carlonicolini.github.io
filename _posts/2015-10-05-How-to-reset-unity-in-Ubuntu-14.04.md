@@ -1,7 +1,6 @@
 ---
 layout: default
 title: How to reset unity in Ubuntu 14.04
-categories: ubuntu
 date: 2015-10-05
 ---
 
