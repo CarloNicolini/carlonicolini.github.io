@@ -1,19 +1,10 @@
 # Site settings
-title: Adam Liska
+title: Carlo Nicolini
 email: ""
 description: ""
 baseurl: "" 
-url: "http://adliska.com"
-twitter_username: adliska
-github_username:  adliska
-
-gems: ['jekyll/scholar']
+url: "http://carlonicolini.github.io"
+github_username:  carlonicolini
 
 # Build settings
 markdown: kramdown
-
-scholar:
-    bibliography: adliska.bib
-    style: frontiers
-    bibliography_template: mybiblio
-    sort_by: name
