@@ -354,7 +354,7 @@ Once you’ve created a password kill the server. Now edit the vnc config file a
     xsetroot -solid grey
     export XKL_XMODMAP_DISABLE=1
     echo starting gnome
-    gnome-session --session=ubuntu-2d &
+    startxfce4 &
 
 So we’re telling VNC to create a new GUI session using the the Unity 2D desktop manager when a client connects. Now restart the server. And this time we’ll make sure it runs on bootup too:
 
