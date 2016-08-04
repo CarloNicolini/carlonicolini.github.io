@@ -7,7 +7,6 @@ permalink: /publications/
 Journals
 --------
 
-- **Carlo Nicolini**, Cècile Bordier, Angelo Bifone, *Reorganization of the modular structure of brain functional connectivity networks in Schizophrenia patients.*, PNAS, submitted (2016)
 - **Carlo Nicolini**, Cècile Bordier, Angelo Bifone, *Community detection in weighted brain connectivity networks beyond the resolution limit*, Neuroimage, under review (2016) 
 - **Carlo Nicolini**, Angelo Bifone, *Modular structure of brain functional networks: breaking the resolution limit by Surprise*, Scientific Reports, 6,19250 (2016) 
 
