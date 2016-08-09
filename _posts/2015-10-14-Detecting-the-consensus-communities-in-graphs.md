@@ -87,8 +87,11 @@ assume that clustering comparison is a problem of message decoding.
 Implicit in this, is the idea that if two partitions are similar,
 inferring one partition from the other needs very little information.
 
-Let us consider two generic partitions
-$\mathcal{X}=(X_1,X_2,\ldots,X_{n_x})$ and
+Let us consider two generic partitions 
+
+$\mathcal{X}=(X_1,X_2,\ldots,X_{n_x})$
+
+and
 $\mathcal{Y}=(Y_1,Y_2,\ldots,Y_{n_y})$ of a graph $\mathcal{G}$ with
 $n_X$ and $n_Y$ communities respectively. We indicate with $n$ the
 number of graph vertices, with $n_i^X$ and $n_j^Y$ the number of
