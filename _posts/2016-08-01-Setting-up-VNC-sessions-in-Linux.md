@@ -1,6 +1,7 @@
 ---
 title: Setting up VNC sessions in Linux
 layout: default
+date: 2016-08-01
 ---
 
 # Server side
@@ -13,11 +14,13 @@ By default, an Ubuntu 16.04 Droplet does not come with a graphical desktop envir
 
 On your server, install the Xfce and TightVNC packages.
 
-    sudo apt install xfce4 xfce4-goodies tightvncserver
+    {% highlight sh %}
+    sudo apt install xfce4 xfce4-goodies tightvncserver{% endhighlight %}
 
 To complete the VNC server's initial configuration after installation, use the vncserver command to set up a secure password.
 
-    vncserver
+    {% highlight sh %}
+    vncserver{% endhighlight %}
 
 You'll be promoted to enter and verify a password, and also a view-only password. Users who log in with the view-only password will not be able to control the VNC instance with their mouse or keyboard. This is a helpful option if you want to demonstrate something to other people using your VNC server, but isn't necessary.
 
@@ -31,45 +34,52 @@ When VNC is first set up, it launches a default server instance on port 5901. Th
 
 Because we are going to be changing how the VNC server is configured, we'll need to first stop the VNC server instance that is running on port 5901.
 
-    vncserver -kill :1
+    {% highlight sh %}
+    vncserver -kill :1{% endhighlight %}
 
 The output should look like this, with a different PID:
 
+    {% highlight sh %}
     Output
-    Killing Xtightvnc process ID 17648
+    Killing Xtightvnc process ID 17648{% endhighlight %}
 
 Before we begin configuring the new xstartup file, let's back up the original.
 
-    mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
+    {% highlight sh %}
+    mv ~/.vnc/xstartup ~/.vnc/xstartup.bak{% endhighlight %}
 
 Now create a new xstartup file with nano or your favorite text editor.
 
-    nano ~/.vnc/xstartup
+    {% highlight sh %}
+    nano ~/.vnc/xstartup{% endhighlight %}
 
 Paste these commands into the file so that they are performed automatically whenever you start or restart the VNC server, then save and close the file.
 
+    {% highlight sh %}
     ~/.vnc/xstartup
     #!/bin/bash
     xrdb $HOME/.Xresources
-    startxfce4 &
+    startxfce4 &{% endhighlight %}
 
 The first command in the file, `xrdb $HOME/.Xresources`, tells VNC's GUI framework to read the server user's .Xresources file. .Xresources is where a user can make changes to certain settings of the graphical desktop, like terminal colors, cursor themes, and font rendering. The second command simply tells the server to launch Xfce, which is where you will find all of the graphical software that you need to comfortably manage your server.
 
 To ensure that the VNC server will be able to use this new startup file properly, we'll need to grant executable privileges to it.
 
-    sudo chmod +x ~/.vnc/xstartup
+    {% highlight sh %}
+    sudo chmod +x ~/.vnc/xstartup{% endhighlight %}
 
 Now, restart the VNC server.
 
-    vncserver
+    {% highlight sh %}
+    vncserver{% endhighlight %}
 
 The server should be started with an output similar to this:
 
+    {% highlight sh %}
     Output
     New 'X' desktop is your_server_name.com:1
-
-Starting applications specified in `/home/iit/.vnc/xstartup`
-Log file is `/home/iit/.vnc/liniverse.com:1.log`
+    Starting applications specified in `/home/iit/.vnc/xstartup`
+    Log file is `/home/iit/.vnc/liniverse.com:1.log`{% endhighlight %}
 
 
 ### Step 3 — Creating a VNC Service File
@@ -78,10 +88,12 @@ Next, we'll set up the VNC server as a systemd service. This will make it possib
 
 First, create a new unit file called /etc/systemd/system/vncserver@.service using your favorite text editor:
 
-    sudo nano /etc/systemd/system/vncserver@.service
+    {% highlight sh %}
+    sudo nano /etc/systemd/system/vncserver@.service{% endhighlight %}
 
 Copy and paste the following into it. Be sure to change the value of User and the username in the value of PIDFILE to match your username.
 
+    {% highlight sh %}
     [Unit]
     Description=Start TightVNC server at startup
     After=syslog.target network.target
@@ -96,32 +108,38 @@ Copy and paste the following into it. Be sure to change the value of User and th
     ExecStop=/usr/bin/vncserver -kill :%i
 
     [Install]
-    WantedBy=multi-user.target
+    WantedBy=multi-user.target{% endhighlight %}
 
 Save and close the file.
 
 Next, make the system aware of the new unit file.
 
-    sudo systemctl daemon-reload
+    {% highlight sh %}
+    sudo systemctl daemon-reload{% endhighlight %}
 
 Enable the unit file.
 
-    sudo systemctl enable vncserver@1.service
+    {% highlight sh %}
+    sudo systemctl enable vncserver@1.service{% endhighlight %}
 
 Stop the current instance of the VNC server if it's still running.
 
-    vncserver -kill :1
+    {% highlight sh %}
+    vncserver -kill :1{% endhighlight %}
 
 Then start it as you would start any other systemd service.
 
-    sudo systemctl start vncserver@1
+    {% highlight sh %}
+    sudo systemctl start vncserver@1{% endhighlight %}
 
 You can verify that it started with this command:
 
-    sudo systemctl status vncserver@1
+    {% highlight sh %}
+    sudo systemctl status vncserver@1{% endhighlight %}
 
 If it started correctly, the output should look like this:
 
+    {% highlight sh %}
     Output:
     vncserver@1.service - TightVNC server on Ubuntu 16.04
        Loaded: loaded (/etc/systemd/system/vncserver@.service; enabled; vendor preset: enabled)
@@ -133,7 +151,7 @@ If it started correctly, the output should look like this:
      systemd[1]: Starting TightVNC server on Ubuntu 16.04...
      systemd[2938]: pam_unix(login:session): session opened for user finid by (uid=0)
      systemd[2949]: pam_unix(login:session): session opened for user finid by (uid=0)
-     systemd[1]: Started TightVNC server on Ubuntu 16.04.
+     systemd[1]: Started TightVNC server on Ubuntu 16.04.{% endhighlight %}
 
 
 ## Ubuntu 14.04
@@ -144,12 +162,14 @@ By default, most Linux server installations will not come with a graphical deskt
 
 We can get the XFCE packages, along with the package for TightVNC, directly from Ubuntu's software repositories using apt:
 
+    {% highlight sh %}
     sudo apt-get update
-    sudo apt-get install xfce4 xfce4-goodies tightvncserver
+    sudo apt-get install xfce4 xfce4-goodies tightvncserver{% endhighlight %}
 
 To complete the VNC server's initial configuration, use the vncserver command to set up a secure password:
 
-    vncserver
+    {% highlight sh %}
+    vncserver{% endhighlight %}
 
 (After you set up your access password, you will be asked if you would like to enter a view-only password. Users who log in with the view-only password will not be able to control the VNC instance with their mouse or keyboard. This is a helpful option if you want to demonstrate something to other people using your VNC server.)
 
@@ -163,21 +183,25 @@ When VNC is first set up, it launches a default server instance on port `5901`. 
 
 Since we are going to be changing how our VNC servers are configured, we'll need to first stop the VNC server instance that is running on port 5901:
 
-    vncserver -kill :1
+    {% highlight sh %}
+    vncserver -kill :1{% endhighlight %}
 
 Before we begin configuring our new xstartup file, let's back up the original in case we need it later:
 
-    mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
+    {% highlight sh %}
+    mv ~/.vnc/xstartup ~/.vnc/xstartup.bak{% endhighlight %}
 
 Now we can open a new xstartup file with nano:
 
-    nano ~/.vnc/xstartup
+    {% highlight sh %}
+    nano ~/.vnc/xstartup{% endhighlight %}
 
 Insert these commands into the file so that they are performed automatically whenever you start or restart your VNC server:
 
+    {% highlight sh %}
     #!/bin/bash
     xrdb $HOME/.Xresources
-    startxfce4 &
+    startxfce4 &{% endhighlight %}
 
 The first command in the file, `xrdb $HOME/.Xresources`, tells VNC's GUI framework to read the server user's .Xresources file. .Xresources is where a user can make changes to certain settings of the graphical desktop, like terminal colors, cursor themes, and font rendering.
 
@@ -185,7 +209,8 @@ The second command simply tells the server to launch XFCE, which is where you wi
 
 To ensure that the VNC server will be able to use this new startup file properly, we'll need to grant executable privileges to it:
 
-    sudo chmod +x ~/.vnc/xstartup
+    {% highlight sh %}
+    sudo chmod +x ~/.vnc/xstartup{% endhighlight %}
 
 ### Step Three — Create a VNC Service File
 
@@ -193,10 +218,12 @@ To easily control our new VNC server, we should set it up as an Ubuntu service. 
 
 First, open a new service file in `/etc/init.d` with nano:
 
-    sudo nano /etc/init.d/vncserver
+    {% highlight sh %}
+    sudo nano /etc/init.d/vncserver{% endhighlight %}
 
 The first block of data will be where we declare some common settings that VNC will be referring to a lot, like our username and the display resolution.
 
+    {% highlight sh %}
     #!/bin/bash
     PATH="$PATH:/usr/bin/"
     export USER="user"
@@ -204,42 +231,115 @@ The first block of data will be where we declare some common settings that VNC w
     DEPTH="16"
     GEOMETRY="1024x768"
     OPTIONS="-depth ${DEPTH} -geometry ${GEOMETRY} :${DISPLAY} -localhost"
-    . /lib/lsb/init-functions
+    . /lib/lsb/init-functions{% endhighlight %}
 
 Be sure to replace user with the non-root user that you have set up, and change `1024x768` if you want to use another screen resolution for your virtual display.
 
 Next, we can start inserting the command instructions that will allow us to manage the new service. The following block binds the command needed to start a VNC server, and feedback that it is being started, to the command keyword start.
 
+    {% highlight sh %}
     case "$1" in
     start)
     log_action_begin_msg "Starting vncserver for user '${USER}' on localhost:${DISPLAY}"
     su ${USER} -c "/usr/bin/vncserver ${OPTIONS}"
-    ;;
+    ;;{% endhighlight %}
 
     The next block creates the command keyword stop, which will immediately kill an existing VNC server instance.
 
+    {% highlight sh %}
     stop)
     log_action_begin_msg "Stopping vncserver for user '${USER}' on localhost:${DISPLAY}"
     su ${USER} -c "/usr/bin/vncserver -kill :${DISPLAY}"
-    ;;
+    ;;{% endhighlight %}
 
 The final block is for the command keyword restart, which is simply the two previous commands (stop and start) combined into one command.
 
+    {% highlight sh %}
     restart)
     $0 stop
     $0 start
     ;;
     esac
-    exit 0
+    exit 0{% endhighlight %}
 
 Once all of those blocks are in your service script, you can save and close that file. Make this service script executable, so that you can use the commands that you just set up:
 
-    sudo chmod +x /etc/init.d/vncserver
+    {% highlight sh %}
+    sudo chmod +x /etc/init.d/vncserver{% endhighlight %}
 
 Now try using the service and command to start a new VNC server instance:
 
-    sudo service vncserver start
-
+    {% highlight sh %}
+    sudo service vncserver start{% endhighlight %}
 
 # Ubuntu 12.04
-STILL TO FIGURE OUT HOW TO FIX THAT
+
+On Ubuntu 12.04 the setup is very similar to latest Ubuntu 16.04 and Ubuntu 14.04. The difference is that in Ubuntu 2.04 services are initiated through the `/etc/init.d`. Read the following steps and it should be ok.
+
+## Step 1: Install Desktop Environment and VNC Server
+
+    {% highlight sh %}
+    sudo apt-get install xfce4 xfce4-goodies tightvncserver{% endhighlight %}
+
+## Step 2: Setup TightVNC as a service
+
+Let’s create the init.d script:
+
+    {% highlight sh %}
+    #!/bin/bash
+    PATH="$PATH:/usr/bin/"
+    export USER="ram"
+    DISPLAY="1"
+    DEPTH="16"
+    GEOMETRY="1024x768"
+    OPTIONS="-depth ${DEPTH} -geometry ${GEOMETRY} :${DISPLAY} -localhost"
+    . /lib/lsb/init-functions
+    case "$1" in
+    start)
+    log_action_begin_msg "Starting vncserver for user '${USER}' on localhost:${DISPLAY}"
+    su ${USER} -c "/usr/bin/vncserver ${OPTIONS}"
+    ;;
+    stop)
+    log_action_begin_msg "Stoping vncserver for user '${USER}' on localhost:${DISPLAY}"
+    su ${USER} -c "/usr/bin/vncserver -kill :${DISPLAY}"
+    ;;
+    restart)
+    $0 stop
+    $0 start
+    ;;
+    esac
+    exit 0{% endhighlight %}
+
+
+Note that by specifying the - localhost option to the server we disallow access from anything but localhost. This is more secure but it does mean we will need to use an SSH tunnel to connect to it. Now let’s set the right permissions on this script and start it up:
+    
+    {% highlight sh %}
+    sudo chmod 755 /etc/init.d/vncserver
+    sudo /etc/init.d/vncserver start{% endhighlight %}
+
+The first time you start the script it will ask you for a password. This is the password which VNC clients will have to supply when they connect to the server.
+
+Once you’ve created a password kill the server. Now edit the vnc config file at `/home/<your username="">/.vnc/xstartup:</your>`
+
+    {% highlight sh %}
+    #!/bin/sh
+    xrdb $HOME/.Xresources
+    xsetroot -solid grey
+    export XKL_XMODMAP_DISABLE=1
+    echo starting gnome
+    startxfce4 &    {% endhighlight %}
+
+So we’re telling VNC to create a new GUI session using the the Unity 2D desktop manager when a client connects. Now restart the server. And this time we’ll make sure it runs on bootup too:
+
+    {% highlight sh %}
+    sudo /etc/init.d/vncserver start
+    sudo update-rc.d vncserver defaults{% endhighlight %}
+
+Now, from your local machine SSH into your server with port forwarding enabled:
+
+    {% highlight sh %}
+    ssh -L 5901:localhost:5901 username@my-remote-server.com{% endhighlight %}
+
+Now launch your VNC client and connect to localhost:5901. You should be prompted for the password you created earlier. Once you’re in you should see the Unity desktop and be able to interact with it.
+
+All done!
