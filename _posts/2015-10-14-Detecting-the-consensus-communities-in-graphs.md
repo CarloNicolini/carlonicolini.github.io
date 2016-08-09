@@ -66,9 +66,7 @@ problems. The landscape of the quality function, is depicted as the blue
 sheet, where the bumps represent its local optima. Replicas are the
 colored marble, particular configurations of the landscape. They are
 correlated via the represented springs, the stronger the spring the
-higher the correlation.
-
-<span
+higher the correlation. <span
 data-label="fig:replica_landscape"></span>](static/replica.png)
 
 Measures for replica correlation
