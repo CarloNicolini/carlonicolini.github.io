@@ -87,21 +87,21 @@ assume that clustering comparison is a problem of message decoding.
 Implicit in this, is the idea that if two partitions are similar,
 inferring one partition from the other needs very little information.
 
-Let us consider two generic partitions $$\mathcal{X}=(X_1,X_2,\ldots,X_{n_x})$$ and $$\mathcal{Y}=(Y_1,Y_2,\ldots,Y_{n_y})$$ of a graph $\mathcal{G}$ with
-$n_X$ and $n_Y$ communities respectively. We indicate with $n$ the
-number of graph vertices, with $n_i^X$ and $n_j^Y$ the number of
-vertices in communities $X_i$ and $Y_j$, and with $n_{ij}$ the number of
-vertices shared by clusters $X_i$ and $Y_j$, $n_{ij}=| X_i \cap Y_j|$.
+Let us consider two generic partitions $$\mathcal{X}=(X_1,X_2,\ldots,X_{n_x})$$ and $$\mathcal{Y}=(Y_1,Y_2,\ldots,Y_{n_y})$$ of a graph $$\mathcal{G}$$ with
+$$n_X$$ and $$n_Y$$ communities respectively. We indicate with $$n$$ the
+number of graph vertices, with $$n_i^X$$ and $$n_j^Y$$ the number of
+vertices in communities $$X_i$$ and $$Y_j$$, and with $$n_{ij}$$ the number of
+vertices shared by clusters $$X_i$$ and $$Y_j$$, $$n_{ij}=| X_i \cap Y_j|$$.
 
-Let us also consider the community assignments $\{ x_i\}$ and $\{ y_i\}$
-for partitions $\mathcal{X}$ and $\mathcal{Y}$ respectively; we treat
-the labels $x$ and $y$ as values of two random variables $X$ and $Y$
-with joint distribution $P(x,y)=P(X=x, Y=y) = n_{xy}/n$, which implies
-that $P(x)=P(X=x)=n_x^X/n$ and $P(y)=P(Y=y)=n_y^Y/n$. The mutual
-information is then defined as $I(X,Y)=H(X) - H(X|Y)$ where
-$H(X)=-\sum_x P(x) \log P(X)$ is the Shannon entropy of $x$. The mutual
+Let us also consider the community assignments $$\{ x_i\}$$ and $$\{ y_i\}$$
+for partitions $$\mathcal{X}$$ and $$\mathcal{Y}$$ respectively; we treat
+the labels $$x$$ and $$y$$ as values of two random variables $$X$$ and $$Y$$
+with joint distribution $$P(x,y)=P(X=x, Y=y) = n_{xy}/n$$, which implies
+that $$P(x)=P(X=x)=n_x^X/n$$ and $$P(y)=P(Y=y)=n_y^Y/n$$. The mutual
+information is then defined as $$I(X,Y)=H(X) - H(X|Y)$$ where
+$$H(X)=-\sum_x P(x) \log P(X)$$ is the Shannon entropy of $$x$$. The mutual
 information itself is not very useful, because hierarchically splitting
-the clusters in $X$ would produce no change in the prior $H(X|Y)$ and
+the clusters in $$X$$ would produce no change in the prior $$H(X|Y)$$ and
 partitions with different hierarchies of the same clusters, would go
 unnoticed. This observation led @danon2005 to define normalized mutual
 information as
@@ -116,9 +116,9 @@ i. e. the similarity of partitions differing only in a small portion of
 a graph depends on the differences of the clusters in that region, and
 not on the partition of the rest of the graph.
 
-As noted by Karrer @karrer2008 VI is upper-bounded by a $\log(n)$
-factor, so a simple normalization brings it in the $[0,1]$ range.
-Importantly, VI is zero for maximally equal partitions and $1$ for
+As noted by Karrer @karrer2008 VI is upper-bounded by a $$\log(n)$$
+factor, so a simple normalization brings it in the $$[0,1]$$ range.
+Importantly, VI is zero for maximally equal partitions and $$1$$ for
 mostly dissimilar, a inversely to NMI.
 
 What we are going to address in detail in the next paragraphs is a
@@ -150,8 +150,8 @@ i.e. the one where the overall probability that vertices are coclustered
 is higher.
 
 The constituting element of consensus clustering is the *consensus
-matrix* $\mathcal{P}\in \mathbb{R}^{n\times n}$, where every elements
-counts the number of times that vertices $i$ and $j$ are clustered
+matrix* $$\mathcal{P}\in \mathbb{R}^{n\times n}$$, where every elements
+counts the number of times that vertices $$i$$ and $$j$$ are clustered
 together over the total number of independent replicas. Implicit in the
 usage of the consensus matrix is the fact that, if multiple runs of a
 community detection algorithm agree that a subset of nodes belong to a
@@ -159,12 +159,12 @@ community, then this is surely more significant than what found by a
 single run.
 
 An illustrative example that show the convenience of consensus
-clustering is a graph $\mathcal{G}$ consisting of two partially
-overlapping cliques $\mathcal{C}_1,\mathcal{C}_2$, as illustrated in
+clustering is a graph $$\mathcal{G}$$ consisting of two partially
+overlapping cliques $$\mathcal{C}_1,\mathcal{C}_2$$, as illustrated in
 Figure \[fig:consensus\_cliques\]. For such simple graph, a
 non-deterministic community detection algorithm will produce solutions
 where the vertices in-between the two cliques will be sometimes assigned
-to $\mathcal{C}_1$ and sometimes to $\mathcal{C}_2$. Consensual
+to $$\mathcal{C}_1$$ and sometimes to $$\mathcal{C}_2$$. Consensual
 combination of all these partial solutions, can detect the connector
 vertex as the intersection of two overlapping communities and as a
 source of potential instability in the network.
@@ -174,44 +174,44 @@ data-label="fig:consensus_cliques"></span>](images/consensus_cliques.pdf)
 
 A widely used approach for consensus community detection in networks is
 the one of Lancichinetti et al @lancichinetti2012. The method is
-iterative: firstly the consensus matrix is built from $n_p$ repetitions
-of some non deterministic algorithm $\mathcal{A}$ and then, iteratively
-$\mathcal{A}$ is run on progressively thresholed consensus matrices till
+iterative: firstly the consensus matrix is built from $$n_p$$ repetitions
+of some non deterministic algorithm $$\mathcal{A}$$ and then, iteratively
+$$\mathcal{A}$$ is run on progressively thresholed consensus matrices till
 convergence is established.
 
-A clustering algorithm $\mathcal{A}$ that supports weighted graphs is in
+A clustering algorithm $$\mathcal{A}$$ that supports weighted graphs is in
 order, because it must run on the weighted consensus matrix until it
-turns into a block-diagonal matrix, whose elements are $1$ for vertices
-in the same block and $0$ for vertices in different blocks. The authors
+turns into a block-diagonal matrix, whose elements are $$1$$ for vertices
+in the same block and $$0$$ for vertices in different blocks. The authors
 show numerically that convergence is guaranteed in a few (typically 50)
 iterations. A high level description of the algorithm of Lancichinetti
 is given in Algorithm \[alg:consensus\_lancichinetti\].
 
 \[htb!\]
 
-1.  Apply $\mathcal{A}$ on $G$ $n_p$ times to get $n_p$ partitions
+1.  Apply $$\mathcal{A}$$ on $$G$$ $$n_p$$ times to get $$n_p$$ partitions
 
-2.  Compute the consensus matrix $P$ where $P_{ij}$ is the average
-    number of times that vertex $i$ and $j$ are clustered together.
+2.  Compute the consensus matrix $$P$$ where $$P_{ij}$$ is the average
+    number of times that vertex $$i$$ and $$j$$ are clustered together.
 
-3.  Set to zero all entries of $P$ under a chosen threshold $\tau$
+3.  Set to zero all entries of $$P$$ under a chosen threshold $$\tau$$
 
-4.  Apply $\mathcal{A}$ on $P$ $n_p$ times to get $n_p$ partitions.
+4.  Apply $$\mathcal{A}$$ on $$P$$ $$n_p$$ times to get $$n_p$$ partitions.
 
 5.  If all partitions are equal stop, otherwise go to step 2
     and reiterate.
 
 Crucial to above described method is the choice of the threshold
-parameter $\tau \in [0,1]$ applied at every iteration to keep the
+parameter $$\tau \in [0,1]$$ applied at every iteration to keep the
 consensus matrix relatively sparse. Lancichinetti @lancichinetti2012
-empirically finds that the choice of $\tau$ is dependent on the specific
-algorithm $\mathcal{A}$ and typically, when $\mathcal{A}$ is the Louvain
-method @blondel2008, a value of $\tau \approx 0.4$ suffices to ensure
-convergence in $~50$ iterations.
+empirically finds that the choice of $$\tau$$ is dependent on the specific
+algorithm $$\mathcal{A}$$ and typically, when $$\mathcal{A}$$ is the Louvain
+method @blondel2008, a value of $$\tau \approx 0.4$$ suffices to ensure
+convergence in $$~50$$ iterations.
 
 Another study of Campigotto on consensus clustering @campigotto2013
 shows that consensual communities appear in a large range of the
-threshold parameter $\tau$, and that consensus based approaches allow to
+threshold parameter $$\tau$$, and that consensus based approaches allow to
 distinguish graphs with real community structure from graphs where
 communities arise just as finite size effect or random fluctuations.
 
@@ -228,9 +228,9 @@ difficulties though.
 
 A first question that may arise is at which level should one consider
 two nodes to be in the same community, or equivalently, the problem of
-selecting the threshold $\tau$. The approach of Lancichinetti exploits
+selecting the threshold $$\tau$$. The approach of Lancichinetti exploits
 the convergence of the consensus matrix that is only empirically
-guaranteed. Wheter $\tau$ and $n_p$ can be selected a-priori depending
+guaranteed. Wheter $$\tau$$ and $$n_p$$ can be selected a-priori depending
 on the network and algorithm intrisic properties, is still an open
 question.
 
@@ -240,8 +240,8 @@ Comparing community structure in graphs
 A large number of functions for comparing similarities and differences
 between partitions of a network have been proposed in the past. They are
 used to provide quantitavely a number that tells how two partitions are
-similar. Usually the result is normalized in the $[0,1]$ range, being
-towards $1$ for very similar clusterings and toward $0$ when mostly
+similar. Usually the result is normalized in the $$[0,1]$$ range, being
+towards $$1$$ for very similar clusterings and toward $$0$$ when mostly
 dissimilar. These metrics are adopted especially in the benchmarking of
 community detection methods, when the specific outcome of some algorithm
 is compared with a ground truth partition, usually a-priori determined.
