@@ -19,3 +19,8 @@ Conferences and proceedings
 - **Carlo Nicolini**, Stefano Teso, Bruno Lepri, Andrea Passerini. *From on-going to complete activity recognition exploiting related activities*. International Workshop on Human Behaviour Understanding, Istanbul (2010).  
 - **Carlo Nicolini**, Michele Dallachiesa Interactive graph exploration with GraphInsight (talk at DISI department 2012, University of Trento).
 
+Summer schools
+---------------
+
+- *Complex networks and their applications*, May 15, 2016, Como Villa del Grumello.
+- *NSAS Connectomics* summer school, May 20 2015 Villa Finaly, Florence
