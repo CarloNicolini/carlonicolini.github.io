@@ -1,5 +1,6 @@
 ---
-title:
+layout: default
+title: Fix black screen after upgrade from Ubuntu 14.04 to Ubuntu 16.04
 author: carlo
 date: 2016-08-10
 ---
@@ -8,4 +9,5 @@ I've just decided to upgrade my Ubuntu 14.04.4 to the latest Ubuntu distribution
 
 At the boot time I've got a black screen with the computer totally frozen and no possibility to use the keyboard.
 
-So I then googled my problem and rebooted keeping pressed the `Shift` key.
+So I then googled my problem and rebooted keeping pressed the `Shift` key to enter `Recovery mode`.
+I entered the recovery mode and ...
