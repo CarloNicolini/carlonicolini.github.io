@@ -155,7 +155,10 @@ If it started correctly, the output should look like this:
 
 
 ## Ubuntu 14.04
-
+# This tutorial works
+http://www.krizna.com/ubuntu/install-vnc-server-ubuntu-14-04/
+and is applied to the servers with Ubuntu 14.04
+## This doesn't work 
 ### Step One — Install Desktop Environment and VNC Server
 
 By default, most Linux server installations will not come with a graphical desktop environment. If this is the case, we'll need to begin by installing one that we can work with. In this example, we will install XFCE4, which is very lightweight while still being familiar to most users.
