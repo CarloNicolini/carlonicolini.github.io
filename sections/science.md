@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Blog
-permalink: /sections/tech/tech
+title: Science and math
+permalink: /sections/science
 inheader: true
 ---
 
 <ul class="post-list">
-    {% for post in site.sections.tech.posts %}
+    {% for post in site.categories.science %}
         <li>
             <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
             <h2>

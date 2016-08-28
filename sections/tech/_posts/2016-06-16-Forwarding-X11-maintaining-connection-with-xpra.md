@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title: Forwarding-X11-maintaining-connection-with-xpra
 categories: ubuntu
 date: 2016-06-16
+categories: tech
 ---
 
 How to use XPRA for remote connection to the NeuralComputation Linux servers hosted in Mattarello

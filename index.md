@@ -3,7 +3,7 @@ layout: default
 ---
 
 <h2> Facts in short</h2>
-<img src="static/nicolini.jpg" style="float: right; width: 20%">
+<img src="static/nicolini.jpg" style="float: right; width: 30%">
 <p>Phyisicst.</p>
 <p>Scientific Programmer.</p>
 <p>Interest in complex systems and the their applications in neuroscience.</p>
@@ -13,13 +13,11 @@ layout: default
 
 <h3> Longer story </h3>
 
-<p>In my career I've always been involved with the biological aspects and applications of computation. I've started with Monte Carlo methods in radiation treatment planning, then moved to machine learning and now I'm focusing my attentions on computational models of brain fMRI activity with the tools of statistical physics.
+<p>In my career I've always been involved with the biological aspects and applications of computation. I've started with Monte Carlo methods in radiation treatment planning, then moved to machine learning. In the last years I shifted my attention to computational models of brain fMRI activity exploiting the powerful theoretical machinery of complex networks.
 </p>
-<p>For a list of publications and conferences, look the Publications section in the blog.</p>
 
-<hr/>
 
-<h2>Recent posts</h2>
+<h2>Recently posted</h2>
 
 <ul class="post-list">
     {% for post in site.posts limit:3 %}

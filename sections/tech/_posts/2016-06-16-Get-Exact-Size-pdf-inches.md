@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Get the exact print size of a PDF in inches
-categories: science
+categories: tech
 date: 2016-06-16
 ---
 	

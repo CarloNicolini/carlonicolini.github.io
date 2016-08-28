@@ -1,7 +1,9 @@
 ---
+layout: post
 title: Setting up VNC sessions in Linux
 layout: default
 date: 2016-08-01
+categories: tech
 ---
 
 # Server side

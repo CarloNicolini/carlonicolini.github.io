@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: post
 title: Install Google Drive for Linux
 categories: ubuntu
 date: 2015-10-14
+categories: tech
 ---
 
 Gsync is the rsync for Google Drive. If you like me, have unlimited storage space on Google Drive, this guide that can be very useful to you. You can store your precious date on the google cloud with the warranty that they are not lost nor destroyed. Google treats data very seriously :smile: (pun intended).

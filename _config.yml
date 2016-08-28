@@ -5,6 +5,7 @@ description: ""
 baseurl: "" 
 url: "http://carlonicolini.github.io"
 github_username:  carlonicolini
+twitter_username:  carlonicolini84
 
 # Build settings
 markdown: kramdown

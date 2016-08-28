@@ -1,7 +1,8 @@
 ---
+layout: post
 title: Using-VNC-persistent-sessions
-layout: default
 date: 2016-08-02
+categories: tech
 ---
 
 In this guide I briefly explain how you can get remote persistent session on the Mattarello Linux servers from any local computer, Windows, Linux or OSX.

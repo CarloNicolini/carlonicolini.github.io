@@ -1,7 +1,7 @@
 ---
-layout: default
+layout: post
 title: How to install latest R on servers under proxy
-categories: science
+categories: tech
 date: 2016-06-27
 ---
 

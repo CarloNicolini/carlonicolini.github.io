@@ -1,7 +1,8 @@
 ---
-layout: default
+layout: post
 title: Matlab imagesc with text values
 date: 2015-09-25
+categories: tech
 ---
 
 Well. Finally got around to making a better ``imagesc`` function in Matlab and Octave. I've named it ``imagesctxt`` and it has the same arguments as ``imagesc``.

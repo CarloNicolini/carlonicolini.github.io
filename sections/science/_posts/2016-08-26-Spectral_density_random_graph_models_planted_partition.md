@@ -1,6 +1,7 @@
 ---
+layout: post
 title: Spectral density of random graph models and the planted partition model
-layout: default
+categories: science
 date: 2016-08-26
 ---
 
