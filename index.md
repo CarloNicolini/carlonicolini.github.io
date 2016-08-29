@@ -2,18 +2,23 @@
 layout: default
 ---
 
-<h2> Facts in short</h2>
-<img src="static/nicolini.jpg" style="float: right; width: 30%">
-<p>Phyisicst.</p>
-<p>Scientific Programmer.</p>
-<p>Interest in complex systems and the their applications in neuroscience.</p>
-<p>PhD Candidate, University of Verona, Italy.</p>
-<p>Research technician, Istituto Italiano di Tecnologia, Rovereto, Italy.</p>
-([map](https://www.google.com/maps/place/Roveret://www.google.com/maps/place/38068+Rovereto+TN,+It%C3%A1lie/@47.2603133,11.7074777,5z/data=!4m2!3m1!1s0x47820ec143127041:0x6a9664123aebfadf)).
+<img src="static/img/CNCS.png" style="float: right; width: 10%">
+<img src="static/img/UNIVR.jpg" style="float: right; width: 10%">
+<img src="static/img/nicolini.jpg" style="float: right; width: 22%">
 
-<h3> Longer story </h3>
+## Facts in short
 
-<p>In my career I've always been involved with the biological aspects and applications of computation. I've started with Monte Carlo methods in radiation treatment planning, then moved to machine learning. In the last years I shifted my attention to computational models of brain fMRI activity exploiting the powerful theoretical machinery of complex networks.
+- Physicist by formation.
+- Scientific Programmer for work.
+- Network neuroscientist for study.
+<!-- <p>Interest in complex systems and the their applications in neuroscience.</p> -->
+- PhD Candidate, University of Verona, Italy.
+- Research technician, Istituto Italiano di Tecnologia, Rovereto, Italy.
+
+## Longer story
+
+<p>In my career I've always been involved with computation in many of its applications. I've started with Monte Carlo methods in radiation treatment planning, then moved to machine learning. In the last years I shifted my attention to computational models of brain fMRI activity exploiting the powerful theoretical machinery of complex networks.
+This blog collects results, ideas and notebooks of my work. Not all the content of this website is completely finished, so take it as it is.
 </p>
 
 
