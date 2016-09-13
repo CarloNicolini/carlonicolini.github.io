@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Detecting the consensus communities in graphs
 categories: science
 date: 2015-10-14
