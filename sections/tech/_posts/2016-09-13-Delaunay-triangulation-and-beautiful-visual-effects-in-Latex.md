@@ -4,7 +4,11 @@ title: Delaunay triangulation and beautiful visual effects in Latex
 categories: tech
 date: 2016-09-13
 ---
+Recently in the world of the Internet this very fancy coloured pattern appeared:
 
+![Pattern](http://i.stack.imgur.com/hiAVb.png)
+
+This beautiful pattern has been used in many situations and it is also inspiration of some Android OS background.
 If you were wondering how to produce those nice patterns of triangles and shades that you see around the web, here is a nice version scripted in LateX.
 
     {% highlight latex %}
@@ -64,4 +68,11 @@ If you were wondering how to produce those nice patterns of triangles and shades
 
 The result is nice:
 
-<a href="//imgur.com/M3w46"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+<img src="http://i.stack.imgur.com/xJL7S.png" width="200px">
+
+You can obviously change the arrangement of the random dots in the plane, for example by following some mathematical parametric function and then the triangulation happens on the specific parametric surface. For example if you want to arrange the points randomly inside a circle, you have to switch to polar coordinates etc.
+To change the colors you should change how the colors are picked from a color map defined in the first lines:
+
+    \definecolorseries{colours}{hsb}{grad}[hsb]{.575,1,1}{.987,-.234,0}
+
+This code means that we are moving from a point `{.575,1,1}` to a point `{.987,-.234,0}` over the color map `hsb`.
