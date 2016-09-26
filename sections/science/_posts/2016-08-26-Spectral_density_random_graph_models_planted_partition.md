@@ -12,6 +12,7 @@ date: 2016-08-26
 # Kernel density estimation
 
 # Code
+
     {% highlight python %}
     """
     See the book Mathias Dehmer,
