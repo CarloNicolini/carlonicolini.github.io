@@ -9,12 +9,9 @@ layout: default
 
 ## Facts in short
 
-- Physicist by formation.
-- Scientific Programmer for work.
-- Network neuroscientist for study.
-<!-- <p>Interest in complex systems and the their applications in neuroscience.</p> -->
-- PhD Candidate, University of Verona, Italy.
-- Research technician, Istituto Italiano di Tecnologia, Rovereto, Italy.
+- Physicist.
+- Scientific Programmer.
+- Network neuroscientist.
 
 ## Longer story
 

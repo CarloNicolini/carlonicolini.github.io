@@ -5,7 +5,7 @@ categories: science
 date: 2015-10-14
 ---
 
-Ensemble community detection
+# Ensemble community detection
 
 
 In these section we’ll address in depth an approach to making sense of
@@ -14,15 +14,14 @@ methods. We will take advantage of the methods of statistical physics
 and treat with ensembles of partitions to assess the statistical
 significance of community structure.
 
-Stochastic optimization methods
--------------------------------
+# Stochastic optimization methods
+
 
 Many problems related to clustering, like graph partitioning and
-community detection, are very often NP-hard problems @fortunato2010. In
-this case, deterministic algorithms can be used only for very small
+community detection, are very often NP-hard problems [Fortunato (2010)](#Fortunato2010). In this case, deterministic algorithms can be used only for very small
 systems, but on larger instances, greedy approximation heuristics are
 necessary tools to provide insightful solutions. Stochastic optimization
-methods @hoos2004 are a class of heuristics that introduce randomness in
+methods are a class of heuristics that introduce randomness in
 the search process to accelerate the optimization and escape local
 minima of complex objective functions.
 
@@ -36,14 +35,14 @@ Non-deterministic nature of approximated methods implies that final
 partitions may be different, particularly when the search space exhibits
 many uncorrelated local optima, a phenomenon that is more acute when the
 network structure is far from the community detectability threshold
-@zhang2014 [@good2009].
+[[Zhang (2014)](#Zhang2014), [Good (2009)](#good2009)].
 
 Indeed, the set of multiple local optima partition obtained with non
 deterministic methods is identified in statistical physics as the set of
 *replicas* solutions, as shown in Figure \[fig:replica\_landscape\].
 Many levels of structural information are encoded in the replicas. They
 encode the effects of noise in the search process and intrinsic scales
-of modules@ronhovde2009. Availability of a set of replica partitions,
+of modules [[Ronhovde (2009)](#Ronhovde2009)]. Availability of a set of replica partitions,
 greatly extends the knowledge on the network structure. It provides a
 view on network structural instabilities (i.e. vertices oscillating
 between communities over the replicas, due mostly to stochastic effects)
@@ -53,7 +52,7 @@ The study of the information-theory-based correlations of replicas,
 allows to assess the quality of candidate solutions, and to compare them
 to a ground-truth, where available. It’s worth noting that the very
 efficient community detection algorithm of Ronhovde and Nussinov
-@ronhovde2009 directly looks for that subset of highly similar replicas
+[[Ronhovde (2009)](#Ronhovde2009)] directly looks for that subset of highly similar replicas
 as a way to justify the existence of community structure. They identify
 the dominant solution as that described by the set of replicas with the
 stronger correlation. This representative solution is selected as that
@@ -61,24 +60,28 @@ where stochastic effects introduced by non-deterministic optimization
 methods are negligible and therefore provides a robust and statistically
 reliable view on the mesoscopic structure of the network.
 
-![A sketchy illustration of optimization in community detection
+<img src="/static/postfigures/replica.png" style="float: right; width: 55%">
+
+*A sketchy illustration of optimization in community detection
 problems. The landscape of the quality function, is depicted as the blue
 sheet, where the bumps represent its local optima. Replicas are the
 colored marble, particular configurations of the landscape. They are
 correlated via the represented springs, the stronger the spring the
-higher the correlation. <span
-data-label="fig:replica_landscape"></span>](static/replica.png)
+higher the correlation.*
 
-Measures for replica correlation
---------------------------------
+
+
+
+# Measures for replica correlation
+
 
 The existence of a multitude of replica solutions gives raise to the
 problem of comparing partitions. The most well-grounded and performing
-metrics are rooted in information theory@cover2006. The *Normalized
-Mutual Information* @danon2005 and the *Variation of
-Information*@meila2007 are the most widely used, despite it has been
+metrics are rooted in information theory [[Cover (2012)](#Cover2012)]. The *Normalized
+Mutual Information* [[Danon (2005)](#Danon2005)] and the *Variation of
+Information* [[Meila (2007)](#Meila2007)] are the most widely used, despite it has been
 recently found that both of them suffer of systematic errors due to the
-finite size of the network @zhang2015. In the rest of the discussions we
+finite size of the network [[Zhang (2015)](#Zhang2015)]. In the rest of the discussions we
 ignore the limitation of finite size effects, by only working with
 relatively large networks.
 
@@ -103,10 +106,10 @@ $$H(X)=-\sum_x P(x) \log P(X)$$ is the Shannon entropy of $$x$$. The mutual
 information itself is not very useful, because hierarchically splitting
 the clusters in $$X$$ would produce no change in the prior $$H(X|Y)$$ and
 partitions with different hierarchies of the same clusters, would go
-unnoticed. This observation led @danon2005 to define normalized mutual
+unnoticed. This observation led [[Danon (2005)](#Danon2005)] to define normalized mutual
 information as
 $$\textrm{NMI}(\mathcal{X},\mathcal{Y}) = \frac{2I(X,Y)}{H(X)+H(Y)}$$
-Similar to NMI is the Variation of Information @meila2007,
+Similar to NMI is the Variation of Information [[Meila (2007)](#Meila2007)],
 
 $$\textrm{VI}(\mathcal{X},\mathcal{Y}) = H(X|Y) + H(Y|X)$$
 
@@ -116,8 +119,7 @@ i. e. the similarity of partitions differing only in a small portion of
 a graph depends on the differences of the clusters in that region, and
 not on the partition of the rest of the graph.
 
-As noted by Karrer @karrer2008 VI is upper-bounded by a $$\log(n)$$
-factor, so a simple normalization brings it in the $$[0,1]$$ range.
+As noted by Karrer [[Karrer (2008)](#Karrer2008)] VI is upper-bounded by a $$\log(n)$$ factor, so a simple normalization brings it in the $$[0,1]$$ range.
 Importantly, VI is zero for maximally equal partitions and $$1$$ for
 mostly dissimilar, a inversely to NMI.
 
@@ -169,11 +171,8 @@ combination of all these partial solutions, can detect the connector
 vertex as the intersection of two overlapping communities and as a
 source of potential instability in the network.
 
-![Consensus partition of two intersecting cliques<span
-data-label="fig:consensus_cliques"></span>](images/consensus_cliques.pdf)
-
 A widely used approach for consensus community detection in networks is
-the one of Lancichinetti et al @lancichinetti2012. The method is
+the one of [Lancichinetti et al](#Lancichinetti2012). The method is
 iterative: firstly the consensus matrix is built from $$n_p$$ repetitions
 of some non deterministic algorithm $$\mathcal{A}$$ and then, iteratively
 $$\mathcal{A}$$ is run on progressively thresholed consensus matrices till
@@ -185,32 +184,29 @@ turns into a block-diagonal matrix, whose elements are $$1$$ for vertices
 in the same block and $$0$$ for vertices in different blocks. The authors
 show numerically that convergence is guaranteed in a few (typically 50)
 iterations. A high level description of the algorithm of Lancichinetti
-is given in Algorithm \[alg:consensus\_lancichinetti\].
+is given in the following Algorithm.
 
-\[htb!\]
+1. Apply $$\mathcal{A}$$ on $$G$$ $$n_p$$ times to get $$n_p$$ partitions
 
-1.  Apply $$\mathcal{A}$$ on $$G$$ $$n_p$$ times to get $$n_p$$ partitions
-
-2.  Compute the consensus matrix $$P$$ where $$P_{ij}$$ is the average
+2. Compute the consensus matrix $$P$$ where $$P_{ij}$$ is the average
     number of times that vertex $$i$$ and $$j$$ are clustered together.
 
-3.  Set to zero all entries of $$P$$ under a chosen threshold $$\tau$$
+3. Set to zero all entries of $$P$$ under a chosen threshold $$\tau$$
 
-4.  Apply $$\mathcal{A}$$ on $$P$$ $$n_p$$ times to get $$n_p$$ partitions.
+4. Apply $$\mathcal{A}$$ on $$P$$ $$n_p$$ times to get $$n_p$$ partitions.
 
-5.  If all partitions are equal stop, otherwise go to step 2
+5. If all partitions are equal stop, otherwise go to step 2
     and reiterate.
 
 Crucial to above described method is the choice of the threshold
 parameter $$\tau \in [0,1]$$ applied at every iteration to keep the
-consensus matrix relatively sparse. Lancichinetti @lancichinetti2012
+consensus matrix relatively sparse. [Lancichinetti](#Lancichinetti2012)
 empirically finds that the choice of $$\tau$$ is dependent on the specific
 algorithm $$\mathcal{A}$$ and typically, when $$\mathcal{A}$$ is the Louvain
-method @blondel2008, a value of $$\tau \approx 0.4$$ suffices to ensure
+method [Blondel et al.](#Blondel2008), a value of $$\tau \approx 0.4$$ suffices to ensure
 convergence in $$~50$$ iterations.
 
-Another study of Campigotto on consensus clustering @campigotto2013
-shows that consensual communities appear in a large range of the
+Another study of Campigotto [[Campigotto 2013](#Campigotto2013)] on consensus clustering shows that consensual communities appear in a large range of the
 threshold parameter $$\tau$$, and that consensus based approaches allow to
 distinguish graphs with real community structure from graphs where
 communities arise just as finite size effect or random fluctuations.
@@ -252,3 +248,29 @@ similarity of single communities between two assignments. It’s worth
 noting that the majority of the aforementioned metrics do not take in
 consideration comparison of pairs of communities between two partitions,
 but they insist on finding overall similarity.
+
+
+## References
+- <a name="Campigotto2013"></a>Campigotto, R., Guillaume, J.L., Seifi, M., 2013. The power of consensus: Random graphs have no communities, in: Advances in Social Networks Analysis and Mining (ASONAM), 2013 IEEE/ACM International Conference on. pp. 272–276.
+
+- <a name="Karrer2008"></a>Karrer, B., Levina, E., Newman, M.E.J., 2008. Robustness of community structure in networks. Phys. Rev. E 77, 46119. doi:10.1103/PhysRevE.77.046119
+
+- <a name="Cover2012"></a>Cover, T., Thomas, J., 2012. Elements of information theory.
+
+- <a name="Danon2005"></a>Danon, L., Diaz-Guilera, A., Duch, J., Arenas, A., 2005. Comparing community structure identification. J. Stat. Mech. Theory Exp. 2005, P09008.
+
+- <a name="Meila2007"></a>M., M., 2007. Comparing clusterings—an information based distance. J. Multivar. Anal. 98, 873–895. doi:http://dx.doi.org/10.1016/j.jmva.2006.11.013
+
+- <a name="Zhang2015"></a>Zhang, P., 2015. A revisit to evaluating accuracy of community detection using the normalized mutual information. arXiv Prepr. arXiv1501.03844 1–6.
+
+- <a name="Ronhovde2009"></a>Ronhovde, P., Nussinov, Z., 2009. Multiresolution community detection for megascale networks by information-based replica correlations. Phys. Rev. E 80, 16109. doi:10.1103/PhysRevE.80.016109
+
+- <a name="Zhang2014"></a>Zhang, P., Moore, C., 2014. Scalable detection of statistically significant communities and hierarchies, using message passing for modularity. Proc. Natl. Acad. Sci. U. S. A. 111, 18144–9. doi:10.1073/pnas.1409770111.
+
+- <a name="Good2009"></a>Good, B.H., de Montjoye, Y.-A., Clauset, A., 2010. Performance of modularity maximization in practical contexts. Phys. Rev. E 81, 46106. doi:10.1103/PhysRevE.81.046106.
+
+- <a name="Fortunato2010"></a>Fortunato, S., 2010. Community detection in graphs. Phys. Rep. 486, 75–174. doi:10.1016/j.physrep.2009.11.002.
+ 
+- <a name="Lancichinetti2012"></a>Lancichinetti, A., Fortunato, S., 2012. Consensus clustering in complex networks. Sci. Rep. 2, 336. doi:10.1038/srep00336.
+
+- <a name="Blondel2008"></a>Blondel, V.V.D., Guillaume, J.J., Lambiotte, R., Lefebvre, E., 2008. Fast unfolding of communities in large networks. J. Stat. … 2008, P10008. doi:10.1088/1742-5468/2008/10/P10008
