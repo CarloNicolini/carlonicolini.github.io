@@ -2,7 +2,7 @@
 layout: post
 title: Comparing spectral densities of random graph models.
 categories: science
-published: false
+<!-- published: false -->
 date: 2016-08-26
 ---
 
@@ -66,7 +66,6 @@ In trying to establish a "*network information theory*", it appears that the spe
 
 <!-- 
 More recently, some of these concepts have been extended I will show some recent results from the paper of [DeDomenico](#DeDomenico2016) that takes a little different approach in the definition of spectral densities and casts a powerful analogy between complex networks and quantum theory, lying down the foundations of something that in the next years will, very probably be part of the basic knowledge in network science.
-
 
 
 ## Spectral density
