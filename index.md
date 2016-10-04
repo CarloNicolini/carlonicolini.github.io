@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<img src="static/img/nicolini4.jpg" style="float: right; width: 22%">
+<img src="static/img/nicolini2.jpg" style="float: right; width: 22%">
 <!-- <img src="static/img/CNCS.png" style="right; width: 10%">
 <img src="static/img/UNIVR.jpg" style="right; width: 10%"> -->
 
