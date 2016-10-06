@@ -2,7 +2,7 @@
 layout: post
 title: How to upgrade R to the latest version on Ubuntu 14.04
 categories: tech
-date: 2016-06-10
+date: 2016-10-06
 ---
 
 Follow this instruction:
