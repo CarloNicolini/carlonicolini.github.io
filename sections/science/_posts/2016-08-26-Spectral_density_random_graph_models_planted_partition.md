@@ -2,11 +2,12 @@
 layout: post
 title: Comparing spectral densities of random graph models.
 categories: science
-published: false
+<!-- published: false -->
 date: 2016-08-26
 ---
 
-The ability of quantitatively comparing two graphs is of great importance in many scientific questions. In the brain networks literature has an exceptional importance. How the brain networks of healthy people differ from those of patients? What kind of alterations are present in the functional connectivity of diseased brain? To what extent two networks are structurally similar?
+The ability of quantitatively comparing two graphs is of great importance in many scientific questions and of exceptional importance in studying brain networks.
+How the brain networks of healthy people differ from those of patients? What kind of alterations are present in the functional connectivity of diseased brain? To what extent two networks are structurally similar?
 
 To answer these questions, many graph measures have been developed, but no approach starts from ground principles. Information theory and statistics are two disciplines that must bring their ideas into complex networks science. In particular an idea that is emerging is that different graphs must differ in their spectra, i.e. the distribution of their eigenvalues. It turned out indeed, that the empirical distribution of the eigenvalues of adjacency matrices of graphs, can tell us more about the general properties of the network than some other aggregate measures, like for example the degree distribution, or other metrics.
 
