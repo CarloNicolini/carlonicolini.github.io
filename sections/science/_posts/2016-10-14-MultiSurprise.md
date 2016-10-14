@@ -1,0 +1,213 @@
+---
+layout: post
+title: Extending Surprise to multivariate hypergeometric
+categories: science
+published: false
+date: 2016-10-14
+---
+
+<!-- Surprise is defined as
+
+$$ S = \sum \limits_i ^{m_\zeta} \frac{\binom{p_\zeta}{i}  \binom{p-p_\zeta}{m-i} }{\binom{p}{m}}$$
+
+but this counts only *intra-* and *extra-* cluster totals edges and pairs.
+One can consider a multivariate distribution, like this that we call **MultiSurprise**
+
+$$S_M = \prod \limits_c \frac{\binom{p_c}{m_c}}{\binom{p}{m}}$$
+
+this, once approximated with Kullback-Leibler divergence becomes
+
+$$S_M \approx m D_{KL}(\mathbf{q} \| \left< \mathbf{q}\right>)$$
+
+or in other words:
+
+$$ m D_{KL}(\mathbf{q} \| \left< \mathbf{q}\right>) = m \sum_c \frac{m_c}{m} \log\left(\frac{m_c/m}{p_c/p} \right)$$
+
+and we call this measure Asymptotical MultiSurprise.
+Whether this measure works, I don't know...for sure it's working in the ring of cliques example though.
+
+This is very similar to the stochastic block model introduced by Newman and Karrer, that instead has the sum of pairs of blocks (rather than just on the diagonal as MultiSurprise):
+
+$$\mathcal{L}(G) = \sum \limits_{rs} \frac{m_{rs}}{2m}\log\left( \frac{m_{rs}}{n_r n_s/n^2}\right)$$
+
+because in this model on undirected graphs pairs of blocks are counted, then the $$2$$ factor, so if one considers only community structure of blocks and on undirected graphs:
+
+$$\mathcal{L}(G | g) = \sum \limits_{r} \frac{m_{r}}{m}\log\left( \frac{m_{r}}{p_r}\right)$$
+
+If one continues to read the Karrer and Newman paper, then the stubs are considered instead of vertex pairs, and the degree-corrected stochastic block model is considered, that reads:
+
+$$
+\mathcal{L} = \sum \limits_{rs} \frac{m_{rs}}{2m} \log \left( \frac{m_{rs}/2m}{(k_r/2m)(k_s/2m)}\right)
+$$
+
+coming back with the reasoning, consider only $$r==s$$, then this becomes focused on communities:
+
+$$
+\mathcal{L}_C = \sum \limits_{r} \frac{m_{r}}{m} \log \left( \frac{m_{rs}/2m}{(k_r/2m)^2}\right)
+$$
+
+multiply by $$m$$:
+
+$$
+m \mathcal{L}_C = mD_{KL}(\mathbf{q} \| \left< \mathbf{q}\right>)
+$$
+
+where here $$\mathbf{q}=(m_{11}/m, m_{12}/m, \ldots, m_{cc}/m)$$ and 
+$$\left< \mathbf{q} \right >=(m_{11}/m, m_{12}/m, \ldots, m_{cc}/m)$$ and 
+
+therefore its original distribution is:
+
+$$S_{CM} = \prod \limits_c \frac{\binom{p_c}{m_c}}{\binom{p}{m}}$$
+
+Notes on asymptotical surprise
+========
+
+The G-test (in fact a likelihood ratio) has the form 
+
+$$
+G = 2 \sum_i O_i \log( O_i/E_i)
+$$
+
+where $O_i$ is the observed count in a cell, $E_i$ is the expected count under the null hypothesis and the sum is taken over all non-empty cells.
+
+It's related to Kullback-Leilbler divergence when the empirical and theoreticalfrequencies $$o_i$$ and $$e_i$$ are taken instead of the counts:
+
+$$
+G = 2 \sum_i O_i \log(O_i/E_i) = 2 N \sum_i o_o \log(o_i/e_i) = 2N D_{KL}(o\|e)
+$$
+with $$N$$ denoting the total number of observations.
+
+it's also related to mutual information, in fact, if one expresses 
+$$N=\sum_{ij}O_{ij}$$
+
+$$\pi_{ij}=O_{ij}/N$$
+
+$$\pi_{i.} = \sum_j O_{ij}/N$$
+
+$$\pi_{.j}=\sum_i O_{ij}/N$$
+
+then $$G$$ can be expressed in several alternative forms:
+
+$$
+G=2\cdot N\cdot \sum _{{ij}}{\pi _{{ij}}\left(\ln(\pi _{{ij}})-\ln(\pi _{{i.}})-\ln(\pi _{{.j}})\right)},
+$$
+
+
+$$G = 2 ⋅ N ⋅ [ H ( r ) + H ( c ) − H ( r , c ) ] , {\displaystyle G=2\cdot N\cdot \left[H(r)+H(c)-H(r,c)\right],} G=2\cdot N\cdot \left[H(r)+H(c)-H(r,c)\right]
+$$
+
+
+$$G = 2 ⋅ N ⋅ M I ( r , c ) , {\displaystyle G=2\cdot N\cdot MI(r,c)\,,} G=2\cdot N\cdot MI(r,c)
+$$
+
+MAIL GARLASCHELLI
+======== -->
+
+Caro Diego,
+
+Dopo la chiaccherata con te, tornato in Italia, ho ripensato al discorso di come adattare la Surprise al configuration model, perchè se ne valesse la pena avremmo una funzione costo molto potente.
+
+Iniziamo con un po’ di notazione:
+- $$G$$ grafo undirected, unweighted, no self-loops, no multiedges.
+- $$n$$ numero di nodi del grafo.
+- $$m$$ numero di lati del grafo.
+- $$p$$ numero di coppie di vertici del grafo $$p=\binom{n}{2}$$.
+- $$m_c$$ numero di lati nella comunità $$c$$.
+- $$p_c$$ numero di coppie di vertici nella comunità $$c$$.
+- $$m_\zeta$$ numero totale di lati intracluster, $$m_\zeta=\sum_c m_c$$.
+- $$p_\zeta$$ numero totale di coppie intracluster, $$p_\zeta=\sum_c p_c$$.
+- $$p-p_\zeta$$ numero totale di coppie extracluster.
+- $$m-m_\zeta$$ numero totale di lati extracluster.
+
+Partiamo dalla definizione originale di Surprise che nella sua formulazione originale è basata sulla distribuzione cumulativa inversa ipergeometrica,
+
+$$
+S = -\log \sum_{i=m_\zeta}^m \left( \frac{\binom{p_\zeta}{i}\binom{p-p_\zeta}{m-i}}{\binom{p}{m}} \right)
+$$
+
+Il null model implicito su cui è basata la Surprise è il modello $$G_{nm}$$ (e non Erdos-Renyi $$G_{np}$$) perchè il numero di lati è fissato a $$m$$ (è una versione microcanonica dell'insieme $$G_{np}$$ in fondo).
+La cardinalità dell'insieme $$G_{nm}$$ con esattamente $$n$$ nodi ed $$m$$ lati viene rappresentata al denominatore della Surprise dal fattore
+
+$$\binom{p}{m}^{-1}$$
+
+ovvero esso è la cardinalità dell’insieme di tutti i possibili grafi con esattamente $$m$$ lati e $$p=\binom{n}{2}$$ coppie di lati, o se vuoi vederla diversamente, $$m$$ coppie di vertici connesse da un lato e $$p$$ coppie di vertici totali. 
+A quanto ne so io comunque i due insiemi $$G_{nm}$$ (Gilbert) e $$G_{np}$$ (Erdos-Renyi) sono circa simili per $$n$$ grande.
+
+Ora per semplificarci la vita consideriamo solamente il termine dominante di $$S$$ tenendo solo il primo termine della sommatoria $$i=m_\zeta$$ ed indichiamo il risultato $$S_D$$. Otteniamo quindi:
+
+$$
+S_{D} \approx -\log \left( \frac{\binom{p_\zeta}{m_\zeta}\binom{p-p_\zeta}{m-m_\zeta}}{\binom{p}{m}} \right)
+$$
+
+e questo è anche quello che fa Traag nel suo paper.
+Quindi in questa formulazione Surprise ti dice qual'è la probabilità che, pescando $$m$$ palle da un'urna contenente $$p$$ palle, di cui $$p_\zeta$$ bianche e $$p-p_\zeta$$ nere, tu abbia in mano *esattamente* $$m_\zeta$$ palle bianche.
+
+Questa descrizione dal punto di vista statistico è un Fisher test esatto, che ti dice quanto confidentemente si può rigettare l'ipotesi nulla che la densità intracluster density $$m_\zeta/p_\zeta$$ sia uguale alla densità del grafo $$m/p$$. Teniamolo in mente per dopo.
+
+Notiamo ora che in questa formulazione noi stiamo considerando solamente due tipi di popolazioni, cioè la popolazione delle coppie intracluster e quella delle coppie extracluster di cui esse possono formare lati o non formarli.
+
+Questo fatto si riflette nella formulazione asintotica della Surprise, la Asymptotical Surprise che fa uso della divergenza di Kullback-Leibler binaria sulle frequenze relative osservata ed aspettata della popolazione intracluster e della popolazione extracluster.
+
+$$
+S_A = m D_{KL}(q \| \left< q\right>) 
+$$
+
+dove in questo caso $$D_{KL}(x \| y)=x \log(x/y) + (1-x) \log( (1-x)/(1-y) )$$.
+
+Parlando con te mi avevi fatto notare che questo ha anche un altro parallelo in statistica, il likelihood-ratio. Spulciando qua e là ho scoperto che la statistica nota come G-test prende esattamente la forma che ci piace e cioè, date $$N$$ osservazioni, di cui $$O_i$$ è il numero di conteggi osservati, $$E_i$$ il numero di conteggi aspettati dati un certo modello nullo, allora il valore $$G$$ si scrive come:
+
+$$
+G=2 \sum_i O_i \log(O_i/E_i)
+$$
+
+e questa statistica $$G$$ è intimamente collegata alla divergenza KL perchè
+
+$$G=2 \sum_i O_i \log(O_i/E_i) = 2N \sum_i o_i \log(o_i/e_i)$$
+
+dove, le frequenze relative osservate ed aspettate sono $$o_i$$ ed $$e_i$$.
+Questo è interessante di per se e lo useremo come fatto utile fra un po', ma torniamo un secondo alla Surprise.
+
+Come detto prima, la Surprise ha due proprietà principali. La prima è che la popolazione delle biglie nell'urna è di due tipi: intracluster ed extracluster. Da questo deriva il fatto che si modella con una distribuzione ipergeometrica, approssimata da binomiale, riconducibile a KL binaria.
+Se si considera invece un estensione ipergeometrica multivariata infatti, che qui chiamiamo $$S_M$$ e definiamo:
+
+$$
+S_{M} = -\log \left( \prod_{rs} \frac{\binom{n_r n_s}{m_{rs}} } {\binom{p}{m}} \right)
+$$
+
+allora questo mette in evidenza che la definizione originale è una sorta di marginalizzazione (forse non è il termine esatto) su questa versione multivariata.
+Quest'ultima definizione di Surprise che è stata introdotta da Traag nel lavoro sulla Asymptotical Surprise, ha anch'essa una versione asintotica (indicata qui come $$S_{MA}$$ che si scrive come:
+
+$$
+S_{MA} = \sum_{rs} m_{rs} \log \left( \frac{m_{rs}}{n_r n_s} \right)
+$$
+
+Ora, questa funzione costo era stata già proposta da Newman in un lavoro sui stochastic block models, ed era stato notato che tendeva a raggruppare nella stessa comunità i nodi con degree alto, poichè come è evidente non tiene in conto la degree sequence, infatti nel modello $$G_{nm}$$ non vi è assolutamente nessuna menzione esplicita dei degree, la rete è considerata uniforme (in media).
+
+Newman allora aveva sostituito a $$n_r$$ ed $$n_s$$ le somme dei degree dei nodi nella comunità $$r$$ ed $$s$$, ottenendo quello che lui ha chiamato degree-corrected stochastic block model. 
+
+$$
+S_{DCSBM} = \sum_{rs} m_{rs} \log \left( \frac{m_{rs}}{K_r K_s} \right)
+$$
+
+Incorporando la degree-sequence, implicitamente in questa funzione vengono assegnate probabilità più alte ai lati i cui endpoints hanno degree alto e questo dà la possibilità di fittare reti con una maggiore likelihood.
+
+Ragionando su questo ultimo passaggio, il messaggio che contiene è che qui si passa dal considerare le **coppie** di vertici a considerare gli **stubs**
+
+Infatti questo con un po' di intuizione corrisponderebbe ad un modello ad urna senza rimpiazzo (o con rimpiazzo non è importante se la rete è grande) con un totale di $$C^2/2$$ possibili tipi di palle (il fattore 2 perchè consideriamo il numero di lati dal blocco $$r$$ al blocco $$s$$ uguale al numero di lati dal blocco $$s$$ al blocco $$r$$). Risulterebbe una cosa del genere:
+
+$$
+S_{CM} = -\log \left( \prod_{rs}  \frac{\binom{K_r K_s}{m_{rs}}}{\textrm{const}} \right) \approx S_{DCSBM}$$
+
+dove $$\textrm{const}$$ è una costante di normalizzazione che dopo averci ragionato per parallelismo con la definizione di Surprise data prima, dovrebbe essere data dal numero di possibili grafi che possono esistere nel configuration model con quella una sequenza di degree 
+$$\{k_1, \ldots ,k_n\}$$.
+Da argomenti combinatoriali risulta che la cardinalità $$| \Omega_{CM}|$$ del configuration model data tale degree sequence si calcola con il coefficiente multinomiale:
+
+$$
+| \Omega_{CM} | = \binom{2m}{k_1, \ldots k_n} = \frac{(2m)!}{\prod \limits_i^n (k_i)!}
+$$
+
+Questo vorrebbe dire che riconsiderando tutto il ragionamento fatto finora per la Surprise all'indietro, nonostante non ci sia una dimostrazione passo passo (che non dovrebbe essere troppo difficile), possiamo ottenere una forma di Surprise adattata al configuration model che in definitiva sarebbe data da:
+
+$$
+S_{CM} = \prod_{rs} \frac{ \binom{K_r K_s}{m_{rs}}}{\binom{2m}{k_1, \ldots k_n}}
+$$
