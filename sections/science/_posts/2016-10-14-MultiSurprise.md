@@ -2,7 +2,7 @@
 layout: post
 title: Extending Surprise to multivariate hypergeometric
 categories: science
-published: true
+published: false
 date: 2016-10-14
 ---
 
