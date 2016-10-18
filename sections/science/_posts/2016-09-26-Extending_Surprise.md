@@ -2,6 +2,7 @@
 layout: post
 title: Extending Surprise to support the configuration model
 categories: science
+published: false
 date: 2016-09-26
 ---
 
@@ -82,11 +83,6 @@ $$
 $$
 \sum_c \log \left( \binom{2m_c}{ \{k_i | i \in c \} } \right) - \log \left( \binom{2m}{k_1,\ldots,k_n} \right ) = 
 $$ -->
-
-
-
-
-
 
 <!-- to adapt this definition to the classical surprise I'd expect to instead of the configuration model use a constant expected wiring probability. -->
 
