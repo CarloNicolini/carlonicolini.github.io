@@ -5,7 +5,7 @@ categories: science
 date: 2016-10-18
 ---
 
-The number of **simple** graphs with $n$ nodes and exactly $m$ edges is
+The number of **simple** graphs with $$n$$ nodes and exactly $$m$$ edges is
 
 $$
 | \Omega_{G_{np}}| = \binom{\binom{n}{2}}{m}
@@ -15,7 +15,7 @@ The binomial coefficient count represent a combination without repetitions. A co
 
 Because the binomial coefficient counts the total possible combinations without repetition of the number of pairs of nodes, this means that we pick simple graphs, i.e. the same pair is picked once.
 
-If we instead want to allow for loopy multigraphs we must extend the possible number of pairs to $$n^$$ and count them with repetitions.
+If we instead want to allow for loopy multigraphs we must extend the possible number of pairs to $$n(n+1)/2$$ and count them with repetitions.
 This is done by the number of combinations with repetitions
 
 $$

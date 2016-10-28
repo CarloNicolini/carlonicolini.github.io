@@ -73,3 +73,5 @@ Please let me know if you find any bug.
     {% endhighlight %}
 
 I think the code is self-explanatory and any porting in languages like Python is straightforward.
+
+The repository where I stored the full implementation of Hyperquick is [https://github.com/CarloNicolini/Hyperquick]
