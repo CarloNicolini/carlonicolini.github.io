@@ -28,7 +28,7 @@ Two vertices $$i$$ and $$j$$ are connected by an edge, if $$A_{G_{ij}} = 1$$, ot
 Random graph models are probabilistic generative models that, given a set of parameters, yield different instances of random graphs. Among the most famous examples of random graph models we can list:
 
 - Erdos-Renyi model, also called $$G(n,m)$$ model, where $$n$$ nodes and *exactly* $$m$$ edges are connected randomly. Here the number of edges is fixed (microcanonical description).
-- Gilbert model, also called $$G(n,p)$$ model, where $$n$$ nodes are connected randomly with probability $$0 \leq p \leq 1$$). Here the number of edges is on average $$\left <m \right >=p n(n-1)/2$$.
+- Gilbert model, also called $$G(n,p)$$ model, where $$n$$ nodes are connected randomly with probability $$0 \leq p \leq 1$$). Here the number of edges is on average $$\left <m \right >=p n(n-1)/2$$ (canonical description).
 - Watts-Strogatz model, a model that generates networks with scale-free degree distribution.
 - Barabasi-Albert model, also called preferential attachment model.
 - Random regular graph model, where every node has exactly degree $$k$$.
@@ -42,10 +42,10 @@ Finding an appropriate answer to this question can solve the problem of graph co
 
 <a name="Figure1">
 <img src="/static/postfigures/random_graph_models.png" style="float: center; width: 100%"><br>
-Figure 1: Some random graph models. (a) Erdos-Renyi, (b) Gilbert model, (c) Geometric, (d) Barabasi-Albert, (e) Watts-Strogatz, (f) k-regular.
 </a>
+Figure 1: Some random graph models. (a) Erdos-Renyi, (b) Gilbert model, (c) Geometric, (d) Barabasi-Albert, (e) Watts-Strogatz, (f) k-regular. Taken from [Dehmer2015](#Dehmer2015).
 
-#### Spectral graph theory
+#### Spectral density
 The eigenvalue decomposition of the adjacency matrix $$\mathbf{A}$$ (a real symmetric $$n\times n$$ matrix) is the following:
 
 $$
@@ -82,10 +82,20 @@ $$
 
 I will give more operational definitions of these two formulas in the next sections.
 
-In [Figure 2](#Figure2) the spectral densities for two families of graphs are displayed. On the left, the spectral density for a Erdos-Renyi model with $$N=500$$ nodes and connection density $$p=0.05$$. On the right, the same for a Gilbert model with $$N=500$$ nodes and $$20$$ edges.
+In [Figure 2](#Figure2) the spectral densities for two families of graphs are displayed. On the left, the spectral density for a Erdos-Renyi model with $$N=500$$ nodes and connection density $$p=0.05$$. On the right, the same for a Gilbert model with $$N=500$$ nodes and $$20$$ edges. As the density $$p<0.5$$ then more than one connected component exist, generating then many zeros in the eigenvalue spectrum.
 
 <a name="Figure2">
 <img src="/static/postfigures/er_gilber_spectral_density.png" style="float: center; width: 100%">Figure 1: Spectral densities estimated for Erdos-Renyi and Gilbert random graph models (left and right respectively).
+</a>
+
+Interestingly, the spectral density of k-regular graphs is analytically calculable and can be written in the following form:
+
+$$
+\rho(\lambda) = \frac{k}{2\pi} \sum \limits_{j=1}^N \frac{\sqrt{4(k-1)-\lambda_j^2}}{k^2-\lambda_j^2}
+$$
+
+<a name="Figure3">
+<img src="/static/postfigures/spectral_density_k_regular.png" style="float: center; width: 100%">Figure 3: Spectral density of a k-regular network.
 </a>
 
 Studying the spectral density of random graph models is a rather powerful tool to identify different graph models, as they act as some "fingerprint" of the stochastic process that generates them.
@@ -94,7 +104,9 @@ Studying the spectral density of random graph models is a rather powerful tool t
 
 ### Spectral entropy
 Any random graph model is characterized by a *spectral density*, a continuos probability function that describes the relative frequency of its eigenvalues, given some parameters.
-In trying to establish a "*network information theory*", it appears that the spectral density is important to define the so-called *graph spectral entropy*. Different forms of entropies of graphs have been defined, and typically they rely on some application of classical Shannon entropy to some probability distributions obtained for graphs.
+In trying to establish a "*network information theory*", it appears that the spectral density is important to define the so-called *graph spectral entropy*.
+
+Different forms of [entropies of graphs have been defined](/sections/science/2016/08/26/Quantum-information-theory-and-complex-networks.html) , and typically they rely on some application of classical Shannon entropy to some probability distributions obtained for graphs.
 The spectral entropy $$S(G)$$ of a random graph model is defined in terms of continuos probability distributions as:
 
 $$
@@ -102,7 +114,7 @@ H(\rho) = -\int \limits_{-\infty}^{+\infty} \rho(\lambda) \log \rho(\lambda) d\l
 $$
 
 
-Operatively, to approximate the entropy of a random graph, one may use the random graph model to construct graphs, and then estimate the spectral density from that data set.
+Operatively, to approximate the entropy of a random graph, one may use the random graph model to construct many graphs, and then estimate the spectral density from that data set.
 For example, given a random graph model, we construct a set of graphs $$\{G_1,G_2,\ldots,G_N\}$$ with $$n$$ vertices using the model, and then for each $$G_j,1  \leq j \leq N$$, we apply a density function estimator.
 
 In the examples shown here, we consider an estimator based on the Gaussian kernel. It can be interpreted as a smoothed version of a histogram. 
@@ -123,18 +135,16 @@ $$
 H(\rho) \approx \frac{1}{2}\log \left( 4\pi^2 p(1-p) \right) - \frac{1}{2}
 $$
 
-then, the maximum spectral entropy of the ER random graph is achieved when $$p = 0.50$$. This is consistent with the intuitive idea that when all possible outcomes have the same probability to occur, the ability to predict the system is poor. By contrast when $$p \rightarrow 0$$ or $$p \rightarrow 1$$, the construction of the graph becomes deterministic and the amount of uncertainty associated with the graph structure achieves its minimum.
+then, the maximum spectral entropy of the ER random graph is achieved when $$p = 0.50$$.
+
+This is consistent with the intuitive idea that when all possible outcomes have the same probability to occur, the ability to predict the system is poor. By contrast when $$p \rightarrow 0$$ or $$p \rightarrow 1$$, the construction of the graph becomes deterministic and the amount of uncertainty associated with the graph structure achieves its minimum.
 
 In a 2012 paper, [Takahashi](#Takahashi2012) introduced comparison of spectral densities of graph models as the tool for the identification of differences between groups of brain networks. Additionally, they proposed general methods for model selection and network model parameter estimation, as well as a statistical procedure to test the nullity of divergence between two classes of complex networks.
 
 
-### Model selection
-To learn statistical methods in graphs, we must first understand the concept of probability distribution over graphs. The theory behind it is the theory of random graphs, which studies the intersection between graph theory and probability theory. A random graph is a probability space $$(\Omega,F,P)$$, where the sample space $$\Omega$$ is a
-nonempty set of graphs, the set of events $$F$$ is a collection of subsets of the sample space (usually is the power set of $$\Omega$$), and $$P$$ is a function that assigns a probability to each event. 
-It is usual to describe a random graph by a sequence of steps to construct it.
-An algorithm that describes the construction of a random graph is called a random graph model.
-
-An example of random graph model is the Erdos-Renyi, in which the sample space $$\Omega$$ is the set of all graphs having $$n$$ labeled vertices, and $$m$$ edges (usually $$m$$ is a function of $$n$$).
+### Model selection in graphs?
+To learn statistical methods in graphs, we must first understand the concept of probability distribution over graphs. The theory behind it is the theory of random graphs, which studies the intersection between graph theory and probability theory. 
+As example, a random graph model is the Erdos-Renyi, in which the sample space $$\Omega$$ is the set of all graphs having $$n$$ labeled vertices, and $$m$$ edges (usually $$m$$ is a function of $$n$$).
 Each graph of $$\Omega$$ can be generated by selecting $$m$$ edges from the $$\binom{n}{2}$$ possible edges. 
 Therefore, the set $$\Omega$$ has size $$\binom{\binom{n}{2}}{m}$$ and the probability to choose a graph from $$\Omega$$ is given by:
 
@@ -146,8 +156,11 @@ By contrast if $$G_1$$ and $$G_2$$ are from different graph models, we may expec
 
 Given the graphs $$G_1$$ and $$G_2$$, can we measure the similarities between their structures? Is the probability of $$G_1$$ and $$G_2$$ being from the same random graph high?
 To answer these questions, we need a mathematical way to describe graph structural properties that are equal for graphs from the same random graph, but different for elements from distinct random graphs.
-[Takahashi](#Takahashi2012) proposed that the spectrumof a graph is an adequate summarization of the graph structure for this problem. In the following section, we define the graph spectrumand other spectrum-based concepts that describe a set of graph structural properties.
- 
+
+[Takahashi](#Takahashi2012) proposed that the spectrum of a graph is an adequate summarization of the graph structure for this problem. In the following section, we define the graph spectrum and other spectrum-based concepts that describe a set of graph structural properties.
+
+#### Kullback-Leibler divergence
+As the entropy of random graphs is defined, it comes natural to implement some sort of measure of graph distance in terms of spectal densities, i.e. to start doing information theory on networks.
 
 ## Practical implementation and code
 In the following pieces of code, we try to compute the spectral densities of the Erdos-Renyi Gnp random graph model, using Python libraries as `numpy`,`networkx` and `matplotlib`. In the case you don't have those libraries, I suggest to look for them with `pip` or simply `easy_install`.
@@ -219,4 +232,3 @@ with the following (nice) result about the ER spectral density:
 
 - <a name="Takahashi2012"></a>Takahashi, D.Y., Sato, J.R., Ferreira, C.E., Fujita, A., 2012. "Discriminating Different Classes of Biological Networks by Analyzing the Graphs Spectra Distribution". PLoS One 7. doi:10.1371/journal.pone.0049949
 
-- <a name ="DeDomenico2016"></a> De Domenico, M., Biamonte J., "Spectral entropies as information theoretic tools for complex network comparison".http://arxiv.org/pdf/1609.01214v1.pdf

@@ -5,6 +5,8 @@ permalink: /sections/science
 inheader: true
 ---
 
+In this collection of articles I'm trying to answer some of the questions that arise in doing science, math and programming, with a focus on network science.
+
 <ul class="post-list">
     {% for post in site.categories.science %}
         <li>
