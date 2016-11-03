@@ -6,6 +6,10 @@ published: true
 date: 2016-10-28
 ---
 
+<blockquote>
+    "How to compute hypergeometric function without binomial coefficients?"
+</blockquote>
+
 Computing hypergeometric function is a slow and difficult process, often affected by overflow errors as evaluating binomial coefficient may return extremely large numbers.
 Fortunately, thanks to some hypergeometric identities, is possible to evaluate the hypergeometric probability quickly.
 
@@ -72,6 +76,7 @@ Please let me know if you find any bug.
     }
     {% endhighlight %}
 
-I think the code is self-explanatory and any porting in languages like Python is straightforward.
+The code is pretty self-explanatory and any porting in languages like Python is straightforwardly implementable.
+A full implementation of Hyperquick is available at:
 
-The repository where I stored the full implementation of Hyperquick is [https://github.com/CarloNicolini/Hyperquick]
+[https://github.com/CarloNicolini/Hyperquick](https://github.com/CarloNicolini/Hyperquick)

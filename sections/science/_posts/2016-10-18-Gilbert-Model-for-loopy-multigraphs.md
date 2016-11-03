@@ -5,6 +5,10 @@ categories: science
 date: 2016-10-18
 ---
 
+<blockquote>
+"How many rewirings are there in a graph with m edges and n nodes?"
+</blockquote>
+
 The number of **simple** graphs with $$n$$ nodes and exactly $$m$$ edges is
 
 $$
@@ -25,8 +29,7 @@ $$
 that in the case of the $$G_{nm}$$ model turns out to be
 
 $$
-| \Omega_{G_{nm}^'} |= \binom{n^2+m-1}{m}
+| \Omega_{G_{nm}'} |= \binom{n^2+m-1}{m}
 $$
 
-For example the triangle graph has $$m=3$$ edges and $$n=3$$ nodes, therefore there exist $$\binom{3}{3}$$ possible simple graphs with $$m=3,n=3$$ but $$\binom{3+3-1}{3}=\binom{5}{3}=10$$ possible loopy multigraphs with $$n=3,m==3$$
-.
+For example the triangle graph has $$m=3$$ edges and $$n=3$$ nodes, therefore there exist $$\binom{3}{3}$$ possible simple graphs with $$m=3,n=3$$ but $$\binom{3+3-1}{3}=\binom{5}{3}=10$$ possible loopy multigraphs with $$n=3,m=3$$.

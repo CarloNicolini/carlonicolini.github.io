@@ -108,13 +108,16 @@ a {
  * Blockquotes
  */
 blockquote {
-    color: $orange-color;
-    border-left: 4px solid $orange-color-light;
-    padding-left: $spacing-unit / 2;
-    font-size: 18px;
-    letter-spacing: -1px;
+    color: #595959; /*$orange-color;*/
+    text-align: right;
+    /*background-color: #ffe6cc;*/
+    /*border-left: 4px solid $orange-color-light;*/
+    /*padding-left: $spacing-unit / 2;*/
+    font-size: 24px;
+    /*letter-spacing: -1px;*/
     font-style: italic;
-
+    padding-top: 15px;
+    padding-bottom: 30px;
     > :last-child {
         margin-bottom: 0;
     }
