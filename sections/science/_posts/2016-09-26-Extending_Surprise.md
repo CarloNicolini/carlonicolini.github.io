@@ -2,7 +2,7 @@
 layout: post
 title: Extending Surprise to support the configuration model
 categories: science
-<!-- published: false -->
+published: false
 date: 2016-10-26
 ---
 
