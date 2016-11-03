@@ -95,7 +95,7 @@ $$
 $$
 
 <a name="Figure3">
-<img src="/static/postfigures/spectral_density_k_regular.png" style="float: center; width: 100%">Figure 3: Spectral density of a k-regular network.
+<img src="/static/postfigures/spectral_density_k_regular.png" style="float: center; width: 100%">Figure 3: Spectral density of a k-regular network. Taken from [Estrada 2013](#Estrada2013)
 </a>
 
 Studying the spectral density of random graph models is a rather powerful tool to identify different graph models, as they act as some "fingerprint" of the stochastic process that generates them.
@@ -232,3 +232,4 @@ with the following (nice) result about the ER spectral density:
 
 - <a name="Takahashi2012"></a>Takahashi, D.Y., Sato, J.R., Ferreira, C.E., Fujita, A., 2012. "Discriminating Different Classes of Biological Networks by Analyzing the Graphs Spectra Distribution". PLoS One 7. doi:10.1371/journal.pone.0049949
 
+- <a name="Estrada2013"></a>Estrada, E., 2013. The structure of complex networks. doi:10.1017/CBO9781107415324.004
