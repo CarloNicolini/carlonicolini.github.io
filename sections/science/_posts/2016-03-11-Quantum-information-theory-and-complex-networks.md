@@ -20,6 +20,7 @@ In these notes I'm going to explain why these names matter, introducing some of 
 #### Laplace
 There's a deep connection in mathematics between a graph and the algebraic properties of special matrices associated with that graph. 
 Many agrees that the best description of a network is not its adjacency matrix, but another quantity that is called combinatorial graph laplacian.
+We will see that eigenvalues are closely related to almost all major invariants of a graph, linking one extremal property to another. There is no question that eigenvalues play a central role in our fundamental understanding of graphs.
 
 Given any graph $$G=(V,E)$$, with adjacency matrix $$\mathbf{A}$$ and a diagonal matrix $$\mathbf{D}$$ containing the degree of vertices on the diagonal, the (combinatorial) Laplacian of a graph is defined as:
 
