@@ -7,7 +7,10 @@ permalink: /sections/publications
 Journals
 --------
 
-- **Carlo Nicolini**, Cècile Bordier, Angelo Bifone, *Community detection in weighted brain connectivity networks beyond the resolution limit*, Neuroimage, under review (2016)
+- **Carlo Nicolini**, Cècile Bordier, Angelo Bifone, *Community detection in weighted brain connectivity networks beyond the resolution limit*, Neuroimage, Volume 146, 1 February 2017, Pages 28–39
+
+    [http://www.sciencedirect.com/science/article/pii/S1053811916306449](http://www.sciencedirect.com/science/article/pii/S1053811916306449)
+
 [Arxiv preprint](https://www.arxiv.org/abs/1609.04316)
 
 - **Carlo Nicolini**, Angelo Bifone, *Modular structure of brain functional networks: breaking the resolution limit by Surprise*, Scientific Reports, 6,19250 (2016)
