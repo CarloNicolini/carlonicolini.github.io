@@ -64,7 +64,7 @@ Computing Euler angles from a rotation matrix is straightforward once you set a 
       end
       
       res=[x,y,z];
-      if (!odd)
+      if (~odd)
         res = -res;
       end
 
