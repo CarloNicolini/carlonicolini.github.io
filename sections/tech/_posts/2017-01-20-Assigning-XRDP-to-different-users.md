@@ -5,6 +5,10 @@ categories: tech
 date: 2017-01-20
 ---
 
+/etc/rc.local 
+write
+xrdp-sesrun 127.0.0.1 brainet neuron128 1280 1024 24
+
 Sometimes it is necessary to run multiple Xrdp sessions assigning them to different people that insist on the same user.
 For example, you have a user on your remote server, called `johnny` and you want to let the `johnny@remote_host` be accessed by three different guys in your lab. You can assign different ports to different guys by explicitly modifying the `/etc/xrdp/`
 
