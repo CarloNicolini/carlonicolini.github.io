@@ -6,6 +6,10 @@ categories: science
 date: 2017-01-19
 ---
 
+<blockquote>
+    "Studying the most important concepts in information theory with examples and exercises done."
+</blockquote>
+
 Some concepts are fundamental in information theory and here I write down a short summary with the most important definitions and results. These are my notes while studying the book from Cover and Thomas "Elements of Information theory". Together with notes about information theory I'll integrate some concepts of probability, for those who are not too familiar (me included) with them.
 
 # Random variable
