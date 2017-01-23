@@ -35,7 +35,7 @@ The entropy is a measure of the average uncertainty in the random variable $$X$$
   $$ H(X) = - E_p \log( p(x)) = E_p \log \frac{1}{p(x)}.$$
 
 - Entropy is always greater or equal than zero $$H(X) \geq 0$$.
-- Entropy is a convex function. This means that [Jensen Inequality](Jensen inequality) is valid.
+- Entropy is a convex function. This means that [Jensen Inequality](#JensenInequality) is valid.
 - Entropy of an isolated system never decreases (second law of thermodynamics). This rules out possibilities for perpetual motion machines.
 - Such definition of entropy also arises as the answer to questions like: "what is the average length of the shortest description of the random variable?"
 - The binary entropy is the entropy of the simplest random variable taking values 0 or 1 with probability $$p$$:
@@ -44,15 +44,17 @@ The entropy is a measure of the average uncertainty in the random variable $$X$$
 
   ![Binary entropy](http://www.pmean.com/12/images/SpermM1.gif)
 
-
+__________
 ## Examples
 
-### Entropy of a uniform distribution
+**1. Entropy of a uniform distribution**
+
 A random variable has an uniform distribution over 32 outcomes. Thus a 5-bit string would suffice to describe the outcome of the random variable. Indeed its entropy is computed as: 
 
 $$H(X)= -\sum_{i=1}^{32} p(i)\log(p(i))= -\sum_{i=1}^{32} 1/32\log(1/32)=\log_2(32) = 5$$ bits.
 
-### Entropy of coin flip experiment (geometric distribution)
+**2. Entropy of coin flip experiment (geometric distribution)**
+
 Let $$XX$$ be the random variable encoding the number of required coin tosses before head occurs. Such random variable is distributed according to the geometric distribution. Indeed the geometric distribution is the probability distribution of the number of Bernoulli trials needed to get one success. 
 The geometric distribution is an appropriate model if the following assumptions are true.
 The phenomenon being modeled is a sequence of independent trials.
@@ -64,8 +66,27 @@ $$P(X=n) = p(1-p)^{n-1}$$
 
 Applying the definition of entropy and remembering that in this case the alphabet $$\mathcal{X}$$ has infinite elements (number of coin tosses), we obtain:
 
-$$H(X) = - \sum_{n=1}^{\infty} p(1-p)^{n-1} \log\left(p(1-p)^{n-1}\right) = - \left[ \sum_{n=0}^{\infty} p(1-p)^n \log\left(p(1-p)^n\right)\right]$$
+$$\begin{align}
+H(X) &= - \sum_{n=1}^{\infty} p(1-p)^{n-1} \log\left(p(1-p)^{n-1}\right) = - \left[ \sum_{n=0}^{\infty} p(1-p)^n \log\left(p(1-p)^n\right)\right] \\
+& =-\frac{p \log p}{1-p} - \frac{p (1-p) \log (1-p)}{p^2} = \frac{(-p \log p - (1-p)\log(1-p))}{p} \\ &= \frac{H(p)}{p}= 2 \textrm{ bits}.
+\end{align}
+$$
 
+where we have used the following identities about the geometric series:
+
+$$\sum_{n=0}^{\infty} r^n = \frac{1}{1-r} \qquad \sum_{n=0}^{\infty}n r^n = \frac{r}{(1-r)^2}$$
+
+**3. Entropy of functions**
+
+Let $$XX$$ be a random variable taking on a finite number of values. What is the general inequality relationship of $$H(X)$$ and $$H(Y)$$ if:
+a. $$Y=2^X$$
+b. $$Y=\cos(X)$$?
+
+This problem can be analyzed understanding that a one-to-one map of a random variable should not change its information content while instead any processing on $$X$$ should decrease its entropy. Therefore the data processing inequality tells us that the information content of a signal cannot be increased via a local operation, in this case a mapping. In the case of the mapping $$Y=2^X$$ the mapping is one-to-one therefore we can prove that $$H(X)=H(Y)$$. Conversely, the second mapping $$Y=\cos(X)$$ is not one-to-one (at least not in the entire domain of $$X$$, therefore information)
+
+A possible solution to the problem is to consider $$y=g(x)$$, then $$p(y) = \sum_{x: y=g(x)} p(x)$$.
+
+__________
 
 # Joint entropy
 The joint entropy of a pair of discrete random variables $$X$$ and $$Y$$ with a joint probability distribution $$p(x,y)$$ is defined as:
@@ -78,7 +99,7 @@ and can be expressed as $$H(X,Y) = -E \log(p(X,Y))$$.
 
 ## Conditional entropy
 
-If $$(X,Y) \sim p(x,y)$$ the conditional entropy, also called equivocation, $$ H(Y\vertX) $$ is defined as:
+If $$(X,Y) \sim p(x,y)$$ the conditional entropy, also called equivocation, $$ H(Y\vert X) $$ is defined as:
 
 $$H(Y|X) = \sum_{x \in \mathcal{X}} p(x) H(Y| X=x)= - E \log p(Y|X)$$
 
@@ -88,3 +109,7 @@ $$
 H(X,Y)=H(X)+H(Y|X)
 $$
 
+## Venn Diagram for Information
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Entropy-mutual-information-relative-entropy-relation-diagram.svg/744px-Entropy-mutual-information-relative-entropy-relation-diagram.svg.png" >
+
+##  Jensen Inequality <a id="JensenInequality"></a>
