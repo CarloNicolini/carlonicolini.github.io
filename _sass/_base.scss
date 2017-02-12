@@ -108,17 +108,17 @@ a {
  * Blockquotes
  */
 blockquote {
-    font-family: Georgia;
-    color: #595959; /*$orange-color;*/
+    // font-family: Georgia;
+    // color: #595959; $orange-color;
     text-align: left;
-    /*background-color: #ffe6cc;*/
-    /*border-left: 4px solid $orange-color-light;*/
-    /*padding-left: $spacing-unit / 2;*/
+    // background-color: #ffe6cc;
+    border-left: 4px solid $orange-color-light;
+    padding-left: $spacing-unit / 2;
     border-right: 5px solid #ddd;
     border-bottom: 5px solid #ddd;
     font-size: 24px;
-    /*letter-spacing: -1px;*/
-    font-style: italic;
+    letter-spacing: -1px;
+    font-style: thin;
     padding-top: 15px;
     padding-bottom: 30px;
     > :last-child {
@@ -127,31 +127,20 @@ blockquote {
 }
 
 
-/*blockquote:before {
-    font-family: serif;
-    display: block;
-    padding-left: 10px;
-    content: "\201C";
-    font-size: 80px;
-    position: absolute;
-    left: -20px;
-    top: -20px;
-    color: #7a7a7a;
-}
-*/
+
 /**
  * Code formatting
  */
 pre,
 code {
-    font-size: 15px;
-    border: 1px solid $orange-color-light;
-    border-radius: 3px;
-    background-color: #eef;
+    font-size: 80%;
+    // border: 1px solid $orange-color-light;
+    border-radius: 6px;
+    background-color: #eeef;
 }
 
 code {
-    padding: 1px 5px;
+    // padding: 1px 5px;
 }
 
 pre {

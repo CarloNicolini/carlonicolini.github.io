@@ -12,63 +12,63 @@ date: 2016-10-26
 Computing Euler angles from a rotation matrix is straightforward once you set a convention. Indeed is possible to compute an entire different set of angles that defines a rotation when you change axis. In this case I use the aeronautical notation, with pitch, yaw and roll as a plane taking off.
 
 	{% highlight matlab %}
-    % Returns euler angles in radians given a wanted convention, implementation from GPU Gems IV and 
-    % from Eigen libraries
+% Returns euler angles in radians given a wanted convention, implementation from GPU Gems IV and 
+% from Eigen libraries
 
-    function [x,y,z] = eulerAngles(R,a0,a1,a2)
+function [x,y,z] = eulerAngles(R,a0,a1,a2)
 
-        res=zeros(1,3);
-        odd=-1;
-        if ( mod(a0+1,3)==a1 )
-            odd=0;
-        else
-            odd=1;
-        end
-     
-      i = a0;
-      j = mod((a0 + 1 + odd),3);
-      k = mod((a0 + 2 - odd),3);
+    res=zeros(1,3);
+    odd=-1;
+    if ( mod(a0+1,3)==a1 )
+        odd=0;
+    else
+        odd=1;
+    end
+ 
+  i = a0;
+  j = mod((a0 + 1 + odd),3);
+  k = mod((a0 + 2 - odd),3);
 
-        i=i+1;
-        j=j+1;
-        k=k+1;
-        
-      if (a0==a2)
-        s = norm([ R(j,i),R(k,j) ]);
-        y = atan2(s, R(i,i));
-        if (s > eps)
-          x = atan2(R(j,i), R(k,i));
-          z = atan2(R(i,j),-R(i,k));
-        else
-          x = 0.0;
-          if (R(i,i)>0)
-              z=atan2(-R(k,j), R(j,j));
-          else
-              z=-atan2(-R(k,j), R(j,j));
-          end
-         end
+    i=i+1;
+    j=j+1;
+    k=k+1;
+    
+  if (a0==a2)
+    s = norm([ R(j,i),R(k,j) ]);
+    y = atan2(s, R(i,i));
+    if (s > eps)
+      x = atan2(R(j,i), R(k,i));
+      z = atan2(R(i,j),-R(i,k));
+    else
+      x = 0.0;
+      if (R(i,i)>0)
+          z=atan2(-R(k,j), R(j,j));
       else
-        c = norm([ R(i,i),R(i,j)] );
-        y = atan2(-R(i,k), c);
-        if (c > eps)
-          x = atan2(R(j,k), R(k,k));
-          z = atan2(R(i,j), R(i,i));
-        else
-          x = 0.0;
-          if (R(i,k)>0)
-              z=atan2(-R(k,j), R(j,j));
-          else
-              z=-atan2(-R(k,j), R(j,j));
-          end
-        end
+          z=-atan2(-R(k,j), R(j,j));
       end
-      
-      res=[x,y,z];
-      if (~odd)
-        res = -res;
+     end
+  else
+    c = norm([ R(i,i),R(i,j)] );
+    y = atan2(-R(i,k), c);
+    if (c > eps)
+      x = atan2(R(j,k), R(k,k));
+      z = atan2(R(i,j), R(i,i));
+    else
+      x = 0.0;
+      if (R(i,k)>0)
+          z=atan2(-R(k,j), R(j,j));
+      else
+          z=-atan2(-R(k,j), R(j,j));
       end
+    end
+  end
+  
+  res=[x,y,z];
+  if (~odd)
+    res = -res;
+  end
 
-       x=res(1);
-       y=res(2);
-       z=res(3);
-       {% endhighlight %}
+   x=res(1);
+   y=res(2);
+   z=res(3);
+{% endhighlight %}
