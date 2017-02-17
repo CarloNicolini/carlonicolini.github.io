@@ -4,6 +4,7 @@ title: Publications
 permalink: /sections/publications
 ---
 
+<<<<<<< HEAD
 Journals
 --------
 
@@ -16,6 +17,73 @@ Journals
 - **Carlo Nicolini**, Angelo Bifone, *Modular structure of brain functional networks: breaking the resolution limit by Surprise*, Scientific Reports, 6,19250 (2016)
 	
     [http://www.nature.com/articles/srep19250](http://www.nature.com/articles/srep19250)
+=======
+<div id="body">
+	{% for pub in site.data.publications  %}
+		<p>
+			<h3>{{pub.title | markdownify }}</h3>
+			<p>{{pub.authors }}</p>
+			<p>{{pub.journal }}
+			{% if pub.volume %}
+				<strong>{{pub.volume}}</strong>,
+			{% endif %}
+			{% if pub.pages %}
+				{{pub.pages}},
+			{% endif %}
+			({{pub.year }})
+			</p>
+			<p></p>
+			
+					<p><strong>Abstract</strong></p>
+					<small>
+					{{pub.abstract | markdownify }}
+					</small>
+			
+			<p></p>
+			<div class="row">
+				<section class="col-xs-8">
+					<img class="img-responsive" src="{{pub.image}}" alt="publication figure" style="width: 80%">
+					<small>
+					{% if pub.caption %}
+						{{pub.caption}}
+					{% endif %}
+					</small>
+				</section>
+				<section class="col-xs-4">
+						{% if pub.pmid %}
+							<p>PubMed ID: <a href="http://www.ncbi.nlm.nih.gov/pubmed/{{pub.pmid}}" alt="pubmed link: {{pub.pmid}}"> {{pub.pmid}}</a>
+						</p>
+					{% endif %}
+					{% if pub.pdf %}
+						<p> PDF Download:
+							<a href="{{pub.pdf}}" alt="PDF"><span class="fa fa-download"></span></a>
+						</p>
+					{% else %}
+						<p> Paper submitted and/or under revision</p>
+						<p> Preprint download:
+							<a href="{{pub.preprint}}" alt="PDF"><span class="fa fa-download"></span></a>
+						</p>
+					{% endif %}
+					{% if pub.ris %}
+						<p>
+							Reference: <a href="{{pub.ris}}" alt="RIS"><span class="fa fa-download"></span></a>
+						</p>
+					{% endif %}
+					{% if pub.code %}
+						<p>Code and methods:
+							<a href="{{pub.code}}" alt="Code"><span class="fa fa-download"></span></a>
+						</p>
+					{% endif %}
+			</section>
+		</div>
+	</p>
+<hr size="5">
+{% endfor %}
+</div>
+
+
+<p></p>
+>>>>>>> 76993ed35ccfd2211aef0c2987e97b4469ca9bd6
 
 Conferences and proceedings
 ---------------------------

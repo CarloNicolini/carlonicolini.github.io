@@ -78,7 +78,11 @@ $$\sum_{n=0}^{\infty} r^n = \frac{1}{1-r} \qquad \sum_{n=0}^{\infty}n r^n = \fra
 
 **3. Entropy of functions**
 
+<<<<<<< HEAD
 Let $$XX$$ be a random variable taking on a finite number of values. What is the general inequality relationship of $$H(X)$$ and $$H(Y)$$ if:
+=======
+Let $$X$$ be a random variable taking on a finite number of values. What is the general inequality relationship of $$H(X)$$ and $$H(Y)$$ if:
+>>>>>>> 76993ed35ccfd2211aef0c2987e97b4469ca9bd6
 a. $$Y=2^X$$
 b. $$Y=\cos(X)$$?
 

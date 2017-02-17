@@ -1,4 +1,17 @@
+<<<<<<< HEAD
 # Negative ACLs
+=======
+---
+layout: post
+title: How to grant specific directory access to users in linux
+categories: tech
+date: 2017-01-27
+---
+
+You can prevent a user from accessing certain parts of the filesystem by setting access control lists.
+
+## Negative ACLs
+>>>>>>> 76993ed35ccfd2211aef0c2987e97b4469ca9bd6
 
 You can prevent a user from accessing certain parts of the filesystem by setting access control lists. For example, to ensure that the user abcd cannot access any file under /home:
 
