@@ -5,13 +5,8 @@ permalink: /sections/tech
 inheader: true
 ---
 
-<<<<<<< HEAD
-This part of my personal blog collects many notes that I've been collecting over the times.
-Most of them are about unix/linux system administration, some of them are about Matlab, others about how to code efficiently with some programming languages like C/C++.
-=======
 These are notes that I've been collecting over the time.
 Most of them are about Unix/Linux system administration, some of them are about Matlab, others about how to code efficiently with some programming languages like C/C++.
->>>>>>> 76993ed35ccfd2211aef0c2987e97b4469ca9bd6
 
 I'm also a fan of Latex and I enjoy producing beautifully typeset documents, here are some examples of latex typesetting, too. 
 

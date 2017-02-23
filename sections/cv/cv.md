@@ -8,11 +8,7 @@ permalink: /sections/cv
 - Personal github page: <https://github.com/carlonicolini>
 
 ## Education
-<<<<<<< HEAD
-- 2013-today Phd, University of Verona, Italy. Thesis title: Graph theoretical analysis of brain functional connectivity.
-=======
 - 2014-2017 Phd Candidate, University of Verona, Italy. Thesis title: "Community detection in the modular structure of brain functional connectivity networks".
->>>>>>> 76993ed35ccfd2211aef0c2987e97b4469ca9bd6
 - 2008 M.Sc in Biomedical Physics, Grade 110/110 cum laude, University of Trento, Italy.
 - 2003 B.Sc in Physics, Grade 106/110, University of Trento, Italy.
 
