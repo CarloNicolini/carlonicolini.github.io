@@ -2,7 +2,7 @@
 layout: post
 title: Properties of the trace of a matrix
 categories: science
-<!-- published: false -->
+published: false
 date: 2017-02-24
 --- 
 
