@@ -6,7 +6,7 @@ published: false
 date: 2016-10-14
 ---
 
-<!-- Surprise is defined as
+Surprise is defined as
 
 $$ S = \sum \limits_i ^{m_\zeta} \dfrac{\binom{p_\zeta}{i}  \binom{p-p_\zeta}{m-i} }{\binom{p}{m}}$$
 
@@ -70,26 +70,24 @@ $$
 
 where $O_i$ is the observed count in a cell, $E_i$ is the expected count under the null hypothesis and the sum is taken over all non-empty cells.
 
-It's related to Kullback-Leilbler divergence when the empirical and theoreticalfrequencies $$o_i$$ and $$e_i$$ are taken instead of the counts:
+It's related to Kullback-Leilbler divergence when the empirical and theoretical frequencies $$o_i$$ and $$e_i$$ are taken instead of the counts:
 
 $$
-G = 2 \sum_i O_i \log(O_i/E_i) = 2 N \sum_i o_o \log(o_i/e_i) = 2N D_{KL}(o\|e)
+G = 2 \sum_i O_i \log(O_i/E_i) = 2 N \sum_i o_o \log(o_i/e_i) = 2N D_{KL}(o\vbar e)
 $$
 with $$N$$ denoting the total number of observations.
 
-it's also related to mutual information, in fact, if one expresses 
-$$N=\sum_{ij}O_{ij}$$
+it's also related to mutual information, in fact, if one expresses $$ N= \sum_{ij} O_{ij}$$
 
-$$\pi_{ij}=O_{ij}/N$$
+$$\pi_{ij} = O_{ij}/N $$
+$$\pi_{i \cdot } = \sum_j O_{ij}/N$$
 
-$$\pi_{i.} = \sum_j O_{ij}/N$$
-
-$$\pi_{.j}=\sum_i O_{ij}/N$$
+$$\pi_{\cdot j}=\sum_i O_{ij}/N$$
 
 then $$G$$ can be expressed in several alternative forms:
 
 $$
-G=2\cdot N\cdot \sum _{{ij}}{\pi _{{ij}}\left(\ln(\pi _{{ij}})-\ln(\pi _{{i.}})-\ln(\pi _{{.j}})\right)},
+G=2\cdot N\cdot \sum _{ij}{\pi _{ij}\left(\ln(\pi _{ij})-\ln(\pi _{i\cdot })-\ln(\pi _{\cdot j})\right)},
 $$
 
 
@@ -101,7 +99,7 @@ $$G = 2 ⋅ N ⋅ M I ( r , c ) , {\displaystyle G=2\cdot N\cdot MI(r,c)\,,} G=2
 $$
 
 MAIL GARLASCHELLI
-======== -->
+========
 
 Caro Diego,
 
