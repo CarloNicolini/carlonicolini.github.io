@@ -68,12 +68,12 @@ $$
 G = 2 \sum_i O_i \log( O_i/E_i)
 $$
 
-where $O_i$ is the observed count in a cell, $E_i$ is the expected count under the null hypothesis and the sum is taken over all non-empty cells.
+where $$O_i$$ is the observed count in a cell, $$E_i$$ is the expected count under the null hypothesis and the sum is taken over all non-empty cells.
 
 It's related to Kullback-Leilbler divergence when the empirical and theoretical frequencies $$o_i$$ and $$e_i$$ are taken instead of the counts:
 
 $$
-G = 2 \sum_i O_i \log(O_i/E_i) = 2 N \sum_i o_o \log(o_i/e_i) = 2N D_{KL}(o\vbar e)
+G = 2 \sum_i O_i \log(O_i/E_i) = 2 N \sum_i o_o \log(o_i/e_i) = 2N D_{KL}(o \| e)
 $$
 with $$N$$ denoting the total number of observations.
 
@@ -164,7 +164,7 @@ $$
 
 e questa statistica $$G$$ è intimamente collegata alla divergenza KL perchè
 
-$$G=2 \sum_i O_i \log(\dfrac{O_i}{E_i}) = 2N \sum_i o_i \log(\dfrac{o_i}{e_i})$$
+$$G=2 \sum_i O_i \log \left(\dfrac{O_i}{E_i} \right) = 2N \sum_i o_i \log\left(\dfrac{o_i}{e_i}\right)$$
 
 dove, le frequenze relative osservate ed aspettate sono $$o_i$$ ed $$e_i$$.
 Questo è interessante di per se e lo useremo come fatto utile fra un po', ma torniamo un secondo alla Surprise.
