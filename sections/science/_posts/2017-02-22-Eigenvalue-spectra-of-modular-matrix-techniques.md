@@ -59,7 +59,7 @@ It may seem that Von Neumann entropy is completely equal to the classical Shanno
 
 Interestingly Von Neumann entropy is additive for the tensor product of states:
 
-$$H(\rho \ctimes \sigma) = H(\rho) + H(\sigma)$$
+$$H(\rho \otimes \sigma) = H(\rho) + H(\sigma)$$
 
 One can verify this property simply by diagonalizing both density operators and resorting to the additivity of the joint Shannon entropies of the eigenvalues.
 
@@ -73,24 +73,26 @@ Link at https://www.seas.upenn.edu/~jadbabai/ESE680/Laplacian_Thesis.pdf
 
 - Eigenvalue spectra of Laplacian matrix of a graph is invariant under vertex permutations. In other words, you can call the vertices with any names, but the graph remain the same. This is also true for the spectrum of the adjacecny matrix of a graph. You can get convinced with this following matlab code:
 
-	N = 2000; % number of nodes
-	B = 4; % number of blocks
-	N1 = randperm(N); % random permutation of the nodes
-	O = randomModularGraphPinPout(N,B,0.5,0); % generate the graph with intracluster density 0.5, intercluster density 0
-	O1 = O(N1,N1); % permute the nodes randomly
-	% You can see that the spectra of eigenvalues are the same.
-	plot(1:N,eig(graph_laplacian(O)),'r',1:N,eig(graph_laplacian(O1)),'ob');
+	{% highlight matlab %}
+    N = 2000; % number of nodes
+    B = 4; % number of blocks
+    N1 = randperm(N); % random permutation of the nodes
+    O = randomModularGraphPinPout(N,B,0.5,0); % generate the graph with intracluster density 0.5, intercluster density 0
+    O1 = O(N1,N1); % permute the nodes randomly
+    % You can see that the spectra of eigenvalues are the same.
+    plot(1:N,eig(graph_laplacian(O)),'r',1:N,eig(graph_laplacian(O1)),'ob');
+    {% endhighlight %}
 
 
 - The product of nonzero eigenvalues of $$L$$ is the number of vertices times the number of spanning trees of $$G$$.
 - Large values of $$\lambda_2$$ are associated with graphs that are hard to disconnect.
 - $$(-1)^{i+j}\det(L_{[i,j]}) = t(G)$$ where $$t(G)$$ is the number of spanning trees of $$G$$ and $$L_{[i,j]}$$ is the Laplacian with i row and j column removed.
 - $$\lambda_N(G^c) \leq N$$ with equality if and only if $$G^c$$ is disconnected. $$G^c$$ is the complement of the graph.
-- The secondl largest eigenvalue (also called Fiedler eigenvalue) of the cartesian product of two graphs $$G_1,G_2$$ is the minimum between the second largest eigenvalues of $$L(G_1)$$ or $$L(G_2)$$.	
+- The secondl largest eigenvalue (also called Fiedler eigenvalue) of the cartesian product of two graphs $$G_1,G_2$$ is the minimum between the second largest eigenvalues of $$L(G_1)$$ or $$L(G_2)$$.    
 Recall that the Cartesian product of two graphs $$G_1$$ and $$G_2$$ defined as the graph $$G_1 \times G_2$$, with vertex-set $$V(G_1) \times V(G_2)$$; $$(i_1,j_1)$$ and $$(i_2,j_2)$$ are connected by an edge if and only if $$i_1=i_2$$ and $$j_1=j_2$$jl -.c, j2, or jl = j2. It
 
-- In fact it can be shown that the set of eigenvalues of the kronecker product of $$G_1$$ and $$G_2$$ $$L(G_1 \kronecker G_2)$$ is 
-$$\{ \lambda_i(G_1) + \lambda_j(G_2) \vbar 1 \leq i \leq n_1, 1 \leq j \leq n_2 \}$$
+- In fact it can be shown that the set of eigenvalues of the kronecker product of $$G_1$$ and $$G_2$$ $$L(G_1 \otimes G_2)$$ is 
+$$\{ \lambda_i(G_1) + \lambda_j(G_2) \| 1 \leq i \leq n_1, 1 \leq j \leq n_2 \}$$
 
 - $$\lambda_2 \geq \frac{1}{N \textrm{diam}(G)}$$ where $$\textrm{diam}$$ is the diameter of $$G$$.
 - $$\frac{\delta_{max}(L)}{\sqrt{n \log n}} \rightarrow \sqrt{2}$$ for $$n$$ large.
@@ -107,3 +109,11 @@ Sembra che lo spettro del Laplaciano del grafo random converga ad una convoluzio
 Importante vedere anche questa pagina: 
 https://en.wikipedia.org/wiki/Wishart_distribution
 dove descrive qual'è la Kullback Leibler divergence fra due matrici Wishart distributed.
+
+Vedere articolo Newman Phys Rev E 012803 (2013)
+
+
+
+Notare che lo spettro del Laplaciano normalizzato per il random graph è uguale a 1+ lo spettro della matrice di adiacenza normalizzata come D^(-0.5)*A*D^(-0.5) e punta alla Wigner semi circle law. 
+
+{% twitter https://twitter.com/carlonicolini84 maxwidth=100 limit=5 %}
