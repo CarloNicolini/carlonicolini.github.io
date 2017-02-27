@@ -116,4 +116,3 @@ Vedere articolo Newman Phys Rev E 012803 (2013)
 
 Notare che lo spettro del Laplaciano normalizzato per il random graph è uguale a 1+ lo spettro della matrice di adiacenza normalizzata come D^(-0.5)*A*D^(-0.5) e punta alla Wigner semi circle law. 
 
-{% twitter https://twitter.com/carlonicolini84 maxwidth=100 limit=5 %}
