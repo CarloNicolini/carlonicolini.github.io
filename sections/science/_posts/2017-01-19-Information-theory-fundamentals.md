@@ -2,7 +2,7 @@
 layout: post
 title: Information theory fundamentals
 categories: science
-<!-- published: false -->
+published: false
 date: 2017-01-19
 ---
 

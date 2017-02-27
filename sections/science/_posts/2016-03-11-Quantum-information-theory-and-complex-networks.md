@@ -2,7 +2,7 @@
 layout: post
 title: Quantum information theory and complex networks
 categories: science
-<!-- published: false -->
+published: false
 date: 2016-03-11
 ---
 

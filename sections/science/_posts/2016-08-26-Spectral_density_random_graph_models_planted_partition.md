@@ -2,7 +2,7 @@
 layout: post
 title: Comparing spectral densities of random graph models.
 categories: science
-<!-- published: false -->
+published: false
 date: 2016-08-26
 ---
 
