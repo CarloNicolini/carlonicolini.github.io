@@ -116,3 +116,5 @@ Vedere articolo Newman Phys Rev E 012803 (2013)
 
 Notare che lo spettro del Laplaciano normalizzato per il random graph è uguale a 1+ lo spettro della matrice di adiacenza normalizzata come D^(-0.5)*A*D^(-0.5) e punta alla Wigner semi circle law. 
 
+
+Notare e cercare di linkare il pdf sotto qit/matlab/rmtool/docs/ che dice che la limiting distribution della density matrix in pratica è la Wishart distribution, questo vuol dire che la density matrix è parametrizzabile con la Wishart distribution, cioè la distribuzione delle matrici di covarianza!!! e era calcolata la KL divergence.
