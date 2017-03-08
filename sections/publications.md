@@ -28,7 +28,7 @@ permalink: /sections/publications
 			<p></p>
 			<div class="row">
 				<section class="col-xs-8">
-					<img class="img-responsive" src="{{pub.image}}" alt="publication figure" style="width: 80%">
+					<img class="img-responsive" src="{{pub.image}}" alt="publication figure" style="width: 70%">
 					<small>
 					{% if pub.caption %}
 						{{pub.caption}}

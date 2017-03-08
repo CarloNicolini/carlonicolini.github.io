@@ -11,6 +11,18 @@
 # supplementary: a pdf of the supplementary materials
 # code: if the paper has code, a link to download the code
 
+- title: 'Graph analysis and modularity of brain functional connectivity networks: searching for the weakest link'
+  authors: 'Bòrdier C., Nicolini C., Bifone A.'
+  journal: 'Frontiers in physics, Special issue'
+  volume: 'xx'
+  year: '2017'
+  image: '/static/img/pub/threshold.png'
+  doi: ''
+  pdf: ''
+  abstract: 'Neuroimaging data can be represented as networks of nodes and edges that capture the topological organization of the brain connectivity. Graph theory provides a general and powerful framework to study these networks and their structure at various scales. By way of example, community detection methods have been widely applied to investigate the modular structure of many natural networks, including brain functional connectivity networks. Sparsification procedures are often applied to remove the weakest edges, which are the most affected by experimental noise, and to reduce the density of the graph, thus making it theoretically and computationally more tractable. However, weak links may also contain significant structural information, and procedures to identify the optimal tradeoff are the subject of active research. Here, we explore the use of percolation analysis, a method grounded in statistical physics, to identify the optimal sparsification threshold for community detection in brain connectivity networks. By using synthetic networks endowed with a ground-truth modular structure and realistic topological features typical of human brain functional connectivity networks, we show that percolation analysis can be applied to identify the optimal sparsification threshold that maximizes information on the networks’ community structure. We validate this approach using three different community detection methods widely applied to the analysis of brain connectivity networks: Newman’s modularity, InfoMap and Asymptotical Surprise. Importantly, we test the effects of noise and data variability, which are critical factors to determine the optimal threshold. This data-driven method should prove particularly useful in the analysis of the community structure of brain networks in populations characterized by different connectivity strengths, such as patients and controls.'
+  url: ''
+  caption: ''
+
 - title: 'Community detection in weighted brain connectivity networks beyond the resolution limit'
   authors: 'Nicolini C., Bòrdier C., Bifone A.'
   journal: 'NeuroImage'
@@ -24,8 +36,6 @@
   abstract: 'Graph theoretical methods provide a powerful framework to investigate brain connectivity networks and their modular organization. Recently, it has been shown that many graph-based methods suffer from a fundamental resolution limit that may have affected previous studies and prevented detection of modules that are smaller than an intrinsic scale. Optimization of Surprise, a resolution-limit-free function rooted in discrete probability theory,  has revealed a substantially different picture. Indeed, a wide size distribution of modules, or communities, was found in binary networks, thus suggesting that a revision of the current models of the modular organization of brain connectivity may be in order. However, functional connectivity networks are intrinsically weighted, reflecting a continuous distribution of connectivity strengths between different brain regions. Here, we extend Surprise optimization to the study of weighted networks, and validate this new approach in synthetic networks endowed with a ground-truth modular structure. We compare Surprise with leading community detection methods currently in use and show its improved specificity and sensitivity in the detection of small modules even in the presence of noise and inter-subject variability such as those observed in fMRI experiments. Finally, we apply our novel approach to functional connectivity networks from resting state fMRI experiments, and demonstrate a heterogeneous modular organization, with a wide distribution of clusters spanning different scales.'
   code: 'http://forms.iit.it/view.php?id=68447'
   caption: 'Degeneracy landscape of Modularity, Surprise and Asymptotical Surprise'
-
-
 
 - title: 'Modular structure of brain functional connectivity: breaking the resolution limit by Surprise'
   authors: 'Nicolini C., Bifone A.'

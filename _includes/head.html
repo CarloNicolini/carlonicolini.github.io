@@ -1,5 +1,5 @@
 <head>
-	<meta charset="utf-8">
+	<meta charset="utf-8"><
 	<meta name="viewport" content="width=device-width">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
@@ -17,6 +17,7 @@
 	<script src="https://use.fontawesome.com/f045b82ed3.js"></script>
 	<!-- Enable MATHJAX Support from CDN, no need to install it locally-->
 	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<!-- Use the main.css -->
 	<link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
 	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 	<!-- Enable Google analytics -->
@@ -28,22 +29,18 @@
 	ga('create', 'UA-90756713-1', 'auto');
 	ga('send', 'pageview');
 	</script>
+
 	<!-- Enable some mathjax special definitions -->
-	<!-- 	<script type="text/x-mathjax-config">
-	MathJax.Hun.Config({Tex: {
-		Macros: {erf: "\\mathop{\\rm erf}\\nolimits"}
-		}
-		})
-	</script> -->
 	<script type="text/x-mathjax-config">
-		MathJax.Hub.Config({
-	TeX: {
-	Macros: {
-	tr: "{\\textrm{Tr}}",
-	Abs: ['\\left\\lvert #2 \\right\\rvert_{\\text{#1}}', 2, ""]
-	}
-	}
-	});
+	MathJax.Hub.Config({
+		TeX: {
+			Macros: {
+				tr: "{\\textrm{Tr}}",
+				Abs: ['\\left\\lvert #2 \\right\\rvert_{\\text{#1}}', 2, ""],
+				equationNumbers: { autoNumber: "AMS" }
+			}
+			}
+		});
 	</script>
 	
 </head>
