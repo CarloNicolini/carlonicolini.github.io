@@ -11,7 +11,7 @@ date: 2016-10-26
 	
 Computing Euler angles from a rotation matrix is straightforward once you set a convention. Indeed is possible to compute an entire different set of angles that defines a rotation when you change axis. In this case I use the aeronautical notation, with pitch, yaw and roll as a plane taking off.
 
-{% highlight matlab linenos %}
+{% highlight matlab %}
 % Returns euler angles in radians given a wanted convention, implementation from GPU Gems IV and
 % from Eigen libraries
 
