@@ -33,47 +33,47 @@ As shown by the author, for any accuracy $$\epsilon \geq 0$$ the required number
 Here I provide the straight C++ implementation of the pseudocode the author provides in its paper, for real-wolrd uses.
 Please let me know if you find any bug.
 
-    {% highlight cpp %}
-    #include <cstdio>
-    const double TOL=1E-9;
-    double InvJm(int n, int x, int N, int m)
-    {
-        return (1.0-double(x)/(double(m)+1.0))/(1.0-(double(n)-1.0-double(x))/(double(N)-1.0-double(m)));
-    }
+{% highlight cpp %}
+#include <cstdio>
+const double TOL=1E-9;
+double InvJm(int n, int x, int N, int m)
+{
+    return (1.0-double(x)/(double(m)+1.0))/(1.0-(double(n)-1.0-double(x))/(double(N)-1.0-double(m)));
+}
 
-    double hyperquick(int n, int x, int N, int M)
+double hyperquick(int n, int x, int N, int M)
+{
+    double s=1.0;
+    for (int k=x; k<=M-2; ++k)
     {
-        double s=1.0;
-        for (int k=x; k<=M-2; ++k)
-        {
-            s = s*InvJm(n,x,N,k)+1.0;
-        }
-        double ak=s;
-        double bk=s;
-        double k=M-2;
-        double epsk = 2*TOL;
-        while ((k<(N-(n-x)-1)) && epsk>TOL )
-        {
-            double ck = ak/bk;
-            k = k+1;
-            double jjm = InvJm(n,x,N,k);
-            bk = bk*jjm + 1.0;
-            ak = ak*jjm;
-            epsk = (N-(n-x)-1-k)*(ck-ak/bk);
-        }
-        return 1-(ak/bk-epsk/2);
+        s = s*InvJm(n,x,N,k)+1.0;
     }
-
-    int main(int argc, char *argv[])
+    double ak=s;
+    double bk=s;
+    double k=M-2;
+    double epsk = 2*TOL;
+    while ((k<(N-(n-x)-1)) && epsk>TOL )
     {
-        int n=atoi(argv[1]);
-        int x=atoi(argv[2]);
-        int N=atoi(argv[3]);
-        int M=atoi(argv[4]);
-
-        printf("Hypergeometric probability(%d,%d,%d,%d)=%f\n", n,x,N,M, hyperquick(n,x,N,M));
+        double ck = ak/bk;
+        k = k+1;
+        double jjm = InvJm(n,x,N,k);
+        bk = bk*jjm + 1.0;
+        ak = ak*jjm;
+        epsk = (N-(n-x)-1-k)*(ck-ak/bk);
     }
-    {% endhighlight %}
+    return 1-(ak/bk-epsk/2);
+}
+
+int main(int argc, char *argv[])
+{
+    int n=atoi(argv[1]);
+    int x=atoi(argv[2]);
+    int N=atoi(argv[3]);
+    int M=atoi(argv[4]);
+
+    printf("Hypergeometric probability(%d,%d,%d,%d)=%f\n", n,x,N,M, hyperquick(n,x,N,M));
+}
+{% endhighlight %}
 
 The code is pretty self-explanatory and any porting in languages like Python is straightforwardly implementable.
 A full implementation of Hyperquick is available at:
