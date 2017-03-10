@@ -7,7 +7,7 @@ url: "http://carlonicolini.github.io"
 github_username:  carlonicolini
 twitter_username: carlonicolini84
 
+paginate: 5
 # Build settings
 markdown: kramdown
 keep_files: [MathJax]
-gems: ['jekyll-twitter-plugin']

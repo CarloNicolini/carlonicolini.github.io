@@ -52,10 +52,8 @@ I'm currently working at the Center for Neuroscience and Cognitive Systems of Is
   Italy<br>
 </address>
 
-<!-- <div class="col-xs-6">
-{% twitter https://twitter.com/carlonicolini84 maxwidth=800 limit=4 %}
-</div>
- -->
+
+
 <!-- 
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script><div style="overflow:hidden;height:100px;width:$device;"><div id="gmap_canvas" style="height:100px;width:$device;"><style>#gmap_canvas img{max-width:none!important;background:none!important}</style><a class="google-map-code" href="http://www.map-embed.com" id="get-map-data">embed google map</a></div><script type="text/javascript"> function init_map(){var myOptions = {zoom:14,center:new google.maps.LatLng(45.8923739,11.043936400000007),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(45.8923739, 11.043936400000007)});infowindow = new google.maps.InfoWindow({content:"<b>Center for Neuroscience and Cognitive Systems</b><br/>Corso Bettini 31 <br/>38066 Rovereto" });google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script> -->
 
