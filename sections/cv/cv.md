@@ -12,10 +12,9 @@ permalink: /sections/cv
 - 2008 M.Sc in Biomedical Physics, Grade 110/110 cum laude, University of Trento, Italy.
 - 2003 B.Sc in Physics, Grade 106/110, University of Trento, Italy.
 
-#### 2014-today: PhD student, University of Verona/Istituto Italiano di Tecnologia
+## Experience
 
 I’m currently involved in developing new computational methods for the analysis of modular structure of brain functional connectivity networks with the tools of complex network theory. I'm carrying out my research currently at the BrainetLab of Angelo Bifone, in the CNCS, Istituto Italiano di Tecnologia. <brainetlab.github.io>
-
 
 #### 2011 Software consultant at Brown University (USA)
 
