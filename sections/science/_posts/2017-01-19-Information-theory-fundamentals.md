@@ -14,7 +14,6 @@ Some concepts are fundamental in information theory and here I write down a shor
 
 # Random variable
 
-
 Usually called $$X$$ it's a function from the set of possible outcomes of a set $$\mathcal{X}$$. Usually a random variable is denoted in uppercase. As an example a discrete random variable can be interpreted as the outcome of a dice roll. In that case the random variable $$X$$ is defined over an alphabet of $$\mathcal{X}=\{1,2,3,4,5,6 \}$$ possible events. In the case of a coin flip, the random variable is valued head or tail. A coin-toss (or Bernoulli trial) is the experiment where a random variable has only two possible outcomes.  Examples of Bernoulli trials include:
   * Flipping a coin. In this context, obverse ("heads") conventionally denotes success and reverse ("tails") denotes failure. A fair coin has the probability of success 0.5 by definition. In this case there are exactly two outcomes.
   * Rolling a die, where a six is "success" and everything else a "failure". In this case there are six outcomes, and the event is a six; the complementary event "not a six" corresponds to the other five outcomes.

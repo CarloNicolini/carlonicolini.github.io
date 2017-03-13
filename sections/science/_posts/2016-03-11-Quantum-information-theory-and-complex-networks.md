@@ -90,7 +90,11 @@ $$
 \boldsymbol \rho = \frac{\exp({-\beta \mathbf{L}})}{Z} \qquad Z= \sum \limits_{i=1}^N \exp({-\beta \lambda_i(\mathbf{L})})
 $$
 
-where $$\beta \in \mathbb{R}$$ is a parameter and $$L$$ is the graph Laplacian. 
+where $$\beta \in \mathbb{R}$$ is a parameter and $$L$$ is the graph Laplacian. The parameter $$\beta$$ can be estimated via the Maximum Entropy method and turns out that the optimal beta for the subsequent relative entropy minimization is the solution of the equation:
+
+$$
+\sum \limits_{i=1}^N \exp{ -\beta \lambda_i(\mathbf{L})} \left( \lambda_i(\mathbf{L} - \frac{1}{N})right) = 0
+$$
 
 Interestingly $$\beta$$ can represent many physical variables.
 For the statistical physicists $$\beta:=1/(k_T T)$$ is the inverse temperature of statistical mechanics and with this interpretation, $$\boldsymbol \rho$$ provides the Gibbs state of the system in equilibrium at finite temperature.

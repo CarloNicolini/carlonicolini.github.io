@@ -6,6 +6,9 @@ published: false
 date: 2017-03-10
 ---
 
+<blockquote>
+"What's the role of the non-backtracking operator in detecting communities?"
+</blockquote>
 
 # Some observations about the spectra of random modular networks and the Stochastic Block model
 

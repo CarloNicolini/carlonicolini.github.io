@@ -231,8 +231,8 @@ guaranteed. Wheter $$\tau$$ and $$n_p$$ can be selected a-priori depending
 on the network and algorithm intrisic properties, is still an open
 question.
 
-Comparing community structure in graphs
----------------------------------------
+# Comparing community structure in graphs
+
 
 A large number of functions for comparing similarities and differences
 between partitions of a network have been proposed in the past. They are

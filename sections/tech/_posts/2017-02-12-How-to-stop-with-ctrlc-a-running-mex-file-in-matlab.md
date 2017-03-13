@@ -5,10 +5,6 @@ categories: tech
 date: 2017-02-12
 ---
 
-<blockquote>
-    "How to implement interrupts in Matlab .mex files "
-</blockquote>
-
 This is how you do:
 
 {% highlight cpp %}

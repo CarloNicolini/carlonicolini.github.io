@@ -7,7 +7,7 @@ layout: default
 
 <div class="row">
 	<div class="col-xs-9">
-	<h2>Who am I?</h2>
+	<h2>Presentation</h2>
 	</div>
 </div>
 <div class="row">

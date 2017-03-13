@@ -7,7 +7,7 @@ date: 2017-01-17
 
 Check this guide:
 
-https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04
+[https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04](https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04)
 
 Here I report it, for backup purposes but the credits are due to Justin Ellingwood:
 

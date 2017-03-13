@@ -7,7 +7,7 @@ date: 2016-10-26
 ---
 
 <blockquote>
-	"How to extend Surprise to include degree-based corrections?"
+"How to extend Surprise to include degree-based corrections?"
 </blockquote>
 
 Surprise is defined as

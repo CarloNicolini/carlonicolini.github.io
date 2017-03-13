@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Blog
+title: Science Blog
 permalink: /sections/science
 inheader: true
 ---

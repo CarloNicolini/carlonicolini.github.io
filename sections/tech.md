@@ -17,7 +17,6 @@ I'm also a fan of Latex and I enjoy producing beautifully typeset documents, her
             <h2>
                 <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
             </h2>
-            {{ post.excerpt }}
         </li>
     {% endfor %}
 </ul>

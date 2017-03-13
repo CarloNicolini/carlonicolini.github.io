@@ -1,3 +1,11 @@
+---
+layout: post
+title: How to mount samba with mount bind in large file systems
+categories: tech
+published: false
+date: 2017-02-10
+---
+
 1. Su ThinkCenter (che fa da lato server) installato samba lato server, configurato per fare share della cartella ~/DATA con queste opzioni:
 
 [DATA]

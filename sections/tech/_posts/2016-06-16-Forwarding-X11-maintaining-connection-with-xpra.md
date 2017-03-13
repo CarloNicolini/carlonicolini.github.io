@@ -31,45 +31,45 @@ He then decide to start a remote xpra session on the server.
 
 Johnny uses a Linux workstation in his office and access through **ssh** the remote server
 
-	{% highlight sh %}
-    johnny@laptop:~$ ssh johhny@remoteserver
-    {% endhighlight %}
+{% highlight sh %}
+johnny@laptop:~$ ssh johhny@remoteserver
+{% endhighlight %}
 
 After logged on he fires up an xpra session on the server and he **annotates** the session identifier (typically an integer in the 10 to 1000 range). Upon this session he decide to run MATLAB.
 
-	{% highlight sh %}
-    johnny@server:~$ xpra start :100 --start-child=matlab
-    {% endhighlight %}
+{% highlight sh %}
+johnny@server:~$ xpra start :100 --start-child=matlab
+{% endhighlight %}
 
 where in this case **100** is the integer that you should annotate. Nothing happens except that he will get this log information:
 
-	{% highlight sh %}
-    Entering daemon mode; any further errors will be reported to:
-    /home/johnny/.xpra/:103.log
-    {% endhighlight %}
+{% highlight sh %}
+Entering daemon mode; any further errors will be reported to:
+/home/johnny/.xpra/:103.log
+{% endhighlight %}
 
 He then logs-out the `remoteserver` and on his local laptop where he installed **xpra** and he **attach**s its local computer to the remote session that is *broadcasting* MATLAB.
 
 He opens a console and types:
 
-	{% highlight sh %}
-    johnny@laptop:~$ xpra attach ssh:johnny@remoteserver:103
-    {% endhighlight %}
+{% highlight sh %}
+johnny@laptop:~$ xpra attach ssh:johnny@remoteserver:103
+{% endhighlight %}
 
 This will start the MATLAB sessions actually hosted on the server but visualized on the local computer.
 
 ### Sharing sessions
 Johnny makes all his stuff and wants to share the screen to his colleague Gina. Johnny tells Gina how to login the server (server remote address, user and password) and then Gina starts a terminal 
 
-	{% highlight sh %}
-    gina@laptop:~$ xpra attach ssh:johnny@remoteserver:103
-    {% endhighlight %}
+{% highlight sh %}
+gina@laptop:~$ xpra attach ssh:johnny@remoteserver:103
+{% endhighlight %}
 
 Then Gina can see the current MATLAB session of Johnny and check the results with him. Gina can then **detach** the session:
 
-	{% highlight sh %}
-    gina@laptop:~$ xpra detach ssh:johnny@remoteserver:103
-    {% endhighlight %}
+{% highlight sh %}
+gina@laptop:~$ xpra detach ssh:johnny@remoteserver:103
+{% endhighlight %}
 
 and let Johnny finish his work.
 
@@ -77,9 +77,9 @@ and let Johnny finish his work.
 After he finishes his session, Johnny closes MATLAB normally and **stops** xpra.
 He connects to the server and shut down the virtual screen *:103*
 
-	{% highlight sh %}
-    $> xpra stop :103
-	{% endhighlight %}
+{% highlight sh %}
+$> xpra stop :103
+{% endhighlight %}
 	
 He receives the message that the virtual screen **:103** has exited.
 

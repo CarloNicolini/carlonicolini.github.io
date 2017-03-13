@@ -12,10 +12,12 @@ xrdp-sesrun 127.0.0.1 brainet neuron128 1280 1024 24
 Sometimes it is necessary to run multiple Xrdp sessions assigning them to different people that insist on the same user.
 For example, you have a user on your remote server, called `johnny` and you want to let the `johnny@remote_host` be accessed by three different guys in your lab. You can assign different ports to different guys by explicitly modifying the `/etc/xrdp/`
 
-It is possible to assign each
 
-# http://serverfault.com/questions/727057/how-to-find-disconnected-xrdp-sessions
+[http://serverfault.com/questions/727057/how-to-find-disconnected-xrdp-sessions](http://serverfault.com/questions/727057/how-to-find-disconnected-xrdp-sessions)
+
 # How to find disconnected xrdp sessions
+
+{% highlight bash %}
 alias xrdp-list-sessions="sudo lsof  -b -w -n -c /^Xvnc$/b -a -iTCP:5900-5999"
 
 sudo apt-get install xprintidle
@@ -37,3 +39,4 @@ while read -r d; do
         echo "INFO Display $d is still ok (${idleMins}m)"
     fi  
 done <<< "$displays"
+{% endhighlight %}
