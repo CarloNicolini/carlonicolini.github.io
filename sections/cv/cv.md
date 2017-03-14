@@ -14,7 +14,11 @@ permalink: /sections/cv
 
 ## Experience
 
+#### Currently (2017)
 I’m currently involved in developing new computational methods for the analysis of modular structure of brain functional connectivity networks with the tools of complex network theory. I'm carrying out my research currently at the BrainetLab of Angelo Bifone, in the CNCS, Istituto Italiano di Tecnologia. <brainetlab.github.io>
+
+#### 2012-today System administrator for high performance computing
+Currently maintaining a small computational cluster, with experience in high performance computing, parallel computing (Matlab parallel computing toolbox) and CUDA parallel capabilities.
 
 #### 2011 Software consultant at Brown University (USA)
 
