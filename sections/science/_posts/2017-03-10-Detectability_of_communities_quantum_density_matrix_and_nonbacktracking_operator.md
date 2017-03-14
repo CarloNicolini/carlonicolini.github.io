@@ -48,6 +48,14 @@ is_detectable = abs(k_in_star - k_out_star) > B*sqrt(k_star);
 {% endhighlight %}
 
 
+
+# Paralleling inference, learning, optimization, statistical mechanics
+
+## Variational methods
+Interested in $$P(x)=\frac{1}{Z}P^*(\mathbf{x})=\frac{1}{Z}\exp{-E(\mathbf{x})}$$
+
+$$E(x)$$ is simple but not simple enough. Idea approximate $$P(x)$$
+
 # References:
 1. <a name="dedomenico2016"></a>De Domenico, M., Biamonte, J., 2016. Spectral entropies as information-theoretic tools for complex network comparison 41062, 1–13. [doi:10.1103/PhysRevX.6.041062](http://dx.doi.org/doi:10.1103/PhysRevX.6.041062)
 
