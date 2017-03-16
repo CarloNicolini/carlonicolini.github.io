@@ -51,10 +51,21 @@ is_detectable = abs(k_in_star - k_out_star) > B*sqrt(k_star);
 
 # Paralleling inference, learning, optimization, statistical mechanics
 
+Some of the words for the machine learning, statistics and physics communities are representing the same concepts:
+
+| Physics | Neuroscience | Machine learning | Information theory |
+|--------------------------------------------|------------------|--------------------|---------------------------------------|
+| Ising model | Hopfield network | Boltzmann Machine |  |
+| Bethe-Peierls approximation, Cavity method | / | Belief propagation | Sum-product algorithm message passing |
+
+## Notes
+Never say "the likelihood of the data" but "the likelihood of the parameters". The likelihood function is not a probability distribution. If you want to mention the data that a likelihood function is associated with, you may say "the likelihood of the parameters given the data".
+
+
 ## Variational methods
 Interested in $$P(x)=\frac{1}{Z}P^*(\mathbf{x})=\frac{1}{Z}\exp{-E(\mathbf{x})}$$
 
-$$E(x)$$ is simple but not simple enough. Idea approximate $$P(x)$$
+$$E(x)$$ is simple but not simple enough. Idea approximate $$P(x)$$ with another function $$Q(x)$$ such that the Kullback-Leibler divergence $$D_{KL}(P(x)\| Q(x)$$ is small. To do so it must be that $$Q(x)$$ closely follows $$P(x)$$ in the areas where $$P(x$)$$ is more concentrated, while maintaining zero in areas where $$P(x)$$ is zero, otherwise $$D_{KL}$$ incurs in a large penalty.
 
 # References:
 1. <a name="dedomenico2016"></a>De Domenico, M., Biamonte, J., 2016. Spectral entropies as information-theoretic tools for complex network comparison 41062, 1–13. [doi:10.1103/PhysRevX.6.041062](http://dx.doi.org/doi:10.1103/PhysRevX.6.041062)
