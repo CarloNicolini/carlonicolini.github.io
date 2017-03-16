@@ -114,3 +114,25 @@ $$
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Entropy-mutual-information-relative-entropy-relation-diagram.svg/744px-Entropy-mutual-information-relative-entropy-relation-diagram.svg.png" >
 
 ##  Jensen Inequality <a id="JensenInequality"></a>
+
+## Relative entropy
+
+
+## Fisher information
+The Fisher information matrix is the Hessian of the relative entropy:
+
+Let $$\theta \in \mathbb{R}^k$$ be the parameter indexing a set $$\mathcal{M}$$ of statistical models with densities $$p_\theta$$. Then the Fisher information matrix is 
+
+$$
+I_{ij}(\theta) = \mathbf{E}_{v_\theta} \left[ \left( \frac{\partial \log p_\theta}{d \theta_i } \right) \left( \frac{\partial \log p_\theta}{d \theta_j} \right) \right]
+$$
+
+As a corollary:
+
+$$ I_{ij}(\theta) = \frac{\partial^2 }{\partial \theta_i \partial \theta_j} D_{KL}(\mu_{\theta0} \| \mu_\theta)$$
+
+Proof: it is a classical result that $$ I_{ij}(\theta) = \mathbf{E}_{v_\theta} \left[ \left( \frac{\partial \log p_\theta}{d \theta_i } \right) \left( \frac{\partial \log p_\theta}{d \theta_j} \right) \right] $$. The present results follows from this and the fact that the entropy of $$\mu_{\theta0}$$ is independent of $$\theta$$.
+
+Interestingly the mutual information between two random variables can also be seen as the divergence of the product of their marginal distributions from their actual joint distribution:
+
+$$I[X;Y] = D_{KL}(\mathcal{L}(X,Y) \| \mathcal{L}(X) \times \mathcal{L}(Y))$$
