@@ -57,6 +57,10 @@ Some of the words for the machine learning, statistics and physics communities a
 |--------------------------------------------|------------------|--------------------|---------------------------------------|
 | Ising model | Hopfield network | Boltzmann Machine |  |
 | Bethe-Peierls approximation, Cavity method | / | Belief propagation | Sum-product algorithm message passing |
+| Boltzmann weighting factor $$e^{-\beta E(x)}$$| / | Probability of $$G$$ given parameters $$x$$ | 
+| Energy $$E(x)$$ | $$-\log(P)$$  | |
+| Most likely labeling = Ground state | Maximum a Posteriori (MAP) estimate |
+
 
 ## Notes
 Never say "the likelihood of the data" but "the likelihood of the parameters". The likelihood function is not a probability distribution. If you want to mention the data that a likelihood function is associated with, you may say "the likelihood of the parameters given the data".
