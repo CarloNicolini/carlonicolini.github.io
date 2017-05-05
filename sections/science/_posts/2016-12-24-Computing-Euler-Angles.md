@@ -2,7 +2,7 @@
 layout: post
 title: Computing Euler angles from 3x3 rotation matrix in Matlab 
 categories: science
-date: 2016-10-26
+date: 2016-12-24
 ---
 
 <blockquote>

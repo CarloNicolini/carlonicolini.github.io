@@ -22,6 +22,11 @@ Maximum entropy principle [[3](#jaynes1957a)] helps to estimate the $$\beta$$ pa
 
 $$\sum \limits_{i=1}^n e^{- \beta \lambda_i}(\lambda_i - \frac{1}{n})=0$$
 
+(but this is not sure as DeDomenico told me that it may be different)
+
+$$\sum_{i=1}^n \left(  \lambda_i \left(e^{-\beta \lambda_i}-\frac{1}{n}\right) \right) = 0$$
+
+
 It is known that communities are detectable in the two groups SBM [[5,](#krzakala2013)[6](#zdeborova2015)] as long as:
 
 $$|k_{in} - k_{out}| > 2 \sqrt{(k_{avg})}$$
@@ -70,6 +75,11 @@ Never say "the likelihood of the data" but "the likelihood of the parameters". T
 Interested in $$P(x)=\frac{1}{Z}P^*(\mathbf{x})=\frac{1}{Z}\exp{-E(\mathbf{x})}$$
 
 $$E(x)$$ is simple but not simple enough. Idea approximate $$P(x)$$ with another function $$Q(x)$$ such that the Kullback-Leibler divergence $$D_{KL}(P(x)\| Q(x)$$ is small. To do so it must be that $$Q(x)$$ closely follows $$P(x)$$ in the areas where $$P(x$)$$ is more concentrated, while maintaining zero in areas where $$P(x)$$ is zero, otherwise $$D_{KL}$$ incurs in a large penalty.
+
+## Analogies between inference and physics
+| Probability | Physics |
+|-------------|----------|
+| Probability of $$G$$ given $$\theta$$: $$P(G| \theta)$$ | $$
 
 # References:
 1. <a name="dedomenico2016"></a>De Domenico, M., Biamonte, J., 2016. Spectral entropies as information-theoretic tools for complex network comparison 41062, 1–13. [doi:10.1103/PhysRevX.6.041062](http://dx.doi.org/doi:10.1103/PhysRevX.6.041062)

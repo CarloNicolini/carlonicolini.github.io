@@ -10,7 +10,6 @@ date: 2016-10-14
 "How to extend Surprise to include degree-based corrections?"
 </blockquote>
 
-
 Surprise is defined as
 
 $$ S = \sum \limits_i ^{m_\zeta} \dfrac{\binom{p_\zeta}{i}  \binom{p-p_\zeta}{m-i} }{\binom{p}{m}}$$
