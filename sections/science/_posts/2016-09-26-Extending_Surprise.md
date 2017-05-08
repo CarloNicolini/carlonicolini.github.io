@@ -17,7 +17,6 @@ $$ S = \sum \limits_i ^{m_\zeta} \frac{\binom{p_\zeta}{i}  \binom{p-p_\zeta}{m-i
 Every community $$c$$ has $$n_c$$ nodes, $$m_c$$ edges and $$k_c = \sum_{i \in c} k_i$$ stubs.
 We separated intra-community and extra-community stubs.
 
-
 - $$n$$ is the number of nodes
 - $$m$$ is the number of edges
 - $$k_i$$ is the degree of node $$i$$
