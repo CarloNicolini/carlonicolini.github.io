@@ -10,11 +10,9 @@ date: 2016-09-26
 "How to extend Surprise to include degree-based corrections?"
 </blockquote>
 
-Surprise is defined as
+Surprise in its discrete formulation is defined as
 
 $$ S = \sum \limits_i ^{m_\zeta} \frac{\binom{p_\zeta}{i}  \binom{p-p_\zeta}{m-i} }{\binom{p}{m}}$$
-
-we count the edge stubs and consider communities separately.
 
 Every community $$c$$ has $$n_c$$ nodes, $$m_c$$ edges and $$k_c = \sum_{i \in c} k_i$$ stubs.
 We separated intra-community and extra-community stubs.
@@ -24,12 +22,12 @@ We separated intra-community and extra-community stubs.
 - $$m$$ is the number of edges
 - $$k_i$$ is the degree of node $$i$$
 
-1. Start with the total number of ways to arrange $$2m$$ stubs (since by the handshaking lemma $$\sum_i k_i = 2m$$). It is based on the multinomial coefficient
+From combinatorial arguments, the total number of ways to arrange $$2m$$ stubs (since by the handshaking lemma $$\sum_i k_i = 2m$$), is found with the help of the multinomial coefficient:
 
 $$
 \binom{2m}{k_1,\ldots,k_n} = \dfrac{(2m)!}{\prod \limits_i^n k_i!}
 $$
-this is the denominator.
+
 
 Now consider how many possible combinations are possible for nodes in community $$c$$
 
