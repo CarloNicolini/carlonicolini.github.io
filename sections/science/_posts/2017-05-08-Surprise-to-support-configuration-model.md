@@ -27,56 +27,41 @@ The discrete version of Surprise is then defined as:
 $$ S = \sum \limits_i ^{m_\zeta} \dfrac{\binom{p_\zeta}{i}  \binom{p-p_\zeta}{m-i} }{\binom{p}{m}}$$
 
 This version considers an urn model with two types of balls, i.e. an urn model where the balls (node pairs) are of two kinds, edges or non-edges.
-In total there are $$p-p_\zeta$$ black balls and $p_\zeta$ white balls. One extracts **without replacement** $$m$$ balls and is interested in the probability to have at least $$m_\zeta$$ white balls.
+In total there are $$p-p_\zeta$$ black balls and $$p_\zeta$$ white balls. One extracts **without replacement** $$m$$ balls and is interested in the probability to have at least $$m_\zeta$$ white balls.
 
-It is also possible to define a variant of Surprise that consider instead of only two kind of balls, a total of $$C$$ kind of balls, meaning one for each community. This variant is based on the multivariate hypergeometric distribution, same as before but with balls of $$C$$ different colors:
+The implicit null model upon which Surprise is based is the $$G_{nm}$$ model (and not the $$G_{np}$$) because the number of edges is fixed (you can see it as a microcanonical version of the $$G_{np}$$ model). The cardinality of the $$G_{nm}$$ set with exactly $$n$$ nodes and $$m$$ edges is represented by the denominator of Surprise. It is the number of all possible graphs with exactly $$m$$ edges and $$p=\binom{n}{2}$$ pairs of edges.
 
-$$S_M = \prod \limits_c \dfrac{\binom{p_c}{m_c}}{\binom{p}{m}}$$
+A problem of Surprise is that it does not depend on the actual distribution of intra- and inter- cluster edges. 
+It is possible to define a multivariate variant of Surprise that considers edges between each community separately. 
+Instead of only two kind of balls (intra- and inter- cluster) this model has a total of $$C^2$$ kind of balls, meaning one for each pair of communities and reads:
 
-It is shown that both the original Surprise and the multivariate version of it can be approximated to the **Asymptotical Surprise**, a formulation that uses the relative entropy:
+$$S_M = \prod \limits_{r,s}^{C^2} \dfrac{\binom{n_r n_s}{m_{rs}}}{\binom{p}{m}}$$
 
-$$ -\log{S_M} \asym m D_{KL}(\mathbf{q} \| \left< \mathbf{q}\right>) = m \sum_c \dfrac{m_c}{m} \log\left(\dfrac{m_c/m}{p_c/p} \right)$$
+This last formulation of Surprise $$S_M$$ resembles the SBM but it does not work very well and includes high degree nodes in the same communities.
+Indeed, the $$G_{nm}$$ model upon which Surprise is based, does not take the degrees sequence into consideration (the normalization factor $$\binom{p}{m}$$ counts the total number of graphs with exactly $$m$$ edges over $$p$$ pairs of nodes).
 
-In the case of the original Surprise one uses the binary Kullback-Leibler divergence, namely
+It is shown by Traag 2015, that both the original Surprise and the multivariate version of it can be approximated (their logarithms, to be exact) to a formulation that uses the relative entropy between the observed fraction of intracluster edges $$q$$ and the expected fraction of intracluster edges $$\left< q \right> $$:
 
-$$D_{KL}_{binary}(x \| y) = x \log \left(\frac{x}{y}\right) + (1-x)\log\left(\frac{(1-x)}{(1-y)}\right)$$
+$$ -\log({S}) \sim m D_{KL}(q \| \left< q \right>)$$
 
-while for the multivariate variant Surprise the sum runs over all communities:
+In the case of the original formulation of Surprise $$q=\frac{m_\zeta}{m}$$ and $$\left< q \right> = \frac{p_\zeta}{p}$$, because the balls are just of two colors (intracluster or intercluster) and one uses the **binary** Kullback-Leibler divergence, namely:
 
-$$-\log{S_M} \asym m D_{KL}(x \| y) = x \log \left(\frac{x}{y}\right) + (1-x)\log\left(\frac{(1-x)}{(1-y)}\right)$$
+$$D_{KL}(q \| \left<q\right >) = x \log \left( \frac{q}{\left<q\right >} \right ) + (1-q)\log\left( \frac{1-q}{1-\left<q\right >}\right),$$
 
-I have noticed that these two last formulations are extremely similar to the stochastic block model introduced by Newman and Karrer, that instead has the sum of pairs of blocks (rather than just on the diagonal as MultiSurprise):
+while for the multivariate variant of Surprise $$S_M$$, the observed and expected fraction of edges are $$q=m_{rs}/m$$ and $$\left< q \right> = n_r n_s /n^2$$ and the sum runs over all pairs of communities:
 
-$$\mathcal{L}(G) = \sum \limits_{rs} \dfrac{m_{rs}}{2m}\log\left( \dfrac{m_{rs}}{n_r n_s/n^2}\right)$$
+$$-\log({S_M}) \sim m D_{KL}\left(q \| \left<q\right >\right ) =  m \sum_{rs} \dfrac{m_{rs}}{m} \log\left(\dfrac{m_{rs}/m}{n_r n_s/n^2} \right)$$
 
-$$\mathcal{L}(G) = \sum \limits_{rs} \dfrac{m_{rs}}{2m}\log\left( \dfrac{m_{rs}}{n_r n_s/n^2}\right)$$
+These last two formulations are extremely similar to the uncorrected stochastic block model introduced by Newman and Karrer as in Equation 7 in their paper [https://arxiv.org/abs/1008.3926v1](https://arxiv.org/abs/1008.3926v1).
+When the degree-correction is included, the resulting log-likelihood is 
 
+$$ \mathcal{L}(G | \sigma) = m \sum_{rs} \dfrac{m_{rs}}{2m} \log\left(\dfrac{m_{rs}/{2m}}{(K_r/2m)(K_s/2m)} \right)$$
 
-because in this model on undirected graphs pairs of blocks are counted, then the $$2$$ factor, so if one considers only community structure of blocks and on undirected graphs:
-
-$$\mathcal{L}(G | g) = \sum \limits_{r} \dfrac{m_{r}}{m}\log\left( \dfrac{m_{r}}{p_r}\right)$$
-
-If one continues to read the Karrer and Newman paper, then the stubs are considered instead of vertex pairs, and the degree-corrected stochastic block model is considered, that reads:
-
-$$
-\mathcal{L} = \sum \limits_{rs} \dfrac{m_{rs}}{2m} \log \left( \dfrac{m_{rs}/2m}{(k_r/2m)(k_s/2m)}\right)
-$$
-
-coming back with the reasoning, consider only $$r==s$$, then this becomes focused on communities:
+I wanted to replicate the reasoning by Karrer and Newman backwards, starting from this last equation of the degree corrected SBM, to go back to an hypergeometric formulation like the one in Surprise.
+What I think is important in developing a degree corrected Surprise is to consider edge stubs as the basic entities instead of node pairs.
+Then to start, one has to compute how many possible distinct graphs there are in the configuration model (at this moment the information of clustering is not yet considered).
+From combinatorial arguments [[Radicchi 2010](#Radicchi2010)], the cardinality of the configuration model ensemble $$| \Omega_{CM}|$$ is the total number of possible rewirings given the degree sequence and it can be computed (but I am definitely **not** sure it is correct) as: 
 
 $$
-\mathcal{L}_C = \sum \limits_{r} \dfrac{m_{r}}{m} \log \left( \dfrac{m_{rs}/2m}{(k_r/2m)^2}\right)
+| \Omega_{CM} | = \binom{2m}{k_1, \ldots k_n} = \dfrac{(2m)!}{\prod \limits_i^n (k_i)!}
 $$
-
-multiply by $$m$$:
-
-$$
-m \mathcal{L}_C = mD_{KL}(\mathbf{q} \| \left< \mathbf{q}\right>)
-$$
-
-where here $$\mathbf{q}=(m_{11}/m, m_{12}/m, \ldots, m_{cc}/m)$$ and 
-$$\left< \mathbf{q} \right >=(m_{11}/m, m_{12}/m, \ldots, m_{cc}/m)$$ and 
-
-therefore its original distribution is:
-
-$$S_{CM} = \prod \limits_c \dfrac{\binom{p_c}{m_c}}{\binom{p}{m}}$$
