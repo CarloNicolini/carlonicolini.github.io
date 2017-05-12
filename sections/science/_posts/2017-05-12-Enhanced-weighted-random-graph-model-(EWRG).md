@@ -83,45 +83,55 @@ P(\mathbf{W}) = \dfrac{e^{-H(G)}}{Z} = \prod \limits_{i<j} \left[ \frac{e^{-\bet
 \end{align}
 $$
 
-In other words, the probability to get a link with weight $w \in [0,\infty]$ between edge $i$ and $j$ is given by:
-
-<span style="color:red">*NON SONO SICURO DELLA SOMMA AL DENOMINATORE FINO A DOVE BISOGNA FARLA?*</span>
+The probability to get a link with weight $w \in [0,\infty]$ between edge $i$ and $j$ is given by:
 
 $$
 \begin{equation}
-q_{ij}(w) = \dfrac{e^{-\beta_m \Theta(w) - \beta_w w}}{1+e^{-\beta_m} + \sum_{w'=1}^{w} e^{-\beta_w w'}}
+q_{ij}(w) = \dfrac{e^{-\beta_m \Theta(w) - \beta_w w}}{\sum_{w=0}^{w^\star} e^{-\beta_m \Theta(w) - \beta_w w}} = \dfrac{e^{-\beta_m \Theta(w) - \beta_w w}}{1+e^{-\beta_m}\sum_{w'=1}^{w^\star} e^{-\beta_w w'}}
 \end{equation}
 $$
+
+This is the form of the generalized **Bose-Fermi** statistic and $w^\star$ can be set to 1 for fermions and to $+\infty$ for bosons. This statistic interpolates between the Fermi-Dirac statistic (with $w^\star=1$ and $e^{-\beta_m}=1$) and Bose-Einstein (with $w^\star=+\infty$ and $e^{-\beta_w}=1$).
+It applies to any system described by an Hamiltonian as described before and represents the probability that its states are populated $w$ times. Even if multiple occupations are allowed, like for bosons, the first occupation number if necessarily binary like for fermions.
 
 Let's define the edge picking probability $p_m=e^{-\beta_m}$ and the weighted edge picking probability $p_w=e^{-\beta_w}$, then we can rewrite the probability to pick an edge with weight $w$ as:
 
 $$\begin{equation}
-q_{ij}(w) = \frac{p_m^{\Theta(w)} p_w^w}{1 + p_m + p_w^w}
+q_{ij}(w) = \frac{p_m^{\Theta(w)} p_w^w}{1 + p_m \sum_{w'=1}^{w^\star}p_w^w}
 \end{equation}
 $$
+
 
 # Expected values of observables
 
 The free energy that is computed as $F=-\log(Z)$:
-
 $$\begin{align}
 F =& -\log(Z) = -\binom{n}{2}\log \left( 1 + \frac{e^{-\beta_m}}{e^{\beta_w} - 1} \right) \nonumber \\\\
 = & \binom{n}{2} \log \left( \frac{1-e^{-\beta_w}}{1-e^{-\beta_w} + e^{-\beta_w-\beta_m}}\right)
 \end{align}
 $$
-
 To get the expected number of edges $\langle m \rangle $ one has to take the derivative with respect to $\beta_m$ of the free energy, which results in:	
-
 $$
 \begin{equation}
 \langle m \rangle = \frac{\partial F}{\partial \beta_m} = \binom{n}{2} \frac{1}{e^{\beta _m} \left(e^{\beta _w}-1\right)+1}
 \end{equation}
 $$
-
+using the representation $p_w=e^{-\beta_w}$ and $p_m=e^{-\beta_m}$ we then have (Mathematica substitution):
+$$
+\begin{equation}
+\langle m \rangle = \binom{n}{2} \frac{p_m p_w}{1+p_m p_w - p_w}
+\end{equation}
+$$
 To get the expected total weights $\langle w \rangle $ one has to take the derivative with respect to $\beta_w$ of the free energy, which results in:
-
 $$
 \begin{equation}
 \langle w \rangle = \frac{\partial F}{\partial \beta_w} = \binom{n}{2} \frac{e^{\beta _w}}{e^{\beta _m} \left(e^{\beta _w}-1\right){}^2+e^{\beta_w}-1}
+\end{equation}
+$$
+
+that results in (Mathematica substitution):
+$$
+\begin{equation}
+\langle w \rangle = \binom{n}{2} \frac{p_m p_w}{(1-p_w)\left((p_m-1)p_w +1\right)}
 \end{equation}
 $$
