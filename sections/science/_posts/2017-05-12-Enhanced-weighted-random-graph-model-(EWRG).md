@@ -87,51 +87,82 @@ The probability to get a link with weight $w \in [0,\infty]$ between edge $i$ an
 
 $$
 \begin{equation}
-q_{ij}(w) = \dfrac{e^{-\beta_m \Theta(w) - \beta_w w}}{\sum_{w=0}^{w^\star} e^{-\beta_m \Theta(w) - \beta_w w}} = \dfrac{e^{-\beta_m \Theta(w) - \beta_w w}}{1+e^{-\beta_m}\sum_{w'=1}^{w^\star} e^{-\beta_w w'}}
+q_{ij}(w) = \dfrac{e^{-\beta_m \Theta(w) - \beta_w w}}{\sum_{w=0}^{w^\star} e^{-\beta_m \Theta(w) - \beta_w w}} = \dfrac{e^{-\beta_m \Theta(w) - \beta_w w}}{1+e^{-\beta_m}\sum_{w^\prime=1}^{w^\star} e^{-\beta_w w^\prime}}
 \end{equation}
 $$
 
 This is the form of the generalized **Bose-Fermi** statistic and $w^\star$ can be set to 1 for fermions and to $+\infty$ for bosons. This statistic interpolates between the Fermi-Dirac statistic (with $w^\star=1$ and $e^{-\beta_m}=1$) and Bose-Einstein (with $w^\star=+\infty$ and $e^{-\beta_w}=1$).
-It applies to any system described by an Hamiltonian as described before and represents the probability that its states are populated $w$ times. Even if multiple occupations are allowed, like for bosons, the first occupation number if necessarily binary like for fermions.
+It applies to any system described by an Hamiltonian as described before and represents the probability that its states are populated $w$ times. Even if multiple occupations are allowed, like for bosons, the first occupation number is necessarily binary like for fermions.
 
-Let's define the edge picking probability $p_m=e^{-\beta_m}$ and the weighted edge picking probability $p_w=e^{-\beta_w}$, then we can rewrite the probability to pick an edge with weight $w$ as:
-
+Let's define the constants $p_m=e^{-\beta_m}$ and $p_w=e^{-\beta_w}$. In this terms then we can rewrite the probability to pick an edge between node $i$ and node $j$ with weight $w$ as:
 $$\begin{equation}
-q_{ij}(w) = \frac{p_m^{\Theta(w)} p_w^w}{1 + p_m \sum_{w'=1}^{w^\star}p_w^w}
+q_{ij}(w) = \frac{p_m^{\Theta(w)} p_w^w}{1 + p_m \sum_{w^\prime=1}^{w^\star}p_w^{w^\prime}}
 \end{equation}
 $$
 
+and the probability that node $i$ and node $j$ are connected as:
+$$\begin{equation}
+p_{ij}(w) = 1-q_{ij}(0)
+\end{equation}
+$$
 
-# Expected values of observables
+## Expected values of the observables
 
-The free energy that is computed as $F=-\log(Z)$:
+It is possible to compute the expected degree in this model as:
 $$\begin{align}
-F =& -\log(Z) = -\binom{n}{2}\log \left( 1 + \frac{e^{-\beta_m}}{e^{\beta_w} - 1} \right) \nonumber \\\\
-= & \binom{n}{2} \log \left( \frac{1-e^{-\beta_w}}{1-e^{-\beta_w} + e^{-\beta_w-\beta_m}}\right)
+\langle k_i \rangle = \sum_{j=1}^n p_{ij} = n - n q_{ij}(0) = \frac{n p_m p_w \left(p_w^{w^s}-1\right)}{p_m p_w^{w^s+1}-\left(p_m-1\right) p_w-1}
 \end{align}
 $$
-To get the expected number of edges $\langle m \rangle $ one has to take the derivative with respect to $\beta_m$ of the free energy, which results in:	
-$$
-\begin{equation}
-\langle m \rangle = \frac{\partial F}{\partial \beta_m} = \binom{n}{2} \frac{1}{e^{\beta _m} \left(e^{\beta _w}-1\right)+1}
-\end{equation}
-$$
-using the representation $p_w=e^{-\beta_w}$ and $p_m=e^{-\beta_m}$ we then have (Mathematica substitution):
-$$
-\begin{equation}
-\langle m \rangle = \binom{n}{2} \frac{p_m p_w}{1+p_m p_w - p_w}
-\end{equation}
-$$
-To get the expected total weights $\langle w \rangle $ one has to take the derivative with respect to $\beta_w$ of the free energy, which results in:
-$$
-\begin{equation}
-\langle w \rangle = \frac{\partial F}{\partial \beta_w} = \binom{n}{2} \frac{e^{\beta _w}}{e^{\beta _m} \left(e^{\beta _w}-1\right){}^2+e^{\beta_w}-1}
-\end{equation}
+
+and the expected strength as:
+$$\begin{align}
+\langle s_i \rangle = \sum_{j=1}^N q_{ij}(w) = TODO
+\end{align}
 $$
 
-that results in (Mathematica substitution):
+### Using the free energy to get expected values
+
+Another way to get the quantities of interest is to compute the free energy from the partition function $Z$. The free energy is simply defined as minus the logarithm of the partition function $F=-\log(Z)$:
+
 $$
-\begin{equation}
-\langle w \rangle = \binom{n}{2} \frac{p_m p_w}{(1-p_w)\left((p_m-1)p_w +1\right)}
-\end{equation}
+\begin{align}
+F = -\log(Z) = -\binom{n}{2}\log \left( 1 + \frac{e^{-\beta_m}}{e^{\beta_w} - 1} \right) \\\\ =
+\binom{n}{2} \log \left( \frac{1-e^{-\beta_w}}{1-e^{-\beta_w} + e^{-\beta_w-\beta_m}}\right)
+\end{align}
+$$
+
+The derivatives of the free energy with respect to the Lagrangian multipliers corresponding to the quantities they constraint are giving us the expected observables.
+To make it concrete, to get the expected number of edges $\langle m \rangle$, one has to take the derivative with respect to $\beta_m$ of the free energy $F$:
+
+$$
+\begin{align}
+\langle m \rangle = \frac{\partial F}{\partial \beta_m} = \binom{n}{2} \frac{1}{e^{\beta _m} \left(e^{\beta _w}-1\right)+1}
+\end{align}
+$$
+This same result can be obtained also by summing over all pairs of nodes the quantity $p_{ij}$ as follows:
+
+$$
+\begin{align}
+\langle m \rangle = \sum_{i < j} p_{ij}
+\end{align}
+$$
+
+but since $p_{ij} = 1-q_{ij}(0)$ and is an independent variable for each pair of nodes, we get that the average over the ensemble of the number of edges in the EWRG model is 
+
+$$
+\begin{align}
+\langle m \rangle = \sum_{i < j} (1-q_{ij}(0)) = \binom{n}{2}\left(1-\frac{1}{1+p_m p_w^{w^\star+1}} \right ) = \\\\ 1-\frac{ p_m p_w \left(p_w^{w^\star}-1\right)}{p_w-1} \\\\
+&= \binom{n}{2} \frac{1}{-e^{\beta _m}+e^{\beta _m+\beta _w}+1} &=\\\\ \binom{n}{2} \frac{p_m p_w}{1+p_m p_w - p_w} = \\\\ &=
+\frac{1}{e^{\beta _m} \left(e^{\beta _w}-1\right)+1}
+\end{align}
+$$
+
+To get the expected total weights $\langle w \rangle $ one has to take the derivative with respect to $\beta_w$ of the free energy, which results in:
+$$
+\begin{align}
+\langle w \rangle = \frac{\partial F}{\partial \beta_w} &=  \binom{n}{2} \frac{e^{\beta _w}}{e^{\beta _m} \left(e^{\beta _w}-1\right){}^2+e^{\beta_w}-1} \\\\ &= 
+\frac{1}{2 e^{\beta _m} \left(\cosh \left(\beta _w\right)-1\right)-e^{\beta
+   _w}+1} \\\\ & = 
+\binom{n}{2} \frac{p_m p_w}{(1-p_w)\left((p_m-1)p_w +1\right)}
+\end{align}
 $$
