@@ -2,12 +2,15 @@
 layout: post
 title: Gilbert model for loopy multigraphs
 categories: science
+published: false
 date: 2016-10-18
 ---
 
 <blockquote>
 "How many rewirings are there in a graph with m edges and n nodes?"
 </blockquote>
+
+THIS ARTICLE IS PROBABLY WRONG
 
 The number of **simple** graphs with $$n$$ nodes and exactly $$m$$ edges is
 
