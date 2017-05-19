@@ -14,6 +14,10 @@ permalink: /sections/cv
 
 ## Experience
 
+#### Spring-Summer 2017
+Visiting researcher at Lorentz Institute for Theoretical Physics, Leiden, The Netherlands.
+Working on random matrix theory filtering of fMRI time series, generative models of human brain connectivity and community detection, under the guidance of Prof. Diego Garlaschelli.
+
 #### Currently (2017)
 I’m currently involved in developing new computational methods for the analysis of modular structure of brain functional connectivity networks with the tools of complex network theory. I'm carrying out my research currently at the BrainetLab of Angelo Bifone, in the CNCS, Istituto Italiano di Tecnologia. <brainetlab.github.io>
 
