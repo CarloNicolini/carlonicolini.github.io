@@ -2,62 +2,62 @@
 layout: post
 title: Plugging the weighted random graph into Surprise
 categories: science
-published: false
+published: true
 date: 2017-05-10
 ---
 
-Surprise is based on the calculation of the number of simple graphs with $n$ nodes and $m$ edges exactly.
-This null model is called $G_{nm}$ model and it is the microcanonical version of the Erdos-Renyi model also called $G_{np}$.
-To be more precise, Surprise does not compare against a fixed null model, but the null model is dependent on the partition itself. In other words, the expected fraction of intracluster edges is given by $p_\zeta/p$ and it is clearly dependent on the partition it self. For this reason Surprise is more similar to the Constant Potts Model than to a model where intracluster density is compared to a fixed constant.
+Surprise is based on the calculation of the number of simple graphs with $$n$$ nodes and $$m$$ edges exactly.
+This null model is called $$G_{nm}$$ model and it is the microcanonical version of the Erdos-Renyi model also called $$G_{np}$$.
+To be more precise, Surprise does not compare against a fixed null model, but the null model is dependent on the partition itself. In other words, the expected fraction of intracluster edges is given by $$p_\zeta/p$$ and it is clearly dependent on the partition it self. For this reason Surprise is more similar to the Constant Potts Model than to a model where intracluster density is compared to a fixed constant.
 
-In order to extend the definition of Surprise to support weighted random graphs, i.e. graphs carrying possibly more than one edge between two nodes, we first have to figure out how many topological configurations are there in the $G_{nm}$ model and then to annotate their multiplicity, based on combinatorial considerations.
-In other words, the number of topological configurations is the same as in the $G_{nm}$ model, but each configuration has a number of possible ways to distribute the multi-edges upon the already existing edges.
+In order to extend the definition of Surprise to support weighted random graphs, i.e. graphs carrying possibly more than one edge between two nodes, we first have to figure out how many topological configurations are there in the $$G_{nm}$$ model and then to annotate their multiplicity, based on combinatorial considerations.
+In other words, the number of topological configurations is the same as in the $$G_{nm}$$ model, but each configuration has a number of possible ways to distribute the multi-edges upon the already existing edges.
 
-This means that one has to compute the product between the number of topological configurations of the $G_{nm}$ which is $\binom{\binom{n}{2}}{m}$ and the number of ways to obtain each configuration given a certain total edge weight.
-It turns out that the each configuration can exist in $\binom{w-1}{m-1}$ different sub-configurations of links, as this is the number of possible distinct partitions of an integer (in this case $w$) into $m$ parts, or in other words, the number of ways to arrange $w$ indistinct marbles into $m$ distinct boxes.
+This means that one has to compute the product between the number of topological configurations of the $$G_{nm}$$ which is $$\binom{\binom{n}{2}}{m}$$ and the number of ways to obtain each configuration given a certain total edge weight.
+It turns out that the each configuration can exist in $$\binom{w-1}{m-1}$$ different sub-configurations of links, as this is the number of possible distinct partitions of an integer (in this case $$w$$) into $$m$$ parts, or in other words, the number of ways to arrange $$w$$ indistinct marbles into $$m$$ distinct boxes.
 
-The demonstration is given with the help of the ''Stars and bars'' method by W.Feller, shortly explained here (https://en.wikipedia.org/wiki/Stars_and_bars_%28combinatorics%29)[https://en.wikipedia.org/wiki/Stars_and_bars_%28combinatorics%29].
+The demonstration is given with the help of the ''Stars and bars'' method by W.Feller, shortly explained [here](https://en.wikipedia.org/wiki/Stars_and_bars_%28combinatorics%29).
 
-The number of ways to distribute $w$ multilinks on $m$ edges is exactly the same as the number of ways to put $w$ indistinguishable balls into $m$ distinguishable bins.
+The number of ways to distribute $$w$$ multilinks on $$m$$ edges is exactly the same as the number of ways to put $$w$$ indistinguishable balls into $$m$$ distinguishable bins.
 
 The word distinguishable here is important as every edge is a separate entity, because this is a vertex-labeled graph, therefore each edge is a distinct entity.
-The probability to observe **exactly** $m_c$ intracluster links and **exactly** $w_c$ intracluster edges is given by the hypergeometric distribution:
+The probability to observe **exactly** $$m_c$$ intracluster links and **exactly** $$w_c$$ intracluster edges is given by the hypergeometric distribution:
 
-$
+$$
 P_{WRG}(m_i=m_c, w_i=w_c)=\dfrac{\binom{p_c}{m_i}\binom{w_i-1}{m_i-1} \binom{p-p_c}{m-m_i}\binom{(w_t-w_i)-1}{(m-m_i)-1}}{ \binom{p}{m} \binom{w_t-1}{m-1}}
-$
+$$
 
-To find the probability to have **at least** $m_c$ internal edges and **at least** $w_c$ internal weight on edges, then we need to look at the cumulative distribution on edges and weights.
+To find the probability to have **at least** $$m_c$$ internal edges and **at least** $$w_c$$ internal weight on edges, then we need to look at the cumulative distribution on edges and weights.
 A **temptative** formula for this probability can be called **MultiSurprise**, a multilink (or WRG) version of Surprise is the following:
 
-$
+$$
 S_{WRG} = \sum \limits_{w_i = w_\zeta}^{w_T}  \sum \limits_{m_i = m_\zeta}^{m}\dfrac{  \binom{p_\zeta}{m_i} \binom{w_i - 1}{m_i - 1} \binom{p-p_\zeta}{m-m_i}\binom{w_t - (w_i-1)}{m-(m_i-1)}}{\binom{p}{m}\binom{w_T-1}{m-1}}
-$
+$$
 
 or alternatively the summation must be carried in parallel over the indices of edges and weights?
 
-$
+$$
 S_{WRG} = \sum \limits_{w_i = w_\zeta, m_i = m_\zeta}^{w_T,m}\dfrac{\binom{p_\zeta}{m_i} \binom{w_i-1}{m_i-1}\binom{p-p_\zeta}{m-m_i}\binom{w_t - w_i-1}{m-m_i-1}}{\binom{p}{m}\binom{w_T-1}{m-1}}
-$
+$$
 
 
 # Binomial version of standard Surprise
 
 The hypergeometric version of standard Surprise is:
 
-$
+$$
 P(i=m_c) = \dfrac{\binom{p_c}{i}\binom{p-p_c}{m-i}}{\binom{p}{m}}
-$
+$$
 
-This is the probability to extract **exactly** $m_c$ edges from an urn **without** replacement.
-In the limit of large $p$ at $\langle q \rangle = \frac{p_c}{p}$ and $q=\frac{m_c}{m}$ kept fixed then is possible to approximate the hypergeometric to a binomial like:
+This is the probability to extract **exactly** $$m_c$$ edges from an urn **without** replacement.
+In the limit of large $$p$$ at $$\langle q \rangle = \frac{p_c}{p}$$ and $$q=\frac{m_c}{m}$$ kept fixed then is possible to approximate the hypergeometric to a binomial like:
 
-$
+$$
 \lim \limits_{p \rightarrow \infty} P_{hyper}(i=m_c) = P_{binomial}(i=m_c) = \binom{m}{m_c} \langle q \rangle ^{m_c} (1-\langle q \rangle)^{m-m_c}
-$
+$$
 
-This is the probability to extract **exactly** $m_c$ edges from an urn with replacement.
-The probability instead to have **at least** $m_\zeta = \sum_c m_c$ intracluster edges is the cumulative of the binomial:
+This is the probability to extract **exactly** $$m_c$$ edges from an urn with replacement.
+The probability instead to have **at least** $$m_\zeta = \sum_c m_c$$ intracluster edges is the cumulative of the binomial:
 
 $$
 \lim \limits_{p \rightarrow \infty} P_{hyper}(i \geq m_\zeta) = P_{binomial}(i \geq m_\zeta) = \sum \limits_{i=m_\zeta}^m \binom{m}{i} \langle q \rangle ^{i} (1-\langle q \rangle)^{m-i}
