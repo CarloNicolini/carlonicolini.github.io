@@ -26,10 +26,27 @@ In my career I've always been involved with computation in many of its applicati
 I've started with Monte Carlo methods in radiation treatment planning, then moved to machine learning. In the last years I shifted my attention to computational models of brain fMRI activity exploiting the powerful theoretical machinery of complex networks.
 This blog collects results, ideas and notebooks of my work. Not all the content of this website is completely finished, so take it as it is.
 </div>
+</div>
 
+<h2>My PhD studies</h2>
+<div class="row">
 <div class="col-xs-12">
 In my PhD I tackled the problem of modular structure identification in brain functional networks, from the point of view of complex networks. 
-Complex networks theory offers a framework for the analysis of brain functional connectivity as measured by magnetic resonance imaging. Within this approach the brain is represented as a graph comprising nodes connected by links, with nodes corresponding to brain regions and the links to measures of inter-regional interaction. A number of graph theoretical methods have been proposed to analyze the modular structure of these networks. The most widely used metric is Newman\ Modularity, which identifies modules within which links are more abundant than expected on the basis of a random network. However, Modularity is limited in its ability to detect relatively small communities, a problem known as resolution limit. Read more, download my PhD thesis.
+Complex networks theory offers a framework for the analysis of brain functional connectivity as measured by magnetic resonance imaging. Within this approach the brain is represented as a graph comprising nodes connected by links, with nodes corresponding to brain regions and the links to measures of inter-regional interaction. A number of graph theoretical methods have been proposed to analyze the modular structure of these networks. The most widely used metric is Newman's Modularity, which identifies modules within which links are more abundant than expected on the basis of a random network. However, Modularity is limited in its ability to detect relatively small communities, a problem known as resolution limit. To read more, <a href="https://www.dropbox.com/s/8o2hlws6bv21ogq/thesis_nicolini_submitted.pdf?dl=0">download my PhD thesis.</a>
+</div>
+</div>
+
+<h2>My research interests, right now</h2>
+<div class="row">
+<div class="col-xs-12">
+I am currently working on methodological aspects of complex network theory, as applied to brain functional connectivity.
+Typically FC networks are obtained from Pearson correlation of BOLD time series.
+The transformation from a correlation matrix to a graph is  justified only based empirical arguments.
+It turns out indeed that many network-theoretical quantities are crucially dependent on how this conceptual passage is performed, which is heavily affected by a multitude nuisance factors. 
+
+To alleviate the researchers from an hard-to-justify choice, I am working on a maximum entropy filtering method to filter spurious correlations at spectral level.
+This work is in collaboration with Diego Garlaschelli and Assaf Almog, at Leiden University.
+
 </div>
 </div>
 
@@ -44,7 +61,10 @@ Complex networks theory offers a framework for the analysis of brain functional 
 <h2>Contact me</h2>
 </div>
 <div class="col-xs-12">
-I'm currently working at the Center for Neuroscience and Cognitive Systems of Istituto Italiano di Tecnologia, hosted at University of Trento, in the city of Rovereto, Corso Bettini 31, Italy.
+I'm currently working at the Lorentz Center for Theoretical Physics, Leiden University, The Netherlands.
+
+Drop me an email at: <a href="nicolini@lorentz.leidenuniv.nl">nicolini@lorentz.leidenuniv.nl</a>
+<!-- I'm currently working at the Center for Neuroscience and Cognitive Systems of Istituto Italiano di Tecnologia, hosted at University of Trento, in the city of Rovereto, Corso Bettini 31, Italy -->.
 </div>
 
 
