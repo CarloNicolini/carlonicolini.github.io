@@ -12,7 +12,7 @@ layout: default
 </div>
 <div class="row">
 	<div class="col-xs-9">
-		<p>Given my multidisciplinary formation I can think my self as a network neuroscientist, as I've been involved with graphs and networks since a long time, and only recently I've took the challenge of using complex networks science to better understand the most complex organ in nature: the brain.
+		<p>I am a network neuroscientist, with an increasing competence in complex networks theory networks. I recently took the challenge of using complex networks science to better understand the most complex organ in nature: the brain.
 		</p>
 	</div>
 	<div class="col-xs-3">
@@ -22,8 +22,14 @@ layout: default
 
 <div class="row">
 <div class="col-xs-12">
-In my career I've always been involved with computation in many of its applications. I've started with Monte Carlo methods in radiation treatment planning, then moved to machine learning. In the last years I shifted my attention to computational models of brain fMRI activity exploiting the powerful theoretical machinery of complex networks.
+In my career I've always been involved with computation in many of its applications.
+I've started with Monte Carlo methods in radiation treatment planning, then moved to machine learning. In the last years I shifted my attention to computational models of brain fMRI activity exploiting the powerful theoretical machinery of complex networks.
 This blog collects results, ideas and notebooks of my work. Not all the content of this website is completely finished, so take it as it is.
+</div>
+
+<div class="col-xs-12">
+In my PhD I tackled the problem of modular structure identification in brain functional networks, from the point of view of complex networks. 
+Complex networks theory offers a framework for the analysis of brain functional connectivity as measured by magnetic resonance imaging. Within this approach the brain is represented as a graph comprising nodes connected by links, with nodes corresponding to brain regions and the links to measures of inter-regional interaction. A number of graph theoretical methods have been proposed to analyze the modular structure of these networks. The most widely used metric is Newman\ Modularity, which identifies modules within which links are more abundant than expected on the basis of a random network. However, Modularity is limited in its ability to detect relatively small communities, a problem known as resolution limit. Read more, download my PhD thesis.
 </div>
 </div>
 
