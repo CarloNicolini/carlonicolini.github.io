@@ -40,7 +40,9 @@ This blog collects results, ideas and notebooks of my work. Not all the content 
 <div class="row">
 <div class="col-xs-12">
 In my PhD I tackled the problem of modular structure identification in brain functional networks, from the point of view of complex networks. 
-Complex networks theory offers a framework for the analysis of brain functional connectivity as measured by magnetic resonance imaging. Within this approach the brain is represented as a graph comprising nodes connected by links, with nodes corresponding to brain regions and the links to measures of inter-regional interaction. A number of graph theoretical methods have been proposed to analyze the modular structure of these networks. The most widely used metric is Newman's Modularity, which identifies modules within which links are more abundant than expected on the basis of a random network. However, Modularity is limited in its ability to detect relatively small communities, a problem known as resolution limit. To read more, <a href="https://www.dropbox.com/s/8o2hlws6bv21ogq/thesis_nicolini_submitted.pdf?dl=0">download my PhD thesis.</a>
+Complex networks theory offers a framework for the analysis of brain functional connectivity as measured by magnetic resonance imaging. Within this approach the brain is represented as a graph comprising nodes connected by links, with nodes corresponding to brain regions and the links to measures of inter-regional interaction. A number of graph theoretical methods have been proposed to analyze the modular structure of these networks. The most widely used metric is Newman's Modularity, which identifies modules within which links are more abundant than expected on the basis of a random network. However, Modularity is limited in its ability to detect relatively small communities, a problem known as resolution limit.
+
+To read more, <a href="https://www.dropbox.com/s/8o2hlws6bv21ogq/thesis_nicolini_submitted.pdf?dl=0">download my PhD thesis.</a>
 </div>
 </div>
 
