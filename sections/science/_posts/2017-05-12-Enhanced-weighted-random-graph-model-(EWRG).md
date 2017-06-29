@@ -6,6 +6,10 @@ published: true
 date: 2017-05-12
 ---
 
+<blockquote>
+An exponential random graph model with fixed topology and multilinks.
+</blockquote>
+
 The ensemble of maximally random weighted graphs with the constant average number of edges and total weight.
 
 Introduction
