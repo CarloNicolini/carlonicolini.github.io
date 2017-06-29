@@ -30,6 +30,12 @@ This blog collects results, ideas and notebooks of my work. Not all the content 
 </div>
 </div>
 
+<p>
+</p>
+<hr/>
+<p>
+</p>
+
 <h2>My PhD studies</h2>
 <div class="row">
 <div class="col-xs-12">
@@ -38,8 +44,14 @@ Complex networks theory offers a framework for the analysis of brain functional 
 </div>
 </div>
 
+<!-- <p>
+</p>
+<hr/>
+<p>
+</p> -->
+<!-- 
 <div>
-<h2>My research interests, right now</h2>
+<h2>Research interests</h2>
 <div class="row">
 <div class="col-xs-12">
 I am currently working on methodological aspects of complex network theory, as applied to brain functional connectivity.
@@ -48,7 +60,7 @@ The transformation from a correlation matrix to a graph is justified only based 
 It turns out indeed that many network-theoretical quantities are crucially dependent on how this conceptual passage is performed, which is heavily affected by a multitude nuisance factors.
 </div>
 </div>
-</div>
+</div> -->
 
 <p>
 </p>
@@ -67,14 +79,15 @@ Drop me an email at: <a href="nicolini@lorentz.leidenuniv.nl">nicolini@lorentz.l
 <!-- I'm currently working at the Center for Neuroscience and Cognitive Systems of Istituto Italiano di Tecnologia, hosted at University of Trento, in the city of Rovereto, Corso Bettini 31, Italy -->.
 </div>
 </div>
-<br>
+
+<!-- <br>
 <address>
 <strong>Carlo Nicolini</strong><br>
 Center for Neuroscience and Cognitive Systems<br>
 Corso Bettini 31<br>
 38086 Rovereto<br>
 Italy<br>
-</address>
+</address> -->
 
 <!-- 
 <h2>Recently posted</h2>
