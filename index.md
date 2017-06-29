@@ -16,9 +16,11 @@ layout: default
 		</p>
 	</div>
 	<div class="col-xs-3">
-		<img src="static/img/nicolini3.jpg" style="float: right bottom; width: 85%">
+		<img src="static/img/nicolini3.jpg" style="float: right bottom; width: 75%">
 	</div>
 </div>
+
+<br>
 
 <div class="row">
 <div class="col-xs-12">
