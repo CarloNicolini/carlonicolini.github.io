@@ -81,7 +81,6 @@ Conferences and proceedings
 
 - **Carlo Nicolini**, Carlo Fantoni, Giovanni Mancuso, Robert Volcic, Fulvio Domini. *A framework for the study of vision in active observers*. IS&T SPIE Electronic Imaging, San Francisco (2014). 
 
-
 [link](http://proceedings.spiedigitallibrary.org/proceeding.aspx?articleid=1838237)
 [pdf](https://www.researchgate.net/publication/260505676_A_Framework_for_the_Study_of_Vision_in_Active_Observers)
 
