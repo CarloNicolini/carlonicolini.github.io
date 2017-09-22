@@ -352,3 +352,115 @@ the correlation is bounded in  $$[-1,1]$$.
 
 # [Population vs sample quantiles](https://www.youtube.com/watch?v=fOAZQ_U7-qk&index=28&list=PLwJRxp3blEvZyQBTTOMFRP_TDaSdly3gU)
 
+# [The Population regression function](https://www.youtube.com/watch?v=oFaoCzj3YUY&index=29&list=PLwJRxp3blEvZyQBTTOMFRP_TDaSdly3gU)
+
+# [Gauss-Markov assumptions - part 1](https://www.youtube.com/watch?v=NjTpHS5xLP8&list=PLwJRxp3blEvZyQBTTOMFRP_TDaSdly3gU&index=31)
+
+The Gauss-Markov theorem states that in a linear regression model in which the errors have expectation zero and are uncorrelated and have equal variances, the best linear unbiased estimator (BLUE) of the coefficients is given by the ordinary least squares (OLS) estimator, provided it exists. The errors do not need to be normal, nor do they need to be independent and identically distributed (only uncorrelated with mean zero and homoscedastic with finite variance). 
+
+We can list the Gauss-Markov assumptions here:
+
+1. The population process must be linear in parameters (for example $$wages = \alpha + \beta education + u_i$$) where $$u_i$$ is an error term.
+2. $$\{ x_i, y_i \}$$ are a random sample from the population. Each individual in the population must be equally likely picked. In other words all the data-point must come from the same population process.
+
+3. Zero conditional mean of errors. This means that mathematically the expectation of $$E[u_i \vert educ]=0$$, in other words if I know someone level of education this does not help me to predict wheter he will be above or below the average population line.
+If it happens that $$E[u_i \vert x_i]$$ means that the Least Squares estimators are **biased**, in other words the $$E[\hat{\beta} \vert x_i] \neq \beta^{pop}$$.
+This is equivalent to say $$\textrm{Cov}[u_i, x_y]=0$, no correlations between noise and independent variables.
+
+# [Gauss-Markov assumptions - part 2](https://www.youtube.com/watch?v=ti9h-Au8LQw&index=32&list=PLwJRxp3blEvZyQBTTOMFRP_TDaSdly3gU)
+
+4. **no perfect collinearity** in regression. This means that if I have some model $$y=\alpha + \beta_1 x_1 + \beta a_2 x_2 + u$$ it means that there must not be an exact relationship between $$x_1$$ and $$x_2$$, for example there must **not** be relation of this kind $$x_1 = \delta_0 + \delta_1 x_2$$.
+
+5. **Homoskedastic errrors**. This means that the distribution of errors stays relatively constants, in other words the variance of the errors is constant: $$\textrm{Var}[u_i] = \sigma^2$$ and **does not** vary with $$x_i$$.
+
+6. **No serial correlations**. This means that $$Cov[u_i,u_j]=0$$, knowing one error does not help me predict another error.
+
+# [ Zero conditional mean of errors](https://www.youtube.com/watch?v=msSDI328UPc&list=PLwJRxp3blEvZyQBTTOMFRP_TDaSdly3gU&index=33)
+
+# [Omitted variable bias](https://en.wikipedia.org/wiki/Omitted-variable_bias)
+Omitted-variable bias (OVB) occurs when a model created incorrectly leaves out one or more important factors.
+The bias is created when the model compensates for the missing factor by over- or underestimating the effect of one of the other factors.
+OVB is the bias that appears in the estimates of parameters in a regression analysis, when the assumed specification is incorrect in that it omits an independent variable that is correlated with both the dependent variable and one or more included independent variables.
+
+1. [Omitted variable bias - example 1](https://www.youtube.com/watch?v=6I1tUM0RB6I&index=34&list=PLwJRxp3blEvZyQBTTOMFRP_TDaSdly3gU)
+2. [Omitted variable bias - example 2](https://www.youtube.com/watch?v=_Ka_PAvdDjk&index=35&list=PLwJRxp3blEvZyQBTTOMFRP_TDaSdly3gU)
+3. [Omitted variable bias - example 3](https://www.youtube.com/watch?v=CndHm9WDVIE&list=PLwJRxp3blEvZyQBTTOMFRP_TDaSdly3gU&index=36)
+4. [Omitted variable bias - proof part 1](https://www.youtube.com/watch?v=9-lPES4e0n8&index=37&list=PLwJRxp3blEvZyQBTTOMFRP_TDaSdly3gU)
+
+## Detailed analysis of the OVB
+
+Consider a linear model of the form
+
+$$
+y_i = \beta x_i + z_i \delta + u_i
+$$
+
+where:
+
+- $$x_i$$ is a $$1 \times p$$ vector of values of $$p$$ independent variables observed at time $$i$$.
+- $$\beta$$ is a $$p \times 1$$ column vector of unobservable parameters (the response coefficients) to be estimated.
+- $$z_i$$ is a scalar and is the value of another independent variable observed at time $$i$$.
+- $$\delta$$ is a scalar and is an unobservable parameter (the response coefficient of $$z_i$$) and has to be estimated.
+- $$u_i$$ is the unobservable error term occurring at time $$i$$; it's an unboserved realization of a random variable with $$E[u_i \vert x_i]=0$$ and $$E[u_i \vert z_i]=0$$.
+- $$y_i$$ is the observation of the dependent variable at time $$i$$.
+
+We collect the observations of all variables and stack them one below another to obtain the matrix $$X$$ and the vectors $$Y,Z$$ and $$U$$.
+
+If the independent variable $$z$$ **is omitted from the regression**, then the estimated values of the response parameters of the other independent variables will be given by the ordinary least squares (OLS) estimator:
+
+$$
+\hat{\beta} = (X^T X)^{-1} X^T Y^T
+$$
+
+Substituting for $$Y$$ based on the assumed linear model we get:
+
+$$
+{\begin{aligned}{\hat  {\beta }}&=(X'X)^{{-1}}X'(X\beta +Z\delta +U)\\&=(X'X)^{{-1}}X'X\beta +(X'X)^{{-1}}X'Z\delta +(X'X)^{{-1}}X'U\\&=\beta +(X'X)^{{-1}}X'Z\delta +(X'X)^{{-1}}X'U.\end{aligned}}
+$$
+
+On taking expectations, the contribution of the final term is zero; this follows from the assumption that $$U$$ is uncorrelated with the regressors $$X$$.
+On simplifying the remaining terms:
+
+$$
+{\displaystyle {\begin{aligned}E[{\hat {\beta }}|X]&=\beta +(X'X)^{-1}E[X'Z|X]\delta \\&=\beta +{\text{bias}}.\end{aligned}}} 
+$$
+
+The second term after the equal sign is the omitted-variable bias in this case, which is non-zero if the omitted variable z is correlated with any of the included variables in the matrix X (that is, if X'Z does not equal a vector of zeroes).
+Note that the bias is equal to the weighted portion of $$z_i$$ which is explained by $$x_i$$.
+
+The Gauss–Markov theorem states that regression models which fulfill the classical linear regression model assumptions provide the BLUE estimators.
+With respect to ordinary least squares, the relevant assumption of the classical linear regression model **is that the error term is uncorrelated with the regressors**.
+
+The presence of omitted-variable bias violates this particular assumption. 
+The violation causes the OLS estimator to be biased and inconsistent. The direction of the bias depends on the estimators as well as the covariance between the regressors and the omitted variables. A positive covariance of the omitted variable with both a regressor and the dependent variable will lead the OLS estimate of the included regressor's coefficient to be greater than the true value of that coefficient. 
+
+# [Reverse causality](https://www.youtube.com/watch?v=yBipwlHXxJc&list=PLwJRxp3blEvZyQBTTOMFRP_TDaSdly3gU&index=39)
+
+It's an other problem occurring from the failed Gauss–Markov of the zero conditional mean of errors. This is called an issue of **endogeneity**, or in other words $$x$$ is an endogenous regressor. For this reason the Gauss–Markov assumption $$E[u_i \vert x_i]=0$$ fails and in general one has $$E[u_i \vert x_i] \neq 0$$. Reverse causality tends to produce **upperly biased** estimate.
+How do reverse causality leads to violation of Gauss–Markov assumption of zero conditional mean of errors?
+
+Example: let's say we are interesting in finding out whether the prevalence of a civil war in a country leads to a decrease in the human development index (HDI) in that country. The linear model to describe this problem is the following:
+
+
+$$
+\textrm{HDI} = \alpha + \beta \textrm{CW} + u
+$$
+If a country has a civil war does this lead to a decreased HDI? So we think $$\beta<0$$. But it is also true that conversely the likely that if a country has a civil war, it also has a lower HDI index. So we write:
+
+$$
+\textrm{CW}_i = \delta + \gamma \textrm{HDI} + v_i
+$$
+
+Why does this lead to the Gauss–Markov assumption on zero conditional mean of errors failure? We must check that the covariance between $$u_i$$ and $$CW$$ variables. We can write:
+
+$$\textrm{Cov}[u, CW] = \textrm{Cov}[u, \delta + \gamma \textrm{HDI}] + v = \gamma \textrm{Cov}[u,\textrm{HDI}] = \gamma \textrm{Cov}[u, \alpha + \beta \textrm{CW} + u]
+$$ (assuming the covariance between the errors $$u$$ and $$v$$ is zero)
+This last term contains the covariance of $$u$$ with $$u$$.
+
+
+
+"Correlation proves causation," is considered a questionable cause logical fallacy when two events occurring together are taken to have established a cause-and-effect relationship.
+
+
+
+
