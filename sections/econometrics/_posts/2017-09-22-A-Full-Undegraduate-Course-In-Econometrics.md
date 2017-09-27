@@ -1,10 +1,15 @@
 ---
 layout: post
-title: Full Undergraduate Course in Econometrics
+title: A Full Undergraduate Course in Econometrics
 categories: science
 published: false
+use_math: true
 date: 2017-09-22
 ---
+
+<blockquote>
+	"Introduction to econometrics with statistics and probability theory notes."
+</blockquote>
 
 # [Populations and samples in econometrics](https://www.youtube.com/watch?v=M9s91hSoNtk&index=5&list=PLwJRxp3blEvZyQBTTOMFRP_TDaSdly3gU)
 
