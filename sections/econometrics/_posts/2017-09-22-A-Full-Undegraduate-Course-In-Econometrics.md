@@ -361,7 +361,7 @@ the correlation is bounded in  $$[-1,1]$$.
 
 # [Gauss-Markov assumptions - part 1](https://www.youtube.com/watch?v=NjTpHS5xLP8&list=PLwJRxp3blEvZyQBTTOMFRP_TDaSdly3gU&index=31)
 
-The Gauss-Markov theorem states that in a linear regression model in which the errors have expectation zero and are uncorrelated and have equal variances, the best linear unbiased estimator (BLUE) of the coefficients is given by the ordinary least squares (OLS) estimator, provided it exists. The errors do not need to be normal, nor do they need to be independent and identically distributed (only uncorrelated with mean zero and homoscedastic with finite variance). 
+The Gauss-Markov theorem states that in a linear regression model in which the errors have expectation zero and are uncorrelated and have equal variances, the best linear unbiased estimator (BLUE) of the coefficients is given by the ordinary least squares (OLS) estimator, provided it exists. The errors do not need to be normal, nor do they need to be independent and identically distributed (only uncorrelated with mean zero and homoskedastic with finite variance). 
 
 We can list the Gauss-Markov assumptions here:
 
@@ -462,10 +462,51 @@ $$\textrm{Cov}[u, CW] = \textrm{Cov}[u, \delta + \gamma \textrm{HDI}] + v = \gam
 $$ (assuming the covariance between the errors $$u$$ and $$v$$ is zero)
 This last term contains the covariance of $$u$$ with $$u$$.
 
-
-
 "Correlation proves causation," is considered a questionable cause logical fallacy when two events occurring together are taken to have established a cause-and-effect relationship.
 
 
+# [41 - Measurement error in independent variables]()
+Another violation of the Gauss–Markov assumption is $$E[u_i \vert x_i] \neq 0$$. In this case the ordinary least squares estimate of $$\hat{\beta}_{ols}$$ will be biased.
 
+If I don't measure the independent variable $$x_i$$ correctly this leads to a $$x_i + v_i$$ where $$v_i$$ is some form of error. In this case then the expected value of $$E[u_i \vert x_i]$$ becomes in the form of $$E[u_i \vert x_i + v_i]$$ and in general is different than zero.
+
+
+# [42 - Measurement error in independent variables]()
+Suppose a company level of sales is related to advertising by the following relation
+
+$$S_t = \alpha + \beta  A_t + u_t$$
+
+where $$S_t$$ are the sales and $$A_t$$ is the level of advertising. If the level of advertising is measured with some error $$M_t = A_t + v_t$$ then the model becomes:
+
+$$S_t = \alpha + \beta M_t + (u_t-v_t)$$
+
+Then we see that $$\textrm{Cov}[u_t - \beta v_t, M_t ]$$ is not zero, indeed $$\textrm{Cov}[u_t - \beta v_t, M_t ] \approx -\beta  \textrm{Cov}[v_t,A_t + v_t]=-\beta  \textrm{Cov}[v_t, v_t] = -\beta  \sigma^2$$.
+
+# [43 - Functional misspecification]()
+It is a normal econometric problem to specify the wrong model and this can lead to violation in the Gauss-Markov assumptions. For example modeling the wage vs age relation with a linear function whereas it is clear that the relation is quadratic.
+
+# [46 - Random sample summary]()
+Another Gauss-Markov assumptions is the Random Sampling. Mathematically this means that if I have a collection of random variables $$Y_1, \ldots Y_n$$, if they are independent and come from the same common probability distribution function, that implies that this is a random sample.
+Practically this means that one has to same uniformly at random from the population to avoid biases in the samples.
+
+# [48 Serial correlation summary]()
+Ways to have serial correlation (in mathematical terms $$\textrm{Cov}[u_i,u_s]\neq 0$$ for $$i \neq s$$)in the model are:
+
+1. Omit important variables
+2. Functional misspecification
+3. Measurement errors (if I underestimating the variable for example).
+
+This means that the OLS estimates will be no longer unbiased, and not BLUE. Although this means that there may be other estimators which have lower sampling variance and work better than the ordinary least squares.
+
+A sign of serial correlation is when you see long streak of all positive and all negative residuals for example, so locally the mean of the residual (errors) is not zero.
+
+# [52 - Serial correlation biased standard error ]()
+It may happen that effects of clustering lead to bias in the estimate.
+Consider the model
+
+$$Y_{ig} = \alpha + \beta  CS_{g} +\zeta_{ig}$$
+
+where $$CS$$ is the classroom size, $$g$$ is the group, $$i$ is the individual in the class and the score of the individual is $$Y_{ig}$$. The nature of the error is both due to the size of the group and the skil variability the individual, so one can write $$\zeta_{ig}=v_g + \eta_{i}$$.
+We can see that this model has serial correlation since $$\textrm{Cov}(\zeta_{ig},\zeta_{jg}) \neq 0$$ 
+Clustering effects on the errors
 
