@@ -8,7 +8,7 @@ date: 2017-09-27
 ---
 
 
-# \lbrackIntroduction to matrix econometrics\rbrack()
+# [Introduction to matrix econometrics](https://www.youtube.com/watch?v=GMVh02WGhoc&index=1&list=PLwJRxp3blEvaxmHgI2iOzNP6KGLSyd4dz)
 
 One can write 
 
@@ -34,7 +34,7 @@ $$
 \end{equation}
 $$
 
-# Variance of random vector times a matrix
+# [Variance of random vector times a matrix]()
 
 $$
 \textrm{Var}\lbrack\mathbf{A} \mathbf{x}\rbrack = \mathbf{A} \textrm{Var}\lbrack\mathbf{x}\rbrack \mathbf{A}^T 
@@ -58,3 +58,6 @@ $$
 $$
 
 because the variance of $$\mathbf{Y}$$ is homoskedastic then it's a diagonal matrix $$\sigma^2 \mathbf{I}$$.
+
+#[Geometric interpretation of OLS](https://www.youtube.com/watch?v=oWuhZuLOEFY&index=18&list=PLwJRxp3blEvaxmHgI2iOzNP6KGLSyd4dz)
+Least squares are represented by two steps: first identify the vector $$\hat{\mu}$$ 

@@ -129,3 +129,21 @@ $$
 \sigma^{-1}(\boldsymbol \theta)  = \left( \frac{e^{-\beta L(\boldsymbol \theta)}}{\tr \left \lbrack{e^{-\beta L(\boldsymbol \theta)}} \right \rbrack} \right)^{-1} = e^{\beta L(\boldsymbol \theta)} \tr \left \lbrack{e^{-\beta L(\boldsymbol \theta)}} \right \rbrack
 $$
 
+# Derivatives of the Jensen-Shannon divergence
+
+We need to take the derivative with respect to the parameters of
+
+$$
+\frac{\partial }{\partial \boldsymbol \theta} D_{JS}(\rho \| \sigma(\boldsymbol \theta)) = \frac{\partial }{\partial \boldsymbol \theta}\left \lbrack \frac{1}{2} D_{KL}(\rho \| \mu(\boldsymbol \theta)) + \frac{1}{2} D_{KL}(\sigma(\boldsymbol \theta) \| \mu(\boldsymbol \theta)) \right \rbrack
+$$
+
+where $$\mu(\boldsymbol \theta) = (\rho + \sigma(\boldsymbol \theta))/2$$.
+This is equivalent to:
+
+$$
+\frac{\partial }{\partial \boldsymbol \theta}\left \lbrack \frac{1}{2} D_{KL}(\rho \| \mu(\boldsymbol \theta)) + \frac{1}{2} D_{KL}(\sigma(\boldsymbol \theta) \| \mu(\boldsymbol \theta)) \right \rbrack = \frac{1}{2} \left (\frac{\partial }{\partial \boldsymbol \theta}\left \lbrack \tr\left \lbrack \rho \log (\rho) \right \rbrack - \tr \left \lbrack \rho \log \mu(\boldsymbol \theta) \right \rbrack \right \rbrack 
++
+\frac{\partial }{\partial \boldsymbol \theta}\left \lbrack \tr\left \lbrack \sigma(\boldsymbol \theta) \log (\sigma (\boldsymbol \theta) \right \rbrack - \tr \left \lbrack \rho \log \mu(\boldsymbol \theta) \right \rbrack \right \rbrack
+
+\right)
+$$
