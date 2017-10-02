@@ -48,15 +48,15 @@ $$
 \end{align*} 
 $$
 
-We need to compute the last term $$\frac{\partial}{\partial \boldsymbol \theta}\tr \left\lbrack e^{-\beta L} \right\rbrack $$. In general the following holds:
+We need to compute the last term $$\frac{\partial}{\partial \boldsymbol \theta}\tr \left\lbrack e^{-\beta L} \right\rbrack $$. In general the following holds (see [wikipedia](https://en.wikipedia.org/wiki/Matrix_exponential)):
 
 $$
-\begin{align*}
+\begin{align}\label{eq:exponentialmapderiv}
 \frac{d}{d t}\tr \left\lbrack e^{X(t)} \right\rbrack &= \tr \left\lbrack \frac{d}{d t} e^{X(t)} \right\rbrack  \\&= \tr \int_0^1 e^{\alpha X(t)}\frac{d X}{d t} e^{(1-\alpha) X(t)} d\alpha  \\&= \int_0^1 \tr \left\lbrack e^{\alpha X(t)}\frac{d X}{d t} e^{(1-\alpha) X(t)}  \right\rbrack d\alpha \\&= \int_0^1 \tr \left\lbrack e^{(1-\alpha) X(t)} e^{\alpha X(t)}\frac{d X}{d t} \right\rbrack d\alpha \\&= \int_0^1 \tr \left\lbrack e^{X(t)} \frac{d X}{d t} \right\rbrack d\alpha \\&= \tr \left\lbrack e^{X(t)} \frac{d X}{d t} \right\rbrack
-\end{align*}
+\end{align}
 $$
 
-If we apply to our case we have:
+If we apply \ref{eq:exponentialmapderiv} to our case we have:
 
 $$
 \begin{equation}
@@ -64,7 +64,7 @@ $$
 \end{equation}
 $$
 
-Therefore we have:
+Therefore for the gradient of the log-likelihood we have:
 
 $$
 \begin{align*}
@@ -72,7 +72,9 @@ $$
 \end{align*}
 $$
 
-## Second derivatives
+## Second order derivatives
+
+
 
 # Derivatives of the Jensen-Shannon divergence
 
