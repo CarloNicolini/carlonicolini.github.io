@@ -6,10 +6,6 @@ published: false
 date: 2017-03-10
 ---
 
-<blockquote>
-"What's the role of the non-backtracking operator in detecting communities?"
-</blockquote>
-
 # Some observations about the spectra of random modular networks and the Stochastic Block model
 
 In the framework of spectral information entropy [ [1] ](#dedomenico2016), that with comparison of an observed network with a model, one has to minimize the Kullback-Leibler divergence in order to obtain maximum likelihood estimates of the model parameters that **fit** the graph.

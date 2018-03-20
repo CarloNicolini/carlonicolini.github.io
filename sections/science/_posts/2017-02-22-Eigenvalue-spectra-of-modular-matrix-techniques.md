@@ -6,10 +6,6 @@ published: false
 date: 2017-02-12
 --- 
 
-<blockquote>
-How to compute spectra of Laplacian of a block matrix
-</blockquote>
-
 # RANDOM NOTES ABOUT RANDOM GRAPHS AND EIGENVALUES, NOT TO BE TAKEN SERIOUSLY
 
 # 1

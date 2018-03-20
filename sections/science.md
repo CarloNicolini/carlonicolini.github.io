@@ -14,7 +14,7 @@ In this collection of articles I'm trying to answer some of the questions that a
             <h2>
                 <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
             </h2>
-            {{ post.excerpt }}
+            <!-- {{ post.excerpt }} -->
         </li>
     {% endfor %}
 </ul>

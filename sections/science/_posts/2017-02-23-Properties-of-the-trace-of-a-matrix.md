@@ -6,10 +6,6 @@ published: false
 date: 2017-02-23
 --- 
 
-<blockquote>
-"What are the properties of the matrix trace?"
-</blockquote>
-
 Here is a list of the properties of the trace of a matrix.
 
 The trace is a linear operator

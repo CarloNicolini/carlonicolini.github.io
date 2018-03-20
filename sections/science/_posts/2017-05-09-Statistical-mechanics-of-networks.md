@@ -2,9 +2,11 @@
 layout: post
 title: Statistical mechanics of networks - Park and Newman model of hidden variables
 categories: science
-published: false
+published: true
 date: 2017-05-09
 ---
+
+### Introduction 
 
 In these notes I will try to sum up the important points in the paper:
 The statistical mechanics of networks, by Park and Newman, PRE, 2004
@@ -53,17 +55,27 @@ The exponential random graph, like all such maximum entropy ensembles, gives the
 
 In this precise sense, the exponential random graph is the best ensemble model we can construct for a network given a particular set of observations.
 
-## Exponential random graph as ER generalization
+### Exponential random graph as ER generalization
 
 If we just know the average number of edges that a network should have (not a specific number) $$\langle m \rangle$$, the Hamiltonian takes the form $$H(G) = \theta m(G)$$, where the parameter $$\theta$$ acts as a mean-field or as an inverse temperature. 
 
-It is possible to evaluate this in an ensemble of simple undirected graphs. If the adjacency matrix $$A_{ij}$$ is one when one link is present and zero otherwise, then the number of edges in the graph $$m = \sum_{i<j} A_{ij}$$ and the partition function $$Z$$ can be written as:
+It is possible to evaluate this in an ensemble of simple undirected graphs.
+If the adjacency matrix $$A_{ij}$$ is one when one link is present and zero otherwise, then the number of edges in the graph $$m = \sum \limits_{i < j } A_{ij} $$ and the partition function $$ Z $$ can be written as:
 
-$$
-Z = \sum_G \exp{-H(G)} = \sum \limits_{\{A_{ij}\}} \exp \left( {- \theta \sum \limits_{i<j} A_{ij}} \right ) = 
-\prod \limits_{i<j} \sum \limits_{ A_{ij} =0 }^1 \exp \left({ \theta A_{ij} }\right) = \prod \limits_{i<j} \left( 1 + \exp({-\theta}) \right) = (1+ \exp(-\theta))^{\binom{n}{2}}
-$$
+$$Z = \sum_G \exp{-H(G)} = \sum \limits_{\{A_{ij}\}} \exp \left( {- \theta \sum \limits_{i < j} A_{ij}} \right )$$
+$$=\prod \limits_{i< j} \sum \limits_{ A_{ij} =0 }^1 \exp \left({ \theta A_{ij} }\right) = \prod \limits_{i< j} \left( 1 + \exp({-\theta}) \right) = (1+ \exp(-\theta))^{\binom{n}{2}}$$
 
 Starting from the partition function, one can define the free energy $$F = -\log(Z)$$
 
+### Maximum entropy model for multilayer networks
+
+Copying from the previous example it is simple to show that in a multilayer network with $$\mathcal{A}$$ layers, where each layer is indexed by $$\alpha \in \mathbb{N}$$, like for example $$A_{ij}^{(\alpha)}$$, one can define instead of one constraint, a number of $$\alpha$$ constraints, one for each layer.
+
+The Hamiltonian containing the constraints becomes:
+
+$$H(G) = \sum \limits_{\alpha}^{\mathcal{A}} \theta^{(\alpha)} m^{(\alpha)} = \sum \limits_{\alpha}^{\mathcal{A}} \theta^{(\alpha)} \sum \limits_{i < j} A^{(\alpha)}_{ij}$$
+
+therefore the partition function becomes:
+
+$$Z =  \prod \limits_{\alpha}\left( 1 + e^{-\theta^{(\alpha)}} \right)^{\binom{n^{(\alpha)}}{2}}$$
 

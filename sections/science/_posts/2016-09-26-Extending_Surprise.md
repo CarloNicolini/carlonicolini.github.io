@@ -6,10 +6,6 @@ published: false
 date: 2016-09-26
 ---
 
-<blockquote>
-"How to extend Surprise to include degree-based corrections?"
-</blockquote>
-
 Surprise in its discrete formulation is defined as
 
 $$ S = \sum \limits_i ^{m_\zeta} \frac{\binom{p_\zeta}{i}  \binom{p-p_\zeta}{m-i} }{\binom{p}{m}}$$

@@ -5,10 +5,6 @@ categories: science
 date: 2016-10-28
 ---
 
-<blockquote>
-    "How to compute hypergeometric function without binomial coefficients?"
-</blockquote>
-
 Computing hypergeometric function is a slow and difficult process, often affected by overflow errors as evaluating binomial coefficient may return extremely large numbers.
 Fortunately, thanks to some hypergeometric identities, is possible to evaluate the hypergeometric probability quickly.
 

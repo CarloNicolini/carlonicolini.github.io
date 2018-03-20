@@ -6,10 +6,6 @@ published: false
 date: 2016-03-11
 ---
 
-<blockquote>
-"How to quantitatively fit a graph to a random graph model?"
-</blockquote>
-
 Recently, some of the concepts and the ideas presented [in this previous post](/sections/science/2016/08/26/Spectral_density_random_graph_models_planted_partition.html) have been discussed in a recent paper of [DeDomenico](#DeDomenico2016)
 where the authors took a little different approach in the definition of spectral densities.
 It resulted a new approach to *complex networks information theory* that casts a powerful analogy between complex networks and quantum theory, lying down the foundations of something that in the next years will very probably be part of the basic knowledge in network science.
@@ -50,11 +46,6 @@ For simple networks, Laplacian eigenvalues can be computed analytically and are 
 - Cycle graph with $$n$$ nodes, $$C_n$$: $$\lambda_j(L) = 2-2\cos\left( \frac{2\pi j}{n} \right)$$
 - Star graph $$S_n$$: $$\{ 0\, 1^{n-2}\, n\}$$ (the first is 0, all other eigenvalues are 1 until the last that is n).
 - Complete graph $$K_n$$: $$\{ 0\,n^{n-1}\}$$ (the first is 0, the remaining others are $$n$$).
-
-
-
-
-
 
 The eigenvalues of the Laplacian
 
