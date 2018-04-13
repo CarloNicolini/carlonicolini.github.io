@@ -77,10 +77,7 @@ It turns out indeed that many network-theoretical quantities are crucially depen
 <h2>Contact me</h2>
 </div>
 <div class="col-xs-12">
-I'm currently working at the Lorentz Center for Theoretical Physics, Leiden University, The Netherlands.
-
-Drop me an email at: <a href="nicolini@lorentz.leidenuniv.nl">nicolini@lorentz.leidenuniv.nl</a>
-<!-- I'm currently working at the Center for Neuroscience and Cognitive Systems of Istituto Italiano di Tecnologia, hosted at University of Trento, in the city of Rovereto, Corso Bettini 31, Italy -->.
+I'm currently working at the Center for Neuroscience and Cognitive Systems of Istituto Italiano di Tecnologia, hosted at University of Trento, in the city of Rovereto, Corso Bettini 31, Italy.
 </div>
 </div>
 
