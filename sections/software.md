@@ -3,11 +3,12 @@ layout: page
 title: Software
 permalink: /sections/software
 ---
-
+Here is a list of ready-to-use software that I have developed over the course of this last years, both as scientific programmer, as PhD student and now as postdoc.
+Feel free to use it if you need, with the license provided and to cite it accordingly.
 
 <div class="body">
 	{% for code in site.data.software %}
-		<h1>{{ code.name }}</h1>
+		<h2>{{ code.name }}</h2>
 		<p>{{ code.description }}</p>
 		<p></p>
 		<div class="row" style="text-align: justify;">

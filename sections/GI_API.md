@@ -4,10 +4,7 @@ title: GraphInsight Python API
 permalink: /sections/GIAPI
 ---
 
-# GraphInsight Python API
-**GRAPHINSIGHT 1.3 API**
-
-### Visualization and control methods
+## Visualization and control methods
 
 	void setBatchMode(bool batchMode);
 
@@ -52,7 +49,7 @@ Stop the current layout computation, reenable the Graph Drawing group
 box
 
 
-### Graph Methods
+## Graph related methods
 
 	void insertNode(int nodeId);
 
