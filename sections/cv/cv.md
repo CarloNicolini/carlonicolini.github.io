@@ -38,3 +38,4 @@ Working as the main developer of the C++ and Matlab/Psychtoolbox codebase for co
 - **2008-2010 Research fellow on Machine learning and intelligent optimization**
 
 Working on human activity recognition with statistical pattern recognition tools such as SVMs, ANNs, and probabilistic graphical models (HMMs and LCRFs). Experience in machine learning and numerical optimization <http://bit.ly/IokSWd>.
+
