@@ -10,7 +10,10 @@ permalink: /sections/cv
 
 ### Experience
 
-** Now (2017-2018)**
+* April-May 2018 Freelance software consultant*
+Adaptation of the GraphInsight package for stereo visualization and head tracking for the Mechdyne company.
+
+* Now (2017-2018)*
 I'm currently involved in developing new computational methods for the analysis of modular structure of brain functional connectivity networks with the tools of quantum information, information theory and complex networks theory.
 I'm carrying out my research currently at the BrainetLab of Angelo Bifone, in the CNCS, Istituto Italiano di Tecnologia.
 I am the developer of the **networkqit** package, a Python package to do computations in the framework of spectral entropies of complex networks.
