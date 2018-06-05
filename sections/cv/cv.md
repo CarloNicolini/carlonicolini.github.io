@@ -8,11 +8,12 @@ permalink: /sections/cv
 - 2008 M.Sc in Biomedical Physics, Grade 110/110 cum laude, University of Trento, Italy.
 - 2003 B.Sc in Physics, Grade 106/110, University of Trento, Italy.
 
-## Experience
+### Experience
 
-### Now (2017-2018)
-I’m currently involved in developing new computational methods for the analysis of modular structure of brain functional connectivity networks with the tools of quantum information, information theory and complex networks theory.
+** Now (2017-2018)**
+I'm currently involved in developing new computational methods for the analysis of modular structure of brain functional connectivity networks with the tools of quantum information, information theory and complex networks theory.
 I'm carrying out my research currently at the BrainetLab of Angelo Bifone, in the CNCS, Istituto Italiano di Tecnologia.
+I am the developer of the **networkqit** package, a Python package to do computations in the framework of spectral entropies of complex networks.
 
 *Spring-Summer 2017*
 
