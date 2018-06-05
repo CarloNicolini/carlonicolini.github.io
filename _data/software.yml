@@ -1,4 +1,4 @@
-- name: '*NEW* Networkqit'
+- name: 'Networkqit'
   image: /static/img/software/networkqit.png
   description: Network Quantum Information Theory toolbox
   releases: 'https://bitbucket.org/carlonicolini/networkqit'
