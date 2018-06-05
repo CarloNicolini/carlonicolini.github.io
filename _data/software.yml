@@ -1,9 +1,8 @@
 - name: 'Networkqit'
   image: /static/img/software/networkqit.png
   description: Network Quantum Information Theory toolbox
-  releases: 'https://bitbucket.org/carlonicolini/networkqit'
   documentation: 'https://networkqit.github.io'
-  github: https://bitbucket.org/carlonicolini/networkqit
+  bitbucket: https://bitbucket.org/carlonicolini/networkqit
   fulldescription: '
   Networkqit is a Python toolbox to perform model optimization and assessment within the spectral entropies of complex networks framework.
   '
