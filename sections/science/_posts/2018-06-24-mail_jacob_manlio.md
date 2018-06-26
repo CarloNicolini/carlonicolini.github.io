@@ -1,3 +1,11 @@
+---
+layout: post
+title: Thoughts
+categories: science
+published: false
+date: 2018-06-24
+---
+
 Dear Jacob,
 After our discussion in Paris, I would like to come back to the point, illustrating some of the ideas that emerged before, during and after the conference.
 
