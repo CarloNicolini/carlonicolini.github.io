@@ -8,13 +8,14 @@ date: 2018-06-24
 
 This is a Python code to compute the spectral density of a random matrix ensemble via the average resolvent
 
-    def spectral_density_laplacian_er(n,p,x,reps):
+    def spectral_density_laplacian_er(n,p,x,reps,eps=1E-1):
         def resolvent_trace(x,lambdai):
-            return np.sum([1.0/(xi+1j*1E-2-x) for xi in lambdai])
+            return np.sum([1.0/(xi+1j*eps-x) for xi in lambdai])
         def average_resolvent_trace(x):
             return np.mean([resolvent_trace(x, eigvalsh(LER(n,p)) ) for r in range(0,reps)])
         return [-1/(np.pi*n)*np.imag(average_resolvent_trace(z)) for z in x]
 
+The $\eps$ parameter is the one present in the limit. While analytically a limit procedure should be computed, but to perform the thing numerically, it corresponds to the bin size of an histogram, so if it is not too big (in the order 0.1) the noise of the expectations is averaged out.
 The spectral density is computed as:
 
 $$
