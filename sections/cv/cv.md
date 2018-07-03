@@ -9,6 +9,10 @@ Thesis title: "Community detection in the modular structure of brain functional 
 - 2008 M.Sc in Biomedical Physics, Grade 110/110 cum laude, University of Trento, Italy.
 - 2003 B.Sc in Physics, University of Trento, Italy.
 
+### Seminars
+- June 2018 Netsci2018, Paris. Thermodynamics of network model fitting with spectral entropies. [Download](/static/pdf/presentation_netsci2018.pdf)
+- May 2016 CCS2016 Amsterdam, Community detection in brain functional networks beyond the resolution limit [Download](/static/pdf/presentation_amsterdam_final.pdf)
+
 ### Experience
 
 - **Now (2017-2018): Postdoctoral fellow**
