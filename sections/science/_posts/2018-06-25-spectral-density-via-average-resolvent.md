@@ -2,7 +2,7 @@
 layout: post
 title: Spectral density via the average resolvent
 categories: science
-published: false
+published: true
 date: 2018-06-25
 ---
 
