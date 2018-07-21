@@ -38,6 +38,20 @@ This blog collects results, ideas and notebooks of my work. Not all the content 
 <p>
 </p>
 
+<h2>
+My latest blog posts
+</h2>
+<p>
+</p>
+<ul class="post-list">
+{% for post in site.posts limit:3 %}
+<li>
+<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+</li>
+{% endfor %}
+</ul>
+
+
 <h2>My PhD studies</h2>
 <div class="row">
 <div class="col-xs-12">

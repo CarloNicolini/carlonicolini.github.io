@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Markovitz mean-variance cryptocurrency portfolio
+title: Optimal portfolio for cryptocurrencies
 categories: science
 published: false
 use_math: true
@@ -8,9 +8,45 @@ date: 2018-05-19
 
 ---
 
-Here we want to do this:
+This blog post will cover some aspects related to mathematical finance, applied to the design of the optimal portfolio in terms of the Markovitz mean-variance theory.
+
+We make use of some famous Python packages, to prepare for the blog post we need to install *scikit-learn*
+
+# Preparation
+Let us install some data analysis Python packages first, here are the instructions to work out this thing in Ubuntu.
+
+{% highlight bash %}
+pip install numpy pandas scikit-learn
+{% endhighlight %}
+
+Fortunately, numerical routines of modern portfolio theory are already implemented in the nice `portfolioopt` package:
+
+{% highlight bash %}
+pip install portfolioopt
+{% endhighlight %}
+
+For the moment we don't need many other packages.
+
+# Modern Portfolio Theory
+We start from the Wikipedia definitions of what is meant by modern portfolio theory:
+
+> Modern portfolio theory (MPT), or mean-variance analysis, is a mathematical framework for assembling a portfolio of assets such that the expected return is maximized for a given level of risk. 
+
+> It is a formalization and extension of diversification in investing, the idea that owning different kinds of financial assets is less risky than owning only one type. 
+
+> Its key insight is that an asset's risk and return should not be assessed by itself, but by how it contributes to a portfolio's overall risk and return. It uses the variance of asset prices as a proxy for risk.
+
+The target of our work is to define the best combinations of stocks or cryptoassets to maximize the portfolio return, keeping the risk as measured by the variance, small.
+Hence, a portfolio is a linear combination of the assets' returns.
 
 
+In visual terms, we want to find the portfolio as the weighted combination of assets such that no further increase in the return can happen without an increase in the risk.
+
+![here](https://uk.scalable.capital/images/3x3i7a9xgm11/2s6len2dpSIM46oGkEQQ4A/5cb73a8b6812dc4b5a0621b57c6c3788/makowitz_efficient_frontier_hd-2.png)
+
+
+
+# Code and simulations
 	#!/usr/bin/env python3
 	# -*- coding: utf-8 -*-
 	"""
