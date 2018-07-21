@@ -42,17 +42,23 @@ Importantly the resolvent is the generating function of the moments $$\mu_k=\mat
 \mathbb{E}\left \lbrack{ (z I - \mathbf{L} )^{-1} }\right \rbrack  = \int dx' \frac{\varrho(x')}{z-x'} = \frac{1}{z}\sum_{k=0}^{\infty} dx' \varrho(x') \left( \frac{x'}{z}^k \right) = \sum_{k=0}^{\infty} \frac{\mu_k}{z^{k+1}}
 \end{equation}
 where, by normalization of the density $$\mu_0=1$$. In general we can compute the average traces of a random matrix $$\mathbf{X}$$ by means of integrals over their spectral density:
-\begin{equation}\mathbb{E}[{\mathrm{Tr}{\mathbf{X}^k}}]= n \int d\lambda \lambda^k \varrho(\lambda | \mathbf{X}).
+\begin{equation}\mathbb{E}[{\mathrm{Tr}{[\mathbf{X}^k]}}]= n \int d\lambda \lambda^k \varrho(\lambda | \mathbf{X}).
 \end{equation}
 In the rest of this document, to simplify notation we identify the average spectral density $$\mathbb{E}\lbrack{\varrho}\rbrack$$ simply as $$\varrho$$.
 This also apply in the case of matrix functions, thanks to the series expansion.
-Being the expression for the moments $$\mathbb{E}[\mathrm{Tr}\mathbf{X}^k]$$ always valid, thanks to series expansion of some generic matrix function $$f(\mathbf{X})$$ we can extend this result to general functions $$f$$. 
+Being the expression for the moments $$\mathbb{E}[\mathrm{Tr}[\mathbf{X}^k]]$$ always valid, thanks to series expansion of some generic matrix function $$f(\mathbf{X})$$ we can extend this result to general functions $$f$$. 
 
 If we choose the often encoutered statistical mechanical quantity $$f(\mathbf{X}):=e^{-\beta \mathbf{X}}$$ we obtain this nice expression for the calculation of the expected partition function of a random graph ensemble in the spectral entropies framework:
 \begin{equation}
 \mathbb{E}\left \lbrack{\mathrm{Tr}{e^{-\beta \mathbf{L}}}} \right \rbrack = n \int \limits_{-\infty}^{\infty} e^{-\beta \lambda} \varrho(e^{-\beta \lambda}) d\lambda
 \end{equation}
-	
+
+We can then compute the average spectral density as:
+\begin{equation}
+\rho(x) = -\frac{1}{\pi n} \lim \limits_{\epsilon \to 0^+} \mathrm{Im} \left \langle \sum \limits_{i=1}^n \frac{1}{\lambda_i + j\epsilon - x} \right \rangle
+\end{equation}
+
+If you find this example useful, feel free to contact me.
 
 ## Numerical implementation
 
@@ -103,18 +109,12 @@ plt.show()
 The $$\epsilon$$ parameter (`eps` in the code) is the one present in the limit.
 While analytically a limit procedure should be computed, the parameter controls approximately the bin size of an histogram. A not too big value (in the order 0.1) and the noise of the expectations is averaged out.
 
-We can then compute the average spectral density as:
-
-\begin{equation}
-\rho(x) = -\frac{1}{\pi n} \lim \limits_{\epsilon \to 0^+} \mathrm{Im} \left \langle \sum \limits_{i=1}^n \frac{1}{\lambda_i + j\epsilon - x} \right \rangle
-\end{equation}
-
-
-You can test it in this way:
-
+If you increase the number of repetitions and limit the `eps` parameter very close to zero, being cautios to avoid underflows, you can reconstruct the exact limiting distribution as observed in the histogram.
 
 
 ## References
+To make this blog post I have read a few papers on random matrix theory in graph theory and complex networks.
+Most important reads are the following:
 
 1. Nadakuditi, Raj Rao, and Mark EJ Newman. "Graph spectra and the detectability of community structure in networks." Physical review letters 108.18 (2012): 188701.
 2. Nadakuditi, R. R., & Newman, M. E. (2013). Spectra of random graphs with arbitrary expected degrees. Physical Review E, 87(1), 012803.
