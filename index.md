@@ -12,7 +12,7 @@ layout: default
 </div>
 <div class="row">
 	<div class="col-xs-8">
-		<p>Professionally, I consider myself a "network neuroscientist", with an increasing competence in complex networks theory. I recently took the challenge of using complex networks science to better understand the most complex organ in nature: the brain.
+		<p>Physicist by training, I apply complex networks tools to study the brain.
 		I am also a scientific programmer with real-world expertise in C/C++, Matlab and Python and the ability to learn very fast any new framework for data analysis or generation.
 		<br>
 		I enjoy endurance sports, hiking in the mountains, kayaking and cross-country skiing.

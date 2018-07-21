@@ -26,9 +26,21 @@ Feel free to use it if you need, with the license provided and to cite it accord
 					<a href="{{code.gitlab}}" alt="Website">Source: <span class="fa fa-gitlab"></span>  </a>
 				</p>
 				{% endif %}
+
+				{% if code.bitbucket %}
+				<p>
+					<a href="{{code.bitbucket}}" alt="Website">Source: <span class="fa fa-bitbucket"></span>  </a>
+				</p>
+				{% endif %}
+				{% if code.documentation %}
+				<p>
+					<a href="{{code.documentation}}" alt="Doc">Doc: <span class="fa fa-file"></span>  </a>
+				</p>
+				{% endif %}
+
 				{% if code.downloadform %}
 				<p>
-					<a href="{{code.downloadform}}" alt="Download"><span class="fa fa-download"></span></a>
+					<a href="{{code.downloadform}}" alt="Download">Download: <span class="fa fa-download"></span></a>
 				</p>
 				{% endif %}
 				{% if code.releases %}
