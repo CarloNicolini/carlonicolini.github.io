@@ -4,13 +4,9 @@
   <body>
     {% include header.html %}
     <div class="header" style="background: url(/static/headerbrain.png) no-repeat center; width: 100%; min-height: 100px">
-    <p></p>
+      <p></p>
     </div>
-
-{% if page.use_math %}
-      {% include mathjax_support %}
-{% endif %}
-
+    {% include mathjax_support.html %}
     <div class="page-content">
       <div class="wrapper">
         {{ content }}
