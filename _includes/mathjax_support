@@ -11,9 +11,6 @@
       processEscapes: true,
     },
     Macros: {
-        Tr: '{\\operatorname{Tr}}',
-        tr: '{\\operatorname{Tr}}',
-        bE: '{\\operatorname{\\mathbb{E}}}',
         Abs: ['\\left\\lvert #2 \\right\\rvert_{\\text{#1}}', 2, '']
       }
   });
