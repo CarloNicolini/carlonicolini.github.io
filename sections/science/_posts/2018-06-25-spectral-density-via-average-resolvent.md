@@ -82,7 +82,23 @@ def spectral_density_laplacian_er(n,p,x,reps,eps=1E-1):
     return [-1/(np.pi*n)*np.imag(average_resolvent_trace(z)) for z in x]
 {% endhighlight %}
 
-[here](/static/postfigures/density_histogram.png)
+Let us put our theory at work and generate the spectral density with a chosen level of detail:
+
+{% highlight python %}
+n=200
+p=0.25
+x=np.linspace(0,50,100)
+reps=500
+rho = spectral_density_laplacian_er(n,p,x,reps)
+plt.plot(x,rho)
+plt.hist(np.array([eigvalsh(LER(n,p)) for r in range(0,1000)]).flatten(),100,normed='freq')
+plt.xlabel('$\\lambda$')
+plt.ylabel('$\\varrho(\\lambda)$')
+plt.title('Spectral density Erdos-Renyi Laplacian N=200 p=0.25')
+plt.show()
+{% endhighlight %}
+
+![here](/static/postfigures/density_histogram.png)
 
 The $$\epsilon$$ parameter (`eps` in the code) is the one present in the limit.
 While analytically a limit procedure should be computed, the parameter controls approximately the bin size of an histogram. A not too big value (in the order 0.1) and the noise of the expectations is averaged out.
@@ -96,16 +112,7 @@ We can then compute the average spectral density as:
 
 You can test it in this way:
 
-{% highlight python %}
-n=200
-p=0.25
-x=np.linspace(0,50,200)
-reps=100
-rho = spectral_density_laplacian_er(n,p,x,reps)
-plt.plot(x,rho)
-plt.hist(np.array([eigvalsh(LER(n,p)) for r in range(0,10)]).flatten(),100,normed='freq')
-plt.show()
-{% endhighlight %}
+
 
 ## References
 
