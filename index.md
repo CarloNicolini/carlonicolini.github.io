@@ -13,7 +13,8 @@ layout: default
 <div class="row">
 	<div class="col-xs-8">
 		<p>Physicist by training, I apply complex networks tools to study the brain.
-		I am also a scientific programmer with real-world expertise in C/C++, Matlab and Python and the ability to learn very fast any new framework for data analysis or generation.
+		To do this I use tools from statistical mechanics and machine learning.
+		I am also a scientific programmer with real-world expertise in C/C++, Matlab and Python and the ability to learn very fast any new programming framework for data analysis .
 		<br>
 		I enjoy endurance sports, hiking in the mountains, kayaking and cross-country skiing.
 		</p>

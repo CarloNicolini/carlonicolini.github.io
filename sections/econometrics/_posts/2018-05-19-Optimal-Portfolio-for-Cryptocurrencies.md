@@ -45,7 +45,6 @@ In visual terms, we want to find the portfolio as the weighted combination of as
 ![here](https://uk.scalable.capital/images/3x3i7a9xgm11/2s6len2dpSIM46oGkEQQ4A/5cb73a8b6812dc4b5a0621b57c6c3788/makowitz_efficient_frontier_hd-2.png)
 
 
-
 # Code and simulations
 	#!/usr/bin/env python3
 	# -*- coding: utf-8 -*-
