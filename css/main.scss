@@ -5,10 +5,10 @@
 
 
 // Our variables
-$base-font-family: Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
+$base-font-family: Roboto-Mono, Lato, sans-serif;
+$base-font-size:   17px;
 $small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
+$base-line-height: 1.6;
 
 $spacing-unit:     20px;
 
@@ -21,7 +21,7 @@ $orange-color-light: lighten($orange-color, 40%);
 $orange-color-dark:  darken($orange-color, 15%);
 
 $on-palm:          600px;
-$on-laptop:        800px;
+$on-laptop:        1000px;
 
 
 

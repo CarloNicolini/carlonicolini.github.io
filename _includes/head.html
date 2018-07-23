@@ -16,8 +16,6 @@
 	<!-- Use FONTAWESOME from CDN , no need to install it locally -->
 	<script src="https://use.fontawesome.com/f045b82ed3.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
-	<!-- Enable MATHJAX Support from CDN, no need to install it locally-->
-	<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 	<!-- Use the main.css -->
 	<link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
 	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
@@ -29,17 +27,5 @@
 	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 	ga('create', 'UA-90756713-1', 'auto');
 	ga('send', 'pageview');
-	</script>
-
-	<!-- Enable some mathjax special definitions -->
-	<script type="text/x-mathjax-config">
-	MathJax.Hub.Config({
-		TeX: {
-			Macros: {
-				tr: "{\\textrm{Tr}}",
-				Abs: ['\\left\\lvert #2 \\right\\rvert_{\\text{#1}}', 2, ""]
-			}
-			}
-		});
 	</script>
 </head>
