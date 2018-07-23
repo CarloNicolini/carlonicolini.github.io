@@ -3,10 +3,13 @@ layout: post
 title: Variational inference in the spectral entropies framework
 categories: science
 published: false
-use_math: true
 date: 2018-05-21
-
+use_math: true
 ---
+
+# Variational inference
+
+This code does wonderful things thanks to the Tensorflow automatic differentiation capabilities.
 
 {% highlight python %}
 from __future__ import with_statement
@@ -32,7 +35,6 @@ def graph_laplacian(A):
 def vonneumann_density(L,beta):
     rho = expm(-L*beta)
     return rho/np.trace(rho)
-
 tf.reset_default_graph()
 g = tf.Graph()
 with g.as_default(), tf.device('/device:CPU:0'):
@@ -128,4 +130,5 @@ with g.as_default(), tf.device('/device:CPU:0'):
         ax[2].set_title('$\Delta m$')
         
         plt.tight_layout()
+
 {% endhighlight %}

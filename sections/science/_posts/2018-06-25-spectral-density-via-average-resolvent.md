@@ -6,13 +6,16 @@ published: true
 date: 2018-06-25
 ---
 
-This short blog note is covering some aspects related to calculation in the random matrix theory.
-We have the adjacency matrix of a graph ensemble that we denote with $$\mathbf{A}$$ and we want to compute the limiting distribution of the ensemble eigenvalues.
+This short blog note is covering some aspects related to interesting calculations that can be done in random matrix theory.
+Our problem is to compute the quenched and annealed averages of the free energy in the framework of spectral entropies.
+Suppose we want to study the properties of some random graph ensemble in terms of the spectral density of the eigenvalues of the Laplacian.
+We denote the adjacency matrix of a random graph as $$\mathbf{A}$$, its Laplacian of $\mathbf{L}$. The parameters of the random graph model are indicated by the parameters $\boldsymbol \theta$, so we can imagine every single random graph is a collection of $n(n-1)/2$ random variables dependent on the parameters $\boldsymbol \theta$.
+We are interested in the limiting distribution of the ensemble eigenvalues, a quantity known as the average spectral density $\mathbb{E}[{\varrho}]$, where by the operator $\mathbb{E}[\cdot]$ we mean the ensemble average at constant parameters $\boldsymbol \theta$. This is also indicated in physics with the triangular brackes $\langle \rangle$
 
 Numerically we could in principle compute a large number of random adjacency matrices from the graph ensemble and obtain the spectral density via histogramming.
 However we have more powerful tools to accomplish this task: the **matrix resolvent** and the **Stieltjes** transform.
 
-We can write the spectral density $$\varrho$$ of a matrix $$\mathbf{L}$$ with the help of the Dirac delta function as:
+We can obviously write the spectral density $$\varrho$$ of a matrix $$\mathbf{L}$$ with the help of the Dirac delta function as:
 \begin{equation}
 \varrho(z) = \frac{1}{n}\sum_{i=1}^n \delta(z-\lambda_i)
 \end{equation}
@@ -63,7 +66,10 @@ If you find this example useful, feel free to contact me.
 ## Numerical implementation
 
 All this stuff is pretty nice, mathematically. But we like numerical calculations and want to see if all this theory applies.
-This is a Python code to compute the spectral density of a random matrix ensemble via the average resolvent.
+So we try to numerically compute the ensemble laplacian spectral density by means of the Stieltjes transform of the Laplacian of the Erdos-Renyi random graph.
+With the function `LER` we define sample the Laplacian of a network with `n` nodes and parameter `p`.
+
+Here is the Python code to compute the spectral density of a random matrix ensemble via the average resolvent.
 
 {% highlight python %}
 import numpy as np
@@ -111,10 +117,13 @@ While analytically a limit procedure should be computed, the parameter controls 
 
 If you increase the number of repetitions and limit the `eps` parameter very close to zero, being cautios to avoid underflows, you can reconstruct the exact limiting distribution as observed in the histogram.
 
+To get a smoother curve either you analytically calculate the formula for the spectral density, or you largely increase the number of samples.
+At the moment I don't believe there is some sort of closed form formula for the Laplacian of the Erdos-Renyi graph, which is not hidden under tons of obscure math.
 
-## References
+# References
+
 To make this blog post I have read a few papers on random matrix theory in graph theory and complex networks.
-Most important reads are the following:
+The most important reads are the following:
 
 1. Nadakuditi, Raj Rao, and Mark EJ Newman. "Graph spectra and the detectability of community structure in networks." Physical review letters 108.18 (2012): 188701.
 2. Nadakuditi, R. R., & Newman, M. E. (2013). Spectra of random graphs with arbitrary expected degrees. Physical Review E, 87(1), 012803.
