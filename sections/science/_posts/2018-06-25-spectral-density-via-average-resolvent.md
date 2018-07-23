@@ -6,11 +6,17 @@ published: true
 date: 2018-06-25
 ---
 
-This short blog note is covering some aspects related to interesting calculations that can be done in random matrix theory.
-Our problem is to compute the quenched and annealed averages of the free energy in the framework of spectral entropies.
-Suppose we want to study the properties of some random graph ensemble in terms of the spectral density of the eigenvalues of the Laplacian.
+This short blog note is covering some aspects related to interesting calculations that can be done in random matrix theory applied to the study of spectral properties of random graph models, like those shown in Figure:
+
+<a name="Figure1">
+<img src="/static/postfigures/random_graph_models.png" style="float: center; width: 100%"><br>
+</a>
+Figure 1: Some random graph models. (a) Erdos-Renyi, (b) Gilbert model, (c) Geometric, (d) Barabasi-Albert, (e) Watts-Strogatz, (f) k-regular. Taken from [Dehmer2015](#Dehmer2015).
+
+We want to study the properties of some random graph ensemble in terms of the spectral density of the eigenvalues of the Laplacian.
 We denote the adjacency matrix of a random graph as $$\mathbf{A}$$, its Laplacian of $\mathbf{L}$. The parameters of the random graph model are indicated by the parameters $\boldsymbol \theta$, so we can imagine every single random graph is a collection of $n(n-1)/2$ random variables dependent on the parameters $\boldsymbol \theta$.
-We are interested in the limiting distribution of the ensemble eigenvalues, a quantity known as the average spectral density $\mathbb{E}[{\varrho}]$, where by the operator $\mathbb{E}[\cdot]$ we mean the ensemble average at constant parameters $\boldsymbol \theta$. This is also indicated in physics with the triangular brackes $\langle \rangle$
+
+We are interested in the limiting distribution of the ensemble eigenvalues, a quantity known as the average spectral density $\mathbb{E}[{\varrho}]$, where by the operator $\mathbb{E}[\cdot]$ we mean the ensemble average at constant parameters $\boldsymbol \theta$. This is also indicated in statistical physics with the triangular brackes $\langle \cdot \rangle$.
 
 Numerically we could in principle compute a large number of random adjacency matrices from the graph ensemble and obtain the spectral density via histogramming.
 However we have more powerful tools to accomplish this task: the **matrix resolvent** and the **Stieltjes** transform.
@@ -130,3 +136,4 @@ The most important reads are the following:
 3. Peixoto, T. P. (2013). Eigenvalue spectra of modular networks. Physical review letters, 111(9), 098701.
 4. Edwards, S. F., & Jones, R. C. (1976). The eigenvalue spectrum of a large symmetric random matrix. Journal of Physics A: Mathematical and General, 9(10), 1595.
 5. Livan, G., Novaes, M., & Vivo, P. (2018). Introduction to Random Matrices: Theory and Practice. Springer International Publishing.
+6. <a name="Dehmer2015"></a>Dehmer, M., Emmert-streib, F., Chen, Z., Li, X., Barabási, A., n.d. Mathematical Foundations and Applications of Graph Entropy ``Quantitative and Network Biology''.

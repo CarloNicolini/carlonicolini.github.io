@@ -10,8 +10,10 @@ google-analytics: UA-90756713-1
 # Build settings
 markdown: kramdown
 keep_files: [MathJax]
+ 
 plugins:
   - jekyll-seo-tag
+  - jekyll-sitemapplugin
 social:
   name: Carlo Nicolini
   links:

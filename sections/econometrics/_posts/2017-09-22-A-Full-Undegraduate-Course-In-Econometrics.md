@@ -7,6 +7,11 @@ use_math: true
 date: 2017-09-22
 ---
 
+This series of notes is from the Ben Lambert's course on econometrics, a discipline mixing calculus, linear algebra and statistics in a way that I believe is very enjoyable for a physicist-minded person.
+The series of courses is available at the following Youtube link:
+
+[https://www.youtube.com/watch?v=M9s91hSoNtk](https://www.youtube.com/watch?v=M9s91hSoNtk)
+
 #### [Populations and samples in econometrics](https://www.youtube.com/watch?v=M9s91hSoNtk&index=5&list=PLwJRxp3blEvZyQBTTOMFRP_TDaSdly3gU)
 
 Econometrics is concerned with how do we come up with estimates of population parameters given a sample.

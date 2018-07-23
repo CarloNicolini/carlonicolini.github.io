@@ -2,7 +2,7 @@
 layout: post
 title: Comparing spectral densities of random graph models.
 categories: science
-published: false
+published: true
 date: 2016-08-26
 ---
 
@@ -16,7 +16,7 @@ Additionally, a deep parallel connection seems to exist between complex networks
 Apart from this details, here we expose the most basic ideas in the field, always keeping in mind that our final target is to find a way to compare graphs (and subgraphs) in a theoretical sound manner.
 To do this, let's start from the most basic concepts in graph theory, by introducing the mathematical notation.
 
-### Notation
+## Notation
 A graph $$G =(V,E)$$ is an ordered pair, where $$V =\{1, 2,\ldots, n\}$$ is a set of vertices and $$E$$ is a set of edges connecting the elements of $$V$$. All graphs considered in this notes are undirected, that is, each edge $$e \in E$$ is an unordered pair of vertices. The spectrum of $$G$$ is the set of eigenvalues of its adjacency matrix, which is denoted by $$\mathbf{A}$$. 
 Two vertices $$i$$ and $$j$$ are connected by an edge, if $$A_{G_{ij}} = 1$$, otherwise, $$A_{G_{ij}}=0$$. In undirected graphs, we have $$\mathbf{A} = \mathbf{A}^T$$, therefore, all eigenvalues of the matrix $$A_G$$ are real.
 
@@ -96,8 +96,6 @@ $$
 
 Studying the spectral density of random graph models is a rather powerful tool to identify different graph models, as they act as some "fingerprint" of the stochastic process that generates them.
 
-
-
 ### Spectral entropy
 Any random graph model is characterized by a *spectral density*, a continuos probability function that describes the relative frequency of its eigenvalues, given some parameters.
 In trying to establish a "*network information theory*", it appears that the spectral density is important to define the so-called *graph spectral entropy*.
@@ -169,56 +167,57 @@ As density estimatore we use Gaussian Kernels where the bandwidth of the kernel 
 
 We now import all the Python libraries useful for this task:
 
-    {% highlight python %}
-    """
-    See the book Mathias Dehmer,
-    "Mathematical Foundations and Applications of Graph Entropy"
-    Chapter 6 Statistical Methods in Graphs: Parameter Estimation, Model Selection, and Hypothesis Test
-    """
-    import networkx as nx
-    import numpy as np
-    import matplotlib.pyplot as plt
-    import seaborn as sbn
-    from numpy.linalg import eigvals
-    from scipy import stats
-    {% endhighlight %}
+{% highlight python %}
+"""
+See the book Mathias Dehmer,
+"Mathematical Foundations and Applications of Graph Entropy"
+Chapter 6 Statistical Methods in Graphs: Parameter Estimation, Model Selection, and Hypothesis Test
+"""
+import networkx as nx
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sbn
+from numpy.linalg import eigvals
+from scipy import stats
+{% endhighlight %}
 
 Then we focus on the estimation of the spectral density of the ER model $$G(n,p)$$ that in some sense is the canonical ensemble version of the $$G(n,m)$$ random graph model (the microcanonical ensemble where number of links is an hard constraint). We use a $$p=0.007$$ and generate 1000 random graphs of $$n=50$$ nodes, computing then the average eigenvalues.
 
-    {% highlight python %}
-    # Generate 1000 ER random graphs with the Erdos-Renyi model 
-    # and compute their eigenvalues mean
-    n = 50
-    p = 0.05
-    nsamples = 10000
-    vs = np.array([0]*n)
-    for i in range(0,nsamples):
-        G = nx.gnp_random_graph(n,p)
-        A = nx.to_numpy_matrix(G)
-        v = np.real(eigvals(A))
-        vs = vs + v
-    vs = vs/nsamples
-    {% endhighlight %}
+{% highlight python %}
+# Generate 1000 ER random graphs with the Erdos-Renyi model 
+# and compute their eigenvalues mean
+n = 50
+p = 0.05
+nsamples = 10000
+vs = np.array([0]*n)
+for i in range(0,nsamples):
+    G = nx.gnp_random_graph(n,p)
+    A = nx.to_numpy_matrix(G)
+    v = np.real(eigvals(A))
+    vs = vs + v
+vs = vs/nsamples
+{% endhighlight %}
 
 We must divide the average eigenvalue by $$\sqrt(n)$$ and then estimate the Gaussian Kernel Density.
 
-    {% highlight python %}
-    vs = vs/(np.sqrt(n))
-    kde = stats.gaussian_kde(vs,bw_method='silverman')
-    x = np.linspace(vs.min(), vs.max(), 100)
-    rho = kde(x)
-    {% endhighlight %}
+{% highlight python %}
+vs = vs/(np.sqrt(n))
+kde = stats.gaussian_kde(vs,bw_method='silverman')
+x = np.linspace(vs.min(), vs.max(), 100)
+rho = kde(x)
+{% endhighlight %}
 
 Finally we plot the empirical data together with the theoretical analytical estimate:
 
-    {% highlight python %}
-    plt.plot(x,rho)
-    plt.ylabel('Spectral density')
-    plt.xlabel('Eigenvalues')
-    plt.title('ER Model spectral density')
-    {% endhighlight %}
+{% highlight python %}
+plt.plot(x,rho)
+plt.ylabel('Spectral density')
+plt.xlabel('Eigenvalues')
+plt.title('ER Model spectral density')
+{% endhighlight %}
 
 with the following (nice) result about the ER spectral density:
+
 <a name="Figure3">
 <img src="/static/postfigures/er_spectral_density_n_50_nsamples_1000_p_0_05.png" style="float: center; width: 100%">Figure 3: Spectral densities computed for Erdos-Renyi graph. $$N=50, p=0.05$$.
 </a>
