@@ -13,11 +13,11 @@
 
 - title: 'Thermodynamics of network model fitting with spectral entropies'
   authors: 'Nicolini C., Vlasov V., Bifone A.'
-  journal: 'arxiv'
+  journal: 'Physical Review E'
   volume: 'arXiv:1801:06009v1'
   abstract: 'An information theoretic approach inspired by quantum statistical mechanics was recently proposed as a means to optimize network models and to assess their likelihood against synthetic and real-world networks. Importantly, this method does not rely on specific topological features or network descriptors, but leverages entropy-based measures of network distance. Entertaining the analogy with thermodynamics, we provide a physical interpretation of model hyperparameters and propose analytical procedures for their estimate. These results enable the practical application of this novel and powerful framework to network model inference. We demonstrate this method in synthetic networks endowed with a modular structure, and in real-world brain connectivity networks.'
   pdf: 'https://arxiv.org/pdf/1801.06009v1'
-  url: 'https://arxiv.org/pdf/1801.06009v1'
+  url: 'https://journals.aps.org/pre/abstract/10.1103/PhysRevE.98.022322'
   image: /static/img/pub/spectral_entropy.png
   code: 'http://bitbucket.org/carlonicolini/networkqit'
  
