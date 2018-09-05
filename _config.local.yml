@@ -10,7 +10,7 @@ twitter_username: carlonicolini84
 # Build settings
 markdown: kramdown
 keep_files: [MathJax]
-
+enable_disqus: true
 plugins:
   - jekyll-seo-tag
 social:
