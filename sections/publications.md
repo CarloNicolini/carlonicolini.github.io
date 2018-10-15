@@ -73,6 +73,9 @@ permalink: /sections/publications
 Conferences and proceedings
 ---------------------------
 
+-- **Carlo Nicolini**, Thermodynamic of network model fitting with spectral entropies. NETSCI2018, Paris, June 11-16th 2018.
+	[pdf](/static/pdf/presentation_netsci2018.pdf)  
+
 - **Carlo Nicolini**, Cècile Bordier, Angelo Bifone, "Community detection in weighted brain connectivity networks beyond the resolution limit", Conference of the Complex Systems Society, Amsterdam, (2016) [CCS2016](ccs2016.org).
 
     [pdf](/static/pdf/conference_amsterdam_v2.pdf)
