@@ -18,8 +18,26 @@ In order to convert a `numpy.array` representing the adjacency matrix of a graph
 This function, that correctly handles the edge weights, in the variable `weight` is given in the following snippet. 
 
 {% highlight python %}
-import graph_tool.all as gt
 def to_graph_tool(adj):
+    g = gt.Graph(directed=False)
+    edge_weights = g.new_edge_property('double')
+    g.edge_properties['weight'] = edge_weights
+    num_vertices = len(adj)
+    for i in range(0,num_vertices):
+        for j in range(i+1,num_vertices):
+            if adj[i,j]!=0:
+                e = g.add_edge(i,j)
+                edge_weights[e] = adj[i,j]
+    return g
+{% endhighlight %}
+
+It is clear here that one is trying to add links with their specific weight by considering them in a double nested for loop, which can be expensive to evaluate.
+Unfortunately at the moment the following the indication from [stackoverflow](https://stackoverflow.com/questions/23288661/create-a-weighted-graph-from-an-adjacency-matrix-in-graph-tool-python-interface) does not seem to work correctly.
+The implementation is the following, that uses the *add_edge_list* method, but when the adjacency matrix is produced the results are inconsistent.
+
+{% highlight python %}
+import graph_tool.all as gt
+def to_graph_tool_WRONG(adj):
     g = gt.Graph(directed=False)
     eprop = g.new_edge_property('double')
     g.edge_properties['weight'] = eprop
