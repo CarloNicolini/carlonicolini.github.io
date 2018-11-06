@@ -4,7 +4,7 @@
   documentation: 'https://networkqit.github.io'
   bitbucket: https://bitbucket.org/carlonicolini/networkqit
   fulldescription: '
-  Networkqit is a Python toolbox to perform model optimization and assessment within the spectral entropies of complex networks framework.
+  Networkqit is a Python toolbox to perform model optimization and assessment within the spectral entropies of complex networks framework. You can install it with the `pip` package manager as it is hosted on the pypi repositories: `pip install networkqit`.
   '
 
 - name: FAGSO
