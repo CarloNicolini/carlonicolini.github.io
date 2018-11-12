@@ -13,9 +13,11 @@ We want to model some observed network with Laplacian $$\mathbf{L}^*$$ and densi
 
 We seek to minimize the following quantity over the space of network ensemble parameters:
 
-\begin{equation}
-\mathbb{E}\lbrack S(\boldsymbol \rho \| \boldsymbol \sigma(\boldsymbol \theta))\rbrack  = \underbrace{\mathbb{E}{\mathrm{Tr} \lbrack \boldsymbol \rho \log  \boldsymbol \rho}}}_{\textrm{data}} - \underbrace{\bE{\boldsymbol \rho \log \boldsymbol \sigma(\boldsymbol \theta)}}_{\textrm{avg. model log-likelihood \rbrack \rbrack}}
-\end{equation}
+
+$$
+\mathbb{E}\lbrack S(\boldsymbol \rho \| \boldsymbol \sigma(\boldsymbol \theta))\rbrack  = \mathbb{E}{\mathrm{Tr} \lbrack \boldsymbol \rho \log  \boldsymbol \rho}} - \mathbb{E}{\boldsymbol \rho \log \boldsymbol \sigma(\boldsymbol \theta)}
+$$
+
 
 where the expectation $$\mathbb{E}\left \lbrack \cdot \right \rbrack$$ is to be made over the set of all networks produced by a generative model at parameters $$\boldsymbol \theta$$.
 
