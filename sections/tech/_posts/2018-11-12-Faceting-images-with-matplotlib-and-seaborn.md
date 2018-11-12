@@ -2,7 +2,7 @@
 layout: post
 title: Faceting images or generic plots with Seaborn and Python matplotlib
 categories: tech
-date: 2018-12-11
+date: 2018-11-12
 ---
 
 
@@ -52,6 +52,10 @@ The trick is to design the exact function to be passed to the `FacetGrid.map` me
 
 In other words the variables 'x' and 'y' get mapped as input to the first argument of the `FacetGrid.map` method. Here I have also highlighted that the signature of the lambda function provided hasn't to match exactly the name of the variables to be used in faceting, as I've used `_x` as placeholder for the `'x'` column in the `df` dataframe.
 
+<a name="facetgrid_imshow">
+<img src="/static/postfigures/facetgrid_plot.png" style="float: center; width: 100%"><br>
+</a>
+
 The case of faceting images
 ---------------------------
 One can do more complicate things. It is possible to facet images that depend on some condition.
@@ -79,5 +83,10 @@ Let us build again our omnicomprehensive dataframe, each row of the `picture` co
     grid = sns.FacetGrid(df, row='condition1', col='condition2')
     grid.map(lambda x, **kwargs : (plt.imshow(x.values[0]),plt.grid(False)), 'picture')
 
+The result is the following:
+
+<a name="facetgrid_imshow">
+<img src="/static/postfigures/facetgrid_imshow.png" style="float: center; width: 100%"><br>
+</a>
 
 Other cases should now be clear, always map a function with the same number of input arguments as the number of mapping variable passed to `FacetGrid.map`, and make use of the `.values[0]` method, otherwise a subslice of a `pandas` dataframe is passed to the plotting function.
