@@ -22,7 +22,7 @@ We prove various *no-flattening theorems* showing when efficient linear deep net
 
 
 | Physics                   | ML                                |
-|---------------------------|:---------------------------------:|
+|:--------------------------|----------------------------------:|
 | Hamiltonian $H$           | Surprisal $-\log p$               |
 | Simple $H$                | Cheap learning                    |
 | Quadratic $H$             | Gaussian $p$                      |
@@ -33,3 +33,15 @@ We prove various *no-flattening theorems* showing when efficient linear deep net
 | Effective theory          | Nearly lossles data distillation  |
 | Irrelevant operator       | Noise                             |
 | Relevant operator         | Feature                           |
+
+
+And we continue with the link between statistical physics and Bayesian theory, here in a small table (we set $k_B=1$)
+
+
+| Physical perspective                                                        | Statistical perspective                                                                                |
+|:----------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------:|
+| Potential $\phi(\theta)$                                                    | Negative log-joint $\phi( \theta ) = - \log p(y, \theta \| m)$                                         |
+| Boltzmann distribution $q(\theta)=\frac{1}{Z} \exp{-\beta \phi(\theta)}$    | Posterior distribution. $q(\theta)=\frac{1}{Z}\exp{-\log p(y,\theta \|m)}=\frac{1}{Z} p(y,\theta\|m)$  |
+| Partition function $Z=\int \exp{-\beta \phi(\theta)}$                       | Model evidence $Z=\int p(y,\theta \| m)$                                                               | 
+| Internal energy $U=\int q(\theta) \phi(\theta) d\theta$                     | Expected log-joint $U=\int p(\theta \| y,m) \log p(y,\theta \|m) d\theta$                              |
+| Entropy $S=-\int q(\theta) \log q(\theta) d\theta $                         | Shannon Entropy $S_{shannon} = -\int q(\theta) \log q(theta) d\theta$                                  |
