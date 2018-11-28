@@ -2,7 +2,7 @@
 layout: post
 title: Statistical mechanics of networks - Park and Newman model of hidden variables
 categories: science
-published: true
+published: false
 date: 2017-05-09
 ---
 
@@ -62,11 +62,13 @@ If we just know the average number of edges that a network should have (not a sp
 It is possible to evaluate this in an ensemble of simple undirected graphs.
 If the adjacency matrix $$A_{ij}$$ is one when one link is present and zero otherwise, then the number of edges in the graph $$m = \sum \limits_{i < j } A_{ij} $$ and the partition function $$ Z $$ can be written as:
 
-$$Z = \sum_G \exp{-H(G)} = \sum \limits_{\{A_{ij}\}} \exp \left( {- \theta \sum \limits_{i < j} A_{ij}} \right )$$
-$$=\prod \limits_{i< j} \sum \limits_{ A_{ij} =0 }^1 \exp \left({ \theta A_{ij} }\right) = \prod \limits_{i< j} \left( 1 + \exp({-\theta}) \right) = (1+ \exp(-\theta))^{\binom{n}{2}}$$
+\begin{align}
+Z = \sum_G \exp{-H(G)} =& \sum \limits_{\{A_{ij}\}} \exp \left( {- \theta \sum \limits_{i < j} A_{ij}} \right ) \\ =& \prod \limits_{i< j} \sum \limits_{ A_{ij} =0 }^1 \exp \left({ \theta A_{ij} }\right) = \prod \limits_{i< j} \left( 1 + \exp({-\theta}) \right) = (1+ \exp(-\theta))^{\binom{n}{2}}
+\end{align}
+
 
 Starting from the partition function, one can define the free energy $$F = -\log(Z)$$
-
+<!-- 
 ### Maximum entropy model for multilayer networks
 
 Copying from the previous example it is simple to show that in a multilayer network with $$\mathcal{A}$$ layers, where each layer is indexed by $$\alpha \in \mathbb{N}$$, like for example $$A_{ij}^{(\alpha)}$$, one can define instead of one constraint, a number of $$\alpha$$ constraints, one for each layer.
@@ -78,4 +80,4 @@ $$H(G) = \sum \limits_{\alpha}^{\mathcal{A}} \theta^{(\alpha)} m^{(\alpha)} = \s
 therefore the partition function becomes:
 
 $$Z =  \prod \limits_{\alpha}\left( 1 + e^{-\theta^{(\alpha)}} \right)^{\binom{n^{(\alpha)}}{2}}$$
-
+ -->
