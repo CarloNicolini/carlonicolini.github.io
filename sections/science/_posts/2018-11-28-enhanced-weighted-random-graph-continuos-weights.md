@@ -22,7 +22,7 @@ write down explicitly:
 \begin{aligned}
 \label{eq:partition_function_continuous}
 Z(G) = &\sum \limits_{G \in \mathcal{G}} e^{-H(G)}  = \sum \limits_{G \in \mathcal{G}} e^{- \sum \limits_{i < j} \beta_m \Theta(w_{ij}) + \beta_w w_{ij} }\nonumber \\\\ = & \sum \limits_{G \in \mathcal{G}} \prod_{i < j} e^{-\beta_m \Theta({w_{ij})} - \beta_w w_{ij}} = \prod \limits_{i < j} \int \limits_{\{ w_{ij}=0 \}}^{\infty} e^{-\beta_m \Theta({w_{ij}}) - \beta_w w_{ij}} \nonumber \\\\
-= & \prod \limits_{i < j} \left( 1 + \sum \limits_{\{ w_{ij}=1 \}}^{\infty} e^{-\beta_m \Theta({w_{ij}}) - \beta_w w_{ij}} \right)
+= & \prod \limits_{i < j} \left( 1 + \int \limits_{\{ w_{ij}=1 \}}^{\infty} e^{-\beta_m \Theta({w_{ij}}) - \beta_w w_{ij}} \right)
 \end{aligned}
 
 Let us start from the Lagrangian of the constrained optimization problem, but with integrals replacing sums, as the ensemble $\mathcal{G}$ must be continuously integrated:
@@ -31,10 +31,3 @@ Let us start from the Lagrangian of the constrained optimization problem, but wi
 L(G) = - \int \limits_{G \in \mathcal{G}} P(G)\log\left( P(G) \right ) +  \alpha \left(1-\int \limits_{G \in \mathcal{G}} P(G) \right) +& \beta_m \left( \langle L \rangle - \int \limits_{G \in \mathcal{G}} m(G) P(G) \right)  +\nonumber \\\\ &\beta_w \left( \langle W \rangle - \int \limits_{G \in \mathcal{G}} w(G) P(G) \right)
 \end{aligned}
 
-The stationary point of this Lagrangian is taking the functional derivatives w.r.t the probability $P(G)$ and  set them to zero, finding a system of equations, with result:
-
-\begin{equation}
-\log P(G) + 1 + \alpha + \beta_m m(G) + \beta_w w(G) = 0
-\end{equation}
-
-Now I must remember that the weights are continuos, hence sums $\{ w_{ij} \}$ must be replaced by integrals. In other words I must write $m(G) = \sum_{i < j} \Theta(w_{ij})$ and $w(G) = \sum_{ i < j }$
