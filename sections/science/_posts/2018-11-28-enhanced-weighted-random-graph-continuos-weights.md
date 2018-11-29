@@ -57,6 +57,12 @@ We compute the free energy $F=-\log Z$:
 F = -\log (Z) = \binom{n}{2} \log \beta_w
 \end{equation}
 
+The likelihood is:
+
+\begin{equation}
+\log P(W) = \sum_{i<j}  -\beta_m w_{ij} - \log(\beta_w)
+\end{equation}
+
 <!-- Now we make the substitution $p_w = e^{-\beta_w}$ and compute the derivatives of the free energy w.r.t $p_w$:
 
 \begin{aligned}
@@ -107,9 +113,9 @@ The expected number of links is:
 \langle W \rangle &= \frac{\partial F}{\partial \beta_w} = \binom{n}{2} \frac{1}{\beta_w}
 \end{aligned}
 
-the quantity $\beta_w^{-1}$ can be thought as the expected weight of a link.
+Indeed, the quantity $\beta_w^{-1}$ can be thought as the expected weight of a link.
 
-We can write the probability of a graph as:
+The probability of a graph is:
 
 \begin{equation}
 P(G) = \frac{e^{-H(G)}}{Z} = \prod_{i<j} \frac{\beta_w e^{-\beta_m \Theta(w) - \beta_w w}}{e^{-\beta_m}} = \prod_{i<j} \frac{e^{-\beta_m a_{ij}}}{e^{-\beta_m}} \beta_w e^{-\beta_w w_{ij}} = \prod_{i<j} p_m^{a_{ij}-1} \beta_w e^{-\beta_w w_{ij}}
@@ -118,7 +124,7 @@ P(G) = \frac{e^{-H(G)}}{Z} = \prod_{i<j} \frac{\beta_w e^{-\beta_m \Theta(w) - \
 Hence the probability of a link of weight $w_{ij}$ is 
 
 \begin{equation}
-p_{ij}(w_{ij})=\beta_w e^{-\beta_w w_{ij}} \frac{e^{-\beta_m \Theta(w_{ij})}}{e^{-\beta_m}} = 
+p_{ij}(w_{ij})=\beta_w e^{-\beta_w w_{ij}} \frac{e^{-\beta_m \Theta(w_{ij})}}{e^{-\beta_m}} = \beta_w e^{-\beta_w w_{ij}} e^{-\beta_m(\Theta(w_{i}) - 1)}
 \end{equation}
 
 Differently from the purely weighted model discussed above, here the probability 
