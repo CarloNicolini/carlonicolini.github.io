@@ -112,13 +112,13 @@ the quantity $\beta_w^{-1}$ can be thought as the expected weight of a link.
 We can write the probability of a graph as:
 
 \begin{equation}
-P(G) = \frac{e^{-H(G)}}{Z} = \prod_{i<j} \frac{\beta_w e^{-\beta_m \Theta(w) - \beta_w w}}{e^{-\beta_m}} = \prod_{i<j} \frac{e^{-\beta_m a_{ij}}}{e^{-\beta_m}} \beta_w e^{-\beta_w w_{ij}}
+P(G) = \frac{e^{-H(G)}}{Z} = \prod_{i<j} \frac{\beta_w e^{-\beta_m \Theta(w) - \beta_w w}}{e^{-\beta_m}} = \prod_{i<j} \frac{e^{-\beta_m a_{ij}}}{e^{-\beta_m}} \beta_w e^{-\beta_w w_{ij}} = \prod_{i<j} p_m^{a_{ij}-1} \beta_w e^{-\beta_w w_{ij}}
 \end{equation}
 
 Hence the probability of a link of weight $w_{ij}$ is 
 
 \begin{equation}
-p_{ij}(w_{ij})=\beta_w e^{-\beta_w w_{ij}} \frac{e^{-\beta_m \Theta(w_{ij})}}{e^{-\beta_m}}
+p_{ij}(w_{ij})=\beta_w e^{-\beta_w w_{ij}} \frac{e^{-\beta_m \Theta(w_{ij})}}{e^{-\beta_m}} = 
 \end{equation}
 
 Differently from the purely weighted model discussed above, here the probability 
