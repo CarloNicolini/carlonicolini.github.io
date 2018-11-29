@@ -42,8 +42,9 @@ equal to its observed value. In other words that:
 
 \begin{aligned}
 \label{eq:constraints_ewrg}
-\langle W \rangle = W^{\star} \nonumber \\\\
-\langle L \rangle = L^{\star}\end{aligned}
+\langle W \rangle = W^{\star} \\\\
+\langle L \rangle = L^{\star}
+\end{aligned}
 
 This is a vastly under-determined problem in most cases, since the
 number of degrees of freedom in the definition of the probability
