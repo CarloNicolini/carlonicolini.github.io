@@ -7,16 +7,6 @@
   Networkqit is a Python toolbox to perform model optimization and assessment within the spectral entropies of complex networks framework. You can install it with the `pip` package manager as it is hosted on the pypi repositories: `pip install networkqit`.
   '
 
-- name: FAGSO
-  image: /static/img/software/fagso.png
-  description: Fast Agglomerative Surprise Optimization
-  releases: 'https://github.com/CarloNicolini/fagso/releases/'
-  documentation: 'static/doc/fagso.pdf'
-  github: https://github.com/carlonicolini/fagso
-  fulldescription: '
-  FAGSO is an agglomerative Surprise Optimization algorithm written in C++ with bindings as MEX MATLAB and Octave file as well as Python library. It comes as the first proof of concept implementation of the idea, and accompanies the paper *Modular structure of brain functional connectivity: breaking the resolution limit by Surprise*. All the documentation on how to compile and use FAGSO is indicated on the github webpage.
-  '
-
 - name: PACO
   image: /static/img/software/paco.png
   description: Partitioning Cost Optimization
@@ -28,6 +18,15 @@
   gitlab: 'https://github.com/carlonicolini/paco'
   downloadform: 'http://forms.iit.it/view.php?id=68447'
   
+- name: FAGSO
+  image: /static/img/software/fagso.png
+  description: Fast Agglomerative Surprise Optimization
+  releases: 'https://github.com/CarloNicolini/fagso/releases/'
+  documentation: 'static/doc/fagso.pdf'
+  github: https://github.com/carlonicolini/fagso
+  fulldescription: '
+  FAGSO is an agglomerative Surprise Optimization algorithm written in C++ with bindings as MEX MATLAB and Octave file as well as Python library. It comes as the first proof of concept implementation of the idea, and accompanies the paper *Modular structure of brain functional connectivity: breaking the resolution limit by Surprise*. All the documentation on how to compile and use FAGSO is indicated on the github webpage.
+  '
 
 - name: CommunityAlg
   image: /static/img/software/community_detection.jpg
@@ -37,6 +36,10 @@
   CommunityAlg is a set of Matlab functions for the analysis of complex networks and it extends largely the Brain connectivity Toolbox (BCT) by Sporns and Rubinov. CommunityAlg at the moment is a moving target and the implementations of the methods may change in the future as well as their signatures.'
   documentation: '/static/doc/communityalg.pdf'
   
+- name: CNCSVision
+  image: /static/img/software/eyeicon.png
+  description: 
+
 - name: LFRWMX
   image: /static/img/software/lfr.png
   description: A Matlab wrapper around the Lancichinetti-Fortunato-Radicchi benchmark network generator
