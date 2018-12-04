@@ -1,7 +1,7 @@
 # Site settings
 title: Carlo Nicolini
 email: "carlo.nicolini@iit.it"
-description: "My small place."
+description: "Personal blog about science, programming, statistical mechanics, network theory and neuroimaging"
 baseurl: "" 
 url: "https://carlonicolini.github.io"
 github_username:  carlonicolini
@@ -12,6 +12,7 @@ markdown: kramdown
 keep_files: [MathJax]
 enable_disqus: true 
 plugins:
+  - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-sitemapplugin
 social:

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Showing brain parcellation in Python with nilearn and some hacking
+description: Here I show a small guide to draw beautiful visualization of region of interest, based on analysis of community structure from brain networks.
 categories: science
 published: true
 use_math: true

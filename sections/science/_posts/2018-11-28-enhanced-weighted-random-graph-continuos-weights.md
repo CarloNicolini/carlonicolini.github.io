@@ -1,8 +1,10 @@
 ---
 layout: post
 title: The Enhanced weighted random graph model with continuous weights
+
 categories: science
 published: false
+use_math: true
 date: 2018-11-28
 ---
 
@@ -18,12 +20,17 @@ To do this I will follow the basic derivation to show that the final probability
 Continuos Weighted Random graph model
 -------------------------------------
 
-In this case the derivation simple, and the ideas have already been laid by the work of [Agatha Fronckzak](https://journals.aps.org/pre/pdf/10.1103/PhysRevE.85.056113).
-Let us compute the partition function $Z(G)$:
+In this case the derivation simple, and the ideas have already been laid by the work of [Agatha Fronckzak](https://journals.aps.org/pre/pdf/10.1103/PhysRevE.85.056113). We consider a graph with total weight $W^\star$. The Hamiltonian of the problem is:
+
+\begin{equation}
+H(G) = \sum_{i<j} \beta_w w_{ij} = \beta_w W^{\star}
+\end{equation}
+
+So we can compute the partition function $Z(G)$ as:
 
 \begin{aligned}
-Z(G) = &\sum \limits_{G \in \mathcal{G}} e^{-H(G)}  = \sum \limits_{G \in \mathcal{G}} e^{- \sum \limits_{i < j} \beta_w w_{ij} }\nonumber \\\\ = & \sum \limits_{G \in \mathcal{G}} \prod_{i < j} e^{ - \beta_w w_{ij}} = \prod \limits_{i < j} \int \limits_{\{ w_{ij}=0 \}}^{\infty} e^{- \beta_w w_{ij}} \nonumber \\\\
-= & \prod \limits_{i < j} \left( \frac{1}{\beta_w} \right) \\\\ =& \left( \frac{1}{\beta_w}\right)^{\binom{n}{2}}
+Z(G) = &\sum \limits_{G \in \mathcal{G}} e^{-H(G)}  = \sum \limits_{G \in \mathcal{G}} e^{- \sum \limits_{i < j} \beta_w w_{ij} }\nonumber \\\\ = & \sum \limits_{G \in \mathcal{G}} \prod_{i < j} e^{ - \beta_w w_{ij}} = \prod \limits_{i < j} \int \limits_{\{ w_{ij}=0 \} }^{\infty} e^{- \beta_w w_{ij}} \nonumber \\\\
+= \prod \limits_{i < j} \left( \frac{1}{\beta_w} \right)  = \left( \frac{1}{\beta_w}\right)^{\binom{n}{2}}
 \end{aligned}
 
 Looking at this last expression for the partition function, it allows us to rewrite the probability of a network as:
@@ -32,8 +39,9 @@ Looking at this last expression for the partition function, it allows us to rewr
 P(G) = \frac{e^{-H(G)}}{Z} = \prod_{i<j} e^{-\beta_w w_{ij}} \beta_w 
 \end{equation}
 
-Hence, the edge **weights are exponentially distributed random variables**.
+In other words, the edge **weights are exponentially distributed random variables**, and the probability of the graph is the product of the probability of each edge under the exponential distribution (not to be confused with *exponential family*).
 With the substitution $p(w) = e^{-\beta_w w} \beta_w$ we can write the probability of a graph in the continuous weighted random graph model as:
+
 \begin{equation}
 P(G) = \prod_{i<j} p(w_{ij})
 \end{equation}
@@ -50,8 +58,7 @@ and can be used to compute the expected strength:
 \langle s_i \rangle = \sum_{i\neq j} \langle w_{ij} \rangle = (n-1) \frac{1}{\beta_w}
 \end{equation}
 
-Let us try to compute the expected total weight.
-We compute the free energy $F=-\log Z$:
+Let us try to compute the expected total weight. We start from the free energy $F=-\log Z$:
 
 \begin{equation}
 F = -\log (Z) = \binom{n}{2} \log \beta_w
@@ -61,6 +68,12 @@ The likelihood is:
 
 \begin{equation}
 \log P(W) = \sum_{i<j}  -\beta_m w_{ij} - \log(\beta_w)
+\end{equation}
+
+How can we determine the value of $\beta_w$ from a graph? To do this we need to solve the constraint equation:
+
+\begin{equation}
+\langle W \rangle = \frac{\partial F}{\partial \beta_w} = \binom{n}{2} \beta_w^{-1}
 \end{equation}
 
 <!-- Now we make the substitution $p_w = e^{-\beta_w}$ and compute the derivatives of the free energy w.r.t $p_w$:
@@ -87,6 +100,11 @@ The solution for $p_w$ involves the calculation of the Lambert W function:
 p_w = -\frac{2 W^\star}{n(n-1)} \mathrm{LambertW}\left( - \frac{n(n-1)}{2 W^\star}\right)
 \end{equation} -->
 
+
+Continuos weights, specified strength sequence
+----------------------------------------------
+
+This model 
 
 Solution for the enhanced version
 ---------------------------------

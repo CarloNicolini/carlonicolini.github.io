@@ -4,7 +4,7 @@
 body, h1, h2, h3, h4, h5, h6,
 p, blockquote, pre, hr,
 dl, dd, ol, ul, figure {
-    margin: 0;
+    margin: 40;
     padding: 0;
 }
 
@@ -15,10 +15,11 @@ body {
     font-family: $base-font-family;
     font-size: $base-font-size;
     line-height: $base-line-height;
-    font-weight: 300;
+    font-weight: 280;
     color: $text-color;
     background-color: $background-color;
-    text-align: left;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 /**
@@ -30,6 +31,7 @@ ul, ol, dl, figure,
 %vertical-rhythm {
     margin-bottom: $spacing-unit / 2;
     text-align: justify;
+
 }
 
 /**
@@ -69,7 +71,7 @@ li {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 300;
+    font-weight: 400;
 }
 
 /**
