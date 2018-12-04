@@ -21,7 +21,6 @@ In the following parts, I will detail step by step how to make such a beatiful p
 
 *Why this post?*
 
-
 I have found that Python still lacks a decent way to integrate beatiful visualization of brain templates with the results of network community detection. That's what is typically needed in the pipeline of analysis of connectomic data, as well as in the graph-theoretical treatment of brain data.
 
 Most important, working with `seaborn` and a number of other libraries based on `matplotlib`, I needed to be able to put my results into `matplotlib` axes, as subplots.
@@ -29,6 +28,29 @@ There are a number of libraries out there which can plot parcellized areas over 
 For this reason I preferred to make my own functions for this task. I like home-made implementation of the stuff that I base my research on.
 
 To be clear, I had  a `pandas dataframe`, where a column contain a `numpy array` with the node label assignments, and based on some other columns I wanted to do facetings to quickly visualize the effects of two variables, store in columns `var1` and `var2` on the parcellation of the brain.
+
+What do I need to make this beatiful plots?
+===========================================
+
+**Ingredients:**
+
+1. A working Python3 installation, with the `pip3` package installed. Doing this in Linux distribution is highly suggested.
+2. A nifti template. You can download one [here](https://github.com/CarloNicolini/communityalg/raw/master/data/template_638.nii).
+3. A vector of integers with the same length as the total number of parcels in the nifti template.
+4. A mesh of the brain surface to render. Here I use 
+5. Some time to read and understand.
+ 
+All the ingredients of this recipe are baked and ready to be used in a simple Python3 package that I developed for the laziest people out there. The package is called `brainroisurf` and is available at my github page.
+
+**Link to the code**
+
+[https://github.com/carlonicolini/brainroisurf]([https://github.com/carlonicolini/brainroisurf])
+
+The package already contains a number of example data, templates and surfaces files.
+Just follow the instructions at the README and you'll be ready.
+
+In the next lines, I will better detail the inner workings of this package.
+
 
 Why is this visualization useful?
 =================================
@@ -51,7 +73,7 @@ Something that `nilearn` is able to do, but with some small problems as in [Figu
 5. We iterate over the range $$[0,638]$$ with the variable `i` and assign the voxels in the template with value `i`, the value of the corresponding membership `m[i]`.
 
 6. We then must project on the surface of the brain, the values contained in the volume. There are a number of problems in doing this. When computing the color of a vertex of the mesh, we must decide which value of the voxel we should keep.
-To make beatiful surface renderings, we choose to use the value of the majority of the voxels close to the surface.
+To make beatiful surface renderings, we choose to use the value of the **majority** of the voxels close to the surface.
 
 7. We also need to use a decent colormap. A good colormap must assign integer number to discrete colors, possibly maximally perceptually different, and with the gray color assigned to the 0, which in the nifti is the number assigned to empty space.
 
@@ -65,20 +87,17 @@ The problems we address
 =======================
 
 It looks like our brain parcellated surface can be plotted with a smart usage of the `nilearn.surface.plot_surf_roi` method.
-Unfortunately, the result is horrible. We are limited to the default brain surface. Even if we could in theory use other surfaces, by providing vertices and faces of a mesh, we miss a decent lightning model to shade the surface.
 
-Moreover 
+Unfortunately, the result is horrible and is shown in the following figure.
 
-What do I need to make this beatiful plots?
-===========================================
+<a name="Figure1">
+<img src="/static/postfigures/nilearn-brain-parcellation-wrong.jpg" style="float: center; width: 75%">
+</a>
 
-**Ingredients:**
+ We are limited to the default brain surface. Even if we could in theory use other surfaces, by providing vertices and faces of a mesh, we miss a decent lightning model to shade the surface. Moreover there is a not very nice interpolation of colors between different areas, which we don't want, being our data discrete, and the general color map is not adequate to our purpose.
 
-1. A working Python3 installation, with the `pip3` package installed. Doing this in Linux distribution is highly suggested.
-2. A nifti template. You can download one [here](https://github.com/CarloNicolini/communityalg/raw/master/data/template_638.nii).
-3. A vector of integers with the same length as the total number of parcels in the nifti template.
-4. A mesh of the brain surface to render. Here I use 
-4. Some time to read and understand.
+ Can we make something like [Figure 2](Figure2) but in 3D and visualized as a surface?
+
 
 Loading the mesh and computing normals
 ======================================
@@ -183,12 +202,21 @@ cbar.set_ticklabels( ['unmapped'] + list(range(1, C + 1)) ) # height of tick lab
 {% endhighlight %}
 
 <a name="Figure1">
-<img src="/static/postfigures/colorbar_set3.png" style="float: left; width: 20%">
+<img src="/static/postfigures/colorbar_set3.png" style="float: center; width: 20%">
 </a>
 *A colorbar with 9 unique discrete values, and the 0 left as unmapped.
 
+
+
 Mapping the membership vector to mesh vertices
 ==============================================
+
+You need to change the value in the volume using the values from the membership vector.
+As every voxel belongs to one of the $C$ classes in the membership vector, the simplest way to do that is to iterate over the parcels, find the voxels within the parcel and assign those voxels the block specified by the membership vector.
+
+Ain't easy? Just run a `for` loop over the membership vector. The smaller the number of parcels and the smaller the template, the faster the loop. There is still room for improvement here, I believe. We do the thing in two passages. We first collect the indices `(i,j,k)` of the voxels belonging to parcel `membership[parcel]` and then we imbue those voxel with the right value. This is done to avoid overwriting the same array twice.
+
+Finally we apply the customized `surface.vol_to_surf` function, specifying as the interpolation `nearest` (for nearest neighbor sampling of mesh vertices to the voxels).
 
 {% highlight python %}
 def membership_to_rois(template, mesh, memb, **kwargs):
@@ -221,3 +249,6 @@ def membership_to_rois(template, mesh, memb, **kwargs):
                                     radius=radius)
     return memb_rois
 {% endhighlight %}
+
+The customized `surface.vol_to_surf` is different from the namesake function `nilearn.surface.vol_to_surf` as this one uses a `max` heuristic to assign color to mesh vertices. Without this choice, the result would be less interpretable, as over the frontier of each area, a blend of the colors of neighboring areas would be used.
+
