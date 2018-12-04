@@ -2,7 +2,7 @@
 layout: post
 title: Showing brain parcellation in Python with nilearn and some hacking
 categories: science
-published: false
+published: true
 use_math: true
 date: 2018-11-27
 ---
