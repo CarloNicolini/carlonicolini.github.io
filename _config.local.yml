@@ -12,9 +12,7 @@ markdown: kramdown
 keep_files: [MathJax]
 enable_disqus: true
 plugins:
-  - jekyll-paginate
   - jekyll-seo-tag
-  - jekyll-sitemapplugin
 social:
   name: Carlo Nicolini
   links:

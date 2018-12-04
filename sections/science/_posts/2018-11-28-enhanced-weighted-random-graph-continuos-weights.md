@@ -104,17 +104,58 @@ p_w = -\frac{2 W^\star}{n(n-1)} \mathrm{LambertW}\left( - \frac{n(n-1)}{2 W^\sta
 Continuos weights, specified strength sequence
 ----------------------------------------------
 
-This model 
+This model has Hamiltonian $H(G)$:
 
-Solution for the enhanced version
----------------------------------
+\begin{equation}
+H(G) = \sum_{i<j} (\theta_i + \theta_j) w_{ij} = \sum_i \theta_i s_i
+\end{equation}
+where $s_i$ is the $i$-th node strength.
+
+The partition function can be computed with the same technique described before:
+
+\begin{aligned}
+Z(G)= \int_{G \in \mathcal{G}} e^{-H(G)} = \int_{G \in \mathcal{G}} \prod_{i<j} e^{-(\theta_i + \theta_j) w_{ij}} = \prod_{i<j} \int_{0}^{\infty} e^{-(\theta_i+\theta_j)w_{ij}} \\\\ = \prod_{i<j} \frac{1}{(\theta_i + \theta_j)} e^{-(\theta_i+\theta_j)}
+\end{aligned}
+
+The free energy simply becomes:
+
+\begin{aligned}
+F=-\log Z &= -\sum_{i<j} \log\left(\frac{1}{(\theta_i+\theta_j)} e^{-(\theta_i + \theta_j)w_{ij}} \right) = \\\\ &=\sum_{i<j}\log (\theta_i + \theta_j) + (\theta_i+\theta_j)w_{ij}
+\end{aligned}
+
+The graph probability $P(G)$ becomes:
+
+\begin{aligned}
+P(G) \equiv P(W) = \frac{e^{-H(G)}}{Z(G)} = \prod_{i<j} \frac{(\theta_i+\theta_j) e^{-(\theta_i+\theta_j)w_{ij}}}{e^{-(\theta_i+\theta_j)}} \\\\ = \prod_{i<j} (\theta_i+\theta_j) e^{- w_{ij} (\theta_{i} + \theta_{j}) + (\theta_{i} + \theta_{j})}
+\end{aligned}
+
+The expected nodal strength is computed as:
+
+\begin{equation}
+\frac{\partial F}{\partial \theta_i} = \prod_{i<j} \frac{1}{(\theta_i + \theta_j)}
+\end{equation}
+
+The log-likelihood is:
+
+\begin{equation}
+\log P(W) = \sum_{i<j} \log(\theta_i+\theta_j) + w_{ij}(\theta_i+\theta_j) + (\theta_i + \theta_j)
+\end{equation}
+We have to solve $n$ non linear equations in order to recover the parameters $\theta_i$. They are:
+
+\begin{aligned}
+\frac{\partial \log P}{\partial \theta_i} = 0 = \\\\
+\sum_{i<j} \frac{1}{(\theta_i+\theta_j)} + w_{ij} - 1 = 0 \\\\
+\end{aligned}
+
+Solution for the enhanced version of the weighted random graph model
+--------------------------------------------------------------------
 
 In the enhanced case the solution is a bit more complicated.
 Let us compute the partition function:
 
 \begin{aligned}
 \label{eq:partition_function_continuous}
-Z(\mathcal{G}) = &\int \limits_{G \in \mathcal{G}} e^{-H(G)}  = \int \limits_{G \in \mathcal{G}} e^{- \sum \limits_{i < j} \beta_m \Theta(w_{ij}) + \beta_w w_{ij} } = \int \limits_{G \in \mathcal{G}} \prod_{i<j} e^{-\beta_m \Theta(w_{ij}) + \beta_w w_{ij} } = \\\\ =& \prod_{i<j}
+Z(\mathcal{G}) = &\int \limits_{G \in \mathcal{G}} e^{-H(G)}  = \int \limits_{G \in \mathcal{G}} e^{- \sum \limits_{i < j} \beta_m \Theta(w_{ij}) + \beta_w w_{ij} } = \int \limits_{G \in \mathcal{G}} \prod_{i<j} e^{-\beta_m \Theta(w_{ij})  \beta_w w_{ij} } = \\\\ =& \prod_{i<j}
 \int_{G \in \mathcal{G}} e^{-\beta_m \Theta(w_{ij}) - \beta_w w_{ij}} = \\\\ =& \prod_{i<j} \int_{0}^{\infty} e^{-\beta_m\Theta(w) -\beta_w w } dw = \\\\ =& \prod_{i<j} \frac{e^{-\beta_m}}{\beta_w}
 \end{aligned}
 
@@ -131,18 +172,51 @@ The expected number of links is:
 \langle W \rangle &= \frac{\partial F}{\partial \beta_w} = \binom{n}{2} \frac{1}{\beta_w}
 \end{aligned}
 
-Indeed, the quantity $\beta_w^{-1}$ can be thought as the expected weight of a link.
+Again, the quantity $\beta_w^{-1}$ can be thought as the expected weight of a link.
 
 The probability of a graph is:
 
-\begin{equation}
-P(G) = \frac{e^{-H(G)}}{Z} = \prod_{i<j} \frac{\beta_w e^{-\beta_m \Theta(w) - \beta_w w}}{e^{-\beta_m}} = \prod_{i<j} \frac{e^{-\beta_m a_{ij}}}{e^{-\beta_m}} \beta_w e^{-\beta_w w_{ij}} = \prod_{i<j} p_m^{a_{ij}-1} \beta_w e^{-\beta_w w_{ij}}
-\end{equation}
+\begin{aligned}
+P(G) = \frac{e^{-H(G)}}{Z} &= \prod_{i<j} \frac{\beta_w e^{-\beta_m \Theta(w_{ij}) - \beta_w w_{ij}}}{e^{-\beta_m}} \\\\ &= \prod_{i<j} \frac{e^{-\beta_m a_{ij}}}{e^{-\beta_m}} \beta_w e^{-\beta_w w_{ij}} = \prod_{i<j} p_m^{a_{ij}-1} \beta_w e^{-\beta_w w_{ij}} \\\ &=\prod_{i<j} e^{\beta_m(1-a_{ij})} \beta_w e^{-\beta_w w_{ij}}
+\end{aligned}
 
 Hence the probability of a link of weight $w_{ij}$ is 
 
+\begin{aligned}
+q_{ij}(w_{ij})=\beta_w e^{-\beta_w w_{ij}} \frac{e^{-\beta_m \Theta(w_{ij})}}{e^{-\beta_m}} \\\\ = \beta_w e^{-\beta_w w_{ij}} e^{-\beta_m(\Theta(w_{i}) - 1)}
+\end{aligned}
+
+Solution with constraints on both degrees and strength
+------------------------------------------------------
+
+The partition function becomes:
+
+\begin{aligned}
+Z(\mathcal{G}) = &\int \limits_{G \in \mathcal{G}} e^{-H(G)}  = \int \limits_{G \in \mathcal{G}} e^{- \sum \limits_{i < j} \(\alpha_i + \alpha_j) \Theta(w_{ij}) + \(\beta_i + \beta_j) w_{ij} } = \int \limits_{G \in \mathcal{G}} \prod_{i<j} e^{-\(\alpha_i + \alpha_j) \Theta(w_{ij})  \(\beta_i + \beta_j) w_{ij} } = \\\\ =& \prod_{i<j}
+\int_{G \in \mathcal{G}} e^{-\(\alpha_i + \alpha_j) \Theta(w_{ij}) - \(\beta_i + \beta_j) w_{ij}} = \\\\ =& \prod_{i<j} \int_{0}^{\infty} e^{-\(\alpha_i + \alpha_j)\Theta(w) -\(\beta_i + \beta_j) w } dw = \\\\ =& \prod_{i<j} \frac{e^{-\(\alpha_i + \alpha_j)}}{\(\beta_i + \beta_j)}
+\end{aligned}
+
+The free energy becomes:
+
+
+\begin{aligned}
+F=-\log Z &= -\sum_{i<j} \log\left(\frac{e^{-(\alpha_i+\alpha_j)}}{(\beta_i+\beta_j)} e^{-(\beta_i + \beta_j)w_{ij} - (\alpha_i+\alpha_j)a_{ij}} \right) = \\\\ &=\sum_{i<j}\log (\beta_i + \beta_j) + (\beta_i+\beta_j)w_{ij} + (\alpha_i+\alpha_j)a_{ij} + (\alpha_i+\alpha_j)
+\end{aligned}
+
+Hence the link existence probability becomes:
+
 \begin{equation}
-p_{ij}(w_{ij})=\beta_w e^{-\beta_w w_{ij}} \frac{e^{-\beta_m \Theta(w_{ij})}}{e^{-\beta_m}} = \beta_w e^{-\beta_w w_{ij}} e^{-\beta_m(\Theta(w_{i}) - 1)}
+\langle k_i \rangle = \frac{\partial F}{\partial \alpha_i} = \sum_{i\neq j} a_{ij} + 1
 \end{equation}
 
-Differently from the purely weighted model discussed above, here the probability 
+\begin{equation}
+\langle s_i \rangle = \frac{\partial F}{\partial \beta_i} = \sum_{i \neq  j} \frac{w_{ij} \left(\beta_i + \beta_j\right) + 1}{\beta_i + \beta_j}
+\end{equation}
+
+Enforcing sparsity
+------------------
+
+As we have seen, the resulting MaxEnt network with continuous edge weights is not very interesting.
+Unfortunately, as expected the networks are very dense. Is it possible to enforce the maximal sparsity, while having the given total weight? Something like a regularization term may help.
+
+Let's define our new optimization problem: maximize $\sum_G P(G) \log P(G)$ constrained to
