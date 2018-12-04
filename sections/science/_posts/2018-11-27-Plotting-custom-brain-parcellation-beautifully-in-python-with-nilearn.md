@@ -105,7 +105,7 @@ Loading the mesh and computing normals
 As we want to be able to work with any surface mesh of the brain we want, we must load the mesh in Python.
 To load the `.nv` files, I provide a set of functions that load the data, compute the normals of the faces and average each normal face over the vertices.
 
-{% highlight python linenos %}
+{% highlight python %}
 def normalize_v3(arr):
     """ Normalize a numpy array of 3 component vectors shape=(n,3) """
     lens = np.sqrt(arr[:, 0]**2 + arr[:, 1]**2 + arr[:, 2]**2)
