@@ -23,7 +23,7 @@ Continuos Weighted Random graph model
 In this case the derivation simple, and the ideas have already been laid by the work of [Agatha Fronckzak](https://journals.aps.org/pre/pdf/10.1103/PhysRevE.85.056113). We consider a graph with total weight $W^\star$. The Hamiltonian of the problem is:
 
 \begin{equation}
-H(G) = \sum_{i<j} \beta_w w_{ij} = \beta_w W^{\star}
+H(G) = \sum \limits_{i<j} \beta_w w_{ij} = \beta_w W^{\star}
 \end{equation}
 
 So we can compute the partition function $Z(G)$ as:
@@ -55,7 +55,7 @@ The expected weight (for each edge) is the mean value of the exponential distrib
 and can be used to compute the expected strength:
 
 \begin{equation}
-\langle s_i \rangle = \sum_{i\neq j} \langle w_{ij} \rangle = (n-1) \frac{1}{\beta_w}
+\langle s_i \rangle = \sum \limits_{i\neq j} \langle w_{ij} \rangle = (n-1) \frac{1}{\beta_w}
 \end{equation}
 
 Let us try to compute the expected total weight. We start from the free energy $F=-\log Z$:
@@ -67,7 +67,7 @@ F = -\log (Z) = \binom{n}{2} \log \beta_w
 The likelihood is:
 
 \begin{equation}
-\log P(W) = \sum_{i<j}  -\beta_m w_{ij} - \log(\beta_w)
+\log P(W) = \sum \limits_{i<j}  -\beta_m w_{ij} - \log(\beta_w)
 \end{equation}
 
 How can we determine the value of $\beta_w$ from a graph? To do this we need to solve the constraint equation:
@@ -107,7 +107,7 @@ Continuos weights, specified strength sequence
 This model has Hamiltonian $H(G)$:
 
 \begin{equation}
-H(G) = \sum_{i<j} (\theta_i + \theta_j) w_{ij} = \sum_i \theta_i s_i
+H(G) = \sum \limits_{i<j} (\theta_i + \theta_j) w_{ij} = \sum_i \theta_i s_i
 \end{equation}
 where $s_i$ is the $i$-th node strength.
 
@@ -120,7 +120,7 @@ Z(G)= \int_{G \in \mathcal{G}} e^{-H(G)} = \int_{G \in \mathcal{G}} \prod_{i<j} 
 The free energy simply becomes:
 
 \begin{aligned}
-F=-\log Z &= -\sum_{i<j} \log\left(\frac{1}{(\theta_i+\theta_j)} e^{-(\theta_i + \theta_j)w_{ij}} \right) = \\\\ &=\sum_{i<j}\log (\theta_i + \theta_j) + (\theta_i+\theta_j)w_{ij}
+F=-\log Z &= -\sum \limits_{i<j} \log\left(\frac{1}{(\theta_i+\theta_j)} e^{-(\theta_i + \theta_j)w_{ij}} \right) = \\\\ &=\sum \limits_{i<j}\log (\theta_i + \theta_j) + (\theta_i+\theta_j)w_{ij}
 \end{aligned}
 
 The graph probability $P(G)$ becomes:
@@ -138,13 +138,13 @@ The expected nodal strength is computed as:
 The log-likelihood is:
 
 \begin{equation}
-\log P(W) = \sum_{i<j} \log(\theta_i+\theta_j) + w_{ij}(\theta_i+\theta_j) + (\theta_i + \theta_j)
+\log P(W) = \sum \limits_{i<j} \log(\theta_i+\theta_j) + w_{ij}(\theta_i+\theta_j) + (\theta_i + \theta_j)
 \end{equation}
 We have to solve $n$ non linear equations in order to recover the parameters $\theta_i$. They are:
 
 \begin{aligned}
 \frac{\partial \log P}{\partial \theta_i} = 0 = \\\\
-\sum_{i<j} \frac{1}{(\theta_i+\theta_j)} + w_{ij} - 1 = 0 \\\\
+\sum \limits_{i<j} \frac{1}{(\theta_i+\theta_j)} + w_{ij} - 1 = 0 \\\\
 \end{aligned}
 
 Solution for the enhanced version of the weighted random graph model
@@ -200,39 +200,213 @@ The free energy becomes:
 
 
 \begin{aligned}
-F=-\log Z &= -\sum_{i<j} \log\left(\frac{e^{-(\alpha_i+\alpha_j)}}{(\beta_i+\beta_j)} e^{-(\beta_i + \beta_j)w_{ij} - (\alpha_i+\alpha_j)a_{ij}} \right) = \\\\ &=\sum_{i<j}\log (\beta_i + \beta_j) + (\beta_i+\beta_j)w_{ij} + (\alpha_i+\alpha_j)a_{ij} + (\alpha_i+\alpha_j)
+F=-\log Z &= -\sum \limits_{i<j} \log\left(\frac{e^{-(\alpha_i+\alpha_j)}}{(\beta_i+\beta_j)} e^{-(\beta_i + \beta_j)w_{ij} - (\alpha_i+\alpha_j)a_{ij}} \right) = \\\\ &=\sum \limits_{i<j}\log (\beta_i + \beta_j) + (\beta_i+\beta_j)w_{ij} + (\alpha_i+\alpha_j)a_{ij} + (\alpha_i+\alpha_j)
 \end{aligned}
 
 Hence the link existence probability becomes:
 
 \begin{equation}
-\langle k_i \rangle = \frac{\partial F}{\partial \alpha_i} = \sum_{i\neq j} a_{ij} + 1
+\langle k_i \rangle = \frac{\partial F}{\partial \alpha_i} = \sum \limits_{i\neq j} a_{ij} + 1
 \end{equation}
 
 \begin{equation}
-\langle s_i \rangle = \frac{\partial F}{\partial \beta_i} = \sum_{i \neq  j} \frac{w_{ij} \left(\beta_i + \beta_j\right) + 1}{\beta_i + \beta_j}
+\langle s_i \rangle = \frac{\partial F}{\partial \beta_i} = \sum \limits_{i \neq  j} \frac{w_{ij} \left(\beta_i + \beta_j\right) + 1}{\beta_i + \beta_j}
 \end{equation}
 
-Another approach
-----------------
+
+Introducing the threshold parameter
+-----------------------------------
 
 We compute with the parameter dependent Hamiltonian
 
 \begin{equation}
-H(G) = \sum_{i<j} (\alpha_i + \alpha_j) \Theta(w_{ij}-w_t) + (\beta_i+\beta_j) w_{ij}
+H(G) = \sum \limits_{i<j} (\alpha_i + \alpha_j) \Theta(w_{ij}-w_t) + (\beta_i+\beta_j) w_{ij}
 \end{equation}
 
-where $t$ is a threshold, that is a parameter here.
+where $t>0$ is a threshold, that is a parameter here. It is the absolute threshold parameter.
 The partition function becomes:
 
+\begin{aligned}
+Z(\mathcal{G}) = \sum_{G \in \mathcal{G}} e^{-H(G)} &= \prod_{i<j} \int_{0}^{\infty} e^{-(\alpha_i + \alpha_j) \Theta(w_{ij}-w_t) - (\beta_i+\beta_j) w_{ij}}  \\\\ &= \prod_{i<j} \frac{1 - e^{-t(\beta_i+\beta_j)} + e^{-(\alpha_i + \alpha_j) - (\beta_i+\beta_j)t }}{(\beta_i+\beta_j)}
+\end{aligned}
+
+the free energy becomes:
+
+\begin{aligned}
+F = -\log Z &= - \sum \limits_{i<j}\left \lbrack \log \left( 1 - e^{-t(\beta_i+\beta_j)} + e^{-(\alpha_i + \alpha_j) - (\beta_i+\beta_j)t } \right) - \log (\beta_i + \beta_j) \right \rbrack \\\\ 
+\end{aligned}
+with the substitution $x_i=e^{-\alpha_i}$ and $y_i=e^{-\beta_i}$ we have:
+
+\begin{aligned}
+F = - \sum \limits_{i<j}\left \lbrack \log \left( 1 - (y_i y_j)^t + x_i x_j (y_i y_j)^t \right)  - \log\left( -\log y_i -\log y_j \right) \right \rbrack 
+\end{aligned}
+
+We can compute the expectation of the presence of a link (probability) and its weight by taking the derivatives w.r.t $\alpha_i$ and $\beta_i$. By the chain rule of derivatives, we have:
+
+\begin{aligned}
+p_{ij} = \langle a_{ij} \rangle = \frac{\partial F}{\partial \alpha_i} = \frac{\partial F}{\partial x_i}\frac{\partial x_i}{\partial \alpha_i} = \frac{x_i x_j (y_i y_j)^t}{1 + x_i  x_j (y_i y_j)^t-(y_i y_j)^t}
+\end{aligned}
+
+and for the expected weight:
+
+\begin{aligned}
+\langle w_{ij} \rangle = \frac{\partial F}{\partial \beta_i} = \frac{\partial F}{\partial x_i}\frac{\partial x_i}{\partial \beta_i} =  \frac{t (x_i  x_j-1) (y_i y_j)^t}{1 + x_i  x_j (y_i
+    y_j)^t-(y_i y_j)^t}-\frac{1}{\log (y_i)+\log (y_j)}
+\end{aligned}
+
+Let us study these formulas in the limit $t \to 0$.
+
+\begin{aligned}
+\lim \limits_{t \to 0} \langle w_{ij} \rangle = - \frac{1}{\log (y_i y_j)} = \beta_i + \beta_j
+\end{aligned}
+and we recover the expectation in the exponential distribution, as expected. 
+For the probability of link existence, we have instead :
+
+\begin{aligned}
+\lim \limits_{t \to 0} \langle p_{ij} \rangle = \frac{x_i x_j}{x_i x_j -1 + 1} = 1
+\end{aligned}
+
+so the total number of links is $\langle L \rangle = \prod_{i<j} 1 = \binom{n}{2}$ and the total weight is $\langle W \rangle = \prod_{i<j} \beta_i + \beta_j$.
+
+Great, it looks correct when considered in the limit case. So the parameter $t$ which is the thresholding value controls the sparsity of the model, and in the case it is not exactly 0, the random graph model seems very interesting.
+
+The expected degree is computed from the link probability as:
+
 \begin{equation}
-Z(\mathcal{G}) = \sum_{G \in \mathcal{G}} e^{-H(G)} = \prod_{i<j} \int_{0}^{\infty} e^{-(\alpha_i + \alpha_j) \Theta(w_{ij}-w_t) - (\beta_i+\beta_j) w_{ij}}
+\langle k_i \rangle = \sum_{ j \neq i}
 \end{equation}
 
-Enforcing sparsity
-------------------
+### Ratio $\langle w_{ij} \rangle/p_{ij}$
+Let us study the ratio between expected weight and expected link probability:
 
-As we have seen, the resulting MaxEnt network with continuous edge weights is not very interesting.
-Unfortunately, as expected the networks are very dense. Is it possible to enforce the maximal sparsity, while having the given total weight? Something like a regularization term may help.
+\begin{equation}
+\frac{\langle w_{ij} \rangle}{p_{ij}} = \frac{(y_i y_j)^{-t} \left((x_i  x_j-1) (y_i y_j)^t (t \log (y_i y_j)-1)-1\right)}{x_i  x_j \log (y_i y_j)}
+\end{equation}
 
-Let's define our new optimization problem: maximize $\sum_G P(G) \log P(G)$ constrained to
+or in Python code:
+
+{% highlight python %}
+def ratio_wij_pij(xij, yij, t):
+    from numpy import log
+    num = -1 + (-1 + xij) * ((yij)**t) * (-1 + t * log(yij))
+    den = xij*((yij)**t) * log(yij)
+    return num / den
+{% endhighlight %}
+
+As we can see it is not possible to simplify $x_i x_j$ as in the discrete case.
+
+### Likelihood optimization
+We now need to design the equations for fitting this powerful null model to real-world networks.
+To do this we need to maximize the likelihood of this model that can be obtained as the logarithm of the graph probability, or to solve a system of $2N$ non-linear equations, where we equate each individual degree and strength to the empirical one.
+
+\begin{aligned}
+\begin{cases}
+k_i^\star = \langle k_i \rangle = \sum \limits_{i \neq j} p_{ij} \\ \\\\
+s_i^\star = \langle s_i \rangle &= \sum \limits_{i \neq j} \langle w_{ij} \rangle 
+\end{cases}
+\end{aligned}
+
+
+{% highlight python %}
+import matplotlib.pyplot as plt
+from matplotlib import cm
+import numpy as np
+from scipy.optimize import fsolve,root
+
+
+def pij_wij(x,y,t):
+    eps=1E-16
+    xij = np.outer(x,x)
+    yij = np.outer(y,y)
+    pij = xij*((yij)**t)/(1.0+xij*(yij**t) - (yij**t))
+    wij = (t*(xij-1.0)*(yij**t))/((1.0 + xij*(yij**t) - (yij**t) )) - 1.0/(np.log(np.abs(eps+yij)))
+    return pij,wij
+
+def eq(z, t, ki, si):
+    nz = len(z)
+    n = nz//2
+    pij,wij = pij_wij(z[0:n],z[n:],t) # x is first half, y is second half
+    #print(pij.shape,wij.shape,ki.shape,si.shape)
+    np.fill_diagonal(pij,0)
+    np.fill_diagonal(wij,0)
+    
+    delta_pij = np.sum(pij,axis=0) - ki
+    delta_wij = np.sum(wij,axis=0) - si
+    return np.concatenate([delta_pij, delta_wij])
+
+
+#A = np.random.exponential(0.5,size=(n,n))
+#A*=A>0.2
+#np.fill_diagonal(A,0)
+import bct
+A=np.loadtxt('/home/carlo/workspace/communityalg/data/GroupAverage_rsfMRI_unthr.adj')
+np.fill_diagonal(A,0)
+
+A=A[0:50,0:50]
+t=0.2
+A=bct.threshold_absolute(A,t)
+
+n=len(A)
+
+k = (A>0).sum(axis=0)
+s = A.sum(axis=0)
+eps = np.finfo(float).eps
+sol = root(lambda v: eq(v,t,k,s), 
+           x0=np.random.random(len(k)+len(s)),
+           method='lm',
+           options={'xtol':1E-16,'gtol':1E-16,'ftol':1E-16})
+
+x = sol['x'][0:n]
+y = sol['x'][n:]
+pij,wij = pij_wij(x,y,t) # compute the output from the optimization result
+plt.figure(figsize=(12,8))
+plt.subplot(2,3,1)
+im = plt.imshow(pij)
+plt.colorbar(im,fraction=0.046, pad=0.04)
+plt.grid(False)
+plt.title('$p_{ij}$')
+
+plt.subplot(2,3,2)
+im = plt.imshow(wij)
+plt.clim([A.min(),A.max()])
+plt.colorbar(im,fraction=0.046, pad=0.04)
+plt.grid(False)
+plt.title('$q_{ij}$')
+
+plt.subplot(2,3,3)
+im = plt.imshow(A)
+plt.colorbar(im,fraction=0.046, pad=0.04)
+plt.grid(False)
+plt.title('A')
+
+#plt.subplot(2,3,4)
+#im = plt.imshow(sol['fjac'])
+#plt.colorbar(im,fraction=0.046, pad=0.04)
+#plt.grid(False)
+#plt.title('Jacobian')
+
+plt.subplot(2,3,4)
+plt.plot((A>0).sum(axis=0),pij.sum(axis=0), 'b.')
+plt.plot(np.linspace(0,pij.sum(axis=0).max()),np.linspace(0,pij.sum(axis=0).max()),'r-')
+plt.grid(True)
+plt.axis('equal')
+plt.title('$k_i - <k_i>$')
+plt.ylabel('model')
+plt.xlabel('empirical')
+plt.xlim([0,min((A>0).sum(axis=0).max(),pij.sum(axis=0).max())])
+plt.ylim([0,min((A>0).sum(axis=0).max(),pij.sum(axis=0).max())])
+
+plt.subplot(2,3,5)
+plt.plot(A.sum(axis=0),wij.sum(axis=0), 'b.')
+plt.plot(np.linspace(0,wij.sum(axis=0).max()),np.linspace(0,wij.sum(axis=0).max()),'r-')
+plt.title('$ s_i - <s_i>$')
+plt.axis('equal')
+plt.xlim([0,wij.sum(axis=0).max()])
+plt.ylim([0,wij.sum(axis=0).max()])
+plt.grid(True)
+plt.ylabel('model')
+plt.xlabel('empirical')
+
+
+plt.tight_layout()
+{% endhighlight %}
