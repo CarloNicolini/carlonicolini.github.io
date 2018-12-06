@@ -213,6 +213,22 @@ Hence the link existence probability becomes:
 \langle s_i \rangle = \frac{\partial F}{\partial \beta_i} = \sum_{i \neq  j} \frac{w_{ij} \left(\beta_i + \beta_j\right) + 1}{\beta_i + \beta_j}
 \end{equation}
 
+Another approach
+----------------
+
+We compute with the parameter dependent Hamiltonian
+
+\begin{equation}
+H(G) = \sum_{i<j} (\alpha_i + \alpha_j) \Theta(w_{ij}-w_t) + (\beta_i+\beta_j) w_{ij}
+\end{equation}
+
+where $t$ is a threshold, that is a parameter here.
+The partition function becomes:
+
+\begin{equation}
+Z(\mathcal{G}) = \sum_{G \in \mathcal{G}} e^{-H(G)} = \prod_{i<j} \int_{0}^{\infty} e^{-(\alpha_i + \alpha_j) \Theta(w_{ij}-w_t) - (\beta_i+\beta_j) w_{ij}}
+\end{equation}
+
 Enforcing sparsity
 ------------------
 
