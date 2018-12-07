@@ -296,117 +296,49 @@ def ratio_wij_pij(xij, yij, t):
 As we can see it is not possible to simplify $x_i x_j$ as in the discrete case.
 
 ### Likelihood optimization
+
 We now need to design the equations for fitting this powerful null model to real-world networks.
 To do this we need to maximize the likelihood of this model that can be obtained as the logarithm of the graph probability, or to solve a system of $2N$ non-linear equations, where we equate each individual degree and strength to the empirical one.
 
+\begin{equation}
+k_i^\star = \langle k_i \rangle = \sum \limits_{i \neq j} p_{ij}
+\end{equation}
+
+\begin{equation}
+s_i^\star = \langle s_i \rangle = \sum \limits_{i \neq j} \langle w_{ij} \rangle 
+\end{equation}
+
+This can be solved by any nonlinear system equation solver, given enough accuracy is passed. In this code snippet we use the `scipy.optimize.root` solver, with the Levenberg-Marquardt method `method='lm'`, and a very small error tolerance on gradients, values and gradients (we use `options={'xtol':1E-16,'gtol':1E-16,'ftol':1E-16})`). Convergence is slow but the result is good agreement with toy datasets.
+
+### Calculation of Jacobian
+
+The Jacobian of the system of equations can be obtained as 
+
+## Statistics from this model
+
+We may ask, given this null model, what is the expected number of connected components given the threshold $t \in \mathbb{R}$ or how the degrees and the strengths are correlated.
+To my knowledge this things have never been studied for a continuous model and we may find interesting new answers.
+
+The correlation function $\langle k_i k_j \rangle$ can be obtained as 
+
+\begin{equation}
+\langle k_i k_j \rangle = \frac{\partial^2 F}{\partial x_i \partial x_j} =  \frac{x_i  x_j (y_i y_j)^t}{(x_i  x_j-1) (y_i
+    y_j)^t+1}
+\end{equation}
+
+and for the strengths $\langle s_i s_j \rangle$ we have
+
+\begin{equation}
+\langle s_i s_j \rangle = \frac{\partial^2 F}{\partial y_i \partial y_j} =  -\frac{t}{(x_i  x_j-1) (y_i y_j)^t+1}+t-\frac{1}{\log(y_i y_j)}
+\end{equation}
+
+
+However as a first application of this null model, we try to solve for the threshold that maintains a specific number of links $L^{\star} = \sum_{i<j} p_{ij}$ and a specific total weight $W^{\star} = \sum_{i<j} \langle w_{ij} \rangle$.
+This can be very useful to be able to compare two networks specifing the same number of links and total weight. Indeed, this has never been studied before. Hence, the question: does a threshold that maintains both the conditions exists?
+
+We need to solve the two simultaneous conditions:
+
 \begin{aligned}
-\begin{cases}
-k_i^\star = \langle k_i \rangle = \sum \limits_{i \neq j} p_{ij} \\ \\\\
-s_i^\star = \langle s_i \rangle &= \sum \limits_{i \neq j} \langle w_{ij} \rangle 
-\end{cases}
+x \\\\
+y
 \end{aligned}
-
-
-{% highlight python %}
-import matplotlib.pyplot as plt
-from matplotlib import cm
-import numpy as np
-from scipy.optimize import fsolve,root
-
-
-def pij_wij(x,y,t):
-    eps=1E-16
-    xij = np.outer(x,x)
-    yij = np.outer(y,y)
-    pij = xij*((yij)**t)/(1.0+xij*(yij**t) - (yij**t))
-    wij = (t*(xij-1.0)*(yij**t))/((1.0 + xij*(yij**t) - (yij**t) )) - 1.0/(np.log(np.abs(eps+yij)))
-    return pij,wij
-
-def eq(z, t, ki, si):
-    nz = len(z)
-    n = nz//2
-    pij,wij = pij_wij(z[0:n],z[n:],t) # x is first half, y is second half
-    #print(pij.shape,wij.shape,ki.shape,si.shape)
-    np.fill_diagonal(pij,0)
-    np.fill_diagonal(wij,0)
-    
-    delta_pij = np.sum(pij,axis=0) - ki
-    delta_wij = np.sum(wij,axis=0) - si
-    return np.concatenate([delta_pij, delta_wij])
-
-
-#A = np.random.exponential(0.5,size=(n,n))
-#A*=A>0.2
-#np.fill_diagonal(A,0)
-import bct
-A=np.loadtxt('/home/carlo/workspace/communityalg/data/GroupAverage_rsfMRI_unthr.adj')
-np.fill_diagonal(A,0)
-
-A=A[0:50,0:50]
-t=0.2
-A=bct.threshold_absolute(A,t)
-
-n=len(A)
-
-k = (A>0).sum(axis=0)
-s = A.sum(axis=0)
-eps = np.finfo(float).eps
-sol = root(lambda v: eq(v,t,k,s), 
-           x0=np.random.random(len(k)+len(s)),
-           method='lm',
-           options={'xtol':1E-16,'gtol':1E-16,'ftol':1E-16})
-
-x = sol['x'][0:n]
-y = sol['x'][n:]
-pij,wij = pij_wij(x,y,t) # compute the output from the optimization result
-plt.figure(figsize=(12,8))
-plt.subplot(2,3,1)
-im = plt.imshow(pij)
-plt.colorbar(im,fraction=0.046, pad=0.04)
-plt.grid(False)
-plt.title('$p_{ij}$')
-
-plt.subplot(2,3,2)
-im = plt.imshow(wij)
-plt.clim([A.min(),A.max()])
-plt.colorbar(im,fraction=0.046, pad=0.04)
-plt.grid(False)
-plt.title('$q_{ij}$')
-
-plt.subplot(2,3,3)
-im = plt.imshow(A)
-plt.colorbar(im,fraction=0.046, pad=0.04)
-plt.grid(False)
-plt.title('A')
-
-#plt.subplot(2,3,4)
-#im = plt.imshow(sol['fjac'])
-#plt.colorbar(im,fraction=0.046, pad=0.04)
-#plt.grid(False)
-#plt.title('Jacobian')
-
-plt.subplot(2,3,4)
-plt.plot((A>0).sum(axis=0),pij.sum(axis=0), 'b.')
-plt.plot(np.linspace(0,pij.sum(axis=0).max()),np.linspace(0,pij.sum(axis=0).max()),'r-')
-plt.grid(True)
-plt.axis('equal')
-plt.title('$k_i - <k_i>$')
-plt.ylabel('model')
-plt.xlabel('empirical')
-plt.xlim([0,min((A>0).sum(axis=0).max(),pij.sum(axis=0).max())])
-plt.ylim([0,min((A>0).sum(axis=0).max(),pij.sum(axis=0).max())])
-
-plt.subplot(2,3,5)
-plt.plot(A.sum(axis=0),wij.sum(axis=0), 'b.')
-plt.plot(np.linspace(0,wij.sum(axis=0).max()),np.linspace(0,wij.sum(axis=0).max()),'r-')
-plt.title('$ s_i - <s_i>$')
-plt.axis('equal')
-plt.xlim([0,wij.sum(axis=0).max()])
-plt.ylim([0,wij.sum(axis=0).max()])
-plt.grid(True)
-plt.ylabel('model')
-plt.xlabel('empirical')
-
-
-plt.tight_layout()
-{% endhighlight %}
