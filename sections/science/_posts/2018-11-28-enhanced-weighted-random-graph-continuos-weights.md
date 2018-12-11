@@ -342,3 +342,167 @@ We need to solve the two simultaneous conditions:
 x \\\\
 y
 \end{aligned}
+
+
+
+Numerical approach to the problem
+---------------------------------
+
+Here we detail a numerical approach to this problem. The problem has to be solved in the variables $x_i,y_i$, hence a system of $2N$ non-linear equations has to be solved.
+This is in general a difficult problem, and suffers of a lot of local optima.
+
+We first define a benchmark network that tries to replicate a typical matrix encountered in brain functional connectivity. It is based on a extension of the factor model used in finance
+
+{% highlight python %}
+import matplotlib.pyplot as plt
+import numpy as np
+
+def factor_model(ci,T,eta,mu, correlation=False):
+    N = len(ci) # number of nodes, length of membership vector,
+    # Initialize the observations vector a TxN matrix of NaNs,
+    Y = np.ones([T,N])*np.nan
+    
+    # Fill the identical observations in the maximally correlated subsets,
+    for c in np.unique(ci):
+        i = np.where(ci==c)[0]
+        Y[:,i] = np.kron(np.ones((1,(ci==c).sum())),np.random.randn(T,1))
+
+    # Add local noise beta on each time-series,
+    Y += eta*np.random.randn(T,N)
+    # Add global signal mu that correlates globally each time series,
+    Y += mu*np.kron(np.ones((1,N)),np.random.randn(T,1))
+
+    from scipy.stats import zscore
+    Y = zscore(Y)
+    if correlation:
+        C = np.corrcoef(Y.T)
+        np.fill_diagonal(C,0)
+    else:
+        C = np.cov(Y.T)
+    return C
+{% endhighlight %}
+
+As an example, tihs is a possible outcome of the factor model defined here, where the parameters `eta` and `mu` control the local and global noise respectively, while the nodal membership is specified as input.
+
+{% highlight python %}
+t = 0.0 # threshold
+T = 200 # number of time points to sample
+eta = 3.0 # localnoise
+mu = 1.2 # globalnoise
+C = np.arctanh(factor_model([1]*50 + [2]*25 + [3]*25 + [4]*50, T, eta, mu, True))
+At = bct.threshold_absolute(C,t)
+n=len(At)
+k = (At>0).sum(axis=0)
+s = At.sum(axis=0)
+plt.imshow(At)
+plt.colorbar()
+{% endhighlight %}
+
+We then move to the definition of the equations to be solved, both in $x_i$ and $y_i$.
+
+{% highlight python %}
+from scipy.optimize import root
+import bct
+
+eps = np.finfo(float).eps
+def pij_wij(x,y,t):
+    xij = np.outer(x,x) # outer product produces the matrix x_i x_j
+    yij = np.outer(y,y) # outer product produces the matrix y_i y_j
+    pij = xij*((yij)**t)/(1.0+xij*(yij**t) - (yij**t))
+    wij = (t*(xij-1.0)*(yij**t))/((1.0 + xij*(yij**t) - (yij**t) )) - 1.0/(np.log(np.abs(yij+eps)))
+    return pij,wij
+
+def eq(z, t, ki, si):
+    nz = len(z)
+    n = nz//2
+    pij,wij = pij_wij(z[0:n],z[n:],t) # x is first half, y is second half
+    #print(pij.shape,wij.shape,ki.shape,si.shape)
+    #pij -= pij.di
+    np.fill_diagonal(pij,0)
+    np.fill_diagonal(wij,0)
+    delta_pij = np.sum(pij,axis=0) - ki
+    delta_wij = np.sum(wij,axis=0) - si
+    return np.concatenate([delta_pij, delta_wij])
+{% endhighlight %}
+
+Now the choice of the solver is of high importance. We need to solve a bounded problem, as we know that both $x_i>0$ and $y_i>0$, since their nature is of exponentials.
+Initialization is also a very important factor to keep into account. A large number of local optima are hidden in the optimization landscape, and we must avoid them.
+As we know that $x_i$ and $y_i$ are in some way correlated to the degrees and the strengths of the empirical network, we initialize the solution $z_0 = \[x_1,x_2,\ldots,x_n, y_1,y_2,\ldots y_n \] \in \mathbb{R}^{2n}$ to be exactly the concatenation of degrees and strengths:
+
+\begin{equation}
+z_0 = \[ k_1, k_2, \ldots, k_n, s_1,s_2, \ldots s_n \]
+\end{equation}
+
+This intuition makes the optimization much much faster. Here we use a combination of the `scipy.optimize.root` function, together with a refinement offered by the `scipy.optimize.least_squares`.
+
+{% highlight python %}
+from scipy.optimize import root
+sollm = root(lambda v: eq(v,t,k,s),
+             x0=np.concatenate([k,s])*1E-4,
+             method='lm', # use levenberg-marquardt method
+             options={'xtol':1E-30,'gtol':1E-30,'ftol':1E-30},
+             tol=1E-6)
+
+from scipy.optimize import least_squares
+sollm = least_squares(lambda v: eq(v,t,k,s),
+                      x0=sollm['x'],
+                      bounds= (0,np.inf),
+                      method='trf',
+                      ftol=1E-8,
+                      xtol=1E-8,
+                      verbose=1)
+
+print('Final cost', sollm['cost'])
+sollm = sollm['x']
+n2 = int(len(sollm)//2)
+x,y = sollm[0:n2],sollm[n2:]
+{% endhighlight %}
+
+Then we plot the results. A solution always exists, it is important though to check that the optimization algorithms terminated successfully.
+
+{% highlight python %}
+A=At
+pij,wij = pij_wij(x,y,t) # compute the output from the optimization result
+plt.figure(figsize=(12,8))
+plt.subplot(2,3,1)
+im = plt.imshow(pij)
+plt.colorbar(im,fraction=0.046, pad=0.04)
+plt.grid(False)
+plt.title('$p_{ij}$')
+
+plt.subplot(2,3,2)
+im = plt.imshow(wij)
+plt.colorbar(im,fraction=0.046, pad=0.04)
+plt.grid(False)
+plt.title('$<w_{ij}>$')
+
+plt.subplot(2,3,3)
+im = plt.imshow(A)
+plt.colorbar(im,fraction=0.046, pad=0.04)
+plt.grid(False)
+plt.title('A')
+
+plt.subplot(2,3,4)
+plt.plot((A>0).sum(axis=0),pij.sum(axis=0), 'b.')
+plt.plot(np.linspace(0,pij.sum(axis=0).max()),np.linspace(0,pij.sum(axis=0).max()),'r-')
+plt.grid(True)
+plt.axis('equal')
+plt.title('$k_i - <k_i>$')
+plt.ylabel('model')
+plt.xlabel('empirical')
+plt.xlim([0,min((A>0).sum(axis=0).max(),pij.sum(axis=0).max())])
+plt.ylim([0,min((A>0).sum(axis=0).max(),pij.sum(axis=0).max())])
+
+plt.subplot(2,3,5)
+plt.plot(A.sum(axis=0),wij.sum(axis=0), 'b.')
+plt.plot(np.linspace(0,wij.sum(axis=0).max()),np.linspace(0,wij.sum(axis=0).max()),'r-')
+plt.title('$ s_i - <s_i>$')
+plt.axis('equal')
+plt.xlim([0,wij.sum(axis=0).max()])
+plt.ylim([0,wij.sum(axis=0).max()])
+plt.grid(True)
+plt.ylabel('model')
+plt.xlabel('empirical')
+
+plt.tight_layout()
+{% endhighlight %}
