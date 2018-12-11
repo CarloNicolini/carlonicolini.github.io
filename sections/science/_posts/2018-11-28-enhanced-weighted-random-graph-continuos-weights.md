@@ -1,7 +1,6 @@
 ---
 layout: post
-title: The Enhanced weighted random graph model with continuous weights
-
+title: The Enhanced Weighted Random Graph Model with continuous weights
 categories: science
 published: false
 use_math: true
@@ -9,29 +8,44 @@ date: 2018-11-28
 ---
 
 
-In a previous post, I treated the case of networks with positive discrete weights $w_{ij} \in [1,2,3,\ldots ]$.
-Our results was that the weights in the maximum entropy formalism are modeled by the geometric distribution.
+Introduction
+------------
 
-However, some real world networks are assigned real-valued weights $w_{ij} \in R^+$.
-If I apply maximum entropy formalism to this, I should recover the exponential distribution for the edge weights, which is the continuous counterpart of the geometric distribution.
+In a [previous post](/sections/science/2017/05/12/Enhanced-weighted-random-graph-model-(EWRG).html), I introduced the statistical mechanics of complex networks, discussing a simple model for weighted random graphs with discrete weights $w_{ij} \in [1,2,3,\ldots ]$.
+As a result we found in that maximum entropy ensemble weights are modeled by a geometric distribution.
+
+However, we often deal with real world networks were weights take real-valued, positive values $w_{ij} \in R^+$.
+In the following I will discuss how to simply embody the continuous nature of weights into more and more complex models.
+What we will (re)discover, is that the maximum entropy distribution of positive real random variables is **exponential distribution**, the continuous counterpart of the geometric distribution.
 
 To do this I will follow the basic derivation to show that the final probability of picking a weight $w$ in the case of continuous weights is $p(x)=\lambda e^{-\lambda x}$ with $\lambda>0$.
 
-Continuos Weighted Random graph model
--------------------------------------
+Moreover in the rest of this post we will extend the continuos model to constraint on node degree and strength, and as a final case, we introduce an interesting null model for thresholded real-valued networks.
 
-In this case the derivation simple, and the ideas have already been laid by the work of [Agatha Fronckzak](https://journals.aps.org/pre/pdf/10.1103/PhysRevE.85.056113). We consider a graph with total weight $W^\star$. The Hamiltonian of the problem is:
+We models that we discuss in this post are all variations of the weighted random graph model in the continuous domain, were we constrain respectively
+
+1. The total weight $W^\star$: [Continuous Weighted Random Graph Model](#cWRG).
+2. The node degree and strength ($k_i^\star, s_i^\star$), Continuous Enhanced Weighted Random Graph Model.
+3. The node degree and strength ($k_i^\star, s_i^\star$), including a threshold hyper-parameter: [Continuous Enhanced Weighted Random Graph Model with Threshold].
+
+The resulting models are referred herein as, **cWRG**, **cEWRG** and **cEWRGt**.
+
+Continuous Weighted Random graph model
+--------------------------------------
+
+<a name="cWRG"></a>
+In this case the derivation simple, and the ideas have already been laid by the work of [Agatha Fronckzak](https://journals.aps.org/pre/pdf/10.1103/PhysRevE.85.056113) \[[1](#Fronczak2012)\]. We consider a graph with total weight $W^\star$. The Hamiltonian of the problem is:
 
 \begin{equation}
 H(G) = \sum \limits_{i<j} \beta_w w_{ij} = \beta_w W^{\star}
 \end{equation}
 
-So we can compute the partition function $Z(G)$ as:
+We can compute the partition function $Z(G)$ by means of an integral over the positive domain, resulting in:
 
-\begin{aligned}
+\begin{align}
 Z(G) = &\sum \limits_{G \in \mathcal{G}} e^{-H(G)}  = \sum \limits_{G \in \mathcal{G}} e^{- \sum \limits_{i < j} \beta_w w_{ij} }\nonumber \\\\ = & \sum \limits_{G \in \mathcal{G}} \prod_{i < j} e^{ - \beta_w w_{ij}} = \prod \limits_{i < j} \int \limits_{\{ w_{ij}=0 \} }^{\infty} e^{- \beta_w w_{ij}} \nonumber \\\\
 = \prod \limits_{i < j} \left( \frac{1}{\beta_w} \right)  = \left( \frac{1}{\beta_w}\right)^{\binom{n}{2}}
-\end{aligned}
+\end{align}
 
 Looking at this last expression for the partition function, it allows us to rewrite the probability of a network as:
 
@@ -39,48 +53,69 @@ Looking at this last expression for the partition function, it allows us to rewr
 P(G) = \frac{e^{-H(G)}}{Z} = \prod_{i<j} e^{-\beta_w w_{ij}} \beta_w 
 \end{equation}
 
-In other words, the edge **weights are exponentially distributed random variables**, and the probability of the graph is the product of the probability of each edge under the exponential distribution (not to be confused with *exponential family*).
+In other words, the edge **weights are exponentially distributed random variables**, and the probability of the graph is the product of the probability of each edge under the exponential distribution (not to be confused with *exponential family*). We indicate the p.d.f of the edge as $q(w)= \beta_w e^{-\beta_w w}$.
 With the substitution $p(w) = e^{-\beta_w w} \beta_w$ we can write the probability of a graph in the continuous weighted random graph model as:
 
 \begin{equation}
-P(G) = \prod_{i<j} p(w_{ij})
+P(G) = \prod_{i<j} q(w_{ij})
 \end{equation}
 
-The expected weight (for each edge) is the mean value of the exponential distribution:
+Under the exponential distribution, the expectation is described by the inverse rate parameter (here $\beta_w$). Hence, we expect each edge to have average weight $1/\beta_w$, independent of the specific edge.
+This can be verified by computing the expectation of the total weight in this model, by means of the framework introduced.
+We start from the free energy $F=-\log Z$:
+
+\begin{equation}
+F = -\log (Z) = \binom{n}{2} \log \beta_w.
+\end{equation}
+
+Taking the derivatives with respect to $\beta_w$, we have the expected total weight of the graph:
+
+\begin{equation}
+\langle W \rangle = \sum_{G \in \mathcal{G}} W(G)e^{-\beta_w W(G)}  = \frac{\partial F}{\partial \beta_w} = \binom{n}{2} \frac{1}{\beta_w}.
+\end{equation}
+
+Hence it becomes clear that each edge is expected to contribute equally to the total expected weight:
 
 \begin{equation}
 \langle w_{ij} \rangle = \frac{1}{\beta_w}
 \end{equation}
 
-and can be used to compute the expected strength:
+The same applies for the expected node strength, which is uniform for each node, being the Hamiltonian of the problem uniform over all nodes:
 
 \begin{equation}
 \langle s_i \rangle = \sum \limits_{i\neq j} \langle w_{ij} \rangle = (n-1) \frac{1}{\beta_w}
 \end{equation}
 
-Let us try to compute the expected total weight. We start from the free energy $F=-\log Z$:
+Being this model a *dense* model, we expect the degree of the nodes to be maximum, the underlying graph has $\binom{n}{2}$ links.
+
+How about a measure of *network density* in the cWRG? 
+We [knew that](https://arxiv.org/pdf/0902.0897.pdf) \[[2](#Garlaschelli2009)\] in the **discrete case**  the maximum likelihood estimate of weighted network density was obtained as:
 
 \begin{equation}
-F = -\log (Z) = \binom{n}{2} \log \beta_w
+p^\star_{\textrm{WRG}} = \frac{2W^\star}{n(n-1) + 2W^\star}.
+\end{equation} 
+
+However in the continuous case, things are a little bit different.
+
+To find the parameter $\beta_w$ thus we have to solve the last equation in $\beta_w$. Hence we get, rather intuitively:
+
+\begin{equation}
+\beta_w = \frac{n(n-1)}{2 W^\star}
 \end{equation}
 
+and we identify $\beta_w$ as the inverse density of the network.
+We note that in this continuous model the network density at maximum likelihood is different from the discrete case.
+
+<!-- Now we make the substitution $p_w = e^{-\beta_w}$ and compute the derivatives of the free energy w.r.t $p_w$:
 The likelihood is:
 
 \begin{equation}
 \log P(W) = \sum \limits_{i<j}  -\beta_m w_{ij} - \log(\beta_w)
 \end{equation}
 
-How can we determine the value of $\beta_w$ from a graph? To do this we need to solve the constraint equation:
-
-\begin{equation}
-\langle W \rangle = \frac{\partial F}{\partial \beta_w} = \binom{n}{2} \beta_w^{-1}
-\end{equation}
-
-<!-- Now we make the substitution $p_w = e^{-\beta_w}$ and compute the derivatives of the free energy w.r.t $p_w$:
-
-\begin{aligned}
+\begin{align}
 \langle W \rangle = \frac{\partial F}{\partial p_w} = \frac{\partial F}{\partial \beta_w} \frac{\partial \beta_w}{\partial p_w} = \binom{n}{2} \frac{p_w}{\log p_w}
-\end{aligned}
+\end{align}
 
 We now know the total weight of the empirical graph $W^\star$ and need to find the equation to choose $\beta_w$, so we equate $W^\star = \langle W \rangle$. Hence we need to solve the following equation:
 
@@ -113,21 +148,21 @@ where $s_i$ is the $i$-th node strength.
 
 The partition function can be computed with the same technique described before:
 
-\begin{aligned}
+\begin{align}
 Z(G)= \int_{G \in \mathcal{G}} e^{-H(G)} = \int_{G \in \mathcal{G}} \prod_{i<j} e^{-(\theta_i + \theta_j) w_{ij}} = \prod_{i<j} \int_{0}^{\infty} e^{-(\theta_i+\theta_j)w_{ij}} \\\\ = \prod_{i<j} \frac{1}{(\theta_i + \theta_j)} e^{-(\theta_i+\theta_j)}
-\end{aligned}
+\end{align}
 
 The free energy simply becomes:
 
-\begin{aligned}
+\begin{align}
 F=-\log Z &= -\sum \limits_{i<j} \log\left(\frac{1}{(\theta_i+\theta_j)} e^{-(\theta_i + \theta_j)w_{ij}} \right) = \\\\ &=\sum \limits_{i<j}\log (\theta_i + \theta_j) + (\theta_i+\theta_j)w_{ij}
-\end{aligned}
+\end{align}
 
 The graph probability $P(G)$ becomes:
 
-\begin{aligned}
+\begin{align}
 P(G) \equiv P(W) = \frac{e^{-H(G)}}{Z(G)} = \prod_{i<j} \frac{(\theta_i+\theta_j) e^{-(\theta_i+\theta_j)w_{ij}}}{e^{-(\theta_i+\theta_j)}} \\\\ = \prod_{i<j} (\theta_i+\theta_j) e^{- w_{ij} (\theta_{i} + \theta_{j}) + (\theta_{i} + \theta_{j})}
-\end{aligned}
+\end{align}
 
 The expected nodal strength is computed as:
 
@@ -142,10 +177,10 @@ The log-likelihood is:
 \end{equation}
 We have to solve $n$ non linear equations in order to recover the parameters $\theta_i$. They are:
 
-\begin{aligned}
+\begin{align}
 \frac{\partial \log P}{\partial \theta_i} = 0 = \\\\
 \sum \limits_{i<j} \frac{1}{(\theta_i+\theta_j)} + w_{ij} - 1 = 0 \\\\
-\end{aligned}
+\end{align}
 
 Solution for the enhanced version of the weighted random graph model
 --------------------------------------------------------------------
@@ -153,11 +188,11 @@ Solution for the enhanced version of the weighted random graph model
 In the enhanced case the solution is a bit more complicated.
 Let us compute the partition function:
 
-\begin{aligned}
+\begin{align}
 \label{eq:partition_function_continuous}
 Z(\mathcal{G}) = &\int \limits_{G \in \mathcal{G}} e^{-H(G)}  = \int \limits_{G \in \mathcal{G}} e^{- \sum \limits_{i < j} \beta_m \Theta(w_{ij}) + \beta_w w_{ij} } = \int \limits_{G \in \mathcal{G}} \prod_{i<j} e^{-\beta_m \Theta(w_{ij})  \beta_w w_{ij} } = \\\\ =& \prod_{i<j}
 \int_{G \in \mathcal{G}} e^{-\beta_m \Theta(w_{ij}) - \beta_w w_{ij}} = \\\\ =& \prod_{i<j} \int_{0}^{\infty} e^{-\beta_m\Theta(w) -\beta_w w } dw = \\\\ =& \prod_{i<j} \frac{e^{-\beta_m}}{\beta_w}
-\end{aligned}
+\end{align}
 
 The free energy is simply:
 
@@ -167,41 +202,41 @@ F = - \log (Z) = \binom{n}{2} (\beta_m - \log(\beta_w))
 
 The expected number of links is:
 
-\begin{aligned}
+\begin{align}
 \langle L \rangle &= \frac{\partial F}{\partial \beta_m} = \binom{n}{2} \\\\\\
 \langle W \rangle &= \frac{\partial F}{\partial \beta_w} = \binom{n}{2} \frac{1}{\beta_w}
-\end{aligned}
+\end{align}
 
 Again, the quantity $\beta_w^{-1}$ can be thought as the expected weight of a link.
 
 The probability of a graph is:
 
-\begin{aligned}
+\begin{align}
 P(G) = \frac{e^{-H(G)}}{Z} &= \prod_{i<j} \frac{\beta_w e^{-\beta_m \Theta(w_{ij}) - \beta_w w_{ij}}}{e^{-\beta_m}} \\\\ &= \prod_{i<j} \frac{e^{-\beta_m a_{ij}}}{e^{-\beta_m}} \beta_w e^{-\beta_w w_{ij}} = \prod_{i<j} p_m^{a_{ij}-1} \beta_w e^{-\beta_w w_{ij}} \\\ &=\prod_{i<j} e^{\beta_m(1-a_{ij})} \beta_w e^{-\beta_w w_{ij}}
-\end{aligned}
+\end{align}
 
 Hence the probability of a link of weight $w_{ij}$ is 
 
-\begin{aligned}
+\begin{align}
 q_{ij}(w_{ij})=\beta_w e^{-\beta_w w_{ij}} \frac{e^{-\beta_m \Theta(w_{ij})}}{e^{-\beta_m}} \\\\ = \beta_w e^{-\beta_w w_{ij}} e^{-\beta_m(\Theta(w_{i}) - 1)}
-\end{aligned}
+\end{align}
 
 Solution with constraints on both degrees and strength
 ------------------------------------------------------
 
 The partition function becomes:
 
-\begin{aligned}
+\begin{align}
 Z(\mathcal{G}) = &\int \limits_{G \in \mathcal{G}} e^{-H(G)}  = \int \limits_{G \in \mathcal{G}} e^{- \sum \limits_{i < j} \(\alpha_i + \alpha_j) \Theta(w_{ij}) + \(\beta_i + \beta_j) w_{ij} } = \int \limits_{G \in \mathcal{G}} \prod_{i<j} e^{-\(\alpha_i + \alpha_j) \Theta(w_{ij})  \(\beta_i + \beta_j) w_{ij} } = \\\\ =& \prod_{i<j}
 \int_{G \in \mathcal{G}} e^{-\(\alpha_i + \alpha_j) \Theta(w_{ij}) - \(\beta_i + \beta_j) w_{ij}} = \\\\ =& \prod_{i<j} \int_{0}^{\infty} e^{-\(\alpha_i + \alpha_j)\Theta(w) -\(\beta_i + \beta_j) w } dw = \\\\ =& \prod_{i<j} \frac{e^{-\(\alpha_i + \alpha_j)}}{\(\beta_i + \beta_j)}
-\end{aligned}
+\end{align}
 
 The free energy becomes:
 
 
-\begin{aligned}
+\begin{align}
 F=-\log Z &= -\sum \limits_{i<j} \log\left(\frac{e^{-(\alpha_i+\alpha_j)}}{(\beta_i+\beta_j)} e^{-(\beta_i + \beta_j)w_{ij} - (\alpha_i+\alpha_j)a_{ij}} \right) = \\\\ &=\sum \limits_{i<j}\log (\beta_i + \beta_j) + (\beta_i+\beta_j)w_{ij} + (\alpha_i+\alpha_j)a_{ij} + (\alpha_i+\alpha_j)
-\end{aligned}
+\end{align}
 
 Hence the link existence probability becomes:
 
@@ -226,45 +261,45 @@ H(G) = \sum \limits_{i<j} (\alpha_i + \alpha_j) \Theta(w_{ij}-w_t) + (\beta_i+\b
 where $t>0$ is a threshold, that is a parameter here. It is the absolute threshold parameter.
 The partition function becomes:
 
-\begin{aligned}
+\begin{align}
 Z(\mathcal{G}) = \sum_{G \in \mathcal{G}} e^{-H(G)} &= \prod_{i<j} \int_{0}^{\infty} e^{-(\alpha_i + \alpha_j) \Theta(w_{ij}-w_t) - (\beta_i+\beta_j) w_{ij}}  \\\\ &= \prod_{i<j} \frac{1 - e^{-t(\beta_i+\beta_j)} + e^{-(\alpha_i + \alpha_j) - (\beta_i+\beta_j)t }}{(\beta_i+\beta_j)}
-\end{aligned}
+\end{align}
 
 the free energy becomes:
 
-\begin{aligned}
+\begin{align}
 F = -\log Z &= - \sum \limits_{i<j}\left \lbrack \log \left( 1 - e^{-t(\beta_i+\beta_j)} + e^{-(\alpha_i + \alpha_j) - (\beta_i+\beta_j)t } \right) - \log (\beta_i + \beta_j) \right \rbrack \\\\ 
-\end{aligned}
+\end{align}
 with the substitution $x_i=e^{-\alpha_i}$ and $y_i=e^{-\beta_i}$ we have:
 
-\begin{aligned}
+\begin{align}
 F = - \sum \limits_{i<j}\left \lbrack \log \left( 1 - (y_i y_j)^t + x_i x_j (y_i y_j)^t \right)  - \log\left( -\log y_i -\log y_j \right) \right \rbrack 
-\end{aligned}
+\end{align}
 
 We can compute the expectation of the presence of a link (probability) and its weight by taking the derivatives w.r.t $\alpha_i$ and $\beta_i$. By the chain rule of derivatives, we have:
 
-\begin{aligned}
+\begin{align}
 p_{ij} = \langle a_{ij} \rangle = \frac{\partial F}{\partial \alpha_i} = \frac{\partial F}{\partial x_i}\frac{\partial x_i}{\partial \alpha_i} = \frac{x_i x_j (y_i y_j)^t}{1 + x_i  x_j (y_i y_j)^t-(y_i y_j)^t}
-\end{aligned}
+\end{align}
 
 and for the expected weight:
 
-\begin{aligned}
+\begin{align}
 \langle w_{ij} \rangle = \frac{\partial F}{\partial \beta_i} = \frac{\partial F}{\partial x_i}\frac{\partial x_i}{\partial \beta_i} =  \frac{t (x_i  x_j-1) (y_i y_j)^t}{1 + x_i  x_j (y_i
     y_j)^t-(y_i y_j)^t}-\frac{1}{\log (y_i)+\log (y_j)}
-\end{aligned}
+\end{align}
 
 Let us study these formulas in the limit $t \to 0$.
 
-\begin{aligned}
+\begin{align}
 \lim \limits_{t \to 0} \langle w_{ij} \rangle = - \frac{1}{\log (y_i y_j)} = \beta_i + \beta_j
-\end{aligned}
+\end{align}
 and we recover the expectation in the exponential distribution, as expected. 
 For the probability of link existence, we have instead :
 
-\begin{aligned}
+\begin{align}
 \lim \limits_{t \to 0} \langle p_{ij} \rangle = \frac{x_i x_j}{x_i x_j -1 + 1} = 1
-\end{aligned}
+\end{align}
 
 so the total number of links is $\langle L \rangle = \prod_{i<j} 1 = \binom{n}{2}$ and the total weight is $\langle W \rangle = \prod_{i<j} \beta_i + \beta_j$.
 
@@ -338,10 +373,10 @@ This can be very useful to be able to compare two networks specifing the same nu
 
 We need to solve the two simultaneous conditions:
 
-\begin{aligned}
+\begin{align}
 x \\\\
 y
-\end{aligned}
+\end{align}
 
 
 
@@ -506,3 +541,10 @@ plt.xlabel('empirical')
 
 plt.tight_layout()
 {% endhighlight %}
+
+
+References
+----------
+
+- <a name="Garlaschelli2009"></a> The weighted random graph model. Garlaschelli D. https://arxiv.org/pdf/0902.0897.pdf
+- <a name="Fronczak2012"></a> Statistical mechanics of the international trade network, Fronczak A., Fronczak P. [https://link.aps.org/doi/10.1103/PhysRevE.85.056113](https://link.aps.org/doi/10.1103/PhysRevE.85.056113)
