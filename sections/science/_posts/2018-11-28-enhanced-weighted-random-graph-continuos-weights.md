@@ -54,7 +54,7 @@ P(G) = \frac{e^{-H(G)}}{Z} = \prod_{i<j} e^{-\beta_w w_{ij}} \beta_w
 \end{equation}
 
 In other words, the edge **weights are exponentially distributed random variables**, and the probability of the graph is the product of the probability of each edge under the exponential distribution (not to be confused with *exponential family*). We indicate the p.d.f of the edge as $q(w)= \beta_w e^{-\beta_w w}$.
-With the substitution $p(w) = e^{-\beta_w w} \beta_w$ we can write the probability of a graph in the continuous weighted random graph model as:
+With the substitution $q(w) = e^{-\beta_w w} \beta_w$ we can write the probability of a graph in the continuous weighted random graph model as:
 
 \begin{equation}
 P(G) = \prod_{i<j} q(w_{ij})
