@@ -11,7 +11,9 @@ date: 2018-11-28
 Introduction
 ------------
 
-In a [previous post](/sections/science/2017/05/12/Enhanced-weighted-random-graph-model-(EWRG).html), I introduced the statistical mechanics of complex networks, discussing a simple model for weighted random graphs with discrete weights $w_{ij} \in [1,2,3,\ldots ]$.
+In a [previous post](/sections/science/2017/05/12/Enhanced-weighted-random-graph-model-(EWRG).html), I introduced the statistical mechanics of complex networks, discussing a simple model for weighted random graphs with discrete weights $w_{ij} \in [0,1,2,3,\ldots ]$.
+This corresponds to the assumption that an indivisible unit of measure of link weights has been preliminary specified. Ideally, one may think of link weights becoming continuous as the unit of measure is chosen to be
+vanishingly small.
 As a result we found that the maximum entropy distribution for networks with discrete weights is the geometric distribution.
 
 However, we often deal with real world networks were weights take real-valued, positive values $w_{ij} \in R^+$.
