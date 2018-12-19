@@ -171,12 +171,24 @@ s_i^\star = \langle s \rangle
 Continuous Enhanced Weighted Configuration Model (cEWCM)
 --------------------------------------------------------
 
+This model has an Hamiltonian $H(G)$ that constraints both on the degree and strength sequence:
+
+\begin{align}
+H(G) = \sum \limits_{i} \alpha_i k_i + \beta_i s_i = \sum \limits_{i < j} \(\alpha_i + \alpha_j) \Theta(w_{ij}) + \(\beta_i + \beta_j) w_{ij}
+\end{align}
+
 The partition function of the model that constraints on both the degree and strength sequence becomes:
 
 \begin{align}
 Z(\mathcal{G}) = &\int \limits_{G \in \mathcal{G}} e^{-H(G)}  = \int \limits_{G \in \mathcal{G}} e^{- \sum \limits_{i < j} \(\alpha_i + \alpha_j) \Theta(w_{ij}) + \(\beta_i + \beta_j) w_{ij} } = \int \limits_{w_{ij}} \prod_{i<j} e^{-\(\alpha_i + \alpha_j) \Theta(w_{ij}) - \(\beta_i + \beta_j) w_{ij} } \\\\ =& \prod_{i<j}
 \int_{w_{ij}} e^{-\(\alpha_i + \alpha_j) \Theta(w_{ij}) - \(\beta_i + \beta_j) w_{ij}} = \prod_{i<j} \int_{0}^{\infty} e^{-\(\alpha_i + \alpha_j)\Theta(w') -\(\beta_i + \beta_j) w } \mathrm{d}w' \\\\ =& \prod_{i<j} \frac{e^{-\(\alpha_i + \alpha_j)}}{\(\beta_i + \beta_j)}
 \end{align}
+
+hence the graph probability can be written as:
+
+\begin{equation}
+P(G) = \frac{e^{-H(G)}}{Z(\mathcal{G})} = \prod_{i<j} e^{-(\alpha_i+\alpha_j)}
+\end{equation}
 
 The free energy $F=-\log Z$ can be calculated as:
 
@@ -298,7 +310,7 @@ This can be solved by any nonlinear system equation solver, given enough accurac
 
 We may ask, given this null model, what is the expected number of connected components given the threshold $t \in \mathbb{R}$ or how the degrees and the strengths are correlated.
 To my knowledge this things have never been studied for a continuous model and we may find interesting new answers.
-
+Here we can follow the derivations from the book 
 The correlation function $\langle k_i k_j \rangle$ can be obtained as 
 
 \begin{equation}
@@ -492,6 +504,7 @@ References
 ----------
 
 - <a name="Garlaschelli2009"></a> The weighted random graph model. Garlaschelli D. https://arxiv.org/pdf/0902.0897.pdf
-- <a name="Fronczak2012"></a> Statistical mechanics of the international trade network, Fronczak A., Fronczak P. [https://link.aps.org/doi/10.1103/PhysRevE.85.056113](https://link.aps.org/doi/10.1103/PhysRevE.85.056113)
+- <a name="Garlaschelli2018"></a> Maximum entropy networks. Squartini T., Garlaschelli D.
+y- <a name="Fronczak2012"></a> Statistical mechanics of the international trade network, Fronczak A., Fronczak P. [https://link.aps.org/doi/10.1103/PhysRevE.85.056113](https://link.aps.org/doi/10.1103/PhysRevE.85.056113)
 
 
