@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-from matplotlib import cm
 import numpy as np
 from scipy.optimize import root
 import bct
@@ -54,7 +53,7 @@ def inference_cEWRGt(W, thresh):
     k = (W>0).sum(axis=0) # degrees
     s = W.sum(axis=0) # strength
 
-    from scipy.optimize import root
+    #from scipy.optimize import root
     from scipy.optimize import least_squares
 
     x0=np.concatenate([k,s])*1E-4 # initial solution
@@ -110,16 +109,16 @@ def plot_results(W,x,y,thresh):
     plt.title('$k_i - <k_i>$')
     plt.ylabel('model')
     plt.xlabel('empirical')
-    plt.xlim([0,min((W>0).sum(axis=0).max(),pij.sum(axis=0).max())])
-    plt.ylim([0,min((W>0).sum(axis=0).max(),pij.sum(axis=0).max())])
+    #plt.xlim([0,min((W>0).sum(axis=0).max(),pij.sum(axis=0).max())])
+    #plt.ylim([0,min((W>0).sum(axis=0).max(),pij.sum(axis=0).max())])
 
     plt.subplot(2,3,5)
     plt.plot(W.sum(axis=0),wij.sum(axis=0), 'b.')
     plt.plot(np.linspace(0,wij.sum(axis=0).max()),np.linspace(0,wij.sum(axis=0).max()),'r-')
     plt.title('$ s_i - <s_i>$')
     plt.axis('equal')
-    plt.xlim([0,wij.sum(axis=0).max()])
-    plt.ylim([0,wij.sum(axis=0).max()])
+    #plt.xlim([0,wij.sum(axis=0).max()])
+    #plt.ylim([0,wij.sum(axis=0).max()])
     plt.grid(True)
     plt.ylabel('model')
     plt.xlabel('empirical')
@@ -132,15 +131,12 @@ if __name__=='__main__':
     thresh = 0.2 # threshold
     T = 200 # number of time points to sample
     eta = 3.0 # localnoise
-    mu = 1.2 # globalnoise
-    C = np.arctanh(factor_model([1]*20 + [2]*20 , T, eta, mu, True))
+    mu = 1.0 # globalnoise
+    C = np.arctanh(factor_model([1]*40 + [2]*40 + [3]*30, T, eta, mu, True))
     At = bct.threshold_absolute(C, thresh)
     n=len(At)
     k = (At>0).sum(axis=0)
     s = At.sum(axis=0)
-    plt.imshow(At)
-    plt.colorbar()
-    plt.show()
 
     x,y = inference_cEWRGt(At, thresh)
     plot_results(At, x, y, thresh)

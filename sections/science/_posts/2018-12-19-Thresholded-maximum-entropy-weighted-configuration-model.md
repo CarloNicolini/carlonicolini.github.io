@@ -10,6 +10,9 @@ date: 2018-11-28
 Adding the threshold parameter in the strength weights
 ------------------------------------------------------
 
+The present program may be used to fit the lagragian multipliers that are needed to generate maximum entropy ensembles for a variety of constraints and types of weighted networks. This lagrangian multipliers allow to later generate networks belonging to ensembles of many different types of networks (weighted, multi-edge, accumulated weighted and accumulated binary networks) with a set of prescribed properties (such as degree sequence, strength sequence, total cost...). This procedure can be either used to generate networks to model several phenomena or to assess relevance of features detected in real data. It is very usefull for hypotehsis testing. (copied from Oleguer Sagarra github)
+
+
 \begin{equation}
 H(G) = \sum \limits_{i<j} (\alpha_i + \alpha_j) \Theta(w_{ij}-t) + (\beta_i+\beta_j) (w_{ij} -t)
 \end{equation}
