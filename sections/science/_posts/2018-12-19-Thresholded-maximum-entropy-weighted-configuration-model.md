@@ -10,42 +10,54 @@ date: 2018-11-28
 Adding the threshold parameter in the strength weights
 ------------------------------------------------------
 
-The present program may be used to fit the lagragian multipliers that are needed to generate maximum entropy ensembles for a variety of constraints and types of weighted networks. This lagrangian multipliers allow to later generate networks belonging to ensembles of many different types of networks (weighted, multi-edge, accumulated weighted and accumulated binary networks) with a set of prescribed properties (such as degree sequence, strength sequence, total cost...). This procedure can be either used to generate networks to model several phenomena or to assess relevance of features detected in real data. It is very usefull for hypotehsis testing. (copied from Oleguer Sagarra github)
+<!-- The present program may be used to fit the lagragian multipliers that are needed to generate maximum entropy ensembles for a variety of constraints and types of weighted networks. This lagrangian multipliers allow to later generate networks belonging to ensembles of many different types of networks (weighted, multi-edge, accumulated weighted and accumulated binary networks) with a set of prescribed properties (such as degree sequence, strength sequence, total cost...). This procedure can be either used to generate networks to model several phenomena or to assess relevance of features detected in real data. It is very usefull for hypotehsis testing. (copied from Oleguer Sagarra github) -->
 
+We start from the problem Hamiltonian $H(G)$:
 
 \begin{equation}
-H(G) = \sum \limits_{i<j} (\alpha_i + \alpha_j) \Theta(w_{ij}-t) + (\beta_i+\beta_j) (w_{ij} -t)
+H(G) = \sum \limits_{i<j} (\alpha_{ij}) \Theta(w_{ij}-t) + (\beta_{ij}) w_{ij} \Theta(w_{ij}-t)
 \end{equation}
 
-where $t>0$ is a threshold, a model hyper-parameter here, which is also called the absolute threshold in most software packages. Its role is delete any binary link with weight less than $t$.
-Importantly, this model allows weights less than $t$ indeed, as the threshold parameter only acts on the link existence, not on its weight. In this sense, a decoupling of edge weights from edge existence is required.
-With the previous Hamiltonian we can start from the calculation of the partition function, that becomes:
+and compute the partition function, using separating the integral $\int_0^\infty$ in two parts, given our formulation that uses Heaviside step function. 
+We use interchangeably $(\alpha_i+\alpha_j)=\alpha_{ij}$, when more clear.
+We get for the partition function $Z(\mathcal{G})$ the following expression:
 
 \begin{align}
-Z(\mathcal{G}) = \sum_{G \in \mathcal{G}} e^{-H(G)} &= \prod_{i<j} \int_{0}^{\infty} e^{-(\alpha_i + \alpha_j) \Theta(w'-t) - (\beta_i+\beta_j) w'}  \mathrm{d}w' \\\\ &= \prod_{i<j} t + \frac{e^{-(\alpha_i+\alpha_j) - (\beta_i + \beta_j) t }}{(\beta_i + \beta_j)}
+Z(\mathcal{G}) = \sum_{G \in \mathcal{G}} e^{-H(G)} &= \prod_{i<j} \int_{0}^{\infty} e^{-(\alpha_i + \alpha_j) \Theta(w'-t) - (\beta_i+\beta_j) w' \Theta(w'-t)}  \mathrm{d}w' \\\\ &= \prod_{i<j} t + \frac{e^{-(\alpha_i+\alpha_j) - (\beta_i + \beta_j) t }}{(\beta_i + \beta_j)}
 \end{align}
 
-This partition function is very peculiar, as it depends linearly on the threshold value $t$. We now try to compute the free energy that results:
+or equivalently with the substitution $x_i=e^{-\alpha_i}$ and $y_i=e^{-\beta_i}$:
+
+\begin{align}
+Z(\mathcal{G}) = \prod_{i<j} \frac{t \log (y_i y_j) - x_i x_j (y_i y_j)^t }{\log(y_i y_j)}
+\end{align}
+
+hence the graph probability is obtained as:
 \begin{equation}
-F = -\log Z = - \sum \limits_{i<j} \log \left( t + \frac{e^{-(\alpha_i+\alpha_j) - (\beta_i + \beta_j) t }}{(\beta_i + \beta_j)}  \right)
+P(G) = \frac{e^{-H(G)}}{Z(G)} = \prod_{i<j} \log(y_iy_j) \frac{(x_i x_j)^{\Theta(w_{ij}-t)} (y_iy_j)^{w_{ij}\Theta(w_{ij}-t)}}{t \log(y_i y_j) - (x_i x_j) (y_i y_j)^t }
 \end{equation}
 
-and the expectation of the values are:
+The free energy $F=-\log Z$
 
-\begin{equation}
-\langle k_i \rangle = \frac{\partial F}{\partial \alpha_i} = \sum_{j\neq i} \frac{e^{- (\alpha_i + \alpha_j) - t \left(\beta_i + \beta_j\right)}}{t \left(\beta_i + \beta_j\right) + e^{- (\alpha_i + \alpha_j) - t \left(\beta_i + \beta_j\right)}}
-\end{equation}
+\begin{align}
+F=-\log Z = - \sum_{i<j} \log\left ( -t \log(y_i y_j) + (x_i x_j)(y_i y_j)^t \right) + \sum_{i<j} \log(-\log(y_i y_j))
+\end{align}
 
-\begin{equation}
-\langle s_i \rangle = \frac{\partial F}{\partial \beta_i} = \sum_{j\neq i} \frac{\left(t \left(\beta_i + \beta_j\right) + 1\right) e^{- (\alpha_i + \alpha_j) - t \left(\beta_i + \beta_j\right)}}{\left(\beta_i + \beta_j\right) \left(t \left(\beta_i + \beta_j\right) + e^{- (\alpha_i + \alpha_j) - t \left(\beta_i + \beta_j\right)}\right)}
-\end{equation}
+the expected link probability is found by taking the derivatives with respect to $\alpha_{ij}$ of the free energy:
 
-we now make the substitution $x_i=e^{-\alpha_i}$ and $y_i=e^{-beta_i}$ so we get:
+\begin{align}
+\langle a_{ij} \rangle = \frac{\partial F}{\partial \alpha_{ij}} = \frac{1}{\beta_{ij} t e^{\alpha_ij + \beta_{ij}t}+1} = \frac{e^{-\alpha_{ij}-\beta_{ij}t}}{\beta_{ij}t+e^{-\alpha_{ij}-\beta_{ij}t}} = \frac{x_{ij} y_{ij}^t}{x_{ij}y_{ij}^t - t \log y_{ij}}
+\end{align}
 
-\begin{equation}
-\langle k_i \rangle = \frac{\partial F}{\partial \alpha_i} = \sum_{j\neq i} \frac{x_i x_j (y_i y_j)^t }{\log (y_i y_j)^t + x_i x_j (y_i y_j)^t}
-\end{equation}
+and the expected link weight $\langle w_{ij} \rangle$
 
-\begin{equation}
-\langle s_i \rangle = \frac{\partial F}{\partial \beta_i} = \sum_{j\neq i} \frac{\left( 1 + (y_i y_j)^t \right) x_i x_j (y_i y_j)^t}{\log (y_i y_j) \left\lbrack \log (y_iy_j)^t + x_i x_j (y_i y_j)^t \right \rbrack}
-\end{equation}
+\begin{align}
+\langle w_{ij} \rangle =  \frac{\partial F}{\partial \beta_{ij}} = \frac{\beta_{ij}t + 1}{\beta_{ij}(\beta_{ij} t e^{\alpha_ij + \beta_{ij}t}+1)} = \frac{t\log(y_{ij})-1}{t \log( y_{ij})} \left(\frac{x_{ij} y_{ij}^t}{x_{ij}y_{ij}^t - t \log y_{ij}} \right)
+\end{align}
+
+The likelihood is obtained by the log of the probability:
+
+\begin{align}
+\log P(G) =& \sum_{i<j} \log(-\log(y_iy_j)) + \Theta(w_{ij}-t)\log(x_i x_j) + \\\\ & w_{ij}\Theta(w_{ij}-t)\log(y_i y_j) - \log\left( x_i x_j (y_i y_j)^t - t \log(y_i y_j) \right)
+\end{align}
+
