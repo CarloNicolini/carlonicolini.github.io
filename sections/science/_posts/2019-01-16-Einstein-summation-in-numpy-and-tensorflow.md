@@ -1,8 +1,10 @@
 ---
 layout: post
 title: Einstein summation in Numpy and tensorflow
+categories: science
 date: 2019-01-16
 published: false
+use_math: true
 ---
 
 
