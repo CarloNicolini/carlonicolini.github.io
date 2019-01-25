@@ -58,6 +58,41 @@ and the expected link weight $\langle w_{ij} \rangle$
 The likelihood is obtained by the log of the probability:
 
 \begin{align}
-\log P(G) =& \sum_{i<j} \log(-\log(y_iy_j)) + \Theta(w_{ij}-t)\log(x_i x_j) + \\\\ & w_{ij}\Theta(w_{ij}-t)\log(y_i y_j) - \log\left( x_i x_j (y_i y_j)^t - t \log(y_i y_j) \right)
+\log P(G) =& \sum_{i<j} \log(-\log(y_iy_j)) + \Theta(w_{ij}-t)\log(x_i x_j) + \\\\ & w_{ij}\Theta(w_{ij}-t)\log(y_i y_j) - \log\left( x_i
+ x_j (y_i y_j)^t - t \log(y_i y_j) \right)
 \end{align}
 
+
+Generic solution
+----------------
+
+We are able to give the general form of the problem.
+Given the Hamiltonian $H(G)$:
+
+\begin{equation}
+H(G) = \sum \limits_{i<j} (\alpha_{ij}) \Theta(w_{ij}-t) + (\beta_{ij}) w_{ij} \Theta(w_{ij}-t)
+\end{equation}
+
+we call $\Theta(w_{ij}-t):=A_{ij}$ and $w_{ij} \Theta(w_{ij}-t):= A_{ij} w_{ij}$. We make the substitions $e^{-\alpha_{ij}}=x_{ij}$ and $e^{-\beta_{ij}}=y_{ij}$ so we have
+
+\begin{equation}
+H(G) = - \sum \limits_{i<j} \log(x_{ij})^{A_{ij}} \log(y_{ij})^{A_{ij}W_{ij}}
+\end{equation}
+
+The partition function is
+
+\begin{equation}
+Z(\mathcal{G}) = \prod_{i<j} t + \frac{e^{-\alpha_{ij} e^{-\beta_{ij}}} }{\beta_{ij}} = \prod_{i<j} t - \frac{x_{ij} y_{ij}^t}{\log(y_{ij})}
+\end{equation}
+
+hence the graph probability becomes:
+
+\begin{equation}
+P(G) = \frac{e^{-H(G)}}{Z} = \log (y_{ij}) \frac{x_{ij}^{A_{ij}} y_{ij}^{w_{ij}A_{ij}} }{t \log (y_{ij}) - x_{ij}y_{ij}^t}
+\end{equation}
+
+hence the log-likelihood becomes
+
+\begin{equation}
+\log P(G) = \sum_{i<j} A_{ij}\log(x_{ij}) + A_{ij}W_{ij}\log(y_{ij}) - \log \left( t- \frac{x_{ij} y_{ij}^t}{\log(y_{ij})} \right)
+\end{equation}
