@@ -52,7 +52,7 @@ the expected link probability is found by taking the derivatives with respect to
 and the expected link weight $\langle w_{ij} \rangle$
 
 \begin{align}
-\langle w_{ij} \rangle =  \frac{\partial F}{\partial \beta_{ij}} = \frac{\beta_{ij}t + 1}{\beta_{ij}(\beta_{ij} t e^{\alpha_ij + \beta_{ij}t}+1)} = \frac{t\log(y_{ij})-1}{t \log( y_{ij})} \left(\frac{x_{ij} y_{ij}^t}{x_{ij}y_{ij}^t - t \log y_{ij}} \right)
+\langle w_{ij} \rangle =  \frac{\partial F}{\partial \beta_{ij}} = \frac{\beta_{ij}t + 1}{\beta_{ij}(\beta_{ij} t e^{\alpha_ij + \beta_{ij}t}+1)} = \frac{t\log(y_{ij})-1}{\log( y_{ij})} \left(\frac{x_{ij} y_{ij}^t}{x_{ij}y_{ij}^t - t \log y_{ij}} \right) = \frac{t\log(y_{ij})-1}{\log( y_{ij})} \langle a_{ij} \rangle
 \end{align}
 
 The likelihood is obtained by the log of the probability:
@@ -94,5 +94,7 @@ P(G) = \frac{e^{-H(G)}}{Z} = \log (y_{ij}) \frac{x_{ij}^{A_{ij}} y_{ij}^{w_{ij}A
 hence the log-likelihood becomes
 
 \begin{equation}
-\log P(G) = \sum_{i<j} A_{ij}\log(x_{ij}) + A_{ij}W_{ij}\log(y_{ij}) - \log \left( t- \frac{x_{ij} y_{ij}^t}{\log(y_{ij})} \right)
+\log P(G) = \sum_{i<j} \left(w_{ij} \left(\log{\left (y_{i} y_j \right )} \right) + \log{\left (x_{i} x_j \right )} \right) a_{ij} + \log{\left (- \frac{\log{\left (y_{i} y_j \right )} } {- t \left(\log{\left (y_{i} y_j \right )}\right) + x_{i} x_{j} \left(y_{i} y_{j}\right)^{t}} \right )}
 \end{equation}
+
+
