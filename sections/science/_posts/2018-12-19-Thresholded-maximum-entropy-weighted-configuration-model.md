@@ -97,4 +97,73 @@ hence the log-likelihood becomes
 \log P(G) = \sum_{i<j} \left(w_{ij} \left(\log{\left (y_{i} y_j \right )} \right) + \log{\left (x_{i} x_j \right )} \right) a_{ij} + \log{\left (- \frac{\log{\left (y_{i} y_j \right )} } {- t \left(\log{\left (y_{i} y_j \right )}\right) + x_{i} x_{j} \left(y_{i} y_{j}\right)^{t}} \right )}
 \end{equation}
 
+# Convince your self
 
+{% highlight python %}
+import sympy as sp
+#from sympy.abc import k,s,t,x,y,alpha,beta,w
+sp.init_printing()
+
+aij=sp.Symbol('a_{ij}', positive=True,real=True)
+wij=sp.Symbol('w_{ij}', positive=True,real=True)
+t = sp.Symbol('t', positive=True,real=True)
+alphai = sp.Symbol('\\alpha_i',positive=True,real=True)
+alphaj = sp.Symbol('\\alpha_j',positive=True,real=True)
+betai = sp.Symbol('\\beta_i',positive=True,real=True)
+betaj = sp.Symbol('\\beta_j',positive=True,real=True)
+
+xi = sp.Symbol('x_i',positive=True,real=True)
+xj = sp.Symbol('x_j',positive=True,real=True)
+yi = sp.Symbol('y_i',positive=True,real=True)
+yj = sp.Symbol('y_j',positive=True,real=True)
+
+H = ((alphai+alphaj)*sp.Heaviside(wij-t) + (betai+betaj)*wij*sp.Heaviside(wij-t))
+Z = sp.simplify(sp.integrate(sp.exp(-H.rewrite(sp.Piecewise)), (wij,0,sp.oo)))
+Z = sp.simplify(Z.replace(betai,-sp.log(yi)).replace(betaj,-sp.log(yj)).replace(alphai,-sp.log(xi)).replace(alphaj,-sp.log(xj)))
+{% endhighlight %}
+
+The resulting partition function is exactly as before specified:
+\begin{equation}
+Z(\mathcal{G}) = \frac{- x_{i} x_{j} \left(y_{i} y_{j}\right)^{t} + \log{\left (\left(y_{i} y_{j}\right)^{t} \right )}}{\log{\left (y_{i} y_{j} \right )}}
+\end{equation}
+
+The graph probability becomes:
+{% highlight python %}
+P = sp.simplify(sp.exp(-H.replace(betai,-sp.log(yi)).replace(betaj,-sp.log(yj)).replace(alphai,-sp.log(xi)).replace(alphaj,-sp.log(xj)))/Z)
+sp.expand_log(P)
+{% endhighlight %}
+with the result:
+\begin{equation}
+P(G) = - \frac{\left(x_{i} x_{j} \left(y_{i} y_{j}\right)^{w_{ij}}\right)^{\theta\left(- t + w_{ij}\right)} \left(\log{\left (y_{i} \right )} + \log{\left (y_{j} \right )}\right)}{- t \left(\log{\left (y_{i} \right )} + \log{\left (y_{j} \right )}\right) + x_{i} x_{j} \left(y_{i} y_{j}\right)^{t}}
+\end{equation}
+
+and its logarithm, i.e. the likelihood becomes:
+{% highlight python %}
+sp.expand_log(sp.log(P))
+{% endhighlight %}
+with the following result
+\begin{equation}
+\log  P(G \vert x_i, y_i) = - \frac{\left(x_{i} x_{j} \left(y_{i} y_{j}\right)^{w_{ij}}\right)^{\theta\left(- t + w_{ij}\right)} \left(\log{\left (y_{i} \right )} + \log{\left (y_{j} \right )}\right)}{- t \left(\log{\left (y_{i} \right )} + \log{\left (y_{j} \right )}\right) + x_{i} x_{j} \left(y_{i} y_{j}\right)^{t}} 
+\end{equation}
+
+where $\Theta(w_{ij}-t)$ is clearly the binarized adjacency matrix.
+
+The link existence probability $\langle a_{ij}\rangle$ is obtained as $\partial F/\partial \alpha_i$, where $F=-\log(Z)$, hence:
+
+{% highlight python %}
+F = -sp.log(sp.expand_log(Z))
+dalphai=-sp.log(xi)
+dbetai=-sp.log(yi)
+sp.simplify(sp.diff(F,xi)*sp.diff(sp.exp(-alphai),alphai)).replace(sp.exp(-alphai),xi)
+{% endhighlight %}
+
+and the result is:
+\begin{equation}
+\langle a_{ij} \rangle  =  \frac{x_{i} x_{j} \left(y_{i} y_{j}\right)^{t}}{x_{i} x_{j} \left(y_{i} y_{j}\right)^{t} - \log{\left (\left(y_{i} y_{j}\right)^{t} \right )}}
+\end{equation}
+
+the expected link weight is instead 
+
+\begin{equation}
+\langle w_{ij} \rangle = \frac{\log{\left (y_{i}^{t} y_{j}^{t} \right )} - 1}{\log{\left (y_{i} y_{j} \right )}} \frac{x_{i} x_{j} \left(y_{i} y_{j}\right)^{t}}{x_{i} x_{j} \left(y_{i} y_{j}\right)^{t} - \log{\left (\left(y_{i} y_{j}\right)^{t} \right )}}
+\end{equation}
