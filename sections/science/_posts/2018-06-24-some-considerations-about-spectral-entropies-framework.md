@@ -67,5 +67,5 @@ Numerical simulations, again with automatic differentiation tools helped me to c
 A few open questions remain that I'd like to give an answer, or at least to better understand:
 1. Is $\mathbb{E}\lbrack S(\rho \| \sigma) \rbrack$ an unbiased estimator? In other words, by minimization of this quantity can we recover the empirical parameters $\theta^*$?
 2. To what extent is it safe to approximate the quenched average with the annealed average 
-3. During our discussions, Jacob was speaking about a nice finding of two stationary points of a curve as a function of $\beta$ that was observed by Manlio. After a few days, I don't remember what was he plotting on the y axis, but if the quantity is the heat capacity, (that can be computed as the fluctuations of the energy dTr{L rho}/dbeta), then this observation reminds me of the phenomenon studied in statistical mechanics known as Schottky anomaly.
-Indeed, for small N a system has a finite number of energy levels, hence the so-called Schottky anomalies could be present in the heat capacity. I was looking for this reference in the MacKay book "Information Theory, Inference, and Learning Algorithms". They disappear in the large N limit.
+3. Schottky anomaly lurking somewhere? Indeed, for small N a system has a finite number of energy levels, hence the so-called Schottky anomalies could be present in the heat capacity.
+I was looking for this reference in the MacKay book "Information Theory, Inference, and Learning Algorithms". They disappear in the large N limit.
