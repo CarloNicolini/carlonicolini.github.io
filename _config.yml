@@ -11,7 +11,7 @@ google-analytics: UA-90756713-1
 markdown: kramdown
 keep_files: [MathJax]
 enable_disqus: true 
-plugins:
+plugins_dir:
   - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-sitemapplugin
