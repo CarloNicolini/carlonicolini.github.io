@@ -2,14 +2,14 @@
 layout: post
 title: A Graduate Course in Econometrics
 categories: science
-published: false
+published: true
 use_math: true
 date: 2017-09-27
 ---
 
-# [Introduction to matrix econometrics](https://www.youtube.com/watch?v=GMVh02WGhoc&index=1&list=PLwJRxp3blEvaxmHgI2iOzNP6KGLSyd4dz)
+### [Introduction to matrix econometrics](https://www.youtube.com/watch?v=GMVh02WGhoc&index=1&list=PLwJRxp3blEvaxmHgI2iOzNP6KGLSyd4dz)
 
-One can write 
+One can write:
 
 $$
 y_i = \beta_0 + \beta_1 x_{1i} + \ldots \beta_p x_{pi} + \epsilon_i
@@ -29,7 +29,7 @@ $$
 \hat{\boldsymbol \beta} = \left( \mathbf{X}^T \mathbf{X} \right)^{-1} \mathbf{X}^T \mathbf{Y}
 $$
 
-# [Variance of random vector times a matrix]()
+### [Variance of random vector times a matrix]()
 
 $$
 \textrm{Var}\lbrack\mathbf{A} \mathbf{x}\rbrack = \mathbf{A} \textrm{Var}\lbrack\mathbf{x}\rbrack \mathbf{A}^T 
@@ -50,5 +50,5 @@ $$
 
 because the variance of $$\mathbf{Y}$$ is homoskedastic then it's a diagonal matrix $$\sigma^2 \mathbf{I}$$.
 
-# [Geometric interpretation of OLS](https://www.youtube.com/watch?v=oWuhZuLOEFY&index=18&list=PLwJRxp3blEvaxmHgI2iOzNP6KGLSyd4dz)
+### [Geometric interpretation of OLS](https://www.youtube.com/watch?v=oWuhZuLOEFY&index=18&list=PLwJRxp3blEvaxmHgI2iOzNP6KGLSyd4dz)
 Least squares are represented by two steps: first identify the vector $$\hat{\mu}$$ 

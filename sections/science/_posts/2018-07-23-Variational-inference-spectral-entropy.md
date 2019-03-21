@@ -155,11 +155,7 @@ To do this we can apply the Heims perturbation theory at the first order~(\cite{
 \end{align}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\appendix
-#{Calculation of ensemble average spectral density}
+# Calculation of ensemble average spectral density
 The spectral density $\varrho$ of a Laplacian matrix $\mathbf{L}$ can be defined via the delta function as~\cite{nadakuditi2012,nadakuditi2013}:
 \begin{equation}
 \varrho(z) = \frac{1}{n}\sum_{i=1}^n \delta(z-\lambda_i)
