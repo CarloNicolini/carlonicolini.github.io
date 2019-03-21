@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Light introduction to measure theory
+title: Short introduction to measure theory
 categories: science
 date: 2019-03-18
 published: true
