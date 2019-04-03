@@ -23,13 +23,13 @@ S(\mathcal{G}) = -\sum \limits_{G \in \mathcal{G}} P(G) \ln P(G)
 Here we make another step, different from the typical procedure of maximum entropy, writing $P(G)$ with the formalism of quantum mechanics, as the square of a wave function $\psi(G) \in \mathbb{C}^{n\times n}$, in other words:
 
 \begin{equation}
-P(G) = | \psi(G) |^2
+P(G) = | \psi(G) | ^2
 \end{equation}
 
-Our normalization condition is that:
+Our normalization condition is like in quantum mechanics, leading to:
 
 \begin{equation}
-
+\lvert \psi(G) \rvert^2 = 1
 \end{equation}
 
 The total constraint is like for the ER graph, on the total number of links, so we build a Lagrangian $\mathcal{L}(G)$ that reads:
@@ -39,3 +39,4 @@ The total constraint is like for the ER graph, on the total number of links, so 
 \end{equation}
 
 
+TO CONTINUE...

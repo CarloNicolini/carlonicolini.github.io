@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Optimal portfolio for cryptocurrencies
+title: Markowitz optimal portfolio in Python
 categories: science
 published: false
 use_math: true
@@ -32,9 +32,9 @@ We start from the Wikipedia definitions of what is meant by modern portfolio the
 
 > Modern portfolio theory (MPT), or mean-variance analysis, is a mathematical framework for assembling a portfolio of assets such that the expected return is maximized for a given level of risk. 
 
-> It is a formalization and extension of diversification in investing, the idea that owning different kinds of financial assets is less risky than owning only one type. 
+It is a formalization and extension of diversification in investing, the idea that owning different kinds of financial assets is less risky than owning only one type. 
 
-> Its key insight is that an asset's risk and return should not be assessed by itself, but by how it contributes to a portfolio's overall risk and return. It uses the variance of asset prices as a proxy for risk.
+Its key insight is that an asset's risk and return should not be assessed by itself, but by how it contributes to a portfolio's overall risk and return. It uses the variance of asset prices as a proxy for risk.
 
 The target of our work is to define the best combinations of stocks or cryptoassets to maximize the portfolio return, keeping the risk as measured by the variance, small.
 Hence, a portfolio is a linear combination of the assets' returns.

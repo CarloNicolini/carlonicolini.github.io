@@ -2,7 +2,7 @@
 layout: post
 title: Eigenvalue spectra of modular matrix techniques and calculations
 categories: science
-published: false
+published: true
 date: 2017-02-12
 --- 
 

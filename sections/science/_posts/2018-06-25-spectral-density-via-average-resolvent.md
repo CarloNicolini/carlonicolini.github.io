@@ -59,7 +59,7 @@ Being the expression for the moments $$\mathbb{E}[\mathrm{Tr}[\mathbf{X}^k]]$$ a
 
 If we choose the often encoutered statistical mechanical quantity $$f(\mathbf{X}):=e^{-\beta \mathbf{X}}$$ we obtain this nice expression for the calculation of the expected partition function of a random graph ensemble in the spectral entropies framework:
 \begin{equation}
-\mathbb{E}\left \lbrack{\mathrm{Tr}{e^{-\beta \mathbf{L}}}} \right \rbrack = n \int \limits_{-\infty}^{\infty} e^{-\beta \lambda} \varrho(e^{-\beta \lambda}) d\lambda
+\mathbb{E}\left \lbrack{\mathrm{Tr}{e^{-\beta \mathbf{L}}}} \right \rbrack = n \int \limits_{0}^{\infty} e^{-\beta z} \varrho(z) dz
 \end{equation}
 
 We can then compute the average spectral density as:
@@ -124,7 +124,8 @@ While analytically a limit procedure should be computed, the parameter controls 
 If you increase the number of repetitions and limit the `eps` parameter very close to zero, being cautios to avoid underflows, you can reconstruct the exact limiting distribution as observed in the histogram.
 
 To get a smoother curve either you analytically calculate the formula for the spectral density, or you largely increase the number of samples.
-At the moment I don't believe there is some sort of closed form formula for the Laplacian of the Erdos-Renyi graph, which is not hidden under tons of obscure math.
+At the moment there is not closed form formula for the Laplacian of the Erdos-Renyi graph.
+A  numerical solution comes from the Peixoto paper (Eigenvalue spectra of modular networks).
 
 # References
 

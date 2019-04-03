@@ -11,10 +11,16 @@ google-analytics: UA-90756713-1
 markdown: kramdown
 keep_files: [MathJax]
 enable_disqus: true 
-plugins:
-  - jekyll-paginate
+plugins_dir:
   - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-sitemap
   - jekyll-sitemapplugin
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
+
 social:
   name: Carlo Nicolini
   links:

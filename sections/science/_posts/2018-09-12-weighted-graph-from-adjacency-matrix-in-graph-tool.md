@@ -18,7 +18,7 @@ In order to convert a `numpy.array` representing the adjacency matrix of a graph
 This function, that correctly handles the edge weights, in the variable `weight` is given in the following snippet. 
 
 {% highlight python %}
-def to_graph_tool(adj):
+def to_graph_tool_slow(adj):
     g = gt.Graph(directed=False)
     edge_weights = g.new_edge_property('double')
     g.edge_properties['weight'] = edge_weights
@@ -31,18 +31,21 @@ def to_graph_tool(adj):
     return g
 {% endhighlight %}
 
-It is clear here that one is trying to add links with their specific weight by considering them in a double nested for loop, which can be expensive to evaluate.
+Unfortunately here, speaking about performances, the doubly nested for loop is not a great idea.
+Moreover,  it is clear here that one is trying to add links with their specific weight by considering them in a double nested for loop, which can be expensive to evaluate.
 Unfortunately at the moment the following the indication from [stackoverflow](https://stackoverflow.com/questions/23288661/create-a-weighted-graph-from-an-adjacency-matrix-in-graph-tool-python-interface) does not seem to work correctly.
-The implementation is the following, that uses the *add_edge_list* method, but when the adjacency matrix is produced the results are inconsistent.
+
+However I worked out a correct implementation for **undirected, weighted** networks, that works pretty well.
+The implementation is the following: it is using the *add_edge_list* method, exploiting `numpy.nonzero` method.
 
 {% highlight python %}
-import graph_tool.all as gt
-def to_graph_tool_WRONG(adj):
+def to_graph_tool(adj):
     g = gt.Graph(directed=False)
-    eprop = g.new_edge_property('double')
-    g.edge_properties['weight'] = eprop
-    nnz = np.nonzero(np.triu(adj))
-    g.add_edge_list(np.hstack([np.transpose(nnz),adj[nnz[0]]]),eprops=[eprop])
+    edge_weights = g.new_edge_property('double')
+    g.edge_properties['weight'] = edge_weights
+    nnz = np.nonzero(np.triu(adj,1))
+    nedges = len(nnz[0])
+    g.add_edge_list(np.hstack([np.transpose(nnz),np.reshape(adj[nnz],(nedges,1))]),eprops=[edge_weights])
     return g
 {% endhighlight %}
 
