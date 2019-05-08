@@ -4,12 +4,13 @@ title: Bio
 permalink: /sections/cv
 ---
 
-- 2017 Phd in Nanoscience and advanced technologies, University of Verona, Italy.
+- 2017 Phd in Applied Physics (Nanoscience and advanced technologies), University of Verona, Italy.
 Thesis title: "Community detection in the modular structure of brain functional connectivity networks".
 - 2008 M.Sc in Biomedical Physics, Grade 110/110 cum laude, University of Trento, Italy.
 - 2003 B.Sc in Physics, University of Trento, Italy.
 
 ### Seminars
+- July 2019 Lipari Workshop on Complex Systems: Scale resolved analysis of complex networks
 - June 2018 Netsci2018, Paris. Thermodynamics of network model fitting with spectral entropies. [Download](/static/pdf/presentation_netsci2018.pdf)
 - May 2016 CCS2016 Amsterdam, Community detection in brain functional networks beyond the resolution limit. [Download](/static/pdf/presentation_amsterdam_final.pdf)
 
