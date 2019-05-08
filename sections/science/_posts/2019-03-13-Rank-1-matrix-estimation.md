@@ -73,7 +73,6 @@ where the quantity $\mathbf{V} = (v \cdot \mathbf{1}^T - v^T \cdot \mathbf{1})$ 
 Also, the problem becomes much simpler, as the positivity constraint is lost, and we can look over the unbounded real domain.
 Once solved, the estimated load vector $\mathbf{u}$ is obtained by taking the exponential of the elements of $\mathbf{v}$.
 
-
 # Why this problem is interesting
 
 Currency markets are often handled by exchanges. They may offer only some specific pairs to trade, as for example USD \$ to EUR, or USD to CAD.

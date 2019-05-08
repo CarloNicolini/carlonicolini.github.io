@@ -3,6 +3,7 @@ layout: post
 categories: math
 date: 2019-03-04
 title: Matrix factorization things
+published: false
 ---
 
 Notes from [Coursera course](https://www.coursera.org/lecture/matrix-factorization/singular-value-decomposition-K5NBy)
@@ -27,4 +28,5 @@ The matrices $P$ and $Q$ are orthogonal.
 Hence SVD describes preferences in terms of latent features. The features are not necessarily interpretable, instead we select features that optimize the predictive power.
 The features define a shared vector space for users and items (feature space), and it enables compact representation of each.
 
-The vectors $r_u$ is in the user space, $r_i$ is in the item space (they are row and column vectors)
+The vectors $r_u$ is in the user space, $r_i$ is in the item space (they are row and column vectors).
+
