@@ -9,6 +9,8 @@ With this post I am introducing to the public my very first complete Python pack
 
 **networkqit** is a Python package for working within the spectral entropy framework of complex networks.
 However networkqit is of huge help also in developing, testing and using other Maximum Entropy network models, such as the Erdos-Renyi, Configuration model and other complex variants of them.
+The package is available in its source code form at my [github account](https://github.com/carlonicolini/networkqit)
+
 
 This toolbox is among the first implementations of the spectral entropy framework. It entails both computation of the density matrices, as well as number of methods of model fitting methods.
 

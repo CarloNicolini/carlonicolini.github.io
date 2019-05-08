@@ -3,7 +3,7 @@ layout: post
 categories: science
 date: 2019-03-21
 use_math: true
-published: false
+published: true
 ---
 
 In these notes I want to introduce Hidden Markov Model, one of the simplest but rich enough models to handle real world applications for modeling sequential models.
@@ -110,4 +110,5 @@ There are three fundamental problems for HMMs:
 
 The first and the second problem can be solved by the dynamic programming algorithms known as the Viterbi algorithm and the Forward-Backward algorithm, respectively. The last one can be solved by an iterative Expectation-Maximization (EM) algorithm, known as the Baum-Welch algorithm.
 
-Continuare da minuto 5:00 di [questo video](https://www.youtube.com/watch?v=M7afek1nEKM)
+**  To be continued **
+<!-- Continuare da minuto 5:00 di [questo video](https://www.youtube.com/watch?v=M7afek1nEKM) -->
