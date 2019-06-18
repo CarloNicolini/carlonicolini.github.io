@@ -2,8 +2,8 @@
 layout: default
 ---
 
-<!-- <img src="static/img/CNCS.png" style="right; width: 10%">
-<img src="static/img/UNIVR.jpg" style="right; width: 10%"> -->
+<!-- <img src="static/img/CNCS.png" style="right; width: 15%">
+<img src="static/img/UNIVR.jpg" style="right; width: 15%"> -->
 
 <div class="row">
 	<div class="col-xs-9">
@@ -12,11 +12,11 @@ layout: default
 </div>
 <div class="row">
 	<div class="col-xs-8">
-		<p>Physicist by training, I apply complex networks tools to study the brain.
-		To do this I use tools from statistical mechanics and machine learning.
-		I am also a scientific programmer with real-world expertise in C/C++, Matlab and Python and the ability to learn very fast any new programming framework for data analysis.
+		<p>Physicist by education, I enjoy studying complex networks with tools from physics (statistical mechanics) and machine learning.
+		I am a scientific programmer with real-world expertise in C/C++, Matlab and Python and the ability to learn very fast any new programming framework for data analysis.
+		I like to tackle new problems that require mathematical modeling and advanced computational methods.
 		<br>
-		I enjoy endurance sports, hiking in the mountains, kayaking and cross-country skiing.
+		Endurance sports are my passion, I like hiking in the mountains, kayaking and cross-country skiing.
 		</p>
 	</div>
 	<div class="col-xs-4">
@@ -27,9 +27,11 @@ layout: default
 
 <div class="row">
 <div class="col-xs-12">
-In my career I've always been involved with computation in many of its applications.
-I've started with Monte Carlo methods in radiation treatment planning, then moved to machine learning. In the last years I shifted my attention to computational models of brain fMRI activity exploiting the powerful theoretical machinery of complex networks.
-This blog collects results, ideas and notebooks of my work. Not all the content of this website is completely finished, so take it as it is.
+I've always been involved with computation in general.
+I've started with Monte Carlo methods in radiation treatment planning, then moved to machine learning.
+In the last years I shifted my attention to computational models of brain fMRI activity exploiting the powerful theoretical machinery of complex networks.
+This blog contains temporary results, vague ideas and notebooks that I collect during my daily work.
+For this reason, **most of the content of this website is under construction**, and mathematical contents are not complete, so please do not take it for granted.
 </div>
 </div>
 
