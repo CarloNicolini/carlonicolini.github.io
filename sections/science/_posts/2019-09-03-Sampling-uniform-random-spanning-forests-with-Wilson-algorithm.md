@@ -100,10 +100,27 @@ With some other simple manipulations and setting $q=\beta^{-1}$ we obtain:
 This expression starts reminding us about the Boltzmann partition function $\chi(\beta)=\mathrm{Tr}\left \lbrack e^{-\beta \mathbf{L}} \right\rbrack$. Indeed if we Taylor expand both of them in the limit $\beta \to 0$, equivalent to large $q$, hence many small trees in the forest, we can see that:
 
 \begin{equation}
-Z = n - \log \chi(\beta^{-1}) + n\log \beta
+Z \approx n - \log \chi(\beta^{-1}) + n\log \beta + r(\beta)
 \end{equation}
 
+The residual term $r(\beta)$ is written as
+
+\begin{equation}
+r(\beta) = \sum_{k=3}^{\infty}\left(\frac{(-1)^k}{k!} - \frac{(-1)^{k+1}}{k} \right) \beta^k \mathrm{Tr}\lbrack \mathbf{L}^k \rbrack
+\end{equation}
+
+
 This approximation tells us that the Boltzmann partition function in the spectral entropies framework is describing the combinatorial statistics of random spanning forests in the graph, at least in the limit of many small trees.
+It's indeed very good, until the limit $\beta = (\lambda_{max})^{-1}$ which is the limit in which we can Taylor expand the Mercator series of the logarithm.
+
+<center>
+<img src='/static/postfigures/z_vs_approx.png' width="600" />
+</center>
+
+In this picture the limit of the approximation is exactly $1/\lambda_{max}$. For values of $\beta$ lower than this threshold, the approximation is incredibly good, and it definely links the partition function to the combinatorics of random spanning forests as from the Wilson algorithm.
+Incredible, we have more to discuss in the next sections.
+
+
 
 # Code
 Here is the code needed to generate all these figures. It's written in Python and it explains the details of the Wilson algorithm in the function ``sample``.
