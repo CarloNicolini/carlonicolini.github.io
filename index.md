@@ -41,7 +41,7 @@ My latest blog posts
 <p>
 </p>
 <ul class="post-list">
-{% for post in site.categories.science limit:3%}
+{% for post in site.categories.science limit:5%}
 <li>
 <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 </li>
