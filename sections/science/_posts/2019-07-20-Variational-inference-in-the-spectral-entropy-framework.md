@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Variational inference in the spectral entropies framework
+title: Variational inference in Tensorflow in the spectral entropies framework
 categories: science
-published: false
-date: 2018-05-21
+published: True
+date: 2019-07-20
 use_math: true
 ---
 
