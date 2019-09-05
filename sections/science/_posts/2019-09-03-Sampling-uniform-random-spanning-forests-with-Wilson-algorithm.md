@@ -13,13 +13,21 @@ We start from a binary undirected graph $G=(V,E)$, and would like to find a way 
 In this section I provide a simple yet efficient implementation of the Wilson algorithm to sample random spanning.
 The algorithm follows this line.
 
-David Wilson invented an exact algorithm to generate a spanning tree of $G$ which follows the uniform distribution on the set of spanning trees of $G$.
-Starting from vertex 1, the algorithm consists in setting $A_1=\{1\}$, and to simulate a path of the simple random walk on $G$ started from vertex 2 until it reaches $A_1$.
-Then $A_2$ is the union of $A_1$ and of the loop erased version of this path.
-If $A_2=V$, the algorithm is stopped.
-If not, then we redo the same starting this time the path from smallest vertex not in $A_2$,
- stopping the path when it reaches $A_2$, and so on.
-The Wilson algorithm can be naturally related to the Green function of the random walk on $G$ with Dirichlet boundary conditions on a subset of $V$.
+1. Given an undirected graph $G=(V,E)$ with vertex set $V$ and edge set $E$, convert it to a directed graph, where all undirected links $(u,v)$ are replaced by two directed links $(u,v)$ and $(v,u)$.
+2. Add a node called *root* to the graph $G$.
+3. Connect all nodes with directed edges to the root node with weight $q$. Do not connect $r$ to all other nodes in the other direction.
+4. Sample a random spanning tree starting from a random node (not $r$).
+5. Eliminate the root node $r$ together with all its connections.
 
+What remains is a random spanning forests, i.e. a random variable $\Phi_q$ sampled from the following probability distribution
 
+\begin{equation}
+\mathbb{P}(\Phi_q = \phi) = \frac{w(\phi) q^{|\mathcal{R}(q)|}}{Z(q)}
+\end{equation}
 
+where $\mathcal{R}(\phi)$ is the set of roots of the trees in the forest. The root vertices are such that, given any other vertex in the tree, following the directed edges in the tree you always reach the root.
+The quantity $Z(q)$ is a *partition function* and sums the numerator over all possible random spanning forests (denoted by the set $\mathcal{F}$)
+
+\begin{equation}
+Z(q) = \sum \limits_{\phi \in \mathcal{F}} w(\phi)q^{|\mathcal{R}(q)|}
+\end{equation}
