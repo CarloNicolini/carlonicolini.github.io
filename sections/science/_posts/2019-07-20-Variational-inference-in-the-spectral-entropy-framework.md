@@ -2,14 +2,13 @@
 layout: post
 title: Variational inference in Tensorflow in the spectral entropies framework
 categories: science
-published: True
+published: false
 date: 2019-07-20
-use_math: true
 ---
 
-# Variational inference
+# Code
 
-This code does wonderful things thanks to the Tensorflow automatic differentiation capabilities.
+The ideas collected in the previous sections are collected in this code, which has then been developed in the package **networkqit**.
 
 {% highlight python %}
 from __future__ import absolute_import

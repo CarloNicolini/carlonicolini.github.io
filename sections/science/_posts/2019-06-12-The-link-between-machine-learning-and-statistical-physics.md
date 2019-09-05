@@ -10,7 +10,9 @@ date: 2019-06-12
 Reading the paper by Max Tegmark ["Why does deep and cheap learning work so well"](https://arxiv.org/pdf/1608.08225.pdf) is illuminating.
 
 
-The abstract:
+# The abstract:
+
+The abstract of this paper already gives a very good introduction of the ideas presented. The main problem is tackled is why are neural networks working so well in reducing complexity? The answer is that random patterns in the universe are not really *random* but some kind of structures are always present. It is exactly on this phenomenon that neural networks are based.
 
 We show how the success of deep learning could depend not only on mathematics but also on physics: although well-known mathematical theorems guarantee that neural networks can approxi-mate arbitrary functions well, the class of functions of practical interest can frequently be approximated through *cheap learning* with exponentially fewer parameters than generic ones. 
 We explore how properties frequently encountered in physics such as symmetry, locality, compositionality, and polynomial log-probability translate into exceptionally simple neural networks.
