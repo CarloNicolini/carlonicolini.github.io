@@ -21,8 +21,7 @@ We further argue that when the statistical process generating the data is of a c
 We formalize these claims using information theory and discuss the relation to the renormalization group. 
 We prove various *no-flattening theorems* showing when efficient linear deep networks cannot be accurately approximated by shallow ones without efficiency loss; for example, we show that $n$ variables cannot be multiplied using fewer than 2 neurons in a single hidden layer.
 
-[![deep networks encode hierarchical data generation](https://i.ytimg.com/an_webp/5MdSE-N0bxs/mqdefault_6s.webp?du=3000&sqp=CN-gpd8F&rs=AOn4CLBQHDHpJnmjp8OTGEyGL3QWe7CjYQ)](https://www.youtube.com/watch?v=5MdSE-N0bxs)
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5MdSE-N0bxs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 | Physics                   | ML                                |
 |:--------------------------|----------------------------------:|
