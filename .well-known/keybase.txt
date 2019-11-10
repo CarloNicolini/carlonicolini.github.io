@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/cnicolini
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://carlonicolini.github.io
+  * I am cnicolini (https://keybase.io/cnicolini) on keybase.
+  * I have a public key ASBrTOueaGtqmOEC05vqvPauFQ7tO6pXCfu7Bv_D3YH42Ao
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120d25f788c4b8351068d8a5e7926e085ccd6937654e236f2537091bea51991c9550a",
+      "host": "keybase.io",
+      "kid": "01206b4ceb9e686b6a98e102d39beabcf6ae150eed3baa5709fbbb06ffc3dd81f8d80a",
+      "uid": "dfc5f358835033a0c27f1e5d285f8819",
+      "username": "cnicolini"
+    },
+    "merkle_root": {
+      "ctime": 1573409018,
+      "hash": "f20fad27b8cf5e37321eead19b7da99a593ddd97143b61d04baf34f10d062b4e0204497d4712d9ce6c775aaf78f0c75bc64b0e7e29021dcd855dccc53f6a24b6",
+      "hash_meta": "ec2e83fe3ad475fc7515125384b96ae846bf1e786a2ac4f0079c597c967658a9",
+      "seqno": 9093397
+    },
+    "service": {
+      "entropy": "NJEqlxGFCU7oBKyMz30T1nZN",
+      "hostname": "carlonicolini.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "4.7.2"
+  },
+  "ctime": 1573409035,
+  "expire_in": 504576000,
+  "prev": "60eed12e00e340082f1773739bbc9fa71b042ae8e0b338ceb4244ec63ab0fc91",
+  "seqno": 21,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEga0zrnmhrapjhAtOb6rz2rhUO7TuqVwn7uwb/w92B+NgKp3BheWxvYWTESpcCFcQgYO7RLgDjQAgvF3Nzm7yfpxsEKujgszjOtCROxjqw/JHEIAvt336v59Tcb3CiRVCzk4CKryKbBfL5lZa79Vaa7xUgAgHCo3NpZ8RAiWjMuNfYL/+CFa9xxDNEJfE0W0yt/hKClad7Jm8FzUV0UNhabogFgomUuMEm/y71daGSb6LKfgvKJzYAyvDuDahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIJDc1kPcfF13RBw4rGV+PzfpoTZ2bzrmgPUOmbIkjqQBo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/cnicolini
+
+==================================================================
