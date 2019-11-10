@@ -6,7 +6,8 @@ baseurl: ""
 url: "https://carlonicolini.github.io"
 github_username:  carlonicolini
 twitter_username: carlonicolini84
-
+collections:
+- well-known
 # Build settings
 livereload: true
 markdown: kramdown

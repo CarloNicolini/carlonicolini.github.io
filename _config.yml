@@ -7,6 +7,8 @@ url: "https://carlonicolini.github.io"
 github_username:  carlonicolini
 twitter_username: carlonicolini84
 google-analytics: UA-90756713-1
+collections:
+- well-known
 # Build settings
 markdown: kramdown
 keep_files: [MathJax]
