@@ -16,7 +16,6 @@ layout: default
 		I am a scientific programmer with real-world expertise in C/C++, Matlab and Python and the ability to learn very fast any new programming framework for data analysis.
 		I like to tackle new problems that require mathematical modeling and advanced computational methods.
 		<br>
-		Endurance sports are my passion, I like hiking in the mountains, kayaking and cross-country skiing.
 		</p>
 	</div>
 	<div class="col-xs-4">
@@ -25,21 +24,16 @@ layout: default
 	<br>
 </div>
 
-<div class="row">
-<div class="col-xs-12">
-I've always been involved with computation in general.
-I've started with Monte Carlo methods in radiation treatment planning, then moved to machine learning.
-In the last years I shifted my attention to computational models of brain fMRI activity exploiting the powerful theoretical machinery of complex networks.
+I've always been involved with scientific computation in general.
+In this last years, as a postdoctoral researcher, I've focused my studies in the **complex interaction** between the **physics of machine learning**, the **complexity of large scale networked systems**, and **probability theory**.
+All this theoretical stuff is always followed by numerical simulations, done with the latest Python libraries, and when necessary using C++ and their highly efficient compiled numerical libraries.
+
+I am now working on computational models of brain fMRI activity exploiting the powerful theoretical machinery of complex networks.
+
 This blog contains temporary results, vague ideas and notebooks that I collect during my daily work.
 For this reason, **most of the content of this website is under construction**, and mathematical contents are not complete, so please do not take it for granted.
-</div>
-</div>
 
-<p>
-</p>
 <hr/>
-<p>
-</p>
 
 <h2>
 My latest blog posts
@@ -47,7 +41,7 @@ My latest blog posts
 <p>
 </p>
 <ul class="post-list">
-{% for post in site.categories.science limit:3%}
+{% for post in site.categories.science limit:5%}
 <li>
 <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 </li>

@@ -10,7 +10,7 @@ Thesis title: "Community detection in the modular structure of brain functional 
 - 2003 B.Sc in Physics, University of Trento, Italy.
 
 ### Seminars
-- July 2019 Lipari Workshop on Complex Systems: Scale resolved analysis of complex networks
+- July 2019 Lipari Workshop on Complex Systems: Scale resolved analysis of complex networks [Download](/static/pdf/presentation_lipari.pdf)
 - June 2018 Netsci2018, Paris. Thermodynamics of network model fitting with spectral entropies. [Download](/static/pdf/presentation_netsci2018.pdf)
 - May 2016 CCS2016 Amsterdam, Community detection in brain functional networks beyond the resolution limit. [Download](/static/pdf/presentation_amsterdam_final.pdf)
 

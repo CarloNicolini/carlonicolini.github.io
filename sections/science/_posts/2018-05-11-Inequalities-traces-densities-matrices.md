@@ -2,7 +2,7 @@
 layout: post
 title: Inequalities, traces, densities, matrices
 categories: science
-published: false
+published: true
 date: 2018-05-11
 use_math: true
 ---
