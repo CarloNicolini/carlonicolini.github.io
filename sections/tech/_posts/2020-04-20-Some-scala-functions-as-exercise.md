@@ -1,0 +1,117 @@
+---
+title: Some scala functions as exercise
+section: tech
+date: 2020-04-20
+layout: post
+---
+
+Here are some very basic function with self-explanatory name, to be coded in Scala for a super beginner.
+Some of them are very inefficient, pay attention to use them, they are only for demonstration.
+
+## 1. Find the last element of a list
+
+	def last[T](xs : List[T]) : T = xs match
+	{
+		case x :: Nil => x by defition the last element has Nil after
+		case h::t => last(t)
+		case _ => throw new NoSuchElementException
+	}
+
+
+## 2. Find the first element of a list
+
+	def first[T](xs : List[T]) : T = xs match
+	{
+		case head :: tail => head
+		case _ => throw new NoSuchElementException
+	}
+
+## 3. Find the last but one
+
+	def lastButOne[T](xs : List[T]) : T = xs match
+	{
+		case x :: y :: Nil => x
+		case h :: t => lastButOne(xs)
+		case _ => throw new NoSuchElementException
+	}
+
+## 4. Find the k-th element of a list
+
+	def kthElement[T](xs : List[T], k : Int) : T =
+	{
+		def _kth(xs : List[T], acc : Int) : T=
+		{
+			if (k==acc) xs.head else _kth(xs.tail, acc + 1)
+		}
+		_kth(xs, 0)
+	}
+
+## 5. Find the number of elements of a List
+
+	def length[T](xs : List[T]) : Int =
+	{
+		def acc(xs : List[T], i : Int) : Int = xs match {
+			case Nil => i
+			case h::t => acc(xs.tail, i+1)
+		}
+		acc(xs, 0)
+	}
+
+## 6. Reverse a list
+
+	Simple solution
+	def reverse[T](xs : List[T]) : List[T] =
+	{
+		xs apply xs.length to 1 by -1
+	}
+
+	Procedural solution
+	def reverse[T](xs : List[T]) : List[T] =
+	{
+		def _reverse[T](res : List[T], rem : List[T] ) : List[T] = rem match {
+			case Nil => res
+			case h::t => _reverse(h::res, tail)
+			case _ => throw new NoSuchElementException
+		}
+		_reverse(xs, )
+	}
+
+	def reverse[T](xs : List[T]) : List[T] =
+	{
+		xs.foldLeft(){(h,t)=>(t::h)}
+	}
+
+## 7. Find out wheter a list is palindrome
+
+	def isPalindrome[T](xs : List[T]) : Boolean =
+	{
+		xs == reverse(xs)
+	}
+
+## 8. Flatten a nested list structure
+
+	def flatten(xs: List[_]): List[Any] = xs match
+	{
+		case Nil => Nil
+		case (head: List[_]) :: tail => flatten(head) ::: flatten(tail)
+		case head :: tail => head :: flatten(tail)
+	}
+
+## 9. Eliminate consecutive duplicates of list elements
+
+	def filterDuplicates[T](xs : List[T]) : List[T] = xs match
+	{
+		case Nil => Nil
+		case h::List() => List(h)
+		case head::tail if (head == tail.head) => filterDuplicates(tail)
+		case h::tail => h::filterDuplicates(tail)
+	}
+
+## 10. Pack consecutive duplicates of list elements into sublists
+
+	def pack[T](xs : List[T]) : List[T] = xs match {
+		case Nil => Nil stop condition
+
+		case _ => throw new NoSuchElementException
+	}
+
