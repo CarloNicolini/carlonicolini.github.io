@@ -14,11 +14,12 @@
 - title: 'Scale-resolved analysis of brain functional connectivity networks with spectral entropy'
   authors: 'Nicolini C., Forcellini G., Bifone A.'
   journal: 'Neuroimage'
+  year: '2020'
   abstract: 'Functional connectivity is derived from inter-regional correlations in spontaneous fluctuations of brain activity, and can be represented in terms of complete graphs with continuous (real-valued) edges. The structure of functional connectivity networks is strongly affected by signal processing procedures to remove the effects of motion, physiological noise and other sources of experimental error. However, in the absence of an established ground truth, it is difficult to determine the optimal procedure, and no consensus has been reached on the most effective approach to remove nuisance signals without unduly affecting the network intrinsic structural features. Here, we use a novel information-theoretic approach, based on von Neumann entropy, which provides a measure of information encoded in the networks at different scales. We also define a measure of distance between networks, based on information divergence, and optimal null models appropriate for the description of functional connectivity networks, to test for the presence of nontrivial structural patterns that are not the result of simple local constraints. This formalism enables a scale-resolved analysis of the distance between a functional connectivity network and its maximally random counterpart, thus providing a means to assess the effects of noise and image processing on network structure. We apply this novel approach to address a few open questions in the analysis of brain functional connectivity networks. Specifically, we demonstrate a strongly beneficial effect of network sparsification by removal of the weakest links, and the existence of an optimal threshold that maximizes the ability to extract information on large-scale network structures. Additionally, we investigate the effects of different degrees of motion at different scales, and compare the most popular processing pipelines designed to mitigate its deleterious effect on functional connectivity networks. We show that network sparsification, in combination with motion correction algorithms, dramatically improves detection of large scale network structure.'
   doi: 'https://doi.org/10.1016/j.neuroimage.2020.116603'
   url: 'https://www.sciencedirect.com/science/article/pii/S1053811920300902'
   image: 'https://ars.els-cdn.com/content/image/1-s2.0-S1053811920300902-gr2_lrg.jpg'
-
+  caption: 'Spectral entropy of a highly modular network'
 
 - title: 'Thermodynamics of network model fitting with spectral entropies'
   authors: 'Nicolini C., Vlasov V., Bifone A.'
