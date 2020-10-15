@@ -3,6 +3,7 @@ layout: post
 date: 2020-10-10
 title: Statistical join and merge of uncertain dataframes
 categories: biz
+published: false
 ---
 
 In these days I've faced what I believe is a very commomn problem for data scientists in the business industry.
@@ -21,3 +22,44 @@ Moreover, imagine that, at least theoretically, the two datasets
 
 A business idea is to realize a system that could "learn" the right matching, identifying rows in the two databases which are plausible to be a match.
 
+A first attempt to make this idea more concrete is based on the calculation of the (corrected) Cramer V' statistics.
+
+### Cramer V statistics
+Taken from [Wikipedia](https://en.wikipedia.org/wiki/Cram%C3%A9r%27s_V)
+
+$\phi_c$ is the intercorrelation of two discrete variables and may be used with variables having two or more levels.
+
+$\phi_c$ is a symmetrical measure, it does not matter which variable we place in the columns and which in the rows.
+Also, the order of rows/columns doesn't matter, so $\phi_c$ may be used with nominal data types or higher (notably ordered or numerical).
+
+Cramér's V may also be applied to goodness of fit chi-squared models when there is a $1 \times k$ table (in this case $r = 1$).
+In this case $k$ is taken as the number of optional outcomes and it functions as a measure of tendency towards a single outcome.
+
+Cramér's V varies from $0$ (corresponding to no association between the variables) to $1$ (complete association) and can reach $1$ only when each variable is completely determined by the other.
+
+$\phi_c^2$ is the mean square canonical correlation between the variables.
+
+In the case of a $2 \times 2$ contingency table Cramér's V is equal to the Phi coefficient.
+
+Note that as chi-squared values tend to increase with the number of cells, the greater the difference between r (rows) and c (columns), the more likely $\phi_c$ will tend to 1 without strong evidence of a meaningful correlation.
+
+$V$ may be viewed as the association between two variables as a percentage of their maximum possible variation. 
+$V^2$ is the mean square canonical correlation between the variables.
+
+
+{%highlight python%}
+def cramers_corrected_stat(confusion_matrix):
+    """ Calculate Cramers V statistic for categorial-categorial association.
+        uses correction from Bergsma and Wicher, 
+        Journal of the Korean Statistical Society 42 (2013): 323-328
+    """
+    from scipy.stats.contingency import chi2_contingency as chi2_contingency
+    chi2 = chi2_contingency(confusion_matrix)[0]
+    n = confusion_matrix.sum().sum()
+    phi2 = chi2/n
+    r,k = confusion_matrix.shape
+    phi2corr = max(0, phi2 - ((k-1)*(r-1))/(n-1))
+    rcorr = r - ((r-1)**2)/(n-1)
+    kcorr = k - ((k-1)**2)/(n-1)
+    return np.sqrt(phi2corr / min( (kcorr-1), (rcorr-1)))
+{%endhighlight%}
