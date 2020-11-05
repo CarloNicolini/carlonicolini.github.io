@@ -7,6 +7,13 @@ layout: default
 
 <div class="row">
 	<div class="col-xs-9">
+	<h2>A new start</h2>
+	I recently started a new career in a totally different area. I left academia to work as consultant in the financial services. Life has changed a lot since then, and I've learned to start from scratch, given my zero-knowledge in the field. Life always has many surprises!
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xs-9">
 	<h2>Presentation</h2>
 	</div>
 </div>

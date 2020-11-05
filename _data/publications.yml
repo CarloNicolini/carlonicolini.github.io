@@ -11,6 +11,16 @@
 # supplementary: a pdf of the supplementary materials
 # code: if the paper has code, a link to download the code
 
+- title: 'Statistical physics of complex information dynamics'
+  authors: 'Arsham Ghavasieh, Carlo Nicolini, Manlio De Domenico'
+  journal: 'Physical Review E'
+  volume: 'arxiv:2010.04014'
+  abstract: 'The constituents of a complex system exchange information to function properly. Their signalling dynamics often leads to the appearance of emergent phenomena, such as phase transitions and collective behaviors. While information exchange has been widely modeled by means of distinct spreading processes--such as continuous-time diffusion, random walks, synchronization and consensus--on top of complex networks, a unified and physically-grounded framework to study information dynamics and gain insights about the macroscopic effects of microscopic interactions, is still eluding us. In this article, we present this framework in terms of a statistical field theory of information dynamics, unifying a range of dynamical processes governing the evolution of information on top of static or time varying structures. We show that information operators form a meaningful statistical ensemble and their superposition defines a density matrix that can be used for the analysis of complex dynamics. As a direct application, we show that the von Neumann entropy of the ensemble can be a measure of the functional diversity of complex systems, defined in terms of the functional differentiation of higher-order interactions among their components. Our results suggest that modularity and hierarchy, two key features of empirical complex systems--from the human brain to social and urban networks--play a key role to guarantee functional diversity and, consequently, are favored.'
+  url: 'https://arxiv.org/abs/2010.04014'
+  pdf: 'https://arxiv.org/pdf/2010.04014.pdf'
+  image: '/static/statinfodynamics.png'
+  caption: 'Modularity and hierarchy in terms of spectral entropy'
+
 - title: 'Scale-resolved analysis of brain functional connectivity networks with spectral entropy'
   authors: 'Nicolini C., Forcellini G., Minati L., Bifone A.'
   journal: 'Neuroimage'
