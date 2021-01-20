@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The Woodbury matrix identity
-date: 2020-23-10
+date: 2020-10-23
 categories: science
 published: true
 ---
