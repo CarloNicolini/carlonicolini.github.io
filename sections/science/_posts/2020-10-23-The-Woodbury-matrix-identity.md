@@ -14,7 +14,7 @@ It is also called *matrix inversion lemma* or *Sherman-Morrison-Woodbury formula
 More explicitly the identity states:
 
 \begin{equation}
-\left( \mathbf{A} + \mathbf{U}\mathbf{C}\mathbféV} \right)^{-1} = \mathbf{A}^{-1} - \mathbf{A}^{-1} \mathbf{U}\left( \mathbf{C}^{-1} + \mathbf{V} \mathbf{A}^{-1} \mathbf{U} \right)^{-1} V \mathbf{A}^{-1}
+\left( \mathbf{A} + \mathbf{U}\mathbf{C}\mathbf{V}} \right)^{-1} = \mathbf{A}^{-1} - \mathbf{A}^{-1} \mathbf{U}\left( \mathbf{C}^{-1} + \mathbf{V} \mathbf{A}^{-1} \mathbf{U} \right)^{-1} V \mathbf{A}^{-1}
 \end{equation}
 
 where $\mathbf{A},\mathbf{U},\mathbf{C},\mathbf{V}$ are all matrices with the correct shapes, specifically, $\mathbf{A}$ is a square $n\times n$, $\mathbf{U}$ is $n \times k$, $\mathbf{C}$ is $k\times k$ and $\mathbf{V}$ is $k \times n$.
