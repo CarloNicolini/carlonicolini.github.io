@@ -57,9 +57,9 @@ to calculate $k = \log_b a$ given $a,b \in G$ is the discrete logarithm problem 
 Discrete logarithms are quickly computable in a few special cases, however no efficient method is present.
 Discrete logarithm is different from logarithms in real numbers.
 
-*Discrete logarithm crypto systems* are based on finite cyclic subgroup with a generator $g$ of prime order $|g|=n$.
+*Discrete logarithm crypto systems* are based on finite cyclic subgroup with a generator $g$ of prime order $\|g\|=n$.
 
-We want for security the DLP in $|g|$ must be intractable, however the opposite must be easy, i.e. given $a=g^k$ 
+We want for security the DLP in $\|g\|$ must be intractable, however the opposite must be easy, i.e. given $a=g^k$:
 
 - A private key is an integer  $k$ in $[1,n-1]$ 
 - A public key is $a=g^k$
@@ -118,7 +118,7 @@ Every even number has an odd opposite.
 For any prime $p$, $\mathbb{Z}^\star / p  \mathbb{Z}: (\{ 1, \ldots, p-1 \}, \cdot)$ is a commutative group.
 
 - order $p-1$
-- thanks to $p$ primality for any element $a$, $gcd(a,p$)=1$, i.e. there exist the inverse $b$ such that $ab=1 \mod p$.
+- thanks to $p$ primality for any element $a$, $gcd(a,p)=1$, i.e. there exist the inverse $b$ such that $ab=1 \mod p$.
 
 ## Fermat little theorem
 
