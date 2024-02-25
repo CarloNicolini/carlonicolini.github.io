@@ -16,5 +16,9 @@ def hash_jpg(file: Union[str, Path]) -> str:
         while len(fb) > 0:
             file_hash.update(fb)
             fb = fp.read(block_size)
+    return str(file_hash.hexdigest())
 ```
+
+It's very useful!
+
 
