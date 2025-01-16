@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Prompt Chaining: Enhancing LLM Workflows
+title: Prompt Chaining with Foundational models
 date: 2025-01-16
 categories: tech
 ---
