@@ -16,11 +16,8 @@ Prompt chaining is a sequential workflow where the output of one LLM call become
 The versatility of prompt chaining lends itself to a variety of applications in real-world scenarios:
 
 1. **Marketing Automation**: Generate marketing copy through one LLM and seamlessly translate it into different languages using another LLM.
-
 2. **Document Creation**: Write an outline, validate it against certain criteria, and then produce the full document based on the approved outline.
-
 3. **Data Processing**: Clean and standardize raw data using one LLM, then pass the refined data to another LLM for insights or visualizations.
-
 4. **Question Generation and Answering**: Create a list of insightful questions on a topic using one LLM, and then feed those questions into another for detailed, researched answers.
 
 ## Implementing Prompt Chaining
