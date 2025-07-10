@@ -48,7 +48,7 @@ import numpy as np
 from scipy.special import expit
 def multiexpit(x, slope=50):
     y = np.asarray([ expit(slope*(x-i)) for i in range(int(np.max(x))) ])
-    return np.sum(y,axis=0)
+    return np.sum(y+1,axis=0) -1
 {% endhighlight %}
 
 Luckily this function, that I called `multiexpit`, can be backpropagated through, as it is a sum of differentiable functions.
