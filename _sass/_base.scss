@@ -116,36 +116,37 @@ blockquote {
 }
 
 /**
- * Code formatting
+ * Code formatting — inline and block, consistent with syntax highlighting
  */
+$code-font: "SF Mono", "Fira Code", "Consolas", "Monaco", "Liberation Mono", monospace;
+$code-bg: #f6f8fa;
+$code-border: #e1e4e8;
+
 pre,
 code {
-    font-size: 11px;
-    border: 0px solid $orange-color-light;
-    border-radius: 3px;
-    background-color: #eef;
+    font-family: $code-font;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 4px;
+    background-color: $code-bg;
 }
 
 code {
-    padding: 1px 5px;
-    font-size: 100%;
-
-    // border: 1px solid $orange-color-light;
-    border-radius: 6px;
-    background-color: #eeef;
-}
-
-code {
-    // padding: 1px 5px;
+    padding: 0.2em 0.4em;
+    font-size: 0.9em;
+    border: 1px solid $code-border;
 }
 
 pre {
-    padding: 8px 12px;
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    border: 1px solid $code-border;
 
     > code {
+        padding: 0;
         border: 0;
-        padding-right: 0;
-        padding-left: 0;
+        background: transparent;
+        font-size: 0.875rem;
     }
 }
 
