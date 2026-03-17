@@ -3,7 +3,7 @@
  */
 .highlight {
     font-family: "SF Mono", "Fira Code", "Consolas", "Monaco", "Liberation Mono", monospace;
-    font-size: 0.875rem;
+    font-size: 1.125rem;
     line-height: 1.5;
     background: #f6f8fa;
     border-radius: 6px;
@@ -40,12 +40,12 @@
 
     // Error
     .k {
-        font-weight: bold;
+        font-weight: 600;
     }
 
     // Keyword
     .o {
-        font-weight: bold;
+        font-weight: 600;
     }
 
     // Operator
@@ -57,7 +57,7 @@
     // Comment.Multiline
     .cp {
         color: #999;
-        font-weight: bold;
+        font-weight: 600;
     }
 
     // Comment.Preproc
@@ -69,7 +69,7 @@
     // Comment.Single
     .cs {
         color: #999;
-        font-weight: bold;
+        font-weight: 600;
         font-style: italic;
     }
 
@@ -124,7 +124,7 @@
 
     // Generic.Prompt
     .gs {
-        font-weight: bold;
+        font-weight: 600;
     }
 
     // Generic.Strong
@@ -139,28 +139,28 @@
 
     // Generic.Traceback
     .kc {
-        font-weight: bold;
+        font-weight: 600;
     }
 
     // Keyword.Constant
     .kd {
-        font-weight: bold;
+        font-weight: 600;
     }
 
     // Keyword.Declaration
     .kp {
-        font-weight: bold;
+        font-weight: 600;
     }
 
     // Keyword.Pseudo
     .kr {
-        font-weight: bold;
+        font-weight: 600;
     }
 
     // Keyword.Reserved
     .kt {
         color: #458;
-        font-weight: bold;
+        font-weight: 600;
     }
 
     // Keyword.Type
@@ -186,7 +186,7 @@
     // Name.Builtin
     .nc {
         color: #458;
-        font-weight: bold;
+        font-weight: 600;
     }
 
     // Name.Class
@@ -202,13 +202,13 @@
     // Name.Entity
     .ne {
         color: #900;
-        font-weight: bold;
+        font-weight: 600;
     }
 
     // Name.Exception
     .nf {
         color: #900;
-        font-weight: bold;
+        font-weight: 600;
     }
 
     // Name.Function
@@ -228,7 +228,7 @@
 
     // Name.Variable
     .ow {
-        font-weight: bold;
+        font-weight: 600;
     }
 
     // Operator.Word
