@@ -10,6 +10,29 @@
 # abstract: the abstract of the paper
 # supplementary: a pdf of the supplementary materials
 # code: if the paper has code, a link to download the code
+- title: 'Unveiling LLMs: The evolution of latent representations in a dynamic knowledge graph'
+  abstract: 'Large Language Models (LLMs) demonstrate an impressive capacity to recall a vast range of factual knowledge. However, understanding their underlying reasoning and internal mechanisms in exploiting this knowledge remains a key research area. This work unveils the factual information an LLM represents internally for sentence-level claim verification. We propose an end-to-end framework to decode factual knowledge embedded in token representations from a vector space to a set of ground predicates, showing its layer-wise evolution using a dynamic knowledge graph. Our framework employs activation patching, a vector-level technique that alters a token representation during inference, to extract encoded knowledge. Accordingly, we neither rely on training nor external models. Using factual and common-sense claims from two claim verification datasets, we showcase interpretability analyses at local and global levels. The local analysis highlights entity centrality in LLM reasoning, from claim-related information and multi-hop reasoning to representation errors causing erroneous evaluation. On the other hand, the global reveals trends in the underlying evolution, such as word-based knowledge evolving into claim-related facts. By interpreting semantics from LLM latent representations and enabling graph-related analyses, this work enhances the understanding of the factual knowledge resolution process.'
+  authors: 'Marco Bronzini, Carlo Nicolini, Bruno Lepri, Jacopo Staiano, Andrea Passerini'
+  url: 'https://arxiv.org/abs/2404.03623'
+  pdf: 'https://arxiv.org/pdf/2404.03623'
+  journal: 'COLM 2025: Conference On Language Modeling'
+  image: '/static/unveling_colm.png'
+  caption: 'Illustrative insights from unveiling the process of factual knowledge resolution
+within an LLM using the proposed patching-based framework.'
+
+- title: 'Glitter or gold? Deriving structured insights from sustainability reports via large language models'
+  abstract: 'Over the last decade, several regulatory bodies have started requiring the disclosure of non-financial information from publicly listed companies, in light of the investors’ increasing attention to Environmental, Social, and Governance (ESG) issues. Publicly released information on sustainability practices is often disclosed in diverse, unstructured, and multi-modal documentation. This poses a challenge in efficiently gathering and aligning the data into a unified framework to derive insights related to Corporate Social Responsibility (CSR). Thus, using Information Extraction (IE) methods becomes an intuitive choice for delivering insightful and actionable data to stakeholders. In this study, we employ Large Language Models (LLMs), In-Context Learning, and the Retrieval-Augmented Generation (RAG) paradigm to extract structured insights related to ESG aspects from companies’ sustainability reports.'
+  journal: 'EPJ Data Science'
+  pdf: 'https://link.springer.com/content/pdf/10.1140/epjds/s13688-024-00481-2.pdf'
+  url: 'https://link.springer.com/content/pdf/10.1140/epjds/s13688-024-00481-2.pdf'
+  authors: 'Marco Bronzini, Carlo Nicolini, Bruno Lepri, Jacopo Staiano, Andrea Passerini'
+  image: '/static/glitter_gold.png'
+
+- title: 'Spectral Entropy of Random Spanning Forests'
+  author: 'Carlo Nicolini'
+  url: 
+  abstract: 'We establish an exact analytic relation between random spanning forests and the heat-kernel partition function. This identity enables estimation of partition functions, energies, and the Von Neumann entropy by Wilson sampling of forests, avoiding costly Laplacian eigendecompositions. We validate inverse-Laplace reconstructions stabilized by a Stieltjes spectral-density regularization on synthetic networks. The approach is scalable and yields local node and edge thermodynamic descriptors.'
+  image: 'https://github.com/CarloNicolini/loop-erased-thermodynamics/raw/main/docs/thermowilson.png'
 
 - title: 'Statistical physics of complex information dynamics'
   authors: 'Arsham Ghavasieh, Carlo Nicolini, Manlio De Domenico'

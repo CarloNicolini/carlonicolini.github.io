@@ -1,3 +1,52 @@
+- name: xyz
+  image: https://raw.githubusercontent.com/CarloNicolini/xyz/refs/heads/main/docs/logo.png
+  description: Information-theoretic estimators for continuous and time-series data
+  fulldescription: 'xyz is a Python library implementing estimators for information-theoretic quantities on continuous and time-series data. It provides tools for entropy estimation (Kozachenko-Leonenko k-NN), mutual information (Kraskov-Stögbauer-Grassberger), transfer entropy, and partial information decomposition. It features a scikit-learn compatible API and supports TRENTOOL-style workflows for analyzing directed information flow in complex systems. The documentation is available at [https://carlonicolini.github.io/xyz](https://carlonicolini.github.io/xyz)'
+  github: https://github.com/carlonicolini/xyz
+  documentation: 'https://carlonicolini.github.io/xyz'
+
+- name: skfolio-online
+  image: https://skfolio.org/_static/expo.webp
+  description: 'Online Convex Optimization branch of the skfolio library'
+  fulldescription: 'skfolio-online is the branch regarding online convex optimization for skfolio, a Python library for portfolio optimization and risk management built on top of scikit-learn. The branch contains modern a collection of modern Online Convex Optimization methods for the regret minimization in online settings, where data come day after day.'
+  github: https://github.com/CarloNicolini/skfolio/tree/universal_portfolio
+  documentation: skfolio.org
+
+- name: autoresearch-skfolio
+  image: https://github.com/CarloNicolini/autoresearch-skfolio/raw/main/autoresearch-skfolio-image.png
+  description: Autonomous portfolio optimization research using AI agents
+  fulldescription: 'autoresearch-skfolio is a framework for autonomous portfolio optimization research where an AI agent iteratively improves portfolio performance by modifying a single training script. It automates testing of portfolio optimization models (MeanRisk, RiskBudgeting, HierarchicalRiskParity, NestedClustersOptimization) against multiple datasets using walk-forward analysis, cross-validation, and rigorous validation techniques including reversed-return testing.'
+  github: https://github.com/carlonicolini/autoresearch-skfolio
+
+- name: scikit-xml
+  image: https://github.com/CarloNicolini/scikit-xml/raw/main/skxml-logo.png
+  description: Evaluation metrics for extreme multilabel classification
+  fulldescription: 'scikit-xml provides specialized evaluation metrics for extreme multilabel classification and ranking tasks, extending scikit-learn functionality. It offers metrics like Precision@k, Recall@k, MAP@k, and NDCG@k with propensity-scored variants for handling imbalanced datasets. The package is optimized with NumPy and Numba implementations.'
+  github: https://github.com/carlonicolini/scikit-xml
+
+- name: scikit-omikuji
+  image: https://github.com/CarloNicolini/scikit-omikuji/raw/master/docs/skomikuji.png
+  description: Scikit-learn compatible wrapper for Omikuji extreme multi-label classification
+  fulldescription: 'scikit-omikuji provides a scikit-learn compatible interface to the high-performance Rust-based Omikuji library for extreme multi-label classification. It implements PARABEL (Partitioned Label Trees) and features 1.3x to 4.6x speedups, sparse matrix support, multi-threaded training and prediction, and comprehensive evaluation metrics for extreme multi-label tasks.'
+  github: https://github.com/carlonicolini/scikit-omikuji
+
+- name: loop-erased-thermodynamics
+  image: https://github.com/CarloNicolini/loop-erased-thermodynamics/raw/main/docs/thermowilson.png
+  pdf: 'https://arxiv.org/pdf/2512.13318'
+  url: 'https://arxiv.org/abs/2512.13318'
+  description: Wilson's algorithm for thermodynamic analysis of graphs
+  fulldescription: >
+    A Python implementation of Wilson's algorithm for analyzing thermodynamic properties of graphs through spanning forest sampling and spectral reconstruction. It samples random spanning forests to reconstruct spectral properties and compute thermodynamic quantities including partition functions. Supports Erdős-Rényi, Barabási-Albert, regular, and grid graph families.
+  github: https://github.com/carlonicolini/loop-erased-thermodynamics
+
+- name: festival-cli
+  description: Command-line Sokoban puzzle solver
+  fulldescription: 'festival-cli is a modern command-line reimplementation of the Festival Sokoban solver with JSON output support. It solves Sokoban puzzles (finding sequences to push boxes onto goal locations) and outputs solutions in LURD notation. Features configurable time limits, verbose output, and cross-platform support via CMake.'
+  github: https://github.com/carlonicolini/festival-cli
+  image: '/static/soko_2d.png'
+
+- 
+
 - name: 'Networkqit'
   image: https://raw.githubusercontent.com/CarloNicolini/networkqit/master/doc/images/animation_ising_batchsize_128_eta1E-3_refresh_10_maxiter_5000_beta_5E-1.gif
   description: Network Quantum Information Theory toolbox
@@ -69,47 +118,3 @@
   fulldescription: 'Hyperquick computes  the hypergeometric distribution pdf efficiently and without under/overflows.'
   github: https://github.com/carlonicolini/hyperquick
   documentation: ''
-
-- name: xyz
-  image: https://raw.githubusercontent.com/CarloNicolini/xyz/refs/heads/main/docs/logo.png
-  description: Information-theoretic estimators for continuous and time-series data
-  fulldescription: 'xyz is a Python library implementing estimators for information-theoretic quantities on continuous and time-series data. It provides tools for entropy estimation (Kozachenko-Leonenko k-NN), mutual information (Kraskov-Stögbauer-Grassberger), transfer entropy, and partial information decomposition. It features a scikit-learn compatible API and supports TRENTOOL-style workflows for analyzing directed information flow in complex systems.'
-  github: https://github.com/carlonicolini/xyz
-  documentation: 'https://carlonicolini.github.io/xyz'
-
-- name: skfolio
-  image: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Charts_and_graphs.jpg/320px-Charts_and_graphs.jpg
-  description: Python library for portfolio optimization and risk management
-  fulldescription: 'skfolio is a Python library for portfolio optimization and risk management built on top of scikit-learn. It provides a unified interface for building, fine-tuning, cross-validating and stress-testing portfolio models. The library includes multiple portfolio optimization approaches (mean-risk, risk budgeting, hierarchical risk parity), 20+ risk metrics, expected return and covariance estimation methods, and tools for hyperparameter tuning adapted for financial time-series data.'
-  github: https://github.com/carlonicolini/skfolio
-
-- name: autoresearch-skfolio
-  image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Automated_Reasoning.jpg/320px-Automated_Reasoning.jpg
-  description: Autonomous portfolio optimization research using AI agents
-  fulldescription: 'autoresearch-skfolio is a framework for autonomous portfolio optimization research where an AI agent iteratively improves portfolio performance by modifying a single training script. It automates testing of portfolio optimization models (MeanRisk, RiskBudgeting, HierarchicalRiskParity, NestedClustersOptimization) against multiple datasets using walk-forward analysis, cross-validation, and rigorous validation techniques including reversed-return testing.'
-  github: https://github.com/carlonicolini/autoresearch-skfolio
-
-- name: scikit-xml
-  image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Machine_Learning_Set.jpg/320px-Machine_Learning_Set.jpg
-  description: Evaluation metrics for extreme multilabel classification
-  fulldescription: 'scikit-xml provides specialized evaluation metrics for extreme multilabel classification and ranking tasks, extending scikit-learn functionality. It offers metrics like Precision@k, Recall@k, MAP@k, and NDCG@k with propensity-scored variants for handling imbalanced datasets. The package is optimized with NumPy and Numba implementations.'
-  github: https://github.com/carlonicolini/scikit-xml
-
-- name: scikit-omikuji
-  image: https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Decision_tree.svg/320px-Decision_tree.svg.png
-  description: Scikit-learn compatible wrapper for Omikuji extreme multi-label classification
-  fulldescription: 'scikit-omikuji provides a scikit-learn compatible interface to the high-performance Rust-based Omikuji library for extreme multi-label classification. It implements PARABEL (Partitioned Label Trees) and features 1.3x to 4.6x speedups, sparse matrix support, multi-threaded training and prediction, and comprehensive evaluation metrics for extreme multi-label tasks.'
-  github: https://github.com/carlonicolini/scikit-omikuji
-
-- name: loop-erased-thermodynamics
-  image: /static/img/software/advanced_algorithms.png
-  description: Wilson's algorithm for thermodynamic analysis of graphs
-  fulldescription: >
-    A Python implementation of Wilson's algorithm for analyzing thermodynamic properties of graphs through spanning forest sampling and spectral reconstruction. It samples random spanning forests to reconstruct spectral properties and compute thermodynamic quantities including partition functions. Supports Erdős-Rényi, Barabási-Albert, regular, and grid graph families.
-  github: https://github.com/carlonicolini/loop-erased-thermodynamics
-
-- name: festival-cli
-  image: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Sokoban_ani.gif/240px-Sokoban_ani.gif
-  description: Command-line Sokoban puzzle solver
-  fulldescription: 'festival-cli is a modern command-line reimplementation of the Festival Sokoban solver with JSON output support. It solves Sokoban puzzles (finding sequences to push boxes onto goal locations) and outputs solutions in LURD notation. Features configurable time limits, verbose output, and cross-platform support via CMake.'
-  github: https://github.com/carlonicolini/festival-cli
