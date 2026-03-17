@@ -10,6 +10,16 @@
 # abstract: the abstract of the paper
 # supplementary: a pdf of the supplementary materials
 # code: if the paper has code, a link to download the code
+
+- title: 'Sokobench: Evaluating Long-Horizon Planning and Reasoning in Large Language Models'
+  url: 'https://arxiv.org/abs/2601.20856'
+  pdf: 'https://arxiv.org/pdf/2601.20856'
+  year: '2026'
+  authors: 'Sebastiano Monti, Carlo Nicolini, Gianni Pellegrini, Jacopo Staiano and , Bruno Lepri'
+  image: '/static/soko_2d.png'
+  abstract: 'Although the capabilities of large language models have been increasingly tested on complex reasoning tasks, their long-horizon planning abilities have not yet been extensively investigated. In this work, we provide a systematic assessment of the planning and long-horizon reasoning capabilities of state-of-the-art Large Reasoning Models (LRMs). We propose a novel benchmark based on Sokoban puzzles, intentionally simplified to isolate long-horizon planning from state persistence. Our findings reveal a consistent degradation in planning performance when more than 25 moves are required to reach the solution, suggesting a fundamental constraint on forward planning capacity. We show that equipping LRMs with Planning Domain Definition Language (PDDL) parsing, validation, and solving tools allows for modest improvements, suggesting inherent architectural limitations which might not be overcome by test-time scaling approaches alone.'
+  journal: 'Transaction of Machine Learning Research'
+
 - title: 'Unveiling LLMs: The evolution of latent representations in a dynamic knowledge graph'
   abstract: 'Large Language Models (LLMs) demonstrate an impressive capacity to recall a vast range of factual knowledge. However, understanding their underlying reasoning and internal mechanisms in exploiting this knowledge remains a key research area. This work unveils the factual information an LLM represents internally for sentence-level claim verification. We propose an end-to-end framework to decode factual knowledge embedded in token representations from a vector space to a set of ground predicates, showing its layer-wise evolution using a dynamic knowledge graph. Our framework employs activation patching, a vector-level technique that alters a token representation during inference, to extract encoded knowledge. Accordingly, we neither rely on training nor external models. Using factual and common-sense claims from two claim verification datasets, we showcase interpretability analyses at local and global levels. The local analysis highlights entity centrality in LLM reasoning, from claim-related information and multi-hop reasoning to representation errors causing erroneous evaluation. On the other hand, the global reveals trends in the underlying evolution, such as word-based knowledge evolving into claim-related facts. By interpreting semantics from LLM latent representations and enabling graph-related analyses, this work enhances the understanding of the factual knowledge resolution process.'
   authors: 'Marco Bronzini, Carlo Nicolini, Bruno Lepri, Jacopo Staiano, Andrea Passerini'
@@ -18,11 +28,10 @@
   journal: 'COLM 2025: Conference On Language Modeling'
   image: '/static/unveling_colm.png'
   year: '2025'
-  caption: 'Illustrative insights from unveiling the process of factual knowledge resolution
-within an LLM using the proposed patching-based framework.'
+  caption: 'Illustrative insights from unveiling the process of factual knowledge resolution within an LLM using the proposed patching-based framework.'
 
 - title: 'Glitter or gold? Deriving structured insights from sustainability reports via large language models'
-  abstract: 'Over the last decade, several regulatory bodies have started requiring the disclosure of non-financial information from publicly listed companies, in light of the investors’ increasing attention to Environmental, Social, and Governance (ESG) issues. Publicly released information on sustainability practices is often disclosed in diverse, unstructured, and multi-modal documentation. This poses a challenge in efficiently gathering and aligning the data into a unified framework to derive insights related to Corporate Social Responsibility (CSR). Thus, using Information Extraction (IE) methods becomes an intuitive choice for delivering insightful and actionable data to stakeholders. In this study, we employ Large Language Models (LLMs), In-Context Learning, and the Retrieval-Augmented Generation (RAG) paradigm to extract structured insights related to ESG aspects from companies’ sustainability reports.'
+  abstract: 'Over the last decade, several regulatory bodies have started requiring the disclosure of non-financial information from publicly listed companies, in light of the investors increasing attention to Environmental, Social, and Governance (ESG) issues. Publicly released information on sustainability practices is often disclosed in diverse, unstructured, and multi-modal documentation. This poses a challenge in efficiently gathering and aligning the data into a unified framework to derive insights related to Corporate Social Responsibility (CSR). Thus, using Information Extraction (IE) methods becomes an intuitive choice for delivering insightful and actionable data to stakeholders. In this study, we employ Large Language Models (LLMs), In-Context Learning, and the Retrieval-Augmented Generation (RAG) paradigm to extract structured insights related to ESG aspects from companies sustainability reports.'
   journal: 'EPJ Data Science'
   pdf: 'https://link.springer.com/content/pdf/10.1140/epjds/s13688-024-00481-2.pdf'
   url: 'https://link.springer.com/content/pdf/10.1140/epjds/s13688-024-00481-2.pdf'
@@ -32,6 +41,7 @@ within an LLM using the proposed patching-based framework.'
 
 - title: 'Spectral Entropy of Random Spanning Forests'
   author: 'Carlo Nicolini'
+  journal: 'arxiv preprint'
   url: 'https://arxiv.org/abs/2512.13318'
   pdf: 'https://arxiv.org/pdf/2512.13318'
   abstract: 'We establish an exact analytic relation between random spanning forests and the heat-kernel partition function. This identity enables estimation of partition functions, energies, and the Von Neumann entropy by Wilson sampling of forests, avoiding costly Laplacian eigendecompositions. We validate inverse-Laplace reconstructions stabilized by a Stieltjes spectral-density regularization on synthetic networks. The approach is scalable and yields local node and edge thermodynamic descriptors.'
@@ -41,9 +51,8 @@ within an LLM using the proposed patching-based framework.'
 - title: 'Statistical physics of complex information dynamics'
   authors: 'Arsham Ghavasieh, Carlo Nicolini, Manlio De Domenico'
   journal: 'Physical Review E'
-  volume: 'arxiv:2010.04014'
-  abstract: 'The constituents of a complex system exchange information to function properly. Their signalling dynamics often leads to the appearance of emergent phenomena, such as phase transitions and collective behaviors. While information exchange has been widely modeled by means of distinct spreading processes--such as continuous-time diffusion, random walks, synchronization and consensus--on top of complex networks, a unified and physically-grounded framework to study information dynamics and gain insights about the macroscopic effects of microscopic interactions, is still eluding us. In this article, we present this framework in terms of a statistical field theory of information dynamics, unifying a range of dynamical processes governing the evolution of information on top of static or time varying structures. We show that information operators form a meaningful statistical ensemble and their superposition defines a density matrix that can be used for the analysis of complex dynamics. As a direct application, we show that the von Neumann entropy of the ensemble can be a measure of the functional diversity of complex systems, defined in terms of the functional differentiation of higher-order interactions among their components. Our results suggest that modularity and hierarchy, two key features of empirical complex systems--from the human brain to social and urban networks--play a key role to guarantee functional diversity and, consequently, are favored.'
   url: 'https://journals.aps.org/pre/abstract/10.1103/PhysRevE.102.052304'
+  abstract: 'The constituents of a complex system exchange information to function properly. Their signalling dynamics often leads to the appearance of emergent phenomena, such as phase transitions and collective behaviors. While information exchange has been widely modeled by means of distinct spreading processes--such as continuous-time diffusion, random walks, synchronization and consensus--on top of complex networks, a unified and physically-grounded framework to study information dynamics and gain insights about the macroscopic effects of microscopic interactions, is still eluding us. In this article, we present this framework in terms of a statistical field theory of information dynamics, unifying a range of dynamical processes governing the evolution of information on top of static or time varying structures. We show that information operators form a meaningful statistical ensemble and their superposition defines a density matrix that can be used for the analysis of complex dynamics. As a direct application, we show that the von Neumann entropy of the ensemble can be a measure of the functional diversity of complex systems, defined in terms of the functional differentiation of higher-order interactions among their components. Our results suggest that modularity and hierarchy, two key features of empirical complex systems--from the human brain to social and urban networks--play a key role to guarantee functional diversity and, consequently, are favored.'
   pdf: 'https://arxiv.org/pdf/2010.04014.pdf'
   image: '/static/statinfodynamics.png'
   caption: 'Modularity and hierarchy in terms of spectral entropy'
@@ -128,7 +137,6 @@ within an LLM using the proposed patching-based framework.'
   year: '2014'
   image: '/static/img/pub/active_vision.png'
   pdf: 'http://volcic.github.io/pdfs/Nicolinietal2014.pdf'
-  journal: 'Proc. of SPIE Vol. 9014, 901414'  
   caption: 'A picture of the Active Vision Lab.'
   code: 'https://github.com/carlonicolini/cncsvision' 
 
