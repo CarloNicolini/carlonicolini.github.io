@@ -1,0 +1,147 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+.code-block-wrap { position: relative; margin-bottom: 1.5rem; }
+.code-block-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.25rem;
+  padding: 0.35rem 0.5rem;
+  background: #e8eaed;
+  border: 1px solid #e1e4e8;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  font-family: system-ui, sans-serif;
+}
+.code-block-toolbar .code-block-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  color: #5f6368;
+}
+.code-block-toolbar .code-block-btn:hover { background: #d2d4d6; color: #202124; }
+.code-block-toolbar .code-block-btn .material-icons { font-size: 18px; }
+.code-block-toolbar .code-block-btn.copied { background: #e6f4ea; color: #137333; }
+.code-block-toolbar .code-block-btn.active { background: #c5c9ce; color: #202124; }
+.code-block-body { display: flex; border: 1px solid #e1e4e8; border-radius: 0 0 6px 6px; overflow: hidden; }
+.code-block-body.with-linenos { border-radius: 0; }
+.code-block-wrap .code-block-toolbar + .code-block-body { border-top: none; border-radius: 0 0 6px 6px; }
+.code-line-numbers {
+  flex: 0 0 auto;
+  padding: 1rem 0.75rem 1rem 1.25rem;
+  background: #eff1f3;
+  color: #57606a;
+  font-family: "SF Mono", "Fira Code", Consolas, Monaco, monospace;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  user-select: none;
+  text-align: right;
+  border-right: 1px solid #e1e4e8;
+}
+.code-line-numbers span { display: block; }
+.code-block-body .highlight { margin: 0; border-radius: 0; border: none; }
+.code-block-body .highlight pre { border-radius: 0; }
+</style>
+<script>
+(function() {
+  var STORAGE_KEY = 'carlonicolini-code-linenos';
+  function getLinenosPref() { try { return sessionStorage.getItem(STORAGE_KEY) !== '0'; } catch (e) { return true; } }
+  function setLinenosPref(v) { try { sessionStorage.setItem(STORAGE_KEY, v ? '1' : '0'); } catch (e) {} }
+
+  function initCodeBlocks() {
+    var blocks = document.querySelectorAll('.highlighter-rouge');
+    blocks.forEach(function(outer) {
+      if (outer.querySelector('.code-block-toolbar')) return;
+      var highlight = outer.querySelector('.highlight');
+      if (!highlight) return;
+      var pre = highlight.querySelector('pre');
+      var code = highlight.querySelector('code');
+      if (!pre || !code) return;
+
+      var wrap = document.createElement('div');
+      wrap.className = 'code-block-wrap';
+
+      var toolbar = document.createElement('div');
+      toolbar.className = 'code-block-toolbar';
+
+      var copyBtn = document.createElement('button');
+      copyBtn.type = 'button';
+      copyBtn.className = 'code-block-btn code-block-copy';
+      copyBtn.setAttribute('aria-label', 'Copy code');
+      var copyIcon = document.createElement('span');
+      copyIcon.className = 'material-icons';
+      copyIcon.textContent = 'content_copy';
+      copyBtn.appendChild(copyIcon);
+      copyBtn.addEventListener('click', function() {
+        var text = code.innerText || code.textContent;
+        navigator.clipboard.writeText(text).then(function() {
+          copyIcon.textContent = 'check';
+          copyBtn.classList.add('copied');
+          setTimeout(function() { copyIcon.textContent = 'content_copy'; copyBtn.classList.remove('copied'); }, 1800);
+        });
+      });
+
+      var lineCheck = document.createElement('input');
+      lineCheck.type = 'checkbox';
+      lineCheck.checked = getLinenosPref();
+      lineCheck.className = 'code-block-linenos-check';
+      lineCheck.setAttribute('aria-hidden', 'true');
+      lineCheck.style.cssText = 'position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;';
+      var lineBtn = document.createElement('button');
+      lineBtn.type = 'button';
+      lineBtn.className = 'code-block-btn';
+      lineBtn.setAttribute('aria-label', 'Toggle line numbers');
+      var lineIcon = document.createElement('span');
+      lineIcon.className = 'material-icons';
+      lineIcon.textContent = 'format_list_numbered';
+      lineBtn.appendChild(lineIcon);
+      lineBtn.addEventListener('click', function() {
+        lineCheck.checked = !lineCheck.checked;
+        updateLinenos(lineCheck.checked);
+        lineBtn.classList.toggle('active', lineCheck.checked);
+      });
+
+      var body = document.createElement('div');
+      body.className = 'code-block-body';
+
+      var lineCount = (code.innerText || code.textContent).split('\n').length;
+      var lineNumbers = document.createElement('div');
+      lineNumbers.className = 'code-line-numbers';
+      lineNumbers.setAttribute('aria-hidden', 'true');
+      for (var i = 1; i <= lineCount; i++) {
+        var s = document.createElement('span');
+        s.textContent = i;
+        lineNumbers.appendChild(s);
+      }
+
+      function updateLinenos(show) {
+        setLinenosPref(show);
+        lineNumbers.style.display = show ? 'block' : 'none';
+        body.classList.toggle('with-linenos', show);
+      }
+
+      updateLinenos(lineCheck.checked);
+      lineBtn.classList.toggle('active', lineCheck.checked);
+
+      toolbar.appendChild(copyBtn);
+      toolbar.appendChild(lineCheck);
+      toolbar.appendChild(lineBtn);
+      body.appendChild(lineNumbers);
+      body.appendChild(highlight);
+      wrap.appendChild(toolbar);
+      wrap.appendChild(body);
+      outer.appendChild(wrap);
+    });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initCodeBlocks);
+  else initCodeBlocks();
+})();
+</script>
