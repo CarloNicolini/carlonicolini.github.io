@@ -1,7 +1,9 @@
 ⸻
-title: Better graphics with matplotlib and seaborn
 layout: post
+title: Better graphics with matplotlib and seaborn
 date: 2022-05-03
+categories: tech
+tags: [matplotlib, helvetica]
 ⸻
 
 High–quality figures are not an aesthetic afterthought. In scientific communication they determine readability, reproducibility, and perceived rigor. Default matplotlib settings are optimized for quick inspection, not for publication. The configuration below standardizes typography, layout, and rendering so that figures are suitable for papers, slides, and vector export.

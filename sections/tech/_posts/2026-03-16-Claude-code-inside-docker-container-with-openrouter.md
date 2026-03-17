@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Running Claude Code via OpenRouter in Docker: A Guide to Smooth Sandboxing"
+title: Running Claude Code via OpenRouter in Docker
 date: 2026-03-16
 categories: tech
 tags: [docker, claude-code, openrouter, python]
