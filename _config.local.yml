@@ -13,7 +13,7 @@ livereload: true
 markdown: kramdown
 keep_files: [MathJax]
 enable_disqus: true
-plugins_dir:
+plugins:
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-sitemap

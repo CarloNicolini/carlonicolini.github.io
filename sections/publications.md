@@ -3,6 +3,8 @@ layout: page
 title: Publications
 permalink: /sections/publications
 ---
+Here is a short list of some of my major publications.
+From 2020 onward I moved from neuroscience to artificial intelligence.
 
 <div id="body">
 	{% for pub in site.data.publications  %}

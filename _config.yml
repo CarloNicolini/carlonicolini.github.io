@@ -1,6 +1,6 @@
 # Site settings
 title: Carlo Nicolini
-email: "carlo.nicolini@iit.it"
+email: "c.nicolini@ipazia.com"
 description: "Personal blog about science, programming, statistical mechanics, network theory and neuroimaging"
 baseurl: "" 
 url: "https://carlonicolini.github.io"
@@ -13,11 +13,10 @@ collections:
 markdown: kramdown
 keep_files: [MathJax]
 enable_disqus: true 
-plugins_dir:
+plugins:
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-sitemapplugin
   - jekyll-gist
   - jekyll-feed
   - jemoji
@@ -26,6 +25,5 @@ plugins_dir:
 social:
   name: Carlo Nicolini
   links:
-    - https://twitter.com/carlonicolini84
     - https://www.linkedin.com/in/carlo-nicolini
     - https://github.com/carlonicolini

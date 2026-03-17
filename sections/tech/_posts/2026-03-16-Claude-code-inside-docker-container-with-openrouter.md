@@ -2,16 +2,17 @@
 layout: post
 title: "Running Claude Code via OpenRouter in Docker: A Guide to Smooth Sandboxing"
 date: 2026-03-16
-categories: ai devops
+categories: tech
 tags: [docker, claude-code, openrouter, python]
 ---
 
-AI coding agents like **Claude Code** are incredibly powerful, but running them directly on your host machine can feel risky. Containerizing them is the logical step, but it often leads to auth conflicts, 401 errors, or terminal freezes.
+AI coding agents like **Claude Code** are incredibly powerful, but running them directly on your host machine can feel risky. 
+Containerizing them is the logical step, but it often leads to auth conflicts, 401 errors, or terminal freezes.
 
 Here is the definitive guide to running Claude Code inside a Docker sandbox using **OpenRouter** and free models like **Nvidia Nemotron**.
 
 ## The Challenges
-1. **The Alpine Trap:** Small images like Alpine cause Claude Code to hang or run slowly due to `musl` vs `glibc` incompatibilities.
+1. **The docker `python-alpine` trap:** Small images like Alpine cause Claude Code to hang or run slowly due to `musl` vs `glibc` incompatibilities.
 2. **Auth Conflicts:** Claude Code gets confused when it sees both an internal OAuth session and external environment variables.
 3. **The Docker Freeze:** The CLI often hangs while waiting for a browser-based login that doesn't exist in a headless container.
 
@@ -79,4 +80,4 @@ docker run -it --rm \
 
 Now you have a fully sandboxed, performant coding agent that can't touch your host system unless you explicitly let it!
 
-```
+I've used this method to successfully run experiments with `autoresearch-skfolio`, a framework developed for performing optimal portfolio selection via AI agents.
