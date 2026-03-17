@@ -2,6 +2,7 @@
 title: Carlo Nicolini
 email: "c.nicolini@ipazia.com"
 description: "Personal blog about science, programming, statistical mechanics, network theory and neuroimaging"
+logo: "/static/img/nicolini4.jpg"
 baseurl: "" 
 url: "https://carlonicolini.github.io"
 github_username:  carlonicolini
