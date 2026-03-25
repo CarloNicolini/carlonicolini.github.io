@@ -16,7 +16,7 @@
   pdf: 'https://arxiv.org/pdf/2601.20856'
   year: '2026'
   authors: 'Sebastiano Monti, Carlo Nicolini, Gianni Pellegrini, Jacopo Staiano and , Bruno Lepri'
-  image: '/static/soko_2d.png'
+  image: '/static/img/pub/soko_2d.png'
   abstract: 'Although the capabilities of large language models have been increasingly tested on complex reasoning tasks, their long-horizon planning abilities have not yet been extensively investigated. In this work, we provide a systematic assessment of the planning and long-horizon reasoning capabilities of state-of-the-art Large Reasoning Models (LRMs). We propose a novel benchmark based on Sokoban puzzles, intentionally simplified to isolate long-horizon planning from state persistence. Our findings reveal a consistent degradation in planning performance when more than 25 moves are required to reach the solution, suggesting a fundamental constraint on forward planning capacity. We show that equipping LRMs with Planning Domain Definition Language (PDDL) parsing, validation, and solving tools allows for modest improvements, suggesting inherent architectural limitations which might not be overcome by test-time scaling approaches alone.'
   journal: 'Transaction of Machine Learning Research'
 
@@ -26,9 +26,19 @@
   url: 'https://arxiv.org/abs/2404.03623'
   pdf: 'https://arxiv.org/pdf/2404.03623'
   journal: 'COLM 2025: Conference On Language Modeling'
-  image: '/static/unveling_colm.png'
+  image: '/static/img/pub/unveling_colm.png'
   year: '2025'
   caption: 'Illustrative insights from unveiling the process of factual knowledge resolution within an LLM using the proposed patching-based framework.'
+
+- title: Hopfield Networks for Asset Allocation
+  abstract: We present the first application of modern Hopfield networks to the problem of portfolio optimization. We performed an extensive study based on combinatorial purged cross-validation over several datasets and compared our results to both traditional and deep-learning-based methods for portfolio selection. Compared to state-of-the-art deep-learning methods such as Long-Short Term Memory networks and Transformers, we find that the proposed approach performs on par or better, while providing faster training times and better stability. Our results show that Modern Hopfield Networks represent a promising approach to portfolio optimization, allowing for an efficient, scalable, and robust solution for asset allocation, risk management, and dynamic rebalancing.
+  authors: 'Carlo Nicolini, Monisha Gopalan, Jacopo Staiano, Bruno Lepri'
+  url: 'https://dl.acm.org/doi/10.1145/3677052.3698605'
+  pdf: 'https://arxiv.org/pdf/2407.17645v1'
+  year: '2024'
+  journal: 'ICAIF '24: Proceedings of the 5th ACM International Conference on AI in Finance'
+  image: '/static/img/pub/hopfield.png'
+  caption: 'Two main Hopfield network architectures for portfolio allocation'
 
 - title: 'Glitter or gold? Deriving structured insights from sustainability reports via large language models'
   abstract: 'Over the last decade, several regulatory bodies have started requiring the disclosure of non-financial information from publicly listed companies, in light of the investors increasing attention to Environmental, Social, and Governance (ESG) issues. Publicly released information on sustainability practices is often disclosed in diverse, unstructured, and multi-modal documentation. This poses a challenge in efficiently gathering and aligning the data into a unified framework to derive insights related to Corporate Social Responsibility (CSR). Thus, using Information Extraction (IE) methods becomes an intuitive choice for delivering insightful and actionable data to stakeholders. In this study, we employ Large Language Models (LLMs), In-Context Learning, and the Retrieval-Augmented Generation (RAG) paradigm to extract structured insights related to ESG aspects from companies sustainability reports.'
@@ -36,7 +46,7 @@
   pdf: 'https://link.springer.com/content/pdf/10.1140/epjds/s13688-024-00481-2.pdf'
   url: 'https://link.springer.com/content/pdf/10.1140/epjds/s13688-024-00481-2.pdf'
   authors: 'Marco Bronzini, Carlo Nicolini, Bruno Lepri, Jacopo Staiano, Andrea Passerini'
-  image: '/static/glitter_gold.png'
+  image: '/static/img/pub/glitter_gold.png'
   year: '2024'
 
 - title: 'Spectral Entropy of Random Spanning Forests'
