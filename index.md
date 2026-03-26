@@ -6,18 +6,27 @@ sitemap:
   priority: 1.0
   changefreq: weekly
 ---
+## About Me
+
+I am Carlo Nicolini, an AI research scientist working at the intersection of artificial intelligence, statistical physics, computational neuroscience, and information theory.
+
+My early research focused on brain functional connectivity and the modular organization of neural networks, with a strong emphasis on community detection, resolution limits, and entropy-based measures of structure. 
+That line of work led me to develop methods and software for analyzing complex networks through the lens of statistical mechanics and information theory, including [networkqit](https://github.com/carlonicolini/networkqit), [xyz](https://github.com/carlonicolini/xyz), and other tools for spectral entropy, mutual information, and directed information flow.
+As a side interest, I always found the connection between the mathematical methods used in fMRI analysis and finance very striking.
+This led me down the rabbit hole of quantitative finance, where I developed [scikit-portfolio](https://github.com/carlonicolini/scikit-portfolio) first, then I became involved as a maintainer of [skfolio](https://skfolio.org) a large collaborative project to improve the scientific aspects of financial portfolio allocation with the latest cutting edge mathematical methods.
+
+More recently, my attention has shifted toward modern artificial intelligence.
+I am particularly interested in LLM systems, [vector symbolic architectures](https://openreview.net/forum?id=MSm0VFL9pq), mechanistic interpretability, agent reliability, probabilistic language programming, and the design of scaffolds that make inference-time behavior more auditable and semantically grounded.
+In my recent writing, I explore how branching, verification, and decomposition shape the reliability of AI systems, and how we can reason about them as probabilistic programs rather than opaque chains of prompts.
+
+My research portfolio also extends to machine learning applications in finance and optimization, including portfolio construction, online convex optimization, and AI-assisted research workflows. Across all these projects, I am drawn to the same core question: how can we build models and systems that are mathematically grounded, computationally efficient, and genuinely useful in practice?
 
 <div class="row">
   <div class="col-xs-9">
-    <h2>About Me</h2>
+    <h2>My interests</h2>
     <p>
-      <strong>Research focus:</strong> Mechanistic interpretability, multi-agent AI systems, and machine learning for language and finance. I’m also interested in open-source ML tools and the statistical physics of complex systems.
-    </p>
-    <p>
-      Hi, I’m Carlo Nicolini—a physicist turned computational scientist, now Senior AI Research Scientist at <a href="https://ipazia.com">Ipazia SpA</a> in Milan. I build multi-agent AI systems, work on deep learning and interpretability, and maintain <a href="https://www.skfolio.org">skfolio</a> for portfolio optimization.
-    </p>
-    <p>
-      My research bridges statistical physics, complex networks, and artificial intelligence. I publish at venues like <strong>COLM</strong> and <strong>ICAIF</strong>, and my work appears on <a href="https://scholar.google.com/citations?user=jnpIfCwAAAAJ&hl=it">Google Scholar</a>.
+      Lately, I am interested in mechanistic interpretability of large language models, theoretical foundations of compound AI systems, machine learning for language and finance. 
+      I'm a contributor in many open-source ML tools and sporadically I work in the statistical physics of complex systems. I've published at venues like <strong>COLM</strong> and <strong>ICAIF</strong>, and my work appears on <a href="https://scholar.google.com/citations?user=jnpIfCwAAAAJ&hl=it">Google Scholar</a>.
     </p>
     <ul>
       <li>Senior AI Research Scientist, Ipazia SpA (2022–present)</li>
@@ -26,7 +35,7 @@ sitemap:
     </ul>
   </div>
   <div class="col-xs-3">
-    <img src="static/img/nicolini4.jpg" style="float: right; width: 100%" alt="Carlo Nicolini portrait">
+    <img src="static/img/foto_nicolini.jpeg" style="float: right; width: 100%" alt="Carlo Nicolini portrait">
   </div>
 </div>
 
@@ -72,6 +81,17 @@ sitemap:
 <h2>Latest blog posts</h2>
 <ul class="post-list">
   {% for post in site.categories.tech limit:5 %}
+  <li>
+    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
+
+<br>
+
+<h2>Latest science posts</h2>
+<ul class="post-list">
+  {% for post in site.categories.science limit:5 %}
   <li>
     <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
   </li>

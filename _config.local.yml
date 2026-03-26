@@ -11,6 +11,9 @@ collections:
 # Build settings
 livereload: true
 markdown: kramdown
+kramdown:
+  auto_ids: true
+  toc_levels: 1..6
 keep_files: [MathJax]
 enable_disqus: true
 plugins:
@@ -20,7 +23,8 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
-
+  - jekyll-relative-links
+  
 social:
   name: Carlo Nicolini
   links:

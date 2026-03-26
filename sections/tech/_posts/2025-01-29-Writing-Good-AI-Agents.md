@@ -1,7 +1,9 @@
 ---
-title: "The Quest for Intelligent AI Agents: Navigating Complexities and Ensuring Reliability"
+layout: post
+title: "The Quest for intelligent AI Agents: navigating complexities and ensuring Reliability"
 date: 2025-01-29
 categories:
+  - science
   - technology
   - artificial-intelligence
   - AI-agents

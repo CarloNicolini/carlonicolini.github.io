@@ -5,6 +5,14 @@
   github: https://github.com/carlonicolini/xyz
   documentation: 'https://carlonicolini.github.io/xyz'
 
+- name: scikit-portfolio
+  image: https://scikit-portfolio.github.io/scikit-portfolio/imgs/scikit_portfolio.png
+  description: 'A library for making portfolio allocation familiar to data scientists and machine learning engineers'
+  fulldescription: 'The main idea of scikit-portfolio is to provide many well-known portfolio optimization methods with an easily accessible scikit-learn inspired set of API. This approach makes it possible to incorporate portfolio estimators as if they are classical scikit-learn estimators, thus enabling cross-validation and hyperparameters optimization with the tools of the Python data-science toolkit, and with an eye the highly technical domain of investment portfolio management.'
+  url: 'https://scikit-portfolio.github.io/scikit-portfolio/'
+  github: 'https://github.com/CarloNicolini/https://github.com/CarloNicolini/scikit-portfolio'
+  documentation: 'https://scikit-portfolio.github.io'
+
 - name: skfolio-online
   image: https://skfolio.org/_static/expo.webp
   description: 'Online Convex Optimization branch of the skfolio library'
@@ -39,11 +47,17 @@
     A Python implementation of Wilson's algorithm for analyzing thermodynamic properties of graphs through spanning forest sampling and spectral reconstruction. It samples random spanning forests to reconstruct spectral properties and compute thermodynamic quantities including partition functions. Supports Erdős-Rényi, Barabási-Albert, regular, and grid graph families.
   github: https://github.com/carlonicolini/loop-erased-thermodynamics
 
+- name: hyperdimensional-probe
+  image: 'https://github.com/Ipazia-AI/hyperprobe/raw/main/images/header.png'
+  url: 'https://openreview.net/forum?id=MSm0VFL9pq'
+  description: 'This work combines symbolic representations and neural probing to introduce Hyperdimensional Probe, a new paradigm for decoding LLM vector space into human-interpretable features, consistently extracting meaningful concepts across models and inputs.'
+  github: 'https://github.com/Ipazia-AI/hyperprobe'
+
 - name: festival-cli
   description: Command-line Sokoban puzzle solver
   fulldescription: 'festival-cli is a modern command-line reimplementation of the Festival Sokoban solver with JSON output support. It solves Sokoban puzzles (finding sequences to push boxes onto goal locations) and outputs solutions in LURD notation. Features configurable time limits, verbose output, and cross-platform support via CMake.'
   github: https://github.com/carlonicolini/festival-cli
-  image: '/static/soko_2d.png'
+  image: '/static/img/pub/soko_2d.png'
 
 - 
 

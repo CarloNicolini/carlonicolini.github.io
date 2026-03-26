@@ -30,13 +30,13 @@
   year: '2025'
   caption: 'Illustrative insights from unveiling the process of factual knowledge resolution within an LLM using the proposed patching-based framework.'
 
-- title: Hopfield Networks for Asset Allocation
-  abstract: We present the first application of modern Hopfield networks to the problem of portfolio optimization. We performed an extensive study based on combinatorial purged cross-validation over several datasets and compared our results to both traditional and deep-learning-based methods for portfolio selection. Compared to state-of-the-art deep-learning methods such as Long-Short Term Memory networks and Transformers, we find that the proposed approach performs on par or better, while providing faster training times and better stability. Our results show that Modern Hopfield Networks represent a promising approach to portfolio optimization, allowing for an efficient, scalable, and robust solution for asset allocation, risk management, and dynamic rebalancing.
+- title: 'Hopfield Networks for Asset Allocation'
+  abstract: 'We present the first application of modern Hopfield networks to the problem of portfolio optimization. We performed an extensive study based on combinatorial purged cross-validation over several datasets and compared our results to both traditional and deep-learning-based methods for portfolio selection. Compared to state-of-the-art deep-learning methods such as Long-Short Term Memory networks and Transformers, we find that the proposed approach performs on par or better, while providing faster training times and better stability. Our results show that Modern Hopfield Networks represent a promising approach to portfolio optimization, allowing for an efficient, scalable, and robust solution for asset allocation, risk management, and dynamic rebalancing.'
   authors: 'Carlo Nicolini, Monisha Gopalan, Jacopo Staiano, Bruno Lepri'
   url: 'https://dl.acm.org/doi/10.1145/3677052.3698605'
   pdf: 'https://arxiv.org/pdf/2407.17645v1'
   year: '2024'
-  journal: 'ICAIF '24: Proceedings of the 5th ACM International Conference on AI in Finance'
+  journal: 'ICAIF 24: Proceedings of the 5th ACM International Conference on AI in Finance'
   image: '/static/img/pub/hopfield.png'
   caption: 'Two main Hopfield network architectures for portfolio allocation'
 

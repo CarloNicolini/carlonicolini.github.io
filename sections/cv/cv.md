@@ -4,12 +4,17 @@ title: Bio
 permalink: /sections/cv
 ---
 
+- 2022-today Senior AI Researcher at Ipazia SpA, Milan, Italy.
+- 2020-2022 Senior analyst/data scientist at Prometeia, Milan, Italy. Data science, distributed computing (Spark), anti-money laundering.
+- 2019 PostDoc in Statistical Physis for complex networks analysis in neuroscience.
 - 2017 Phd in Applied Physics (Nanoscience and advanced technologies), University of Verona, Italy.
 Thesis title: "Community detection in the modular structure of brain functional connectivity networks".
 - 2008 M.Sc in Biomedical Physics, Grade 110/110 cum laude, University of Trento, Italy.
 - 2003 B.Sc in Physics, University of Trento, Italy.
 
-### Seminars
+## Seminars
+
+- November 2024 ICAIF conference on AI in finance, Brooklyn, NY (USA).
 - July 2019 Lipari Workshop on Complex Systems: Scale resolved analysis of complex networks [Download](/static/pdf/presentation_lipari.pdf)
 - June 2018 Netsci2018, Paris. Thermodynamics of network model fitting with spectral entropies. [Download](/static/pdf/presentation_netsci2018.pdf)
 - May 2016 CCS2016 Amsterdam, Community detection in brain functional networks beyond the resolution limit. [Download](/static/pdf/presentation_amsterdam_final.pdf)
@@ -39,8 +44,6 @@ Development, testing and installation a full virtual reality system at the cogni
 
 Working as the main developer of the C++ and Matlab/Psychtoolbox codebase for cognitive neuroscience experiments at the CNCS@IIT research group. Expertise in big C++ projects development and maintenance as well as robust foundations in algorithms, numerical analysis, matrix computation and data structures.
 
-
 - **2008-2010 Research fellow on Machine learning and intelligent optimization**
 
 Working on human activity recognition with statistical pattern recognition tools such as SVMs, ANNs, and probabilistic graphical models (HMMs and LCRFs). Experience in machine learning and numerical optimization <http://bit.ly/IokSWd>.
-

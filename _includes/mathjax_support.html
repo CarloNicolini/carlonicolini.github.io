@@ -1,18 +1,15 @@
-<script type='text/x-mathjax-config'>
-  MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: { autoNumber: 'AMS' },
-      extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js"]
-    },
-    tex2jax: {
-      inlineMath: [ ['$','$'] ],
-      displayMath: [ ['$$','$$'] ],
-      processEscapes: true
-    }
-  });
+<!-- MathJax 3 (TeX → SVG): works when old cdn.mathjax.org is dead; SVG avoids missing math-font "tofu". -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true,
+    packages: {'[+]': ['ams', 'newcommand', 'configmacros']}
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
 </script>
-
-<!-- Enable MATHJAX Support from CDN, no need to install it locally-->
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-
-</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script"></script>

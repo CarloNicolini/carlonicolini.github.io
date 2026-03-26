@@ -2137,7 +2137,7 @@ These are my current VS Code settings.
 	// List of tags, comma separated, that should have an extra newline before them. `null` defaults to `"head, body, /html"`.
 	"html.format.extraLiners": "head, body, /html",
 
-	// Format and indent `{{#foo}}` and `{{/foo}}`.
+	// Format and indent Handlebars-style `{% raw %}{{#foo}}{% endraw %}` and `{% raw %}{{/foo}}{% endraw %}`.
 	"html.format.indentHandlebars": false,
 
 	// Indent `<head>` and `<body>` sections.

@@ -1,5 +1,6 @@
 ---
-layout: Versioning data files for machine learning projects with DVC
+layout: post
+title: Versioning data files for machine learning projects with DVC
 categories: tech
 date: 2020-10-09
 published: true

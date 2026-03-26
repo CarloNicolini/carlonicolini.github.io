@@ -1,3 +1,7 @@
+@use "sass:color";
+@use "sass:math";
+@use "variables" as *;
+
 /**
  * Reset some basic elements
  */
@@ -15,11 +19,12 @@ body {
     font-family: $base-font-family;
     font-size: $base-font-size;
     line-height: $base-line-height;
-    font-weight: 280;
+    font-weight: 300;
     color: $text-color;
     background-color: $background-color;
-    text-align: justify;
-    text-justify: inter-word;
+    text-align: left;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /**
@@ -29,9 +34,7 @@ h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
-    margin-bottom: $spacing-unit / 2;
-    text-align: justify;
-
+    margin-bottom: math.div($spacing-unit, 2);
 }
 
 /**
@@ -89,12 +92,18 @@ a {
     text-decoration: none;
 
     &:visited {
-        color: darken($brand-color, 15%);
+        color: color.adjust($brand-color, $lightness: -15%);
     }
 
     &:hover {
         color: $text-color;
         text-decoration: underline;
+    }
+}
+
+@supports (hyphens: auto) {
+    p, li, blockquote {
+        hyphens: auto;
     }
 }
 
@@ -108,7 +117,7 @@ blockquote {
 
     // background-color: #ffe6cc;
     border-left: 4px solid $orange-color-light;
-    padding-left: $spacing-unit / 2;
+    padding-left: math.div($spacing-unit, 2);
     border-right: 5px solid #ddd;
     border-bottom: 5px solid #ddd;
     font-size: 24px;
@@ -173,8 +182,8 @@ pre {
     @include media-query($on-laptop) {
         max-width: -webkit-calc(1000px - (#{$spacing-unit}));
         max-width: calc(1000px - (#{$spacing-unit}));
-        padding-right: $spacing-unit / 2;
-        padding-left: $spacing-unit / 2;
+        padding-right: math.div($spacing-unit, 2);
+        padding-left: math.div($spacing-unit, 2);
     }
 }
 

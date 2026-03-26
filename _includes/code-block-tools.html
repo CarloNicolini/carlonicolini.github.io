@@ -1,6 +1,47 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
 .code-block-wrap { position: relative; margin-bottom: 1.5rem; }
+.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6,
+.pubdetail-content h1, .pubdetail-content h2, .pubdetail-content h3, .pubdetail-content h4, .pubdetail-content h5, .pubdetail-content h6 {
+  scroll-margin-top: 96px;
+}
+.post-content h1:hover .heading-anchor,
+.post-content h2:hover .heading-anchor,
+.post-content h3:hover .heading-anchor,
+.post-content h4:hover .heading-anchor,
+.post-content h5:hover .heading-anchor,
+.post-content h6:hover .heading-anchor,
+.pubdetail-content h1:hover .heading-anchor,
+.pubdetail-content h2:hover .heading-anchor,
+.pubdetail-content h3:hover .heading-anchor,
+.pubdetail-content h4:hover .heading-anchor,
+.pubdetail-content h5:hover .heading-anchor,
+.pubdetail-content h6:hover .heading-anchor,
+.post-content h1:focus-within .heading-anchor,
+.post-content h2:focus-within .heading-anchor,
+.post-content h3:focus-within .heading-anchor,
+.post-content h4:focus-within .heading-anchor,
+.post-content h5:focus-within .heading-anchor,
+.post-content h6:focus-within .heading-anchor,
+.pubdetail-content h1:focus-within .heading-anchor,
+.pubdetail-content h2:focus-within .heading-anchor,
+.pubdetail-content h3:focus-within .heading-anchor,
+.pubdetail-content h4:focus-within .heading-anchor,
+.pubdetail-content h5:focus-within .heading-anchor,
+.pubdetail-content h6:focus-within .heading-anchor { opacity: 1; }
+.heading-anchor {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.35em;
+  opacity: 0;
+  font-size: 0.8em;
+  line-height: 1;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.heading-anchor:hover { text-decoration: none; transform: translateY(-1px); }
+.heading-anchor.copied { opacity: 1; }
 .code-block-toolbar {
   display: flex;
   align-items: center;
@@ -141,7 +182,40 @@
     });
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initCodeBlocks);
-  else initCodeBlocks();
+  function initHeadingPermalinks() {
+    var headings = document.querySelectorAll('.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6, .pubdetail-content h1, .pubdetail-content h2, .pubdetail-content h3, .pubdetail-content h4, .pubdetail-content h5, .pubdetail-content h6');
+    headings.forEach(function(heading) {
+      if (heading.querySelector('.heading-anchor')) return;
+      if (!heading.id) return;
+
+      var anchor = document.createElement('a');
+      anchor.className = 'heading-anchor';
+      anchor.href = '#' + heading.id;
+      anchor.setAttribute('aria-label', 'Copy link to this section');
+      anchor.title = 'Copy link to this section';
+      anchor.textContent = '¶';
+      anchor.addEventListener('click', function(event) {
+        event.preventDefault();
+        var url = window.location.href.split('#')[0] + '#' + heading.id;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(function() {
+            anchor.classList.add('copied');
+            setTimeout(function() { anchor.classList.remove('copied'); }, 1400);
+          });
+        } else {
+          window.location.hash = heading.id;
+        }
+      });
+      heading.appendChild(anchor);
+    });
+  }
+
+  function initPageTools() {
+    initCodeBlocks();
+    initHeadingPermalinks();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initPageTools);
+  else initPageTools();
 })();
 </script>

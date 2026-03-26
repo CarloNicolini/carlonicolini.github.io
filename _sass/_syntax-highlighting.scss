@@ -1,6 +1,8 @@
 /**
  * Syntax highlighting styles — modern, readable code blocks
  */
+@use "base" as *;
+
 .highlight {
     font-family: "SF Mono", "Fira Code", "Consolas", "Monaco", "Liberation Mono", monospace;
     font-size: 1.125rem;
@@ -180,7 +182,7 @@
 
     // Name.Attribute
     .nb {
-        color: #0086B3;
+        color: #0086b3;
     }
 
     // Name.Builtin
