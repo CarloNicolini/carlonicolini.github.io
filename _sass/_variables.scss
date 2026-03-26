@@ -1,0 +1,27 @@
+@use "sass:color";
+
+// Shared design tokens and the responsive mixin (used by base/layout partials).
+// Proportional first: math posts use many symbols; mono-as-body lacks glyph coverage for stray Unicode.
+$base-font-family: Lato, "Roboto Mono", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+$base-font-size: 19px;
+$small-font-size: $base-font-size * 0.875;
+$base-line-height: 1.68;
+
+$spacing-unit: 28px;
+
+$text-color: #111;
+$background-color: #fdfdfd;
+$brand-color: #ff7f00;
+
+$orange-color: #ff7f00;
+$orange-color-light: color.adjust($orange-color, $lightness: 40%);
+$orange-color-dark: color.adjust($orange-color, $lightness: -15%);
+
+$on-palm: 600px;
+$on-laptop: 1000px;
+
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
