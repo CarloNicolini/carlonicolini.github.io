@@ -1,26 +1,11 @@
 ---
-layout: default
+layout: home
 title: "AI Research Scientist"
 description: "Senior AI Scientist at Ipazia. Research in modern artificial intelligence, machine learning, mechanistic interpretability, computational neuroscience, complex systems and statistical physics. Maintainer of skfolio. PhD in statistical physics and neuroscience."
 sitemap:
   priority: 1.0
   changefreq: weekly
 ---
-
-<div class="intro-section">
-  <div class="intro-content">
-    <h1>AI Research Scientist</h1>
-    <p class="lead">
-      Exploring the intersection of machine learning, statistical physics, and computational neuroscience.
-    </p>
-    <p>
-      I focus on mechanistic interpretability, LLM systems reliability, and probabilistic language programming. Maintainer of <a href="https://skfolio.org">skfolio</a>.
-    </p>
-  </div>
-  <div class="intro-image">
-    <img src="static/img/foto_nicolini.jpeg" class="profile-img" alt="Carlo Nicolini portrait">
-  </div>
-</div>
 
 ## About Me
 
