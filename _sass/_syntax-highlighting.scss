@@ -1,18 +1,19 @@
 /**
  * Syntax highlighting styles — modern, readable code blocks
  */
+@use "variables" as *;
 @use "base" as *;
 
 .highlight {
-    font-family: "SF Mono", "Fira Code", "Consolas", "Monaco", "Liberation Mono", monospace;
-    font-size: 1.125rem;
-    line-height: 1.5;
-    background: #f6f8fa;
-    border-radius: 6px;
-    padding: 1rem 1.25rem;
+    font-family: $code-font-family;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    background: #f5f5f4;
+    border-radius: 8px;
+    padding: 1.5rem;
     overflow-x: auto;
-    margin-bottom: 1.5rem;
-    border: 1px solid #e1e4e8;
+    margin-bottom: $spacing-unit;
+    border: 1px solid $border-color;
     @extend %vertical-rhythm;
 
     pre {

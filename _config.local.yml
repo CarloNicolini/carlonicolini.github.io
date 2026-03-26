@@ -1,7 +1,7 @@
 # Site settings
-title: Carlo Nicolini
-email: "carlo.nicolini@iit.it"
-description: "Personal blog about science, programming, statistical mechanics, network theory and neuroimaging"
+title: 'Carlo Nicolini'
+email: "c.nicolini@ipazia.com"
+description: "Personal blog about artificial intelligence, coding, statistical physics, network theory and science in general"
 baseurl: "" 
 url: "https://carlonicolini.github.io"
 github_username:  carlonicolini
@@ -28,6 +28,5 @@ plugins:
 social:
   name: Carlo Nicolini
   links:
-    - https://twitter.com/carlonicolini84
     - https://www.linkedin.com/in/carlo-nicolini
     - https://github.com/carlonicolini

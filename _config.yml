@@ -1,8 +1,8 @@
 # Site settings
-title: Carlo Nicolini
+title: 'Carlo Nicolini'
 email: "c.nicolini@ipazia.com"
-description: "Personal blog about science, programming, statistical mechanics, network theory and neuroimaging"
-logo: "/static/img/nicolini4.jpg"
+description: "Personal blog about artificial intelligence, coding, statistical physics, network theory and science in general"
+logo: "/static/img/foto_nicolini.jpeg"
 baseurl: "" 
 url: "https://carlonicolini.github.io"
 github_username:  carlonicolini

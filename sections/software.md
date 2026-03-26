@@ -2,87 +2,56 @@
 layout: page
 title: Software
 permalink: /sections/software
+content_class: page-content--wide
 ---
-Here is a list of ready-to-use software that I have developed over the course of this last years, both as scientific programmer, as PhD student and now as postdoc.
-Feel free to use it if you need, with the license provided and to cite it accordingly.
+<p class="section-description">
+  Here is a list of ready-to-use software that I have developed over the course of these last years, both as scientific programmer, as PhD student and now as postdoc.
+</p>
 
-<div class="body">
-	{% for code in site.data.software %}
-		<h2>{{ code.name }}</h2>
-		<p>{{ code.description }}</p>
-		<p></p>
-		<div class="row" style="text-align: justify;">
-			<div class="col-xs-3">
-				<p><img width="100%" src="{{code.image}}"></p>
-			</div>
-			<div class="col-xs-2" style="text-align: left">
-				{% if code.github %}
-				<p>
-					<a href="{{code.github}}" alt="Website">Source: <span class="fa fa-github"></span>  </a>
-				</p>
-				{% endif %}
-				{% if code.gitlab %}
-				<p>
-					<a href="{{code.gitlab}}" alt="Website">Source: <span class="fa fa-gitlab"></span>  </a>
-				</p>
-				{% endif %}
-
-				{% if code.bitbucket %}
-				<p>
-					<a href="{{code.bitbucket}}" alt="Website">Source: <span class="fa fa-bitbucket"></span>  </a>
-				</p>
-				{% endif %}
-				{% if code.documentation %}
-				<p>
-					<a href="{{code.documentation}}" alt="Doc">Doc: <span class="fa fa-file"></span>  </a>
-				</p>
-				{% endif %}
-
-				{% if code.downloadform %}
-				<p>
-					<a href="{{code.downloadform}}" alt="Download">Download: <span class="fa fa-download"></span></a>
-				</p>
-				{% endif %}
-				{% if code.releases %}
-				<p>
-					<a href="{{code.releases}}" alt="Download">Releases: <span class="fa fa-download"></span></a>
-				</p>
-				{% endif %}
-			</div>
-			<div class="col-xs-7" style="text-align: justify-all;">
-				{{code.fulldescription | markdownify }}
-			</div>
-		</div>
-	<hr/>
-	<p>
-	</p>
-	{% endfor %}
+<div class="software-list">
+  {% for code in site.data.software %}
+  {% assign code_link = code.url | default: code.documentation | default: code.github %}
+  <article class="software-item">
+    <div class="software-head">
+      <h2 class="software-title">
+        {% if code_link %}
+        <a href="{{ code_link }}">{{ code.name }}</a>
+        {% else %}
+        {{ code.name }}
+        {% endif %}
+      </h2>
+      <p class="software-description">{{ code.description }}</p>
+    </div>
+    <aside class="software-aside">
+      {% if code.image %}
+      <img class="software-image" src="{{ code.image }}" alt="{{ code.name }}">
+      {% endif %}
+      <div class="software-links">
+        {% if code.github %}
+        <a href="{{ code.github }}"><span class="material-symbols-outlined" aria-hidden="true">code</span><span>Source</span></a>
+        {% endif %}
+        {% if code.gitlab %}
+        <a href="{{ code.gitlab }}"><span class="material-symbols-outlined" aria-hidden="true">code</span><span>Source</span></a>
+        {% endif %}
+        {% if code.bitbucket %}
+        <a href="{{ code.bitbucket }}"><span class="material-symbols-outlined" aria-hidden="true">code</span><span>Source</span></a>
+        {% endif %}
+        {% if code.documentation %}
+        <a href="{{ code.documentation }}"><span class="material-symbols-outlined" aria-hidden="true">docs</span><span>Docs</span></a>
+        {% endif %}
+        {% if code.downloadform %}
+        <a href="{{ code.downloadform }}"><span class="material-symbols-outlined" aria-hidden="true">download</span><span>Download</span></a>
+        {% endif %}
+        {% if code.releases %}
+        <a href="{{ code.releases }}"><span class="material-symbols-outlined" aria-hidden="true">download</span><span>Releases</span></a>
+        {% endif %}
+      </div>
+    </aside>
+    {% if code.fulldescription %}
+    <div class="software-body">
+      {{ code.fulldescription | markdownify }}
+    </div>
+    {% endif %}
+  </article>
+  {% endfor %}
 </div>
-
-# GraphInsight
-GraphInsight is a software that let you visualize complex networks interactively.
-
-<img src="/static/img/software/logoGI.png" alt="GraphInsight" style="width: 150px;"/>
-
-[GraphInsight](https://github.com/carlonicolini/graphinsight) is released in its final version in many flavours: OSX, Linux and Windows 7. Here is a complete list of the versions you can download depending on your operating system.
-
-**Linux** Tested on Ubuntu 10.04 or newer, Debian.
-- 15.3 MB [GraphInsight-Pro-1.3.3-Linux-i686.deb](https://github.com/CarloNicolini/GraphInsight/releases/download/1.3.3/GraphInsight-Pro-1.3.3-Linux-i686.deb)
-- 3.41 MB [GraphInsight-Pro-1.3.3-Linux-i686.rpm](https://github.com/CarloNicolini/GraphInsight/releases/download/1.3.3/GraphInsight-Pro-1.3.3-Linux-i686.rpm)
-- 15.4 MB [GraphInsight-Pro-1.3.3-Linux-i686.sh](https://github.com/CarloNicolini/GraphInsight/releases/download/1.3.3/GraphInsight-Pro-1.3.3-Linux-i686.sh)
-- 15.3 MB [GraphInsight-Pro-1.3.3-Linux-i686.tar.gz](https://github.com/CarloNicolini/GraphInsight/releases/download/1.3.3/GraphInsight-Pro-1.3.3-Linux-i686.tar.gz)
-- 19.9 MB [GraphInsight-Pro-1.3.3-Linux-x86_64.deb](https://github.com/CarloNicolini/GraphInsight/releases/download/1.3.3/GraphInsight-Pro-1.3.3-Linux-x86_64.deb)
-- 3.51 MB [GraphInsight-Pro-1.3.3-Linux-x86_64.rpm](https://github.com/CarloNicolini/GraphInsight/releases/download/1.3.3/GraphInsight-Pro-1.3.3-Linux-x86_64.rpm)
-- 19.9 MB [GraphInsight-Pro-1.3.3-Linux-x86_64.sh](https://github.com/CarloNicolini/GraphInsight/releases/download/1.3.3/GraphInsight-Pro-1.3.3-Linux-x86_64.sh)
-- 19.9 MB [GraphInsight-Pro-1.3.3-Linux-x86_64.tar.gz](https://github.com/CarloNicolini/GraphInsight/releases/download/1.3.3/GraphInsight-Pro-1.3.3-Linux-x86_64.tar.gz)
-
-**OSX** Tested on OSX 10.8 or newer
-- 28.8 MB [GraphInsight-Pro-1.3.3-MacOSX-i386.dmg](https://github.com/CarloNicolini/GraphInsight/releases/download/1.3.3/GraphInsight-Pro-1.3.3-MacOSX-i386.dmg)
-
-**Windows** Tested on Windows 7 or newer
-- 6.36 MB [GraphInsight-Pro-1.3.3-Windows-x86.exe](https://github.com/CarloNicolini/GraphInsight/releases/download/1.3.3/GraphInsight-Pro-1.3.3-Windows-x86.exe)
-- 8.17 MB [GraphInsight-Pro-1.3.3-Windows-x86.zip](https://github.com/CarloNicolini/GraphInsight/releases/download/1.3.3/GraphInsight-Pro-1.3.3-Windows-x86.zip)
-- [Source code (zip)](https://github.com/CarloNicolini/GraphInsight/archive/1.3.3.zip)
-- [Source code (tar.gz)](https://github.com/CarloNicolini/GraphInsight/archive/1.3.3.tar.gz)
-
-For the Python API of GraphInsight, please look here <a class="page-link" href="/sections/GIAPI">GraphInsight Python API</a>

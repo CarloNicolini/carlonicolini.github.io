@@ -1,21 +1,30 @@
 @use "sass:color";
 
 // Shared design tokens and the responsive mixin (used by base/layout partials).
-// Proportional first: math posts use many symbols; mono-as-body lacks glyph coverage for stray Unicode.
-$base-font-family: Lato, "Roboto Mono", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-$base-font-size: 19px;
-$small-font-size: $base-font-size * 0.875;
-$base-line-height: 1.68;
+$base-font-family: "Instrument Sans", system-ui, -apple-system, sans-serif;
+$header-font-family: "Instrument Serif", serif;
+$code-font-family: "JetBrains Mono", monospace;
+$meta-font-family: "Instrument Sans", system-ui, -apple-system, sans-serif;
 
-$spacing-unit: 28px;
+/* Improved readability: larger base size and better line height */
+$base-font-size: 20px;
+$small-font-size: 16px;
+$base-line-height: 1.7;
 
-$text-color: #111;
-$background-color: #fdfdfd;
-$brand-color: #ff7f00;
+/* Larger spacing unit for better vertical rhythm */
+$spacing-unit: 24px;
 
-$orange-color: #ff7f00;
-$orange-color-light: color.adjust($orange-color, $lightness: 40%);
-$orange-color-dark: color.adjust($orange-color, $lightness: -15%);
+$text-color: #171717;
+$text-muted: #525252;
+$background-color: #fafaf9;
+$brand-color: #c2410c; /* High contrast Deep Orange */
+
+$orange-color: #c2410c;
+$orange-color-light: #ffedd5;
+$orange-color-dark: #9a3412;
+
+$border-color: #e7e5e4;
+$card-bg: #ffffff;
 
 $on-palm: 600px;
 $on-laptop: 1000px;
