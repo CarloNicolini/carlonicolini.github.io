@@ -69,7 +69,10 @@ I'm a contributor to many open-source ML tools and occasionally work in the stat
 <ul class="post-list">
   {% for post in site.categories.tech limit:5 %}
   <li>
-    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    <h2>
+      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    </h2>
+    <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
   </li>
   {% endfor %}
 </ul>
@@ -78,7 +81,10 @@ I'm a contributor to many open-source ML tools and occasionally work in the stat
 <ul class="post-list">
   {% for post in site.categories.science limit:5 %}
   <li>
-    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    <h2>
+      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    </h2>
+    <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
   </li>
   {% endfor %}
 </ul>
