@@ -25,6 +25,7 @@ body {
     text-align: left;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
     overflow-x: hidden;
 }
 
@@ -41,24 +42,24 @@ ul, ol, dl, figure,
 
 /* Improved list spacing for readability */
 li {
-    margin-bottom: $spacing-unit * 0.25;
+    margin-bottom: $spacing-unit * 0.4;
 }
 
 h2 {
-    font-size: 36px;
-    margin-top: $spacing-unit * 1.25;
-    margin-bottom: $spacing-unit * 0.5;
+    font-size: 34px;
+    margin-top: $spacing-unit * 1.5;
+    margin-bottom: $spacing-unit * 0.75;
 }
 
 h3 {
     font-size: 28px;
-    margin-top: $spacing-unit;
+    margin-top: $spacing-unit * 1.25;
     margin-bottom: $spacing-unit * 0.5;
 }
 
 h4 {
-    font-size: 22px;
-    margin-top: $spacing-unit * 0.75;
+    font-size: 23px;
+    margin-top: $spacing-unit;
     margin-bottom: $spacing-unit * 0.25;
 }
 

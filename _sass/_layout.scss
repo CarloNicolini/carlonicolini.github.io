@@ -54,16 +54,16 @@
     .trigger {
         display: flex;
         align-items: center;
-        gap: 32px;
+        gap: 24px;
     }
 
     .page-link {
         color: $text-muted;
         font-family: $meta-font-family;
         font-weight: 400;
-        font-size: 18px;
+        font-size: 16px;
         text-transform: lowercase;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.01em;
 
         &:hover {
             color: $orange-color;
@@ -206,13 +206,23 @@
 
 .page,
 .post {
-    max-width: 68ch;
+    max-width: 54ch;
+    margin-left: auto;
+    margin-right: auto;
+    width: min(100%, 54ch);
+}
+
+/* Explicitly constrain reading width in post/page templates */
+.main-content > .wrapper > .page,
+.main-content > .wrapper > .post {
+    max-width: 54ch;
+    width: min(100%, 54ch);
     margin-left: auto;
     margin-right: auto;
 }
 
 .page--wide {
-    max-width: 1000px;
+    max-width: 780px;
 }
 
 /**
@@ -220,8 +230,8 @@
  */
 .page-header,
 .post-header {
-    margin-bottom: $spacing-unit * 1.25;
-    padding-bottom: $spacing-unit * 0.75;
+    margin-bottom: $spacing-unit;
+    padding-bottom: $spacing-unit * 0.6;
     border-bottom: 1px solid $border-color;
 }
 
@@ -232,11 +242,11 @@
     font-weight: 400;
     letter-spacing: -0.02em;
     line-height: 1.1;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     color: $text-color;
 
     @include media-query($on-laptop) {
-        font-size: 36px;
+        font-size: 40px;
     }
 }
 
@@ -254,21 +264,26 @@
 
 .page-content,
 .post-content {
-    margin-bottom: $spacing-unit * 1.25;
-    line-height: 1.75;
+    margin-bottom: $spacing-unit * 1.5;
+    line-height: 1.56;
     text-align: left;
+    hyphens: manual;
     overflow-wrap: break-word;
-    font-size: 1.05rem;
+    font-size: 1em;
     font-family: $base-font-family;
+    max-width: 54ch;
+    width: min(100%, 54ch);
+    margin-left: auto;
+    margin-right: auto;
 
     p, ul, ol, blockquote, pre, figure, table {
-        margin-bottom: 1.25rem;
+        margin-bottom: 0.85rem;
     }
 
     h2, h3, h4 {
-        line-height: 1.25;
-        margin-top: 2em;
-        margin-bottom: 0.5em;
+        line-height: 1.22;
+        margin-top: 1.25em;
+        margin-bottom: 0.35em;
         color: $text-color;
         text-align: left;
     }
@@ -278,30 +293,21 @@
     }
 
     li {
-        margin-bottom: 0.5em;
+        margin-bottom: 0.35em;
     }
 
     li > ul, li > ol {
         margin-top: 0.5em;
     }
 
-    /* MathJax 3 (SVG): keep inline math aligned with text; allow wide displays to scroll */
-    mjx-container {
-        display: inline-block;
-        vertical-align: -0.15em;
-        margin: 0 0.06em;
-    }
-
-    mjx-container[jax="SVG"][display="true"] {
+    /* MathJax 3 display equations styling */
+    mjx-container[display="true"] {
         display: block;
-        margin: 3rem 0;
+        margin: 1.5em 0;
         overflow-x: auto;
         overflow-y: hidden;
         text-align: center;
-        padding: 2rem;
-        background: rgba($orange-color-light, 0.15);
-        border-radius: 12px;
-        border: 1px solid rgba($orange-color, 0.1);
+        padding: 0.5rem 0;
     }
 }
 
@@ -336,14 +342,14 @@
     flex: 2;
 
     h1 {
-        font-size: 48px;
+        font-size: 56px;
         margin-top: 10px;
         margin-bottom: 0px;
         line-height: 1.0;
     }
 
     .lead {
-        font-size: 18px;
+        font-size: 22px;
         color: $text-muted;
         line-height: 1.5;
         margin-bottom: 16px;
@@ -351,7 +357,7 @@
     }
 
     p {
-        font-size: 18px;
+        font-size: 1.15rem;
         line-height: 1.65;
     }
 }
@@ -368,7 +374,7 @@
 
 .section-description {
     font-family: $meta-font-family;
-    font-size: 18px;
+    font-size: 20px;
     font-style: italic;
     color: $text-muted;
     margin-bottom: $spacing-unit;
@@ -381,8 +387,8 @@
     list-style: none;
 
     > li {
-        margin-bottom: $spacing-unit * 0.75;
-        padding-bottom: $spacing-unit * 0.4;
+        margin-bottom: $spacing-unit;
+        padding-bottom: $spacing-unit * 0.5;
         border-bottom: 1px solid rgba($border-color, 0.5);
 
         &:last-child {
@@ -393,8 +399,8 @@
 
         h2 {
             margin-top: 0;
-            margin-bottom: 4px;
-            font-size: 24px;
+            margin-bottom: 8px;
+            font-size: 32px;
             line-height: 1.25;
             border: none;
             padding: 0;
@@ -402,28 +408,29 @@
 
         p {
             margin-bottom: 0;
-            line-height: 1.35;
+            line-height: 1.45;
+            font-size: 1.05rem;
         }
     }
 }
 
 /* Post meta - list view */
 .post-meta {
-    font-size: 15px;
+    font-size: 16px;
     color: $text-muted;
     font-family: $meta-font-family;
     display: block;
     margin-bottom: 4px;
     letter-spacing: normal;
-    line-height: 1.35;
+    line-height: 1.4;
 }
 
 .post-link {
     display: block;
-    font-size: 26px;
+    font-size: 32px;
     font-family: $header-font-family;
     font-weight: 400;
-    line-height: 1.25;
+    line-height: 1.3;
     color: $text-color;
     margin-bottom: 0;
 
@@ -453,24 +460,26 @@
 }
 
 .pubdetail-content {
-    margin-bottom: $spacing-unit * 1.25;
+    margin-bottom: $spacing-unit * 1.5;
     max-width: 68ch;
     margin-left: auto;
     margin-right: auto;
-    line-height: 1.75;
-    text-align: left;
+    line-height: 1.7;
+    text-align: justify;
+    hyphens: auto;
     overflow-wrap: break-word;
-    font-size: 1.05rem;
+    font-size: 1.05em;
 
     p, ul, ol, blockquote, pre, figure, table {
-        margin-bottom: 1.25rem;
+        margin-bottom: 1.5rem;
     }
 
     h2, h3, h4 {
-        line-height: 1.25;
-        margin-top: 2em;
-        margin-bottom: 0.5em;
+        line-height: 1.3;
+        margin-top: 1.8em;
+        margin-bottom: 0.6em;
         color: $text-color;
+        text-align: left;
     }
 }
 
@@ -509,7 +518,7 @@
     line-height: 1.15;
     letter-spacing: -0.02em;
     margin: 0 0 $spacing-unit * 0.2;
-    font-size: 29px;
+    font-size: 32px;
 
     a {
         color: $text-color;
@@ -578,7 +587,7 @@
     flex-wrap: wrap;
     gap: 8px 10px;
     font-family: $meta-font-family;
-    font-size: 0.9rem;
+    font-size: 1rem;
     line-height: 1.4;
 
     a {
@@ -599,14 +608,14 @@
     }
 
     .material-symbols-outlined {
-        font-size: 18px;
+        font-size: 20px;
         line-height: 1;
     }
 }
 
 .publication-caption {
     margin: 0;
-    font-size: 0.92rem;
+    font-size: 1rem;
     line-height: 1.45;
     color: $text-muted;
 }

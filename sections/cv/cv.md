@@ -12,7 +12,7 @@ Thesis title: "Community detection in the modular structure of brain functional 
 - 2008 M.Sc in Biomedical Physics, Grade 110/110 cum laude, University of Trento, Italy.
 - 2003 B.Sc in Physics, University of Trento, Italy.
 
-## Seminars
+## Seminars and conferences (main)
 
 - November 2024 ICAIF conference on AI in finance, Brooklyn, NY (USA).
 - July 2019 Lipari Workshop on Complex Systems: Scale resolved analysis of complex networks [Download](/static/pdf/presentation_lipari.pdf)
@@ -21,11 +21,15 @@ Thesis title: "Community detection in the modular structure of brain functional 
 
 ### Experience
 
-- **Now (2017-2018): Postdoctoral fellow**
+- **Senior Analyst**
+Data-scientist and data-engineer at Prometeia, Milan.
+Worked in large collaborative teams, shoulder on shoulder with stakeholders over a number of finance-related projects from NPL prediction to anti-money laundering methods rooted in rigorous data science algorithms.
 
-I'm currently involved in developing new computational methods for the analysis of modular structure of brain functional connectivity networks with the tools of quantum information, information theory and complex networks theory.
-I'm carrying out my research currently at the BrainetLab of Angelo Bifone, in the CNCS, Istituto Italiano di Tecnologia.
-I am the developer of the **networkqit** package, a Python package to do computations in the framework of spectral entropies of complex networks.
+- **Now (2017-2019): Postdoctoral fellow**
+
+Developed new computational methods for the analysis of modular structure of brain functional connectivity networks with the tools of quantum information, information theory and complex networks theory.
+Research done at the BrainetLab of Angelo Bifone, in the CNCS, Istituto Italiano di Tecnologia.
+Developer of the **networkqit** package, a Python package to do computations in the framework of spectral entropies of complex networks.
 
 - **Spring-Summer 2017**
 

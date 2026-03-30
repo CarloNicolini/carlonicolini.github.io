@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
+  <defs>
+    <!-- Background -->
+    <rect id="bg" width="800" height="400" fill="#fafaf9" />
+    
+    <!-- Marker for ghost paths -->
+    <marker id="ghost-end" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+      <circle cx="5" cy="5" r="3" fill="#d6d3d1" />
+    </marker>
+  </defs>
+
+  <use href="#bg" />
+
+  <!-- Global Font Styling -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#4b5563">
+
+    <!-- Central Divider -->
+    <line x1="400" y1="60" x2="400" y2="340" stroke="#d6d3d1" stroke-width="1" stroke-dasharray="4 4" />
+
+    <!-- Top Global Formula (Subtle) -->
+    <text x="400" y="35" fill="#a8a29e" font-size="11" font-style="italic" text-anchor="middle" letter-spacing="0.05em">n_basins(s) = 1 / c₂(s)</text>
+
+    <!-- ======================================================= -->
+    <!-- LEFT PANEL: Illusion of Diversity (Collapse)            -->
+    <!-- ======================================================= -->
+    
+    <!-- Title -->
+    <text x="200" y="60" fill="#1c1917" font-size="13" font-weight="500" text-anchor="middle" letter-spacing="0.02em">illusion of diversity</text>
+    <text x="200" y="78" fill="#a8a29e" font-size="11" text-anchor="middle">replicas collapse to a single basin</text>
+
+    <!-- Topographic Energy Basin (Single) -->
+    <g transform="translate(320, 200)">
+      <ellipse cx="0" cy="0" rx="45" ry="65" fill="#f5f5f4" stroke="#e5e5e4" stroke-width="1"/>
+      <ellipse cx="0" cy="0" rx="28" ry="40" fill="none" stroke="#d6d3d1" stroke-width="1"/>
+      <ellipse cx="0" cy="0" rx="12" ry="18" fill="#e7e5e4" stroke="none"/>
+    </g>
+
+    <!-- Ghost Paths (Exploration space) -->
+    <path d="M 100 200 C 140 130, 200 80, 280 60" fill="none" stroke="#d6d3d1" stroke-width="1" marker-end="url(#ghost-end)"/>
+    <path d="M 100 200 C 140 270, 200 320, 280 340" fill="none" stroke="#d6d3d1" stroke-width="1" marker-end="url(#ghost-end)"/>
+
+    <!-- Replicated Traces (Deep Orange) -->
+    <!-- Diverging widely but ultimately converging to the same local minimum -->
+    <path d="M 100 200 C 160 90, 270 120, 316 190" fill="none" stroke="#c2410c" stroke-width="1.5" />
+    <path d="M 100 200 C 180 230, 240 170, 320 200" fill="none" stroke="#c2410c" stroke-width="1.5" />
+    <path d="M 100 200 C 160 310, 270 280, 314 210" fill="none" stroke="#c2410c" stroke-width="1.5" />
+
+    <!-- Trace Endpoints -->
+    <circle cx="316" cy="190" r="2.5" fill="#c2410c"/>
+    <circle cx="320" cy="200" r="2.5" fill="#c2410c"/>
+    <circle cx="314" cy="210" r="2.5" fill="#c2410c"/>
+
+    <!-- Prefix Node -->
+    <circle cx="100" cy="200" r="4" fill="#fafaf9" stroke="#4b5563" stroke-width="1.5"/>
+    <text x="88" y="204" font-size="11" text-anchor="end">prefix s</text>
+
+    <!-- Left Panel Metrics -->
+    <text x="200" y="325" fill="#4b5563" font-size="11" text-anchor="middle">high replica overlap (c₂ ≈ 1)</text>
+    <text x="200" y="345" fill="#1c1917" font-size="12" font-weight="600" text-anchor="middle">n_basins ≈ 1</text>
+
+    <!-- ======================================================= -->
+    <!-- RIGHT PANEL: Genuine Inferential Diversity              -->
+    <!-- ======================================================= -->
+
+    <!-- Title -->
+    <text x="600" y="60" fill="#1c1917" font-size="13" font-weight="500" text-anchor="middle" letter-spacing="0.02em">inferential diversity</text>
+    <text x="600" y="78" fill="#a8a29e" font-size="11" text-anchor="middle">replicas explore distinct basins</text>
+
+    <!-- Topographic Energy Basins (Multiple) -->
+    <!-- Basin 1 (Top) -->
+    <g transform="translate(710, 110)">
+      <ellipse cx="0" cy="0" rx="30" ry="25" fill="#f5f5f4" stroke="#e5e5e4" stroke-width="1"/>
+      <ellipse cx="0" cy="0" rx="16" ry="14" fill="none" stroke="#d6d3d1" stroke-width="1"/>
+      <ellipse cx="0" cy="0" rx="6" ry="5" fill="#e7e5e4" stroke="none"/>
+    </g>
+    <!-- Basin 2 (Middle) -->
+    <g transform="translate(710, 200)">
+      <ellipse cx="0" cy="0" rx="30" ry="25" fill="#f5f5f4" stroke="#e5e5e4" stroke-width="1"/>
+      <ellipse cx="0" cy="0" rx="16" ry="14" fill="none" stroke="#d6d3d1" stroke-width="1"/>
+      <ellipse cx="0" cy="0" rx="6" ry="5" fill="#e7e5e4" stroke="none"/>
+    </g>
+    <!-- Basin 3 (Bottom) -->
+    <g transform="translate(710, 290)">
+      <ellipse cx="0" cy="0" rx="30" ry="25" fill="#f5f5f4" stroke="#e5e5e4" stroke-width="1"/>
+      <ellipse cx="0" cy="0" rx="16" ry="14" fill="none" stroke="#d6d3d1" stroke-width="1"/>
+      <ellipse cx="0" cy="0" rx="6" ry="5" fill="#e7e5e4" stroke="none"/>
+    </g>
+
+    <!-- Ghost Paths (Exploration space) -->
+    <path d="M 500 200 C 540 140, 600 80, 680 50" fill="none" stroke="#d6d3d1" stroke-width="1" marker-end="url(#ghost-end)"/>
+    <path d="M 500 200 C 540 260, 600 320, 680 350" fill="none" stroke="#d6d3d1" stroke-width="1" marker-end="url(#ghost-end)"/>
+
+    <!-- Replicated Traces (Deep Orange) -->
+    <!-- Diverging and landing in separate distinct regions -->
+    <path d="M 500 200 C 560 200, 590 110, 710 110" fill="none" stroke="#c2410c" stroke-width="1.5" />
+    <path d="M 500 200 C 560 185, 600 215, 710 200" fill="none" stroke="#c2410c" stroke-width="1.5" />
+    <path d="M 500 200 C 560 200, 590 290, 710 290" fill="none" stroke="#c2410c" stroke-width="1.5" />
+
+    <!-- Trace Endpoints -->
+    <circle cx="710" cy="110" r="2.5" fill="#c2410c"/>
+    <circle cx="710" cy="200" r="2.5" fill="#c2410c"/>
+    <circle cx="710" cy="290" r="2.5" fill="#c2410c"/>
+
+    <!-- Prefix Node -->
+    <circle cx="500" cy="200" r="4" fill="#fafaf9" stroke="#4b5563" stroke-width="1.5"/>
+    <text x="488" y="204" font-size="11" text-anchor="end">prefix s</text>
+
+    <!-- Right Panel Metrics -->
+    <text x="600" y="325" fill="#4b5563" font-size="11" text-anchor="middle">low replica overlap (c₂ ≪ 1)</text>
+    <text x="600" y="345" fill="#1c1917" font-size="12" font-weight="600" text-anchor="middle">n_basins > 1</text>
+
+  </g>
+</svg>

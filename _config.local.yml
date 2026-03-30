@@ -5,7 +5,6 @@ description: "Personal blog about artificial intelligence, coding, statistical p
 baseurl: "" 
 url: "https://carlonicolini.github.io"
 github_username:  carlonicolini
-twitter_username: carlonicolini84
 collections:
 - well-known
 # Build settings
@@ -24,9 +23,25 @@ plugins:
   - jekyll-feed
   - jekyll-include-cache
   - jekyll-relative-links
-  
+  - jekyll-scholar
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - .gstack/
+  - '_site'
+
 social:
   name: Carlo Nicolini
   links:
     - https://www.linkedin.com/in/carlo-nicolini
     - https://github.com/carlonicolini
+
+scholar:
+  style: apa                  # Citation style (e.g., apa, ieee, chicago)
+  locale: en                  # Locale used for formatting
+  sort_by: year               # Sort bibliography by year
+  order: descending           # Newest first
+  source: ./_bibliography     # Where your .bib files are located
+  bibliography: biblio.bib    # The default .bib file name
+  bibliography_template: "{{reference}}" # Template for formatting bibliography entries

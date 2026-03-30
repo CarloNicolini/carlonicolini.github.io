@@ -1,4 +1,4 @@
-<!-- MathJax 3 (TeX → SVG): works when old cdn.mathjax.org is dead; SVG avoids missing math-font "tofu". -->
+<!-- MathJax 3 (TeX → CHTML): Better crispness and alignment than SVG. -->
 <script>
 window.MathJax = {
   tex: {
@@ -7,9 +7,11 @@ window.MathJax = {
     processEscapes: true,
     packages: {'[+]': ['ams', 'newcommand', 'configmacros']}
   },
-  svg: {
-    fontCache: 'global'
+  chtml: {
+    scale: 1,
+    minScale: .5,
+    matchFontHeight: true
   }
 };
 </script>
-<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script>

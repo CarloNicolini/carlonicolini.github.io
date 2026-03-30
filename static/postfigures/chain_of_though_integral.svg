@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="100%" height="100%">
+    <defs>
+        <!-- Styles -->
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap');
+            
+            .bg { fill: #fafaf9; }
+            .grid-line { stroke: #e7e5e4; stroke-width: 0.5; fill: none; }
+            .contour { fill: none; stroke: #d6d3d1; stroke-width: 1; }
+            .contour-outer { fill: none; stroke: #e7e5e4; stroke-width: 1; stroke-dasharray: 4 4; }
+            
+            .path-line { fill: none; stroke: #3f3f46; stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+            .path-line-muted { fill: none; stroke: #a8a29e; stroke-width: 1.25; stroke-linejoin: round; stroke-linecap: round; opacity: 1; }
+            
+            .node { fill: #fafaf9; stroke: #3f3f46; stroke-width: 1.5; }
+            .node-muted { fill: #fafaf9; stroke: #a8a29e; stroke-width: 1; }
+            .node-target { fill: #c2410c; stroke: #fafaf9; stroke-width: 1; }
+            
+            .text-title { font-family: 'Inter', -apple-system, sans-serif; font-size: 16px; font-weight: 600; fill: #2d2d2d; letter-spacing: -0.2px; }
+            .text-subtitle { font-family: 'Inter', -apple-system, sans-serif; font-size: 13px; font-weight: 400; fill: #78716c; letter-spacing: 0.2px; }
+            .label { font-family: 'Inter', -apple-system, sans-serif; font-size: 13px; font-weight: 400; fill: #57534e; }
+            .label-accent { fill: #c2410c; font-weight: 500; }
+            
+            .pointer { stroke: #a8a29e; stroke-width: 1; stroke-dasharray: 2 2; fill: none; }
+            .pointer-accent { stroke: #c2410c; stroke-width: 1; stroke-dasharray: 2 2; fill: none; opacity: 0.5; }
+            
+            .integration-zone { fill: #c2410c; opacity: 0.06; stroke: #c2410c; stroke-width: 1; stroke-dasharray: 3 3; }
+        </style>
+
+        <!-- Background Pattern -->
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 20 18 L 20 22 M 18 20 L 22 20" class="grid-line" />
+        </pattern>
+
+        <!-- Topographical Landscape (Shared Base) -->
+        <g id="landscape">
+            <!-- Global Bounds -->
+            <ellipse cx="260" cy="180" rx="220" ry="160" transform="rotate(-15 260 180)" class="contour-outer" />
+            
+            <!-- Main Global Minimum Basin -->
+            <ellipse cx="230" cy="230" rx="130" ry="90" transform="rotate(-15 230 230)" class="contour"/>
+            <ellipse cx="240" cy="240" rx="90" ry="60" transform="rotate(-15 240 240)" class="contour"/>
+            <ellipse cx="250" cy="245" rx="50" ry="30" transform="rotate(-15 250 245)" class="contour"/>
+            <ellipse cx="260" cy="251" rx="15" ry="10" transform="rotate(-15 260 251)" class="contour"/>
+            
+            <!-- Secondary Local Minimum Basin -->
+            <ellipse cx="360" cy="100" rx="40" ry="25" transform="rotate(20 360 100)" class="contour"/>
+            <ellipse cx="365" cy="105" rx="15" ry="8" transform="rotate(20 365 105)" class="contour"/>
+        </g>
+    </defs>
+
+    <!-- Base Canvas -->
+    <rect width="100%" height="100%" class="bg" />
+    <rect width="100%" height="100%" fill="url(#grid)" />
+
+    <!-- Center Divider -->
+    <line x1="450" y1="40" x2="450" y2="360" class="grid-line" stroke-dasharray="4 4" />
+
+    <!-- ==========================================
+         LEFT PANEL: Single Trajectory 
+         ========================================== -->
+    <g transform="translate(30, 30)">
+        <!-- Titles -->
+        <text x="10" y="20" class="text-title">Single trajectory</text>
+        <text x="10" y="36" class="text-subtitle">Point estimate via greedy decoding</text>
+
+        <!-- Topography -->
+        <use href="#landscape" />
+
+        <!-- Single Path -->
+        <path d="M 60 70 L 95 100 L 100 140 L 140 165 L 170 205 L 215 230 L 235 265 L 260 251" class="path-line" />
+        
+        <!-- Path Nodes -->
+        <circle cx="60" cy="70" r="3" class="node" />
+        <circle cx="95" cy="100" r="3" class="node" />
+        <circle cx="100" cy="140" r="3" class="node" />
+        <circle cx="140" cy="165" r="3" class="node" />
+        <circle cx="170" cy="205" r="3" class="node" />
+        <circle cx="215" cy="230" r="3" class="node" />
+        <circle cx="235" cy="265" r="3" class="node" />
+        
+        <!-- Target End Node -->
+        <circle cx="260" cy="251" r="4" class="node-target" />
+
+        <!-- Annotations -->
+        <line x1="60" y1="70" x2="60" y2="55" class="pointer" />
+        <text x="60" y="50" class="label" text-anchor="middle">start x</text>
+
+        <line x1="140" y1="165" x2="110" y2="185" class="pointer" />
+        <text x="105" y="193" class="label" text-anchor="end">intermediate z</text>
+
+        <line x1="260" y1="251" x2="280" y2="251" class="pointer-accent" />
+        <text x="285" y="254" class="label label-accent">target y</text>
+    </g>
+
+
+    <!-- ==========================================
+         RIGHT PANEL: Swarm Trajectory
+         ========================================== -->
+    <g transform="translate(460, 30)">
+        <!-- Titles -->
+        <text x="10" y="20" class="text-title">swarm trajectory</text>
+        <text x="10" y="36" class="text-subtitle">marginalization / partition function approximation</text>
+
+        <!-- Topography -->
+        <use href="#landscape" />
+
+        <!-- Volume Integration Highlighting (Basin Coverage) -->
+        <circle cx="256" cy="249" r="22" class="integration-zone" />
+        <circle cx="362" cy="102" r="10" class="integration-zone" />
+
+        <!-- Swarm Paths (Tree of Thoughts / Branching) -->
+        <!-- Main Branch -->
+        <path d="M 60 70 L 95 100 L 100 140 L 140 165 L 170 205 L 215 230 L 235 265 L 260 251" class="path-line-muted" />
+        
+        <!-- Exploratory Branches to Global Minimum -->
+        <path d="M 95 100 L 135 115 L 180 140 L 205 180 L 240 210 L 265 240" class="path-line-muted" />
+        <path d="M 100 140 L 130 190 L 160 240 L 200 260 L 245 260" class="path-line-muted" />
+        <path d="M 140 165 L 180 175 L 220 200 L 255 230 L 250 245" class="path-line-muted" />
+        <path d="M 170 205 L 195 250 L 230 275 L 262 250" class="path-line-muted" />
+        
+        <!-- Exploratory Branches trapped in Local Minimum -->
+        <path d="M 95 100 L 150 90 L 210 95 L 270 85 L 320 100 L 365 105" class="path-line-muted" />
+        <path d="M 100 140 L 160 110 L 220 100 L 280 80 L 340 90 L 360 100" class="path-line-muted" />
+
+        <!-- Nodes (Muted for intermediate steps) -->
+        <circle cx="60" cy="70" r="2.5" class="node-muted" />
+        <circle cx="95" cy="100" r="2.5" class="node-muted" />
+        <circle cx="100" cy="140" r="2.5" class="node-muted" />
+        <circle cx="140" cy="165" r="2.5" class="node-muted" />
+        <circle cx="170" cy="205" r="2.5" class="node-muted" />
+        <circle cx="215" cy="230" r="2.5" class="node-muted" />
+        <circle cx="235" cy="265" r="2.5" class="node-muted" />
+        
+        <circle cx="135" cy="115" r="2.5" class="node-muted" />
+        <circle cx="180" cy="140" r="2.5" class="node-muted" />
+        <circle cx="205" cy="180" r="2.5" class="node-muted" />
+        <circle cx="240" cy="210" r="2.5" class="node-muted" />
+        
+        <circle cx="130" cy="190" r="2.5" class="node-muted" />
+        <circle cx="160" cy="240" r="2.5" class="node-muted" />
+        <circle cx="200" cy="260" r="2.5" class="node-muted" />
+        
+        <circle cx="180" cy="175" r="2.5" class="node-muted" />
+        <circle cx="220" cy="200" r="2.5" class="node-muted" />
+        <circle cx="255" cy="230" r="2.5" class="node-muted" />
+        
+        <circle cx="195" cy="250" r="2.5" class="node-muted" />
+        <circle cx="230" cy="275" r="2.5" class="node-muted" />
+        
+        <circle cx="150" cy="90" r="2.5" class="node-muted" />
+        <circle cx="210" cy="95" r="2.5" class="node-muted" />
+        <circle cx="270" cy="85" r="2.5" class="node-muted" />
+        <circle cx="320" cy="100" r="2.5" class="node-muted" />
+        
+        <circle cx="160" cy="110" r="2.5" class="node-muted" />
+        <circle cx="220" cy="100" r="2.5" class="node-muted" />
+        <circle cx="280" cy="80" r="2.5" class="node-muted" />
+        <circle cx="340" cy="90" r="2.5" class="node-muted" />
+
+        <!-- Target End Nodes (Orange) -->
+        <circle cx="260" cy="251" r="3.5" class="node-target" />
+        <circle cx="265" cy="240" r="3.5" class="node-target" />
+        <circle cx="245" cy="260" r="3.5" class="node-target" />
+        <circle cx="250" cy="245" r="3.5" class="node-target" />
+        <circle cx="262" cy="250" r="3.5" class="node-target" />
+        
+        <circle cx="365" cy="105" r="3.5" class="node-target" />
+        <circle cx="360" cy="100" r="3.5" class="node-target" />
+
+        <!-- Annotations -->
+        <line x1="60" y1="70" x2="60" y2="55" class="pointer" />
+        <text x="60" y="50" class="label" text-anchor="middle">start x</text>
+
+        <line x1="275" y1="249" x2="295" y2="249" class="pointer-accent" />
+        <text x="300" y="247" class="label label-accent">Integrated volume</text>
+        <text x="300" y="261" class="label label-accent">Approx. EBM target</text>
+
+        <line x1="365" y1="105" x2="385" y2="105" class="pointer" />
+        <text x="390" y="108" class="label">local minima</text>
+    </g>
+</svg>

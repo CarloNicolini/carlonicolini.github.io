@@ -6,13 +6,13 @@ $header-font-family: "Instrument Serif", serif;
 $code-font-family: "JetBrains Mono", monospace;
 $meta-font-family: "Instrument Sans", system-ui, -apple-system, sans-serif;
 
-/* Improved readability: larger base size and better line height */
+/* Editorial reading defaults: denser than before, still comfortable */
 $base-font-size: 20px;
 $small-font-size: 16px;
-$base-line-height: 1.7;
+$base-line-height: 1.6;
 
-/* Larger spacing unit for better vertical rhythm */
-$spacing-unit: 24px;
+/* 8px grid based spacing scale */
+$spacing-unit: 16px;
 
 $text-color: #171717;
 $text-muted: #525252;

@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="100%" height="100%">
+    <defs>
+        <!-- Soft blur for the verifier potential field -->
+        <filter id="soft-blur" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="24" />
+        </filter>
+
+        <!-- Base Tree Trajectories / Traces -->
+        <!-- Level 0 to Level 1 -->
+        <path id="S1" d="M 0 480 C 0 435, -60 435, -60 390" fill="none" />
+        <path id="S2" d="M 0 480 C 0 435, 10 435, 10 390" fill="none" />
+        <path id="S3" d="M 0 480 C 0 435, 70 435, 70 390" fill="none" />
+        
+        <!-- Level 1 to Level 2 -->
+        <path id="S4" d="M -60 390 C -60 345, -100 345, -100 300" fill="none" />
+        <path id="S5" d="M -60 390 C -60 345, -30 345, -30 300" fill="none" />
+        <path id="S6" d="M 10 390 C 10 345, -10 345, -10 300" fill="none" />
+        <path id="S7" d="M 10 390 C 10 345, 40 345, 40 300" fill="none" />
+        <path id="S8" d="M 70 390 C 70 345, 80 345, 80 300" fill="none" />
+        <path id="S9" d="M 70 390 C 70 345, 130 345, 130 300" fill="none" />
+
+        <!-- Level 2 to Level 3 -->
+        <path id="S10" d="M -100 300 C -100 255, -130 255, -130 210" fill="none" />
+        <path id="S11" d="M -100 300 C -100 255, -70 255, -70 210" fill="none" />
+        <path id="S12" d="M -30 300 C -30 255, -40 255, -40 210" fill="none" />
+        <path id="S13" d="M -30 300 C -30 255, -10 255, -10 210" fill="none" />
+        <path id="S14" d="M 40 300 C 40 255, 30 255, 30 210" fill="none" />
+        <path id="S15" d="M 40 300 C 40 255, 60 255, 60 210" fill="none" />
+        <path id="S16" d="M 80 300 C 80 255, 90 255, 90 210" fill="none" />
+        <path id="S17" d="M 130 300 C 130 255, 110 255, 110 210" fill="none" />
+        <path id="S18" d="M 130 300 C 130 255, 150 255, 150 210" fill="none" />
+
+        <!-- Level 3 to Level 4 -->
+        <path id="S19" d="M -130 210 C -130 165, -150 165, -150 120" fill="none" />
+        <path id="S20" d="M -130 210 C -130 165, -110 165, -110 120" fill="none" />
+        <path id="S21" d="M -70 210 C -70 165, -80 165, -80 120" fill="none" />
+        <path id="S22" d="M -40 210 C -40 165, -50 165, -50 120" fill="none" />
+        <path id="S23" d="M -40 210 C -40 165, -20 165, -20 120" fill="none" />
+        <path id="S24" d="M -10 210 C -10 165, 0 165, 0 120" fill="none" />
+        <path id="S25" d="M 30 210 C 30 165, 20 165, 20 120" fill="none" />
+        <path id="S26" d="M 30 210 C 30 165, 45 165, 45 120" fill="none" />
+        <path id="S27" d="M 60 210 C 60 165, 65 165, 65 120" fill="none" />
+        <path id="S28" d="M 90 210 C 90 165, 80 165, 80 120" fill="none" />
+        <path id="S29" d="M 90 210 C 90 165, 105 165, 105 120" fill="none" />
+        <path id="S30" d="M 110 210 C 110 165, 120 165, 120 120" fill="none" />
+        <path id="S31" d="M 150 210 C 150 165, 140 165, 140 120" fill="none" />
+        <path id="S32" d="M 150 210 C 150 165, 165 165, 165 120" fill="none" />
+    </defs>
+
+    <!-- Background -->
+    <rect width="100%" height="100%" fill="#fafaf9" />
+
+    <!-- ========================================== -->
+    <!-- PANEL 1: PROPOSAL DISTRIBUTION             -->
+    <!-- ========================================== -->
+    <g transform="translate(200, 0)">
+        <!-- Label -->
+        <text x="0" y="70" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-style="italic" text-anchor="middle" letter-spacing="0.5">q(τ|x)</text>
+        
+        <!-- Uniform traces -->
+        <g stroke="#94a3b8" stroke-width="1.2" opacity="0.8">
+            <use href="#S1" /> <use href="#S2" /> <use href="#S3" />
+            <use href="#S4" /> <use href="#S5" /> <use href="#S6" /> <use href="#S7" /> <use href="#S8" /> <use href="#S9" />
+            <use href="#S10" /> <use href="#S11" /> <use href="#S12" /> <use href="#S13" /> <use href="#S14" /> <use href="#S15" /> <use href="#S16" /> <use href="#S17" /> <use href="#S18" />
+            <use href="#S19" /> <use href="#S20" /> <use href="#S21" /> <use href="#S22" /> <use href="#S23" /> <use href="#S24" /> <use href="#S25" /> <use href="#S26" /> <use href="#S27" /> <use href="#S28" /> <use href="#S29" /> <use href="#S30" /> <use href="#S31" /> <use href="#S32" />
+        </g>
+        
+        <!-- Root node -->
+        <circle cx="0" cy="480" r="4" fill="#64748b" />
+        <text x="0" y="505" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-style="italic" text-anchor="middle">x</text>
+    </g>
+
+    <!-- Transition Arrow 1 -->
+    <path d="M 380 280 L 420 280 M 415 275 L 420 280 L 415 285" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- ========================================== -->
+    <!-- PANEL 2: VERIFIER POTENTIAL (WEIGHTING)    -->
+    <!-- ========================================== -->
+    <g transform="translate(600, 0)">
+        <!-- Label -->
+        <text x="120" y="240" fill="#c2410c" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-style="italic" text-anchor="middle" opacity="0.9" letter-spacing="0.5">φ(τ,x)</text>
+
+        <!-- Smooth Weighting Field -->
+        <g filter="url(#soft-blur)" fill="#c2410c" opacity="0.14">
+            <!-- Main right/center branch potential -->
+            <circle cx="10" cy="390" r="35"/>
+            <circle cx="25" cy="345" r="40"/>
+            <circle cx="40" cy="300" r="45"/>
+            <circle cx="35" cy="255" r="45"/>
+            <circle cx="30" cy="210" r="45"/>
+            <circle cx="32" cy="165" r="40"/>
+            <circle cx="32" cy="120" r="40"/>
+            <circle cx="50" cy="120" r="35"/>
+            <!-- Secondary left branch potential -->
+            <circle cx="-60" cy="390" r="30"/>
+            <circle cx="-80" cy="345" r="35"/>
+            <circle cx="-100" cy="300" r="40"/>
+            <circle cx="-85" cy="255" r="35"/>
+            <circle cx="-70" cy="210" r="35"/>
+            <circle cx="-75" cy="165" r="30"/>
+            <circle cx="-80" cy="120" r="30"/>
+        </g>
+
+        <!-- Traces intersecting the potential (Highlighted) -->
+        <g stroke="#ea580c" stroke-width="1.5" opacity="0.8">
+            <use href="#S1" /> <use href="#S2" /> <use href="#S4" /> <use href="#S7" /> 
+            <use href="#S11" /> <use href="#S14" /> <use href="#S15" /> 
+            <use href="#S21" /> <use href="#S25" /> <use href="#S26" /> <use href="#S27" />
+        </g>
+
+        <!-- Traces outside the potential (Faded) -->
+        <g stroke="#cbd5e1" stroke-width="1.2" opacity="0.4">
+            <use href="#S3" /> <use href="#S5" /> <use href="#S6" /> <use href="#S8" /> <use href="#S9" />
+            <use href="#S10" /> <use href="#S12" /> <use href="#S13" /> <use href="#S16" /> <use href="#S17" /> <use href="#S18" />
+            <use href="#S19" /> <use href="#S20" /> <use href="#S22" /> <use href="#S23" /> <use href="#S24" /> 
+            <use href="#S28" /> <use href="#S29" /> <use href="#S30" /> <use href="#S31" /> <use href="#S32" />
+        </g>
+
+        <!-- Root node -->
+        <circle cx="0" cy="480" r="4" fill="#475569" />
+        <text x="0" y="505" fill="#475569" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-style="italic" text-anchor="middle">x</text>
+    </g>
+
+    <!-- Transition Arrow 2 -->
+    <path d="M 780 280 L 820 280 M 815 275 L 820 280 L 815 285" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- ========================================== -->
+    <!-- PANEL 3: REWEIGHTED TARGET MASS            -->
+    <!-- ========================================== -->
+    <g transform="translate(1000, 0)">
+        <!-- Label -->
+        <text x="0" y="70" fill="#c2410c" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-style="italic" font-weight="500" text-anchor="middle" letter-spacing="0.5">p(τ|x)</text>
+
+        <!-- Pruned / Zero Mass (Ghostly) -->
+        <g stroke="#e2e8f0" stroke-width="0.8" opacity="0.4">
+            <use href="#S5" /> <use href="#S6" /> <use href="#S9" />
+            <use href="#S10" /> <use href="#S12" /> <use href="#S13" /> <use href="#S17" /> <use href="#S18" />
+            <use href="#S19" /> <use href="#S20" /> <use href="#S22" /> <use href="#S23" /> <use href="#S24" /> 
+            <use href="#S30" /> <use href="#S31" /> <use href="#S32" />
+        </g>
+
+        <!-- Low Mass -->
+        <g stroke="#cbd5e1" stroke-width="1.2" opacity="0.7">
+            <use href="#S3" /> <use href="#S8" /> <use href="#S16" /> <use href="#S28" /> <use href="#S29" />
+        </g>
+
+        <!-- Medium Mass -->
+        <g stroke="#ea580c" stroke-width="2" opacity="0.8">
+            <use href="#S1" /> <use href="#S4" /> <use href="#S11" /> <use href="#S21" /> 
+            <use href="#S15" /> <use href="#S27" />
+        </g>
+
+        <!-- High Mass (Concentrated Target Distribution) -->
+        <g stroke="#c2410c" stroke-width="3.5" opacity="1" stroke-linecap="round">
+            <use href="#S2" /> <use href="#S7" /> <use href="#S14" /> <use href="#S25" /> <use href="#S26" />
+        </g>
+
+        <!-- Root node -->
+        <circle cx="0" cy="480" r="4" fill="#c2410c" />
+        <text x="0" y="505" fill="#c2410c" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-style="italic" text-anchor="middle">x</text>
+    </g>
+
+</svg>
