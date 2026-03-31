@@ -1,0 +1,69 @@
+{% assign section_prefix = "" %}
+{% assign section_label = "" %}
+{% assign related_limit = 4 %}
+
+{% if page.path contains "sections/science/_posts/" %}
+  {% assign section_prefix = "sections/science/_posts/" %}
+  {% assign section_label = "science" %}
+{% elsif page.path contains "sections/tech/_posts/" %}
+  {% assign section_prefix = "sections/tech/_posts/" %}
+  {% assign section_label = "tech" %}
+{% endif %}
+
+{% if section_prefix != "" %}
+  {% assign current_title_words = page.title | downcase | replace: "(", " " | replace: ")", " " | replace: ",", " " | replace: ".", " " | replace: ":", " " | replace: ";", " " | replace: "?", " " | replace: "!", " " | replace: "/", " " | replace: "-", " " | replace: "—", " " | split: " " %}
+  {% assign shown_urls = "|" %}
+  {% assign related_count = 0 %}
+
+  <section class="post-related" aria-labelledby="further-reading">
+    <h1 id="further-reading">Further reading</h1>
+    <p>Read more in the {{ section_label }} topic.</p>
+    <ul>
+      {% for post in site.posts %}
+        {% if related_count >= related_limit %}
+          {% break %}
+        {% endif %}
+
+        {% if post.url != page.url and post.path contains section_prefix %}
+          {% assign title_overlap = 0 %}
+          {% assign candidate_title = post.title | downcase %}
+
+          {% for word in current_title_words %}
+            {% assign normalized_word = word | strip %}
+            {% if normalized_word.size > 4 and candidate_title contains normalized_word %}
+              {% assign title_overlap = title_overlap | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+
+          {% capture candidate_key %}|{{ post.url }}|{% endcapture %}
+          {% if title_overlap > 0 %}
+            {% unless shown_urls contains candidate_key %}
+            <li>
+              <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </li>
+            {% capture shown_urls %}{{ shown_urls }}{{ candidate_key }}{% endcapture %}
+            {% assign related_count = related_count | plus: 1 %}
+            {% endunless %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+      {% for post in site.posts %}
+        {% if related_count >= related_limit %}
+          {% break %}
+        {% endif %}
+
+        {% if post.url != page.url and post.path contains section_prefix %}
+          {% capture candidate_key %}|{{ post.url }}|{% endcapture %}
+          {% unless shown_urls contains candidate_key %}
+            <li>
+              <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </li>
+            {% capture shown_urls %}{{ shown_urls }}{{ candidate_key }}{% endcapture %}
+            {% assign related_count = related_count | plus: 1 %}
+          {% endunless %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}

@@ -57,7 +57,7 @@ $$
 \hat{\pi}_c = \frac{1}{|\mathcal{D}|} \sum_{i \in \mathcal{D}} \mathbb{I}(y_i = c), \qquad c = 1,\ldots,C.
 $$
 
-Common impurity functions $\mathrm{cost}(\mathcal{D}) = |\mathcal{D}|\cdot I(\hat{\boldsymbol{\pi}})$ (scaled by sample count so the split objective is additive) include:
+Common impurity functions $\mathrm{cost}(\mathcal{D}) = \mid \mathcal{D} \mid \cdot I(\hat{\boldsymbol{\pi}})$ (scaled by sample count so the split objective is additive) include:
 
 - **Misclassification error** (not smooth; rarely used for split selection alone):
   $$
@@ -104,6 +104,6 @@ Trees are **unstable** (small data changes can change splits) and have **high va
 
 ## References
 
-- Breiman, Friedman, Olshen, Stone — *Classification and Regression Trees* (1984).
+- Breigman, Friedman, Olshen, Stone — *Classification and Regression Trees* (1984).
 - Hastie, Tibshirani, Friedman — *The Elements of Statistical Learning*, [Chapter 9 — Trees](https://web.stanford.edu/~hastie/ElemStatLearn/) (free PDF).
 - scikit-learn user guide: [Decision trees](https://scikit-learn.org/stable/modules/tree.html).

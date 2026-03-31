@@ -95,6 +95,9 @@
   var STORAGE_KEY = 'carlonicolini-code-linenos';
   function getLinenosPref() { try { return sessionStorage.getItem(STORAGE_KEY) !== '0'; } catch (e) { return true; } }
   function setLinenosPref(v) { try { sessionStorage.setItem(STORAGE_KEY, v ? '1' : '0'); } catch (e) {} }
+  function getCodeText(code) {
+    return (code.textContent || '').replace(/\r\n?/g, '\n').replace(/\n$/, '');
+  }
 
   function initCodeBlocks() {
     var blocks = document.querySelectorAll('.highlighter-rouge');
@@ -121,7 +124,7 @@
       copyIcon.textContent = 'content_copy';
       copyBtn.appendChild(copyIcon);
       copyBtn.addEventListener('click', function() {
-        var text = code.innerText || code.textContent;
+        var text = getCodeText(code);
         navigator.clipboard.writeText(text).then(function() {
           copyIcon.textContent = 'check';
           copyBtn.classList.add('copied');
@@ -152,7 +155,7 @@
       var body = document.createElement('div');
       body.className = 'code-block-body';
 
-      var lineCount = (code.innerText || code.textContent).split('\n').length;
+      var lineCount = getCodeText(code).split('\n').length;
       var lineNumbers = document.createElement('div');
       lineNumbers.className = 'code-line-numbers';
       lineNumbers.setAttribute('aria-hidden', 'true');

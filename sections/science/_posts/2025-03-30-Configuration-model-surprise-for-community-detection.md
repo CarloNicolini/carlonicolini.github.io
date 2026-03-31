@@ -149,14 +149,10 @@ $$
 So the exact configuration-model probability of observing exactly $t$ internal edges is obtained by marginalizing the block law:
 
 $$
-\mathbb{P}_{CM}(M_\zeta=t \mid K)
-=
-\sum_{\{m_{rs}\}\in\mathcal{M}_t(K)}
-\mathbb{P}_{CM}(\{m_{rs}\}\mid K),
-\tag{8}
+\mathbb{P}_{CM}(M_\zeta=t \mid K) = \sum_{\{m_{rs}\} \in \mathcal{M}_t(K)} \mathbb{P}_{CM}(\{m_{rs}\} \mid K), \tag{8}
 $$
 
-where $\mathcal{M}_t(K)$ is the set of all feasible matrices satisfying the degree-balance constraints in Eq. (4) and $\sum_r m_{rr}=t$.
+where the quantity $M_t ( K )$ is the set of all feasible matrices satisfying the degree-balance constraints in Eq. (4) and $\sum_r m_{rr}=t$.
 
 This is the point where the structure differs from ordinary Surprise.
 In $G_{nm}$, the exact null is hypergeometric because one samples vertex pairs without replacement from two bins: internal pairs and external pairs.
@@ -166,11 +162,7 @@ The exact law is no longer hypergeometric.
 That leads to the natural degree-corrected analogue of Surprise:
 
 $$
-S_{CM}^{\mathrm{disc}}(g)
-=
--\log \sum_{t=m_\zeta(g)}^m
-\mathbb{P}_{CM}(M_\zeta=t \mid K(g)).
-\tag{9}
+S_{CM}^{\mathrm{disc}}(g) = -\log \sum_{t=m_\zeta(g)}^m \mathbb{P}_{CM}(M_\zeta=t \mid K(g)). \tag{9}
 $$
 
 This is the exact one-sided p-value style score: how surprising is it to see at least this many internal edges under random stub pairing with the observed degree sequence?
@@ -184,31 +176,19 @@ Under a uniform random pairing, the probability that they are paired together is
 Summing over all same-community stub pairs gives
 
 $$
-\mathbb{E}_{CM}[M_\zeta \mid K]
-=
-\frac{1}{2m-1}
-\sum_c \binom{K_c}{2}.
-\tag{10}
+\mathbb{E}_{CM}[M_\zeta \mid K] = \frac{1}{2m-1} \sum_c \binom{K_c}{2}. \tag{10}
 $$
 
 Therefore the expected internal edge fraction is
 
 $$
-\langle q \rangle_{CM}
-=
-\frac{\mathbb{E}_{CM}[M_\zeta \mid K]}{m}
-=
-\frac{\sum_c K_c(K_c-1)}{2m(2m-1)}.
-\tag{11}
+\langle q \rangle_{CM} = \frac{\mathbb{E}_{CM}[M_\zeta \mid K]}{m} = \frac{\sum_c K_c(K_c-1)}{2m(2m-1)}. \tag{11}
 $$
 
 If $m$ is large, this becomes
 
 $$
-\langle q \rangle_{CM}
-=
-\sum_c \left(\frac{K_c}{2m}\right)^2 + O(m^{-1}).
-\tag{12}
+\langle q \rangle_{CM} = \sum_c \left(\frac{K_c}{2m}\right)^2 + O(m^{-1}). \tag{12}
 $$
 
 This is exactly the degree-corrected replacement of $p_\zeta/p$.
@@ -231,28 +211,19 @@ This is the same approximation step used in moving from discrete Surprise to its
 That gives the natural asymptotic degree-corrected score
 
 $$
-S_{CM}^{\mathrm{asym}}(g)
-=
-m\,D_{KL}\!\left(q \,\middle\|\, \langle q \rangle_{CM}\right),
-\tag{14}
+S_{CM}^{\mathrm{asym}}(g) = m\,D_{KL}\!\left(q \,\middle\|\, \langle q \rangle_{CM}\right), \tag{14}
 $$
 
 with
 
 $$
-D_{KL}(x\|y)=x\log\frac{x}{y}+(1-x)\log\frac{1-x}{1-y}.
-\tag{15}
+D_{KL}(x\|y)=x\log\frac{x}{y}+(1-x)\log\frac{1-x}{1-y}. \tag{15}
 $$
 
 In explicit form,
 
 $$
-S_{CM}^{\mathrm{asym}}(g)
-=
-m_\zeta \log\frac{q}{\langle q \rangle_{CM}}
-+
-(m-m_\zeta)\log\frac{1-q}{1-\langle q \rangle_{CM}}.
-\tag{16}
+S_{CM}^{\mathrm{asym}}(g) = m_\zeta \log\frac{q}{\langle q \rangle_{CM}} + (m-m_\zeta)\log\frac{1-q}{1-\langle q \rangle_{CM}}. \tag{16}
 $$
 
 This is the clean community-only, degree-corrected analogue of Asymptotical Surprise.
@@ -262,24 +233,16 @@ the score is large when the partition concentrates more edges inside communities
 
 ## G-test interpretation
 
-There is another way to read the same formula.
-
-Under the degree-corrected null, the observed counts are
+There is another way to read the same formula. Under the degree-corrected null, the observed counts are
 
 $$
-O_{\mathrm{in}}=m_\zeta,
-\qquad
-O_{\mathrm{out}}=m-m_\zeta,
-\tag{17}
+O_{\mathrm{in}}=m_\zeta, \qquad O_{\mathrm{out}}=m-m_\zeta, \tag{17}
 $$
 
 while the expected counts are
 
 $$
-E_{\mathrm{in}}=m\langle q \rangle_{CM},
-\qquad
-E_{\mathrm{out}}=m(1-\langle q \rangle_{CM}).
-\tag{18}
+E_{\mathrm{in}}=m\langle q \rangle_{CM}, \qquad E_{\mathrm{out}}=m(1-\langle q \rangle_{CM}). \tag{18}
 $$
 
 The binary G-test statistic is then
