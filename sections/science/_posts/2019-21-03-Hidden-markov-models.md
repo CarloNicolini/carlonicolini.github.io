@@ -9,11 +9,13 @@ published: true
 In these notes I want to introduce Hidden Markov Model, one of the simplest but rich enough models to handle real world applications for modeling sequential models.
 
 In HMM we have random variables $z_1,\ldots z_n \in \{ 1,\ldots,m \}$ which are the **hidden** or **latent** variables, and the random variables $x_1,\ldots x_n \in X$. The hidden variables take discrete values. Instead, the variables in $X$ can be discrete, finite, real or any type, which are the **observed random variables**.
-The joint distribution of $\mathbf{z},\mathbf{x}$ respect the graph
+The joint distribution of $\mathbf{z},\mathbf{x}$ respect the graph, which is called the Trellis diagram, the graphical model for an HMM.
 
+<figure>
 <img src="/static/postfigures/hmm.png">
+<figcaption>Trellis diagram, the graphical model for an HMM.</figcaption>
+</figure>
 
-which is called the Trellis diagram, the graphical model for an HMM.
 The fact that the joint distribution respects this graphical model, means that the joint distribution factors as
 
 \begin{equation}
@@ -57,7 +59,10 @@ This is a doubly stochastic matrix, in the sense that both rows and columns sum 
 Let's say that the $x$ are normally distributed around the $z$s, this means that $x_k$ is conditionally independent on anything else but the $z_k$.
 This model would look like the following:
 
+<figure>
 <img src="/static/postfigures/hmm2.png" >
+<figcaption>A simple HMM model where the hidden variable z sticks to either 1 or 0 and x is normally distributed around z.</figcaption>
+</figure>
 
 ## Forward backward algorithm
 The forward-backward algorithm is the tool to make inference on HMM, and is an example of *dynamic programming*, a term used to mean *optimization*.

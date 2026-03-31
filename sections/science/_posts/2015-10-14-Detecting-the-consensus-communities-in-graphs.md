@@ -57,14 +57,17 @@ where stochastic effects introduced by non-deterministic optimization
 methods are negligible and therefore provides a robust and statistically
 reliable view on the mesoscopic structure of the network.
 
-<img src="/static/postfigures/replica.png" style="float: right; width: 55%">
-
-*A sketchy illustration of optimization in community detection
+<figure>
+<img src="/static/postfigures/replica.png" style="width: 55%">
+<figcaption>
+A sketchy illustration of optimization in community detection
 problems. The landscape of the quality function, is depicted as the blue
 sheet, where the bumps represent its local optima. Replicas are the
 colored marble, particular configurations of the landscape. They are
 correlated via the represented springs, the stronger the spring the
-higher the correlation.*
+higher the correlation.
+</figcaption>
+</figure>
 
 
 

@@ -91,9 +91,12 @@ Seen this way, a partial-trace critic is not merely judging local plausibility.
 It is trying to proxy future verifier-weighted mass.
 That observation is also very close in spirit to twisted SMC, where learned twist functions estimate the expected future value of a potential at each step to guide particles toward promising prefixes {% cite zhao2024probabilistic %}.
 
-![Schematic of local reward and future soft value](/static/postfigures/arm_ebm_soft_value_function.png)
-
-*Figure 1. Schematic view of the decomposition $q(s_t, y_t) = r(s_t, y_t) + V_q(s_t \oplus y_t)$. The immediate local reward is combined with a soft summary of the downstream subtree. The shaded region denotes the set of future continuations whose log-sum-exp contributes to the soft value term.*
+<figure>
+<img src="/static/postfigures/arm_ebm_soft_value_function.png" alt="Schematic of local reward and future soft value">
+<figcaption>
+<strong>Figure 1.</strong> Schematic view of the decomposition $q(s_t, y_t) = r(s_t, y_t) + V_q(s_t \oplus y_t)$. The immediate local reward is combined with a soft summary of the downstream subtree. The shaded region denotes the set of future continuations whose log-sum-exp contributes to the soft value term.
+</figcaption>
+</figure>
 
 If our LLMs natively internalized the perfect $V_q$ during pre-training, they would not need inference-time search at all; greedy decoding would already unroll the target EBM.
 But finite models struggle to compress the exponential branching structure of $V_q$ into a single forward pass, which is exactly where the support gap of PLP begins to matter.
@@ -147,7 +150,8 @@ But it does something important: it gives the model extra sequential computation
 Instead of compressing the whole future tree into one hidden state, the model can build intermediate states that carry provisional constraints, subgoals, or abstractions.
 
 In this sense, CoT *helps approximate the future soft value*.
-It makes the marginalization problem easier for a finite model with finite depth. Rather than asking the network to represent the entire log-sum-exp over future branches in one shot, it lets the network unfold part of that computation into the token stream itself.
+It makes the marginalization problem easier for a finite model with finite depth.
+Rather than asking the network to represent the entire log-sum-exp over future branches in one shot, it lets the network unfold part of that computation into the token stream itself.
 
 The statistical-mechanics analogy becomes much stronger once we move from one trace to many traces: self-consistency, beam search, tree search, or verifier-based reweighting.
 The system is no longer committing to one narrated path; it is trying to marginalize over many latent trajectories.
@@ -158,7 +162,8 @@ Because an autoregressive model factorizes the probability of the output $\mathb
 \begin{equation}
 p(\mathbf{y} \mid \mathbf{x}) = \prod_{t=1}^{|\mathbf{y}|} \pi(y_t \mid \mathbf{x}, \mathbf{y}_{<t}),
 \end{equation}
-it is natural to ask whether a better approximation might come from explicitly marginalizing over latent reasoning traces rather than committing to one sampled derivation. In the discrete trace setting, that object is better written as a sum than as a continuous integral:
+it is natural to ask whether a better approximation might come from explicitly marginalizing over latent reasoning traces rather than committing to one sampled derivation.
+In the discrete trace setting, that object is better written as a sum over all possible reasoning paths (a path integral basically):
 
 \begin{equation}
 p(\mathbf{y} \mid \mathbf{x}) = \sum_{\mathbf{z}'} p(\mathbf{y} \mid \mathbf{x}, \mathbf{z}') \, p(\mathbf{z}' \mid \mathbf{x}).
@@ -170,9 +175,12 @@ It also makes it easier to see why several basins of high reward may coexist, an
 Tree-of-Thoughts, Tree of Uncertain Thoughts, and Language Agent Tree Search push exactly in that direction by expanding prefixes, attaching heuristic or uncertainty estimates to partial states, and allocating more compute to promising branches {% cite yao2023tree %} {% cite mo2023uncertain %} {% cite zhou2024lats %}.
 On the explicitly probabilistic side, twisted SMC and related work make the same idea formal by viewing LM steering as sampling from an unnormalized target distribution with future-value estimates used to guide particles {% cite zhao2024probabilistic %} {% cite loula2025syntactic %}.
 
-![Single trajectory versus swarm marginalization](/static/postfigures/chain_of_though_integral.svg)
-
-*Figure 2. Single trajectory vs. swarm marginalization. While standard greedy decoding provides a single point estimate, generating a swarm of latent reasoning paths effectively integrates over the energy basin, better approximating $V_q$, the continuation partition function of the target distribution.*
+<figure>
+<img src="/static/postfigures/chain_of_though_integral.svg" alt="Single trajectory versus swarm marginalization">
+<figcaption>
+<strong>Figure 2.</strong> Single trajectory vs. swarm marginalization. While standard greedy decoding provides a single point estimate, generating a swarm of latent reasoning paths effectively integrates over the energy basin, better approximating $V_q$, the continuation partition function of the target distribution.
+</figcaption>
+</figure>
 
 Chain-of-thought is a device that reshapes the proposal and adds serial compute, making the intractable future term easier to approximate.
 When combined with sampling, search, or `factor`-style reweighting, it becomes a practical approximation to the global mass that an energy-based view would assign to the answer.
@@ -182,9 +190,12 @@ When combined with sampling, search, or `factor`-style reweighting, it becomes a
 Reading this paper clarified the boundary between post-training and inference-time engineering.
 We are all trying to solve Likelihood-Free Inference {% cite cranmer2020frontier %} for the same target distribution.
 
-![Training-time distillation and inference-time approximation toward the same target distribution](/static/postfigures/arm_ebm_distillation.png)
-
-*Figure 3. Two routes toward the same target distribution. On the left, training-time distillation tries to absorb the reward or energy field directly into model parameters. On the right, inference-time scaffolds approximate the same target at runtime through search and verifier-based reweighting.*
+<figure>
+<img src="/static/postfigures/plp_training_inference.svg" alt="Training-time distillation and inference-time approximation toward the same target distribution">
+<figcaption>
+<strong>Figure 3.</strong> Two routes toward the same target distribution. On the left, training-time distillation tries to absorb the reward or energy field directly into model parameters. On the right, inference-time scaffolds approximate the same target at runtime through search and verifier-based reweighting.
+</figcaption>
+</figure>
 
 1. **The alignment perspective (training-time):** Researchers use RLHF, DPO, and process-reward models to push the ARM's proposal $q_{\mathcal{D}}$ as close to the target EBM $p_{\mathcal{D}}$ as possible. They want to distill $V_q$ directly into the weights.
 2. **The PLP perspective (inference-time):** Because perfect distillation is impossible for long-horizon, high-variance tasks, we must use algorithms (scaffolds) to bridge the remaining gap. We use structural diversification (personas, decompositions) to fix **coverage failures**, and calibrated judges {% cite lee2025judge %} to fix **selection failures**.

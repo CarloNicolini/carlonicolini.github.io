@@ -60,12 +60,12 @@ At a **decomposition** node, three things matter and should not be collapsed int
 
 The composer can be deterministic, another LLM, or a learned ranker; the theory summarizes it by an **effective rule** $\Psi_u(z_1,\ldots,z_K) \in [0,1]$: the probability that composition succeeds given validity and a vector of child success bits. On a decomposition node, $Z_u$ tracks $V_u$ and $C_u$ together with the children (see the note for the exact indicator).
 
-<div style="text-align: center;">
+<figure>
   <img src="/static/postfigures/reliability_tree.png" alt="recursive decomposition" style="width: 70%; display: block; margin: 0 auto;" />
-  <div style="font-size: 0.95em; color: #555; margin-top: 0.5em;">
-    <em>Figure 1. A scaffolded policy induces a random rooted tree: each node either answers directly or stochastically decomposes into child tasks. Leaves correspond to local answers, while internal nodes represent decomposition and subsequent composition. The branching factor, depth, and structure are random, reflecting node-local answer-or-decompose decisions. The root reliability emerges from the recursive aggregation of child successes under the chosen composition semantics.</em>
-  </div>
-</div>
+  <figcaption>
+    <strong>Figure 1.</strong> A scaffolded policy induces a random rooted tree: each node either answers directly or stochastically decomposes into child tasks. Leaves correspond to local answers, while internal nodes represent decomposition and subsequent composition. The branching factor, depth, and structure are random, reflecting node-local answer-or-decompose decisions. The root reliability emerges from the recursive aggregation of child successes under the chosen composition semantics.
+  </figcaption>
+</figure>
 
 ### Local recursion
 

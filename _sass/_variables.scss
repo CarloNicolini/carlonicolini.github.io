@@ -1,18 +1,18 @@
 @use "sass:color";
 
 // Shared design tokens and the responsive mixin (used by base/layout partials).
-$base-font-family: "Instrument Sans", system-ui, -apple-system, sans-serif;
+$base-font-family: "Inter", system-ui, -apple-system, sans-serif;
 $header-font-family: "Instrument Serif", serif;
 $code-font-family: "JetBrains Mono", monospace;
 $meta-font-family: "Instrument Sans", system-ui, -apple-system, sans-serif;
 
 /* Editorial reading defaults: denser than before, still comfortable */
-$base-font-size: 20px;
-$small-font-size: 16px;
-$base-line-height: 1.6;
+$base-font-size: 18px;
+$small-font-size: 14px;
+$base-line-height: 1;
 
 /* 8px grid based spacing scale */
-$spacing-unit: 16px;
+$spacing-unit: 10px;
 
 $text-color: #171717;
 $text-muted: #525252;

@@ -28,5 +28,23 @@
     {% include footer.html %}
   {% include code-block-tools.html %}
   <script id="dsq-count-scr" src="//carlonicolini-github-io.disqus.com/count.js" async></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      mediumZoom('.post-content img, .main-content img, .post img', {
+        margin: 24,
+        background: '#fff',
+        scrollOffset: 0
+      });
+
+      const tables = document.querySelectorAll('table');
+      tables.forEach(table => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'table-wrapper';
+        table.parentNode.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+      });
+    });
+  </script>
   </body>
 </html>

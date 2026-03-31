@@ -36,8 +36,8 @@ h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
-    margin-top: $spacing-unit * 0.5;
-    margin-bottom: $spacing-unit * 0.75;
+    margin-top: $spacing-unit;
+    margin-bottom: $spacing-unit;
 }
 
 /* Improved list spacing for readability */
@@ -78,8 +78,15 @@ figure > img {
     display: block;
 }
 
-figcaption {
-    font-size: $small-font-size;
+figcaption,
+caption,
+.caption {
+    font-size: 0.9em;
+    color: $text-muted;
+    line-height: 1.4;
+    text-align: left;
+    padding-top: $spacing-unit;
+    caption-side: bottom;
 }
 
 /**
@@ -239,4 +246,29 @@ pre {
             fill: $orange-color;
         }
     }
+}
+
+/**
+ * Tables
+ */
+table {
+    width: 100%;
+    margin-bottom: $spacing-unit;
+    border-collapse: collapse;
+    
+    th, td {
+        padding: 8px 12px;
+        border: 1px solid #e1e4e8;
+    }
+    
+    th {
+        background-color: #f6f8fa;
+        font-weight: 600;
+    }
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+    margin-bottom: $spacing-unit;
 }

@@ -69,10 +69,13 @@ if __name__=='__main__':
     plt.plot(x,multiexpit(x),label='smooth floor')
 {% endhighlight %}
 
-The result is the following. Already with a temperature parameter of 50 the smoothed function is very close to the discrete floor function.
-
+The result is the following:
+<figure>
 <img src='/static/postfigures/expit.png'>
+<figcaption>Already with a temperature parameter of 50 the smoothed function is very close to the discrete floor function.</figcaption>
+</figure>
 
-Increasing the temperature to 500 and the difference with floor cannot be noted:
-
+<figure>
 <img src='/static/postfigures/expit_slope500.png'>
+<figcaption>Increasing the temperature to 500 and the difference with floor cannot be noted.</figcaption>
+</figure>

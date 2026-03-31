@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 500" width="100%" height="100%">
+    <defs>
+        <!-- Gradients -->
+        <linearGradient id="bellGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#C14B18"/>
+            <stop offset="25%" stop-color="#E57339"/>
+            <stop offset="50%" stop-color="#F28B53"/>
+            <stop offset="75%" stop-color="#E57339"/>
+            <stop offset="100%" stop-color="#C14B18"/>
+        </linearGradient>
+
+        <!-- Arrowheads -->
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#5C6B73" />
+        </marker>
+        <marker id="arrow-down" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#5C6B73" />
+        </marker>
+        
+        <!-- Text Styles -->
+        <style>
+            .header { font-family: Georgia, "Times New Roman", serif; font-style: italic; font-weight: bold; font-size: 26px; fill: #5C6B73; }
+            .subheader { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 20px; fill: #5C6B73; }
+            .label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 17px; fill: #5C6B73; text-anchor: middle; }
+            .box-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 16px; font-weight: bold; fill: #FFFFFF; text-anchor: middle; }
+            .node-light { fill: #D0D5D8; stroke: #687378; stroke-width: 1.5; }
+            .node-dark { fill: #8C979D; stroke: #687378; stroke-width: 1.5; }
+            .edge { stroke: #5C6B73; stroke-width: 1.5; fill: none; }
+        </style>
+    </defs>
+
+    <!-- Background -->
+    <rect width="100%" height="100%" fill="none" />
+
+    <!-- ==================== HEADERS ==================== -->
+    <!-- Training Header -->
+    <text x="325" y="45" class="header" text-anchor="middle">training</text>
+    <line x1="110" y1="65" x2="540" y2="65" stroke="#B0B9BE" stroke-width="1.5" />
+    <text x="325" y="105" class="subheader" text-anchor="middle">Training-Time Distillation</text>
+
+    <!-- Inference Header -->
+    <text x="890" y="45" class="header" text-anchor="middle">inference</text>
+    <line x1="560" y1="65" x2="1220" y2="65" stroke="#B0B9BE" stroke-width="1.5" />
+    <text x="890" y="105" class="subheader" text-anchor="middle">Inference-Time Approximation</text>
+
+
+    <!-- ==================== LEFT COLUMN (TRAINING) ==================== -->
+    <g id="training-section">
+        <!-- Energy / Reward Field -->
+        <g id="energy-field">
+            <!-- Blobs layers from outside in -->
+            <path d="M 160 220 C 180 180, 360 180, 400 220 C 430 250, 380 280, 280 280 C 180 280, 140 250, 160 220 Z" fill="#FAD1B6" />
+            <path d="M 180 225 C 200 195, 340 195, 370 225 C 390 245, 350 265, 280 265 C 210 265, 170 245, 180 225 Z" fill="#F3AD83" />
+            <path d="M 220 230 C 240 210, 310 210, 330 230 C 350 240, 320 255, 280 255 C 240 255, 210 240, 220 230 Z" fill="#E87D46" />
+            <path d="M 240 232 C 250 220, 290 220, 300 232 C 310 240, 290 248, 270 248 C 250 248, 230 240, 240 232 Z" fill="#D1551F" />
+            
+            <!-- Contour Lines -->
+            <path d="M 150 230 C 180 200, 280 190, 390 220" fill="none" stroke="#C75422" stroke-width="1" opacity="0.6" />
+            <path d="M 170 250 C 220 230, 280 240, 360 260" fill="none" stroke="#C75422" stroke-width="1" opacity="0.6" />
+            <path d="M 250 225 C 260 215, 290 215, 300 225 C 310 235, 280 245, 260 245 C 240 245, 240 235, 250 225 Z" fill="none" stroke="#A84013" stroke-width="1.5" opacity="0.5" />
+            
+            <text x="280" y="305" class="label">Energy / Reward Field</text>
+        </g>
+
+        <!-- Downward Arrow -->
+        <line x1="280" y1="320" x2="280" y2="360" class="edge" marker-end="url(#arrow)" />
+
+        <!-- Model Parameters Box -->
+        <g id="model-parameters">
+            <!-- Top Face -->
+            <path d="M 195 385 L 210 370 L 380 370 L 365 385 Z" fill="#EE844D" stroke="#B94011" stroke-width="1.5" stroke-linejoin="round" />
+            <!-- Front Face -->
+            <path d="M 195 385 L 365 385 L 365 440 C 365 443, 362 446, 359 446 L 201 446 C 198 446, 195 443, 195 440 Z" fill="#D85E26" stroke="#B94011" stroke-width="1.5" stroke-linejoin="round" />
+            <text x="280" y="410" class="box-text">Model</text>
+            <text x="280" y="430" class="box-text">Parameters</text>
+        </g>
+
+        <!-- Right Arrow from Model Parameters -->
+        <line x1="385" y1="410" x2="610" y2="410" class="edge" marker-end="url(#arrow)" />
+    </g>
+
+
+    <!-- ==================== RIGHT COLUMN (INFERENCE) ==================== -->
+    <g id="inference-section">
+        <!-- Base Model -->
+        <g id="base-model">
+            <rect x="590" y="180" width="130" height="45" rx="4" fill="#8C979D" stroke="#687378" stroke-width="1.5" />
+            <text x="655" y="208" class="box-text">Base Model</text>
+        </g>
+
+        <!-- Right Arrow from Base Model to Search Tree -->
+        <line x1="730" y1="202" x2="780" y2="202" class="edge" marker-end="url(#arrow)" />
+
+        <!-- Downward Arrow from Base Model to Graph -->
+        <line x1="655" y1="235" x2="655" y2="375" class="edge" marker-end="url(#arrow)" />
+
+        <!-- Small Graph -->
+        <g id="small-graph">
+            <!-- Edges -->
+            <line x1="620" y1="395" x2="660" y2="385" class="edge" />
+            <line x1="660" y1="385" x2="700" y2="400" class="edge" />
+            <line x1="635" y1="425" x2="675" y2="420" class="edge" />
+            <line x1="675" y1="420" x2="715" y2="410" class="edge" />
+            <line x1="620" y1="395" x2="635" y2="425" class="edge" />
+            <line x1="660" y1="385" x2="675" y2="420" class="edge" />
+            <line x1="700" y1="400" x2="715" y2="410" class="edge" />
+            <!-- Nodes -->
+            <circle cx="620" cy="395" r="8" class="node-light" />
+            <circle cx="660" cy="385" r="8" class="node-light" />
+            <circle cx="700" cy="400" r="8" class="node-light" />
+            <circle cx="635" cy="425" r="8" class="node-light" />
+            <circle cx="675" cy="420" r="8" class="node-light" />
+            <circle cx="715" cy="410" r="8" class="node-light" />
+        </g>
+
+        <!-- Long Arrow to Target Distribution -->
+        <path d="M 730 410 L 1180 410 L 1180 355" class="edge" fill="none" marker-end="url(#arrow)" stroke-linejoin="round" />
+
+        <!-- Search Tree -->
+        <g id="search-tree">
+            <!-- Edges -->
+            <line x1="850" y1="180" x2="810" y2="220" class="edge" marker-end="url(#arrow)" />
+            <line x1="850" y1="180" x2="890" y2="220" class="edge" marker-end="url(#arrow)" />
+            <line x1="810" y1="220" x2="780" y2="260" class="edge" marker-end="url(#arrow)" />
+            <line x1="810" y1="220" x2="820" y2="260" class="edge" marker-end="url(#arrow)" />
+            <line x1="890" y1="220" x2="860" y2="260" class="edge" marker-end="url(#arrow)" />
+            <line x1="890" y1="220" x2="900" y2="260" class="edge" marker-end="url(#arrow)" />
+            <!-- Nodes -->
+            <circle cx="850" cy="180" r="11" class="node-light" />
+            <circle cx="810" cy="220" r="11" class="node-light" />
+            <circle cx="890" cy="220" r="11" class="node-light" />
+            <circle cx="780" cy="260" r="11" class="node-dark" />
+            <circle cx="820" cy="260" r="11" class="node-light" />
+            <circle cx="860" cy="260" r="11" class="node-dark" />
+            <circle cx="900" cy="260" r="11" class="node-dark" />
+            
+            <text x="840" y="310" class="label">Search Tree</text>
+        </g>
+
+        <!-- Right Arrow from Search Tree to Verifier -->
+        <line x1="930" y1="240" x2="965" y2="240" class="edge" marker-end="url(#arrow)" />
+
+        <!-- Verifier Reweighting -->
+        <g id="verifier-reweighting">
+            <!-- Edges -->
+            <line x1="1025" y1="195" x2="1008" y2="212" class="edge" marker-end="url(#arrow)" />
+            <line x1="1040" y1="202" x2="1036" y2="249" class="edge" marker-end="url(#arrow)" />
+            <line x1="1053" y1="197" x2="1064" y2="212" class="edge" marker-end="url(#arrow)" />
+            
+            <line x1="1000" y1="220" x2="1028" y2="252" class="edge" marker-end="url(#arrow)" />
+            <line x1="1070" y1="220" x2="1042" y2="252" class="edge" marker-end="url(#arrow)" />
+            <line x1="1100" y1="245" x2="1078" y2="227" class="edge" marker-end="url(#arrow)" />
+
+            <!-- Sub-Nodes -->
+            <circle cx="1000" cy="220" r="11" class="node-dark" />
+            <circle cx="1070" cy="220" r="11" class="node-dark" />
+            <circle cx="1035" cy="260" r="11" class="node-dark" />
+            <circle cx="1100" cy="245" r="11" class="node-light" />
+            
+            <!-- Big Checkmark Node -->
+            <circle cx="1040" cy="180" r="22" fill="#FFFFFF" stroke="#5C6B73" stroke-width="2.5" />
+            <path d="M 1028 182 L 1036 190 L 1052 168" fill="none" stroke="#5C6B73" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+
+            <text x="1040" y="310" class="label">Verifier</text>
+            <text x="1040" y="330" class="label">Reweighting</text>
+        </g>
+
+        <!-- Right Arrow from Verifier to Target Distribution -->
+        <line x1="1120" y1="240" x2="1155" y2="240" class="edge" marker-end="url(#arrow)" />
+
+        <!-- Target Distribution -->
+        <g id="target-distribution">
+            <!-- Bell Curve Fill -->
+            <path d="M 1100 340 C 1140 340, 1150 170, 1180 170 C 1210 170, 1220 340, 1260 340 Z" fill="url(#bellGrad)" />
+            
+            <!-- Shading / Segment Lines -->
+            <path d="M 1150 280 L 1150 340" stroke="#B84213" stroke-width="1.5" opacity="0.4" fill="none" />
+            <path d="M 1180 170 L 1180 340" stroke="#B84213" stroke-width="1.5" opacity="0.4" fill="none" />
+            <path d="M 1210 280 L 1210 340" stroke="#B84213" stroke-width="1.5" opacity="0.4" fill="none" />
+
+            <!-- Base Line -->
+            <line x1="1090" y1="340" x2="1270" y2="340" stroke="#5C6B73" stroke-width="2" />
+            
+            <text x="1180" y="380" class="label">Target</text>
+            <text x="1180" y="400" class="label">Distribution</text>
+        </g>
+    </g>
+
+</svg>

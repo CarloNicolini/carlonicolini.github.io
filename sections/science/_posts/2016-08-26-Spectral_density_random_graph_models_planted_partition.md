@@ -36,10 +36,12 @@ nonempty set of graphs, the set of events $$\mathcal{F}$$ is a collection of sub
 Is it possible then, given a random graph $$G$$ to infer which random graph model it belongs? This problem is partially related to the inference problem in statistics and uses tools from information theory.
 Finding an appropriate answer to this question can solve the problem of graph comparison, namely, given two graphs $$G_1$$ and $$G_2$$ to what level of confidence can we measure their structural similarity and infer whether they are from the same random graph model?
 
-<a name="Figure1">
-<img src="/static/postfigures/random_graph_models.png" style="float: center; width: 100%"><br>
-</a>
-Figure 1: Some random graph models. (a) Erdos-Renyi, (b) Gilbert model, (c) Geometric, (d) Barabasi-Albert, (e) Watts-Strogatz, (f) k-regular. Taken from [Dehmer2015](#Dehmer2015).
+<figure id="Figure1">
+<img src="/static/postfigures/random_graph_models.png" style="width: 100%">
+<figcaption>
+<strong>Figure 1.</strong> Some random graph models. (a) Erdos-Renyi, (b) Gilbert model, (c) Geometric, (d) Barabasi-Albert, (e) Watts-Strogatz, (f) k-regular. Taken from <a href="#Dehmer2015">Dehmer2015</a>.
+</figcaption>
+</figure>
 
 #### Spectral density
 The eigenvalue decomposition of the adjacency matrix $$\mathbf{A}$$ (a real symmetric $$n\times n$$ matrix) is the following:
@@ -80,9 +82,12 @@ I will give more operational definitions of these two formulas in the next secti
 
 In [Figure 2](#Figure2) the spectral densities for two families of graphs are displayed. On the left, the spectral density for a Erdos-Renyi model with $$N=500$$ nodes and connection density $$p=0.05$$. On the right, the same for a Gilbert model with $$N=500$$ nodes and $$20$$ edges. As the density $$p<0.5$$ then more than one connected component exist, generating then many zeros in the eigenvalue spectrum.
 
-<a name="Figure2">
-<img src="/static/postfigures/er_gilber_spectral_density.png" style="float: center; width: 100%">Figure 1: Spectral densities estimated for Erdos-Renyi and Gilbert random graph models (left and right respectively).
-</a>
+<figure id="Figure2">
+<img src="/static/postfigures/er_gilber_spectral_density.png" style="width: 100%">
+<figcaption>
+<strong>Figure 2.</strong> Spectral densities estimated for Erdos-Renyi and Gilbert random graph models (left and right respectively).
+</figcaption>
+</figure>
 
 Interestingly, the spectral density of k-regular graphs is analytically calculable and can be written in the following form:
 
@@ -90,9 +95,12 @@ $$
 \rho(\lambda) = \frac{k}{2\pi} \sum \limits_{j=1}^N \frac{\sqrt{4(k-1)-\lambda_j^2}}{k^2-\lambda_j^2}
 $$
 
-<a name="Figure3">
-<img src="/static/postfigures/spectral_density_k_regular.png" style="float: center; width: 100%">Figure 3: Spectral density of a k-regular network. Taken from [Estrada 2013](#Estrada2013)
-</a>
+<figure id="Figure3">
+<img src="/static/postfigures/spectral_density_k_regular.png" style="width: 100%">
+<figcaption>
+<strong>Figure 3.</strong> Spectral density of a k-regular network. Taken from <a href="#Estrada2013">Estrada 2013</a>
+</figcaption>
+</figure>
 
 Studying the spectral density of random graph models is a rather powerful tool to identify different graph models, as they act as some "fingerprint" of the stochastic process that generates them.
 
@@ -218,9 +226,12 @@ plt.title('ER Model spectral density')
 
 with the following (nice) result about the ER spectral density:
 
-<a name="Figure3">
-<img src="/static/postfigures/er_spectral_density_n_50_nsamples_1000_p_0_05.png" style="float: center; width: 100%">Figure 3: Spectral densities computed for Erdos-Renyi graph. $$N=50, p=0.05$$.
-</a>
+<figure id="Figure4">
+<img src="/static/postfigures/er_spectral_density_n_50_nsamples_1000_p_0_05.png" style="width: 100%">
+<figcaption>
+<strong>Figure 4.</strong> Spectral densities computed for Erdos-Renyi graph. $$N=50, p=0.05$$.
+</figcaption>
+</figure>
 
 ## References
 - <a name="Dehmer2015"></a>Dehmer, M., Emmert-streib, F., Chen, Z., Li, X., Barabási, A., n.d. Mathematical Foundations and Applications of Graph Entropy “ Quantitative and Network Biology ” Advisory Board : Previous Volumes of this Series : Applied Statistics for Network Advances in Network Statistical Modelling of QSAR / QSPR Statistical Diagnost.

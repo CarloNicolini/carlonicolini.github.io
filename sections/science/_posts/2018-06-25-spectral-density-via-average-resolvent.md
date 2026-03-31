@@ -8,10 +8,12 @@ date: 2018-06-25
 
 This short blog note is covering some aspects related to interesting calculations that can be done in random matrix theory applied to the study of spectral properties of random graph models, like those shown in Figure:
 
-<a name="Figure1">
-<img src="/static/postfigures/random_graph_models.png" style="float: center; width: 100%"><br>
-</a>
-Figure 1: Some random graph models. (a) Erdos-Renyi, (b) Gilbert model, (c) Geometric, (d) Barabasi-Albert, (e) Watts-Strogatz, (f) k-regular. Taken from [Dehmer2015](#Dehmer2015).
+<figure id="Figure1">
+<img src="/static/postfigures/random_graph_models.png" style="width: 100%">
+<figcaption>
+<strong>Figure 1.</strong> Some random graph models. (a) Erdos-Renyi, (b) Gilbert model, (c) Geometric, (d) Barabasi-Albert, (e) Watts-Strogatz, (f) k-regular. Taken from <a href="#Dehmer2015">Dehmer2015</a>.
+</figcaption>
+</figure>
 
 We want to study the properties of some random graph ensemble in terms of the spectral density of the eigenvalues of the Laplacian.
 We denote the adjacency matrix of a random graph as $$\mathbf{A}$$, its Laplacian of $\mathbf{L}$. The parameters of the random graph model are indicated by the parameters $\boldsymbol \theta$, so we can imagine every single random graph is a collection of $n(n-1)/2$ random variables dependent on the parameters $\boldsymbol \theta$.
@@ -116,7 +118,10 @@ plt.title('Spectral density Erdos-Renyi Laplacian N=200 p=0.25')
 plt.show()
 {% endhighlight %}
 
-![here](/static/postfigures/density_histogram.png)
+<figure>
+<img src="/static/postfigures/density_histogram.png" alt="Density histogram">
+<figcaption>Spectral density Erdos-Renyi Laplacian N=200 p=0.25</figcaption>
+</figure>
 
 The $$\epsilon$$ parameter (`eps` in the code) is the one present in the limit.
 While analytically a limit procedure should be computed, the parameter controls approximately the bin size of an histogram. A not too big value (in the order 0.1) and the noise of the expectations is averaged out.

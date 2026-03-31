@@ -75,4 +75,7 @@ It's not simply replacing `np.linalg.eig` with `np.linalg.eigh` because while `e
 
 A simple illustration that shows the meaning of matrix minors and eigenvalues, as in our case:
 
+<figure>
 <img src='https://d2r55xnwy6nx47.cloudfront.net/uploads/2019/11/Valuevector_LRI-1087x1720.jpg' class='center' width='100%'>
+<figcaption>A simple illustration that shows the meaning of matrix minors and eigenvalues, as in our case.</figcaption>
+</figure>

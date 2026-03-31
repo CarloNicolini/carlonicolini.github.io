@@ -10,10 +10,12 @@ date: 2018-11-27
 
 In this post I would like to introduce to the [nilearn](nilearn.github.io) user, a modified set of functions based on the `nilearn.surface` module, that are of great help in making beautiful surface colored pictures of brain, like the one in [this figure](#Figure1):
 
-<a name="Figure1">
-<img src="/static/postfigures/nilearn-brain-parcellation-multiview.jpg" style="float: left; width: 100%">
-</a>
-*Image of the results of a Modularity analysis of brain functional connectivity of resting state healthy patients*
+<figure id="Figure1">
+<img src="/static/postfigures/nilearn-brain-parcellation-multiview.jpg" style="width: 100%">
+<figcaption>
+Image of the results of a Modularity analysis of brain functional connectivity of resting state healthy patients
+</figcaption>
+</figure>
 
 For this picture, I took inspiration from the wonderful toolbox [BrainetViewer](https://www.nitrc.org/projects/bnv/) by *Mingrui Xia*. Unfortunately the toolbox is only available in Matlab, and similar results were difficult to obtain with standard Python toolboxes.
 
@@ -78,10 +80,12 @@ To make beatiful surface renderings, we choose to use the value of the **majorit
 
 7. We also need to use a decent colormap. A good colormap must assign integer number to discrete colors, possibly maximally perceptually different, and with the gray color assigned to the 0, which in the nifti is the number assigned to empty space.
 
-<a name="Figure2">
-<img src="https://nilearn.github.io/_images/sphx_glr_plot_extract_regions_labels_image_001.png" style="float: center; width: 100%"><br>
-</a>
-*This visualization has a number of problems. You cannot use this colormap for discrete data, and with just 7 classes the choice of colors is not the best one can use.*
+<figure id="Figure2">
+<img src="https://nilearn.github.io/_images/sphx_glr_plot_extract_regions_labels_image_001.png" style="width: 100%">
+<figcaption>
+This visualization has a number of problems. You cannot use this colormap for discrete data, and with just 7 classes the choice of colors is not the best one can use.
+</figcaption>
+</figure>
 
 
 The problems we address
@@ -91,9 +95,9 @@ It looks like our brain parcellated surface can be plotted with a smart usage of
 
 Unfortunately, the result is horrible and is shown in the following figure.
 
-<a name="Figure1">
-<img src="/static/postfigures/nilearn-brain-parcellation-wrong.jpg" style="float: center; width: 75%">
-</a>
+<figure id="Figure1">
+<img src="/static/postfigures/nilearn-brain-parcellation-wrong.jpg" style="width: 75%">
+</figure>
 
  We are limited to the default brain surface. Even if we could in theory use other surfaces, by providing vertices and faces of a mesh, we miss a decent lightning model to shade the surface. Moreover there is a not very nice interpolation of colors between different areas, which we don't want, being our data discrete, and the general color map is not adequate to our purpose.
 
@@ -202,10 +206,12 @@ cbar.set_ticks( np.array(range(0, C + 1)) + 0.5 )
 cbar.set_ticklabels( ['unmapped'] + list(range(1, C + 1)) ) # height of tick labels
 {% endhighlight %}
 
-<a name="Figure1">
-<img src="/static/postfigures/colorbar_set3.png" style="float: center; width: 20%">
-</a>
-*A colorbar with 9 unique discrete values, and the 0 left as unmapped.
+<figure id="Figure1">
+<img src="/static/postfigures/colorbar_set3.png" style="width: 20%">
+<figcaption>
+A colorbar with 9 unique discrete values, and the 0 left as unmapped.
+</figcaption>
+</figure>
 
 
 
