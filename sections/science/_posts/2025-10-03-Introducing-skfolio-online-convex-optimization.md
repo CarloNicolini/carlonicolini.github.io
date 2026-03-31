@@ -162,12 +162,12 @@ $$
 Even more fascinating was implementing the Burg entropy mirror map (used in the PROD or Soft-Bayes algorithm {% cite orseau2017soft %}).
 Because its regularizer acts as a log-barrier ($\psi(\mathbf{w}) = -\sum_i \log w_i$), it naturally prevents any single asset's weight from collapsing to zero. In my empirical tests, this made the algorithm uniquely robust to large learning rates without suffering from catastrophic over-concentration.
 
-<div>
-<img src="/static/postfigures/skfolio_online_mirror_maps.svg" alt="online_mirror_maps">
-<caption>
-Comparison of mirror maps and regularizers used in online convex optimization for portfolio learning. Each map induces a different update geometry on the portfolio simplex, enabling a flexible plug-and-play framework for new algorithms in <code>skfolio</code>.
-</caption>
-</div>
+<figure>
+<img src="/static/postfigures/skfolio_online_mirror_maps.svg" alt="online_mirror_maps" style="width:100%; display:block; margin: 0 auto; margin-bottom: 0.5em;">
+<figcaption>
+<strong>Mirror maps representation</strong> Comparison of mirror maps and regularizers used in online convex optimization for portfolio learning. Each map induces a different update geometry on the portfolio simplex, enabling a flexible plug-and-play framework for new algorithms in <code>skfolio</code>.
+</figcaption>
+</figure>
 
 In this table I present some of the most important mirror maps $\psi$ that I've developed in the [`skfolio.optimization.online._mirror_maps`]():
 <table style="font-size:0.90em; width:100%; border-collapse: collapse;">
@@ -301,10 +301,17 @@ $$
 \max_i |w_{T,i} - 1/d| \propto \sqrt{\Delta}
 $$
 
-This meant the FTW methods finally had enough signal and scale to break away from the uniform portfolio and become profitable. At this horizon, short-term mean reversion gives way to the well-documented intermediate-term momentum anomaly, often called the **Jegadeesh-Titman effect**{% cite jegadeesh1993returns %}.
+This meant the FTW methods finally had enough signal and scale to break away from the uniform portfolio and become profitable. At this horizon, short-term mean reversion gives way to the well-documented intermediate-term momentum anomaly, often called the **Jegadeesh-Titman effect** {% cite jegadeesh1993returns %}.
 The FTL algorithms that were highly profitable on a daily basis started destroying wealth. Meanwhile, the FTW methods, which are implicit momentum followers, finally shined.
 
 This frequency crossover was a profound realization. The OCO algorithms aren't magic money machines; their effectiveness depends entirely on matching their implicit directional bias—momentum versus mean-reversion—to the specific frequency of the market data.
+
+<figure>
+<img src="/static/postfigures/portfolio_returns.svg" alt="Equity curve of OLMAR over sp500 dataset" style="width:100%; display:block; margin: 0 auto; margin-bottom: 0.5em;">
+<figcaption>
+Daily rebalancing using the OLMAR estimator on a sp500 dataset.
+</figcaption>
+</figure>
 
 ## The result
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-09-02
+date: 2019-09-03
 title: Sampling uniform spanning forests with Wilson algorithm in Python
 published: true
 ---
@@ -59,7 +59,8 @@ $$
 It's great to see that the Wilson algorithm is the correct way to sample from this highly complicated probability law.
 Interestingly, we can use the Wilson algorithm to study spectral properties of the network Laplacian. With the partition function in our hand, we can take the logarithm and see that we can generate the moments of the distribution of the random variable $|\mathcal{R}(\phi)|$.
 
-In particular we can form a stochastic unbiased estimator of 
+In particular we can form a stochastic unbiased estimator of
+
 $$
 q\mathrm{Tr}\left \lbrack \left( q\mathbf{I} + \mathbf{L} \right)^{-1} \right \rbrack
 $$
@@ -84,6 +85,7 @@ Hence in our case we have
 $$
 \chi(q) = \det( q\mathbf{I} + \mathbf{L}) = \prod \limits_{i=1}^n (q + \lambda_i)
 $$
+
 but manipulating this last expression a bit in terms of matrix logarithms we find
 
 $$
@@ -91,14 +93,17 @@ $$
 $$
 
 Taking the logarithm of the partition function we find
+
 $$
 \log \chi(q) = \mathrm{Tr}\lbrack \log(q\mathbf{I} + \mathbf{L}) \rbrack
 $$
 
 With some other simple manipulations and setting $q=\beta^{-1}$ we obtain:
+
 $$
 \log \chi(\beta^{-1}) = \mathrm{Tr}\lbrack \log(I+\beta \mathbf{L}) -n\log \beta \rbrack
 $$
+
 This expression starts reminding us about the Boltzmann partition function $\chi(\beta)=\mathrm{Tr}\left \lbrack e^{-\beta \mathbf{L}} \right\rbrack$. Indeed if we Taylor expand both of them in the limit $\beta \to 0$, equivalent to large $q$, hence many small trees in the forest, we can see that:
 
 $$
@@ -127,6 +132,7 @@ In this picture the limit of the approximation is exactly $1/\lambda_{max}$. For
 Incredible as it was to find this approximation, we don't have to stop there. As I recently detailed in a new preprint {% cite nicolini2025spectral %}, there is an *exact* analytic relation bridging the expected number of roots $s(q)$ in random spanning forests to the heat-trace partition function $Z(\beta)$. 
 
 Starting from the resolvent trace identity:
+
 $$
 \frac{s(q)}{q} = \mathrm{Tr}\left \lbrack (q\mathbf{I} + \mathbf{L})^{-1} \right \rbrack = \sum_{i=1}^n \frac{1}{q+\lambda_i}
 $$
@@ -143,7 +149,7 @@ Why is this important? It means that we can recover global thermodynamic observa
 
 ## Network Observables from Forest Statistics
 
-Beyond global thermodynamic observables, this forest representation naturally suggests local descriptors attached to nodes and edges. For a given realization of the random forest $\Phi_q$, we define the node-level indicator $X_v(q) = \mathbf{1}\{v \in \mathcal{R}(\Phi_q)\}$. Its expectation gives the local occupation probability for a vertex $v$:
+Beyond global thermodynamic observables, this forest representation naturally suggests local descriptors attached to nodes and edges. For a given realization of the random forest $\Phi_q$, we define the node-level indicator $X_v(q) = \mathbf{1}\\{v \in \mathcal{R}(\Phi_q)\\}$. Its expectation gives the local occupation probability for a vertex $v$:
 
 $$
 \pi_v(q) = \mathbb{P}(v \in \mathcal{R}(\Phi_q)) = q[(q\mathbf{I} + \mathbf{L})^{-1}]_{vv}
@@ -158,7 +164,7 @@ $$
 where $u_i$ are the orthonormal eigenvectors of $\mathbf{L}$. 
 The root probability of a node is thus a superposition of spectral modes, modulated by the local eigenvector weights $u_{iv}^2$.
 
-A similar construction applies to edges. For an undirected edge $e=\{u,v\}$ with weight $w_{uv}$, we measure how likely it is to participate in the forest:
+A similar construction applies to edges. For an undirected edge $e = \\{u,v\\}$ with weight $w_{uv}$, we measure how likely it is to participate in the forest:
 
 $$
 \theta_e(q) = \mathbb{P}(e \in \Phi_q) = w_{uv} \left[ (q\mathbf{I} + \mathbf{L})^{-1}_{uu} + (q\mathbf{I} + \mathbf{L})^{-1}_{vv} - 2(q\mathbf{I} + \mathbf{L})^{-1}_{uv} \right]
@@ -183,15 +189,19 @@ $$
 g(q) = \frac{s(q)}{q} = \sum_{i=1}^n \frac{1}{q+\lambda_i} = n \int_0^\infty \frac{p(\lambda)}{q+\lambda} d\lambda
 $$
 
-To invert this, we can approximate $p(\lambda)$ on a grid of spectral abscissae $\{\lambda_k\}_{k=1}^{N_\lambda}$ with log-spaced bin widths $\Delta\lambda_k$, representing the density as piecewise constant coefficients $p_k$. By gathering our Monte Carlo estimates $g(q_j)$ from Wilson sampling into a data vector $\hat{\mathbf{g}}$ with inverse-variance weight matrix $\mathbf{W}$, the forward model becomes $\hat{\mathbf{g}} \approx \mathbf{A}\mathbf{p} + \boldsymbol{\varepsilon}$.
+To invert this, we can approximate $p(\lambda)$ on a grid of spectral abscissae $\\{\lambda\_k\\}\_{k=1}^{N\_{\lambda}}$ with log-spaced bin widths $\Delta\lambda_k$, representing the density as piecewise constant coefficients $p_k$.
+By gathering our Monte Carlo estimates $g(q_j)$ from Wilson sampling into a data vector $\hat{\mathbf{g}}$ with inverse-variance weight matrix $\mathbf{W}$, the forward model becomes $\hat{\mathbf{g}} \approx \mathbf{A}\mathbf{p} + \boldsymbol{\varepsilon}$.
 
 The reconstruction of the spectral density $p(\lambda)$ is cast as a nonnegative Tikhonov minimization problem:
+
 $$
 \mathbf{p}^\star = \arg\min_{\mathbf{p} \ge 0} \left\| \mathbf{W}^{1/2} (\mathbf{A}\mathbf{p} - \hat{\mathbf{g}}) \right\|_2^2 + \gamma_{\mathrm{mass}} \left( \sum_{k=1}^{N_\lambda} \Delta\lambda_k p_k - 1 \right)^2 + \tau_{\mathrm{smooth}} \| \mathbf{D}\mathbf{p} \|_2^2
 $$
+
 Here, the first term minimizes the weighted least-squares error against the Monte Carlo sampling, the second term enforces the spectral density normalization constraint, and the third term (using the second-difference matrix $\mathbf{D}$) suppresses spurious noise-induced oscillations. 
 
 Finally, having recovered a robust and smooth approximation of the spectral density $\mathbf{p}^\star$, the partition function is stably reconstructed by forward quadrature:
+
 $$
 Z(\beta) \approx n \sum_{k=1}^{N_\lambda} p_k^\star e^{-\beta\lambda_k} \Delta\lambda_k
 $$
@@ -327,8 +337,7 @@ if __name__=='__main__':
 
     trace_estimator(G)
     sampling_example(G)
-
-{% endhighlight %}
+```
 
 ## References
 

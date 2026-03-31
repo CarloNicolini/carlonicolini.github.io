@@ -110,11 +110,8 @@ It is the semantics-first theory of what to do when the target is known only thr
 In other words, PLP is the runtime side of the same mathematics that post-training methods try to absorb into parameters.
 
 There is also an important caveat here.
-If the potential $\Phi$ is produced by an imperfect LLM judge, then the resulting free-energy landscape is judge-relative, not necessarily truth-relative {% cite lee2025judge %}.
-The geometry is still real, but it is the geometry of the deployed verifier.
-This matters a lot.
-An imperfect judge does not merely add noise to selection.
-It warps the energy landscape itself.
+If the potential $\Phi$ is produced by an imperfect LLM judge, then the resulting free-energy landscape is judge-relative, not necessarily truth-relative {% cite lee2025judge %}: the geometry is still real, but it is the geometry of the deployed verifier.
+Simply speaking, an imperfect judge is a process that warps the energy landscape itself.
 
 ## A cautious bridge to Friston and active inference
 
