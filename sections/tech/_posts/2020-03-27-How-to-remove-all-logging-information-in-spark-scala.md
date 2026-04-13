@@ -1,10 +1,10 @@
 ---
 layout: post
 title: How to remove all logging information in scala spark
+description: 'How to remove all logging information in scala spark.'
 date: 2020-03-27
 categories: tech
 ---
-
 Create a folder named "log4j" in the root folder of your project (the one where build.sbt stays) and then create a file named "log4j.properties" with the following content:
 
 

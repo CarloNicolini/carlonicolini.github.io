@@ -1,12 +1,11 @@
 ---
 title: How to force adding prefixes when merging two dataframes in Pandas 
+description: 'How to force adding prefixes when merging two dataframes in Pandas.'
 date: 2020-10-01
 categories: tech
 layout: post
 published: false
 ---
-
-
 This is how you do:
 
 	def merge_force_prefix(left, right, **kwargs):

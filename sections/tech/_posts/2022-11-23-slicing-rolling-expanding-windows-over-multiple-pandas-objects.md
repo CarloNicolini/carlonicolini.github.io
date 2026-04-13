@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Slicing rolling expanding windows over multiple pandas objects
+description: 'Slicing rolling expanding windows over multiple pandas objects.'
 date: 2022-11-23
 categories: tech
 ---
-
 This is a fast way to yield a subset of rows from multiple Pandas dataframes or Series, when one needs to work on a sliding window basis over a predefined minimum and maximum number of rows. This approach is among the fastest available and is based on the `.iloc` accessor of both series and dataframes.
 
 {%highlight scala %}

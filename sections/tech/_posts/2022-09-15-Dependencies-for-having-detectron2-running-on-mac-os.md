@@ -1,10 +1,9 @@
 ---
 title: 
+description: '2022-09-15-Dependencies-for-having-detectron2-running-on-mac-os.'
 date: 2022-09-15
 published: true
 ---
-
-
 # Python dependencies for having detectron2 running on Mac OS
 
 I am running on Mac M1 Pro, MacOS Monterey 12.3.

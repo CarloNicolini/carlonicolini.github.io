@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Gilbert model for loopy multigraphs
-categories: science
+description: 'Gilbert model for loopy multigraphs.'
 published: false
 date: 2016-10-18
+categories:
+  - science
+  - complex-networks
 ---
-
 THIS ARTICLE IS PROBABLY WRONG
 
 The number of **simple** graphs with $$n$$ nodes and exactly $$m$$ edges is

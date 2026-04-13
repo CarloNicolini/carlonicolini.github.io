@@ -1,9 +1,10 @@
 ---
 layout: post
 title: "Unleash Claude Code CLI with OpenRouter: Free AI Coding Power!"
+description: "Claude Code with OpenRouter and free models; env and auth notes."
 date: 2026-03-14
-sections: tech
-categories: ai cli coding openrouter jekyll
+categories: tech
+tags: [claude-code, openrouter, cli]
 ---
 
 ## Claude Code CLI with OpenRouter

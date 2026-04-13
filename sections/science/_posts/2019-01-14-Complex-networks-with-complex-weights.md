@@ -1,12 +1,14 @@
 ---
 layout: post
 title: Complex networks with complex weights
-categories: science
+description: 'Complex networks with complex weights.'
 published: false
 use_math: true
 date: 2019-01-14
+categories:
+  - science
+  - complex-networks
 ---
-
 Graphs with complex adjacency matrix elements
 ---------------------------------------------
 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Running LM-Studio headlessly on Ubuntu 24.04 with CUDA
+description: "Headless LM Studio on Ubuntu 24 + CUDA + systemd."
 categories: tech
 published: true
 date: 2025-09-26

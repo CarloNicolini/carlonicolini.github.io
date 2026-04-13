@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Surprise to support configuration model
-categories: science
+description: 'Surprise to support configuration model.'
 published: false
 date: 2017-05-08
+categories:
+  - science
+  - complex-networks
 ---
-
 Let's start with some notation:
 
 - $$G$$ undirected graph, unweighted, no self-loops, no multiedges.

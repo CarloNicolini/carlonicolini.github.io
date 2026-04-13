@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Some considerations about the spectral entropies framework
-categories: science
+description: 'Some considerations about the spectral entropies framework.'
 published: true
 date: 2018-06-24
+categories:
+  - science
+  - complex-networks
 ---
-
 I am illustrating some of the ideas that emerged before, during and after the conference.
 How to compute this quantity?
 

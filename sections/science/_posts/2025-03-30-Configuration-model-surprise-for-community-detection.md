@@ -1,9 +1,12 @@
 ---
 layout: post
 title: Configuration-model Surprise for community detection
+description: "Surprise vs configuration null for community detection; stubs and pairings."
 date: 2025-03-30
 published: true
-categories: science
+categories:
+  - science
+  - complex-networks
 ---
 
 ## From vertex pairs to stubs

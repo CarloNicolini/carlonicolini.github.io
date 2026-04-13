@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Comparing spectral densities of random graph models.
-categories: science
+description: 'Comparing spectral densities of random graph models.'
 published: true
 date: 2016-08-26
+categories:
+  - science
+  - complex-networks
 ---
-
 The ability of quantitatively comparing two graphs is of great importance in many scientific questions and of exceptional importance in studying brain networks.
 How the brain networks of healthy people differ from those of patients? What kind of alterations are present in the functional connectivity of diseased brain? To what extent two networks are structurally similar?
 

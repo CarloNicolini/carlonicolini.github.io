@@ -1,10 +1,13 @@
 ---
 title: Cryptography introduction for bitcoin
+description: 'Cryptography introduction for bitcoin.'
 layout: post
 date: 2020-10-23
 published: false
+categories:
+  - science
+  - statistical-learning
 ---
-
 [Cryptoassetlab](https://cryptoassetlab.diseade.unimib.it/) centro ricerca congiunto Prometeia-Bicocca, European commission co-organizer
 
 Slide 1:

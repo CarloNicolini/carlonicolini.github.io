@@ -1,9 +1,15 @@
 ---
+title: Visualization of classical sorting algorithms
+description: 'How to visualize sorting algorithms simply'
 layout: post
-section: science
 date: 2019-06-12
 published: false
+categories:
+  - science
+  - statistical-learning
 ---
+
+## Visualization of classical sorting algorithms
 
 If you like me want to see how different sorting algorithms work, I think this is one of the best visualizations so far
 

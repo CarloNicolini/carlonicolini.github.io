@@ -1,6 +1,12 @@
 ---
 ---
-{{reference}}
+{% if entry.url %}
+  {% assign clean_title = entry.title | remove: "{" | remove: "}" %}
+  {% capture link %}<a href="{{ entry.url }}" target="_blank">{{ clean_title }}</a>{% endcapture %}
+  {{ reference | replace: clean_title, link }}
+{% else %}
+  {{ reference }}
+{% endif %}
     
     <ul class="nav nav-pills">
         {% if entry.doi %} 

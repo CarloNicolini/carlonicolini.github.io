@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Unlocking the Power of DeepSeek R1 via HuggingFace's TogetherAI
+description: "DeepSeek R1 from the CLI via Together AI and Hugging Face."
 date: 2025-01-30
 categories: tech
 ---

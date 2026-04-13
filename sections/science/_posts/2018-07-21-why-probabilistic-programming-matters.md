@@ -1,12 +1,15 @@
 ---
 layout: post
 title: Why probabilistic programming matters
-categories: science
+description: 'Why probabilistic programming matters.'
 published: true
 use_math: true
 date: 2018-05-21
-
+categories:
+  - science
+  - language-physics
 ---
+
 
 I recently stumbled across the idea of probabilistic programming, something I had never heard before.
 Indeed with the recent advances in artificial intelligence and machine learning, this field is seeing a very rapid development.

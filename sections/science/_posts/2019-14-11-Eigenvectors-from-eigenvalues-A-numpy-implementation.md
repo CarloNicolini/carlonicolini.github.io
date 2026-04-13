@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Eigenvectors from eigenvalues a numpy implementation
-categories: science
+description: 'Eigenvectors from eigenvalues a numpy implementation.'
 published: true
 date: 2019-11-14
+categories:
+  - science
+  - statistical-learning
 ---
-
 ## Simple ideas can make good numerical algorithms
 
 Recently a very nice article appeared on [QuantaMagazine](https://www.quantamagazine.org/neutrinos-lead-to-unexpected-discovery-in-basic-math-20191113/), that relates the eigenvalues of a matrix with its eigenvectors.

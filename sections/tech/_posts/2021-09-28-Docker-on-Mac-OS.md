@@ -1,10 +1,10 @@
 ---
 title: Docker on MacOS
+description: 'Docker on MacOS.'
 date: 2021-09-28
 published: true
 layout: post
 ---
-
 # How to install Docker on MacOs
 
 Docker

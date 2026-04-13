@@ -1,0 +1,145 @@
+<svg viewBox="0 0 1000 650" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Gradient for the separator line -->
+        <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#cccccc" stop-opacity="0"/>
+            <stop offset="50%" stop-color="#a0a4a8" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#cccccc" stop-opacity="0"/>
+        </linearGradient>
+        
+        <!-- Standard styles -->
+        <style>
+            .title { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 700; font-size: 34px; fill: #54595e; text-anchor: middle; }
+            .subtitle { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 400; font-size: 24px; fill: #666a70; text-anchor: middle; }
+            .node-label { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 600; font-size: 22px; fill: #4a4f54; text-anchor: middle; }
+            .icon-label { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 600; font-size: 24px; fill: #4f5459; dominant-baseline: middle; }
+            
+            .tree-line { stroke: #6b7075; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+            .dotted-line { stroke: #80858a; stroke-width: 2.5; fill: none; stroke-dasharray: 2, 7; stroke-linecap: round; }
+            
+            .node-light { fill: #e2e3e5; stroke: #6b7075; stroke-width: 3; }
+            .node-dark { fill: #90959a; stroke: #6b7075; stroke-width: 3; }
+            .node-orange { fill: #d95d1d; stroke: #6b7075; stroke-width: 3; }
+            .node-orange-darkborder { fill: #d95d1d; stroke: #3a3f44; stroke-width: 3; }
+            
+            .icon-path { stroke: #70757a; stroke-width: 2.5; fill: none; stroke-linejoin: round; }
+            .icon-rect { fill: #ffffff; stroke: #70757a; stroke-width: 2.5; }
+        </style>
+    </defs>
+
+    <!-- Header -->
+    <text x="500" y="60" class="title">Random Rooted Tree Scaffold</text>
+    <text x="500" y="100" class="subtitle">Stochastic Branching Process</text>
+    <line x1="200" y1="125" x2="800" y2="125" stroke="url(#lineGrad)" stroke-width="1.5"/>
+
+    <!-- Main Diagram Group -->
+    <g transform="translate(0, 20)">
+        
+        <!-- Connecting Dotted Lines to Icons -->
+        <line x1="245" y1="240" x2="595" y2="240" class="dotted-line"/>
+        <circle cx="595" cy="240" r="3.5" fill="#80858a"/>
+        
+        <line x1="340" y1="330" x2="595" y2="330" class="dotted-line"/>
+        
+        <line x1="455" y1="490" x2="595" y2="490" class="dotted-line"/>
+
+        <!-- ==================== LEFT SIDE: TREE STRUCTURE ==================== -->
+        
+        <!-- Tree Connecting Lines -->
+        <!-- Root to Answer -->
+        <path d="M 200 246 L 65 310 L 65 403" class="tree-line"/>
+        <!-- Root to Decompose -->
+        <line x1="200" y1="246" x2="290" y2="300" class="tree-line"/>
+        <!-- Decompose to Tasks (Lines branch out from below the "decompose" text) -->
+        <line x1="290" y1="410" x2="185" y2="473" class="tree-line"/>
+        <line x1="290" y1="410" x2="290" y2="473" class="tree-line"/>
+        <line x1="290" y1="410" x2="405" y2="473" class="tree-line"/>
+
+        <!-- Nodes -->
+        <!-- Root Node -->
+        <circle cx="200" cy="220" r="26" class="node-light"/>
+        
+        <!-- Level 1 Nodes -->
+        <circle cx="65" cy="435" r="32" class="node-orange-darkborder"/>
+        <circle cx="290" cy="330" r="32" class="node-dark"/>
+        
+        <!-- Level 2 Nodes (Tasks) -->
+        <circle cx="185" cy="505" r="32" class="node-light"/>
+        <circle cx="290" cy="505" r="32" class="node-orange"/>
+        <circle cx="405" cy="505" r="32" class="node-light"/>
+
+        <!-- Node Labels -->
+        <text x="65" y="495" class="node-label">answer</text>
+        <text x="290" y="390" class="node-label">decompose</text>
+        <text x="185" y="565" class="node-label">task 1</text>
+        <text x="290" y="565" class="node-label">task 2</text>
+        <text x="405" y="565" class="node-label">task 3</text>
+
+
+        <!-- ==================== RIGHT SIDE: ICONS & TEXT ==================== -->
+        
+        <!-- Icon 1: Task Generation -->
+        <g transform="translate(0, -5)">
+            <!-- Lines connecting boxes -->
+            <path d="M 655 234 L 625 234 L 625 264 L 640 264" class="icon-path"/>
+            <path d="M 670 264 L 680 264" class="icon-path"/>
+            
+            <!-- Boxes -->
+            <rect x="655" y="225" width="30" height="18" class="icon-rect"/>
+            <rect x="640" y="255" width="30" height="18" class="icon-rect"/>
+            <rect x="680" y="255" width="30" height="18" class="icon-rect"/>
+            
+            <!-- Label -->
+            <text x="730" y="254" class="icon-label">Task Generation</text>
+        </g>
+
+        <!-- Icon 2: Child Nodes -->
+        <g transform="translate(0, 10)">
+            <!-- Connections behind circles -->
+            <path d="M 665 340 L 635 375" class="icon-path"/>
+            <path d="M 635 375 L 680 390" class="icon-path"/>
+            <path d="M 665 340 L 700 355" class="icon-path"/>
+            
+            <!-- Circles -->
+            <circle cx="665" cy="340" r="12" class="icon-rect"/>
+            <circle cx="635" cy="375" r="12" class="node-dark" stroke-width="2.5"/>
+            <circle cx="680" cy="390" r="12" class="icon-rect"/>
+            <circle cx="700" cy="355" r="11" class="node-dark" stroke-width="2.5"/>
+            
+            <!-- Label -->
+            <text x="730" y="365" class="icon-label">Child Nodes</text>
+        </g>
+
+        <!-- Icon 3: Answer Composition (Interlocking Puzzle Pieces) -->
+        <g transform="translate(0, 15)">
+            <!-- Dark Grey Piece (Bottom Left) -->
+            <path d="M 635 510 
+                     l 10 0 c 0 -12, 10 -12, 10 0 l 10 0 
+                     l 0 10 c 12 0, 12 10, 0 10 l 0 10 
+                     l -30 0 
+                     l 0 -10 c 12 0, 12 -10, 0 -10 l 0 -10 Z" 
+                  class="node-dark" stroke-linejoin="round" stroke-width="2.5"/>
+                  
+            <!-- Orange Piece (Right Half) -->
+            <path d="M 665 480 
+                     l 10 0 c 0 -12, 10 -12, 10 0 l 10 0 
+                     l 0 25 c -12 0, -12 10, 0 10 l 0 25 
+                     l -10 0 c 0 12, -10 12, -10 0 l -10 0 
+                     l 0 -10 c 12 0, 12 -10, 0 -10 l 0 -10 
+                     l 0 -10 c -12 0, -12 -10, 0 -10 l 0 -10 Z" 
+                  class="node-orange" stroke-linejoin="round" stroke-width="2.5"/>
+                  
+            <!-- Light Grey Piece (Top Left) -->
+            <path d="M 635 480 
+                     l 10 0 c 0 -12, 10 -12, 10 0 l 10 0 
+                     l 0 10 c -12 0, -12 10, 0 10 l 0 10 
+                     l -10 0 c 0 -12, -10 -12, -10 0 l -10 0 
+                     l 0 -10 c -12 0, -12 -10, 0 -10 l 0 -10 Z" 
+                  class="node-light" stroke-linejoin="round" stroke-width="2.5"/>
+            
+            <!-- Label -->
+            <text x="730" y="520" class="icon-label">Answer Composition</text>
+        </g>
+
+    </g>
+</svg>

@@ -1,12 +1,12 @@
 ---
 layout: post
 title:  "Download audio from youtube"
+description: 'Download audio from youtube.'
 date:   2020-11-17
 categories: tech
 tags: download youtube youtubedl
 published: false
 ---
-
 # How to download audio from youtube
 
 With linux or mac shell create an alias:

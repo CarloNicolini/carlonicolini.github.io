@@ -1,10 +1,10 @@
 ---
 title: Augmentation of documents for neural networks training
+description: 'Augmentation of documents for neural networks training.'
 published: true
 date: 2023-01-14
 layout: post
 ---
-
 ## Why augmentation of documents
 
 In training deep learning models it is often useful to perform data augmentation.
@@ -13,7 +13,7 @@ Augraphy is a library designed to do that.
 
 This function takes a folder, browse for all the pdf documents contained (you should pass cleaned digital pdf as coming from word or pdf of books) and creates a large number of images.
 
-```
+```python
 def create_dataset(
     base_pdf_folder: str,
     output_path: str,

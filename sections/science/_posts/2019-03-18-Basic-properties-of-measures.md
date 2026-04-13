@@ -1,12 +1,14 @@
 ---
 layout: post
 title: Short introduction to measure theory
-categories: science
+description: 'Short introduction to measure theory.'
 date: 2019-03-18
-published: false
+published: true
 use_math: true
+categories:
+  - science
+  - statistical-learning
 ---
-
 In these notes, we'll take a look at the **bare essentials** of modern probability theory.
 We'll describe the basic ideas, but we will skip Lebesgue integration, at the moment.
 To do this, we need to introduce some **measure theory** first, to see how things emerge naturally and beatifully.
@@ -52,7 +54,6 @@ $$
 \bigcap (E_i^c)^c = \bigcup (E_i^c)^c \in A
 $$
 and this proves that $A$ is closed under countable interesections.
-
 
 ### [Measure theory: basic properties of measures](https://www.youtube.com/watch?v=ILXe_NsvQ6Q&index=5&list=PL17567A1A3F5DB5E4)
 

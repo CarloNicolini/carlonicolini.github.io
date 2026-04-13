@@ -1,8 +1,10 @@
 ---
 title: Installing XFormers on Mac M1/M2
+description: "Build XFormers on Apple Silicon: Homebrew libomp/llvm and clang flags."
 layout: post
 date: 2024-02-02
 published: True
+categories: tech
 ---
 
 # XFormers

@@ -1,10 +1,10 @@
 ---
 title: How to make HDBScan an inductive clustering method
+description: 'How to make HDBScan an inductive clustering method.'
 categories: tech
 layout: post
 date: 2021-07-28
 ---
-
 There is a large difference between inductive and transductive clustering methods.
 While the first are more similar to supervised learning, in the sense that once trained on N examples they can generalize to M unseen new samples, transductive method instead need to see all data, but cannot generalize to new samples.
 

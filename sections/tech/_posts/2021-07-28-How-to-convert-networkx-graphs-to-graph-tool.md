@@ -2,8 +2,8 @@
 layout: post
 date: 2021-07-28
 title: How to convert networkx graphs to graph-tool
+description: 'How to convert networkx graphs to graph-tool.'
 ---
-
 # How to convert networkx graphs to graph-tool
 
 This small function converts a `networkx` graph to a graph-tool compatible graph, preserving both the edge properties and node properties.

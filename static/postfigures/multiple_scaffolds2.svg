@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="100%" height="100%">
+  <defs>
+    <!-- Arrowhead for the final computation -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 2 L 8 5 L 0 8 Z" fill="#c2410c"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#fafaf9" />
+
+  <!-- Title / Concept Formulation -->
+  <text x="50" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#2d2d2d" font-weight="500" letter-spacing="0.5">space of reasoning traces (τ)</text>
+  <text x="50" y="75" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#78716c">prompt engineering scaffolds act as different topological paths for exploration</text>
+
+  <!-- The "Bag" of Scaffolds -->
+  <rect x="50" y="90" width="410" height="290" rx="16" fill="none" stroke="#a8a29e" stroke-width="1.2" stroke-dasharray="6 6" />
+
+  <!-- ==========================================
+       SCAFFOLD 1: BEST-OF-K
+       ========================================== -->
+  <g transform="translate(0, 0)">
+    <text x="95" y="115" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#57534e">best-of-k</text>
+    
+    <!-- Code Edges -->
+    <path d="M 100 160 L 140 130 M 100 160 L 140 150 M 100 160 L 140 170 M 100 160 L 140 190" stroke="#a8a29e" stroke-width="1.2" fill="none"/>
+    <path d="M 140 130 L 180 160 M 140 150 L 180 160 M 140 170 L 180 160 M 140 190 L 180 160" stroke="#a8a29e" stroke-width="1.2" fill="none"/>
+    
+    <!-- Nodes -->
+    <circle cx="100" cy="160" r="4.5" fill="#fafaf9" stroke="#2d2d2d" stroke-width="1.5"/> <!-- Input -->
+    <circle cx="140" cy="130" r="4" fill="#2d2d2d"/> <!-- LLM Calls -->
+    <circle cx="140" cy="150" r="4" fill="#2d2d2d"/>
+    <circle cx="140" cy="170" r="4" fill="#2d2d2d"/>
+    <circle cx="140" cy="190" r="4" fill="#2d2d2d"/>
+    <polygon points="180,155.5 184.5,160 180,164.5 175.5,160" fill="#c2410c"/> <!-- Verifier -->
+  </g>
+
+  <!-- ==========================================
+       SCAFFOLD 2: CHAIN-OF-THOUGHT
+       ========================================== -->
+  <g transform="translate(0, 0)">
+    <text x="95" y="275" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#57534e">chain-of-thought</text>
+    
+    <!-- Code Edges -->
+    <path d="M 100 310 L 220 310" stroke="#a8a29e" stroke-width="1.2" fill="none"/>
+    
+    <!-- Nodes -->
+    <circle cx="100" cy="310" r="4.5" fill="#fafaf9" stroke="#2d2d2d" stroke-width="1.5"/> <!-- Input -->
+    <circle cx="130" cy="310" r="4" fill="#2d2d2d"/> <!-- LLM Calls -->
+    <circle cx="160" cy="310" r="4" fill="#2d2d2d"/>
+    <circle cx="190" cy="310" r="4" fill="#2d2d2d"/>
+    <polygon points="220,305.5 224.5,310 220,314.5 215.5,310" fill="#c2410c"/> <!-- Verifier -->
+  </g>
+
+  <!-- ==========================================
+       SCAFFOLD 3: TREE-OF-THOUGHT
+       ========================================== -->
+  <g transform="translate(0, 0)">
+    <text x="265" y="115" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#57534e">tree-of-thought</text>
+    
+    <!-- Code Edges -->
+    <path d="M 270 160 L 300 140 M 270 160 L 300 180" stroke="#a8a29e" stroke-width="1.2" fill="none"/>
+    <path d="M 300 140 L 320 140 M 300 180 L 320 180" stroke="#a8a29e" stroke-width="1.2" fill="none"/>
+    <path d="M 320 140 L 350 125 M 320 140 L 350 155 M 320 180 L 350 165 M 320 180 L 350 195" stroke="#a8a29e" stroke-width="1.2" fill="none"/>
+    <path d="M 350 125 L 370 125 M 350 155 L 370 155 M 350 165 L 370 165 M 350 195 L 370 195" stroke="#a8a29e" stroke-width="1.2" fill="none"/>
+    
+    <!-- Nodes -->
+    <circle cx="270" cy="160" r="4.5" fill="#fafaf9" stroke="#2d2d2d" stroke-width="1.5"/> <!-- Input -->
+    <circle cx="300" cy="140" r="4" fill="#2d2d2d"/> <!-- LLM Calls Level 1 -->
+    <circle cx="300" cy="180" r="4" fill="#2d2d2d"/>
+    <polygon points="320,135.5 324.5,140 320,144.5 315.5,140" fill="#c2410c"/> <!-- Verifiers Level 1 -->
+    <polygon points="320,175.5 324.5,180 320,184.5 315.5,180" fill="#c2410c"/>
+    <circle cx="350" cy="125" r="4" fill="#2d2d2d"/> <!-- LLM Calls Level 2 -->
+    <circle cx="350" cy="155" r="4" fill="#2d2d2d"/>
+    <circle cx="350" cy="165" r="4" fill="#2d2d2d"/>
+    <circle cx="350" cy="195" r="4" fill="#2d2d2d"/>
+    <polygon points="370,120.5 374.5,125 370,129.5 365.5,125" fill="#c2410c"/> <!-- Verifiers Level 2 -->
+    <polygon points="370,150.5 374.5,155 370,159.5 365.5,155" fill="#c2410c"/>
+    <polygon points="370,160.5 374.5,165 370,169.5 365.5,165" fill="#c2410c"/>
+    <polygon points="370,190.5 374.5,195 370,199.5 365.5,195" fill="#c2410c"/>
+  </g>
+
+  <!-- ==========================================
+       SCAFFOLD 4: MULTI-AGENT
+       ========================================== -->
+  <g transform="translate(0, 0)">
+    <text x="275" y="275" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#57534e">multi-agent</text>
+    
+    <!-- Code Edges -->
+    <path d="M 280 310 L 310 285 M 280 310 L 310 335" stroke="#a8a29e" stroke-width="1.2" fill="none"/>
+    <path d="M 310 285 L 310 335" stroke="#a8a29e" stroke-width="1.2" fill="none" stroke-dasharray="2 2"/> <!-- Exchange -->
+    <path d="M 310 285 L 350 310 M 310 335 L 350 310" stroke="#a8a29e" stroke-width="1.2" fill="none"/>
+    <path d="M 350 310 L 380 310" stroke="#a8a29e" stroke-width="1.2" fill="none"/>
+    
+    <!-- Nodes -->
+    <circle cx="280" cy="310" r="4.5" fill="#fafaf9" stroke="#2d2d2d" stroke-width="1.5"/> <!-- Input -->
+    <circle cx="310" cy="285" r="4" fill="#2d2d2d"/> <!-- Agent A -->
+    <circle cx="310" cy="335" r="4" fill="#2d2d2d"/> <!-- Agent B -->
+    <circle cx="350" cy="310" r="4" fill="#2d2d2d"/> <!-- Agent C -->
+    <polygon points="380,305.5 384.5,310 380,314.5 375.5,310" fill="#c2410c"/> <!-- Final Verifier -->
+  </g>
+
+  <!-- ==========================================
+       FUNNEL TO SUMMATION
+       ========================================== -->
+  <!-- Bracket bounding the trace space -->
+  <path d="M 475 110 C 495 110, 495 235, 515 235 C 495 235, 495 360, 475 360" stroke="#a8a29e" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+  
+  <!-- Path to Sigma -->
+  <line x1="515" y1="235" x2="540" y2="235" stroke="#a8a29e" stroke-width="1.5" fill="none"/>
+
+  <!-- Summation Symbol (Sigma) -->
+  <path d="M 590 195 L 590 190 L 560 190 L 580 235 L 560 280 L 590 280 L 590 275" stroke="#c2410c" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+  
+  <!-- Summation Math Text -->
+  <text x="575" y="175" font-family="Georgia, serif" font-size="16" text-anchor="middle" fill="#c2410c" font-style="italic">
+    q<tspan font-family="system-ui, sans-serif" font-size="10" font-style="normal" dy="4">D</tspan><tspan font-size="16" dy="-4">(τ) Φ(τ)</tspan>
+  </text>
+  <text x="575" y="305" font-family="Georgia, serif" font-size="13" text-anchor="middle" fill="#c2410c" font-style="italic">
+    τ ∈ <tspan font-family="system-ui, sans-serif" font-style="normal" font-size="11">scaffolds</tspan>
+  </text>
+
+  <!-- Path to Z -->
+  <line x1="600" y1="235" x2="655" y2="235" stroke="#c2410c" stroke-width="1.5" marker-end="url(#arrow)" fill="none"/>
+
+  <!-- ==========================================
+       PARTITION FUNCTION / FREE ENERGY
+       ========================================== -->
+  <g transform="translate(0, 5)">
+    <!-- Z Circle -->
+    <circle cx="710" cy="230" r="34" fill="#fafaf9" stroke="#c2410c" stroke-width="1.5"/>
+    <text x="710" y="240" font-family="Georgia, serif" font-size="28" font-style="italic" text-anchor="middle" fill="#c2410c">Z</text>
+    
+    <!-- Labels -->
+    <text x="710" y="290" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" text-anchor="middle" fill="#57534e" letter-spacing="0.5">partition function</text>
+    <text x="710" y="310" font-family="Georgia, serif" font-size="13" text-anchor="middle" fill="#78716c">
+      <tspan font-style="italic">V(s)</tspan> = log <tspan font-style="italic">Z</tspan>
+    </text>
+    <text x="710" y="330" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle" fill="#a8a29e">inference-time free energy</text>
+  </g>
+
+  <!-- ==========================================
+       LEGEND
+       ========================================== -->
+  <g transform="translate(50, 420)">
+    <circle cx="5" cy="0" r="4.5" fill="#fafaf9" stroke="#2d2d2d" stroke-width="1.5"/>
+    <text x="18" y="4" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#78716c">input state</text>
+    
+    <circle cx="105" cy="0" r="4" fill="#2d2d2d"/>
+    <text x="117" y="4" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#78716c">llm call (proposal)</text>
+    
+    <polygon points="250,-4.5 254.5,0 250,4.5 245.5,0" fill="#c2410c"/>
+    <text x="263" y="4" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#78716c">verifier (potential)</text>
+    
+    <line x1="380" y1="0" x2="410" y2="0" stroke="#a8a29e" stroke-width="1.2" fill="none"/>
+    <text x="420" y="4" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#78716c">programmatic code edge</text>
+  </g>
+
+</svg>

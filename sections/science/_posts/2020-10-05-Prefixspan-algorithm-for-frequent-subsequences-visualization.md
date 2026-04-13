@@ -1,11 +1,13 @@
 ---
 title: Prefixspan algorithm for frequent subsequences visualization
+description: 'Prefixspan algorithm for frequent subsequences visualization.'
 date: 2020-10-05
 layout: post
-categories: science
 published: true
+categories:
+  - science
+  - statistical-learning
 ---
-
 ## Sequential pattern mining and projections
 
 In the study of discrete sequence data, one of the fundamental tasks is identifying recurrent subsequences. While classical methods rely on candidate generation, the PrefixSpan algorithm (Prefix-projected Sequential pattern mining) introduces a profoundly different, pattern-growth approach.

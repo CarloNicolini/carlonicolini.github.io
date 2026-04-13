@@ -1,12 +1,14 @@
 ---
 layout: post
 title: Low rank estimation of sparse observed ratios
-categories: science
+description: 'Low rank estimation of sparse observed ratios.'
 date: 2019-03-13
 published: true
 use_math: true
+categories:
+  - science
+  - statistical-learning
 ---
-
 Reccomender systems are a class of algorithms to deal with missing information.
 Given that we have some available rate about the relations of a set of objects, and these informations are specified by real numbers, how can we estimate the relations between another subset of objects that we did not observe?
 

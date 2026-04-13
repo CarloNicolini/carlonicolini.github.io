@@ -12,7 +12,7 @@ install:
 	bundle install
 
 serve:
-	$(JEKYLL) serve --unpublished -w --port 4002 --livereload --livereload-port $(LIVERELOAD_PORT) --config $(CONFIG)
+	$(JEKYLL) serve --unpublished -w --host 0.0.0.0 --port 4002 --livereload --livereload-port $(LIVERELOAD_PORT) --config $(CONFIG)
 
 build:
 	$(JEKYLL) build --unpublished --config $(CONFIG) --incremental

@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Installing Jupyter with a Scala + Spark kernel
+description: 'Installing Jupyter with a Scala + Spark kernel.'
 date: 2020-04-01
 ---
-
 Installazione SCALA + SPARK + Jupyter
 
 1. Conda

@@ -1,10 +1,10 @@
 ---
 layout: post
 title: How to list all tensorflow devices
+description: 'How to list all tensorflow devices.'
 categories: tech
 date: 2018-07-10
 ---
-
 This is how you do:
 
 The basic installation of TensorFlow from the `pip` is typically done for the CPU version of Tensorflow.

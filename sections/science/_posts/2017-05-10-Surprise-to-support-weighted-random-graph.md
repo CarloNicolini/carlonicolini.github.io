@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Plugging the weighted random graph into Surprise
-categories: science
+description: 'Plugging the weighted random graph into Surprise.'
 published: true
 date: 2017-05-10
+categories:
+  - science
+  - complex-networks
 ---
-
 Surprise is based on the calculation of the number of simple graphs with $$n$$ nodes and $$m$$ edges exactly.
 This null model is called $$G_{nm}$$ model and it is the microcanonical version of the Erdos-Renyi model also called $$G_{np}$$.
 To be more precise, Surprise does not compare against a fixed null model, but the null model is dependent on the partition itself. In other words, the expected fraction of intracluster edges is given by $$p_\zeta/p$$ and it is clearly dependent on the partition it self. For this reason Surprise is more similar to the Constant Potts Model than to a model where intracluster density is compared to a fixed constant.

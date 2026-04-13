@@ -1,0 +1,76 @@
+<svg viewBox="0 0 1200 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">PLP layered structure</title>
+  <desc id="desc">A horizontal sequence of five boxes showing scaffold syntax, proposal law, semantic target, continuation value, and steering as layers of one theory.</desc>
+
+  <style>
+    .bg { fill: #fafaf9; }
+    .card { fill: #ffffff; stroke: #e7e5e4; stroke-width: 2; }
+    .card-accent { fill: #ffedd5; stroke: #c2410c; stroke-width: 2.2; }
+    .title { font-family: "Instrument Serif", Georgia, serif; font-size: 28px; fill: #171717; }
+    .subtitle { font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif; font-size: 15px; fill: #525252; }
+    .heading { font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif; font-size: 18px; font-weight: 600; fill: #171717; }
+    .body { font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif; font-size: 14px; fill: #525252; }
+    .formula { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; fill: #c2410c; }
+    .label { font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: #c2410c; }
+    .arrow { stroke: #a8a29e; stroke-width: 2.2; fill: none; stroke-linecap: round; }
+  </style>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#a8a29e" />
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="440" rx="20" />
+
+  <text x="60" y="58" class="title">One theory, several layers</text>
+  <text x="60" y="88" class="subtitle">Category theory helps organize the composition rules, but the semantic core is still probability on traces.</text>
+
+  <path class="arrow" d="M 246 230 H 282" marker-end="url(#arrow)" />
+  <path class="arrow" d="M 476 230 H 512" marker-end="url(#arrow)" />
+  <path class="arrow" d="M 706 230 H 742" marker-end="url(#arrow)" />
+  <path class="arrow" d="M 936 230 H 972" marker-end="url(#arrow)" />
+
+  <rect x="40" y="135" width="206" height="190" rx="16" class="card" />
+  <circle cx="72" cy="165" r="16" fill="#ffedd5" stroke="#c2410c" stroke-width="1.6" />
+  <text x="72" y="170" text-anchor="middle" class="label">1</text>
+  <text x="72" y="200" class="heading">Scaffold syntax</text>
+  <text x="72" y="228" class="body">sample, factor,</text>
+  <text x="72" y="248" class="body">branching, tools,</text>
+  <text x="72" y="268" class="body">decomposition</text>
+  <text x="72" y="303" class="formula">program level</text>
+
+  <rect x="270" y="135" width="206" height="190" rx="16" class="card" />
+  <circle cx="302" cy="165" r="16" fill="#ffedd5" stroke="#c2410c" stroke-width="1.6" />
+  <text x="302" y="170" text-anchor="middle" class="label">2</text>
+  <text x="302" y="200" class="heading">Proposal law</text>
+  <text x="302" y="228" class="body">stochastic map from</text>
+  <text x="302" y="248" class="body">inputs to complete traces</text>
+  <text x="302" y="303" class="formula">q_D(tau|x)</text>
+
+  <rect x="500" y="135" width="206" height="190" rx="16" class="card-accent" />
+  <circle cx="532" cy="165" r="16" fill="#ffffff" stroke="#c2410c" stroke-width="1.6" />
+  <text x="532" y="170" text-anchor="middle" class="label">3</text>
+  <text x="532" y="200" class="heading">Semantic target</text>
+  <text x="532" y="228" class="body">change of measure by</text>
+  <text x="532" y="248" class="body">verifier potential</text>
+  <text x="532" y="303" class="formula">p_D ~ q_D Phi</text>
+
+  <rect x="730" y="135" width="206" height="190" rx="16" class="card" />
+  <circle cx="762" cy="165" r="16" fill="#ffedd5" stroke="#c2410c" stroke-width="1.6" />
+  <text x="762" y="170" text-anchor="middle" class="label">4</text>
+  <text x="762" y="200" class="heading">Continuation value</text>
+  <text x="762" y="228" class="body">future weighted mass</text>
+  <text x="762" y="248" class="body">below a prefix</text>
+  <text x="762" y="293" class="formula">Z(s), V(s)=log Z(s)</text>
+
+  <rect x="960" y="135" width="206" height="190" rx="16" class="card" />
+  <circle cx="992" cy="165" r="16" fill="#ffedd5" stroke="#c2410c" stroke-width="1.6" />
+  <text x="992" y="170" text-anchor="middle" class="label">5</text>
+  <text x="992" y="200" class="heading">Steered dynamics</text>
+  <text x="992" y="228" class="body">twisting, transport,</text>
+  <text x="992" y="248" class="body">bridge algorithms</text>
+  <text x="992" y="303" class="formula">pi(y|s), h(s)=Z(s)</text>
+
+  <text x="60" y="380" class="subtitle">Read from left to right: syntax, stochastic semantics, reweighting, backward value, then controlled steering.</text>
+</svg>

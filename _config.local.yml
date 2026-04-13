@@ -30,6 +30,13 @@ exclude:
   - Gemfile.lock
   - .gstack/
   - '_site'
+  - scripts
+
+defaults:
+  - scope:
+      path: "sections/science/_posts"
+    values:
+      permalink: "/sections/science/:year/:month/:day/:title:output_ext"
 
 social:
   name: Carlo Nicolini

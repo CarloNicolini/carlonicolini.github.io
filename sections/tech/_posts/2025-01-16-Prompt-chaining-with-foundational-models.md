@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Prompt Chaining with Foundational models
+description: "Prompt chaining: multi-step LLM workflows and handoff patterns."
 date: 2025-01-16
 categories: tech
 ---

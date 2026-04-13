@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Information theory fundamentals
-categories: science
+description: 'Information theory fundamentals.'
 published: false
 date: 2017-01-19
+categories:
+  - science
+  - statistical-learning
 ---
-
 Some concepts are fundamental in information theory and here I write down a short summary with the most important definitions and results. These are my notes while studying the book from Cover and Thomas "Elements of Information theory". Together with notes about information theory I'll integrate some concepts of probability, for those who are not too familiar (me included) with them.
 
 # Random variable

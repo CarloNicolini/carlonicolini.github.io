@@ -1,5 +1,7 @@
 # Site settings
 title: 'Carlo Nicolini'
+author:
+  name: Carlo Nicolini
 email: "c.nicolini@ipazia.com"
 description: "Personal blog about artificial intelligence, coding, statistical physics, network theory and science in general"
 logo: "/static/img/foto_nicolini.jpeg"
@@ -9,6 +11,10 @@ github_username:  carlonicolini
 google-analytics: UA-90756713-1
 collections:
 - well-known
+
+exclude:
+  - scripts
+
 # Build settings
 markdown: kramdown
 kramdown:
@@ -26,6 +32,23 @@ plugins:
   - jekyll-include-cache
   - jekyll-relative-links
   - jekyll-scholar
+
+# Open Graph / Twitter: default card when a post has an image (see defaults below).
+twitter:
+  card: summary_large_image
+
+# Per-post `description` in front matter is best for SERP snippets; jekyll-seo-tag falls
+# back to `excerpt`, then site.description, when `description` is omitted.
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      image: /static/img/foto_nicolini.jpeg
+  - scope:
+      path: "sections/science/_posts"
+    values:
+      permalink: "/sections/science/:year/:month/:day/:title:output_ext"
   
 social:
   name: Carlo Nicolini

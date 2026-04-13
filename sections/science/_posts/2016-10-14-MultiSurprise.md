@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Extending Surprise to multivariate hypergeometric
-categories: science
+description: 'Extending Surprise to multivariate hypergeometric.'
 published: false
 date: 2016-10-14
+categories:
+  - science
+  - complex-networks
 ---
-
 Surprise is defined as
 
 $$ S = \sum \limits_i ^{m_\zeta} \dfrac{\binom{p_\zeta}{i}  \binom{p-p_\zeta}{m-i} }{\binom{p}{m}}$$

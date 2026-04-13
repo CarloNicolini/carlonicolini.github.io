@@ -1,10 +1,10 @@
 ---
 layout: post
 title: How to install Octave on OSX Yosemite
+description: 'How to install Octave on OSX Yosemite.'
 date: 2015-10-13
 categories: tech
 ---
-
 For those who have problems installing Octave on OSX Yosemite, this is a simple guide.
 
 First of all you need [HomeBrew](www.brew.sh)

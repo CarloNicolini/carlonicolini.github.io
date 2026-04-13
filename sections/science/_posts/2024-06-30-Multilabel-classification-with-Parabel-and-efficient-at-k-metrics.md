@@ -1,9 +1,12 @@
 ---
 layout: post
 title: Multilabel classification with Parabel and efficient at-k metrics
+description: "Parabel multilabel classification, scikit-learn API, Precision@k / Recall@k."
 date: 2024-06-30
 published: true
-categories: science
+categories:
+  - science
+  - statistical-learning
 ---
 
 ## The annoying gap in extreme multilabel classification

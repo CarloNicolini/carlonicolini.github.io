@@ -1,43 +1,42 @@
 ---
 layout: post
 title: Scaffolding is all you need
+description: "When recursive LLM scaffolds improve reliability—and when they cannot."
 date: 2026-03-25
 published: true
+categories:
+  - science
+  - language-physics
 ---
 
 ## Toward a reliability theory of AI compound systems
 
 Recursive LLM stacks are everywhere: plan, decompose, call tools, merge partial answers.
-The hope is that splitting work beats one long chain of thought.
-This happens for example when one asks his favourite AI agent to prepare a plan before acting.
+The common hope is that splitting work beats one long chain of thought. This happens every time an AI agent prepares a plan before acting.
 
-A theory note I am writing says otherwise in general: *branching is not a free reliability gain*.
-What matters is whether your *semantics* of merging children match how you can verify and select.
+This note argues that branching is not a free reliability gain.
+What matters is the semantics of the branch, the quality of local verification, and the timing of commitment.
 
-This post sketches the setup: what a scaffold is, why it is a stochastic branching process, and how reliability decomposes into local pieces you can reason about.
+This post sketches the setup: what a scaffold is, why it is a stochastic branching process, and how reliability decomposes into local pieces that we can reason about.
 
 ## What is a scaffold?
 
-Fix a task space $\mathcal{X}$ and a response space $\mathcal{Y}$. A single LLM call implements some conditional law $\pi_{\mathrm{ref}}(\cdot \mid x)$ over answers. A **scaffold** is everything you wrap around that kernel: prompts that decide whether to answer or split, procedures that emit child tasks, verifiers, and compositors that stitch child outputs back into a parent answer.
+Following the formulation of reasoning as a Markov Decision Process (MDP), let us fix a state space $\mathcal{S}$ and an action space $\mathcal{A}$, where both can be represented as strings over an alphabet $\Sigma$. A reasoning task begins at an initial state $s_0 \in \mathcal{S}$ (the prompt or problem). A single LLM call implements a conditional transition policy $\pi_{\mathrm{ref}}(a \mid s)$ over valid next actions $a \in \mathcal{A}$. A **scaffold** is everything you wrap around that kernel: prompts that decide whether to continue reasoning, procedures that sample candidate actions, search mechanisms (like backtracking from dead ends at the scaffold control level), verifiers, and compositors that evaluate if a goal state has been reached.
 
 The abstract object we study is a **node-local answer-or-decompose policy** $\Pi$.
-At each node you see a task prompt $x_u$, a local control prompt $Q_u$ (system hints, tools, memory), and a binary mode $M_u \in \{\mathrm{ans},\mathrm{dec}\}$.
-If $M_u=\mathrm{ans}$, you sample an answer $Y_u$ from an answer kernel $q_{\mathrm{ans}}(\cdot \mid x_u,Q_u)$.
-If $M_u=\mathrm{dec}$, you sample a finite tuple of child prompts $(x_{u,1},\ldots,x_{u,K_u})$ from a decomposition kernel $q_{\mathrm{dec}}(\cdot \mid x_u,Q_u)$, then recurse on each child with its own control prompt. That is the usual plan-and-execute, tree search, or agent loop pattern, stripped to the control flow.
+At each state $s_u$, you see a local control prompt $Q_u$ (system hints, tools, memory), and a binary mode $M_u \in \{\mathrm{ans},\mathrm{dec}\}$.
+If $M_u=\mathrm{ans}$, you sample a sequence of terminal actions to form an answer $y_u$ from an answer kernel $q_{\mathrm{ans}}(\cdot \mid s_u,Q_u)$, transitioning directly toward a goal.
+If $M_u=\mathrm{dec}$, you sample a finite tuple of candidate actions $(a_{u,1},\ldots,a_{u,K_u})$ from an exploration kernel $q_{\mathrm{dec}}(\cdot \mid s_u,Q_u)$. Each action produces a new child state $s_{u,i} = s_u \oplus a_{u,i}$ (where $\oplus$ denotes string concatenation), and then you recurse on each child with its own control prompt. This represents the usual plan-and-execute, tree search, or agent loop pattern, stripped to the control flow.
 
-Correctness is defined against a ground-truth verifier $r^\star(x,y) \in \{0,1\}$ and the correctness set $\mathcal{S}^\star(x) = \{y : r^\star(x,y)=1\}$.
-The ground truth verifier is the most important object that we can only approximate.
-It says that the LLM answer $y$ for the task $X$ is correct or not.
-Think about it.
-The ground-truth verifier is a mind-reading oracle and we try to approximate it with the internal LLM knowledge.
-For example, who says that the answer to an open-ended question is better than another one?
-Nonetheless we need to have this object in our arsenal.
-In classical training-time alignment algorithms, the ground-truth verifier is often fed by means of *Lean* theorem proving, code tests or even human-based preferences.
-Here we try to use the LLM internal text generation abilities to extend it to any test-time task.
+Correctness is defined against an MDP reward function acting as a ground-truth verifier $R^\star(x,y) \in \{0,1\}$ and the correctness set $\mathcal{S}^\star(x) = \{y : R^\star(x,y)=1\}$.
+The object $R^\star$ is idealized and usually unavailable in full.
+It states whether the terminal trajectory or answer $y$ for task $x$ is correct.
+For open-ended tasks that object is clearly not observable without extra assumptions, which is exactly why deployed systems replace it with tests, theorem provers, preference models, or human judgments.
+The point of keeping $R^\star$ in the formalism is not realism but identifiability: it separates truth from the imperfect judges that a scaffold can actually use.
 
-The scaffold's kernels need not equal $\pi_{\mathrm{ref}}$ exactly; the theory only needs well-defined probabilities.
+The scaffold's kernels need not equal $\pi_{\mathrm{ref}}$ exactly; the theory only needs well-defined probabilities over the MDP transitions.
 
-### Story of a a random tree
+### Story of a random tree
 
 Running $\Pi$ on a root task $x$ does **not** produce a fixed tree but a **random rooted tree** $T_\Pi(x)$: the branching factor $K_u$, the child prompts, and the mode choices are all draws from the policy and the LLM.
 Think of it as a **branching process** induced by stochastic policies: each node flips a coin (answer vs decompose), and if it decomposes it draws how many children and what they are.
@@ -61,7 +60,7 @@ At a **decomposition** node, three things matter and should not be collapsed int
 The composer can be deterministic, another LLM, or a learned ranker; the theory summarizes it by an **effective rule** $\Psi_u(z_1,\ldots,z_K) \in [0,1]$: the probability that composition succeeds given validity and a vector of child success bits. On a decomposition node, $Z_u$ tracks $V_u$ and $C_u$ together with the children (see the note for the exact indicator).
 
 <figure>
-  <img src="/static/postfigures/reliability_tree.png" alt="recursive decomposition" style="width: 70%; display: block; margin: 0 auto;" />
+  <img src="/static/postfigures/random_rooted_tree.svg" alt="recursive decomposition tree inducing a random rooted tree" style="width: 70%; display: block; margin: 0 auto;" />
   <figcaption>
     <strong>Figure 1.</strong> A scaffolded policy induces a random rooted tree: each node either answers directly or stochastically decomposes into child tasks. Leaves correspond to local answers, while internal nodes represent decomposition and subsequent composition. The branching factor, depth, and structure are random, reflecting node-local answer-or-decompose decisions. The root reliability emerges from the recursive aggregation of child successes under the chosen composition semantics.
   </figcaption>
@@ -90,7 +89,7 @@ d_u \approx c\,\mathbb{E}\bigl[1-(1-r)^{K_u}\bigr]
 $$
 in the idealized case (valid split, composition factor $c$). That is the "at least one success" probability: width can **help** because you are drawing multiple shots.
 
-So the headline is not "trees good" or "trees bad," but: are you branching into **alternatives you can verify** (OR), or into **substeps that must all pass** (AND)?
+The baseline message is simple: are we branching into alternatives that can be verified (OR), or into substeps that must all pass (AND)?
 
 ### Verifiers and the Youden index
 
@@ -106,12 +105,36 @@ A **finite-tree** bound packages local failures: if you can identify a set of *e
 
 The engineering takeaway is the same: **essential steps are a tax**. Branch when OR-style search or verification pays for the extra width; do not add AND-style depth without a compensating gain.
 
-### What I would ship
+### Delayed commitment is a control action
 
-When you lack a checker for every slice, prefer **diverse full solutions plus selection** over **default mandatory subtasks** that bake in AND risk. Invest in verifiers with positive Youden index for whatever you filter. Before decomposing ambiguous tasks, spend tokens on constraints and success criteria; that raises decomposition validity before you pay for a bad split. Treat decompositions that add essential steps as costly unless the expected benefit clearly dominates.
+The binary answer-or-decompose formalism is the right abstraction for analysis.
+In deployment there is usually a third useful move: delay commitment.
+Instead of answering immediately or launching a brittle AND-style split, the scaffold can spend compute to clarify the task, retrieve evidence, or keep a small OR frontier alive.
+In the free-energy language of [PLP is inference-time approximation of free energy]({% link sections/science/_posts/2026-03-31-PLP-is-inference-time-approximation-of-free-energy.md %}), this move preserves option value by keeping several continuation basins available.
 
-Recursive decomposition is not a reliability theorem by itself. It starts to behave like one when semantics, verification, and tree complexity line up, and when you know which nodes are truly essential.
+Kappen's path-integral formulation of stochastic control makes the same point in a cleaner mathematical setting {% cite kappen2005path %}.
+In his symmetry-breaking examples, the optimal controller does not always commit early to one route.
+When noise and time-to-go are large, it can be better to delay the decision and commit only later, once the landscape becomes easier to separate.
+The same logic applies to reasoning scaffolds.
+When several global solution basins remain plausible, an early hard decomposition can be the wrong control action.
+
+### An optimal-control decomposition policy
+
+Putting the reliability and control viewpoints together suggests a simple policy.
+
+1. Answer directly when the direct branch is reliable enough and the remaining horizon is short.
+2. Use OR-style search when several whole-solution alternatives can be checked or ranked.
+3. Delay commitment when ambiguity is high and extra evidence is still cheap to gather.
+4. Use AND-style decomposition only when child tasks are locally verifiable and the composition interface is stable.
+5. Collapse the frontier only after one basin clearly dominates, or when the remaining budget no longer justifies more search.
+
+In short, branching is valuable when it buys optionality or verification.
+It is costly when it creates essential steps.
+The best scaffold is therefore not "always decompose".
+It is a controller that knows when to answer, when to search, when to wait, and when to commit.
 
 ---
 
-*This post distills a working note on reliability in node-local answer-or-decompose scaffolds.*
+## References
+
+{% bibliography --cited %}

@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Random matrix ensemble spectral density and the average resolvent
-categories: science
+description: 'Random matrix ensemble spectral density and the average resolvent.'
 published: true
 date: 2018-06-25
+categories:
+  - science
+  - complex-networks
 ---
-
 This short blog note is covering some aspects related to interesting calculations that can be done in random matrix theory applied to the study of spectral properties of random graph models, like those shown in Figure:
 
 <figure id="Figure1">

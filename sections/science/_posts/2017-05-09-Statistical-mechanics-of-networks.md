@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Statistical mechanics of networks - Park and Newman model of hidden variables
-categories: science
+description: 'Statistical mechanics of networks - Park and Newman model of hidden…'
 published: false
 date: 2017-05-09
+categories:
+  - science
+  - complex-networks
 ---
-
 ### Introduction 
 
 In these notes I will try to sum up the important points in the paper:

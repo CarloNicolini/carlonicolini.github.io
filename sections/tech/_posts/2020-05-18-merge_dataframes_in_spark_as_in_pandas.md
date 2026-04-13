@@ -1,9 +1,9 @@
 ---
 title: How to merge Dataframes in spark as in Pandas
+description: 'How to merge Dataframes in spark as in Pandas.'
 date: 2020-05-18
 layout: post
 ---
-
 This is how you do it:
 
 	def merge(left: Dataset, right: Dataset, left_on: Seq[String], right_on: Seq[String], how: String): Dataset =

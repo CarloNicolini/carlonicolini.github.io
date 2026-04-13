@@ -1,10 +1,10 @@
 ---
 layout: post
 title: A code for the absolute orientation problem with Umeyama algorithm in Python
+description: 'A code for the absolute orientation problem with Umeyama algorithm in…'
 categories: tech
 date: 2016-10-06
 ---
-
 A code for the absolute orientation problem solved with Umeyama algorithm.
 Explanations, briefly.
 

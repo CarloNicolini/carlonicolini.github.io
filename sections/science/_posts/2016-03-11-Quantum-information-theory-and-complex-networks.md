@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Quantum information theory and complex networks
-categories: science
+description: 'Quantum information theory and complex networks.'
 published: false
 date: 2016-03-11
+categories:
+  - science
+  - complex-networks
 ---
-
 Recently, some of the concepts and the ideas presented [in this previous post](/sections/science/2016/08/26/Spectral_density_random_graph_models_planted_partition.html) have been discussed in a recent paper of [DeDomenico](#DeDomenico2016)
 where the authors took a little different approach in the definition of spectral densities.
 It resulted a new approach to *complex networks information theory* that casts a powerful analogy between complex networks and quantum theory, lying down the foundations of something that in the next years will very probably be part of the basic knowledge in network science.

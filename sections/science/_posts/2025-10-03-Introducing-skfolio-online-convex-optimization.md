@@ -1,9 +1,12 @@
 ---
 layout: post
 title: Introducing skfolio new online convex optimization module
+description: "skfolio online convex optimization and sequential portfolio allocation."
 date: 2025-10-03
 published: true
-categories: science
+categories:
+  - science
+  - statistical-learning
 ---
 
 ## Bridging online convex optimization into skfolio

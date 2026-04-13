@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Sequence models and recurrent networks
+description: 'Sequence models and recurrent networks.'
 date: 2020-01-27
 published: false
-categories: science
+categories:
+  - science
+  - statistical-learning
 ---
-
 ## At the core of modern NLP
 
 Many prediction problems are naturally **sequential**: speech, text, sensor traces, or any ordered data where the $t$-th observation may depend on earlier ones. This note fixes notation for such models and sketches the simplest recurrent neural network (RNN) and how it is trained.

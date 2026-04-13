@@ -1,11 +1,13 @@
 ---
 title: Shapley additive explanations and the SHAP Python package
+description: 'Shapley additive explanations and the SHAP Python package.'
 date: 2020-09-29
 layout: post
-categories: science
 published: false
+categories:
+  - science
+  - statistical-learning
 ---
-
 # Why interpretability matters?
 
 Currently the ML community is struggling in making sense of its own output.

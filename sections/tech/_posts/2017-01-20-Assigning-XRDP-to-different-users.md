@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Assigning XRDP to different users
+description: 'Assigning XRDP to different users.'
 categories: tech
 date: 2017-01-20
 ---
-
 /etc/rc.local 
 write
 xrdp-sesrun 127.0.0.1 brainet neuron128 1280 1024 24

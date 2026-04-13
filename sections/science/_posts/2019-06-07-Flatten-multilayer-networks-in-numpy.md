@@ -1,23 +1,26 @@
 ---
 layout: post
-title: How to flatten multilayer networks in Python
+title: 'How to flatten multilayer networks in Python'
+description: 'How to flatten multilayer networks in Python.'
 date: 2019-06-07
 published: false
-use_matH: true
+use_math: true
+categories:
+  - science
+  - complex-networks
 ---
 
-
-def flatten_multilayer(M):
+## Dealing with a multilayer network via supra-adjacency matrix
 
 {% highlight python %}
-def flatten_multilayer(M):    
+def flatten_multilayer(M):
     if len(M.shape) < 3:
         return M
     elif len(M.shape)==3:
         l,n,m = M.shape
         if n!=m:
            raise
-        Mf = np.zeros([l*n,l*n]) 
+        Mf = np.zeros([l*n,l*n])
         for i in range(l):
             Mf[n*i:n*(i+1),n*i:n*(i+1),] = M[i,:,:]
         return Mf

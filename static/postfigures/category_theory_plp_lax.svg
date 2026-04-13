@@ -1,0 +1,89 @@
+<svg viewBox="0 0 1200 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Strict versus lax semantic structure in PLP</title>
+  <desc id="desc">Two panels compare an exact semantic pipeline with an approximate algorithmic pipeline. The left panel has exact proposal, target, continuation value, and twisted kernel. The right panel has approximate versions with support gap, finite compute, and judge-relative errors.</desc>
+
+  <style>
+    .bg { fill: #fafaf9; }
+    .panel { fill: #ffffff; stroke: #e7e5e4; stroke-width: 2; }
+    .panel-accent { fill: #ffedd5; stroke: #c2410c; stroke-width: 2.2; }
+    .title { font-family: "Instrument Serif", Georgia, serif; font-size: 28px; fill: #171717; }
+    .subtitle { font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif; font-size: 15px; fill: #525252; }
+    .heading { font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif; font-size: 18px; font-weight: 600; fill: #171717; }
+    .body { font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif; font-size: 14px; fill: #525252; }
+    .formula { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; fill: #c2410c; }
+    .note { font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif; font-size: 12px; fill: #78716c; }
+    .label { font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: #c2410c; }
+    .arrow { stroke: #a8a29e; stroke-width: 2.2; fill: none; stroke-linecap: round; }
+    .arrow-dashed { stroke: #c2410c; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-dasharray: 7 6; }
+  </style>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#a8a29e" />
+    </marker>
+    <marker id="arrow-accent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c2410c" />
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="430" rx="20" />
+
+  <text x="60" y="58" class="title">Strict semantics versus lax algorithms</text>
+  <text x="60" y="88" class="subtitle">The semantic target can be exact on paper while every concrete inference algorithm only preserves it approximately.</text>
+
+  <rect x="60" y="120" width="500" height="250" rx="18" class="panel" />
+  <text x="90" y="154" class="heading">Strict semantic layer</text>
+  <text x="90" y="178" class="body">exact objects and equalities</text>
+
+  <rect x="90" y="220" width="82" height="56" rx="12" class="panel" />
+  <text x="111" y="252" class="formula">q</text>
+
+  <rect x="210" y="220" width="82" height="56" rx="12" class="panel" />
+  <text x="230" y="252" class="formula">p</text>
+
+  <rect x="330" y="220" width="82" height="56" rx="12" class="panel" />
+  <text x="343" y="252" class="formula">Z, V</text>
+
+  <rect x="450" y="220" width="82" height="56" rx="12" class="panel-accent" />
+  <text x="468" y="252" class="formula">pi</text>
+
+  <path class="arrow" d="M 172 248 H 198" marker-end="url(#arrow)" />
+  <path class="arrow" d="M 292 248 H 318" marker-end="url(#arrow)" />
+  <path class="arrow" d="M 412 248 H 438" marker-end="url(#arrow)" />
+
+  <text x="84" y="314" class="note">proposal</text>
+  <text x="202" y="314" class="note">target</text>
+  <text x="318" y="314" class="note">exact backward value</text>
+  <text x="451" y="314" class="note">exact twist</text>
+  <text x="90" y="342" class="label">composition preserved exactly</text>
+
+  <rect x="640" y="120" width="500" height="250" rx="18" class="panel-accent" />
+  <text x="670" y="154" class="heading">Lax algorithmic layer</text>
+  <text x="670" y="178" class="body">finite compute, imperfect judges, incomplete support</text>
+
+  <rect x="670" y="220" width="82" height="56" rx="12" class="panel" />
+  <text x="691" y="252" class="formula">q</text>
+
+  <rect x="790" y="220" width="102" height="56" rx="12" class="panel" />
+  <text x="809" y="252" class="formula">p_hat</text>
+
+  <rect x="930" y="220" width="92" height="56" rx="12" class="panel" />
+  <text x="943" y="252" class="formula">Z_hat</text>
+
+  <rect x="1060" y="220" width="52" height="56" rx="12" class="panel" />
+  <text x="1066" y="252" class="formula">pi_hat</text>
+
+  <path class="arrow-dashed" d="M 752 248 H 776" marker-end="url(#arrow-accent)" />
+  <path class="arrow-dashed" d="M 892 248 H 918" marker-end="url(#arrow-accent)" />
+  <path class="arrow-dashed" d="M 1022 248 H 1048" marker-end="url(#arrow-accent)" />
+
+  <text x="666" y="314" class="note">same proposal</text>
+  <text x="789" y="314" class="note">approximate target</text>
+  <text x="928" y="314" class="note">heuristic value</text>
+  <text x="1054" y="314" class="note">approximate twist</text>
+  <text x="670" y="342" class="label">structure preserved only up to slack</text>
+
+  <text x="776" y="194" class="note">support gap</text>
+  <text x="911" y="194" class="note">judge bias</text>
+  <text x="1036" y="194" class="note">finite particles</text>
+</svg>

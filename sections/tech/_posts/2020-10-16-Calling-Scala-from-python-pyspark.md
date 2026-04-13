@@ -1,12 +1,12 @@
 ---
 layout: post
 title:  "Spark - Calling Scala code from PySpark"
+description: 'Spark - Calling Scala code from PySpark.'
 date:   2016-09-01 11:00:00
 categories: tech
 tags: spark scala python pyspark
 published: false
 ---
-
 Copy from another post of
 
 

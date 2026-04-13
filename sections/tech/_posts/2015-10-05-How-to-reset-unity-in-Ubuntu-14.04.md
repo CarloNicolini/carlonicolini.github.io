@@ -1,10 +1,10 @@
 ---
 layout: post
 title: How to reset unity in Ubuntu 14.04
+description: 'How to reset unity in Ubuntu 14.04.'
 date: 2015-10-05
 categories: tech
 ---
-
 For those who struggle with frequent freezes of Unity, this is a short guide on how to reset Unity to default settings in Ubuntu 14.04.
 
 1. Open a terminal window (from Launcher or `CTRL+ALT+T`)

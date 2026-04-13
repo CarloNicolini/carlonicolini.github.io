@@ -1,7 +1,9 @@
 ---
 title: PySpark initialization outside the Pyspark shell
+description: "PySpark with findspark: SparkSession without the pyspark shell."
 date: 2024-04-03
 published: true
+categories: tech
 ---
 
 How you do it with the [findspark](https://pypi.org/project/findspark/) package without the need to startup a Spark shell with the options to load within a jupyterlab session.

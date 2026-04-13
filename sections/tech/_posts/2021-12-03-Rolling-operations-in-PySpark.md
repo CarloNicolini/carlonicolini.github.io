@@ -1,11 +1,11 @@
 ---
 title: Rolling operations in PySpark
+description: 'Rolling operations in PySpark.'
 layout: post
 section: tech
 published: true
 date: 2021-12-03
 ---
-
 Have you ever wondered how to perform rolling averages in PySpark? This snippet helps you through the process
 
 {% highlight python %}

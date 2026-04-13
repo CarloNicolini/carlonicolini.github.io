@@ -108,6 +108,7 @@
       var pre = highlight.querySelector('pre');
       var code = highlight.querySelector('code');
       if (!pre || !code) return;
+      if (code.classList.contains('language-mermaid')) return;
 
       var wrap = document.createElement('div');
       wrap.className = 'code-block-wrap';

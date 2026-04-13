@@ -1,10 +1,9 @@
 ---
 layout: post
 title: How to enable colab for longer runtimes by keeping it active
+description: 'How to enable colab for longer runtimes by keeping it active.'
 date: 2022-07-08
 ---
-
-
 This [post](https://stackoverflow.com/questions/54057011/google-colab-session-timeout) is of help:
 
 **Steps:**

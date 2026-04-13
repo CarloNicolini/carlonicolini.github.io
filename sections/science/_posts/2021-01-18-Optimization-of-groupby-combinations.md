@@ -1,12 +1,13 @@
 ---
 layout: post
 title: Optimization of groupby combinations
+description: 'Optimization of groupby combinations.'
 date: 2021-01-18
-categories: science
 published: false
+categories:
+  - science
+  - statistical-learning
 ---
-
-
 # The problem
 
 Suppose you have a pandas dataframe whose some of the columns represent grouping variables and others represent values.

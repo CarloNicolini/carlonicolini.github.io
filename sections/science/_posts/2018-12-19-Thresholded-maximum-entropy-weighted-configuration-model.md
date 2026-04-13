@@ -1,12 +1,14 @@
 ---
 layout: post
 title: Thresholded maximum entropy weighted configuration model
-categories: science
+description: 'Thresholded maximum entropy weighted configuration model.'
 published: false
 use_math: true
 date: 2018-11-28
+categories:
+  - science
+  - complex-networks
 ---
-
 Adding the threshold parameter in the strength weights
 ------------------------------------------------------
 

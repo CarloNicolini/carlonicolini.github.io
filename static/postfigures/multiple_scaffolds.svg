@@ -1,0 +1,217 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%">
+    <defs>
+        <!-- Background -->
+        <rect id="bg" width="1000" height="600" fill="#fafaf9" />
+
+        <!-- Arrowheads -->
+        <marker id="arrow" viewBox="0 0 10 10" refX="17" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#4b5563" />
+        </marker>
+        
+        <marker id="arrow-dash" viewBox="0 0 10 10" refX="17" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#a8a29e" />
+        </marker>
+
+        <marker id="arrow-dash-z" viewBox="0 0 10 10" refX="21" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#a8a29e" />
+        </marker>
+    </defs>
+
+    <!-- Base Canvas -->
+    <use href="#bg" />
+
+    <!-- LEGEND -->
+    <g transform="translate(40, 530)" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#78716c">
+        <circle cx="10" cy="10" r="5" fill="#fafaf9" stroke="#4b5563" stroke-width="1.5" />
+        <text x="25" y="14">llm call (proposal state)</text>
+        
+        <rect x="5" y="25" width="10" height="10" rx="2" fill="#e7e5e4" stroke="#4b5563" stroke-width="1.5" />
+        <text x="25" y="34">programmatic execution</text>
+        
+        <path d="M 5 50 L 15 50" stroke="#a8a29e" stroke-width="1.5" stroke-dasharray="3 3" />
+        <text x="25" y="54">trace evaluation &#x26; potential &#x3A6;</text>
+    </g>
+
+    <!-- INITIAL PROMPT -->
+    <g id="input-node">
+        <circle cx="60" cy="280" r="6" fill="#4b5563" />
+        <text x="50" y="284" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#4b5563" text-anchor="end">prompt x</text>
+    </g>
+
+    <!-- TRACE ROUTING (From Input to Scaffolds) -->
+    <g id="routing-lines" stroke="#4b5563" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+        <path d="M 60 280 C 120 280, 140 100, 200 100" />
+        <path d="M 60 280 C 120 280, 140 220, 200 220" />
+        <path d="M 60 280 C 120 280, 140 340, 200 340" />
+        <path d="M 60 280 C 120 280, 140 480, 200 480" />
+    </g>
+
+    <!-- SCAFFOLD LABELS -->
+    <g font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#78716c" text-anchor="middle">
+        <text x="200" y="80">tree of thought</text>
+        <text x="200" y="200">best-of-k</text>
+        <text x="200" y="320">chain of thought</text>
+        <text x="200" y="460">multi-agent &#x26; tools</text>
+    </g>
+
+    <!-- ========================================== -->
+    <!-- 1. TREE OF THOUGHT                         -->
+    <!-- ========================================== -->
+    <g id="tot-paths" stroke="#4b5563" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+        <path d="M 200 100 C 240 100, 240 60, 280 60" />
+        <path d="M 200 100 L 280 100" />
+        <path d="M 200 100 C 240 100, 240 140, 280 140" />
+        
+        <path d="M 280 60 L 360 60" />
+        <path d="M 280 140 L 360 140" />
+        
+        <path d="M 360 60 C 400 60, 400 30, 440 30" />
+        <path d="M 360 60 C 400 60, 400 80, 440 80" />
+        
+        <path d="M 360 140 C 400 140, 400 120, 440 120" />
+        <path d="M 360 140 C 400 140, 400 170, 440 170" />
+    </g>
+    <!-- Pruned X marker -->
+    <path d="M 292 96 L 300 104 M 292 104 L 300 96" stroke="#a8a29e" stroke-width="1.5" stroke-linecap="round" />
+
+    <g id="tot-nodes">
+        <rect x="194" y="94" width="12" height="12" rx="2" fill="#e7e5e4" stroke="#4b5563" stroke-width="1.5" />
+        
+        <circle cx="280" cy="60" r="6" fill="#fafaf9" stroke="#4b5563" stroke-width="1.5" />
+        <circle cx="280" cy="100" r="6" fill="#fafaf9" stroke="#4b5563" stroke-width="1.5" />
+        <circle cx="280" cy="140" r="6" fill="#fafaf9" stroke="#4b5563" stroke-width="1.5" />
+        
+        <rect x="354" y="54" width="12" height="12" rx="2" fill="#e7e5e4" stroke="#4b5563" stroke-width="1.5" />
+        <rect x="354" y="134" width="12" height="12" rx="2" fill="#e7e5e4" stroke="#4b5563" stroke-width="1.5" />
+        
+        <circle cx="440" cy="30" r="6" fill="#fafaf9" stroke="#4b5563" stroke-width="1.5" />
+        <circle cx="440" cy="80" r="6" fill="#fafaf9" stroke="#4b5563" stroke-width="1.5" />
+        <circle cx="440" cy="120" r="6" fill="#fafaf9" stroke="#4b5563" stroke-width="1.5" />
+        <circle cx="440" cy="170" r="6" fill="#fafaf9" stroke="#4b5563" stroke-width="1.5" />
+    </g>
+
+    <!-- ========================================== -->
+    <!-- 2. BEST-OF-K                               -->
+    <!-- ========================================== -->
+    <g id="bok-paths" stroke="#4b5563" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+        <path d="M 200 220 C 250 220, 250 180, 300 180" />
+        <path d="M 200 220 C 250 220, 250 206, 300 206" />
+        <path d="M 200 220 C 250 220, 250 234, 300 234" />
+        <path d="M 200 220 C 250 220, 250 260, 300 260" />
+        
+        <path d="M 300 180 C 350 180, 350 220, 400 220" />
+        <path d="M 300 206 C 350 206, 350 220, 400 220" />
+        <path d="M 300 234 C 350 234, 350 220, 400 220" />
+        <path d="M 300 260 C 350 260, 350 220, 400 220" />
+        
+        <path d="M 400 220 L 480 220" />
+    </g>
+
+    <g id="bok-nodes">
+        <rect x="194" y="214" width="12" height="12" rx="2" fill="#e7e5e4" stroke="#4b5563" stroke-width="1.5" />
+        
+        <circle cx="300" cy="180" r="6" fill="#fafaf9" stroke="#4b5563" stroke-width="1.5" />
+        <circle cx="300" cy="206" r="6" fill="#fafaf9" stroke="#4b5563" stroke-width="1.5" />
+        <circle cx="300" cy="234" r="6" fill="#fafaf9" stroke="#4b5563" stroke-width="1.5" />
+        <circle cx="300" cy="260" r="6" fill="#fafaf9" stroke="#4b5563" stroke-width="1.5" />
+        
+        <rect x="394" y="214" width="12" height="12" rx="2" fill="#e7e5e4" stroke="#4b5563" stroke-width="1.5" />
+        <circle cx="480" cy="220" r="6" fill="#fafaf9" stroke="#4b5563" stroke-width="1.5" />
+    </g>
+
+    <!-- ========================================== -->
+    <!-- 3. CHAIN OF THOUGHT                        -->
+    <!-- ========================================== -->
+    <g id="cot-paths" stroke="#4b5563" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+        <path d="M 200 340 L 280 340" />
+        <path d="M 280 340 L 360 340" />
+        <path d="M 360 340 L 440 340" />
+        <path d="M 440 340 L 520 340" />
+    </g>
+
+    <g id="cot-nodes">
+        <circle cx="200" cy="340" r="6" fill="#fafaf9" stroke="#4b5563" stroke-width="1.5" />
+        <rect x="274" y="334" width="12" height="12" rx="2" fill="#e7e5e4" stroke="#4b5563" stroke-width="1.5" />
+        <circle cx="360" cy="340" r="6" fill="#fafaf9" stroke="#4b5563" stroke-width="1.5" />
+        <rect x="434" y="334" width="12" height="12" rx="2" fill="#e7e5e4" stroke="#4b5563" stroke-width="1.5" />
+        <circle cx="520" cy="340" r="6" fill="#fafaf9" stroke="#4b5563" stroke-width="1.5" />
+    </g>
+
+    <!-- ========================================== -->
+    <!-- 4. MULTI-AGENT & TOOLS                     -->
+    <!-- ========================================== -->
+    <g id="agent-paths" stroke="#4b5563" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+        <path d="M 200 480 C 240 480, 240 440, 280 440" />
+        <path d="M 200 480 C 240 480, 240 520, 280 520" />
+        
+        <!-- Inter-agent communication -->
+        <path d="M 280 440 Q 260 480 280 520" />
+        <path d="M 280 520 Q 300 480 280 440" />
+        
+        <!-- Tool usage -->
+        <path d="M 280 440 C 310 440, 330 420, 360 420" />
+        <path d="M 360 420 C 330 460, 310 440, 280 440" />
+        
+        <path d="M 280 520 C 310 520, 330 540, 360 540" />
+        <path d="M 360 540 C 330 500, 310 520, 280 520" />
+        
+        <!-- Synthesis -->
+        <path d="M 280 440 C 340 440, 380 480, 440 480" />
+        <path d="M 280 520 C 340 520, 380 480, 440 480" />
+        
+        <path d="M 440 480 L 520 480" />
+    </g>
+
+    <g id="agent-nodes">
+        <rect x="194" y="474" width="12" height="12" rx="2" fill="#e7e5e4" stroke="#4b5563" stroke-width="1.5" />
+        
+        <circle cx="280" cy="440" r="6" fill="#fafaf9" stroke="#4b5563" stroke-width="1.5" />
+        <circle cx="280" cy="520" r="6" fill="#fafaf9" stroke="#4b5563" stroke-width="1.5" />
+        
+        <rect x="354" y="414" width="12" height="12" rx="2" fill="#e7e5e4" stroke="#4b5563" stroke-width="1.5" />
+        <rect x="354" y="534" width="12" height="12" rx="2" fill="#e7e5e4" stroke="#4b5563" stroke-width="1.5" />
+        
+        <rect x="434" y="474" width="12" height="12" rx="2" fill="#e7e5e4" stroke="#4b5563" stroke-width="1.5" />
+        
+        <circle cx="520" cy="480" r="6" fill="#fafaf9" stroke="#4b5563" stroke-width="1.5" />
+    </g>
+
+    <!-- ========================================== -->
+    <!-- GRAND SUMMATION (Z)                        -->
+    <!-- ========================================== -->
+    <!-- Trace Converging Flow Lines -->
+    <g id="z-funnel" stroke="#a8a29e" stroke-width="1.5" stroke-dasharray="4 4" fill="none" marker-end="url(#arrow-dash-z)">
+        <path d="M 440 30 C 580 30, 680 280, 800 280" />
+        <path d="M 440 80 C 580 80, 680 280, 800 280" />
+        <path d="M 440 120 C 580 120, 680 280, 800 280" />
+        <path d="M 440 170 C 580 170, 680 280, 800 280" />
+        
+        <path d="M 480 220 C 600 220, 680 280, 800 280" />
+        
+        <path d="M 520 340 C 620 340, 680 280, 800 280" />
+        
+        <path d="M 520 480 C 620 480, 680 280, 800 280" />
+    </g>
+
+    <!-- Z Highlight Node -->
+    <circle cx="800" cy="280" r="10" fill="#c2410c" />
+
+    <!-- Equation Typography -->
+    <g font-family="Times New Roman, serif" fill="#4b5563">
+        <!-- Accent Z -->
+        <text x="825" y="286" font-size="24" font-style="italic" font-weight="bold" fill="#c2410c">Z</text>
+        
+        <text x="845" y="284" font-size="20"> = </text>
+        
+        <text x="870" y="292" font-size="34">&#x2211;</text> <!-- Summation Symbol -->
+        <text x="878" y="308" font-size="14" font-style="italic">&#x03C4;</text> <!-- tau subscript -->
+        
+        <text x="895" y="284" font-size="20" font-style="italic">q</text>
+        <text x="904" y="288" font-size="12">D</text>
+        <text x="916" y="284" font-size="20">(&#x03C4;) </text>
+        
+        <text x="946" y="284" font-size="20" font-style="italic">&#x03A6;</text> <!-- Phi -->
+        <text x="960" y="284" font-size="20">(&#x03C4;, x)</text>
+    </g>
+
+</svg>

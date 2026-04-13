@@ -2,9 +2,12 @@
 layout: post
 published: true
 title: Quantum statistical mechanics of complex networks in networkqit
+description: 'Quantum statistical mechanics of complex networks in networkqit.'
 use_math: true
+categories:
+  - science
+  - complex-networks
 ---
-
 With this post I am introducing to the public my very first complete Python package `networkqit`.
 
 **networkqit** is a Python package for working within the spectral entropy framework of complex networks.

@@ -1,10 +1,10 @@
 ---
 title: Some scala functions as exercise
+description: 'Some scala functions as exercise.'
 section: tech
 date: 2020-04-20
 layout: post
 ---
-
 Here are some very basic function with self-explanatory name, to be coded in Scala for a super beginner.
 Some of them are very inefficient, pay attention to use them, they are only for demonstration.
 

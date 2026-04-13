@@ -1,11 +1,10 @@
 ---
 layout: post
 title: Faceting images or generic plots with Seaborn and Python matplotlib
+description: 'Faceting images or generic plots with Seaborn and Python matplotlib.'
 categories: tech
 date: 2018-11-12
 ---
-
-
 I've found myself working with large `pandas dataframe`.
 Differently from the typical usage of `pandas dataframes`, in some cells I have `numpy.array` as content, or other types of data.
 Here we call these non-standard columns as `x` and `y`.

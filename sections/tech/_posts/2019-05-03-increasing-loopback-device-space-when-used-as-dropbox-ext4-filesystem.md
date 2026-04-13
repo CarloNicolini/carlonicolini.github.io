@@ -2,8 +2,8 @@
 layout: post
 categories: tech
 title: How to expand the loopback device size
+description: 'How to expand the loopback device size.'
 ---
-
 [From this answer](https://askubuntu.com/questions/260620/resize-dev-loop0-and-increase-space)
 
 

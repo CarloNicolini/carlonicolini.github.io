@@ -1,11 +1,10 @@
 ---
 layout: post
 title: Code indentation in Python with Black
+description: 'Code indentation in Python with Black.'
 date: 2020-09-04
 categories: tech
 ---
-
-
 A very nice code indentation tool for Python is called `Black`
 
     pip install black

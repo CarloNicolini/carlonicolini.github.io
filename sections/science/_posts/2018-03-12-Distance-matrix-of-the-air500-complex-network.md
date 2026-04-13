@@ -1,13 +1,17 @@
 ---
 layout: post
 title: Distance matrix of the air500 complex network
-categories: science
+description: 'Distance matrix of the air500 complex network.'
 published: true
 date: 2018-03-12
+categories:
+  - science
+  - complex-networks
 ---
 
 The `air500` network is the adjacency matrix of the largest 500 airports in the world.
-Unfortunately the original network provided  in the [https://www.dynamic-connectome.org/?page_id=25](https://www.dynamic-connectome.org/?page_id=25) had no latitude/longitude information. 
+
+Unfortunately the original network provided in the [https://www.dynamic-connectome.org/?page_id=25](https://www.dynamic-connectome.org/?page_id=25) had no latitude/longitude information. 
 However the IATA names where available.
 I wanted to apply some models of network connectivity on this network, which features a large enough number of nodes as well as a nice organization.
 

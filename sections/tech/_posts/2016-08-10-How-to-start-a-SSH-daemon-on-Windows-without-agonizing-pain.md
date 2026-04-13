@@ -1,10 +1,10 @@
 ---
 layout: post
 title: How to start a SSH daemon on Windows without agonizing pain
+description: 'How to start a SSH daemon on Windows without agonizing pain.'
 categories: tech
 date: 2016-10-06
 ---
-
 I recently needed to connect via ssh to my windows computer from a Linux server, but I couldn’t figure how to do it since ssh servers for windows are expensive and I don’t want to pay for a software that on Linux comes for free. Some of the typical ssh servers (daemon in linux terminology) are bitvise tunnelier, freesshd.
 
 This is a list of software

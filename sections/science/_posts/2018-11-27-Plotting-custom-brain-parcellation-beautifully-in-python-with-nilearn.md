@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Showing brain parcellation in Python with nilearn and some hacking
-description: Here I show a small guide to draw beautiful visualization of region of interest, based on analysis of community structure from brain networks.
-categories: science
+description: "Nilearn surface plots for brain parcellation and ROI visualization."
 published: true
 use_math: true
 date: 2018-11-27
+categories:
+  - science
+  - statistical-learning
 ---
 
 In this post I would like to introduce to the [nilearn](nilearn.github.io) user, a modified set of functions based on the `nilearn.surface` module, that are of great help in making beautiful surface colored pictures of brain, like the one in [this figure](#Figure1):

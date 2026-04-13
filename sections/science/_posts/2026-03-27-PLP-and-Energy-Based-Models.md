@@ -1,9 +1,12 @@
 ---
 layout: post
 title: Test-time inference, language models and energy based models
+description: "PLP, energy-based models, and test-time inference over LLM traces."
 date: 2026-03-27
 published: true
-categories: science
+categories:
+  - science
+  - language-physics
 ---
 
 ## The link between autoregressive models, energy based models and probabilistic language programming
@@ -15,12 +18,12 @@ In the current landscape of AI engineering, many scaffolds—Chain-of-Thought, s
 The core argument in **PLP** is that we should stop viewing these workflows anthropomorphically {% cite meyerson2025position %}.
 Persona prompts, plan diversity, or tree search are better understood as probabilistic programs that induce and reweight distributions over execution traces.
 
-In PLP, the LLM supplies an implicit proposal distribution $q_{\mathcal{D}}(\tau)$ for a fixed deployment $\mathcal{D}$ containing the model, the decoder, the tools, and the rest of the runtime configuration.
+In PLP, the LLM supplies an implicit proposal distribution $\pi_{\mathcal{D}}(\tau)$ for a fixed deployment $\mathcal{D}$ containing the model, the decoder, the tools, and the rest of the runtime configuration.
 Programmatic verifiers are encoded by potentials $\Phi(\tau)$, which assign scores to generated trajectories.
 The goal of a scaffold is then to sample, as well as possible, from the resulting reweighted target distribution:
 
 $$
-p_{\mathcal{D}}(\tau) \propto q_{\mathcal{D}}(\tau) \Phi(\tau)
+p_{\mathcal{D}}(\tau) \propto \pi_{\mathcal{D}}(\tau) \Phi(\tau)
 \tag{1}\label{eq:plp_fundamental}
 $$
 
@@ -29,11 +32,17 @@ The above equation is fundamental in PLP and determines the relation between wha
 At that point I thought I had a neat, self-contained systems theory, admittedly still very embryonic: one equation, a few primitives, and a growing intuition that something deeper was hiding underneath.
 
 A few days ago, I stumbled upon a new preprint by {% cite blondel2025autoregressive %} "Autoregressive Language Models are Secretly Energy Based Models".
+The paper demonstrates a formal bijection between ARMs and Energy-Based Models in function space.
+The authors prove that the standard autoregressive objective implicitly corresponds to a soft Bellman equation from maximum entropy reinforcement learning.
+This means that an Autoregressive Model is mathematically an Energy-Based Model that defines a probability distribution over entire sequences.
+Rather than just predicting the next word, the model is implicitly evaluating an energy landscape over the whole sequence, where lower energy corresponds to a higher overall probability (lower surprise).
+Because it satisfies the soft Bellman equation, the model possesses an implicit "soft value function"—giving it inherent lookahead capabilities.
+It's exactly the soft value function that is important.
 
-As I read through their equations, I had a massive "Aha!" moment.
 The exact mathematical objects I had defined from a top-down, inference-time systems perspective in PLP were perfectly mirrored by their bottom-up, training-time probabilistic graphical models.
+There is a duality between training time and inference time (as expected) and I wanted to exploit that duality at its best.
 
-Here is the story of how these two theories converge, and what it means for the future of agentic systems.
+Here is the story of how these two theories converge, and what it could mean for the future of agentic systems.
 
 ## Connecting the dots: proposals, targets, and energies
 
@@ -41,7 +50,7 @@ As a scientist trained in statistical physics, I immediately recognized that pro
 They came with the whole statistical-mechanics vocabulary attached: Boltzmann weights, partition functions, free energy, and approximate marginalization.
 
 In PLP, I define the execution of an LLM workflow as generating a trace $\tau$ (or also called a *trajectory*).
-Running the bare LLM workflow forward induces an implicit generative trace law, the **proposal distribution** $q_{\mathcal{D}}(\tau)$.
+Running the bare LLM workflow forward induces an implicit generative trace law, the **proposal distribution** $\pi_{\mathcal{D}}(\tau)$.
 
 But we rarely want the raw proposal.
 We usually apply verifiers, tests, or LLM-as-a-judge scorers to filter or rank these traces.
@@ -49,7 +58,7 @@ These verifier-based potentials are at the core of sampling methods, like *rejec
 I decided to formalize the verifiers as a nonnegative **potential function** $\Phi(\tau)$.
 As in \eqref{eq:plp_fundamental}, the actual goal of any AI compound system is the **semantic target**, namely the reweighted distribution $p_{\mathcal{D}}$:
 
-$$ p_{\mathcal{D}}(\tau) \propto q_{\mathcal{D}}(\tau) \, \Phi(\tau) $$
+$$ p_{\mathcal{D}}(\tau) \propto \pi_{\mathcal{D}}(\tau) \, \Phi(\tau) $$
 
 When I opened the Blondel et al. paper, I immediately recognized this equation.
 They were comparing Autoregressive Models (ARMs)—which make local, next-token predictions—to Energy-Based Models (EBMs), which define globally normalized distributions over whole sequences using a reward/energy function $R(x, y)$.
@@ -83,7 +92,7 @@ To convert a global EBM into a local ARM, the local logit score $q(s_t, y_t)$ mu
 
 $$ q(s_t, y_t) = r(s_t, y_t) + V_q(s_t \oplus y_t) $$
 
-Where $V_q$ is the log-sum-exp over all future continuations.
+Where $V_q$ is the soft value over all future continuations. Originally defined as a log-sum-exp operator, this formulation produces an extensive quantity that accumulates over the sequence, causing a severe length bias. As we will explore in subsequent posts, optimal agentic search replaces this with an intensive MellowMax operator to preserve fair comparisons across sequences of different lengths.
 
 This equation hit me like a ton of bricks.
 When we write a PLP workflow and use an LLM critic to evaluate a partial trace, for instance a software architecture plan before writing the code, the `factor` primitive is fundamentally trying to estimate this intractable soft value function $V_q$.
@@ -132,7 +141,15 @@ The soft value function captures exactly this balance, allowing the model to pla
 
 ## Chain-of-thought and the partition function
 
-The paper shows that autoregressive models can in principle represent lookahead because each local logit can absorb a future soft value. But the difficult object is not the local softmax denominator itself. Once the vector $q(s_t,\cdot)$ is available, its normalization is easy to compute. The real difficulty is that each logit $q(s_t,y_t)$ must already contain the future term $V_q(s_t \oplus y_t)$, and this soft value is a log-sum-exp over an exponentially large set of continuations.
+The paper shows that autoregressive models can in principle represent lookahead because each local logit can absorb a future soft value.
+But the difficult object is not the local softmax denominator itself.
+Once the vector $q(s_t,\cdot)$ is available, its normalization is easy to compute.
+The real difficulty is that each logit $q(s_t,y_t)$ must already contain the future term $V_q(s_t \oplus y_t)$, representing an exponentially large set of continuations.
+
+How is this possible without running Monte Carlo rollouts at inference time?
+Blondel et al. provide a profound answer: **teacher-forcing pre-training acts as the backward dynamic programming pass**.
+During pre-training on trillions of tokens, the objective forces the model to solve the dynamic programming problem implicitly.
+By the time you run a single forward pass at inference time, the final linear layer's logits already cache the model's best guess of the future global energy.
 
 This is where chain-of-thought becomes especially interesting.
 In PLP, I framed it not as anthropomorphic "reasoning" (Lovelace effect {% cite riedl2014lovelace %}), but as the introduction of a latent state $Z$ that factorizes the proposal:
@@ -197,7 +214,7 @@ We are all trying to solve Likelihood-Free Inference {% cite cranmer2020frontier
 </figcaption>
 </figure>
 
-1. **The alignment perspective (training-time):** Researchers use RLHF, DPO, and process-reward models to push the ARM's proposal $q_{\mathcal{D}}$ as close to the target EBM $p_{\mathcal{D}}$ as possible. They want to distill $V_q$ directly into the weights.
+1. **The alignment perspective (training-time):** Researchers use RLHF, DPO, and process-reward models to push the ARM's proposal $\pi_{\mathcal{D}}$ as close to the target EBM $p_{\mathcal{D}}$ as possible. They want to distill $V_q$ directly into the weights.
 2. **The PLP perspective (inference-time):** Because perfect distillation is impossible for long-horizon, high-variance tasks, we must use algorithms (scaffolds) to bridge the remaining gap. We use structural diversification (personas, decompositions) to fix **coverage failures**, and calibrated judges {% cite lee2025judge %} to fix **selection failures**.
 
 This realization brings immense clarity to AI engineering. You don't need a heavy agentic scaffold if the ARM has already successfully distilled the EBM for a specific task. But when the task is novel, or requires strict, logic-driven global constraints, the soft Bellman fixed point is too hard for the ARM to memorize. That is when you must drop down into Probabilistic Language Programming, instantiating the EBM at runtime through `plate`, `interact`, and `factor` primitives.

@@ -2,7 +2,11 @@
 layout: post
 date: 2019-09-03
 title: Sampling uniform spanning forests with Wilson algorithm in Python
+description: 'Sampling uniform spanning forests with Wilson algorithm in Python.'
 published: true
+categories:
+  - science
+  - complex-networks
 ---
 
 ## Stochastic ways to determine the laplacian spectrum
@@ -15,11 +19,12 @@ A random forests is a random combinatorial objects, like the one shown in this p
 
 <figure>
 <img src='/static/postfigures/grid_15_15_wilson_q_01.png' pos='centered' width="400" />
-<figcaption>In this 15x15 grid graph, we have ran the random spanning forests algorithm as described in the following, with a value $q=0.1$. The forests induces a partition of nodes where edges have different colours, and the root set is drawn in red.</figcaption>
+<figcaption>In this 15x15 grid graph, we have ran the random spanning forests algorithm as described in the following, with a value $q=0.1$. The forests induces a partition of nodes where edges have different colours, and the root set is drawn in red.
+</figcaption>
 </figure>
 
+## Wilson algorithm in Python
 
-# Wilson algorithm in Python
 In this section I provide a simple yet efficient implementation of the Wilson algorithm to sample random spanning.
 The algorithm follows this line.
 
@@ -127,7 +132,7 @@ It's indeed very good, until the limit $\beta = (\lambda_{max})^{-1}$ which is t
 
 In this picture the limit of the approximation is exactly $1/\lambda_{max}$. For values of $\beta$ lower than this threshold, the approximation is incredibly good, and it definitely links the partition function to the combinatorics of random spanning forests as from the Wilson algorithm.
 
-# From Approximation to Exact Relation: The Inverse Laplace Transform
+## From approximation to exact relation: inverse Laplace transform
 
 Incredible as it was to find this approximation, we don't have to stop there. As I recently detailed in a new preprint {% cite nicolini2025spectral %}, there is an *exact* analytic relation bridging the expected number of roots $s(q)$ in random spanning forests to the heat-trace partition function $Z(\beta)$. 
 
@@ -349,4 +354,7 @@ Some references are these. In particular my implementation of the Wilson algorit
 3. Luca Avena, Alexandre Gaudilliere: Random spanning forests, Markov matrix spectra and well distributed points. Arxiv 1310.1723
 4. Luca Avena, et al. Random Forests and Networks Analysis. J. Stat. Phys. (2018)
 5. Lyons, Russell and Peres, Yuval: Probability on trees and networks. Cambridge Univ.Press (2017)
+
+## References
+
 {% bibliography --cited %}

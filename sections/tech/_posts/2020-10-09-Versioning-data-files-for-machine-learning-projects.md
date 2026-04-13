@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Versioning data files for machine learning projects with DVC
+description: 'Versioning data files for machine learning projects with DVC.'
 categories: tech
 date: 2020-10-09
 published: true
 ---
-
 # DVC Tutorial
 
 Machine Learning projects deals with both the data and code. DVC is a tool which

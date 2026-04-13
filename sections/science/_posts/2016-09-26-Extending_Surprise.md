@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Extending Surprise to support the configuration model
-categories: science
+description: 'Extending Surprise to support the configuration model.'
 published: false
 date: 2016-09-26
+categories:
+  - science
+  - complex-networks
 ---
-
 Surprise in its discrete formulation is defined as
 
 $$ S = \sum \limits_i ^{m_\zeta} \frac{\binom{p_\zeta}{i}  \binom{p-p_\zeta}{m-i} }{\binom{p}{m}}$$

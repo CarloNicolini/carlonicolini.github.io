@@ -1,12 +1,14 @@
 ---
 layout: post
 title: The link between machine learning and statistical physics
-categories: science
+description: 'The link between machine learning and statistical physics.'
 published: true
 use_math: true
 date: 2019-06-12
+categories:
+  - science
+  - language-physics
 ---
-
 Reading the paper by Max Tegmark ["Why does deep and cheap learning work so well"](https://arxiv.org/pdf/1608.08225.pdf) is illuminating.
 
 

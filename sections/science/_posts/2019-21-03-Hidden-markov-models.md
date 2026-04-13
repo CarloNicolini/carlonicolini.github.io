@@ -1,11 +1,13 @@
 ---
+description: '2019-21-03-Hidden-markov-models.'
 layout: post
-categories: science
 date: 2019-03-21
 use_math: true
 published: true
+categories:
+  - science
+  - statistical-learning
 ---
-
 In these notes I want to introduce Hidden Markov Model, one of the simplest but rich enough models to handle real world applications for modeling sequential models.
 
 In HMM we have random variables $z_1,\ldots z_n \in \{ 1,\ldots,m \}$ which are the **hidden** or **latent** variables, and the random variables $x_1,\ldots x_n \in X$. The hidden variables take discrete values. Instead, the variables in $X$ can be discrete, finite, real or any type, which are the **observed random variables**.

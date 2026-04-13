@@ -1,10 +1,10 @@
 ---
 layout: post
 title: How to create a large swap file in Ubuntu if system runs out of memory.
+description: 'How to create a large swap file in Ubuntu if system runs out of memory.'
 categories: tech
 date: 2017-01-17
 ---
-
 Check this guide:
 
 [https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04](https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04)

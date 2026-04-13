@@ -1,12 +1,14 @@
 ---
 layout: post
 title: Dataset of biologically derived graphs
-categories: science
+description: 'Dataset of biologically derived graphs.'
 published: true
 date: 2018-05-21
 use_math: true
+categories:
+  - science
+  - complex-networks
 ---
-
 This website contains a number of interesting dataset of biologically derived graphs.
 
 As from their website:

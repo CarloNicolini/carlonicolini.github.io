@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="100%" height="100%">
+  <defs>
+    <!-- Sharp, academic arrowhead for CoT path (deep orange) -->
+    <marker id="arrow-cot" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 L 2 5 z" fill="#c2410c"/>
+    </marker>
+    <!-- Sharp, academic arrowhead for zero-shot path (graphite-gray) -->
+    <marker id="arrow-zs" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 L 2 5 z" fill="#333333"/>
+    </marker>
+  </defs>
+
+  <!-- Typography styles -->
+  <style>
+    text {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+    .math {
+      font-style: italic;
+    }
+  </style>
+
+  <!-- Background is transparent as requested -->
+
+  <!-- ========================================== -->
+  <!-- 1. FREE-ENERGY LANDSCAPE / TARGET BASIN    -->
+  <!-- ========================================== -->
+  <!-- Concentric ellipses representing the verifier-weighted target distribution p_beta(tau|x) -->
+  <g stroke="#A9B0B5" stroke-width="1.2" fill="none">
+    <!-- Center of the target basin is at (700, 150) -->
+    <ellipse cx="700" cy="150" rx="35" ry="15" transform="rotate(-25 700 150)" fill="#A9B0B5" fill-opacity="0.08"/>
+    <ellipse cx="700" cy="150" rx="90" ry="40" transform="rotate(-25 700 150)"/>
+    <ellipse cx="700" cy="150" rx="170" ry="75" transform="rotate(-25 700 150)"/>
+    <ellipse cx="700" cy="150" rx="270" ry="120" transform="rotate(-25 700 150)"/>
+    <ellipse cx="700" cy="150" rx="400" ry="180" transform="rotate(-25 700 150)"/>
+    <ellipse cx="700" cy="150" rx="550" ry="250" transform="rotate(-25 700 150) stroke-dasharray="2 4" stroke-opacity="0.5"/>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- 2. IDEAL MANIFOLD (Underlying geometry)    -->
+  <!-- ========================================== -->
+  <!-- The true low-free-energy path that CoT attempts to approximate via integration -->
+  <path d="M 150 400 C 300 420, 550 320, 700 150" stroke="#A9B0B5" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+
+  <!-- ========================================== -->
+  <!-- 3. ZERO-SHOT PATH (Excessive step size)    -->
+  <!-- ========================================== -->
+  <!-- A single, long, unconditioned jump that accumulates mismatch and misses the target basin -->
+  <!-- Starts at (150,400), overshoots the curvature and lands at (640,60) in a high free-energy region -->
+  <line x1="150" y1="400" x2="633" y2="65" stroke="#333333" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow-zs)"/>
+  <circle cx="640" cy="60" r="3" fill="#333333"/>
+  <text x="350" y="240" font-size="11" fill="#333333" transform="rotate(-34.7 350 240)" letter-spacing="0.5">zero-shot (excessive step)</text>
+
+  <!-- ========================================== -->
+  <!-- 4. CHAIN OF THOUGHT PATH (Integration)     -->
+  <!-- ========================================== -->
+  <!-- Decomposed into smaller conditional moves through latent intermediate states z_k -->
+  
+  <!-- Path Segment 1: x -> z1 -->
+  <line x1="150" y1="400" x2="284" y2="396" stroke="#c2410c" stroke-width="2" marker-end="url(#arrow-cot)"/>
+  
+  <!-- Path Segment 2: z1 -> z2 -->
+  <line x1="290" y1="395" x2="434" y2="352" stroke="#c2410c" stroke-width="2" marker-end="url(#arrow-cot)"/>
+  
+  <!-- Path Segment 3: z2 -> z3 -->
+  <line x1="440" y1="350" x2="575" y2="263" stroke="#c2410c" stroke-width="2" marker-end="url(#arrow-cot)"/>
+  
+  <!-- Path Segment 4: z3 -> y* (Target) -->
+  <line x1="580" y1="260" x2="694" y2="155" stroke="#c2410c" stroke-width="2" marker-end="url(#arrow-cot)"/>
+
+  <!-- Integration Nodes (Latent states z_k and endpoints) -->
+  <circle cx="150" cy="400" r="4.5" fill="#333333"/>
+  <circle cx="290" cy="395" r="3.5" fill="#c2410c"/>
+  <circle cx="440" cy="350" r="3.5" fill="#c2410c"/>
+  <circle cx="580" cy="260" r="3.5" fill="#c2410c"/>
+  <circle cx="700" cy="150" r="4.5" fill="#c2410c"/>
+
+  <!-- ========================================== -->
+  <!-- 5. MINIMAL TYPOGRAPHY & LABELS             -->
+  <!-- ========================================== -->
+  
+  <!-- Starting point / prompt -->
+  <text x="132" y="420" font-size="14" fill="#333333" class="math">x</text>
+
+  <!-- Target basin label -->
+  <text x="690" y="140" font-size="12" fill="#c2410c" class="math">y<tspan dy="-5" font-size="9">★</tspan></text>
+  <text x="735" y="145" font-size="12" fill="#8B9094" class="math">p<tspan dy="3" font-size="9">β</tspan></text>
+
+  <!-- Intermediate latent states (Chain of Thought points) -->
+  <text x="282" y="415" font-size="12" fill="#c2410c" class="math">z<tspan dy="3" font-size="9">1</tspan></text>
+  <text x="445" y="375" font-size="12" fill="#c2410c" class="math">z<tspan dy="3" font-size="9">2</tspan></text>
+  <text x="590" y="275" font-size="12" fill="#c2410c" class="math">z<tspan dy="3" font-size="9">3</tspan></text>
+
+  <!-- Chain of thought path label -->
+  <text x="450" y="338" font-size="11" fill="#c2410c" transform="rotate(-30 450 338)" letter-spacing="0.5">cot (integration)</text>
+
+</svg>

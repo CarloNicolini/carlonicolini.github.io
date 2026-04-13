@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Get the exact print size of a PDF in inches
+description: 'Get the exact print size of a PDF in inches.'
 categories: tech
 date: 2016-06-16
 ---
-	
 This is the command to do the stuff
 
 

@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Coding puzzles
+description: 'Coding puzzles.'
 published: false
 date: 2019-06-17
+categories:
+  - science
+  - statistical-learning
 ---
-
-
 # 1. Floyd triangle
 Program the following thing, called Floyd triangle
 

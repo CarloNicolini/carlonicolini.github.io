@@ -3,9 +3,11 @@ layout: post
 published: false
 date: 2019-12-09
 title: Euler characteristic of complex networks
+description: 'Euler characteristic of complex networks.'
+categories:
+  - science
+  - complex-networks
 ---
-
-
 We are all used (or at least, some of us) with the concept of Euler characteristic.
 Almost 200 years ago, Leohnard Euler, found that polyhedra have an interesting property.
 

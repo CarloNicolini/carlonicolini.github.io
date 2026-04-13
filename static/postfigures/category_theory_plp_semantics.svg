@@ -1,0 +1,77 @@
+<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Minimal semantic pipeline for PLP</title>
+  <desc id="desc">A diagram showing scaffold syntax mapped to a proposal law, then reweighted into a target law, then marginalized into continuation values, and finally used to twist a local kernel.</desc>
+
+  <style>
+    .bg { fill: #fafaf9; }
+    .panel { fill: #ffffff; stroke: #e7e5e4; stroke-width: 2; }
+    .panel-accent { fill: #ffedd5; stroke: #c2410c; stroke-width: 2.2; }
+    .title { font-family: "Instrument Serif", Georgia, serif; font-size: 28px; fill: #171717; }
+    .subtitle { font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif; font-size: 15px; fill: #525252; }
+    .heading { font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif; font-size: 18px; font-weight: 600; fill: #171717; }
+    .body { font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif; font-size: 14px; fill: #525252; }
+    .formula { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 14px; fill: #c2410c; }
+    .note { font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif; font-size: 13px; fill: #78716c; }
+    .label { font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: #c2410c; }
+    .arrow { stroke: #a8a29e; stroke-width: 2.2; fill: none; stroke-linecap: round; }
+    .arrow-dashed { stroke: #c2410c; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-dasharray: 7 6; }
+  </style>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#a8a29e" />
+    </marker>
+    <marker id="arrow-accent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c2410c" />
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="600" rx="20" />
+
+  <text x="60" y="58" class="title">The minimal semantic pipeline</text>
+  <text x="60" y="88" class="subtitle">This is the most compact diagram that connects syntax, path-space semantics, free energy, and steering.</text>
+
+  <rect x="70" y="140" width="220" height="120" rx="16" class="panel" />
+  <text x="100" y="178" class="heading">Scaffold program</text>
+  <text x="100" y="208" class="body">sample, factor, tools,</text>
+  <text x="100" y="228" class="body">branching, decomposition</text>
+
+  <rect x="350" y="140" width="220" height="120" rx="16" class="panel" />
+  <text x="380" y="178" class="heading">Proposal kernel</text>
+  <text x="380" y="208" class="body">trace law induced by execution</text>
+  <text x="380" y="232" class="formula">q_D(tau|x)</text>
+
+  <rect x="630" y="140" width="220" height="120" rx="16" class="panel-accent" />
+  <text x="660" y="178" class="heading">Semantic target</text>
+  <text x="660" y="208" class="body">proposal reweighted by</text>
+  <text x="660" y="228" class="body">verifier potential</text>
+  <text x="660" y="252" class="formula">p_D(tau|x) ~ q_D(tau|x) Phi(tau,x)</text>
+
+  <rect x="910" y="126" width="240" height="148" rx="16" class="panel" />
+  <text x="940" y="164" class="heading">Backward value</text>
+  <text x="940" y="194" class="body">sum over future continuations</text>
+  <text x="940" y="222" class="formula">Z(s)=sum_(tau>s) q_D(tau|s) Phi(tau)</text>
+  <text x="940" y="248" class="formula">V(s)=log Z(s)</text>
+
+  <path class="arrow" d="M 290 200 H 338" marker-end="url(#arrow)" />
+  <path class="arrow" d="M 570 200 H 618" marker-end="url(#arrow)" />
+  <path class="arrow" d="M 850 200 H 898" marker-end="url(#arrow)" />
+
+  <text x="304" y="135" class="label">semantics functor</text>
+  <text x="580" y="135" class="label">reweight and normalize</text>
+  <text x="862" y="135" class="label">sum over futures</text>
+
+  <rect x="430" y="360" width="340" height="140" rx="18" class="panel-accent" />
+  <text x="460" y="402" class="heading">Steered local kernel</text>
+  <text x="460" y="432" class="body">exact if the state is Markovized and</text>
+  <text x="460" y="452" class="body">the backward message is known</text>
+  <text x="460" y="480" class="formula">pi(y|s)=q(y|s) h(s+y) / h(s)</text>
+
+  <path class="arrow-dashed" d="M 460 260 C 460 310, 500 330, 540 360" marker-end="url(#arrow-accent)" />
+  <path class="arrow-dashed" d="M 1030 274 C 1030 330, 860 340, 720 360" marker-end="url(#arrow-accent)" />
+
+  <text x="330" y="334" class="label">local proposal</text>
+  <text x="962" y="334" class="label">h(s)=Z(s)</text>
+
+  <text x="60" y="548" class="note">Exact semantics lives on the top row. The lower box turns the global target over traces into a local controlled kernel once the backward message has been computed or approximated.</text>
+</svg>

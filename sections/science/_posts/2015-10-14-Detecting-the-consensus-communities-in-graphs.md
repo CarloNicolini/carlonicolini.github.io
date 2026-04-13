@@ -1,10 +1,12 @@
 ---
 layout: post
 title: Detecting the consensus communities in graphs
-categories: science
+description: 'Detecting the consensus communities in graphs.'
 date: 2015-10-14
+categories:
+  - science
+  - complex-networks
 ---
-
 In these section we’ll address in depth an approach to making sense of
 the mesoscopic structure of a network by means of non-deterministic
 methods. We will take advantage of the methods of statistical physics

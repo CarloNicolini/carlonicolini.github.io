@@ -1,11 +1,13 @@
 ---
 layout: post
 title: The Enhanced weighted random graph model (EWRG)
-categories: science
+description: 'The Enhanced weighted random graph model (EWRG).'
 published: true
 date: 2017-05-12
+categories:
+  - science
+  - complex-networks
 ---
-
 The ensemble of maximally random weighted graphs with the constant average number of edges and total weight.
 
 Introduction

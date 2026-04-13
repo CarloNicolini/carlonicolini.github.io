@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Weighted graphs from adjacency matrix in graph-tool
-categories: science
+description: 'Weighted graphs from adjacency matrix in graph-tool.'
 published: true
 use_math: true
 date: 2018-09-12
-
+categories:
+  - science
+  - complex-networks
 ---
 I was playing a bit with networks in Python. In my daily life I typically work with adjacency matrices, rather than other sparse formats for networks.
 Adjacency matrix is pretty good for visualization of communities, as well as to give an idea of the distribution of edge weights.

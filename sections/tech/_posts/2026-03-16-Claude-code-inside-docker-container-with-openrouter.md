@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Running Claude Code via OpenRouter in Docker
+description: "Claude Code in Docker + OpenRouter; Debian-slim, keys at runtime."
 date: 2026-03-16
 categories: tech
 tags: [docker, claude-code, openrouter, python]

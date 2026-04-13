@@ -1,9 +1,9 @@
 ---
 title: Sampling 10 rows per groupb in PySpark
+description: 'Sampling 10 rows per groupb in PySpark.'
 date: 2021-10-15
 layout: post
 ---
-
 You need to use a window partition by and let the random number do the shuffle for you.
 
 

@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Community detection in the modular structure of brain functional connectivity networks
-categories: science
+description: 'Community detection in the modular structure of brain functional…'
 published: false
 date: 2017-02-12
---- 
-
+categories:
+  - science
+  - complex-networks
+---
 Complex networks theory offers a framework for the analysis of brain functional connectivity as measured by magnetic resonance imaging.
 Within this approach the brain is represented as a graph comprising nodes connected by links, with nodes corresponding to brain regions and the links to measures of inter-regional interaction.
 

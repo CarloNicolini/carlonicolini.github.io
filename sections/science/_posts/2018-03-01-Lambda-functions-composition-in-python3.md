@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Lambda functions composition in Python 3
-categories: science
+description: 'Lambda functions composition in Python 3.'
 published: true
 date: 2018-03-01
+categories:
+  - science
+  - statistical-learning
 ---
-
 Introduction
 ==============
 

@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Decision trees (CART) — a short tutorial
+description: 'Decision trees (CART) — a short tutorial.'
 date: 2020-10-19
 published: false
-categories: science
+categories:
+  - science
+  - statistical-learning
 ---
-
 Decision trees recursively split the feature space into axis-aligned regions and fit a simple predictor in each region. The same greedy template covers both **classification** and **regression**; in scikit-learn this family is implemented as `DecisionTreeClassifier` and `DecisionTreeRegressor` (CART-style, binary splits).
 
 ## Piecewise prediction on recursive partitions

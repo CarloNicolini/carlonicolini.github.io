@@ -188,7 +188,6 @@ GEM
       stringio
       time
       uri
-    pandoc-ruby (2.1.10)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     prism (1.9.0)
@@ -258,7 +257,6 @@ DEPENDENCIES
   jekyll-seo-tag
   jekyll-sitemap
   jemoji
-  pandoc-ruby
 
 BUNDLED WITH
    2.5.16

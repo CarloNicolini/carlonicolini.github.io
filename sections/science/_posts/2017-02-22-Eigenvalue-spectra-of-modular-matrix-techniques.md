@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Eigenvalue spectra of modular matrix techniques and calculations
-categories: science
+description: 'Eigenvalue spectra of modular matrix techniques and calculations.'
 published: true
 date: 2017-02-12
---- 
-
+categories:
+  - science
+  - complex-networks
+---
 # RANDOM NOTES ABOUT RANDOM GRAPHS AND EIGENVALUES, NOT TO BE TAKEN SERIOUSLY
 
 # 1

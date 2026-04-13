@@ -1,9 +1,12 @@
 ---
 layout: post
 title: Variational inference in Tensorflow in the spectral entropies framework
-categories: science
+description: 'Variational inference in Tensorflow in the spectral entropies framework.'
 published: false
 date: 2019-07-20
+categories:
+  - science
+  - complex-networks
 ---
 
 # Code

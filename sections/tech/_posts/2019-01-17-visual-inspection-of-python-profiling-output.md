@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Visual inspection of python profiler output with gprof2dot
+description: 'Visual inspection of python profiler output with gprof2dot.'
 date: 2019-01-17
 published: true
 categories: tech
 ---
-
 Ever wondered how to make a beatiful and powerful call graph from your python profiler?
 I have found that there is no need to install heavyweight tools like KCachegrind or even worse, buying expensive IDEs.
 The solution is simple.

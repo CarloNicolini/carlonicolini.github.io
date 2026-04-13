@@ -1,11 +1,13 @@
 ---
 layout: post
 title: Properties of the trace of a matrix
-categories: science
+description: 'Properties of the trace of a matrix.'
 published: false
 date: 2017-02-23
---- 
-
+categories:
+  - science
+  - statistical-learning
+---
 Here is a list of the properties of the trace of a matrix.
 
 The trace is a linear operator

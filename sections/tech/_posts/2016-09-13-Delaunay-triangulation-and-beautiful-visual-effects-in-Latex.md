@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Delaunay triangulation and beautiful visual effects in Latex
+description: 'Delaunay triangulation and beautiful visual effects in Latex.'
 categories: tech
 date: 2016-09-13
 ---

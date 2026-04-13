@@ -1,9 +1,9 @@
 ---
 title: Calculate a file hash in Python
+description: 'Calculate a file hash in Python.'
 layout: post
 date: 2023-01-14
 ---
-
 This code helps you calculating the SHA256 hash of a file in Python. This could be helpful for the disambiguation of different files.
 
 ```

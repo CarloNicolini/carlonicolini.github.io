@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Creating the How2 Function for Natural Language Bash Commands with LLM
+description: "Bash how2: natural language to shell commands via llm CLI."
 date: 2025-01-15
 categories: tech
 ---

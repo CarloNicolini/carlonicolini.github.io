@@ -1,13 +1,14 @@
 ---
 layout: post
 title: The Enhanced Weighted Random Graph Model with continuous weights
-categories: science
+description: 'The Enhanced Weighted Random Graph Model with continuous weights.'
 published: false
 use_math: true
 date: 2018-11-28
+categories:
+  - science
+  - complex-networks
 ---
-
-
 Introduction
 ------------
 

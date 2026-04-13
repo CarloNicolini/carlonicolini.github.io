@@ -1,12 +1,14 @@
 ---
 layout: post
 title: Smooth approximation to the floor function
-categories: science
+description: 'Smooth approximation to the floor function.'
 published: true
 use_math: true
 date: 2019-01-25
+categories:
+  - science
+  - statistical-learning
 ---
-
 I need to sample random numbers distributed according to the geometric distribution.
 Similarly to the Box-Muller transformation, which is a method to sample normally distributed random numbers based on a uniform random generator,
 I have found that any probability distribution admits *one-liners*, i.e. deterministic transformations of the uniform distribution that allow to sample random numbers for specific distributions.

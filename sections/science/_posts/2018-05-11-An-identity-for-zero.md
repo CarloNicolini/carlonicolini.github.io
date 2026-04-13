@@ -1,11 +1,13 @@
 ---
 layout: post
 title: An identity for zero
-categories: science
+description: 'An identity for zero.'
 published: true
 date: 2018-05-11
+categories:
+  - science
+  - statistical-learning
 ---
-
 This identity could result useful
 
 $$

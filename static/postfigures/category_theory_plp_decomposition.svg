@@ -1,0 +1,92 @@
+<svg viewBox="0 0 1200 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Decomposition as an operad-like structure</title>
+  <desc id="desc">A diagram showing one parent task decomposed into three child tasks, each yielding a child answer, and a compositor that maps the tuple of answers back to a parent answer. Side notes contrast AND-like and OR-like semantics.</desc>
+
+  <style>
+    .bg { fill: #fafaf9; }
+    .panel { fill: #ffffff; stroke: #e7e5e4; stroke-width: 2; }
+    .panel-accent { fill: #ffedd5; stroke: #c2410c; stroke-width: 2.2; }
+    .title { font-family: "Instrument Serif", Georgia, serif; font-size: 28px; fill: #171717; }
+    .subtitle { font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif; font-size: 15px; fill: #525252; }
+    .heading { font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif; font-size: 18px; font-weight: 600; fill: #171717; }
+    .body { font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif; font-size: 14px; fill: #525252; }
+    .formula { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; fill: #c2410c; }
+    .label { font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: #c2410c; }
+    .note { font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif; font-size: 13px; fill: #78716c; }
+    .arrow { stroke: #a8a29e; stroke-width: 2.1; fill: none; stroke-linecap: round; }
+    .dash { stroke: #c2410c; stroke-width: 2; fill: none; stroke-dasharray: 7 6; }
+  </style>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#a8a29e" />
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="620" rx="20" />
+
+  <text x="60" y="58" class="title">Why decomposition is operad-like</text>
+  <text x="60" y="88" class="subtitle">Ordinary arrows are one-input to one-output. Recursive scaffolds have a many-to-one shape: one parent task, several child tasks, one recomposed answer.</text>
+
+  <rect x="455" y="120" width="290" height="84" rx="16" class="panel-accent" />
+  <text x="490" y="154" class="heading">Parent task</text>
+  <text x="490" y="182" class="formula">x</text>
+
+  <circle cx="600" cy="250" r="24" fill="#ffffff" stroke="#c2410c" stroke-width="2.2" />
+  <text x="600" y="255" text-anchor="middle" class="label">dec</text>
+
+  <path class="arrow" d="M 600 204 V 218" marker-end="url(#arrow)" />
+
+  <rect x="160" y="300" width="230" height="84" rx="16" class="panel" />
+  <text x="195" y="334" class="heading">Child task 1</text>
+  <text x="195" y="362" class="formula">x1</text>
+
+  <rect x="485" y="300" width="230" height="84" rx="16" class="panel" />
+  <text x="520" y="334" class="heading">Child task 2</text>
+  <text x="520" y="362" class="formula">x2</text>
+
+  <rect x="810" y="300" width="230" height="84" rx="16" class="panel" />
+  <text x="845" y="334" class="heading">Child task 3</text>
+  <text x="845" y="362" class="formula">x3</text>
+
+  <path class="arrow" d="M 584 264 C 520 285, 395 300, 275 300" marker-end="url(#arrow)" />
+  <path class="arrow" d="M 600 274 V 288" marker-end="url(#arrow)" />
+  <path class="arrow" d="M 616 264 C 680 285, 805 300, 925 300" marker-end="url(#arrow)" />
+
+  <path class="dash" d="M 145 292 H 1055" />
+  <text x="600" y="286" text-anchor="middle" class="label">tuple of child tasks</text>
+
+  <rect x="180" y="430" width="190" height="66" rx="14" class="panel" />
+  <text x="210" y="458" class="heading">Child answer</text>
+  <text x="210" y="482" class="formula">y1</text>
+
+  <rect x="505" y="430" width="190" height="66" rx="14" class="panel" />
+  <text x="535" y="458" class="heading">Child answer</text>
+  <text x="535" y="482" class="formula">y2</text>
+
+  <rect x="830" y="430" width="190" height="66" rx="14" class="panel" />
+  <text x="860" y="458" class="heading">Child answer</text>
+  <text x="860" y="482" class="formula">y3</text>
+
+  <path class="arrow" d="M 275 384 V 418" marker-end="url(#arrow)" />
+  <path class="arrow" d="M 600 384 V 418" marker-end="url(#arrow)" />
+  <path class="arrow" d="M 925 384 V 418" marker-end="url(#arrow)" />
+
+  <rect x="415" y="518" width="370" height="72" rx="16" class="panel-accent" />
+  <text x="445" y="548" class="heading">Composer</text>
+  <text x="445" y="574" class="formula">Psi(y1, y2, y3) -&gt; y</text>
+
+  <path class="arrow" d="M 275 496 C 275 540, 360 554, 403 554" marker-end="url(#arrow)" />
+  <path class="arrow" d="M 600 496 V 506" marker-end="url(#arrow)" />
+  <path class="arrow" d="M 925 496 C 925 540, 840 554, 797 554" marker-end="url(#arrow)" />
+
+  <rect x="70" y="520" width="250" height="70" rx="14" class="panel" />
+  <text x="95" y="548" class="heading">AND-like semantics</text>
+  <text x="95" y="572" class="body">all essential children must succeed</text>
+
+  <rect x="880" y="520" width="250" height="70" rx="14" class="panel" />
+  <text x="905" y="548" class="heading">OR-like semantics</text>
+  <text x="905" y="572" class="body">one good child plus a selector may suffice</text>
+
+  <text x="60" y="606" class="note">This is the right place to use operad-like language. It is the wrong place to jump immediately to categorical products or coproducts without stronger assumptions.</text>
+</svg>

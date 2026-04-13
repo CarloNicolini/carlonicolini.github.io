@@ -1,13 +1,14 @@
 ---
 layout: post
 title: Einstein summation in Numpy
-categories: science
+description: 'Einstein summation in Numpy.'
 date: 2019-01-16
 published: true
 use_math: true
+categories:
+  - science
+  - statistical-learning
 ---
-
-
 Einstein summation is a convention in tensor algebra where repeated indices are implicitly summed.
 For example, imagine we have a matrix (a tensor of rank 2) $A_{i,j}$. To compute the trace, i.e. the sum of diagonal elements one has to compute
 
