@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Readings
-permalink: /sections/readings
+permalink: /sections/readings/
 ---
 
 <blockquote>

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Contacts
-permalink: /sections/concact
+permalink: /sections/concact/
 inheader: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Business idea and how to realize them
-permalink: /sections/biz
+permalink: /sections/biz/
 inheader: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Download area
-permalink: /sections/downloads
+permalink: /sections/downloads/
 ---
 
 # Code for community detection on networks

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Bio
-permalink: /sections/cv
+permalink: /sections/cv/
 ---
 
 - 2022-today Senior AI Researcher at Ipazia SpA, Milan, Italy.

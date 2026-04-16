@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Software
-permalink: /sections/software
+permalink: /sections/software/
 page_class: page--wide
 ---
 <p class="section-description">

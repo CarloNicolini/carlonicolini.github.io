@@ -1,7 +1,7 @@
 ---
 layout: page
 title: GraphInsight Python API
-permalink: /sections/GIAPI
+permalink: /sections/GIAPI/
 ---
 
 ## Visualization and control methods

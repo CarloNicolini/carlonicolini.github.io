@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Math problems
-permalink: /sections/quant
+permalink: /sections/quant/
 inheader: true
 ---
 

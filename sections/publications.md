@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Publications
-permalink: /sections/publications
+permalink: /sections/publications/
 page_class: page--wide
 ---
 <p class="section-description">
