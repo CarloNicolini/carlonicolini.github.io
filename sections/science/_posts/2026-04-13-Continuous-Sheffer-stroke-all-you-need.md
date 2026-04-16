@@ -5,6 +5,7 @@ date: 2026-04-13
 published: true
 categories:
   - science
+  - statistical-learning
 ---
 
 ## All elementary functions from a single operator

@@ -1,0 +1,63 @@
+@use "variables" as *;
+
+/* MyST-style ::: fences → <aside class="admonition admonition--type"> */
+
+.admonition {
+    margin: $spacing-unit * 1.6 0;
+    padding: $spacing-unit * 1.4 $spacing-unit * 1.6;
+    border-radius: 6px;
+    border: 1px solid $border-color;
+    border-left-width: 4px;
+    background-color: $card-bg;
+    font-size: $base-font-size;
+    line-height: 1.55;
+}
+
+.admonition > :first-child {
+    margin-top: 0;
+}
+
+.admonition > :last-child {
+    margin-bottom: 0;
+}
+
+.admonition-title {
+    font-family: $meta-font-family;
+    font-weight: 600;
+    font-size: $small-font-size;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: $text-muted;
+    margin-bottom: $spacing-unit * 0.8;
+}
+
+/* Default / neutral */
+.admonition--note,
+.admonition--abstract,
+.admonition--info {
+    border-left-color: $text-muted;
+}
+
+.admonition--tip,
+.admonition--hint,
+.admonition--success {
+    border-left-color: #15803d;
+    background-color: color-mix(in srgb, #15803d 6%, $card-bg);
+}
+
+.admonition--important {
+    border-left-color: $brand-color;
+    background-color: $orange-color-light;
+}
+
+.admonition--warning,
+.admonition--caution {
+    border-left-color: $orange-color-dark;
+    background-color: color-mix(in srgb, $orange-color-dark 8%, $card-bg);
+}
+
+.admonition--danger,
+.admonition--error {
+    border-left-color: #b91c1c;
+    background-color: color-mix(in srgb, #b91c1c 7%, $card-bg);
+}

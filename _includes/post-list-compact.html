@@ -1,0 +1,19 @@
+{% comment %}
+  Compact post index: one line per item (date + title).
+  Params:
+    - category: Jekyll category key (e.g. language-physics, tech)
+    - scope: optional — if set, only posts whose categories include this string (e.g. science)
+{% endcomment %}
+{% assign cat = include.category %}
+{% assign scope = include.scope %}
+<ul class="post-list post-list--compact">
+{% assign posts = site.categories[cat] | sort: 'date' | reverse %}
+{% for post in posts %}
+  {% if scope == nil or post.categories contains scope %}
+  <li>
+    <time class="post-list--compact__date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+    <a class="post-list--compact__link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+  </li>
+  {% endif %}
+{% endfor %}
+</ul>

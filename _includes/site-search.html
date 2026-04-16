@@ -1,0 +1,62 @@
+<script>
+(function () {
+  var input = document.getElementById('site-search-input');
+  var out = document.getElementById('site-search-results');
+  var countEl = document.getElementById('site-search-count');
+  if (!input || !out || !countEl) return;
+
+  var dataUrl = {{ '/search.json' | relative_url | jsonify }};
+  var posts = null;
+
+  function norm(s) {
+    return (s || '').toString().toLowerCase();
+  }
+
+  function row(p) {
+    var li = document.createElement('li');
+    var t = document.createElement('time');
+    t.className = 'post-list--compact__date';
+    t.setAttribute('datetime', p.date);
+    t.textContent = p.date;
+    var a = document.createElement('a');
+    a.className = 'post-list--compact__link';
+    a.href = p.url;
+    a.textContent = p.title;
+    li.appendChild(t);
+    li.appendChild(a);
+    return li;
+  }
+
+  function run(q) {
+    if (!posts) return;
+    var n = norm(q).trim();
+    out.innerHTML = '';
+    if (!n) {
+      out.hidden = true;
+      countEl.textContent = '';
+      return;
+    }
+    var hits = [];
+    for (var i = 0; i < posts.length; i++) {
+      var p = posts[i];
+      var hay = norm(p.title) + ' ' + norm(p.excerpt) + ' ' + norm((p.categories || []).join(' ')) + ' ' + norm((p.tags || []).join(' '));
+      if (hay.indexOf(n) !== -1) hits.push(p);
+    }
+    hits.forEach(function (p) { out.appendChild(row(p)); });
+    out.hidden = hits.length === 0;
+    countEl.textContent = hits.length ? hits.length + ' match' + (hits.length === 1 ? '' : 'es') : 'No matches';
+  }
+
+  fetch(dataUrl)
+    .then(function (r) { return r.json(); })
+    .then(function (j) {
+      posts = j;
+      countEl.textContent = posts.length + ' posts indexed';
+    })
+    .catch(function () {
+      countEl.textContent = 'Could not load search index.';
+    });
+
+  input.addEventListener('input', function () { run(input.value); });
+})();
+</script>
