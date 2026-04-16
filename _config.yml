@@ -5,7 +5,7 @@ author:
 email: "c.nicolini@ipazia.com"
 description: "Personal blog about artificial intelligence, coding, statistical physics, network theory and science in general"
 logo: "/static/img/foto_nicolini.jpeg"
-baseurl: "" 
+baseurl: ""
 url: "https://carlonicolini.github.io"
 github_username:  carlonicolini
 google-analytics: UA-90756713-1
@@ -49,6 +49,18 @@ defaults:
       path: "sections/science/_posts"
     values:
       permalink: "/sections/science/:year/:month/:day/:title:output_ext"
+
+scholar:
+  style: apa
+  locale: en
+  sort_by: none
+  order: ascending
+  group_by: none
+  bibliography_list_tag: ul
+  bibliography_item_tag: li
+  bibliography: bibliography.bib
+  bibliography_dir: '_bibliography'
+  analytics_id: ~
   
 social:
   name: Carlo Nicolini
