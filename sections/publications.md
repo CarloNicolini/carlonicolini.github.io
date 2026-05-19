@@ -8,7 +8,7 @@ page_class: page--wide
   Here is a short list of some of my major publications. From 2020 onward I moved from neuroscience to artificial intelligence.
 </p>
 
-<div class="publication-list">
+<div class="publication-list" markdown="0">
   {% for pub in site.data.publications %}
   {% assign pub_link = pub.url | default: pub.pdf %}
   <article class="publication-item">

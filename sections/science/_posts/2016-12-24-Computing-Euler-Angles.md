@@ -6,6 +6,8 @@ date: 2016-12-24
 categories:
   - science
   - statistical-learning
+published: true
+
 ---
 Computing Euler angles from a rotation matrix is straightforward once you set a convention. Indeed is possible to compute an entire different set of angles that defines a rotation when you change axis. In this case I use the aeronautical notation, with pitch, yaw and roll as a plane taking off.
 

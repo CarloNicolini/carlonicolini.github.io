@@ -18,7 +18,7 @@ The package is available in its source code form at my [github account](https://
 This toolbox is among the first implementations of the spectral entropy framework. It entails both computation of the density matrices, as well as number of methods of model fitting methods.
 
 This guide can help you start working with networkqit.
-In this first tutorial we show how to compute the spectral entropy of a small graph over a large range of $\beta$
+In this first tutorial we show how to compute the spectral entropy of a small graph over a large range of $$\beta$$
 parameter.
 
 ![](https://raw.githubusercontent.com/CarloNicolini/networkqit/master/doc/images/animation_ising_batchsize_128_eta1E-3_refresh_10_maxiter_5000_beta_5E-1.gif)<!-- -->
@@ -74,7 +74,7 @@ Networkqit can also work with network model fitting. The utilities to define mod
 
 The following lines describe an example of optimization of the expected Laplacian model.
 We first create the object ErdosRenyi that describes the expected Laplacian, adjacency and Laplacian gradient with
-respect to the only continuous parameters $p$.
+respect to the only continuous parameters $$p$$.
 
 ```python
 import networkx as nx

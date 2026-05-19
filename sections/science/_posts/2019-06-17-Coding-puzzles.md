@@ -62,7 +62,7 @@ print(third_largest_element(a))
 {% endhighlight %}
 
 The logic here is that the third, second and first largest value are shifting up in the hierarchy, during the loop iteration.
-Any other problem involving the $n$-th largest or smallest element can be solved with this method.
+Any other problem involving the $$n$$-th largest or smallest element can be solved with this method.
 
 # 3. Find duplicate characters in a given string
 Objective: Given a string, write an algorithm to find all the duplicate characters in the string and print its count.

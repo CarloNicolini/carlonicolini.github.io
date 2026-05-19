@@ -51,7 +51,7 @@ It's pretty usual to have an estimator consistent but unbiased, as we don't ofte
 
 #### [Unbiasedness vs consistency of estimators - an example](https://www.youtube.com/watch?v=6i7mqDJICzQ&index=9&list=PLwJRxp3blEvZyQBTTOMFRP_TDaSdly3gU)
 
-As an example let's take a population with mean $\mu$ that we want to estimate with just a sample from the population.
+As an example let's take a population with mean $$\mu$$ that we want to estimate with just a sample from the population.
 Use some statistic tool to make some guess about the parameters.
 
 Let's say that

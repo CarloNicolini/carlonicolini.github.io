@@ -4,6 +4,8 @@ title: Unlocking the Power of DeepSeek R1 via HuggingFace's TogetherAI
 description: "DeepSeek R1 from the CLI via Together AI and Hugging Face."
 date: 2025-01-30
 categories: tech
+published: true
+
 ---
 
 In the evolving landscape of artificial intelligence, the ability to interact with intelligent APIs has become a fundamental requirement for developers and organizations alike. Today, we explore how to harness the capabilities of the DeepSeek R1 model from HuggingFace through the TogetherAI service, highlighting its practical applications and utility.

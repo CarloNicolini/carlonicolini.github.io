@@ -1,6 +1,8 @@
 ---
 description: '2021-05-18-Plotly-and-JupyterLab.'
 date: 2021-05-18
+published: true
+
 ---
 If you have problems with empty plotly output in jupyterlab remember that you need these packages:
 

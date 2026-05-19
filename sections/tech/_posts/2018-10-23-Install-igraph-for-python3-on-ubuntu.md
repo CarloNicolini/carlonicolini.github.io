@@ -3,7 +3,9 @@ layout: post
 title: Install latest igraph 0.7.1 for Python3 on Ubuntu
 description: 'Install latest igraph 0.7.1 for Python3 on Ubuntu.'
 categories: tech
-date: 2018-07-10
+date: 2018-10-23
+published: true
+
 ---
 If you choose to use the igraph library with Python 2, it’s a cakewalk to get it running on a fresh install of Ubuntu 16.04:
 

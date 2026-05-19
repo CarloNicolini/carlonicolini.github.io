@@ -8,7 +8,7 @@ page_class: page--wide
   Here is a list of ready-to-use software that I have developed over the course of these last years, both as scientific programmer, as PhD student and now as postdoc.
 </p>
 
-<div class="software-list">
+<div class="software-list" markdown="0">
   {% for code in site.data.software %}
   {% assign code_link = code.url | default: code.documentation | default: code.github %}
   <article class="software-item">

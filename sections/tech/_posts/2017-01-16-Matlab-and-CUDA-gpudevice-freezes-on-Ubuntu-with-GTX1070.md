@@ -4,6 +4,8 @@ title: Matlab and CUDA gpudevice freezes on Ubuntu 14.04 with GTX 1070
 description: 'Matlab and CUDA gpudevice freezes on Ubuntu 14.04 with GTX 1070.'
 categories: tech
 date: 2017-01-16
+published: true
+
 ---
 In Ubuntu 14.04 with MATLAB R2016b it may happen that after an installation of CUDA8 and NVidia drivers 367, the calls to specific CUDA functions such as `gpudevice` or `gpuArray` are very slow the first time you call them.
 This is because MATLAB R2016b it's not built against the latest CUDA drivers so fat binaries have to be built once.

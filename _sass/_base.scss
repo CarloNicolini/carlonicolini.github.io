@@ -74,8 +74,15 @@ img {
 /**
  * Figures
  */
-figure > img {
+figure > img,
+figure > p > img {
     display: block;
+}
+
+/* With kramdown parse_block_html, a lone <img> inside <figure> is wrapped in <p>.
+   Remove the paragraph’s vertical margins so layout matches figure > img. */
+figure > p {
+    margin: 0;
 }
 
 figcaption,

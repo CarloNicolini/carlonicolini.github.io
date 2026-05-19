@@ -27,24 +27,24 @@ A first attempt to make this idea more concrete is based on the calculation of t
 ### Cramer V statistics
 Taken from [Wikipedia](https://en.wikipedia.org/wiki/Cram%C3%A9r%27s_V)
 
-$\phi_c$ is the intercorrelation of two discrete variables and may be used with variables having two or more levels.
+$$\phi_c$$ is the intercorrelation of two discrete variables and may be used with variables having two or more levels.
 
-$\phi_c$ is a symmetrical measure, it does not matter which variable we place in the columns and which in the rows.
-Also, the order of rows/columns doesn't matter, so $\phi_c$ may be used with nominal data types or higher (notably ordered or numerical).
+$$\phi_c$$ is a symmetrical measure, it does not matter which variable we place in the columns and which in the rows.
+Also, the order of rows/columns doesn't matter, so $$\phi_c$$ may be used with nominal data types or higher (notably ordered or numerical).
 
-Cramér's V may also be applied to goodness of fit chi-squared models when there is a $1 \times k$ table (in this case $r = 1$).
-In this case $k$ is taken as the number of optional outcomes and it functions as a measure of tendency towards a single outcome.
+Cramér's V may also be applied to goodness of fit chi-squared models when there is a $$1 \times k$$ table (in this case $$r = 1$$).
+In this case $$k$$ is taken as the number of optional outcomes and it functions as a measure of tendency towards a single outcome.
 
 Cramér's V varies from $0$ (corresponding to no association between the variables) to $1$ (complete association) and can reach $1$ only when each variable is completely determined by the other.
 
-$\phi_c^2$ is the mean square canonical correlation between the variables.
+$$\phi_c^2$$ is the mean square canonical correlation between the variables.
 
-In the case of a $2 \times 2$ contingency table Cramér's V is equal to the Phi coefficient.
+In the case of a $$2 \times 2$$ contingency table Cramér's V is equal to the Phi coefficient.
 
-Note that as chi-squared values tend to increase with the number of cells, the greater the difference between r (rows) and c (columns), the more likely $\phi_c$ will tend to 1 without strong evidence of a meaningful correlation.
+Note that as chi-squared values tend to increase with the number of cells, the greater the difference between r (rows) and c (columns), the more likely $$\phi_c$$ will tend to 1 without strong evidence of a meaningful correlation.
 
 $V$ may be viewed as the association between two variables as a percentage of their maximum possible variation. 
-$V^2$ is the mean square canonical correlation between the variables.
+$$V^2$$ is the mean square canonical correlation between the variables.
 
 
 {%highlight python%}

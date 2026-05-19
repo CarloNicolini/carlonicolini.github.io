@@ -13,8 +13,6 @@ categories:
 
 For a long time, something about portfolio optimization just didn't sit right with me.
 
-When I started building `skfolio`, I was primarily focused on bringing classical, batch optimization methods—like Markowitz mean-variance and Black-Litterman—into the familiar `scikit-learn` ecosystem. And don't get me wrong, those tools are incredibly powerful. But for months, I found myself increasingly frustrated by a fundamental mismatch between the math and reality.
-
 In the batch paradigm, we take a historical window of returns, estimate expected returns and covariance matrices, and optimize our weights as if the market were a static dataset. Sometimes we even throw in assumptions about Gaussian returns for good measure. But anyone who has traded knows that financial markets are fundamentally sequential. Prices arrive day by day, tick by tick. We are forced to make allocation decisions on the fly, without knowing the future, and certainly without knowing whether the underlying distribution will behave the way our historical window suggests.
 
 I wanted to find a framework that actually respected the sequential nature of the market.
@@ -36,7 +34,7 @@ Then, I stumbled upon two foundational texts that completely rewired my thinking
 
 I realized I didn't need to model the market probabilistically at all. What if we abandoned the assumptions about expected risk and return, and instead framed the problem as a repeated game against an *adversary*?
 
-In this mindset, at each time step $t$, we choose a portfolio $\mathbf{w}_t$ from the probability simplex $\Delta_d$. The market (the adversary) then reveals the relative price vector $\mathbf{x}_t$, and we suffer a loss:
+In this mindset, at each time step $$t$$, we choose a portfolio $$\mathbf{w}_t$$ from the probability simplex $$\Delta_d$$. The market (the adversary) then reveals the relative price vector $$\mathbf{x}_t$$, and we suffer a loss:
 
 $$
 f_t(\mathbf{w}_t) = -\log(\mathbf{w}_t^\top \mathbf{x}_t)
@@ -66,7 +64,7 @@ Here is a summary of some of the analytical gradients I implemented to make the 
 
 <table style="font-size:0.75em; width:100%; border-collapse: collapse;">
   <caption>
-    <strong>Notation:</strong> $\mathbf{w}$ = portfolio weights, $\mathbf{r}_t$ = asset returns at time $t$, $T$ = number of periods, $\Sigma$ = covariance matrix, $\mu$ = target/mean return, $\pi$ = permutation sorting portfolio returns $\mathbf{w}^\top\mathbf{r}_t$ in ascending order, $\omega_k$ = OWA weights, $k = (1-\beta)T$ with $\beta$ = confidence level, $\theta$ = temperature parameter, $p_t$ = entropic probabilities.
+    <strong>Notation:</strong> $\mathbf{w}$$ = portfolio weights, $$\mathbf{r}_t$$ = asset returns at time $$t$$, $$T$$ = number of periods, $$\Sigma$$ = covariance matrix, $$\mu$$ = target/mean return, $$\pi$$ = permutation sorting portfolio returns $$\mathbf{w}^\top\mathbf{r}_t$$ in ascending order, $$\omega_k$$ = OWA weights, $$k = (1-\beta)T$$ with $$\beta$$ = confidence level, $$\theta$$ = temperature parameter, $$p_t$ = entropic probabilities.
   </caption>
   <thead>
     <tr style="border-top: 2px solid #444; border-bottom: 2px solid #444;">
@@ -78,7 +76,7 @@ Here is a summary of some of the analytical gradients I implemented to make the 
   <tbody>
     <tr style="border-top:1px solid #ddd; border-bottom:1px solid #ddd;">
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;"><strong>Log-Wealth</strong></td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$-\log(1 + \mathbf{w}^\top \mathbf{r}_t)$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$$-\log(1 + \mathbf{w}^\top \mathbf{r}_t)$$</td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$\frac{-\mathbf{r}_t}{1 + \mathbf{w}^\top \mathbf{r}_t}$</td>
     </tr>
     <tr style="border-bottom:1px solid #ddd;">
@@ -88,33 +86,33 @@ Here is a summary of some of the analytical gradients I implemented to make the 
     </tr>
     <tr style="border-bottom:1px solid #ddd;">
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;"><strong>Semi-Variance</strong></td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$\frac{1}{T-1} \sum_{\mathbf{r}_t^\top \mathbf{w} < \mu} (\mu - \mathbf{r}_t^\top \mathbf{w})^2$</td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$\frac{2}{T-1} \sum_{\mathbf{r}_t^\top \mathbf{w} < \mu} (\mathbf{r}_t^\top \mathbf{w} - \mu)$<br>$\times (\mathbf{r}_t - \nabla\mu)$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$$\frac{1}{T-1} \sum_{\mathbf{r}_t^\top \mathbf{w} < \mu} (\mu - \mathbf{r}_t^\top \mathbf{w})^2$$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$$\frac{2}{T-1} \sum_{\mathbf{r}_t^\top \mathbf{w} < \mu} (\mathbf{r}_t^\top \mathbf{w} - \mu)$$<br>$$\times (\mathbf{r}_t - \nabla\mu)$$</td>
     </tr>
     <tr style="border-bottom:1px solid #ddd;">
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;"><strong>Mean Absolute Deviation</strong></td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$\frac{1}{T} \sum_{t=1}^T |\mathbf{r}_t^\top \mathbf{w} - \mu|$</td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$\frac{1}{T} \sum_{t=1}^T \text{sign}(\mathbf{r}_t^\top \mathbf{w} - \mu)$<br>$\times (\mathbf{r}_t - \nabla\mu)$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$$\frac{1}{T} \sum_{t=1}^T |\mathbf{r}_t^\top \mathbf{w} - \mu|$$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$$\frac{1}{T} \sum_{t=1}^T \text{sign}(\mathbf{r}_t^\top \mathbf{w} - \mu)$$<br>$$\times (\mathbf{r}_t - \nabla\mu)$$</td>
     </tr>
     <tr style="border-bottom:1px solid #ddd;">
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;"><strong>Worst Realization</strong></td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$-\min_t (\mathbf{r}_t^\top \mathbf{w})$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$$-\min_t (\mathbf{r}_t^\top \mathbf{w})$$</td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$-\mathbf{r}_{\text{worst}}$</td>
     </tr>
     <tr style="border-bottom:1px solid #ddd;">
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;"><strong>Gini Mean Difference</strong></td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$\sum_{t=1}^T \omega_{\pi(t)} (\mathbf{r}_t^\top \mathbf{w})$</td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$\sum_{t=1}^T \omega_{\pi(t)} \mathbf{r}_t$ <br><small>(where $\pi$ is sort permutation, $\omega_k$ are OWA weights)</small></td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$$\sum_{t=1}^T \omega_{\pi(t)} (\mathbf{r}_t^\top \mathbf{w})$$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$$\sum_{t=1}^T \omega_{\pi(t)} \mathbf{r}_t$$ <br><small>(where $$\pi$$ is sort permutation, $$\omega_k$$ are OWA weights)</small></td>
     </tr>
     <tr style="border-bottom:1px solid #ddd;">
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;"><strong>CVaR (Conditional Value at Risk)</strong></td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$-\frac{1}{k}\sum_{t=1}^{\lfloor k \rfloor} \mathbf{w}^\top\mathbf{r}_{\pi(t)}$<br>$+ \mathbf{w}^\top\mathbf{r}_{\pi(\lceil k \rceil)}\big(\frac{\lceil k \rceil}{k} - 1\big)$</td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$-\frac{1}{k}\sum_{t=1}^{\lfloor k \rfloor} \mathbf{r}_{\pi(t)}$<br>$+ \mathbf{r}_{\pi(\lceil k \rceil)}\big(\frac{\lceil k \rceil}{k} - 1\big)$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$-\frac{1}{k}\sum_{t=1}^{\lfloor k \rfloor} \mathbf{w}^\top\mathbf{r}_{\pi(t)}$$<br>$$+ \mathbf{w}^\top\mathbf{r}_{\pi(\lceil k \rceil)}\big(\frac{\lceil k \rceil}{k} - 1\big)$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$-\frac{1}{k}\sum_{t=1}^{\lfloor k \rfloor} \mathbf{r}_{\pi(t)}$$<br>$$+ \mathbf{r}_{\pi(\lceil k \rceil)}\big(\frac{\lceil k \rceil}{k} - 1\big)$</td>
     </tr>
     <tr style="border-bottom:2px solid #444;">
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;"><strong>EVaR (Entropic Value at Risk)</strong></td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$\inf_{\theta > 0} \Big\{ \theta \log \Big( \frac{1}{(1-\beta)T}$<br>$\times \sum_{t=1}^T \exp\big(\frac{-\mathbf{r}_t^\top \mathbf{w}}{\theta}\big) \Big) \Big\}$</td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$-\sum_{t=1}^T p_t \mathbf{r}_t$ <br><small>(where $p_t \propto \exp(-\theta^* \mathbf{r}_t^\top \mathbf{w})$)</small></td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$\inf_{\theta > 0} \Big\{ \theta \log \Big( \frac{1}{(1-\beta)T}$$<br>$$\times \sum_{t=1}^T \exp\big(\frac{-\mathbf{r}_t^\top \mathbf{w}}{\theta}\big) \Big) \Big\}$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$$-\sum_{t=1}^T p_t \mathbf{r}_t$$ <br><small>(where $$p_t \propto \exp(-\theta^* \mathbf{r}_t^\top \mathbf{w})$$)</small></td>
     </tr>
   </tbody>
 </table>
@@ -145,25 +143,25 @@ $$
 \mathbf{w}_{t+1} = \textrm{argmin}_{\mathbf{w} \in \Delta_d}  \left\{ \eta_t \sum_{s=1}^t \langle \mathbf{g}_s, \mathbf{w} \rangle + \psi(\mathbf{w}) \right\}
 $$
 
-Where $\mathbf{g}_s$ is the gradient of our instantaneous objective, and $\psi(\mathbf{w})$ is a strictly convex regularizer that defines our mirror map geometry.
+Where $$\mathbf{g}_s$$ is the gradient of our instantaneous objective, and $$\psi(\mathbf{w})$$ is a strictly convex regularizer that defines our mirror map geometry.
 
-If I wanted to change how the weights were updated, I didn't need to rewrite the trading logic. I just needed to swap out the regularizer $\psi$.
+If I wanted to change how the weights were updated, I didn't need to rewrite the trading logic. I just needed to swap out the regularizer $$\psi$$.
 
 ### The interplay of mirror maps
 
 This modularity allowed me to experiment with how different geometries affect portfolio learning. The choice of the mirror map fundamentally changes the algorithm's behavior on the simplex.
 
-For instance, using a standard Euclidean mirror map ($\psi(\mathbf{w}) = \frac{1}{2}\|\mathbf{w}\|_2^2$) gives us online gradient descent (OGD). But on the portfolio simplex, Euclidean geometry can be overly aggressive and often unsuited, as it doesn't naturally respect the multiplicative nature of wealth.
+For instance, using a standard Euclidean mirror map ($$\psi(\mathbf{w}) = \frac{1}{2}\|\mathbf{w}\|_2^2$$) gives us online gradient descent (OGD). But on the portfolio simplex, Euclidean geometry can be overly aggressive and often unsuited, as it doesn't naturally respect the multiplicative nature of wealth.
 
-Swap that for an entropic mirror map (the negative entropy function $\psi(\mathbf{w}) = \sum_i w_i \log w_i$), and the `FirstOrderOCO` engine instantly becomes the famous exponentiated gradient (EG) algorithm {% cite helmbold1998line %}.
-The updates become elegantly multiplicative, naturally avoiding negative weights so that with a learning rate $\eta_t$ and the current gradients $\mathbf{g}_t$, one has the update rule:
+Swap that for an entropic mirror map (the negative entropy function $$\psi(\mathbf{w}) = \sum_i w_i \log w_i$$), and the `FirstOrderOCO` engine instantly becomes the famous exponentiated gradient (EG) algorithm {% cite helmbold1998line %}.
+The updates become elegantly multiplicative, naturally avoiding negative weights so that with a learning rate $$\eta_t$$ and the current gradients $$\mathbf{g}_t$$, one has the update rule:
 
 $$
 w_{t+1,i} \propto \exp\!\left(-\eta_t \sum_{s=1}^t g_{s,i}\right)
 $$
 
 Even more fascinating was implementing the Burg entropy mirror map (used in the PROD or Soft-Bayes algorithm {% cite orseau2017soft %}).
-Because its regularizer acts as a log-barrier ($\psi(\mathbf{w}) = -\sum_i \log w_i$), it naturally prevents any single asset's weight from collapsing to zero. In my empirical tests, this made the algorithm uniquely robust to large learning rates without suffering from catastrophic over-concentration.
+Because its regularizer acts as a log-barrier ($$\psi(\mathbf{w}) = -\sum_i \log w_i$$), it naturally prevents any single asset's weight from collapsing to zero. In my empirical tests, this made the algorithm uniquely robust to large learning rates without suffering from catastrophic over-concentration.
 
 <figure>
 <img src="/static/postfigures/skfolio_online_mirror_maps.svg" alt="online_mirror_maps" style="width:100%; display:block; margin: 0 auto; margin-bottom: 0.5em;">
@@ -172,7 +170,7 @@ Because its regularizer acts as a log-barrier ($\psi(\mathbf{w}) = -\sum_i \log 
 </figcaption>
 </figure>
 
-In this table I present some of the most important mirror maps $\psi$ that I've developed in the [`skfolio.optimization.online._mirror_maps`]():
+In this table I present some of the most important mirror maps $$\psi$$ that I've developed in the [`skfolio.optimization.online._mirror_maps`]():
 <table style="font-size:0.90em; width:100%; border-collapse: collapse;">
   <caption style="caption-side: bottom; padding-top: 8px; font-size:0.95em; color:#444;">
     <strong>Table:</strong> Key mirror maps and their associated regularizers used in online convex optimization algorithms for portfolio selection in <code>skfolio</code>. Each row summarizes a representative algorithm, its mirror map and induced geometric structure.
@@ -180,7 +178,7 @@ In this table I present some of the most important mirror maps $\psi$ that I've 
   <thead>
     <tr style="border-top: 2px solid #444; border-bottom: 2px solid #444;">
       <th style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">Algorithm</th>
-      <th style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">Regularizer $\psi(w)$</th>
+      <th style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">Regularizer $$\psi(w)$$</th>
       <th style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">Mirror Map</th>
       <th style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">Geometry</th>
     </tr>
@@ -188,25 +186,25 @@ In this table I present some of the most important mirror maps $\psi$ that I've 
   <tbody>
     <tr style="border-top:1px solid #ddd; border-bottom:1px solid #ddd;">
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;"><strong>EG</strong> (Exponentiated Gradient)</td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">$\sum_i w_i \log w_i$ (neg-entropy)</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">$$\sum_i w_i \log w_i$$ (neg-entropy)</td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">Softmax</td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">Multiplicative</td>
     </tr>
     <tr style="border-bottom:1px solid #ddd;">
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;"><strong>OGD</strong> (Online Gradient Descent)</td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">$\frac{1}{2}w_2^2$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">$$\frac{1}{2}w_2^2$$</td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">Identity</td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">Euclidean</td>
     </tr>
     <tr style="border-bottom:1px solid #ddd;">
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;"><strong>PROD</strong> (Soft-Bayes)</td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">$-\sum_i \log w_i$<br> (Burg entropy)</td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">$w_i \mapsto -1/w_i$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">$$-\sum_i \log w_i$$<br> (Burg entropy)</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">$$w_i \mapsto -1/w_i$$</td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">Log-barrier</td>
     </tr>
     <tr style="border-bottom:1px solid #ddd;">
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;"><strong>AdaGrad</strong></td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">$\frac{1}{2} w^\top H_t w$, $H_t = \text{diag}(\sqrt{\sum_s g_s^2})$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">$$\frac{1}{2} w^\top H_t w$$, $$H_t = \text{diag}(\sqrt{\sum_s g_s^2})$$</td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">Adaptive diagonal</td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">Data-dependent</td>
     </tr>
@@ -281,7 +279,7 @@ When I tested follow-the-winner (**FTW**) methods like exponentiated gradient ag
 The FTW methods were practically indistinguishable from a naïve uniform constant rebalanced portfolio (holding an equal weight of all assets).
 
 The gradients were simply too small—what I call the "vanishing gradient exponent".
-Because typical daily equity returns are tiny (often around $\bar{r} \sim 10^{-4}$), I proved that under the regret-optimal learning rate schedule, the maximum weight deviation from a uniform $1/d$ portfolio after $T$ days is:
+Because typical daily equity returns are tiny (often around $\bar{r} \sim 10^{-4}$$), I proved that under the regret-optimal learning rate schedule, the maximum weight deviation from a uniform $$1/d$$ portfolio after $$T$ days is:
 
 $$
 \max_i |w_{T,i} - 1/d| \approx \frac{\sqrt{T \log d}}{d} \cdot |\bar{r}|_\infty \approx \mathcal{O}(10^{-2})
@@ -298,7 +296,7 @@ $$
 This forces the portfolio away from recent winners. At the daily level, FTL methods completely dominated.
 
 But then, I changed the rebalancing frequency to *monthly*. Suddenly, the roles reversed entirely. 
-Because returns aggregate multiplicatively, I derived a $\sqrt{\Delta}$ scaling law for the FTW gradient exponent, where $\Delta$ is the rebalancing period in days. At a monthly horizon ($\Delta=21$), the maximum weight deviation grows proportionally:
+Because returns aggregate multiplicatively, I derived a $\sqrt{\Delta}$$ scaling law for the FTW gradient exponent, where $$\Delta$$ is the rebalancing period in days. At a monthly horizon ($$\Delta=21$), the maximum weight deviation grows proportionally:
 
 $$
 \max_i |w_{T,i} - 1/d| \propto \sqrt{\Delta}

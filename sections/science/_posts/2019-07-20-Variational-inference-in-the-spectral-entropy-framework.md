@@ -121,7 +121,7 @@ with tf.Session() as sess:
     ax[0].set_xlabel('Iteration')
     for i,b in enumerate(beta_range):
         ax[1].plot(np.linspace(i*nepochs,(i+1)*nepochs,nepochs),all_deltaM[i*nepochs:(i+1)*nepochs])
-    ax[1].set_title('$\\Delta m$')
+    ax[1].set_title('$$\\Delta m$$')
     ax[1].set_xlabel('Iteration')
     
 {% endhighlight %}

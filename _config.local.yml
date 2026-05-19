@@ -13,6 +13,7 @@ markdown: kramdown
 kramdown:
   auto_ids: true
   toc_levels: 1..6
+  parse_block_html: true
 keep_files: [MathJax]
 enable_disqus: true
 plugins:

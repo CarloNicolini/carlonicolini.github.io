@@ -23,17 +23,17 @@ A sequential miner does not answer from a single monolithic law.
 It first identifies frequent individual items, uses them as prefixes, and then reshapes the remaining search space by projecting the database relative to each prefix.
 
 To make the rest precise, let us start from the basic sequential objects.
-Fix a sequence database $\mathcal{D}$, an alphabet of items $\Sigma$, and a minimum support threshold $\theta$.
-A sequence is defined as an ordered list of itemsets $s = \langle e_1, e_2, \ldots, e_n \rangle$, where each $e_i \subseteq \Sigma$.
-The semantic target is to find all frequent subsequences $\alpha$, such that
+Fix a sequence database $\mathcal{D}$$, an alphabet of items $$\Sigma$$, and a minimum support threshold $$\theta$.
+A sequence is defined as an ordered list of itemsets $$s = \langle e_1, e_2, \ldots, e_n \rangle$$, where each $$e_i \subseteq \Sigma$$.
+The semantic target is to find all frequent subsequences $$\alpha$$, such that
 
 \begin{equation}
 \mathrm{supp}(\alpha, \mathcal{D}) = \sum_{s \in \mathcal{D}} \mathbf{1}\{\alpha \sqsubseteq s\} \ge \theta.
 \end{equation}
 
-where $\alpha \sqsubseteq s$ denotes that $\alpha$ is a subsequence of $s$.
+where $$\alpha \sqsubseteq s$$ denotes that $$\alpha$$ is a subsequence of $$s$$.
 
-Now we define the $\alpha$-projected database:
+Now we define the $$\alpha$$-projected database:
 
 \begin{equation}
 \mathcal{D}_\alpha := \{ s' \mid s \in \mathcal{D}, s = \alpha \cdot s' \}.
@@ -50,7 +50,7 @@ $$
 This is exactly the divide-and-conquer form that makes PrefixSpan so efficient.
 
 So the projected database is not merely a "filtered" version of the original database.
-It is the exact conditional distribution of suffixes, given the prefix $\alpha$.
+It is the exact conditional distribution of suffixes, given the prefix $$\alpha$$.
 And the recursive search is not merely a heuristic.
 It is an exhaustive traversal of the suffix space.
 
@@ -107,7 +107,7 @@ The tree data structure provides a clear, hierarchical view of the prefixes and 
 <figure>
   <img src="/static/postfigures/local_decision.svg" alt="Local prefix plus continuation frequency" style="width:70%; display:block; margin: 0 auto; margin-bottom: 0.5em;"/>
   <figcaption>
-    <strong>Figure 1.</strong> A local prefix only becomes meaningful once it is augmented by the frequency of its downstream subtree. The practical role of visualization is to estimate that future sequence mass better than a flat list can.
+<strong>Figure 1.</strong> A local prefix only becomes meaningful once it is augmented by the frequency of its downstream subtree. The practical role of visualization is to estimate that future sequence mass better than a flat list can.
   </figcaption>
 </figure>
 

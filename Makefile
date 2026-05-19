@@ -6,7 +6,15 @@ JEKYLL := bundle exec jekyll
 # Avoid collisions when another Jekyll (or tool) already uses the default LiveReload port (35729).
 LIVERELOAD_PORT := 35742
 
-.PHONY: install serve build clean
+.PHONY: install serve build clean lint
+
+# Knowledge-base lint (sections/); agent-friendly diagnostics
+lint:
+	uv run --with pyyaml --with rich scripts/lint_kb.py
+
+# Fix math delimiters for kramdown ($, \(...\), \[...\]); writes post.md.backup
+lint-fix-math:
+	uv run --with pyyaml --with rich scripts/lint_kb.py --fix-math
 
 install:
 	bundle install

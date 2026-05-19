@@ -8,14 +8,14 @@ categories:
   - science
   - statistical-learning
 ---
-A grayscale image is just a function $f(x, y)$ on a discrete grid: at each pixel coordinate you read an intensity. If you hide most of the pixels and keep only a small random subset, can you **fill the grid back in**? Framed that way, the task is plain **supervised regression**: train a model on pairs $(x, y) \mapsto \text{intensity}$, then predict intensity at every lattice point.
+A grayscale image is just a function $$f(x, y)$$ on a discrete grid: at each pixel coordinate you read an intensity. If you hide most of the pixels and keep only a small random subset, can you **fill the grid back in**? Framed that way, the task is plain **supervised regression**: train a model on pairs $(x, y) \mapsto \text{intensity}$, then predict intensity at every lattice point.
 
 This note follows the neat experiment by [Alex Rogozhnikov](https://arogozhnikov.github.io/2016/02/09/DrawingPictureWithML.html), implemented with scikit-learn regressors. The results are surprisingly good for such a simple pipeline.
 
 ## Setup
 
-1. Flatten the $H \times W$ image to a vector of length $HW$.
-2. Build features: for each index $i$, use pixel column $x_i = i \bmod W$ and row $y_i = \lfloor i / W \rfloor$.
+1. Flatten the $$H \times W$$ image to a vector of length $HW$.
+2. Build features: for each index $$i$$, use pixel column $$x_i = i \bmod W$$ and row $$y_i = \lfloor i / W \rfloor$$.
 3. Subsample a fraction `train_size` of pixels for training; the rest are only used implicitly (they are predicted, not supervised).
 4. **Center** the training targets by subtracting their mean, fit the regressor on residuals, then add the mean back after prediction. That keeps the model from wasting capacity on the global brightness level.
 
@@ -55,6 +55,6 @@ With only about **2%** of pixels labeled, a random forest often reproduces recog
 
 ## Conclusion
 
-This is not how one would compress or restore real images (no spatial context beyond $(x,y)$, no multiscale prior, no noise model). It *is* a crisp didactic demo: the same API you use for tabular regression suddenly acts like a **learned inpainting** trick, and changing `regressor` or `train_size` makes inductive bias and sample complexity visible in one figure.
+This is not how one would compress or restore real images (no spatial context beyond $$(x,y)$$, no multiscale prior, no noise model). It *is* a crisp didactic demo: the same API you use for tabular regression suddenly acts like a **learned inpainting** trick, and changing `regressor` or `train_size` makes inductive bias and sample complexity visible in one figure.
 
 For a fair comparison across models, fix `random_state`, sweep `train_size`, and measure error on the held-out pixels (`testX`, `testY`) as well as visual quality on the full grid. Rogozhnikov’s original post explores several learners and pictures; start there if you want richer baselines than a single forest.

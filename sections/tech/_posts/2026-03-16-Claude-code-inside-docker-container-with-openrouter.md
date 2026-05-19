@@ -5,6 +5,8 @@ description: "Claude Code in Docker + OpenRouter; Debian-slim, keys at runtime."
 date: 2026-03-16
 categories: tech
 tags: [docker, claude-code, openrouter, python]
+published: true
+
 ---
 
 AI coding agents like **Claude Code** are incredibly powerful, but running them directly on your host machine can feel risky. 
@@ -13,6 +15,7 @@ Containerizing them is the logical step, but it often leads to auth conflicts, 4
 Here is the definitive guide to running Claude Code inside a Docker sandbox using **OpenRouter** and free models like **Nvidia Nemotron**.
 
 ## The Challenges
+
 1. **The docker `python-alpine` trap:** Small images like Alpine cause Claude Code to hang or run slowly due to `musl` vs `glibc` incompatibilities.
 2. **Auth Conflicts:** Claude Code gets confused when it sees both an internal OAuth session and external environment variables.
 3. **The Docker Freeze:** The CLI often hangs while waiting for a browser-based login that doesn't exist in a headless container.

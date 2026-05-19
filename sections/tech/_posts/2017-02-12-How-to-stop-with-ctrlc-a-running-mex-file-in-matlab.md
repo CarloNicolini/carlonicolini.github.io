@@ -4,6 +4,8 @@ title: How to stop with CTRL C a running mex file in Matlab
 description: 'How to stop with CTRL C a running mex file in Matlab.'
 categories: tech
 date: 2017-02-12
+published: true
+
 ---
 This is how you do:
 

@@ -4,6 +4,8 @@ title: Delaunay triangulation and beautiful visual effects in Latex
 description: 'Delaunay triangulation and beautiful visual effects in Latex.'
 categories: tech
 date: 2016-09-13
+published: true
+
 ---
 Recently in the world of the Internet this very fancy coloured pattern appeared:
 

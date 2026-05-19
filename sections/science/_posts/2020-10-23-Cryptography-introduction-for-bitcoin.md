@@ -25,17 +25,17 @@ Asymm. crypt. makes it possible to do digital signing of documents.
 We use two sets, natural numbers and points on a curve. Cardinality is the number of elements in the set.
 Binary operator operates on two elements of the set, returning an element from the set.
 
-A group $(G,\dot)$ is a non-empty set (finite or infinite) with a binary operator also known as *group law* with the following properties.
+A group $$(G,\dot)$$ is a non-empty set (finite or infinite) with a binary operator also known as *group law* with the following properties.
 
-1. Closure $\forall a,b \in G, a \dot b \in G$
+1. Closure $$\forall a,b \in G, a \dot b \in G$$
 2. Associativity $\forall a,b,c \in G, (a\dot b) \dot c = a\dot(b \dot c)
 3. Identity
-4. Invertibility: $\forall a \in G, \exists a^{-1} \vert a \dot a^{-1} = a^{-1} \dot a = 1$
+4. Invertibility: $$\forall a \in G, \exists a^{-1} \vert a \dot a^{-1} = a^{-1} \dot a = 1$$
 
 
 A group order is the cardinality of the set.
 
-A cyclic (sub)-group is the subet $\langle g \rangle = g^k$, for $k\in \mathbb{Z}$ is a subgroup of order $|g| \leq | G| $.
+A cyclic (sub)-group is the subet $$\langle g \rangle = g^k$$, for $k\in \mathbb{Z}$$ is a subgroup of order $$|g| \leq | G| $.
 
 $$
 \forall a \in \langle g \rangle = 
@@ -43,31 +43,31 @@ $$
 
 All cyclic groups are commutative, not all commutative groups are cyclic.
 
-If a group has finite cardinality $N=|G|$, the order $n=|g|$,
-When $|G|$ is prime, the group is cyclic with no cyclic subgroups (cofactor $h=1$) and any non neutral element is a generator:
+If a group has finite cardinality $$N=|G|$$, the order $$n=|g|$$,
+When $$|G|$$ is prime, the group is cyclic with no cyclic subgroups (cofactor $$h=1$$) and any non neutral element is a generator:
 multiplying any element to itself successively, all elements of the set are recovered.
 
 ## Discrete logarithm problem.
 
-In a multiplicative group, $(G,\dot)$, for any positive integer $k \in \mathbb{N}-\{0\}$
+In a multiplicative group, $$(G,\dot)$$, for any positive integer $k \in \mathbb{N}-\{0\}$
 
 $$
 a = b^k
 $$
 
-to calculate $k = \log_b a$ given $a,b \in G$ is the discrete logarithm problem in $(G,\dot)$.
+to calculate $$k = \log_b a$$ given $$a,b \in G$$ is the discrete logarithm problem in $$(G,\dot)$$.
 
 Discrete logarithms are quickly computable in a few special cases, however no efficient method is present.
 Discrete logarithm is different from logarithms in real numbers.
 
-*Discrete logarithm crypto systems* are based on finite cyclic subgroup with a generator $g$ of prime order $\|g\|=n$.
+*Discrete logarithm crypto systems* are based on finite cyclic subgroup with a generator $$g$$ of prime order $$\|g\|=n$$.
 
-We want for security the DLP in $\|g\|$ must be intractable, however the opposite must be easy, i.e. given $a=g^k$:
+We want for security the DLP in $$\|g\|$$ must be intractable, however the opposite must be easy, i.e. given $$a=g^k$$:
 
-- A private key is an integer  $k$ in $[1,n-1]$ 
-- A public key is $a=g^k$
+- A private key is an integer  $$k$$ in $$[1,n-1]$$ 
+- A public key is $$a=g^k$$
 
-For computational efficiency we use isomorphisms, basically all cyclic groups of order $n$n are essentially the same. They are basically different representations of the same structure.
+For computational efficiency we use isomorphisms, basically all cyclic groups of order $$n$$n are essentially the same. They are basically different representations of the same structure.
 
 ## Additive or multiplicative notation
 
@@ -75,73 +75,73 @@ Using additive or multiplicative notation is arbitrary. Insteaf of reverse we co
 
 Integer, real, rational numbers are an additive group of finite order.
 
-Applying DLP problem in additive notation (instead of saying $a=b^k$ we use $a=kb$) we also speak about DLP, even if no logarithm is implied!
+Applying DLP problem in additive notation (instead of saying $$a=b^k$$ we use $$a=kb$$) we also speak about DLP, even if no logarithm is implied!
 
 # Modular arithmetic
-Two numbers are congruent modulo $m$ is $a\equiv r (\mod m)$.
-Not necessarily $r$ must be hte remainder of the division of $a$ by $m$. For example $12,7,2$ are congruent modulo $5$.
-It is a convention to say that $12 \equiv 2 \mod 5$.
+Two numbers are congruent modulo $$m$$ is $$a\equiv r (\mod m)$$.
+Not necessarily $$r$$ must be hte remainder of the division of $$a$$ by $$m$$. For example $$12,7,2$$ are congruent modulo $5$.
+It is a convention to say that $$12 \equiv 2 \mod 5$$.
 
 Computation in finite sets:
-For a given modulus $m$ it does not matter which element froma  congruence class we choose for a given computation.
+For a given modulus $$m$$ it does not matter which element froma  congruence class we choose for a given computation.
 
-$81 \cdot 47 - 280 = 3527 = 2 (mod 5)$
+$$81 \cdot 47 - 280 = 3527 = 2 (mod 5)$$
 
-or alternatively $B \cdot C - A = C$, for example $3^10 = 59049 = 4 (mod 5)$
+or alternatively $$B \cdot C - A = C$$, for example $$3^10 = 59049 = 4 (mod 5)$$
 
 there is a simple way of computing modular arithmetic calculations in finite sets, even if the number of elements is huge.
 
 ## Congruence and remainders
 
-If $a_1 \equiv b_1 (mod n)$ and $a_2 \equiv b_2 (mod n$)$ then
+If $$a_1 \equiv b_1 (mod n)$$ and $$a_2 \equiv b_2 (mod n$$)$ then
 
-$a_1+a_2 \equiv b_1 + b_2$
+$$a_1+a_2 \equiv b_1 + b_2$$
 
 Ina  few words, applying mod before or after it does not matter.
 
-The set of integer numbers under addition modulo $m$m is a commutative cyclin group of order $m$.
+The set of integer numbers under addition modulo $$m$$m is a commutative cyclin group of order $$m$$.
 -  the additive neutral element is zero
-- the additive inverse of any element $a$ is $m-a$
+- the additive inverse of any element $$a$$ is $$m-a$$
 - $1$ is an obvious generator
 
 $\mathbb{Z} / m \mathbb{Z}$
 
-If $m$ is a prime number, the cyclic number has no subgroups! This means that each element can be used as a generator.
+If $$m$$ is a prime number, the cyclic number has no subgroups! This means that each element can be used as a generator.
 In general 
 
 $$
 7 a = 0
 $$
 
-in other words, if the order is prime, then $pa=0$. Since $p$ is odd, negation modulo $p$ will map even numbers to odd numbers the other way around: $if $a$ is even, then $-a = p-a$ is odd.
+in other words, if the order is prime, then $$pa=0$$. Since $$p$$ is odd, negation modulo $$p$$ will map even numbers to odd numbers the other way around: $$if $$a$$ is even, then $$-a = p-a$ is odd.
 Every even number has an odd opposite.
 
-*All cyclic groups of order $p$ are isomorphic to $\mathbb{Z}/p \mathbf{Z}$
+*All cyclic groups of order $$p$$ are isomorphic to $\mathbb{Z}/p \mathbf{Z}$
 
-For any prime $p$, $\mathbb{Z}^\star / p  \mathbb{Z}: (\{ 1, \ldots, p-1 \}, \cdot)$ is a commutative group.
+For any prime $$p$$, $$\mathbb{Z}^\star / p  \mathbb{Z}: (\{ 1, \ldots, p-1 \}, \cdot)$$ is a commutative group.
 
-- order $p-1$
-- thanks to $p$ primality for any element $a$, $gcd(a,p)=1$, i.e. there exist the inverse $b$ such that $ab=1 \mod p$.
+- order $$p-1$$
+- thanks to $$p$$ primality for any element $$a$$, $$gcd(a,p)=1$$, i.e. there exist the inverse $$b$$ such that $$ab=1 \mod p$$.
 
 ## Fermat little theorem
 
-When $p$ is prime, for each $a$:
+When $$p$$ is prime, for each $$a$$:
 
 $$
 a^{p-1} = 1 \mod p
 $$
 
-for example $a=4, p=7 \to 3^6 = 1$.
+for example $$a=4, p=7 \to 3^6 = 1$$.
 
-## Field operations in $F_p$
+## Field operations in $$F_p$$
 Addition: 4+3 % 7 = 0 means that 3 is the opposite of 4.
 
-Square root in $F_p$ exists but not everywhere.
+Square root in $$F_p$$ exists but not everywhere.
 
 
-$\mathbb{Z}/p$ is the most-popular group of a finite field.
+$$\mathbb{Z}/p$$ is the most-popular group of a finite field.
 
-Homework: calculate the table of opposites, inverses and square roots for the finite fields $F_{19}$ and $F_{23}$
+Homework: calculate the table of opposites, inverses and square roots for the finite fields $F_{19}$$ and $$F_{23}$
 
 # Elliptic curves over real nubmers
 
@@ -151,7 +151,7 @@ Defined by the Weierstrass equation:
 y^2 = x^3 + a x + b
 \end{equation}
 
-The curve is non-singular if $\Delta = -16(4a^3 + 27 b^2) \neq 0$. Both $(x,y)$ are affine coordinates, but other coordinates are possible.
+The curve is non-singular if $$\Delta = -16(4a^3 + 27 b^2) \neq 0$$. Both $$(x,y)$$ are affine coordinates, but other coordinates are possible.
 We define a group on elliptic curves.
 
 ### Point addition P+Q=R
@@ -167,8 +167,8 @@ Some resources:
 
 ### Infinity point (aka group identity or neutral element)
 
-Summing two points with same x but opposite y, it shoots the infinity point. Here every point has its opposite, then doubling the point $(x,0)$ also shoots at $\infty$.
-This means that $\infty$ is a neutral element
+Summing two points with same x but opposite y, it shoots the infinity point. Here every point has its opposite, then doubling the point $$(x,0)$$ also shoots at $$\infty$$.
+This means that $$\infty$$ is a neutral element
 
 
 - Elliptic curve points are a commutative group of infinite order.
@@ -180,32 +180,32 @@ $$
 P+Q = \infty \rightarrow P=-Q
 $$
 
-it means $Q$ and $-Q$ have the same $x_Q$ coordinate, therefore the $y$ coordinates are the positive/negative roots of the elliptic curve.
+it means $Q$ and $$-Q$$ have the same $$x_Q$$ coordinate, therefore the $$y$$ coordinates are the positive/negative roots of the elliptic curve.
 
-### Scalar multiplication $R = mQ$
+### Scalar multiplication $$R = mQ$$
 It's simply the iteration of the addition operation.
 
 [https://andrea.corbellini.name/ecc/interactive/reals-add.html](https://andrea.corbellini.name/ecc/interactive/reals-add.html)
 
-Clearly $k$ is the private key, while $R$ is the public key.
-Il numero di operazioni è polinomiale nel numero di bit per rappresentare $k$.
+Clearly $$k$$ is the private key, while $R$ is the public key.
+Il numero di operazioni è polinomiale nel numero di bit per rappresentare $$k$$.
 
-For any $k\in \mathbb{N}$ double and add allows an efficient computation of $R=kQ$.
-To infer $k$ from $\{R,Q\}$ can only be attempted brute-force: for large numbers it becomes computationally infeasible.
+For any $k\in \mathbb{N}$$ double and add allows an efficient computation of $$R=kQ$.
+To infer $$k$$ from $\{R,Q\}$ can only be attempted brute-force: for large numbers it becomes computationally infeasible.
 
 On ellpitic curves notation is additive not multiplicative.
 
-Elliptic curves are defined on $F_p$ instead of real-numbers, but on $F_p$ not all numbers have a root.
-If $\sqrt(y^2)$ does not exist, then $x$ is not a valid coordinate.
+Elliptic curves are defined on $$F_p$$ instead of real-numbers, but on $$F_p$$ not all numbers have a root.
+If $$\sqrt(y^2)$$ does not exist, then $$x$$ is not a valid coordinate.
 
 
 # Bitcoin curve: Koblitz curve secp256k1
 
-We need 256 bit to express $p$, $F_p$ is defined by $p=$ FFFFFFF FFFFFFF FFFFFF FFFFFFFF FFFFFFF FFFFFFF FFFFFFF FFFFFFFE FFFFFFC2F
+We need 256 bit to express $$p$$, $$F_p$$ is defined by $$p=$$ FFFFFFF FFFFFFF FFFFFF FFFFFFFF FFFFFFF FFFFFFF FFFFFFF FFFFFFFE FFFFFFC2F
 
 is a very large prime number.
 
-- The elliptic curve defined over $F_p$ is $y^2 = x^3 + 7$
+- The elliptic curve defined over $$F_p$$ is $$y^2 = x^3 + 7$$
 - the generation point $G$ 
 
 

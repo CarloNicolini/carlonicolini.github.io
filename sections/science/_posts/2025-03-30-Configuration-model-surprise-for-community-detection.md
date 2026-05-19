@@ -26,14 +26,14 @@ So the question is not whether a partition explains a full block matrix, but onl
 
 ## Ordinary Surprise revisited
 
-Let $G$ be an undirected simple graph with $n$ nodes and $m$ edges, and let $g$ be a partition of the nodes into communities.
+Let $G$ be an undirected simple graph with $$n$$ nodes and $$m$$ edges, and let $$g$$ be a partition of the nodes into communities.
 Write
 
-- $m_\zeta(g)$ for the number of internal edges of the partition,
+- $$m_\zeta(g)$$ for the number of internal edges of the partition,
 - $p_\zeta(g)=\sum_c \binom{n_c}{2}$ for the number of internal vertex pairs,
 - $p=\binom{n}{2}$ for the total number of vertex pairs.
 
-Original Surprise asks for the probability that a uniform graph in $G_{nm}$ with the same $n$ and $m$ has at least as many internal edges as the observed partition {% cite aldecoa2011deciphering %}:
+Original Surprise asks for the probability that a uniform graph in $G_{nm}$$ with the same $$n$$ and $$m$ has at least as many internal edges as the observed partition {% cite aldecoa2011deciphering %}:
 
 $$
 S(g) = -\log \sum_{i=m_\zeta(g)}^m
@@ -46,13 +46,13 @@ But it is degree blind: every vertex pair is treated equally.
 
 ## What degree correction should mean
 
-Now keep the observed degree sequence $k_1,\dots,k_n$ fixed and denote
+Now keep the observed degree sequence $$k_1,\dots,k_n$$ fixed and denote
 
 $$
 \sum_{i=1}^n k_i = 2m.
 $$
 
-For each community $c$, define the community stub mass
+For each community $$c$$, define the community stub mass
 
 $$
 K_c = \sum_{i: g_i=c} k_i,
@@ -63,17 +63,17 @@ $$
 
 At this point the basic entities are not vertex pairs anymore.
 They are stubs.
-A configuration-model sample is obtained by pairing the $2m$ labeled stubs uniformly at random.
+A configuration-model sample is obtained by pairing the $$2m$$ labeled stubs uniformly at random.
 
 This is the first crucial correction to my old note: the size of the sample space is not a multinomial coefficient.
-It is the number of perfect matchings of $2m$ labeled stubs,
+It is the number of perfect matchings of $$2m$$ labeled stubs,
 
 $$
 |\Omega_{CM}| = (2m-1)!! = \frac{(2m)!}{2^m m!}.
 \tag{3}
 $$
 
-The multinomial coefficient $\binom{2m}{k_1,\ldots,k_n}$ only counts how many ways one can assign $2m$ stub labels to vertices with multiplicities $k_i$.
+The multinomial coefficient $\binom{2m}{k_1,\ldots,k_n}$$ only counts how many ways one can assign $$2m$$ stub labels to vertices with multiplicities $$k_i$.
 It does not count how many ways those stubs can be paired into edges.
 That was the bug.
 
@@ -85,7 +85,7 @@ Conditioning on simple graphs is possible, but it destroys the closed form and d
 
 Even if the final goal is community detection only, the right exact derivation passes through the block edge counts.
 
-For $r \le s$, let $m_{rs}$ be the number of edges between communities $r$ and $s$, with $m_{rr}$ the number of edges internal to community $r$.
+For $$r \le s$$, let $m_{rs}$$ be the number of edges between communities $$r$$ and $$s$$, with $$m_{rr}$$ the number of edges internal to community $$r$.
 These counts must satisfy
 
 $$
@@ -99,9 +99,9 @@ How many stub pairings realize it?
 
 The counting is straightforward once written in the right order.
 
-For each community $r$:
+For each community $$r$$:
 
-1. Split its $K_r$ labeled stubs into one internal bucket of size $2m_{rr}$ and one bucket of size $m_{rs}$ for every $s \ne r$.
+1. Split its $$K_r$$ labeled stubs into one internal bucket of size $2m_{rr}$$ and one bucket of size $$m_{rs}$$ for every $$s \ne r$.
    This gives
    $$
    \frac{K_r!}{(2m_{rr})!\prod_{s\ne r} m_{rs}!}.
@@ -113,8 +113,8 @@ For each community $r$:
    (2m_{rr}-1)!! = \frac{(2m_{rr})!}{2^{m_{rr}} m_{rr}!}.
    $$
 
-3. For each pair $r<s$, pair the $m_{rs}$ stubs selected in block $r$ with the $m_{rs}$ stubs selected in block $s$.
-   This gives $m_{rs}!$ matchings.
+3. For each pair $$r<s$$, pair the $m_{rs}$$ stubs selected in block $$r$$ with the $$m_{rs}$$ stubs selected in block $$s$.
+   This gives $$m_{rs}!$$ matchings.
 
 Multiplying everything and simplifying yields the exact number of labeled-stub pairings compatible with the block matrix:
 
@@ -149,13 +149,13 @@ M_\zeta = \sum_r m_{rr}.
 \tag{7}
 $$
 
-So the exact configuration-model probability of observing exactly $t$ internal edges is obtained by marginalizing the block law:
+So the exact configuration-model probability of observing exactly $$t$$ internal edges is obtained by marginalizing the block law:
 
 $$
 \mathbb{P}_{CM}(M_\zeta=t \mid K) = \sum_{\{m_{rs}\} \in \mathcal{M}_t(K)} \mathbb{P}_{CM}(\{m_{rs}\} \mid K), \tag{8}
 $$
 
-where the quantity $M_t ( K )$ is the set of all feasible matrices satisfying the degree-balance constraints in Eq. (4) and $\sum_r m_{rr}=t$.
+where the quantity $$M_t ( K )$$ is the set of all feasible matrices satisfying the degree-balance constraints in Eq. (4) and $$\sum_r m_{rr}=t$$.
 
 This is the point where the structure differs from ordinary Surprise.
 In $G_{nm}$, the exact null is hypergeometric because one samples vertex pairs without replacement from two bins: internal pairs and external pairs.
@@ -174,8 +174,8 @@ This is the exact one-sided p-value style score: how surprising is it to see at 
 
 To get an asymptotic approximation, the first quantity to compute is the null internal fraction.
 
-Take any two stubs belonging to the same community $c$.
-Under a uniform random pairing, the probability that they are paired together is $1/(2m-1)$.
+Take any two stubs belonging to the same community $$c$$.
+Under a uniform random pairing, the probability that they are paired together is $$1/(2m-1)$$.
 Summing over all same-community stub pairs gives
 
 $$
@@ -188,13 +188,13 @@ $$
 \langle q \rangle_{CM} = \frac{\mathbb{E}_{CM}[M_\zeta \mid K]}{m} = \frac{\sum_c K_c(K_c-1)}{2m(2m-1)}. \tag{11}
 $$
 
-If $m$ is large, this becomes
+If $$m$$ is large, this becomes
 
 $$
 \langle q \rangle_{CM} = \sum_c \left(\frac{K_c}{2m}\right)^2 + O(m^{-1}). \tag{12}
 $$
 
-This is exactly the degree-corrected replacement of $p_\zeta/p$.
+This is exactly the degree-corrected replacement of $$p_\zeta/p$$.
 Ordinary Surprise uses the fraction of internal vertex pairs.
 The degree-corrected version uses the fraction of same-community stub pairs.
 
@@ -307,7 +307,7 @@ That leads to a few important differences.
    Peixoto optimizes posterior probability or description length.
 
 2. **Statistic.**  
-   My score depends on the coarse scalar $m_\zeta$.
+   My score depends on the coarse scalar $$m_\zeta$$.
    Peixoto keeps the whole matrix $\{m_{rs}\}$.
    That means he can represent assortative, disassortative, bipartite, core-periphery, and hierarchical structures in a unified way.
 
@@ -323,7 +323,7 @@ That leads to a few important differences.
 Seen this way, the present construction is not a competitor to Peixoto's program.
 It is a deliberately simpler object.
 If I want a degree-corrected score that preserves the original intuition of Surprise, this is the right object.
-If I want the most expressive and statistically principled blockmodel inference, the natural next step is to stop collapsing to $m_\zeta$ and move all the way to Peixoto's microcanonical SBM.
+If I want the most expressive and statistically principled blockmodel inference, the natural next step is to stop collapsing to $$m_\zeta$$ and move all the way to Peixoto's microcanonical SBM.
 
 ## Final formula
 

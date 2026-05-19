@@ -12,11 +12,11 @@ categories:
 Reccomender systems are a class of algorithms to deal with missing information.
 Given that we have some available rate about the relations of a set of objects, and these informations are specified by real numbers, how can we estimate the relations between another subset of objects that we did not observe?
 
-Let us take for example a sparse set of observations $\mathbf{R} = \{ R_{ij} \}$ between a set of objects, from the same set $V$. We denote these objects as $i$ and object $j$.
+Let us take for example a sparse set of observations $\mathbf{R} = \{ R_{ij} \}$$ between a set of objects, from the same set $$V$$. We denote these objects as $$i$$ and object $$j$.
 Unfortunately, we only have a partial information about the relations of these objects, and this information may be contaminated by noise.
 We only know the pairs specified by the subset $E$ of the complete set $\{ (i,j) | (i,j) \in V^2 \}$.
 
-This sparse graph can be cast in a dense square matrix, if the set of object that $i$ and $j$ belongs are the same, but a matrix with a lot of missing entries, so not exactly a matrix, but something like this:
+This sparse graph can be cast in a dense square matrix, if the set of object that $$i$$ and $$j$$ belongs are the same, but a matrix with a lot of missing entries, so not exactly a matrix, but something like this:
 
 \begin{align}
 \begin{pmatrix}
@@ -31,7 +31,7 @@ This sparse graph can be cast in a dense square matrix, if the set of object tha
 Now we make an important hypothesis.
 The nature of the non-missing numbers in our sparse observation is one of ratio of positive real numbers. They can be, for example, currency exchange rates.
 
-Hence, the relations between the observed objects $i$ and $j$ can be written as the ratios of an unknown *load* variable $u_i$ and $u_j$. 
+Hence, the relations between the observed objects $$i$$ and $$j$$ can be written as the ratios of an unknown *load* variable $$u_i$$ and $$u_j$$. 
 On the diagonal, the matrix $R$ has ones, as the ratio of any number with itself is one.
 An example of such matrix, is the following:
 \begin{align}
@@ -64,16 +64,16 @@ However, in the case that the ratios take very big or very small values, this pr
 The terms in the residual of squares with the largest ratios are those that dominate and local optimization may become stuck at some local-optima.
 
 A trick to tackle this problem, is to transform ratios into subtractions, via logarithmic transformation.
-If indeed, we take the logarithm of the non-missing entries in $R_{ij}$, then the range of the values gets stretched and numerically this can be solved more easily. The log-transformed matrix becomes a skew-symmetric matrix $\mathbf{L}$ with zero diagonal elements.
+If indeed, we take the logarithm of the non-missing entries in $R_{ij}$$, then the range of the values gets stretched and numerically this can be solved more easily. The log-transformed matrix becomes a skew-symmetric matrix $$\mathbf{L}$ with zero diagonal elements.
 The corresponding problem of optimization becomes:
 
 \begin{equation}
 \underset{\mathbf{v}\in \mathbf{R}^n}{\textrm{argmin}} \sum_{(i,j) \in E }\left( \log(R_{ij}) - (v \cdot \mathbf{1}^T - v^T \cdot \mathbf{1}) \right)^2
 \end{equation}
 
-where the quantity $\mathbf{V} = (v \cdot \mathbf{1}^T - v^T \cdot \mathbf{1})$ is a rank 2 matrix that has elements $V_{ij} = v_i - v_j$.
+where the quantity $$\mathbf{V} = (v \cdot \mathbf{1}^T - v^T \cdot \mathbf{1})$$ is a rank 2 matrix that has elements $$V_{ij} = v_i - v_j$$.
 Also, the problem becomes much simpler, as the positivity constraint is lost, and we can look over the unbounded real domain.
-Once solved, the estimated load vector $\mathbf{u}$ is obtained by taking the exponential of the elements of $\mathbf{v}$.
+Once solved, the estimated load vector $\mathbf{u}$$ is obtained by taking the exponential of the elements of $$\mathbf{v}$.
 
 # Why this problem is interesting
 

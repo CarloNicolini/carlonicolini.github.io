@@ -16,7 +16,7 @@ For example, imagine we have a matrix (a tensor of rank 2) $A_{i,j}$. To compute
 \textrm{Tr}(A) = \sum_{i=j}^n A_{ij}
 \end{equation}
 
-In the Einstein summation convention, the $\sum$ symbol is skipped and the trace of the matrix is indicated as $A_{ii}$.
+In the Einstein summation convention, the $$\sum$$ symbol is skipped and the trace of the matrix is indicated as $A_{ii}$.
 You can extend this thing to very complex kind of computations with tensors of higher rank.
 For example, you may want to compute the trace over the last two dimensions of a tensor of rank 4 $B_{i,j,k,l}$. This is equivalent to:
 
@@ -62,7 +62,7 @@ X  \in \mathbb{R}^{b \times n \times n}
 X  = \sum_{j,k}^n x_{ij} x_{jk}
 \end{align}
 
-where $b$ is the `batch_size` and $n=$`N`.
+where $$b$$ is the `batch_size` and $$n=$$`N`.
 This operation can be done via the appropriate `np.einsum` call as follows in this example:
 
 {% highlight python %}

@@ -3,7 +3,8 @@ title: My VSCode settings
 description: 'My VSCode settings.'
 layout: post
 date: 2023-05-06
-published: False
+published: false
+categories: tech
 ---
 These are my current VS Code settings.
 

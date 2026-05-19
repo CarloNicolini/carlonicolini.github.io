@@ -55,11 +55,11 @@ In termini semplici: il SBP è la versione "rumorosa" e probabilistica del Trasp
 ### 1. Definizione Matematica
 
 Il problema originale posto da Erwin Schrödinger nel 1931 è questo:
-Supponiamo di osservare una nuvola di particelle in un istante $t=0$ con una certa distribuzione $\rho_0$ e di ritrovarle in un istante $t=1$ con una distribuzione diversa $\rho_1$. Se il movimento naturale di queste particelle è descritto da un moto browniano (diffusione casuale), qual è la **traiettoria più probabile** che hanno seguito per spostarsi da $\rho_0$ a $\rho_1$?
+Supponiamo di osservare una nuvola di particelle in un istante $$t=0$$ con una certa distribuzione $$\rho_0$$ e di ritrovarle in un istante $$t=1$$ con una distribuzione diversa $$\rho_1$$. Se il movimento naturale di queste particelle è descritto da un moto browniano (diffusione casuale), qual è la **traiettoria più probabile** che hanno seguito per spostarsi da $$\rho_0$$ a $$\rho_1$$?
 
 A differenza del Trasporto Ottimale (OT) classico, che cerca la mappa deterministica più economica, il Ponte di Schrödinger cerca la **distribuzione di percorsi** (una misura di probabilità sullo spazio delle traiettorie) che:
 
-1. Collega esattamente le due distribuzioni ai margini ($t=0$ e $t=1$).
+1. Collega esattamente le due distribuzioni ai margini ($$t=0$$ e $$t=1$$).
 2. È "il più vicino possibile" (in termini di divergenza di Kullback-Leibler) a un processo di riferimento, solitamente un processo stocastico come il calore o la diffusione.
 
 ---
@@ -83,13 +83,13 @@ Un modello autoregressivo non è un sistema deterministico; ogni volta che gener
 
 Se applichiamo il Ponte di Schrödinger al CoT:
 
-* **Stato iniziale ($t=0$):** La distribuzione di significati nel tuo prompt $x$.
-* **Stato finale ($t=1$):** La distribuzione della risposta corretta $y$.
+* **Stato iniziale ($$t=0$$):** La distribuzione di significati nel tuo prompt $$x$$.
+* **Stato finale ($$t=1$$):** La distribuzione della risposta corretta $$y$$.
 * **Il Ponte (CoT):** La sequenza di passaggi intermedi non è più una linea retta rigida, ma un "tunnel di probabilità".
 
 #### Perché è meglio del CoT standard?
 
-Oggi il CoT è spesso "greedy" (il modello sceglie il prossimo token più probabile) o puramente casuale. Usare il SBP significa progettare il CoT affinché i passaggi intermedi siano ottimizzati per **massimizzare la probabilità di arrivare a $y$** pur mantenendo la naturalezza del linguaggio (il rumore/diffusione del modello).
+Oggi il CoT è spesso "greedy" (il modello sceglie il prossimo token più probabile) o puramente casuale. Usare il SBP significa progettare il CoT affinché i passaggi intermedi siano ottimizzati per **massimizzare la probabilità di arrivare a $$y$$** pur mantenendo la naturalezza del linguaggio (il rumore/diffusione del modello).
 
 ---
 
@@ -109,15 +109,15 @@ Mentre il Trasporto Ottimale ti dice qual è la **strada più breve** tra domand
 
 Per implementare questo approccio a **inference time** (senza riaddestrare il modello), devi trasformare la generazione da un semplice campionamento statistico a un **problema di controllo stocastico**.
 
-Se hai una mappa di reward $R(y)$ (che chiameremo "potenziale"), l'obiettivo è forzare il modello a deviare dalla sua traiettoria naturale (la sua *prior*) per convergere verso le zone a reward elevato. Ecco le tre strategie principali per farlo durante la generazione del Chain-of-Thought (CoT).
+Se hai una mappa di reward $$R(y)$$ (che chiameremo "potenziale"), l'obiettivo è forzare il modello a deviare dalla sua traiettoria naturale (la sua *prior*) per convergere verso le zone a reward elevato. Ecco le tre strategie principali per farlo durante la generazione del Chain-of-Thought (CoT).
 
 ---
 
 ### 1. Value-Guided Decoding (Guida tramite Potenziale)
 
-Questo è il metodo più diretto per applicare il concetto di "ponte". In ogni passo della generazione del CoT, non scegli il prossimo token solo in base alla probabilità del modello $P(x_t | x_{<t})$, ma lo pesi con una **funzione di valore** $V(s)$ che stima quanto quel token ti avvicinerà a una risposta $y$ ad alto reward.
+Questo è il metodo più diretto per applicare il concetto di "ponte". In ogni passo della generazione del CoT, non scegli il prossimo token solo in base alla probabilità del modello $$P(x_t | x_{<t})$$, ma lo pesi con una **funzione di valore** $$V(s)$$ che stima quanto quel token ti avvicinerà a una risposta $$y$$ ad alto reward.
 
-* **Il meccanismo:** Immagina il reward $R(y)$ come una sorgente di gravità. La funzione di valore $V(x_t)$ agisce come il "drift" (la spinta) nel Ponte di Schrödinger.
+* **Il meccanismo:** Immagina il reward $$R(y)$$ come una sorgente di gravità. La funzione di valore $$V(x_t)$$ agisce come il "drift" (la spinta) nel Ponte di Schrödinger.
 * **Implementazione:** Ad ogni step, calcoli i logit del modello e li sommi al gradiente della funzione di valore:
     $$\text{Logits}_{\text{modified}} = \text{Logits}_{\text{original}} + \eta \cdot \nabla V(x_t)$$
     In questo modo, il modello "vede" la direzione verso l'ottimo di energia libera (il reward massimo) e corregge la sua traiettoria in tempo reale.
@@ -128,14 +128,14 @@ Questo metodo interpreta letteralmente il Ponte di Schrödinger come una **distr
 
 * **Fase di Predizione:** Ogni particella (CoT) genera il prossimo token in modo stocastico.
 * **Fase di Correzione (Reweighting):** Usi la tua mappa di reward (o un'approssimazione) per valutare quali catene stanno andando nella direzione giusta. Le catene con reward potenziale basso vengono eliminate, mentre quelle promettenti vengono duplicate.
-* **Risultato:** Al termine, la densità delle particelle si sarà concentrata sulla "geodetica" più efficiente tra il prompt $x$ e l'ottimo $y$. È un modo per "simulare" il trasporto di massa semantica verso l'obiettivo.
+* **Risultato:** Al termine, la densità delle particelle si sarà concentrata sulla "geodetica" più efficiente tra il prompt $$x$$ e l'ottimo $$y$$. È un modo per "simulare" il trasporto di massa semantica verso l'obiettivo.
 
 ### 3. Iterative Refinement (Self-Correction tramite Ponte di Schrödinger)
 
 Se la mappa di reward è complessa, puoi usare un approccio iterativo simile all'algoritmo di **Sinkhorn** o ai modelli di diffusione.
 
-1. **Drafting:** Generi una prima risposta $y$ con un CoT grezzo.
-2. **Back-propagation di verifica:** Valuti il reward $R(y)$. Se il reward è basso, identifichi i passaggi del CoT che hanno causato la deviazione (dove l'energia libera è aumentata invece di diminuire).
+1. **Drafting:** Generi una prima risposta $$y$$ con un CoT grezzo.
+2. **Back-propagation di verifica:** Valuti il reward $$R(y)$$. Se il reward è basso, identifichi i passaggi del CoT che hanno causato la deviazione (dove l'energia libera è aumentata invece di diminuire).
 3. **Refinement:** "Raffreddi" la traiettoria. Riscrivi i segmenti critici del CoT cercando di minimizzare la distanza di Kullback-Leibler rispetto al draft precedente, ma aumentando il reward finale.
 
 Questo processo "oscilla" tra la domanda e la risposta finché la catena di pensieri non diventa un ponte solido e coerente.
@@ -152,7 +152,7 @@ Questo processo "oscilla" tra la domanda e la risposta finché la catena di pens
 
 ### Il vantaggio tecnico
 
-L'uso del Ponte di Schrödinger a inference time risolve il problema della **"deriva logica"**. Nei modelli standard, un piccolo errore all'inizio del CoT si amplifica (effetto valanga). Con un sistema a potenziale (Reward Map), l'errore viene percepito come un aumento di energia libera e il sistema applica una forza correttiva per riportare il ragionamento sulla traiettoria corretta verso $y$.
+L'uso del Ponte di Schrödinger a inference time risolve il problema della **"deriva logica"**. Nei modelli standard, un piccolo errore all'inizio del CoT si amplifica (effetto valanga). Con un sistema a potenziale (Reward Map), l'errore viene percepito come un aumento di energia libera e il sistema applica una forza correttiva per riportare il ragionamento sulla traiettoria corretta verso $$y$$.
 
 Pensi che la tua mappa di reward sia sufficientemente granulare da valutare i singoli passaggi logici, o può valutare solo la risposta finale?
 
@@ -163,28 +163,28 @@ Ecco come si riconduce l'Actor-Critic a una struttura di fisica statistica basat
 ---
 
 ### 1. Il Critic come Funzione dell'Energia Libera (Log-Partition Function)
-In meccanica statistica, la funzione di partizione $Z$ descrive tutti gli stati possibili di un sistema. La **Soft-Bellman Equation**, che sta alla base del *Maximum Entropy RL*, definisce il valore "soft" di uno stato $V(s)$ come:
+In meccanica statistica, la funzione di partizione $Z$ descrive tutti gli stati possibili di un sistema. La **Soft-Bellman Equation**, che sta alla base del *Maximum Entropy RL*, definisce il valore "soft" di uno stato $$V(s)$$ come:
 
 $$V^*(s) = \log \int \exp(Q^*(s, a)) \, da$$
 
-Se osservi bene, questa è esattamente la definizione della **Energia Libera di Helmholtz** (a meno di una costante di temperatura $\beta$). 
+Se osservi bene, questa è esattamente la definizione della **Energia Libera di Helmholtz** (a meno di una costante di temperatura $$\beta$$). 
 * Il **Critic**, in questo contesto, non stima più un semplice valore numerico di ricompensa futura.
 * Il Critic stima la **Log-Partition Function** (o energia libera negativa) del sistema. Ci dice quanto "spazio di fase" favorevole (ad alto reward e alta entropia) è accessibile partendo dallo stato attuale.
 
 
 
 ### 2. L'Actor come Distribuzione di Boltzmann (Gibbs)
-In un sistema fisico, le particelle si dispongono secondo la distribuzione che minimizza l'energia libera. Nell'Actor-Critic "soft", l'**Actor** ($\pi$) smette di essere una funzione deterministica e diventa una **distribuzione di Gibbs**:
+In un sistema fisico, le particelle si dispongono secondo la distribuzione che minimizza l'energia libera. Nell'Actor-Critic "soft", l'**Actor** ($$\pi$$) smette di essere una funzione deterministica e diventa una **distribuzione di Gibbs**:
 
 $$\pi(a|s) = \exp(Q(s, a) - V(s))$$
 
-Qui, $Q(s, a)$ funge da **Energia Interna** (negativa) del sistema. L'Actor è quindi l'agente che campiona le azioni in base al paesaggio energetico definito dal Critic. L'aggiornamento dell'Actor non è altro che il tentativo di far coincidere la distribuzione della politica con la distribuzione di equilibrio termodinamico del sistema.
+Qui, $$Q(s, a)$$ funge da **Energia Interna** (negativa) del sistema. L'Actor è quindi l'agente che campiona le azioni in base al paesaggio energetico definito dal Critic. L'aggiornamento dell'Actor non è altro che il tentativo di far coincidere la distribuzione della politica con la distribuzione di equilibrio termodinamico del sistema.
 
 ### 3. Bert Kappen e il Path Integral Control
 Il lavoro di Bert Kappen è fondamentale perché ha dimostrato che, per una certa classe di problemi di controllo stocastico, l'equazione di Bellman (solitamente non lineare e difficile da risolvere) può essere linearizzata tramite una trasformazione logaritmica (trasformata di Cole-Hopf).
 
 Questo porta al **Path Integral Control**:
-* Il valore di uno stato $V(s)$ può essere calcolato come un'**integrale sui cammini** (*path integral*) di tutte le possibili traiettorie future, pesate per il loro "costo" (o reward).
+* Il valore di uno stato $$V(s)$$ può essere calcolato come un'**integrale sui cammini** (*path integral*) di tutte le possibili traiettorie future, pesate per il loro "costo" (o reward).
 * Invece di risolvere un'equazione iterativa, il controllo ottimale emerge calcolando l'aspettativa statistica su traiettorie campionate da un processo di diffusione (il rumore del modello).
 
 **Connessione Actor-Critic:**
@@ -202,7 +202,7 @@ Se mettiamo insieme questi pezzi, l'algoritmo Actor-Critic diventa un processo d
 Se interpretiamo l'LLM come un sistema di Kappen:
 * Il **modello autoregressivo** è il processo di diffusione naturale (il rumore di base).
 * Il **CoT** è la traiettoria campionata.
-* L'**ottimizzazione** consiste nel pesare i "pensieri" (token) non in base alla probabilità immediata, ma in base a quanto contribuiscono all'integrale del cammino verso la soluzione $y$.
+* L'**ottimizzazione** consiste nel pesare i "pensieri" (token) non in base alla probabilità immediata, ma in base a quanto contribuiscono all'integrale del cammino verso la soluzione $$y$$.
 
 In termini pratici, questo significa che un "buon" CoT non è quello che contiene le parole più probabili, ma quello che si muove lungo la **geodetica di minima energia libera**, ovvero il percorso che bilancia meglio l'esplorazione (entropia) e la precisione (reward).
 
@@ -217,7 +217,7 @@ In termini pratici, questo significa che un "buon" CoT non è quello che contien
 Autoregressive language models operate as energy-based models that implicitly minimize sequence-level free energy. However, standard linear Chain of Thought (CoT) generation often drifts from the optimal geodesic in complex tasks. We mathematically formalize non-linear scaffolding techniques, specifically Tree of Thought (ToT), as Sequential Monte Carlo (SMC) methods within a path integral control framework. This formalization strips away anthropomorphic interpretations of "reasoning." We demonstrate that intermediate scaffolds act as forced evaluations of the soft Bellman partition function, actively pruning high-energy trajectories. These findings provide a theoretical basis for designing more efficient inference-time optimization algorithms.
 
 ### 1. Introduction
-Recent work establishes a bijection between autoregressive language models and energy-based models (EBMs). Standard next-token prediction implicitly satisfies the soft Bellman equation. Consequently, generating a sequence $y$ from a prompt $x$ corresponds to navigating a semantic state space to minimize expected free energy. 
+Recent work establishes a bijection between autoregressive language models and energy-based models (EBMs). Standard next-token prediction implicitly satisfies the soft Bellman equation. Consequently, generating a sequence $$y$$ from a prompt $$x$$ corresponds to navigating a semantic state space to minimize expected free energy. 
 
 Standard Chain of Thought (CoT) improves performance by materializing intermediate tokens, which reduces local uncertainty. However, linear CoT remains a single stochastic trajectory. When the model encounters high-entropy branch points, a single trajectory often drifts into local minima (hallucination). 
 
@@ -226,29 +226,29 @@ Heuristic methods like Tree of Thought (ToT) mitigate this drift by allowing bra
 ### 2. Theoretical Framework and Methods
 
 #### 2.1 The Soft Bellman Equation and Path Integrals
-We define the semantic state space where each state $s_t$ represents a sequence of tokens. The autoregressive model transitions between states by generating actions (tokens) $a_t$. According to maximum entropy reinforcement learning, the optimal soft value function $V^*(s)$ relates to the Q-function via the log-partition function:
+We define the semantic state space where each state $$s_t$$ represents a sequence of tokens. The autoregressive model transitions between states by generating actions (tokens) $$a_t$$. According to maximum entropy reinforcement learning, the optimal soft value function $$V^*(s)$$ relates to the Q-function via the log-partition function:
 
 $$V^*(s) = \log \int \exp(Q^*(s, a)) \, da$$
 
-Following Kappen's path integral control, we express $V^*(s)$ as an expectation over all possible future trajectories. The optimal policy (the Actor) takes the form of a Gibbs distribution:
+Following Kappen's path integral control, we express $$V^*(s)$$ as an expectation over all possible future trajectories. The optimal policy (the Actor) takes the form of a Gibbs distribution:
 
 $$\pi(a|s) \propto \exp(Q(s, a) - V(s))$$
 
 #### 2.2 Formalizing Tree of Thought as SMC
 We treat ToT not as cognitive deliberation, but as a particle filter (SMC) computing the path integral. 
 The algorithm operates as follows:
-1.  **Diffusion (Generation):** From state $s_t$, we sample $K$ independent token sequences (particles).
+1.  **Diffusion (Generation):** From state $$s_t$$, we sample $K$ independent token sequences (particles).
 2.  **Scaffolding (Evaluation):** We append a scaffold prompt (e.g., "Critique this step") to force the model to output a linguistic evaluation.
-3.  **Reweighting (The Critic):** We map the linguistic evaluation to a scalar reward $R$. The weight of each particle becomes proportional to $\exp(R)$. 
+3.  **Reweighting (The Critic):** We map the linguistic evaluation to a scalar reward $R$. The weight of each particle becomes proportional to $$\exp(R)$$. 
 
 We formalize the intermediate scaffold as a mechanism that projects the implicit Q-function into the explicit context window. By forcing the model to generate an evaluation, we extract an approximation of the local free energy.
 
 ### 3. Results
 
 #### 3.1 Scaffolds as Boundary Conditions
-Our theoretical framework suggests that scaffolds act as intermediate boundary conditions in the Schrödinger Bridge Problem. A standard prompt $x$ and target $y$ define the initial and final distributions. Without intermediate constraints, the variance of the stochastic path grows exponentially. 
+Our theoretical framework suggests that scaffolds act as intermediate boundary conditions in the Schrödinger Bridge Problem. A standard prompt $$x$$ and target $$y$$ define the initial and final distributions. Without intermediate constraints, the variance of the stochastic path grows exponentially. 
 
-Scaffolds place artificial anchors $z_1, z_2, \dots, z_n$ in the semantic space. By evaluating $K$ branches at each anchor and pruning those with low unnormalized probabilities ($\exp(R)$), the ToT algorithm collapses the wave function of the path. This periodic collapse keeps the trajectory close to the optimal geodesic.
+Scaffolds place artificial anchors $$z_1, z_2, \dots, z_n$$ in the semantic space. By evaluating $K$ branches at each anchor and pruning those with low unnormalized probabilities ($$\exp(R)$$), the ToT algorithm collapses the wave function of the path. This periodic collapse keeps the trajectory close to the optimal geodesic.
 
 #### 3.2 Free Energy Minimization 
 Linear CoT calculates a single realization of the path integral. If the model samples a low-probability token early in the sequence, the cumulative free energy of the sequence strictly increases. ToT prevents this through resampling. At each scaffold step, ToT discards trajectories with high variational free energy and duplicates trajectories with low free energy. This guarantees a tighter upper bound on the global sequence energy.

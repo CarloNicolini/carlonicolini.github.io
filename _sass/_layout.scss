@@ -12,8 +12,7 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     min-height: 56px;
-    position: sticky;
-    top: 0;
+    position: relative;
     z-index: 100;
 
     .wrapper {
@@ -377,6 +376,21 @@
         overflow-y: hidden;
         text-align: center;
         padding: 0.5rem 0;
+    }
+
+    /* Captions often use $$...$$ for short TeX; MathJax treats that as display math,
+       but block + center breaks the sentence. Treat as inline-ish inside captions. */
+    figcaption mjx-container[display="true"],
+    caption mjx-container[display="true"],
+    .caption mjx-container[display="true"] {
+        display: inline-block;
+        margin: 0 0.12em;
+        padding: 0;
+        text-align: inherit;
+        overflow-x: visible;
+        overflow-y: visible;
+        vertical-align: baseline;
+        max-width: 100%;
     }
 }
 
@@ -771,8 +785,6 @@
     gap: $spacing-unit * 0.4;
     align-items: flex-start;
     justify-self: start;
-    position: sticky;
-    top: 80px;
 }
 
 .publication-image,

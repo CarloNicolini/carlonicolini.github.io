@@ -4,8 +4,12 @@ description: 'Rolling operations in PySpark.'
 layout: post
 section: tech
 published: true
+categories: tech
 date: 2021-12-03
 ---
+
+## Rolling window operations are possible
+
 Have you ever wondered how to perform rolling averages in PySpark? This snippet helps you through the process
 
 {% highlight python %}

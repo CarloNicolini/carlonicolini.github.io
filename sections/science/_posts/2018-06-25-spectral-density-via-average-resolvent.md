@@ -18,9 +18,9 @@ This short blog note is covering some aspects related to interesting calculation
 </figure>
 
 We want to study the properties of some random graph ensemble in terms of the spectral density of the eigenvalues of the Laplacian.
-We denote the adjacency matrix of a random graph as $$\mathbf{A}$$, its Laplacian of $\mathbf{L}$. The parameters of the random graph model are indicated by the parameters $\boldsymbol \theta$, so we can imagine every single random graph is a collection of $n(n-1)/2$ random variables dependent on the parameters $\boldsymbol \theta$.
+We denote the adjacency matrix of a random graph as $$\mathbf{A}$$, its Laplacian of $\mathbf{L}$$. The parameters of the random graph model are indicated by the parameters $$\boldsymbol \theta$$, so we can imagine every single random graph is a collection of $$n(n-1)/2$$ random variables dependent on the parameters $$\boldsymbol \theta$.
 
-We are interested in the limiting distribution of the ensemble eigenvalues, a quantity known as the average spectral density $\mathbb{E}[{\varrho}]$, where by the operator $\mathbb{E}[\cdot]$ we mean the ensemble average at constant parameters $\boldsymbol \theta$. This is also indicated in statistical physics with the triangular brackes $\langle \cdot \rangle$.
+We are interested in the limiting distribution of the ensemble eigenvalues, a quantity known as the average spectral density $$\mathbb{E}[{\varrho}]$$, where by the operator $$\mathbb{E}[\cdot]$$ we mean the ensemble average at constant parameters $$\boldsymbol \theta$$. This is also indicated in statistical physics with the triangular brackes $$\langle \cdot \rangle$$.
 
 Numerically we could in principle compute a large number of random adjacency matrices from the graph ensemble and obtain the spectral density via histogramming.
 However we have more powerful tools to accomplish this task: the **matrix resolvent** and the **Stieltjes** transform.
@@ -114,8 +114,8 @@ reps=500
 rho = spectral_density_laplacian_er(n,p,x,reps)
 plt.plot(x,rho)
 plt.hist(np.array([eigvalsh(LER(n,p)) for r in range(0,1000)]).flatten(),100,normed='freq')
-plt.xlabel('$\\lambda$')
-plt.ylabel('$\\varrho(\\lambda)$')
+plt.xlabel('$$\\lambda$$')
+plt.ylabel('$$\\varrho(\\lambda)$$')
 plt.title('Spectral density Erdos-Renyi Laplacian N=200 p=0.25')
 plt.show()
 {% endhighlight %}

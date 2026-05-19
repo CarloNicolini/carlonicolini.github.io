@@ -28,8 +28,8 @@ Several recent notes in this sequence argue that inference-time scaffolds can be
 [MellowMax, Doob's h-transform, and the intensive geometry of tool-use agents]({% link sections/science/_posts/2026-04-03-Mellowmax-doob-and-agentic-tool-use.md %}) argues that the corresponding local quantity should be made intensive when actions have very different lengths.
 
 The natural empirical question is then the following.
-Suppose a model emits a short continuation $y$ after a prompt $x$.
-Can a local soft-value readout at the prefix $x \oplus y$ predict the downstream semantic value of the full continuation tree rooted at that prefix?
+Suppose a model emits a short continuation $$y$$ after a prompt $$x$$.
+Can a local soft-value readout at the prefix $$x \oplus y$$ predict the downstream semantic value of the full continuation tree rooted at that prefix?
 
 This is not the same as asking whether the local soft value exactly equals the value of one final answer.
 The correct test is weaker and more useful.
@@ -39,9 +39,9 @@ It asks whether the local quantity has **predictive power** for the Monte Carlo 
 
 The script `~/workspace/plp/examples/test_predictive_power.py` implements the following procedure.
 
-1. Start from a prompt $x$.
-2. Sample a short rollout $y$ of one or two tokens.
-3. Compute an intensive soft-value readout at $x \oplus y$ using MellowMax over the next-token logits.
+1. Start from a prompt $$x$$.
+2. Sample a short rollout $$y$$ of one or two tokens.
+3. Compute an intensive soft-value readout at $$x \oplus y$$ using MellowMax over the next-token logits.
 4. Sample several full completions from the same short prefix.
 5. Evaluate those full completions with a simple verifier.
 6. Estimate the downstream semantic continuation value by Monte Carlo.
@@ -192,7 +192,7 @@ It says the experimental design must match the theoretical object.
 ## 8. The next experimental step
 
 The next experiment should be framed at the action level.
-For each prompt $x$, define a finite set of candidate actions $a \in \mathcal{A}(x)$.
+For each prompt $$x$$, define a finite set of candidate actions $$a \in \mathcal{A}(x)$$.
 For each action, compute a local intensive value estimate and compare it with a Monte Carlo estimate of the downstream verifier-weighted continuation mass:
 
 $$

@@ -21,15 +21,15 @@ We show how the success of deep learning could depend not only on mathematics bu
 We explore how properties frequently encountered in physics such as symmetry, locality, compositionality, and polynomial log-probability translate into exceptionally simple neural networks.
 We further argue that when the statistical process generating the data is of a certain hierarchical form prevalent in physics and machine-learning, a deep neural network can be more efficient than a shallow one.
 We formalize these claims using information theory and discuss the relation to the renormalization group. 
-We prove various *no-flattening theorems* showing when efficient linear deep networks cannot be accurately approximated by shallow ones without efficiency loss; for example, we show that $n$ variables cannot be multiplied using fewer than 2 neurons in a single hidden layer.
+We prove various *no-flattening theorems* showing when efficient linear deep networks cannot be accurately approximated by shallow ones without efficiency loss; for example, we show that $$n$$ variables cannot be multiplied using fewer than 2 neurons in a single hidden layer.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/5MdSE-N0bxs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 | Physics                   | ML                                |
 |:--------------------------|----------------------------------:|
-| Hamiltonian $H$           | Surprisal $-\log p$               |
+| Hamiltonian $H$           | Surprisal $$-\log p$$               |
 | Simple $H$                | Cheap learning                    |
-| Quadratic $H$             | Gaussian $p$                      |
+| Quadratic $H$             | Gaussian $$p$$                      |
 | Locality                  | Sparsity                          |
 | Translation symmetric $H$ | Convolutional netw.               |
 | Spin                      | Bit                               |
@@ -40,13 +40,13 @@ We prove various *no-flattening theorems* showing when efficient linear deep net
 
 
 In order to facilitate a comparison between the formalism used in computer science, mathematical probability and statistical physics, here I try to develop a small table where all the terms are translated in the two perspectives.
-And we continue with the link between statistical physics and Bayesian theory, here in a small table (we set $k_B=1$)
+And we continue with the link between statistical physics and Bayesian theory, here in a small table (we set $$k_B=1$$)
 
 
 | Physical perspective                                                        | Statistical perspective                                                                                |
 |:----------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------:|
-| Potential $\phi(\theta)$                                                    | Negative log-joint $\phi( \theta ) = - \log p(y, \theta \| m)$                                         |
-| Boltzmann distribution $q(\theta)=\frac{1}{Z} \exp{-\beta \phi(\theta)}$    | Posterior distribution. $q(\theta)=\frac{1}{Z}\exp{-\log p(y,\theta \|m)}=\frac{1}{Z} p(y,\theta\|m)$  |
-| Partition function $Z=\int \exp{-\beta \phi(\theta)}$                       | Model evidence $Z=\int p(y,\theta \| m)$                                                               | 
-| Internal energy $U=\int q(\theta) \phi(\theta) d\theta$                     | Expected log-joint $U=\int p(\theta \| y,m) \log p(y,\theta \|m) d\theta$                              |
-| Entropy $S=-\int q(\theta) \log q(\theta) d\theta $                         | Shannon Entropy $S_{shannon} = -\int q(\theta) \log q(theta) d\theta$                                  |
+| Potential $$\phi(\theta)$$                                                    | Negative log-joint $$\phi( \theta ) = - \log p(y, \theta \| m)$$                                         |
+| Boltzmann distribution $q(\theta)=\frac{1}{Z} \exp{-\beta \phi(\theta)}$$    | Posterior distribution. $$q(\theta)=\frac{1}{Z}\exp{-\log p(y,\theta \|m)}=\frac{1}{Z} p(y,\theta\|m)$  |
+| Partition function $Z=\int \exp{-\beta \phi(\theta)}$$                       | Model evidence $$Z=\int p(y,\theta \| m)$                                                               | 
+| Internal energy $$U=\int q(\theta) \phi(\theta) d\theta$$                     | Expected log-joint $$U=\int p(\theta \| y,m) \log p(y,\theta \|m) d\theta$$                              |
+| Entropy $$S=-\int q(\theta) \log q(\theta) d\theta $$                         | Shannon Entropy $$S_{shannon} = -\int q(\theta) \log q(theta) d\theta$$                                  |

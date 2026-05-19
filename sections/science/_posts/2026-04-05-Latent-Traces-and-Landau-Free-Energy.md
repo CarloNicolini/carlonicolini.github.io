@@ -19,7 +19,7 @@ The question I want to push one step further is what happens when the number of 
 
 ## From Jaynes to Bellman
 
-Fix a prompt sequence $\mathbf{x}$ and let $\mathbf{u}$ denote a complete continuation ending in `EOS`. Let $p_0(\mathbf{u}\mid \mathbf{x})$ be a reference autoregressive model and let $R(\mathbf{x},\mathbf{u})$ be a verifier reward or sequence score. The usual Jaynesian, KL-regularized target is
+Fix a prompt sequence $\mathbf{x}$$ and let $$\mathbf{u}$$ denote a complete continuation ending in `EOS`. Let $$p_0(\mathbf{u}\mid \mathbf{x})$$ be a reference autoregressive model and let $$R(\mathbf{x},\mathbf{u})$ be a verifier reward or sequence score. The usual Jaynesian, KL-regularized target is
 
 $$
 p_{\alpha}(\mathbf{u}\mid \mathbf{x})
@@ -76,7 +76,7 @@ $$
 V(s) = \log \sum_{v \in \mathcal{V}\cup\{\mathrm{EOS}\}} \exp\!\big(q^\star(s,v)\big).
 $$
 
-The important point is conceptual. The quantity $V(s)$ is the log-partition over all admissible suffixes reachable from the prefix $s$. In that sense, the model is not scoring the next token in isolation. It is scoring the next token together with the future mass that the token opens up.
+The important point is conceptual. The quantity $$V(s)$$ is the log-partition over all admissible suffixes reachable from the prefix $$s$$. In that sense, the model is not scoring the next token in isolation. It is scoring the next token together with the future mass that the token opens up.
 
 If I translate that log-partition into my present language, the prefix-level Landau free energy is
 
@@ -127,7 +127,7 @@ So from here on, $\mathbf{z}$ should be read as a latent reasoning trace first. 
 
 Here the note leaves established literature and becomes conjectural.
 
-If the reasoning trace has variable length $N$, then the natural extension is to assign a chemical potential $\mu$ to each latent reasoning token and define the fugacity
+If the reasoning trace has variable length $N$, then the natural extension is to assign a chemical potential $$\mu$$ to each latent reasoning token and define the fugacity
 
 $$
 \zeta := \exp(-\mu/\alpha).
@@ -182,7 +182,7 @@ $$
 
 In this sense, fugacity is not reasoning effort itself. It is the control parameter that governs expected reasoning effort.
 
-Second, if I compare the variable-length family with the zero-shot slice $N=0$, then for any fixed answer $\mathbf{y}$,
+Second, if I compare the variable-length family with the zero-shot slice $$N=0$$, then for any fixed answer $\mathbf{y}$,
 
 $$
 \Xi_{\alpha,\mu}^{(0)}(\mathbf{y}\mid \mathbf{x})

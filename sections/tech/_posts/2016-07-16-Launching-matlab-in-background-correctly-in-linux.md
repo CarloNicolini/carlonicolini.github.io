@@ -4,6 +4,8 @@ title: Launching-matlab-in-background-correctly-in-linux
 description: 'Launching-matlab-in-background-correctly-in-linux.'
 date: 2016-07-16
 categories: tech
+published: true
+
 ---
 You want to launch Matlab for a very long script and then disconnect your remote terminal, and when back, not finding bad surprise.
 

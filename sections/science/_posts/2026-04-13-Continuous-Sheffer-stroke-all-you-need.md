@@ -35,17 +35,17 @@ $$
 $$
 
 If you have this single function, and the constant `1` to feed into it, you can derive the entire standard repertoire of a scientific calculator.
-You can build arithmetic, trigonometry, hyperbolic functions, and constants like $e$, $\pi$, and the imaginary unit $i$.
+You can build arithmetic, trigonometry, hyperbolic functions, and constants like $$e$$, $$\pi$$, and the imaginary unit $$i$$.
 
-Let's say you just want to compute $e^x$.
+Let's say you just want to compute $$e^x$$.
 How do you do it with our two buttons?
-You just plug $x$ and $1$ into the operator:
+You just plug $$x$$ and $1$ into the operator:
 
 `eml(x, 1) = exp(x) - ln(1)`
 
-Since the natural log of 1 is 0, this simplifies perfectly to $e^x$.
+Since the natural log of 1 is 0, this simplifies perfectly to $$e^x$$.
 
-What if you want the natural log of $x$? This requires nesting the operator. It looks like this:
+What if you want the natural log of $$x$$? This requires nesting the operator. It looks like this:
 
 `ln(x) = eml(1, eml(eml(1, x), 1))`
 
@@ -84,8 +84,8 @@ Instead of an AI giving you a massive, uninterpretable matrix of weights, an EML
 Because every EML expression reduces to a strict binary tree, we can visualize the Abstract Syntax Tree (AST) of these functions using Mermaid charts.
 Let's look at a few examples:
 
-**1. The constant $e$**
-Since $e = \exp(1) - \ln(1) = \text{eml}(1, 1)$, the AST is simply:
+**1. The constant $$e$$**
+Since $$e = \exp(1) - \ln(1) = \text{eml}(1, 1)$$, the AST is simply:
 
 ```mermaid
 graph TD
@@ -93,8 +93,8 @@ graph TD
     eml --> one2[1]
 ```
 
-**2. The exponential function $e^x$**
-Since $e^x = \exp(x) - \ln(1) = \text{eml}(x, 1)$, we just replace the left branch with $x$:
+**2. The exponential function $$e^x$$**
+Since $$e^x = \exp(x) - \ln(1) = \text{eml}(x, 1)$$, we just replace the left branch with $$x$$:
 
 ```mermaid
 graph TD
@@ -102,8 +102,8 @@ graph TD
     eml --> one[1]
 ```
 
-**3. The natural logarithm $\ln(x)$**
-This one requires nesting to cancel out the exponentials: $\ln(x) = \text{eml}(1, \text{eml}(\text{eml}(1, x), 1))$
+**3. The natural logarithm $$\ln(x)$$**
+This one requires nesting to cancel out the exponentials: $$\ln(x) = \text{eml}(1, \text{eml}(\text{eml}(1, x), 1))$$
 
 ```mermaid
 graph TD
@@ -115,8 +115,8 @@ graph TD
     eml3 --> x[x]
 ```
 
-**4. Subtraction $x - y$**
-Subtraction is incredibly elegant: $x - y = \exp(\ln(x)) - \ln(\exp(y))$. This means subtraction is exactly `eml(ln(x), exp(y))`! When we expand the inner functions, the full AST looks like this:
+**4. Subtraction $$x - y$$**
+Subtraction is incredibly elegant: $$x - y = \exp(\ln(x)) - \ln(\exp(y))$$. This means subtraction is exactly `eml(ln(x), exp(y))`! When we expand the inner functions, the full AST looks like this:
 
 ```mermaid
 graph TD

@@ -4,6 +4,8 @@ title: Matlab R2016a crashes on Ubuntu 16.04 with NVidia 361 drivers
 description: 'Matlab R2016a crashes on Ubuntu 16.04 with NVidia 361 drivers.'
 date: 2016-08-17
 categories: tech
+published: true
+
 ---
 For those of you who upgraded Ubuntu from 14.04 to 16.04 and have found that Matlab is crashing with errors in nvidia drivers, you have three options:
 

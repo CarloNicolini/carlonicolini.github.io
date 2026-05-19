@@ -4,6 +4,8 @@ title: TAB is not working with XFCE4 after installation from Ubuntu for use with
 description: 'TAB is not working with XFCE4 after installation from Ubuntu for use…'
 categories: tech
 date: 2017-01-17
+published: true
+
 ---
 You have installed Ubuntu 14.04 or latest Ubuntu LTS 16.04 on your server and you want to make it available for remote desktop connections with the help of XRDP.
 You install xrdp and you connect to your server with some client, like remmina.

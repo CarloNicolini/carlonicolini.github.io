@@ -4,6 +4,8 @@ title: Prompt Chaining with Foundational models
 description: "Prompt chaining: multi-step LLM workflows and handoff patterns."
 date: 2025-01-16
 categories: tech
+published: true
+
 ---
 
 In the rapidly evolving world of artificial intelligence and natural language processing, one of the most innovative concepts emerging is **Prompt Chaining**. This method optimizes the capabilities of Large Language Models (LLMs) by enabling a structured, step-by-step collaboration among multiple prompts. Let’s delve into what prompt chaining is all about, its use cases, and a practical implementation.

@@ -4,6 +4,8 @@ title: How to list all tensorflow devices
 description: 'How to list all tensorflow devices.'
 categories: tech
 date: 2018-07-10
+published: true
+
 ---
 This is how you do:
 

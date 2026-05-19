@@ -234,7 +234,7 @@ In risposta, l'LLM genererebbe qualcosa di simile a questo, che verrebbe poi inv
 
 Una volta che abbiamo gli oggetti, dobbiamo dare loro delle regole. Qui è dove applichiamo il concetto di *w-maxing*: non vogliamo regole che blocchino il sistema, ma vincoli che definiscano il perimetro della logica. Potremmo istruire l'IA così:
 
-> "Traduce la seguente norma di sicurezza industriale in una regola di inferenza MeTTa. Se la temperatura di un reattore supera i 180°C e la pressione è alta, il sistema deve attivare la valvola di emergenza. Modella questa regola non come una stringa di testo, ma come una funzione di riscrittura che utilizzi l'operatore `=` e il pattern matching di Hyperon. Usa variabili come `$temp` e `$press` per rendere la regola generale e applicabile a qualsiasi reattore presente nell'AtomSpace."
+> "Traduce la seguente norma di sicurezza industriale in una regola di inferenza MeTTa. Se la temperatura di un reattore supera i 180°C e la pressione è alta, il sistema deve attivare la valvola di emergenza. Modella questa regola non come una stringa di testo, ma come una funzione di riscrittura che utilizzi l'operatore `=` e il pattern matching di Hyperon. Usa variabili come `$$temp` e `$$press` per rendere la regola generale e applicabile a qualsiasi reattore presente nell'AtomSpace."
 
 Il risultato tecnico che il server MCP andrebbe a processare sarebbe una funzione logica pura, pronta per essere testata dal motore di ragionamento:
 

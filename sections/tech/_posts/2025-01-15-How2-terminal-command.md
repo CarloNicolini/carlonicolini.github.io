@@ -4,6 +4,8 @@ title: Creating the How2 Function for Natural Language Bash Commands with LLM
 description: "Bash how2: natural language to shell commands via llm CLI."
 date: 2025-01-15
 categories: tech
+published: true
+
 ---
 
 In today's tech-driven world, the ability to translate natural language into executable commands is a powerful tool for developers and system administrators alike. Recently, I embarked on creating a function that bridges this gap using a Large Language Model (LLM) to interpret user queries in natural language and return the corresponding Bash terminal commands. Here's how I constructed the `how2` function that provides users with Bash commands based on their queries.

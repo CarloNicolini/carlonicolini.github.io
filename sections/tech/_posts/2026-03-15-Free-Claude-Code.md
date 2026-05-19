@@ -2,9 +2,10 @@
 layout: post
 title: "Unleash Claude Code CLI with OpenRouter: Free AI Coding Power!"
 description: "Claude Code with OpenRouter and free models; env and auth notes."
-date: 2026-03-14
+date: 2026-03-15
 categories: tech
 tags: [claude-code, openrouter, cli]
+published: true
 ---
 
 ## Claude Code CLI with OpenRouter
@@ -28,11 +29,11 @@ This guide shows you how to "trick" Claude Code into using OpenRouter as its bac
 
 If you don't already have one, creating an OpenRouter API key is quick and easy.
 
-1.  Visit OpenRouter: Go to [OpenRouter website](openrouter.ai).
-2.  Sign In/Up: You can sign in using your Google, GitHub, or Discord account.
-3.  Navigate to API Keys: Once logged in, go to your dashboard and find the "Keys" or "API Keys" section. This is usually under your profile dropdown or a dedicated "Settings" page.
-4.  Create a New Key: Click "Create New Key." Give it a descriptive name (e.g., "Claude Code CLI").
-5.  Copy Your Key: Your API key will be displayed. Copy it immediately as you won't be able to see it again. It will look something like `sk-or-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.
+1. Visit OpenRouter: Go to [OpenRouter website](openrouter.ai).
+2. Sign In/Up: You can sign in using your Google, GitHub, or Discord account.
+3. Navigate to API Keys: Once logged in, go to your dashboard and find the "Keys" or "API Keys" section. This is usually under your profile dropdown or a dedicated "Settings" page.
+4. Create a New Key: Click "Create New Key." Give it a descriptive name (e.g., "Claude Code CLI").
+5. Copy Your Key: Your API key will be displayed. Copy it immediately as you won't be able to see it again. It will look something like `sk-or-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.
 
 ---
 
@@ -40,8 +41,8 @@ If you don't already have one, creating an OpenRouter API key is quick and easy.
 
 If you haven't already, install the Claude Code CLI. This requires Node.js (v18 or higher) and npm/yarn.
 
-1.  Install Node.js: If you don't have Node.js, download it from [nodejs.org](https://nodejs.org/) or use a version manager like `nvm`.
-2.  Install Claude Code via npm, or if you find it using your package manager (on MacOs it's now on `brew install --cask claude`)
+1. Install Node.js: If you don't have Node.js, download it from [nodejs.org](https://nodejs.org/) or use a version manager like `nvm`.
+2. Install Claude Code via npm, or if you find it using your package manager (on MacOs it's now on `brew install --cask claude`)
 
 ```bash
 npm install -g @anthropic-ai/claude-cli
@@ -64,9 +65,10 @@ export ANTHROPIC_AUTH_TOKEN="$OPENROUTER_API_KEY"
 export ANTHROPIC_API_KEY="" # Ensure this is empty to avoid conflicts
 ```
 
-Then trick Claude into thinking to use its models instead routing them to our models. 
+Then trick Claude into thinking to use its models instead routing them to our models.
 We'll target NVIDIA Nemotron-3-4-12B-Instruct, which often has a free tier.
-```
+
+```bash
 export ANTHROPIC_DEFAULT_SONNET_MODEL="nvidia/nemotron-3-super-120b-a12b:free"
 export ANTHROPIC_DEFAULT_HAIKU_MODEL="nvidia/nemotron-3-super-120b-a12b:free"
 export ANTHROPIC_DEFAULT_OPUS_MODEL="nvidia/nemotron-3-super-120b-a12b:free"
@@ -79,4 +81,3 @@ You can now start Claude Code, specifiyng the model name at startup. I've create
 ```bash
 alias claude-nemotron-free='claude --model nvidia/nemotron-3-super-120b-a12b:free'
 ```
-

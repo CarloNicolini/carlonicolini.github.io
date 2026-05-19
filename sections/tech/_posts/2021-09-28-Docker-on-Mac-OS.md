@@ -15,7 +15,7 @@ Docker
     -> possibly need to address System Preference setting
     $ docker-machine create --driver virtualbox default
     $ docker-machine env default
-    $ eval "$(docker-machine env default)"
+    $$ eval "$$(docker-machine env default)"
     $ docker run hello-world
     $ docker-machine stop default
 

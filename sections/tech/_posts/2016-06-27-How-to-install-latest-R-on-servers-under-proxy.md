@@ -4,6 +4,8 @@ title: How to install latest R on servers under proxy
 description: 'How to install latest R on servers under proxy.'
 categories: tech
 date: 2016-06-27
+published: true
+
 ---
 It's possible to keep your R version updated on Ubuntu 14.04 if you decide not to use the version provided by the package maintainer. In this small guide I explain how to do that especially if you are under a proxy server.
 

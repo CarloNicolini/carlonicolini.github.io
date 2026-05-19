@@ -6,6 +6,7 @@ date: 2015-10-14
 categories:
   - science
   - complex-networks
+published: true
 ---
 In these section we’ll address in depth an approach to making sense of
 the mesoscopic structure of a network by means of non-deterministic

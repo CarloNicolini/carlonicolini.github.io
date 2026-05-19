@@ -16,26 +16,26 @@ The sharper statement is simple and useful:
 
 > PLP is inference-time approximation of the free energy.
 
-The central object of [PLP is the fundamental equation]({% link sections/science/_posts/2026-03-01-Probabilistic-Language-Programming.md %}) that we reproduce via a programmatic scaffold building a trace $\tau$, arriving at the relation:
+The central object of [PLP is the fundamental equation]({% link sections/science/_posts/2026-03-01-Probabilistic-Language-Programming.md %}) that we reproduce via a programmatic scaffold building a trace $$\tau$$, arriving at the relation:
 
 \begin{equation}
 p_{\mathcal{D}}(\tau \mid x) \propto \pi_{\mathcal{D}}(\tau \mid x)\,\Phi(\tau,x).
 \end{equation}
 
-A scaffold is a way to first sample traces from a proposal distribution $\pi_{\mathcal{D}}(\cdot \mid x)$ induced by the deployed model, and then reshape that mass with potentials supplied by verifiers, judges, or heuristics.
+A scaffold is a way to first sample traces from a proposal distribution $$\pi_{\mathcal{D}}(\cdot \mid x)$$ induced by the deployed model, and then reshape that mass with potentials supplied by verifiers, judges, or heuristics.
 
 To make the rest precise, let us start from the basic PLP objects.
-Fix a deployment setup $\mathcal{D}$ (model, decoding hyperparameters etc.), an input prompt $x$, and a complete execution trace $\tau$.
-In PLP, the forward execution of the workflow induces a proposal distribution $\pi_{\mathcal{D}}(\tau \mid x)$ and the verifier, judge, or preference specification induces a nonnegative potential $\Phi(\tau,x)$.
-When the prompt $x$ is fixed, I will often write $\Phi(\tau)$ instead of $\Phi(\tau,x)$ to shorten formulas.
+Fix a deployment setup $\mathcal{D}$$ (model, decoding hyperparameters etc.), an input prompt $$x$$, and a complete execution trace $$\tau$.
+In PLP, the forward execution of the workflow induces a proposal distribution $$\pi_{\mathcal{D}}(\tau \mid x)$$ and the verifier, judge, or preference specification induces a nonnegative potential $$\Phi(\tau,x)$$.
+When the prompt $$x$$ is fixed, I will often write $$\Phi(\tau)$$ instead of $$\Phi(\tau,x)$$ to shorten formulas.
 
-The semantic target is hence modeled as the product of two competing *forces*: the proposal force $\pi_{\mathcal{D}}(\tau \mid x)$ pushing the exploration of different trajectories in the semantic space, and the *verifier force* $\Phi(\tau,x)$ keeping the proposal on track with a warp signal:
+The semantic target is hence modeled as the product of two competing *forces*: the proposal force $$\pi_{\mathcal{D}}(\tau \mid x)$$ pushing the exploration of different trajectories in the semantic space, and the *verifier force* $$\Phi(\tau,x)$$ keeping the proposal on track with a warp signal:
 
 \begin{equation}
 p_{\mathcal{D}}(\tau \mid x) = \frac{\pi_{\mathcal{D}}(\tau \mid x)\Phi(\tau,x)}{Z_{\mathcal{D}}(x)} \quad Z_{\mathcal{D}}(x)=\sum_{\tau} \pi_{\mathcal{D}}(\tau \mid x)\Phi(\tau,x) \label{eq:fundamental}\tag{1}.
 \end{equation}
 
-The normalization factor $Z_{\mathcal{D}}(x)$ is the partition function, namely the total verifier-weighted mass over all traces at fixed input and deployment state.
+The normalization factor $$Z_{\mathcal{D}}(x)$$ is the partition function, namely the total verifier-weighted mass over all traces at fixed input and deployment state.
 
 If we stick to the soft reinforcement learning literature we could now define the reference distribution (proposal) and the *global reward* $R$ as:
 
@@ -43,7 +43,7 @@ If we stick to the soft reinforcement learning literature we could now define th
 p_{\mathrm{ref}}(\tau \mid x) := \pi_{\mathcal{D}}(\tau \mid x), \qquad R(\tau,x) := \log \Phi(\tau,x),
 \end{equation}
 
-with the usual convention $R(\tau,x)=-\infty$ when $\Phi(\tau,x)=0$.
+with the usual convention $$R(\tau,x)=-\infty$$ when $$\Phi(\tau,x)=0$$.
 
 The same semantic target becomes a softargmax distribution over the reward weighted proposals, a convention that is already well defined in many soft reinforcement learning studies {% cite levine2018reinforcement blondel2025autoregressive %}:
 
@@ -51,7 +51,7 @@ The same semantic target becomes a softargmax distribution over the reward weigh
 p_{\mathcal{D}} (\tau \mid x) = \frac{p_{\mathrm{ref}}(\tau \mid x)\exp(R(\tau,x))} {\sum_{\tau'} p_{\mathrm{ref}}(\tau' \mid x)\exp(R(\tau',x))}.
 \end{equation}
 
-This is exactly the reference-measure energy-based form that appears in KL-regularized maximum-entropy reinforcement learning and in the recent ARM/EBM equivalence of Blondel et al. {% cite blondel2025autoregressive %} when instead of simply the answer $\mathbf{y}$, we include the trace $\tau$ that naturally includes the possible scaffold architectures.
+This is exactly the reference-measure energy-based form that appears in KL-regularized maximum-entropy reinforcement learning and in the recent ARM/EBM equivalence of Blondel et al. {% cite blondel2025autoregressive %} when instead of simply the answer $\mathbf{y}$$, we include the trace $$\tau$ that naturally includes the possible scaffold architectures.
 
 So the PLP proposal is the reference model used for proposal exploration in the sequences landscape (as in energy based models) and  the PLP potential is the exponentiated version of the additive energy correction, namely the feedback mechanism that could drive the exploration of better solutions toward the semantic target.
 
@@ -72,10 +72,10 @@ or, put more precisely, its logarithm hence the free energy!
 
 There is a difference in the equation above between integrating over the trace space and integrating over the string space.
 The trace space is a richer and vaster environment that one could, at least in theory, optimize over.
-Over the last years, people as been involuntarily integrating the trace space in search of better and better approximation of the (finite but very large) sum $\sum_\tau (\cdot)$ above!
+Over the last years, people as been involuntarily integrating the trace space in search of better and better approximation of the (finite but very large) sum $$\sum_\tau (\cdot)$$ above!
 
 Depending on convention, this object can be read as a *log-evidence*, a *soft value*, or as *minus a free-energy* objective.
-I will keep the $\log Z_{\mathcal{D}}(x)$ sign convention throughout, because it is the natural one for search and reweighting.
+I will keep the $$\log Z_{\mathcal{D}}(x)$$ sign convention throughout, because it is the natural one for search and reweighting.
 Remember: any prompting technique or programmatic scaffold is just a way to approximate it.
 
 This is the core conceptual jump between post-training alignment and inference-time compute.
@@ -86,9 +86,9 @@ We are approximating, at inference time, a log-partition over future traces that
 <img src="/static/postfigures/inference_time_reweighting.svg" alt="inference_time_reweighting">
 <figcaption>
 <strong>Figure 1: Inference-Time Trace Reweighting.</strong>
-<strong>(Left)</strong> The raw autoregressive policy induces a broad, unconstrained proposal distribution over reasoning traces. I write this baseline law as $q(\tau \mid x)$ to distinguish it from the deployed scaffold proposal $\pi_{\mathcal{D}}(\tau \mid x)$.
-<strong>(Center)</strong> A verifier, judge, or heuristic defines a non-negative potential field $\Phi(\tau, x)$ (orange), smoothly warping the energy landscape of available paths and highlighting promising basins.
-<strong>(Right)</strong> The normalized semantic target distribution $p(\tau \mid x)$. By applying the correct inference-time scaffold, probability mass (represented by line thickness and color intensity) is shifted away from dead ends and concentrated onto a smaller subset of high-value continuations.
+<strong>(Left)</strong> The raw autoregressive policy induces a broad, unconstrained proposal distribution over reasoning traces. I write this baseline law as $$q(\tau \mid x)$$ to distinguish it from the deployed scaffold proposal $$\pi_{\mathcal{D}}(\tau \mid x)$$.
+<strong>(Center)</strong> A verifier, judge, or heuristic defines a non-negative potential field $$\Phi(\tau, x)$$ (orange), smoothly warping the energy landscape of available paths and highlighting promising basins.
+<strong>(Right)</strong> The normalized semantic target distribution $$p(\tau \mid x)$$. By applying the correct inference-time scaffold, probability mass (represented by line thickness and color intensity) is shifted away from dead ends and concentrated onto a smaller subset of high-value continuations.
 </figcaption>
 </figure>
 
@@ -110,7 +110,7 @@ $$
 \text{change the weights so that } q_{\theta} \approx p_{\mathcal{D}}.
 $$
 
-Here $q_{\theta}$ denotes a parametric model distribution over traces (or over answers) with parameters $\theta$.
+Here $q_{\theta}$$ denotes a parametric model distribution over traces (or over answers) with parameters $$\theta$.
 
 The other is:
 
@@ -123,7 +123,7 @@ It is the semantics-first theory of what to do when the target is known only thr
 In other words, PLP is the runtime side of the same mathematics that post-training methods try to absorb into parameters.
 
 There is also an important caveat here.
-If the potential $\Phi$ is produced by an imperfect LLM judge, then the resulting free-energy landscape is judge-relative, not necessarily truth-relative {% cite lee2025judge %}: the geometry is still real, but it is the geometry of the deployed verifier.
+If the potential $$\Phi$$ is produced by an imperfect LLM judge, then the resulting free-energy landscape is judge-relative, not necessarily truth-relative {% cite lee2025judge %}: the geometry is still real, but it is the geometry of the deployed verifier.
 Simply speaking, an imperfect judge is a process that warps the energy landscape itself.
 
 ## The closer bridge is path-integral control
@@ -132,9 +132,9 @@ At this point it is tempting to import Friston's free energy principle wholesale
 I think there is a closer and cleaner bridge for the present argument: *Kappen's* path-integral view of stochastic optimal control {% cite kappen2005path %}.
 
 For a class of noisy control problems with quadratic control cost, Kappen showed that the nonlinear Hamilton-Jacobi-Bellman equation can be linearized through a log transform of the cost-to-go.
-Let $\xi$ denote a physical state and $t$ denote time in his continuous-time setup (this $\xi$ is not the prompt $x$ elsewhere in the note).
-Let $\lambda>0$ denote the temperature parameter that appears in Kappen's log transform (it ties control cost to noise strength in his construction {% cite kappen2005path %}).
-If $\Psi(\xi,t)$ denotes the forward diffusion partition function in that setting, then the optimal cost-to-go reads
+Let $$\xi$$ denote a physical state and $$t$$ denote time in his continuous-time setup (this $$\xi$$ is not the prompt $$x$$ elsewhere in the note).
+Let $$\lambda>0$$ denote the temperature parameter that appears in Kappen's log transform (it ties control cost to noise strength in his construction {% cite kappen2005path %}).
+If $$\Psi(\xi,t)$$ denotes the forward diffusion partition function in that setting, then the optimal cost-to-go reads
 
 $$
 J(\xi,t) = -\lambda \log \Psi(\xi,t),
@@ -143,7 +143,7 @@ $$
 so the control problem becomes a log-partition over future trajectories.
 
 PLP has the same algebraic structure, but the state is a trace prefix.
-Let $s$ denote such a prefix (a string state in the MDP picture).
+Let $$s$$ denote such a prefix (a string state in the MDP picture).
 Define the **continuation partition**
 
 $$
@@ -152,31 +152,31 @@ Z(s)=\sum_{\tau \succ s} \pi_{\mathcal{D}}(\tau \mid s)\,\Phi(\tau),
 V(s)=\log Z(s),
 $$
 
-where $\tau \succ s$ means that the complete trace $\tau$ extends $s$, and $\pi_{\mathcal{D}}(\tau \mid s)$ is the conditional proposal law for those completions.
+where $$\tau \succ s$$ means that the complete trace $$\tau$$ extends $$s$$, and $$\pi_{\mathcal{D}}(\tau \mid s)$$ is the conditional proposal law for those completions.
 
 The PLP potential need not be a literal Boltzmann factor.
-Earlier we wrote $R(\tau,x)=\log \Phi(\tau,x)$, so always $\Phi(\tau)=\exp(R(\tau))$ in log space.
+Earlier we wrote $$R(\tau,x)=\log \Phi(\tau,x)$$, so always $$\Phi(\tau)=\exp(R(\tau))$$ in log space.
 To align PLP with Kappen's path-cost form, suppose in addition that we can write
 
 $$
 R(\tau)=-\frac{S(\tau)}{\lambda}
 $$
 
-for some nonnegative **path cost** functional $S(\tau)$ and a **temperature** $\lambda>0$.
+for some nonnegative **path cost** functional $$S(\tau)$$ and a **temperature** $$\lambda>0$$.
 Equivalently,
 
 $$
 \Phi(\tau)=\exp\!\left(-\frac{S(\tau)}{\lambda}\right).
 $$
 
-With that identification, the PLP continuation value $V(s)=\log Z(s)$ matches Kappen's log-partition structure up to sign and scale.
-Writing $J_{\mathrm{PLP}}(s)$ for the corresponding cost-to-go under the same sign convention as $J(\xi,t)$,
+With that identification, the PLP continuation value $$V(s)=\log Z(s)$$ matches Kappen's log-partition structure up to sign and scale.
+Writing $$J_{\mathrm{PLP}}(s)$$ for the corresponding cost-to-go under the same sign convention as $$J(\xi,t)$$,
 
 $$
 J_{\mathrm{PLP}}(s)=-\lambda\, V(s).
 $$
 
-The parameter $\lambda$ here is the same kind of object as Kappen's temperature: it sets the units that convert log-masses into costs.
+The parameter $$\lambda$$ here is the same kind of object as Kappen's temperature: it sets the units that convert log-masses into costs.
 
 This is the closest control-theoretic bridge in this post.
 Both formalisms start from a reference law over futures, reweight those futures by an exponential score, and summarize the remaining downstream options in a log-partition.
@@ -199,30 +199,30 @@ The comparison to active inference remains useful, but it is a step further away
   <tbody>
     <tr style="border-top:1px solid #ddd; border-bottom:1px solid #ddd;">
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;"><strong>PLP</strong></td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">proposal $\pi_{\mathcal{D}}(\tau \mid s)$</td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">potential $\Phi(\tau)$ or energy correction $R=\log \Phi$</td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">$V(s)=\log \sum_{\tau \succ s} \pi_{\mathcal{D}}(\tau \mid s)\Phi(\tau)$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">proposal $$\pi_{\mathcal{D}}(\tau \mid s)$$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">potential $$\Phi(\tau)$$ or energy correction $$R=\log \Phi$$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">$$V(s)=\log \sum_{\tau \succ s} \pi_{\mathcal{D}}(\tau \mid s)\Phi(\tau)$$</td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">future verifier-weighted continuation mass</td>
     </tr>
     <tr style="border-bottom:1px solid #ddd;">
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;"><strong>path-integral control</strong></td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">uncontrolled diffusion or reference dynamics</td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">path cost $S$ with weight $e^{-S/\lambda}$</td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">$J(\xi,t)=-\lambda \log \Psi(\xi,t)$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">$$J(\xi,t)=-\lambda \log \Psi(\xi,t)$$</td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">stochastic cost-to-go under noise {% cite kappen2005path %}</td>
     </tr>
     <tr style="border-bottom:1px solid #ddd;">
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;"><strong>ARM/EBM</strong></td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">reference measure or local policy</td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">sequence reward / energy</td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">soft value $V_q(s)$ under local policy $q$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">soft value $$V_q(s)$$ under local policy $$q$$</td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">future summary that makes local logits look ahead {% cite blondel2025autoregressive %}</td>
     </tr>
     <tr style="border-bottom:1px solid #ddd;">
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;"><strong>active inference</strong></td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">prior or generative model</td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">likelihood / sensory evidence</td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">$-F$ (variational free energy) or log evidence, depending on sign convention</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">$$-F$$ (variational free energy) or log evidence, depending on sign convention</td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">quantity whose optimization reduces surprise {% cite friston2010free friston2012active %}</td>
     </tr>
   </tbody>
@@ -257,7 +257,7 @@ That is the level at which the analogy is strongest.
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">Both are future log-sums over continuations under a reweighted trace law.</td>
     </tr>
     <tr style="border-bottom:1px solid #ddd;">
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">$V(s)$ is usefully comparable to evidence or minus free energy in Friston's sense.</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">$$V(s)$$ is usefully comparable to evidence or minus free energy in Friston's sense.</td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;"><strong>plausible</strong></td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">The comparison is structurally right, but the interpretation depends on sign conventions and on how explicit the generative model is.</td>
     </tr>
@@ -273,10 +273,10 @@ That is the level at which the analogy is strongest.
 ## What the `factor` primitive is really estimating
 
 The new paper by Blondel et al. shows that local autoregressive logits must absorb a future-looking soft value term {% cite blondel2025autoregressive %}.
-To avoid colliding with the PLP proposal notation $\pi_{\mathcal{D}}$, let me call that local quantity $Q(s,y)$ instead of $q(s,y)$.
-Here $s$ is again a trace prefix and $y$ is the next token (or decoded action) that extends $s$ by one step.
+To avoid colliding with the PLP proposal notation $\pi_{\mathcal{D}}$$, let me call that local quantity $$Q(s,y)$$ instead of $$q(s,y)$.
+Here $$s$$ is again a trace prefix and $$y$$ is the next token (or decoded action) that extends $$s$$ by one step.
 
-For a trace prefix or state $s$, the continuation partition is the $Z(s)$ introduced above:
+For a trace prefix or state $$s$$, the continuation partition is the $$Z(s)$$ introduced above:
 
 $$
 Z(s)
@@ -291,7 +291,7 @@ $$
 V(s) := \log Z(s).
 $$
 
-This represents the exact prefix free energy at $s$. 
+This represents the exact prefix free energy at $$s$$. 
 While this raw log-partition produces an extensive quantity that can suffer from length bias across traces of vastly different lengths, it establishes the correct geometric structure of the search problem. In agentic tool-use, this is typically replaced by an intensive operator like MellowMax to ensure scale-free comparisons, as we explore in [a subsequent post]({% link sections/science/_posts/2026-04-03-Mellowmax-doob-and-agentic-tool-use.md %}). 
 Moreover, because pre-training acts as a backward dynamic programming pass, the autoregressive model caches this future value directly in its immediate logits. Evaluating the one-step soft value at inference time therefore does not strictly require expensive Monte Carlo rollouts; the forward pass simply reads the internalized global energy.
 
@@ -313,7 +313,7 @@ $$
 <figure>
   <img src="/static/postfigures/local_decision.svg" alt="Local score plus continuation free energy" style="width:70%; display:block; margin: 0 auto; margin-bottom: 0.5em;"/>
   <figcaption>
-    <strong>Figure 2.</strong> A local decision only becomes meaningful once it is augmented by the free energy of its downstream subtree. The practical role of runtime scaffolds is to estimate that future mass better than plain next-token decoding can.
+<strong>Figure 2.</strong> A local decision only becomes meaningful once it is augmented by the free energy of its downstream subtree. The practical role of runtime scaffolds is to estimate that future mass better than plain next-token decoding can.
   </figcaption>
 </figure>
 
@@ -326,14 +326,14 @@ That criterion is concrete enough to compare heuristics, train better surrogates
 
 ## Why raw free energy should not be factored at every step
 
-Index the unfolding trace by time steps $t=0,1,\ldots,T$.
-Let $s_t$ denote the prefix after $t$ steps, let $y_t$ denote the token (or action) taken at step $t$, and let $r(s_t,y_t)$ denote any additive reward used in a reinforcement-learning view of the same trajectory.
+Index the unfolding trace by time steps $$t=0,1,\ldots,T$$.
+Let $$s_t$$ denote the prefix after $$t$$ steps, let $$y_t$$ denote the token (or action) taken at step $$t$$, and let $$r(s_t,y_t)$$ denote any additive reward used in a reinforcement-learning view of the same trajectory.
 
-If we repeatedly add the raw continuation value $V(s_t)$ at many intermediate steps, we generally **double count** future mass.
+If we repeatedly add the raw continuation value $$V(s_t)$$ at many intermediate steps, we generally **double count** future mass.
 A long trace would then accumulate multiple copies of essentially the same downstream partition, and that would change the target in an uncontrolled way.
 
 The right object is not raw future value, but a **telescoping shaping term**.
-Let $G(s)$ be a heuristic **potential** on prefixes (I use $G$ here to avoid clashing with Kappen's partition notation $\Psi(\xi,t)$).
+Let $$G(s)$$ be a heuristic **potential** on prefixes (I use $G$ here to avoid clashing with Kappen's partition notation $$\Psi(\xi,t)$$).
 Then the semantics-preserving way to inject it is
 
 $$
@@ -379,11 +379,11 @@ $$
 \Delta_V(s) := V^\star(s) - \widehat{V}(s),
 $$
 
-where $V^\star(s)$ is the ideal continuation free energy under the semantic target and $\widehat{V}(s)$ is the value implicitly assigned by the deployed heuristic, judge, or local policy.
+where $$V^\star(s)$$ is the ideal continuation free energy under the semantic target and $$\widehat{V}(s)$$ is the value implicitly assigned by the deployed heuristic, judge, or local policy.
 
 This quantity measures a local value mismatch in the same variational geometry.
-It asks whether the deployed system assigns enough mass to the good continuations that remain reachable from $s$.
-In that sense, a large positive $\Delta_V(s)$ means that the prefix contains more downstream evidence than the system currently credits it with {% cite friston2010free %}.
+It asks whether the deployed system assigns enough mass to the good continuations that remain reachable from $$s$$.
+In that sense, a large positive $$\Delta_V(s)$$ means that the prefix contains more downstream evidence than the system currently credits it with {% cite friston2010free %}.
 
 That is the **Bellman support gap**.
 The prefix lies above a rich continuation basin, but the deployed system fails to see it.
@@ -396,15 +396,15 @@ That would tell us more directly when beam search, tree search, or verifier-guid
 ## Tempered targets, delayed choice, and symmetry breaking
 
 Another immediate consequence is that PLP admits a natural temperature family.
-Given the same proposal $\pi_{\mathcal{D}}$ and potential $\Phi$, define
+Given the same proposal $\pi_{\mathcal{D}}$$ and potential $$\Phi$, define
 
 $$
 p_\beta(\tau \mid x) \propto \pi_{\mathcal{D}}(\tau \mid x)\Phi(\tau,x)^\beta, \qquad 0 \le \beta \le 1.
 $$
 
-At $\beta=0$ we recover the raw proposal.
-At $\beta=1$ we recover the original semantic target from the fundamental equation \eqref{eq:fundamental}.
-Intermediate $\beta$ values define softened bridges between exploration and strict verification.
+At $$\beta=0$$ we recover the raw proposal.
+At $$\beta=1$$ we recover the original semantic target from the fundamental equation \eqref{eq:fundamental}.
+Intermediate $$\beta$$ values define softened bridges between exploration and strict verification.
 
 If we write the potential as $\Phi(\tau, x)=e^{R(\tau, x)}$, then
 
@@ -412,9 +412,9 @@ $$
 p_\beta(\tau \mid x) \propto \pi_{\mathcal{D}}(\tau \mid x)e^{\beta R(\tau, x)},
 $$
 
-so $\beta$ plays the role of an inverse temperature.
-Small $\beta$ gives a broad, high-entropy law.
-As $\beta$ increases, mass concentrates on higher-reward trajectories.
+so $$\beta$$ plays the role of an inverse temperature.
+Small $$\beta$$ gives a broad, high-entropy law.
+As $$\beta$$ increases, mass concentrates on higher-reward trajectories.
 
 Kappen's 2005 analysis clarifies the control meaning of this continuation quantity {% cite kappen2005path %}.
 In his path-integral treatment, the optimal stochastic policy can change qualitatively as the noise level or the time-to-go changes.
@@ -437,7 +437,7 @@ The result is weight collapse.
 A small number of trajectories dominate before the system has explored enough of the space.
 
 The free-energy perspective suggests a principled fix:
-start from a high-entropy, low-$\beta$ regime and only gradually sharpen the potential.
+start from a high-entropy, low-$$\beta$$ regime and only gradually sharpen the potential.
 Temperature schedules then become a controlled way of delaying commitment in a noisy planning problem.
 
 ## From free energy to a decomposition policy
@@ -452,8 +452,8 @@ $$
 J_{\mathrm{OR}}(s)\approx -\lambda \log \sum_{b\in\mathcal{B}(s)} \exp\!\left(-\frac{J_b(s)}{\lambda}\right) + \Delta_{\mathrm{sel}}(s),
 $$
 
-where $\mathcal{B}(s)$ indexes disjoint **basins** of future traces (for example, distinct high-level plans), $J_b(s)$ is the cost-to-go if the scaffold commits to basin $b$, and $\Delta_{\mathrm{sel}}$ summarizes selection and verification costs.
-The temperature $\lambda$ is the same scale as in $\Phi(\tau)=\exp(-S(\tau)/\lambda)$ whenever that representation is used.
+where $$\mathcal{B}(s)$$ indexes disjoint **basins** of future traces (for example, distinct high-level plans), $$J_b(s)$$ is the cost-to-go if the scaffold commits to basin $$b$$, and $\Delta_{\mathrm{sel}}$ summarizes selection and verification costs.
+The temperature $$\lambda$$ is the same scale as in $$\Phi(\tau)=\exp(-S(\tau)/\lambda)$$ whenever that representation is used.
 This is the option-value term.
 Several basins can coexist, and uncertainty can make delayed commitment rational.
 
@@ -463,7 +463,7 @@ $$
 J_{\mathrm{AND}}(s)\approx \sum_{i=1}^K J_i(s) + \Delta_{\mathrm{valid}}(s)+\Delta_{\mathrm{comp}}(s),
 $$
 
-where $K$ is the number of subtasks, $J_i(s)$ is the cost-to-go carried by the $i$th child interface after decomposition, and $\Delta_{\mathrm{valid}}$ and $\Delta_{\mathrm{comp}}$ summarize decomposition validity and composition risk.
+where $K$ is the number of subtasks, $$J_i(s)$$ is the cost-to-go carried by the $$i$$th child interface after decomposition, and $\Delta_{\mathrm{valid}}$$ and $$\Delta_{\mathrm{comp}}$ summarize decomposition validity and composition risk.
 This is the same essential-node tax that appeared in the reliability note, now written in cost language rather than failure-probability language.
 
 The practical consequence is simple.
@@ -482,7 +482,7 @@ It is a control action whose value depends on uncertainty, horizon, verifier qua
 
 Another useful consequence comes from the replica trick, a standard device in statistical physics for analyzing log partition functions.
 
-For a token prefix $s$, the log partition function is again
+For a token prefix $$s$$, the log partition function is again
 
 \begin{equation}
 V(s)=\log Z(s).
@@ -494,12 +494,12 @@ It turns out that formally, one can rewrite it with the replica trick as
 V(s) = \lim_{n\to 0}\frac{Z(s)^n-1}{n}.
 \end{equation}
 
-For integer $n$, the quantity $Z(s)^n$ is a sum over $n$ replicated future continuations.
+For integer $$n$$, the quantity $$Z(s)^n$$ is a sum over $$n$$ replicated future continuations.
 In PLP language, this looks almost natural: it is a `plate(n)` over future reasoning traces conditioned on the same prefix.
 
-Of course, the formal limit $n\to 0$ is not yet a practical inference algorithm. But finite replicas are already illuminating.
+Of course, the formal limit $$n\to 0$$ is not yet a practical inference algorithm. But finite replicas are already illuminating.
 
-Write the **normalized continuation law** downstream of $s$ as
+Write the **normalized continuation law** downstream of $$s$$ as
 
 $$
 p(\tau \mid s)
@@ -507,8 +507,8 @@ p(\tau \mid s)
 \frac{\pi_{\mathcal{D}}(\tau \mid s)\,\Phi(\tau)}{Z(s)}.
 $$
 
-Suppose we draw two independent samples from $p(\tau \mid s)$.
-The probability that the two draws land on the same complete trace $\tau$ is
+Suppose we draw two independent samples from $$p(\tau \mid s)$$.
+The probability that the two draws land on the same complete trace $$\tau$$ is
 
 \begin{equation}
 C_2(s) := \sum_{\tau \succ s} p(\tau \mid s)^2.
@@ -523,9 +523,9 @@ N_{\mathrm{basins}}(s):=\frac{1}{C_2(s)}
 can be read as an effective number of continuation basins.
 
 This quantity has an immediate interpretation.
-If $N_{\mathrm{basins}}(s)\approx 1$, then most samples collapse into the same hidden plan.
+If $$N_{\mathrm{basins}}(s)\approx 1$$, then most samples collapse into the same hidden plan.
 Self-consistency then produces many surface variations of the same mistake because the continuation landscape remains concentrated in one basin.
-If $N_{\mathrm{basins}}(s)$ is large, several qualitatively distinct reasoning paths contribute downstream, and additional samples can provide genuinely new evidence.
+If $$N_{\mathrm{basins}}(s)$$ is large, several qualitatively distinct reasoning paths contribute downstream, and additional samples can provide genuinely new evidence.
 
 <figure>
 <img src="/static/postfigures/replica_trick_plp.svg" alt="Single versus multiple reasoning basins">
@@ -535,7 +535,7 @@ If $N_{\mathrm{basins}}(s)$ is large, several qualitatively distinct reasoning p
 </figure>
 
 This connects directly to the dependence analysis already present in PLP.
-In [Probabilistic Language Programming]({% link sections/science/_posts/2026-03-01-Probabilistic-Language-Programming.md %}), $\rho$ denotes a pairwise correlation between scaffold outputs and $K_{\mathrm{eff}}$ denotes an effective sample size that adjusts the nominal draw count for dependence.
+In [Probabilistic Language Programming]({% link sections/science/_posts/2026-03-01-Probabilistic-Language-Programming.md %}), $$\rho$$ denotes a pairwise correlation between scaffold outputs and $K_{\mathrm{eff}}$ denotes an effective sample size that adjusts the nominal draw count for dependence.
 Replica overlap suggests a more geometric, prefix-level version of the same story.
 
 One practical consequence follows:
@@ -544,14 +544,14 @@ replicated reasoning traces can improve answers and can also **measure the rugge
 If two or more replicas keep collapsing into the same basin, the main bottleneck is inferential diversity rather than sample count.
 That points to different interventions: new decompositions, different retrieved evidence, alternative latent strategies, or a different verifier placement.
 
-<!-- ### Estimating $C_2(s)$ in practice
+<!-- ### Estimating $$C_2(s)$$ in practice
 
 At this point a natural practical question appears:
 
-> How does one actually estimate $C_2(s)$ for a prefix $s$?
+> How does one actually estimate $$C_2(s)$$ for a prefix $$s$$?
 
 The answer becomes simple once we expand the normalized continuation law explicitly.
-Downstream of a prefix $s$, PLP defines
+Downstream of a prefix $$s$$, PLP defines
 
 $$
 p(\tau \mid s)
@@ -571,8 +571,8 @@ C_2(s)
 \frac{\sum_{\tau \succ s} \pi_{\mathcal{D}}(\tau \mid s)^2 \Phi(\tau)^2}{Z(s)^2}.
 $$
 
-So $C_2(s)$ is the second moment of the normalized continuation law.
-Equivalently, it is the probability that two independent replicas drawn from the target downstream of $s$ land on the same continuation.
+So $$C_2(s)$$ is the second moment of the normalized continuation law.
+Equivalently, it is the probability that two independent replicas drawn from the target downstream of $$s$$ land on the same continuation.
 In statistical-physics language it is an inverse participation ratio, and in information-theoretic language it is the order-2 collision probability:
 
 $$
@@ -585,7 +585,7 @@ This identity is useful because it immediately suggests several estimators, depe
 
 1. **Exact enumeration on tiny continuation trees.**
 
-If the continuation space below $s$ is small enough, one can compute $p(\tau \mid s)$ exactly and then sum the squares directly:
+If the continuation space below $$s$$ is small enough, one can compute $$p(\tau \mid s)$$ exactly and then sum the squares directly:
 
 $$
 C_2^{\mathrm{exact}}(s)
@@ -597,8 +597,8 @@ This is mostly a toy-regime diagnostic, but it is conceptually important because
 
 1. **Replica collision estimator when we can sample approximately from the target.**
 
-Suppose the scaffold already produces approximate samples from the target continuation law $p(\cdot \mid s)$, for instance through rejection, resampling, tree search, or an SMC-style procedure.
-If we draw $M$ independent replicas $\tau^{(1)},\ldots,\tau^{(M)} \sim p(\cdot \mid s)$, then a natural estimator is the empirical collision rate
+Suppose the scaffold already produces approximate samples from the target continuation law $$p(\cdot \mid s)$$, for instance through rejection, resampling, tree search, or an SMC-style procedure.
+If we draw $M$ independent replicas $$\tau^{(1)},\ldots,\tau^{(M)} \sim p(\cdot \mid s)$$, then a natural estimator is the empirical collision rate
 
 $$
 \widehat{C}_2^{\mathrm{coll}}(s)
@@ -613,7 +613,7 @@ In practice, for long text traces, exact full-trace collisions are often too rar
 
 1. **Importance-weighted estimation when we only sample from the proposal.**
 
-Often we do not have direct samples from $p(\cdot \mid s)$; we only know how to sample $\tau^{(i)} \sim \pi_{\mathcal{D}}(\cdot \mid s)$ and score them with $\Phi$.
+Often we do not have direct samples from $$p(\cdot \mid s)$$; we only know how to sample $$\tau^{(i)} \sim \pi_{\mathcal{D}}(\cdot \mid s)$$ and score them with $$\Phi$$.
 Let
 
 $$
@@ -631,7 +631,7 @@ $$
 {\widehat{Z}(s)^2}.
 $$
 
-The presence of the extra factor $\pi_{\mathcal{D}}(\tau^{(i)} \mid s)$ is not a typo: it comes from the fact that the numerator is an expectation under the proposal of $\pi_{\mathcal{D}}(\tau \mid s)\Phi(\tau)^2$.
+The presence of the extra factor $$\pi_{\mathcal{D}}(\tau^{(i)} \mid s)$$ is not a typo: it comes from the fact that the numerator is an expectation under the proposal of $$\pi_{\mathcal{D}}(\tau \mid s)\Phi(\tau)^2$$.
 This form is therefore most useful when the scaffold can evaluate its own trace probability, for example as a product of token probabilities and routing decisions along the trace.
 
 1. **Particle or resampling estimator from weighted continuations.**
@@ -643,7 +643,7 @@ $$
 \bar{w}_i := \frac{w_i}{\sum_j w_j},
 $$
 
-and optionally assign each trace to a basin label $b(\tau_i)$, then the empirical basin mass is
+and optionally assign each trace to a basin label $$b(\tau_i)$$, then the empirical basin mass is
 
 $$
 \widehat{p}_b(s)
@@ -682,10 +682,10 @@ $$
 C_2(s)=\sum_{\tau \succ s} p(\tau \mid s)^2
 $$
 
-is defined over complete future traces $\tau$.
+is defined over complete future traces $$\tau$$.
 For language models, that can be too fine-grained.
 Two traces may differ in wording while still instantiating the same hidden plan, the same proof strategy, the same decomposition skeleton, or the same tool-use pattern.
-If our real concern is "how many qualitatively distinct reasoning families exist downstream of $s$?", then we should first define a basin map $b(\tau)$ and estimate instead
+If our real concern is "how many qualitatively distinct reasoning families exist downstream of $$s$$?", then we should first define a basin map $$b(\tau)$$ and estimate instead
 
 $$
 C_2^{\mathrm{basin}}(s)
@@ -701,8 +701,8 @@ Exact overlap asks whether the system literally repeats the same trajectory.
 Basin overlap asks whether the system keeps revisiting the same region of reasoning space.
 For diagnosing lack of inferential diversity, the second question is often the one we actually care about.
 
-Finally, one should remember that $C_2(s)$ is always defined relative to the deployed target distribution.
-If the potential $\Phi$ comes from an imperfect judge, then the measured basins are judge-relative basins, not necessarily truth-relative ones.
+Finally, one should remember that $$C_2(s)$$ is always defined relative to the deployed target distribution.
+If the potential $$\Phi$$ comes from an imperfect judge, then the measured basins are judge-relative basins, not necessarily truth-relative ones.
 But that is not a defect of the formalism.
 It is the correct statement of what the deployed scaffold believes the future landscape looks like. -->
 

@@ -17,18 +17,18 @@ Assuming that the snowplow removes a constant volume of snow per hour, determine
 
 Exercise 2
 ----------
-$a$ and $b$ are randomly chosen real numbers in the interval $[0,1]$,
-that is both $a$ and $b$ are standard uniform random variables.
-Find the probability that the quadratic equation $x^2+ax+b= 0$ has real solutions.
+$$a$$ and $$b$$ are randomly chosen real numbers in the interval $$[0,1]$$,
+that is both $$a$$ and $$b$$ are standard uniform random variables.
+Find the probability that the quadratic equation $$x^2+ax+b= 0$$ has real solutions.
 
 ### Solution
-The equation $x^2 + A x + B=0$ has real solutions if its determinant is positive or zero.
-The determinant of a second order equation $ax^2 + bx + c=0$ is found as $\Delta = b^2 - 4ac$.
-So in our case we have $\Delta = A^2 - 4B$.
-We know that both $A$ and $B$ are $\sim U[0,1]$.
+The equation $$x^2 + A x + B=0$$ has real solutions if its determinant is positive or zero.
+The determinant of a second order equation $$ax^2 + bx + c=0$$ is found as $$\Delta = b^2 - 4ac$$.
+So in our case we have $$\Delta = A^2 - 4B$$.
+We know that both $A$ and $B$ are $$\sim U[0,1]$$.
 [Follow this guide](https://www.probabilitycourse.com/chapter4/4_1_3_functions_continuous_var.php)
-1. We first find the pdf of the variable $Y=A^2$. We note that $R_Y=[0,1]$. As usual, we start with the CDF.
-For $y \in [0,1]$, we have:
+1. We first find the pdf of the variable $$Y=A^2$$. We note that $$R_Y=[0,1]$$. As usual, we start with the CDF.
+For $$y \in [0,1]$$, we have:
 
 \begin{align}
 F_Y(y) &= P(Y \leq y) \\\
@@ -37,7 +37,7 @@ F_Y(y) &= P(Y \leq y) \\\
 &=\frac{\sqrt{y} -(-\sqrt{y}}{1-(-\sqrt{y})} \\\
 &=\sqrt{y} 
 \end{align}
-since $X \sim U[0,1]$. Thus, the CDF of $Y$ is given by
+since $$X \sim U[0,1]$$. Thus, the CDF of $Y$ is given by
 
 \begin{equation}
 F_Y(y) = \begin{cases} 0 & \text{ for } y \leq 0  \\\ \sqrt{y} & \text{ for } 0\leq y \leq 1 \\\ 1 & \textrm{ for } y \geq 1 \end{cases}
@@ -57,7 +57,7 @@ Take the squares we get:
 \begin{equation}
 {x+\sqrt{x+{\sqrt{x+\sqrt{x+\sqrt{x...}}}}}} =x^2
 \end{equation}
-and the infinite square appears in the left hand side. However we know that it evaluates to $x$, hence we get $x+x=x^2$, and the solutions are $x_1=0$ and $x_2=2$.
+and the infinite square appears in the left hand side. However we know that it evaluates to $$x$$, hence we get $$x+x=x^2$$, and the solutions are $$x_1=0$$ and $$x_2=2$$.
 
 #### Exercise 4
 Solve the infinite tetration
@@ -67,7 +67,7 @@ x^{x^{x^{x^{x^{...}}}}} = 2
 
 #### Solution
 The solution is simple to obtain.
-Since the tetration is infinite, we have that the left exponent $(\cdot)^{x^{x^{x^{...}}}}$ is equal to 2. Hence $x^2=2$, and the solution is $x=\sqrt{2}$.
+Since the tetration is infinite, we have that the left exponent $(\cdot)^{x^{x^{x^{...}}}}$$ is equal to 2. Hence $$x^2=2$$, and the solution is $$x=\sqrt{2}$.
 
 ###
 N-queens problem

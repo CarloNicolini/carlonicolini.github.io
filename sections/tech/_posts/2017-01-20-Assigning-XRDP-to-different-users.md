@@ -4,6 +4,8 @@ title: Assigning XRDP to different users
 description: 'Assigning XRDP to different users.'
 categories: tech
 date: 2017-01-20
+published: true
+
 ---
 /etc/rc.local 
 write
@@ -32,11 +34,11 @@ echo "Checking for inactive sessions!"
 while read -r d; do
     export DISPLAY=$d
     idle=`xprintidle`
-    idleMins=$(($idle/1000/60))
-    if [[ $idleMins -gt $limit ]]; then
-        echo "WARN Display $d is logged in for longer than ${limit}min (${idleMins}m)"
+    idleMins=$$(($$idle/1000/60))
+    if [[ $$idleMins -gt $$limit ]]; then
+        echo "WARN Display $$d is logged in for longer than $${limit}min (${idleMins}m)"
     else
-        echo "INFO Display $d is still ok (${idleMins}m)"
+        echo "INFO Display $$d is still ok ($${idleMins}m)"
     fi  
 done <<< "$displays"
 {% endhighlight %}

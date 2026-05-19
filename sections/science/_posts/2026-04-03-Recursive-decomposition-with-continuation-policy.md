@@ -3,7 +3,7 @@ layout: post
 title: Recursive decomposition with a continuation policy
 description: "Adding an abstain action to a recursive scaffold shows how delayed commitment can help, but only in a narrow ambiguity regime."
 date: 2026-04-03
-published: true
+published: false
 categories:
   - science
   - language-physics
@@ -62,8 +62,8 @@ $$
 \Delta(s) := V_{\mathrm{dec}}(s) - \Lambda - V_{\mathrm{ans}}(s),
 $$
 
-where $\Lambda$ is the decomposition tax.
-But instead of branching on the sign of $\Delta(s)$ alone, it introduces a small ambiguity band $\varepsilon$:
+where $$\Lambda$$ is the decomposition tax.
+But instead of branching on the sign of $$\Delta(s)$$ alone, it introduces a small ambiguity band $$\varepsilon$$:
 
 $$
 M(s)=
@@ -74,7 +74,7 @@ M(s)=
 \end{cases}
 $$
 
-This is only a proxy for the more principled criterion in the April 2 note, where delayed commitment should depend on both $\Delta(s)$ and an effective multiplicity $N_{\mathrm{eff}}(s)$.
+This is only a proxy for the more principled criterion in the April 2 note, where delayed commitment should depend on both $$\Delta(s)$$ and an effective multiplicity $$N_{\mathrm{eff}}(s)$$.
 In the current implementation, the ambiguity band plays the role of a cheap surrogate for a high-$N_{\mathrm{eff}}$ regime.
 
 ## 3. What the abstain action actually does
@@ -206,12 +206,12 @@ The main challenge is no longer "can we code an abstain action?"
 It is "when should the scaffold trust it?"
 
 At the moment, the answer is crude.
-I use an ambiguity band on $\Delta(s)$.
+I use an ambiguity band on $$\Delta(s)$$.
 That is only a practical stand-in for the richer geometry suggested by the theory:
 
 - an effective number of viable basins
 - a better estimate of the local continuation partition
-- a branch-specific cost model, not a single constant $\Lambda$
+- a branch-specific cost model, not a single constant $$\Lambda$$
 
 So the experiments support the delayed-commitment idea in a limited but real sense.
 They do not yet validate the full control law.

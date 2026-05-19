@@ -5,6 +5,8 @@ description: 'Setting up VNC sessions in Linux.'
 layout: default
 date: 2016-08-01
 categories: tech
+published: true
+
 ---
 # Server side
 

@@ -4,6 +4,8 @@ title: Changepoint detection on huge grouped dataframes with ruptures and PySpar
 description: 'Changepoint detection on huge grouped dataframes with ruptures and…'
 categories: tech
 date: 2021-12-03
+published: true
+
 ---
 Here we describe a way to perform scalable changepoint detection on grouped time series data by using PySpark and the rupture library.
 

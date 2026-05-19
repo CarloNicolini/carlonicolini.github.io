@@ -14,27 +14,27 @@ Similarly to the Box-Muller transformation, which is a method to sample normally
 I have found that any probability distribution admits *one-liners*, i.e. deterministic transformations of the uniform distribution that allow to sample random numbers for specific distributions.
 
 I stumbled upon the [shakirm blog](http://blog.shakirm.com/2015/10/machine-learning-trick-of-the-day-4-reparameterisation-tricks/), a nice website that introduced me a lot of great ideas.
-It turns out that very simple one-liners exist for most of the continuous probability distributions. Here $\epsilon$ represents a random number, sampled from a simple probability distribution (typically the uniform distribution)) and one-liners are deterministic transformations of $\epsilon$ to obtain the random variable $z$:
+It turns out that very simple one-liners exist for most of the continuous probability distributions. Here $$\epsilon$$ represents a random number, sampled from a simple probability distribution (typically the uniform distribution)) and one-liners are deterministic transformations of $$\epsilon$$ to obtain the random variable $$z$$:
 
 
-| Target        |  $p(z,\epsilon)$          | Base $p(\epsilon)$            | One-liner $g(\epsilon; \theta)$          |
+| Target        |  $$p(z,\epsilon)$$          | Base $$p(\epsilon)$$            | One-liner $$g(\epsilon; \theta)$$          |
 |---------------|:-------------------------:|-------------------------------|------------------------------------------|
-| Exponential   | $\exp(-x)$, $x>0$         | $\epsilon \sim [0,1]$         |  $\log(1/\epsilon)$                      |
-| Cauchuy       | $\frac{1}{\pi(1+x^2)}$    | $\epsilon \sim [0,1]$         |  $\tan(\pi \epsilon)$                    |
-| Laplace       | $L(0;1)=\exp(-\lvert x \rvert)$         | $\epsilon \sim [0,1]$         |  $\log(\epsilon_1/\epsilon_2)$           |
-| Laplace       | $L(\mu;b)$                | $\epsilon \sim [0,1]$         |  $\mu-bsgm(\epsilon)\log(1-2\lvert\epsilon\rvert)$ |
-| Gaussian      | $\mathcal{N}(\mu,RR^T)$   | $\epsilon \sim \mathcal(0,1)$ |                                          |
-| Rademacher    | $\mathrm{Rad}(1/2)$       | $\epsilon \sim Bern(1/2)$     |  $2\epsilon - 1$                         |
-| Log-normal    | $\log \mathcal{N}(\mu; \sigma)$ | $\epsilon \sim [0,1]$         |  $\exp(\epsilon)$                        |
+| Exponential   | $$\exp(-x)$$, $$x>0$$         | $$\epsilon \sim [0,1]$$         |  $$\log(1/\epsilon)$$                      |
+| Cauchuy       | $\frac{1}{\pi(1+x^2)}$$    | $$\epsilon \sim [0,1]$$         |  $$\tan(\pi \epsilon)$                    |
+| Laplace       | $$L(0;1)=\exp(-\lvert x \rvert)$$         | $$\epsilon \sim [0,1]$$         |  $$\log(\epsilon_1/\epsilon_2)$$           |
+| Laplace       | $$L(\mu;b)$$                | $$\epsilon \sim [0,1]$$         |  $$\mu-bsgm(\epsilon)\log(1-2\lvert\epsilon\rvert)$$ |
+| Gaussian      | $$\mathcal{N}(\mu,RR^T)$$   | $$\epsilon \sim \mathcal(0,1)$$ |                                          |
+| Rademacher    | $$\mathrm{Rad}(1/2)$$       | $$\epsilon \sim Bern(1/2)$$     |  $$2\epsilon - 1$$                         |
+| Log-normal    | $$\log \mathcal{N}(\mu; \sigma)$$ | $$\epsilon \sim [0,1]$$         |  $$\exp(\epsilon)$$                        |
 
 
 However in the case of the discrete distributions, things are a bit more complicated. It turns out that the geometric distribution can be seen as the discrete counterpart of the exponential distribution.
 Hence, transforming random numbers via a logarithm and taking the smallest integer part of the outcome should suffice.
-The one-liner for the geometric distribution with parameter $p$ is then:
+The one-liner for the geometric distribution with parameter $$p$$ is then:
 
-$g(\epsilon) = \lfloor \log(u)/\log(1-p) \rfloor $
+$$g(\epsilon) = \lfloor \log(u)/\log(1-p) \rfloor $$
 
-However the floor function $\lfloor x \rfloor$ has a discrete codomain.
+However the floor function $$\lfloor x \rfloor$$ has a discrete codomain.
 In many problems however we need to take derivatives with respect to probability distributions, hence some form of continuity must hold.
 When having problems where we need to take derivatives of discrete distributions we need to change the floor with its smooth counter part.
 A good smooth counterpart of the floor function is the sum of many sigmoids with a very high slope parameter.

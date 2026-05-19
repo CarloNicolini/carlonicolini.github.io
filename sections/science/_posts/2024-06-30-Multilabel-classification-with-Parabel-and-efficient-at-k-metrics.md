@@ -199,7 +199,7 @@ but rather:
 
 That is the logic behind Precision@k and Recall@k.
 
-If $T_i$ is the true label set for sample $i$ and $\hat{T}_i^{(k)}$ is the set of the top-$k$ predicted labels, then:
+If $$T_i$$ is the true label set for sample $$i$$ and $\hat{T}_i^{(k)}$$ is the set of the top-$$k$ predicted labels, then:
 
 $$
 \mathrm{Precision@}k
