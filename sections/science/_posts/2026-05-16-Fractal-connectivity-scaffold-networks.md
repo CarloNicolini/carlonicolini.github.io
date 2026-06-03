@@ -5,7 +5,7 @@ description: A running note to keep track of experiments about fractal connectiv
 date: 2026-05-16
 categories:
 - science
-published: false
+published: true
 ---
 
 ## 1. Question

@@ -5,7 +5,7 @@ description: How to extend the RYS (repeat-your-self) approach of repeating LLM 
 date: 2026-04-28
 categories:
 - science
-published: false
+published: true
 ---
 
 ## The hidden graphs behind residual connections

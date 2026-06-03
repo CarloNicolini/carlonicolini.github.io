@@ -3,7 +3,7 @@ layout: post
 title: "Hard and soft analogies in machine learning"
 description: 'Jumping from hard to soft constraints defines a jump from pure combinatorial to boltzmann statistics'
 date: 2025-06-01
-published: false
+published: true
 categories:
   - science
   - deep-learning

@@ -3,7 +3,7 @@ layout: post
 title: Random rooted trees, continuation free energy, and the Diligent Learner
 description: "A unified theory of delayed commitment, decomposition tax, and tool building in scaffolded inference."
 date: 2026-04-04
-published: false
+published: true
 categories:
   - science
   - deep-learning

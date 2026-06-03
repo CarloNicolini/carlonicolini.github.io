@@ -26,6 +26,7 @@ abstract: >
   rispecchiamento, con il confine fra gli Umwelten che resta intatto e diventa,
   esso stesso, il dato teorico più interessante.
 keywords: [Umwelt, fenomenologia del tempo, cognizione incarnata, modelli linguistici, Permutation City, autopoiesi, indipendenza dal substrato]
+published: false
 categories:
   - science
 ---

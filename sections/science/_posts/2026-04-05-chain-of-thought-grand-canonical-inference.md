@@ -3,7 +3,7 @@ layout: post
 title: Chain-of-thought as grand-canonical inference in energy-based language models
 description: "Jaynes, Blondel's soft Bellman recursion, and a grand-canonical view of latent reasoning traces."
 date: 2026-04-05
-published: false
+published: true
 categories:
   - science
   - deep-learning

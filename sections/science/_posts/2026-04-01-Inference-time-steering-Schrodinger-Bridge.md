@@ -3,7 +3,7 @@ layout: post
 title: Inference-Time Steering as a Discrete Schrödinger Bridge
 description: "Formalizing LLM self-correction, Doob's h-transform, and Wasserstein gradient flow."
 date: 2026-04-01
-published: false
+published: true
 categories:
   - science
   - deep-learning

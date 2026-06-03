@@ -3,7 +3,7 @@ layout: post
 title: Soft values, symmetry breaking, and random rooted trees
 description: "A conjectural branching law for scaffolds from Blondel's soft values and Kappen's path-integral control."
 date: 2026-04-02
-published: false
+published: true
 categories:
   - science
   - deep-learning

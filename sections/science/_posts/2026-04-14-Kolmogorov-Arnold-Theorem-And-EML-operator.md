@@ -1,6 +1,6 @@
 ---
 layout: post
-published: false
+published: true
 date: 2026-04-14
 title: Kolmogorov-Arnold theorem, KANs, and the `eml` operator
 description: "A single exp-minus-log gate looks like a frozen Kolmogorov-Arnold layer. KANs learn the one-dimensional functions, while EML composes one fixed binary primitive."

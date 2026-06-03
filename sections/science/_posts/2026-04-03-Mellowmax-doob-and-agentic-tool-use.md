@@ -3,7 +3,7 @@ layout: post
 title: "MellowMax, Doob's h-transform, and the intensive geometry of tool-use agents"
 description: "A theoretical framework for optimal tool selection in Large Reasoning Models using intensive soft values and dynamic programming."
 date: 2026-04-03
-published: false
+published: true
 categories:
   - science
   - deep-learning
