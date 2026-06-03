@@ -6,7 +6,7 @@ date: 2026-04-03
 published: false
 categories:
   - science
-  - language-physics
+  - deep-learning
 ---
 
 ## Abstract

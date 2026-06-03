@@ -4,10 +4,10 @@ date: 2022-06-15
 title: How to download google sheet data to Pandas
 description: 'How to download google sheet data to Pandas.'
 published: true
-
+categories: tech
 ---
-All you need is a Google Sheets file with one or more sheets and of course some data. The file needs to be set to the sharing option which allows everyone with the link to view the data.
 
+All you need is a Google Sheets file with one or more sheets and of course some data. The file needs to be set to the sharing option which allows everyone with the link to view the data.
 
 ## Option One — if you have multiple sheets
 This option allows you to read in a specific sheet from a file containing multiple sheets. You can use the url-structure of google sheets in combination with the unique id of your file and a given sheet name to read in the data.

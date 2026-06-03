@@ -7,7 +7,7 @@ use_math: true
 date: 2018-11-27
 categories:
   - science
-  - statistical-learning
+  - machine-learning
 ---
 
 In this post I would like to introduce to the [nilearn](nilearn.github.io) user, a modified set of functions based on the `nilearn.surface` module, that are of great help in making beautiful surface colored pictures of brain, like the one in [this figure](#Figure1):
@@ -112,7 +112,7 @@ Loading the mesh and computing normals
 As we want to be able to work with any surface mesh of the brain we want, we must load the mesh in Python.
 To load the `.nv` files, I provide a set of functions that load the data, compute the normals of the faces and average each normal face over the vertices.
 
-{% highlight python %}
+```python
 def normalize_v3(arr):
     """ Normalize a numpy array of 3 component vectors shape=(n,3) """
     lens = np.sqrt(arr[:, 0]**2 + arr[:, 1]**2 + arr[:, 2]**2)
@@ -160,7 +160,7 @@ def load_nv(filename):
                                             num_vertices+num_faces+3),
                             delimiter=' ', skiprows=0, dtype=np.int32)
     return XYZ, faces - 1
-{% endhighlight %}
+```
 
 Definining a decent colormap
 ============================
@@ -169,7 +169,7 @@ We need a discrete colormap. We like to count color classes with numbers from `1
 A colormap like this is implemented in the wonderful color library [colorbrewer2](http://colorbrewer2.org/).
 Luckily Python has a module named `brewer2mpl` that allows to convert the wonderful colorbrewer maps into a `matplotlib.color.LinearSegmentedColormap`. With the function here, one only needs to select how many classes and the name of the colormap to produce a already usable colormap. Moreover, if the option `add_gray` is set to `True`, a white color is insterted for the class 0.
 
-{% highlight python %}
+```python
 def create_mpl_integer_cmap(name, num_classes, add_gray=True):
     import brewer2mpl
     from matplotlib import colors
@@ -180,13 +180,13 @@ def create_mpl_integer_cmap(name, num_classes, add_gray=True):
         cols.insert(0,[0,0,0,0]) # add black for the unmapped areas
     cmap = colors.LinearSegmentedColormap.from_list(name, cols)
     return cmap
-{% endhighlight %}
+```
 
 The colormap of [the first figure in this post](#Figure1) is `Set3` with `10` classes and the white mapped to `0`.
 We now want to compute the colors for a vector `memb` that contains the membership of our nodes in the graph. The vector `memb` has values between `0` and `9`.
 With the following code you can taste the effect of a correct colormap over discrete data:
 
-{% highlight python %}
+```python
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import numpy as np
@@ -206,7 +206,7 @@ values = np.linspace(np.min(memb),np.max(memb),np.max(memb))
 cbar = fig.colorbar(m, shrink=0.75, aspect=5, boundaries = range(0,C+2), values = range(0, C + 2))
 cbar.set_ticks( np.array(range(0, C + 1)) + 0.5 )
 cbar.set_ticklabels( ['unmapped'] + list(range(1, C + 1)) ) # height of tick labels
-{% endhighlight %}
+```
 
 <figure id="Figure1">
 <img src="/static/postfigures/colorbar_set3.png" style="width: 20%">
@@ -221,13 +221,13 @@ Mapping the membership vector to mesh vertices
 ==============================================
 
 You need to change the value in the volume using the values from the membership vector.
-As every voxel belongs to one of the $C$ classes in the membership vector, the simplest way to do that is to iterate over the parcels, find the voxels within the parcel and assign those voxels the block specified by the membership vector.
+As every voxel belongs to one of the $$C$$ classes in the membership vector, the simplest way to do that is to iterate over the parcels, find the voxels within the parcel and assign those voxels the block specified by the membership vector.
 
 Ain't easy? Just run a `for` loop over the membership vector. The smaller the number of parcels and the smaller the template, the faster the loop. There is still room for improvement here, I believe. We do the thing in two passages. We first collect the indices `(i,j,k)` of the voxels belonging to parcel `membership[parcel]` and then we imbue those voxel with the right value. This is done to avoid overwriting the same array twice.
 
 Finally we apply the customized `surface.vol_to_surf` function, specifying as the interpolation `nearest` (for nearest neighbor sampling of mesh vertices to the voxels).
 
-{% highlight python %}
+```python
 def membership_to_rois(template, mesh, memb, **kwargs):
     '''
     Input:
@@ -257,7 +257,7 @@ def membership_to_rois(template, mesh, memb, **kwargs):
                                     interpolation='nearest',
                                     radius=radius)
     return memb_rois
-{% endhighlight %}
+```
 
 The customized `surface.vol_to_surf` is different from the namesake function `nilearn.surface.vol_to_surf` as this one uses a `max` heuristic to assign color to mesh vertices. Without this choice, the result would be less interpretable, as over the frontier of each area, a blend of the colors of neighboring areas would be used.
 

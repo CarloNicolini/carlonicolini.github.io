@@ -12,7 +12,7 @@ date: 2021-12-03
 
 Have you ever wondered how to perform rolling averages in PySpark? This snippet helps you through the process
 
-{% highlight python %}
+```python
 from typing import Callable, Any, List
 from pyspark.sql import Column
 from pyspark.sql import DataFrame as SparkDataFrame
@@ -52,4 +52,4 @@ def create_rolling_feature(
   )
 
 create_rolling_feature(X,agg_func=F.max).display()
-{% endhighlight %}
+```

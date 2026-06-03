@@ -6,7 +6,7 @@ date: 2026-04-03
 published: false
 categories:
   - science
-  - language-physics
+  - deep-learning
 ---
 
 ## Abstract
@@ -75,7 +75,7 @@ M(s)=
 $$
 
 This is only a proxy for the more principled criterion in the April 2 note, where delayed commitment should depend on both $$\Delta(s)$$ and an effective multiplicity $$N_{\mathrm{eff}}(s)$$.
-In the current implementation, the ambiguity band plays the role of a cheap surrogate for a high-$N_{\mathrm{eff}}$ regime.
+In the current implementation, the ambiguity band plays the role of a cheap surrogate for a high-$$N_{\mathrm{eff}}$$ regime.
 
 ## 3. What the abstain action actually does
 

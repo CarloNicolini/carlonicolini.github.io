@@ -4,11 +4,12 @@ published: true
 date: 2021-06-21
 title: Finding and deleting memory hungry temporary variables in jupyter notebooks
 description: 'Finding and deleting memory hungry temporary variables in jupyter…'
+categories: tech
 ---
 This simple command displays the name of the variables in the current kernel in Jupyter notebooks, whichi are clogging our memory resources the most.
 
 
-```
+```python
 import sys
 def sizeof_fmt(num, suffix='B'):
     ''' by Fred Cirera,  https://stackoverflow.com/a/1094933/1870254, modified'''

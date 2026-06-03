@@ -7,7 +7,7 @@ use_math: true
 date: 2019-01-25
 categories:
   - science
-  - statistical-learning
+  - machine-learning
 ---
 I need to sample random numbers distributed according to the geometric distribution.
 Similarly to the Box-Muller transformation, which is a method to sample normally distributed random numbers based on a uniform random generator,
@@ -20,7 +20,7 @@ It turns out that very simple one-liners exist for most of the continuous probab
 | Target        |  $$p(z,\epsilon)$$          | Base $$p(\epsilon)$$            | One-liner $$g(\epsilon; \theta)$$          |
 |---------------|:-------------------------:|-------------------------------|------------------------------------------|
 | Exponential   | $$\exp(-x)$$, $$x>0$$         | $$\epsilon \sim [0,1]$$         |  $$\log(1/\epsilon)$$                      |
-| Cauchuy       | $\frac{1}{\pi(1+x^2)}$$    | $$\epsilon \sim [0,1]$$         |  $$\tan(\pi \epsilon)$                    |
+| Cauchuy       | $$\frac{1}{\pi(1+x^2)}$$    | $$\epsilon \sim [0,1]$$         |  $$\tan(\pi \epsilon)$$                    |
 | Laplace       | $$L(0;1)=\exp(-\lvert x \rvert)$$         | $$\epsilon \sim [0,1]$$         |  $$\log(\epsilon_1/\epsilon_2)$$           |
 | Laplace       | $$L(\mu;b)$$                | $$\epsilon \sim [0,1]$$         |  $$\mu-bsgm(\epsilon)\log(1-2\lvert\epsilon\rvert)$$ |
 | Gaussian      | $$\mathcal{N}(\mu,RR^T)$$   | $$\epsilon \sim \mathcal(0,1)$$ |                                          |
@@ -39,25 +39,25 @@ In many problems however we need to take derivatives with respect to probability
 When having problems where we need to take derivatives of discrete distributions we need to change the floor with its smooth counter part.
 A good smooth counterpart of the floor function is the sum of many sigmoids with a very high slope parameter.
 
-\begin{equation}
+$$
 \textrm{smoothfloor}(x) = \sum_{i=0}^{\lfloor x \rfloor} \frac{1}{1+\exp({T(x-i)})}
-\end{equation}
+$$
 
 A simple Python version of the smooth counterpart of the floor function is described below, and makes use of the `scipy.special.expit` function, which is written appositely to avoid under/overflows with floats.
 
-{% highlight python %}
+```python
 import numpy as np
 from scipy.special import expit
 def multiexpit(x, slope=50):
     y = np.asarray([ expit(slope*(x-i)) for i in range(int(np.max(x))) ])
     return np.sum(y+1,axis=0) -1
-{% endhighlight %}
+```
 
 Luckily this function, that I called `multiexpit`, can be backpropagated through, as it is a sum of differentiable functions.
 Some numerical experiments made me pretty sure that this is a good approximation to the floor function
 
 
-{% highlight python %}
+```python
 import numpy as np
 from scipy.special import expit
 def multiexpit(x, slope=50):
@@ -69,7 +69,7 @@ if __name__=='__main__':
     x = np.linspace(0,10,1000)
     plt.plot(x,np.floor(x),label='floor')
     plt.plot(x,multiexpit(x),label='smooth floor')
-{% endhighlight %}
+```
 
 The result is the following:
 <figure>

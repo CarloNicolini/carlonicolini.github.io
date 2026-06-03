@@ -19,7 +19,7 @@ For example, you have a user on your remote server, called `johnny` and you want
 
 # How to find disconnected xrdp sessions
 
-{% highlight bash %}
+```bash
 alias xrdp-list-sessions="sudo lsof  -b -w -n -c /^Xvnc$/b -a -iTCP:5900-5999"
 
 sudo apt-get install xprintidle
@@ -41,4 +41,4 @@ while read -r d; do
         echo "INFO Display $$d is still ok ($${idleMins}m)"
     fi  
 done <<< "$displays"
-{% endhighlight %}
+```

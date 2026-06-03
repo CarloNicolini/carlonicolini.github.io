@@ -6,7 +6,7 @@ published: false
 use_math: true
 categories:
   - science
-  - statistical-learning
+  - machine-learning
 ---
 I like the course from Daniel Lakens about statistical inference on Coursera.
 

@@ -6,7 +6,7 @@ date: 2020-10-23
 published: false
 categories:
   - science
-  - statistical-learning
+  - machine-learning
 ---
 [Cryptoassetlab](https://cryptoassetlab.diseade.unimib.it/) centro ricerca congiunto Prometeia-Bicocca, European commission co-organizer
 
@@ -35,7 +35,7 @@ A group $$(G,\dot)$$ is a non-empty set (finite or infinite) with a binary opera
 
 A group order is the cardinality of the set.
 
-A cyclic (sub)-group is the subet $$\langle g \rangle = g^k$$, for $k\in \mathbb{Z}$$ is a subgroup of order $$|g| \leq | G| $.
+A cyclic (sub)-group is the subet $$\langle g \rangle = g^k$$, for $$k\in \mathbb{Z}$$ is a subgroup of order $$|g| \leq | G| $$.
 
 $$
 \forall a \in \langle g \rangle = 
@@ -49,7 +49,7 @@ multiplying any element to itself successively, all elements of the set are reco
 
 ## Discrete logarithm problem.
 
-In a multiplicative group, $$(G,\dot)$$, for any positive integer $k \in \mathbb{N}-\{0\}$
+In a multiplicative group, $$(G,\dot)$$, for any positive integer $$k \in \mathbb{N}-\{0\}$$
 
 $$
 a = b^k
@@ -104,7 +104,7 @@ The set of integer numbers under addition modulo $$m$$m is a commutative cyclin 
 - the additive inverse of any element $$a$$ is $$m-a$$
 - $1$ is an obvious generator
 
-$\mathbb{Z} / m \mathbb{Z}$
+$$\mathbb{Z} / m \mathbb{Z}$$
 
 If $$m$$ is a prime number, the cyclic number has no subgroups! This means that each element can be used as a generator.
 In general 
@@ -116,7 +116,7 @@ $$
 in other words, if the order is prime, then $$pa=0$$. Since $$p$$ is odd, negation modulo $$p$$ will map even numbers to odd numbers the other way around: $$if $$a$$ is even, then $$-a = p-a$ is odd.
 Every even number has an odd opposite.
 
-*All cyclic groups of order $$p$$ are isomorphic to $\mathbb{Z}/p \mathbf{Z}$
+*All cyclic groups of order $$p$$ are isomorphic to $$\mathbb{Z}/p \mathbf{Z}$$
 
 For any prime $$p$$, $$\mathbb{Z}^\star / p  \mathbb{Z}: (\{ 1, \ldots, p-1 \}, \cdot)$$ is a commutative group.
 
@@ -141,15 +141,15 @@ Square root in $$F_p$$ exists but not everywhere.
 
 $$\mathbb{Z}/p$$ is the most-popular group of a finite field.
 
-Homework: calculate the table of opposites, inverses and square roots for the finite fields $F_{19}$$ and $$F_{23}$
+Homework: calculate the table of opposites, inverses and square roots for the finite fields $$F_{19}$$ and $$F_{23}$$
 
 # Elliptic curves over real nubmers
 
 Defined by the Weierstrass equation:
 
-\begin{equation}
+$$
 y^2 = x^3 + a x + b
-\end{equation}
+$$
 
 The curve is non-singular if $$\Delta = -16(4a^3 + 27 b^2) \neq 0$$. Both $$(x,y)$$ are affine coordinates, but other coordinates are possible.
 We define a group on elliptic curves.
@@ -174,24 +174,24 @@ This means that $$\infty$$ is a neutral element
 - Elliptic curve points are a commutative group of infinite order.
 - The group law is arbitrarily named addition: it could have been called multiplication instead.
 - In multiplicative notation doublind would have been called squaring.
-- Opposite of point $Q$. The infinity point (zero in additive notation) is providing the oppostive formula:
+- Opposite of point $$Q$$. The infinity point (zero in additive notation) is providing the oppostive formula:
 
 $$
 P+Q = \infty \rightarrow P=-Q
 $$
 
-it means $Q$ and $$-Q$$ have the same $$x_Q$$ coordinate, therefore the $$y$$ coordinates are the positive/negative roots of the elliptic curve.
+it means $$Q$$ and $$-Q$$ have the same $$x_Q$$ coordinate, therefore the $$y$$ coordinates are the positive/negative roots of the elliptic curve.
 
 ### Scalar multiplication $$R = mQ$$
 It's simply the iteration of the addition operation.
 
 [https://andrea.corbellini.name/ecc/interactive/reals-add.html](https://andrea.corbellini.name/ecc/interactive/reals-add.html)
 
-Clearly $$k$$ is the private key, while $R$ is the public key.
+Clearly $$k$$ is the private key, while $$R$$ is the public key.
 Il numero di operazioni è polinomiale nel numero di bit per rappresentare $$k$$.
 
-For any $k\in \mathbb{N}$$ double and add allows an efficient computation of $$R=kQ$.
-To infer $$k$$ from $\{R,Q\}$ can only be attempted brute-force: for large numbers it becomes computationally infeasible.
+For any $$k\in \mathbb{N}$$ double and add allows an efficient computation of $$R=kQ$$.
+To infer $$k$$ from $$\{R,Q\}$$ can only be attempted brute-force: for large numbers it becomes computationally infeasible.
 
 On ellpitic curves notation is additive not multiplicative.
 
@@ -206,16 +206,16 @@ We need 256 bit to express $$p$$, $$F_p$$ is defined by $$p=$$ FFFFFFF FFFFFFF F
 is a very large prime number.
 
 - The elliptic curve defined over $$F_p$$ is $$y^2 = x^3 + 7$$
-- the generation point $G$ 
+- the generation point $$G$$ 
 
 
-Homework assignment: y^2 = x^3 + 2x +2 over $F_{17}$
+Homework assignment: y^2 = x^3 + 2x +2 over $$F_{17}$$
 - List all its points
 - it does not have subgroups, why?
 
 
 
-{% highlight python %}
+```python
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -225,10 +225,7 @@ import matplotlib.pyplot as plt
 def curve(x,a,b):
     v = np.sqrt(x**3 + a*x + b)
     return v,-v
-
-
-
-{% endhighlight %}
+```
 
 
 # Hash function
@@ -260,8 +257,7 @@ DSA is a precise algorithm, faster than RSA, invented to go around the Schnorr m
 # Digital signature scheme
 
 
-{% highlight python %}
-
+```python
 from btclib import dsa
 from btclib.curve import mult
 from btclib.curves import secp256k1 as ec
@@ -279,12 +275,11 @@ dsa_sig = dsa.sign(msg, dsa_prv)
 
 dsa_valid = dsa.verify(msg, dsa_pub, dsa_sig)
 print('Valid ECDSA sig:", dsa_valid')
-{% endhighlight %}
+```
 
 # SSA
 
-{% highlight python %}
-
+```python
 from btclib import ssa
 from btclib.curve import mult
 from btclib.curves import secp256k1 as ec
@@ -302,13 +297,13 @@ ssa_sig = ssa.sign(msg, ssa_prv)
 
 ssa_valid = dsa.verify(msg, ssa_pub, ssa_sig)
 print('Valid ECSSA sig:", ssa_valid')
-{% endhighlight %}
+```
 
 
 # ECBMS
 print('ECBMS')
 
-{% highlight python %}
+```python
 from btclib import bms
 from btclib.curve import mult
 from btclib.curves import secp256k1 as ec
@@ -329,8 +324,7 @@ print("rf:", bms_pub)
 
 bms_valid = dsa.verify(msg, bms_pub, bms_sig)
 print('Valid ECbms sig:", bms_valid')
-
-{% endhighlight %}
+```
 
 # Diffie-Hellman key exchange
 
@@ -364,7 +358,7 @@ Message is divided into  smaller pieces (128 bit)
 - It generates the next keystream block by encrypting successive values of a counter
 - The counter can be any function which produces a sequence which is guaranteeed to to repeat for a long time, an actual increment-by-one counter is the simplest and most popular.
 
-{% highlight python %}
+```python
 import secrets
 import pyaes
 msg = "ciao ciccio"
@@ -373,5 +367,5 @@ aes_decrypt = pyaes.AESModeOfOperationCTR(key_256)
 encrypted_msg = aes_encrypt.encrypt(msg)
 encrypted_msg.hex()
 aes_decrypt.decrypt(encrypted_msg)
-{% endhighlight %}
+```
 

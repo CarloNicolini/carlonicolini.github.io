@@ -15,9 +15,9 @@ You start pressing TAB though and nothing happens. For some reason the behaviour
 
 Start a text editor and edit this file:
 
-    {% highlight xml %}    
-    ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
-    {% endhighlight %}
+```xml
+~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+```
 
 Then look for the line where it's written:
 
@@ -25,9 +25,9 @@ Then look for the line where it's written:
 
 and change it to 
 
-    {% highlight xml %}
-    <property name="&lt;Super&gt;Tab" type="empty"/>
-    {% endhighlight %}
+```xml
+<property name="&lt;Super&gt;Tab" type="empty"/>
+```
 
 reboot or whatever and then tab will work properly!
 I have no idea why but when using vnc this file seems to override tab's normal behaviour and makes it into a switch window key.

@@ -12,8 +12,8 @@ categories:
 ## Stochastic ways to determine the laplacian spectrum
 
 In this post I would like to describe the fashinating bridge that connects random forests, graphs, probability theory and statistical mechanics.
-We start from a binary undirected graph $$G=(V,E)$$, and would like to find a way to sample all the random forests, i.e. the union of spanning trees that cover the whole vertex set $V$.
-We denote the graph Laplacian $\mathbf{L} = \mathbf{D} - \mathbf{A}$$, where $$\mathbf{D}$$ is a diagonal matrix of the node degrees, while $$\mathbf{A}$ is the adjacency matrix of the graph.
+We start from a binary undirected graph $$G=(V,E)$$, and would like to find a way to sample all the random forests, i.e. the union of spanning trees that cover the whole vertex set $$V$$.
+We denote the graph Laplacian $$\mathbf{L} = \mathbf{D} - \mathbf{A}$$, where $$\mathbf{D}$$ is a diagonal matrix of the node degrees, while $$\mathbf{A}$$ is the adjacency matrix of the graph.
 
 A random forests is a random combinatorial objects, like the one shown in this picture:
 
@@ -28,8 +28,8 @@ A random forests is a random combinatorial objects, like the one shown in this p
 In this section I provide a simple yet efficient implementation of the Wilson algorithm to sample random spanning.
 The algorithm follows this line.
 
-1. Given an undirected graph $$G=(V,E)$$ with vertex set $V$ and edge set $E$, convert it to a directed graph, where all undirected links $$(u,v)$$ are replaced by two directed links $$(u,v)$$ and $$(v,u)$$. If the graph is binary, set edge weights to 1.
-2. Add a node called *root* to the graph $G$.
+1. Given an undirected graph $$G=(V,E)$$ with vertex set $$V$$ and edge set $$E$$, convert it to a directed graph, where all undirected links $$(u,v)$$ are replaced by two directed links $$(u,v)$$ and $$(v,u)$$. If the graph is binary, set edge weights to 1.
+2. Add a node called *root* to the graph $$G$$.
 3. Connect all nodes with directed edges to the root node with weight $$q$$. Do not connect $$r$$ to all other nodes in the other direction.
 4. Sample a random spanning tree starting from a random node (not $$r$$).
 5. Eliminate the root node $$r$$ together with all its connections.
@@ -49,13 +49,13 @@ $$
 $$
 
 where $$\mathcal{R}(\phi)$$ is the set of roots of the trees in the forest. The root vertices are such that, given any other vertex in the tree, following the directed edges in the tree you always reach the root.
-The quantity $$Z(q)$$ is a *partition function* and sums the numerator over all possible random spanning forests (denoted by the set $\mathcal{F}$)
+The quantity $$Z(q)$$ is a *partition function* and sums the numerator over all possible random spanning forests (denoted by the set $$\mathcal{F}$$)
 
 $$
 Z(q) = \sum \limits_{\phi \in \mathcal{F}} w(\phi)q^{|\mathcal{R}(q)|}
 $$
 
-A variant of the Markov chain tree theorem applies here, telling us that the partition function is nothing else than the characteristic polynomial of the negative Laplacian $-\mathbf{L}$.
+A variant of the Markov chain tree theorem applies here, telling us that the partition function is nothing else than the characteristic polynomial of the negative Laplacian $$-\mathbf{L}$$.
 
 $$
 Z(q) = \det\left(q \mathbf{I} + \mathbf{L} \right) = \prod \limits_{i=1}^n (q + \lambda_i)
@@ -103,7 +103,7 @@ $$
 \log \chi(q) = \mathrm{Tr}\lbrack \log(q\mathbf{I} + \mathbf{L}) \rbrack
 $$
 
-With some other simple manipulations and setting $q=\beta^{-1}$ we obtain:
+With some other simple manipulations and setting $$q=\beta^{-1}$$ we obtain:
 
 $$
 \log \chi(\beta^{-1}) = \mathrm{Tr}\lbrack \log(I+\beta \mathbf{L}) -n\log \beta \rbrack
@@ -123,14 +123,14 @@ $$
 
 
 This approximation tells us that the Boltzmann partition function in the spectral entropies framework is describing the combinatorial statistics of random spanning forests in the graph, at least in the limit of many small trees.
-It's indeed very good, until the limit $\beta = (\lambda_{max})^{-1}$ which is the limit in which we can Taylor expand the Mercator series of the logarithm.
+It's indeed very good, until the limit $$\beta = (\lambda_{max})^{-1}$$ which is the limit in which we can Taylor expand the Mercator series of the logarithm.
 
 <figure>
 <img src='/static/postfigures/z_vs_approx.png' width="600" />
-<figcaption>In this picture the limit of the approximation is exactly $1/\lambda_{max}$$. For values of $$\beta$ lower than this threshold, the approximation is incredibly good, and it definely links the partition function to the combinatorics of random spanning forests as from the Wilson algorithm.</figcaption>
+<figcaption>In this picture the limit of the approximation is exactly $$1/\lambda_{max}$$. For values of $$\beta$$ lower than this threshold, the approximation is incredibly good, and it definely links the partition function to the combinatorics of random spanning forests as from the Wilson algorithm.</figcaption>
 </figure>
 
-In this picture the limit of the approximation is exactly $1/\lambda_{max}$$. For values of $$\beta$ lower than this threshold, the approximation is incredibly good, and it definitely links the partition function to the combinatorics of random spanning forests as from the Wilson algorithm.
+In this picture the limit of the approximation is exactly $$1/\lambda_{max}$$. For values of $$\beta$$ lower than this threshold, the approximation is incredibly good, and it definitely links the partition function to the combinatorics of random spanning forests as from the Wilson algorithm.
 
 ## From approximation to exact relation: inverse Laplace transform
 
@@ -154,7 +154,7 @@ Why is this important? It means that we can recover global thermodynamic observa
 
 ## Network Observables from Forest Statistics
 
-Beyond global thermodynamic observables, this forest representation naturally suggests local descriptors attached to nodes and edges. For a given realization of the random forest $$\Phi_q$$, we define the node-level indicator $X_v(q) = \mathbf{1}\\{v \in \mathcal{R}(\Phi_q)\\}$$. Its expectation gives the local occupation probability for a vertex $$v$:
+Beyond global thermodynamic observables, this forest representation naturally suggests local descriptors attached to nodes and edges. For a given realization of the random forest $$\Phi_q$$, we define the node-level indicator $$X_v(q) = \mathbf{1}\\{v \in \mathcal{R}(\Phi_q)\\}$$. Its expectation gives the local occupation probability for a vertex $$v$$:
 
 $$
 \pi_v(q) = \mathbb{P}(v \in \mathcal{R}(\Phi_q)) = q[(q\mathbf{I} + \mathbf{L})^{-1}]_{vv}
@@ -166,10 +166,10 @@ $$
 \pi_v(q) = q \sum_{i=1}^n \frac{u_{iv}^2}{q+\lambda_i}
 $$
 
-where $$u_i$$ are the orthonormal eigenvectors of $\mathbf{L}$. 
+where $$u_i$$ are the orthonormal eigenvectors of $$\mathbf{L}$$. 
 The root probability of a node is thus a superposition of spectral modes, modulated by the local eigenvector weights $$u_{iv}^2$$.
 
-A similar construction applies to edges. For an undirected edge $e = \\{u,v\\}$$ with weight $$w_{uv}$, we measure how likely it is to participate in the forest:
+A similar construction applies to edges. For an undirected edge $$e = \\{u,v\\}$$ with weight $$w_{uv}$$, we measure how likely it is to participate in the forest:
 
 $$
 \theta_e(q) = \mathbb{P}(e \in \Phi_q) = w_{uv} \left[ (q\mathbf{I} + \mathbf{L})^{-1}_{uu} + (q\mathbf{I} + \mathbf{L})^{-1}_{vv} - 2(q\mathbf{I} + \mathbf{L})^{-1}_{uv} \right]
@@ -194,8 +194,8 @@ $$
 g(q) = \frac{s(q)}{q} = \sum_{i=1}^n \frac{1}{q+\lambda_i} = n \int_0^\infty \frac{p(\lambda)}{q+\lambda} d\lambda
 $$
 
-To invert this, we can approximate $$p(\lambda)$$ on a grid of spectral abscissae $\\{\lambda\_k\\}\_{k=1}^{N\_{\lambda}}$$ with log-spaced bin widths $$\Delta\lambda_k$$, representing the density as piecewise constant coefficients $$p_k$.
-By gathering our Monte Carlo estimates $$g(q_j)$$ from Wilson sampling into a data vector $\hat{\mathbf{g}}$$ with inverse-variance weight matrix $$\mathbf{W}$$, the forward model becomes $$\hat{\mathbf{g}} \approx \mathbf{A}\mathbf{p} + \boldsymbol{\varepsilon}$.
+To invert this, we can approximate $$p(\lambda)$$ on a grid of spectral abscissae $$\\{\lambda\_k\\}\_{k=1}^{N\_{\lambda}}$$ with log-spaced bin widths $$\Delta\lambda_k$$, representing the density as piecewise constant coefficients $$p_k$$.
+By gathering our Monte Carlo estimates $$g(q_j)$$ from Wilson sampling into a data vector $$\hat{\mathbf{g}}$$ with inverse-variance weight matrix $$\mathbf{W}$$, the forward model becomes $$\hat{\mathbf{g}} \approx \mathbf{A}\mathbf{p} + \boldsymbol{\varepsilon}$$.
 
 The reconstruction of the spectral density $$p(\lambda)$$ is cast as a nonnegative Tikhonov minimization problem:
 
@@ -203,7 +203,7 @@ $$
 \mathbf{p}^\star = \arg\min_{\mathbf{p} \ge 0} \left\| \mathbf{W}^{1/2} (\mathbf{A}\mathbf{p} - \hat{\mathbf{g}}) \right\|_2^2 + \gamma_{\mathrm{mass}} \left( \sum_{k=1}^{N_\lambda} \Delta\lambda_k p_k - 1 \right)^2 + \tau_{\mathrm{smooth}} \| \mathbf{D}\mathbf{p} \|_2^2
 $$
 
-Here, the first term minimizes the weighted least-squares error against the Monte Carlo sampling, the second term enforces the spectral density normalization constraint, and the third term (using the second-difference matrix $\mathbf{D}$) suppresses spurious noise-induced oscillations. 
+Here, the first term minimizes the weighted least-squares error against the Monte Carlo sampling, the second term enforces the spectral density normalization constraint, and the third term (using the second-difference matrix $$\mathbf{D}$$) suppresses spurious noise-induced oscillations. 
 
 Finally, having recovered a robust and smooth approximation of the spectral density $$\mathbf{p}^\star$$, the partition function is stably reconstructed by forward quadrature:
 

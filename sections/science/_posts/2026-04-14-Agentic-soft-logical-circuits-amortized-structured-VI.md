@@ -6,7 +6,7 @@ date: 2026-04-14
 published: false
 categories:
   - science
-  - language-physics
+  - deep-learning
 ---
 
 I have been spending a lot of time lately staring at agent logs.
@@ -48,7 +48,7 @@ Before the variational inference formulation, I want to motivate the choice of N
 The choice is that soft NAND is an universal basis for composing arbitrary factor graph potentials, for the same reason that NAND is universal in Boolean algebra.
 
 If you have read [the post on the continuous Sheffer stroke]({% link sections/science/_posts/2026-04-13-Continuous-Sheffer-stroke-all-you-need.md %}), you know that any digital circuit can be built from NAND gates alone — it is functionally complete.
-In the [hard-to-soft operators post]({% link sections/science/_posts/2026-04-05-From-hard-to-soft-operators-machine-learning-and-physics.md %}), I showed how every hard Boolean operation has a canonical-ensemble relaxation via a temperature-parameterized functor $F_T : \mathcal{H} \to \mathcal{S}$.
+In the [hard-to-soft operators post]({% link sections/science/_posts/2026-04-05-From-hard-to-soft-operators-machine-learning-and-physics.md %}), I showed how every hard Boolean operation has a canonical-ensemble relaxation via a temperature-parameterized functor $$F_T : \mathcal{H} \to \mathcal{S}$$.
 
 The same functor applied to the NAND gate gives us a **soft NAND factor**.
 This is what makes NAND the minimal compositional algebra for our factor graph: we need only one primitive type to express any structural constraint by means of NAND trees.
@@ -70,7 +70,7 @@ When only one succeeds, the penalty is negligible.
 
 > This is superoptimization in the thermodynamic sense: the system is penalized for using more computation than necessary to reach the answer.
 
-The [post on hard-to-soft operators]({% link sections/science/_posts/2026-04-05-From-hard-to-soft-operators-machine-learning-and-physics.md %}) situates this precisely: the NAND gate is the binary Boolean restriction; $\phi_{\rm NAND}$ is its canonical ensemble relaxation, with the sigmoid playing the role of the Boltzmann distribution for site activation.
+The [post on hard-to-soft operators]({% link sections/science/_posts/2026-04-05-From-hard-to-soft-operators-machine-learning-and-physics.md %}) situates this precisely: the NAND gate is the binary Boolean restriction; $$\phi_{\rm NAND}$$ is its canonical ensemble relaxation, with the sigmoid playing the role of the Boltzmann distribution for site activation.
 
 NAND gates have been studied in the context of soft logic in several lines of work. The key insight from [probabilistic soft logic](https://linqs.org/projects/psl/) {% cite bach2017hingeloss %} is that a Markov Logic Network with continuous relaxations of Boolean connectives induces a valid energy-based model.
 Actually the continuous NAND corresponds to the Łukasiewicz *t-norm* complement: $$N(a,b) = \max(0, 1-a-b+ab)$$ which in our log-space formulation becomes the soft NAND factor.
@@ -109,7 +109,7 @@ where $$\phi_u$$ are the local factors and $$\phi_g$$ are NAND-tree factors.
 The raw score of each site is induced by the attached local factor log-weights in the current spec.
 
 This is exactly the energy function of a factor graph model.
-$J$ is the structured log-potential of our chain graph and the signal that drives the controller update loop.
+$$J$$ is the structured log-potential of our chain graph and the signal that drives the controller update loop.
 
 ---
 
@@ -122,8 +122,8 @@ $$
 p_{\mathcal{D}}(\tau \mid x) \propto \pi_{\mathcal{D}}(\tau \mid x) \, \Phi(\tau, x)
 $$
 
-where $$\pi_{\mathcal{D}}(\tau \mid x)$$ is the proposal law, a distribution over traces induced by running the workflow forward under deployment $\mathcal{D}$$, while $$\Phi(\tau, x) \geq 0$ is the potential that encodes what the designer accepts or rewards.
-The semantic target $p_{\mathcal{D}}$ is the distribution of traces where the raw generations have been reweighted by the verification signal.
+where $$\pi_{\mathcal{D}}(\tau \mid x)$$ is the proposal law, a distribution over traces induced by running the workflow forward under deployment $$\mathcal{D}$$, while $$\Phi(\tau, x) \geq 0$$ is the potential that encodes what the designer accepts or rewards.
+The semantic target $$p_{\mathcal{D}}$$ is the distribution of traces where the raw generations have been reweighted by the verification signal.
 
 In a standard scaffold (best-of-K, ReAct, self-consistency), $$\Phi$$ is a monolithic function: a test suite passes, a judge says "correct," or a majority vote wins.
 The scaffold has no way to *decompose* $$\Phi$$ into parts, so it cannot diagnose which component of the verification failed or how to fix the topology.
@@ -135,7 +135,7 @@ $$
 \left[\prod_{g\in\mathcal G_{\rm nand}} \exp\bigl(\phi^{\rm nand}_g(\tau_g, x)\bigr)\right]
 $$
 
-where $\mathcal F_{\rm local}$$ contains Python/judge factors and $$\mathcal G_{\rm nand}$ contains one `nand_tree` factor per branch.
+where $$\mathcal F_{\rm local}$$ contains Python/judge factors and $$\mathcal G_{\rm nand}$$ contains one `nand_tree` factor per branch.
 
 This decomposition is exactly what makes the inference *structured* rather than monolithic.
 Each local factor is a verification check answering the question "do the partial products sum correctly?", "is the output format parseable?" and each is synthesized by the Controller and run by the interpreter.
@@ -147,7 +147,7 @@ $$
 \log \Phi(\tau, x) = \sum_{u\in\mathcal U_{\rm local}} \phi_u(\tau_u,x)+\sum_{g\in\mathcal G_{\rm nand}}\phi_g(\tau_g,x)\;=:\;J(\tau)
 $$
 
-This is the $J$ that appears throughout the code and the rest of this post. It is exactly the log of the structured potential in the PLP semantic target.
+This is the $$J$$ that appears throughout the code and the rest of this post. It is exactly the log of the structured potential in the PLP semantic target.
 
 ---
 
@@ -185,7 +185,7 @@ J(\tau,x)=\underbrace{\sum_{u\in\mathcal U_{\rm local}}\phi_u(\tau_u,x)}_{\text{
 \underbrace{\sum_{g\in\mathcal G_{\rm nand}}\phi^{\rm nand}_g(\tau_g,x)}_{\text{structural prior}}
 $$
 
-The **first term** is the local contribution: do outputs at each site survive the Controller's internal consistency checks? These are implemented as PLP $\mathsf{factor}$ primitives and add log-weights to the trace. The **second term** is structural regularization through NAND composition: it penalizes redundant competing branches, favoring simpler circuits when they explain equally well.
+The **first term** is the local contribution: do outputs at each site survive the Controller's internal consistency checks? These are implemented as PLP $$\mathsf{factor}$$ primitives and add log-weights to the trace. The **second term** is structural regularization through NAND composition: it penalizes redundant competing branches, favoring simpler circuits when they explain equally well.
 
 The importance-style estimator is what `LoopyParticleBP` records at run time:
 
@@ -194,7 +194,7 @@ $$
  = \frac{\sum_{k=1}^{K} h(\tau_k)\,e^{J_{t,k}}}{\sum_{k=1}^{K}e^{J_{t,k}}}
 $$
 
-where each $$\tau_k$$ is one LBP particle trace under the same worker execution law $\pi_{\mathcal D}$.
+where each $$\tau_k$$ is one LBP particle trace under the same worker execution law $$\pi_{\mathcal D}$$.
 
 The system is **amortized** because the Controller LLM learns in-context from the history of failed circuits.
 Rather than re-optimizing from scratch, it uses the history of $$(\psi_t, J_t)$$ pairs to propose better topologies — the amortized inference idea from Kingma & Welling {% cite kingma2014autoencoding %}, where the inference network predicts good variational parameters directly from the observation.
@@ -209,15 +209,15 @@ This is precisely the move from mean-field VI to structured VI that Blei identif
 One iteration of the circuit optimizer proposes one topology, not a set of topologies, and evaluates it with multiple LBP particles.
 
 Each proposal iteration works as follows.
-The controller, conditioned on history $\mathcal H_t = \{(\psi_0,J_0),\ldots,(\psi_{t-1},J_{t-1})\}$$, proposes $$\psi_t$.
-From $$\psi_t$$, we build a chain graph and run `LoopyParticleBP` with $K$ particles.
+The controller, conditioned on history $$\mathcal H_t = \{(\psi_0,J_0),\ldots,(\psi_{t-1},J_{t-1})\}$$, proposes $$\psi_t$$.
+From $$\psi_t$$, we build a chain graph and run `LoopyParticleBP` with $$K$$ particles.
 Each particle yields a trace $$\tau_k$$ and local factor terms; the engine records a per-round log-evidence trajectory:
 $$
 J_t^{(u)}=\log\!\bigl(\operatorname{logmeanexp}_{k=1}^K w_{t,k}^{(u)}\bigr),\qquad
 w_{t,k}^{(u)}=\exp(J_{t,k}^{(u)})\propto \pi_{\mathcal D}(\tau_k\mid x)\,\Phi_{\psi_t}(\tau_k,x).
 $$
 
-The final value $J_t:=J_t^{(T_{\rm BP})}$ is the score that is appended to history and shown to the controller on the next prompt.
+The final value $$J_t:=J_t^{(T_{\rm BP})}$$ is the score that is appended to history and shown to the controller on the next prompt.
 
 The same normalizer appears as a `logmeanexp` quantity in `LoopyParticleBP`, so the implementation only needs that particle trajectory to compare proposals across controller rounds.
 
@@ -234,7 +234,7 @@ J_t = J^{(T_{\rm BP})}_t,\quad
 \end{cases}
 $$
 
-where each $$\mathcal P_t=\{\tau_k\}_{k=1}^K$$ is the LBP particle set for proposal $$\psi_t$$ and $T_{\rm BP}$ is the message-passing iteration count.
+where each $$\mathcal P_t=\{\tau_k\}_{k=1}^K$$ is the LBP particle set for proposal $$\psi_t$$ and $$T_{\rm BP}$$ is the message-passing iteration count.
 
 ```mermaid
 flowchart TD
@@ -336,7 +336,7 @@ Let me be explicit about the differences, because they are substantive, not cosm
 |---|---|---|
 | **Topology** | Fixed (think-act-observe) | Variable, discovered by Controller |
 | **Program** | Implicit in context window | Explicit, inspectable, serializable |
-| **Scoring** | Heuristic ("Final Answer:") | Formal energy $J$ from factor graph |
+| **Scoring** | Heuristic ("Final Answer:") | Formal energy $$J$$ from factor graph |
 | **Parsimony** | None | NAND regularization penalizes redundancy |
 | **Parallelism** | Sequential | `K` LBP particles in one topology |
 | **Convergence** | LLM decides | Proposal loop updates topology via history |
@@ -353,7 +353,7 @@ This mirrors the minimum description length (MDL) principle: the optimal program
 
 I ran the system on four problems with $$K=4$$ particles per topology and `max_iterations=3`, using one worker model in this run and `gpt-4.1-mini` as the Controller. Crucially, the Controller did **not** know the correct answer at any point — convergence came from topology refinement across iterations.
 
-| Problem | Ground Truth | System Answer | Correct | Agreement | Final $J$ |
+| Problem | Ground Truth | System Answer | Correct | Agreement | Final $$J$$ |
 |---|---|---|---|---|---|
 | 837 × 492 | 411804 | **411804** | True | 1.00 | -4.47 |
 | 56789 × 12345 | 701060205 | **701060205** | True | 0.75 | -3.03 |
@@ -385,7 +385,7 @@ There are several directions I find genuinely exciting from here.
 
 **Factor amortization as a library of verification lemmas.** Right now, the Controller synthesizes new factor code at each iteration. A more sophisticated system would reuse factors that worked well across previous problems — amortizing not just the circuit topology but the verification programs themselves. In PLP terms, this is building a library of reusable potentials $$\Phi_i$$ that compose into richer targets $$\Phi = \prod_i \Phi_i$$. This mirrors how a human mathematician builds a library of lemmas.
 
-**Recursive circuits with continuation values.** Each $\mathsf{sample}$$ site in the circuit could itself be a sub-circuit, solved by a nested topology-refinement loop. The continuation value $$V(s)=\log Z(s)=\log \sum_{\tau \succ s} \pi(\tau \mid s)\Phi(\tau)$$ from the [free energy post]({% link sections/science/_posts/2026-03-31-PLP-is-inference-time-approximation-of-free-energy.md %}) would compose recursively, with each `J_trajectory` entry acting as the local estimate of $$V(s)$.
+**Recursive circuits with continuation values.** Each $$\mathsf{sample}$$ site in the circuit could itself be a sub-circuit, solved by a nested topology-refinement loop. The continuation value $$V(s)=\log Z(s)=\log \sum_{\tau \succ s} \pi(\tau \mid s)\Phi(\tau)$$ from the [free energy post]({% link sections/science/_posts/2026-03-31-PLP-is-inference-time-approximation-of-free-energy.md %}) would compose recursively, with each `J_trajectory` entry acting as the local estimate of $$V(s)$$.
 
 **Open-ended tasks where $$\Phi$$ is not binary.** The current implementation already handles factual questions without a ground-truth oracle. The next frontier is tasks where the potential $$\Phi(\tau)$$ is genuinely continuous and unknown — open-ended reasoning, creative writing evaluation, code debugging — where the Controller must synthesize factors that estimate plausibility rather than verify correctness. This is the regime where the structured decomposition of $$\Phi$$ matters most: a monolithic judge would be hopelessly miscalibrated, but a factored set of local consistency checks can accumulate weak evidence into a reliable signal.
 

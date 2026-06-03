@@ -6,9 +6,10 @@ layout: post
 published: false
 categories:
   - science
-  - statistical-learning
+  - machine-learning
 ---
-# Why interpretability matters?
+
+## Why interpretability matters?
 
 Currently the ML community is struggling in making sense of its own output.
 They are able to produce highly accurate models, but they find hard times in answering "why"?.

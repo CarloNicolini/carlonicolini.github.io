@@ -1,0 +1,246 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="100%" height="100%">
+    <!-- Definitions for markers and patterns -->
+    <defs>
+        <style>
+            .title { font-family: system-ui, -apple-system, sans-serif; font-size: 16px; fill: #333333; font-weight: 600; letter-spacing: 1.5px; }
+            .subtitle { font-family: system-ui, -apple-system, sans-serif; font-size: 11px; fill: #78716c; letter-spacing: 0.5px; }
+            .label-main { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; fill: #4a4a4a; font-weight: 500; letter-spacing: 0.5px; }
+            .label-small { font-family: system-ui, -apple-system, sans-serif; font-size: 10px; fill: #78716c; }
+            .label-accent { font-family: system-ui, -apple-system, sans-serif; font-size: 10px; fill: #c2410c; font-weight: 600; }
+            .math { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 9px; fill: #a8a29e; }
+        </style>
+    </defs>
+
+    <!-- Warm off-white background -->
+    <rect width="1200" height="600" fill="#fafaf9" />
+
+    <!-- Header / Title Area -->
+    <text x="60" y="60" class="title">NETWORK-MACHINE NEUROSCIENCE</text>
+    <text x="60" y="80" class="subtitle">Mapping functional submodules in large language models via residual skip connections</text>
+
+    <!-- ======================================================= -->
+    <!-- PROJECTION LINES (Background Layer)                     -->
+    <!-- ======================================================= -->
+    
+    <!-- Concept 1 to 2 Projection -->
+    <path d="M 160 300 L 560 260" stroke="#d6d3d1" stroke-width="0.75" stroke-dasharray="2,4" fill="none" />
+    <path d="M 160 300 L 560 340" stroke="#d6d3d1" stroke-width="0.75" stroke-dasharray="2,4" fill="none" />
+    <path d="M 280 300 L 640 260" stroke="#d6d3d1" stroke-width="0.75" stroke-dasharray="2,4" fill="none" />
+    <path d="M 280 300 L 640 340" stroke="#d6d3d1" stroke-width="0.75" stroke-dasharray="2,4" fill="none" />
+
+    <!-- Concept 2 to 3 Projection -->
+    <path d="M 640 260 L 960 290" stroke="#d6d3d1" stroke-width="0.75" stroke-dasharray="2,4" fill="none" />
+    <path d="M 640 340 L 960 290" stroke="#d6d3d1" stroke-width="0.75" stroke-dasharray="2,4" fill="none" />
+    <path d="M 640 260 L 1040 290" stroke="#d6d3d1" stroke-width="0.75" stroke-dasharray="2,4" fill="none" />
+    <path d="M 640 340 L 1040 290" stroke="#d6d3d1" stroke-width="0.75" stroke-dasharray="2,4" fill="none" />
+
+    <!-- ======================================================= -->
+    <!-- CONCEPT 1: RESIDUAL DAG TOPOLOGY (Center X=200)         -->
+    <!-- ======================================================= -->
+    
+    <g transform="translate(0, 0)">
+        <!-- Annotations -->
+        <text x="200" y="180" class="label-accent" text-anchor="middle">reasoning submodule</text>
+        <text x="200" y="194" class="label-small" text-anchor="middle">repeated layers augment capacity</text>
+
+        <!-- Base Sequential Line -->
+        <line x1="80" y1="300" x2="320" y2="300" stroke="#a8a29e" stroke-width="1"/>
+
+        <!-- Skip Connections (Above) -->
+        <path d="M 80 300 Q 100 260 120 300" fill="none" stroke="#d6d3d1" stroke-width="1.5" />
+        <path d="M 120 300 Q 140 260 160 300" fill="none" stroke="#d6d3d1" stroke-width="1.5" />
+        <path d="M 160 300 Q 180 260 200 300" fill="none" stroke="#d6d3d1" stroke-width="1.5" />
+        <path d="M 200 300 Q 220 260 240 300" fill="none" stroke="#d6d3d1" stroke-width="1.5" />
+        <path d="M 240 300 Q 260 260 280 300" fill="none" stroke="#d6d3d1" stroke-width="1.5" />
+        <path d="M 280 300 Q 300 260 320 300" fill="none" stroke="#d6d3d1" stroke-width="1.5" />
+
+        <!-- Effective Connections (Below) -->
+        <!-- Node 2 receives from 1 -->
+        <path d="M 80 300 Q 100 340 120 300" fill="none" stroke="#c2410c" stroke-width="1" stroke-dasharray="3,3" opacity="0.7" />
+        
+        <!-- Node 3 receives from 1, 2 -->
+        <path d="M 80 300 Q 120 380 160 300" fill="none" stroke="#c2410c" stroke-width="1" stroke-dasharray="3,3" opacity="0.7" />
+        <path d="M 120 300 Q 140 340 160 300" fill="none" stroke="#c2410c" stroke-width="1" stroke-dasharray="3,3" opacity="0.7" />
+        
+        <!-- Node 4 receives from 1, 2, 3 -->
+        <path d="M 80 300 Q 140 420 200 300" fill="none" stroke="#c2410c" stroke-width="1" stroke-dasharray="3,3" opacity="0.7" />
+        <path d="M 120 300 Q 160 380 200 300" fill="none" stroke="#c2410c" stroke-width="1" stroke-dasharray="3,3" opacity="0.7" />
+        <path d="M 160 300 Q 180 340 200 300" fill="none" stroke="#c2410c" stroke-width="1" stroke-dasharray="3,3" opacity="0.7" />
+        
+        <!-- Node 5 receives from 1, 2, 3, 4 -->
+        <path d="M 80 300 Q 160 460 240 300" fill="none" stroke="#c2410c" stroke-width="1" stroke-dasharray="3,3" opacity="0.7" />
+        <path d="M 120 300 Q 180 420 240 300" fill="none" stroke="#c2410c" stroke-width="1" stroke-dasharray="3,3" opacity="0.7" />
+        <path d="M 160 300 Q 200 380 240 300" fill="none" stroke="#c2410c" stroke-width="1" stroke-dasharray="3,3" opacity="0.7" />
+        <path d="M 200 300 Q 220 340 240 300" fill="none" stroke="#c2410c" stroke-width="1" stroke-dasharray="3,3" opacity="0.7" />
+        
+        <!-- Node 6 receives from 1, 2, 3, 4, 5 -->
+        <path d="M 80 300 Q 180 500 280 300" fill="none" stroke="#c2410c" stroke-width="1" stroke-dasharray="3,3" opacity="0.7" />
+        <path d="M 120 300 Q 200 460 280 300" fill="none" stroke="#c2410c" stroke-width="1" stroke-dasharray="3,3" opacity="0.7" />
+        <path d="M 160 300 Q 220 420 280 300" fill="none" stroke="#c2410c" stroke-width="1" stroke-dasharray="3,3" opacity="0.7" />
+        <path d="M 200 300 Q 240 380 280 300" fill="none" stroke="#c2410c" stroke-width="1" stroke-dasharray="3,3" opacity="0.7" />
+        <path d="M 240 300 Q 260 340 280 300" fill="none" stroke="#c2410c" stroke-width="1" stroke-dasharray="3,3" opacity="0.7" />
+        
+        <!-- Node 7 receives from 1, 2, 3, 4, 5, 6 -->
+        <path d="M 80 300 Q 200 540 320 300" fill="none" stroke="#c2410c" stroke-width="1" stroke-dasharray="3,3" opacity="0.7" />
+        <path d="M 120 300 Q 220 500 320 300" fill="none" stroke="#c2410c" stroke-width="1" stroke-dasharray="3,3" opacity="0.7" />
+        <path d="M 160 300 Q 240 460 320 300" fill="none" stroke="#c2410c" stroke-width="1" stroke-dasharray="3,3" opacity="0.7" />
+        <path d="M 200 300 Q 260 420 320 300" fill="none" stroke="#c2410c" stroke-width="1" stroke-dasharray="3,3" opacity="0.7" />
+        <path d="M 240 300 Q 280 380 320 300" fill="none" stroke="#c2410c" stroke-width="1" stroke-dasharray="3,3" opacity="0.7" />
+        <path d="M 280 300 Q 300 340 320 300" fill="none" stroke="#c2410c" stroke-width="1" stroke-dasharray="3,3" opacity="0.7" />
+
+        <!-- Nodes (Layers) -->
+        <circle cx="80" cy="300" r="4.5" fill="#fafaf9" stroke="#78716c" stroke-width="1.5" />
+        <circle cx="120" cy="300" r="4.5" fill="#fafaf9" stroke="#78716c" stroke-width="1.5" />
+        
+        <!-- Orange Hub Nodes -->
+        <circle cx="160" cy="300" r="5" fill="#fafaf9" stroke="#c2410c" stroke-width="2" />
+        <circle cx="200" cy="300" r="5" fill="#fafaf9" stroke="#c2410c" stroke-width="2" />
+        <circle cx="240" cy="300" r="5" fill="#fafaf9" stroke="#c2410c" stroke-width="2" />
+        
+        <!-- Nodes Continued -->
+        <circle cx="280" cy="300" r="4.5" fill="#fafaf9" stroke="#78716c" stroke-width="1.5" />
+        <circle cx="320" cy="300" r="4.5" fill="#fafaf9" stroke="#78716c" stroke-width="1.5" />
+
+        <!-- Base Labels -->
+        <text x="200" y="460" class="label-main" text-anchor="middle">residual dag topology</text>
+        <text x="200" y="480" class="math" text-anchor="middle">x<tspan dy="3">l+1</tspan><tspan dy="-3"> = x</tspan><tspan dy="3">l</tspan><tspan dy="-3"> + F(x</tspan><tspan dy="3">l</tspan><tspan dy="-3">)</tspan></text>
+    </g>
+
+    <!-- ======================================================= -->
+    <!-- CONCEPT 2: SIMILARITY MATRIX (Center X=600)             -->
+    <!-- ======================================================= -->
+    
+    <g transform="translate(0, 0)">
+        <!-- Annotations -->
+        <text x="600" y="180" class="label-accent" text-anchor="middle">representational plateau</text>
+        <text x="600" y="194" class="label-small" text-anchor="middle">high internal similarity structure</text>
+
+        <!-- Main Background block -->
+        <rect x="500" y="200" width="200" height="200" fill="#f5f5f4" />
+        
+        <!-- Block Diagonals -->
+        <rect x="500" y="200" width="60" height="60" fill="#d6d3d1" />
+        <rect x="640" y="340" width="60" height="60" fill="#d6d3d1" />
+        
+        <!-- Highlighted Submodule Block (Orange) -->
+        <rect x="560" y="260" width="80" height="80" fill="#c2410c" opacity="0.15" />
+        <rect x="560" y="260" width="80" height="80" fill="none" stroke="#c2410c" stroke-width="1.5" />
+
+        <!-- Delicate Internal Grid (White Lines) -->
+        <g stroke="#ffffff" stroke-width="1">
+            <!-- verticals -->
+            <line x1="520" y1="200" x2="520" y2="400"/>
+            <line x1="540" y1="200" x2="540" y2="400"/>
+            <line x1="560" y1="200" x2="560" y2="400"/>
+            <line x1="580" y1="200" x2="580" y2="400"/>
+            <line x1="600" y1="200" x2="600" y2="400"/>
+            <line x1="620" y1="200" x2="620" y2="400"/>
+            <line x1="640" y1="200" x2="640" y2="400"/>
+            <line x1="660" y1="200" x2="660" y2="400"/>
+            <line x1="680" y1="200" x2="680" y2="400"/>
+            <!-- horizontals -->
+            <line x1="500" y1="220" x2="700" y2="220"/>
+            <line x1="500" y1="240" x2="700" y2="240"/>
+            <line x1="500" y1="260" x2="700" y2="260"/>
+            <line x1="500" y1="280" x2="700" y2="280"/>
+            <line x1="500" y1="300" x2="700" y2="300"/>
+            <line x1="500" y1="320" x2="700" y2="320"/>
+            <line x1="500" y1="340" x2="700" y2="340"/>
+            <line x1="500" y1="360" x2="700" y2="360"/>
+            <line x1="500" y1="380" x2="700" y2="380"/>
+        </g>
+
+        <!-- Identity Diagonal -->
+        <line x1="500" y1="200" x2="700" y2="400" stroke="#4a4a4a" stroke-width="0.75" stroke-dasharray="2,2" />
+
+        <!-- Outer Border -->
+        <rect x="500" y="200" width="200" height="200" fill="none" stroke="#4a4a4a" stroke-width="1.5" />
+
+        <!-- Base Labels -->
+        <text x="600" y="460" class="label-main" text-anchor="middle">similarity adjacency matrix</text>
+        <text x="600" y="480" class="math" text-anchor="middle">W<tspan dy="3">i,j</tspan><tspan dy="-3"> = cos(X</tspan><tspan dy="3">i</tspan><tspan dy="-3">, X</tspan><tspan dy="3">j</tspan><tspan dy="-3">)</tspan></text>
+    </g>
+
+    <!-- ======================================================= -->
+    <!-- CONCEPT 3: FUNCTIONAL CONNECTOME (Center X=1000)        -->
+    <!-- ======================================================= -->
+    
+    <g transform="translate(0, 0)">
+        <!-- Annotations -->
+        <text x="1000" y="180" class="label-accent" text-anchor="middle">betweenness centrality hubs</text>
+        <text x="1000" y="194" class="label-small" text-anchor="middle">bottleneck layers directing thought</text>
+
+        <!-- INTER-CLUSTER EDGES (Thin Gray) -->
+        <!-- Left to Hub 1 -->
+        <line x1="920" y1="300" x2="960" y2="290" stroke="#d6d3d1" stroke-width="0.75" />
+        <line x1="940" y1="340" x2="960" y2="290" stroke="#d6d3d1" stroke-width="0.75" />
+        <line x1="910" y1="350" x2="960" y2="290" stroke="#d6d3d1" stroke-width="0.75" />
+        <!-- Right to Hub 2 -->
+        <line x1="1080" y1="300" x2="1040" y2="290" stroke="#d6d3d1" stroke-width="0.75" />
+        <line x1="1060" y1="340" x2="1040" y2="290" stroke="#d6d3d1" stroke-width="0.75" />
+        <line x1="1090" y1="350" x2="1040" y2="290" stroke="#d6d3d1" stroke-width="0.75" />
+        
+        <!-- INTRA-CLUSTER EDGES: ENCODING (Left, Gray) -->
+        <line x1="890" y1="320" x2="920" y2="300" stroke="#a8a29e" stroke-width="1" />
+        <line x1="890" y1="320" x2="910" y2="350" stroke="#a8a29e" stroke-width="1" />
+        <line x1="920" y1="300" x2="910" y2="350" stroke="#a8a29e" stroke-width="1" />
+        <line x1="920" y1="300" x2="940" y2="340" stroke="#a8a29e" stroke-width="1" />
+        <line x1="890" y1="320" x2="880" y2="340" stroke="#a8a29e" stroke-width="1" />
+
+        <!-- INTRA-CLUSTER EDGES: DECODING (Right, Gray) -->
+        <line x1="1110" y1="320" x2="1080" y2="300" stroke="#a8a29e" stroke-width="1" />
+        <line x1="1110" y1="320" x2="1090" y2="350" stroke="#a8a29e" stroke-width="1" />
+        <line x1="1080" y1="300" x2="1090" y2="350" stroke="#a8a29e" stroke-width="1" />
+        <line x1="1080" y1="300" x2="1060" y2="340" stroke="#a8a29e" stroke-width="1" />
+        <line x1="1110" y1="320" x2="1120" y2="340" stroke="#a8a29e" stroke-width="1" />
+
+        <!-- INTRA-CLUSTER EDGES: REASONING (Center, Orange) -->
+        <!-- Core Dense Links -->
+        <line x1="990" y1="240" x2="1010" y2="230" stroke="#c2410c" stroke-width="1.5" opacity="0.4" />
+        <line x1="1010" y1="230" x2="1030" y2="250" stroke="#c2410c" stroke-width="1.5" opacity="0.4" />
+        <line x1="990" y1="240" x2="980" y2="270" stroke="#c2410c" stroke-width="1.5" opacity="0.4" />
+        <line x1="980" y1="270" x2="1000" y2="260" stroke="#c2410c" stroke-width="1.5" opacity="0.4" />
+        <line x1="1000" y1="260" x2="1020" y2="280" stroke="#c2410c" stroke-width="1.5" opacity="0.4" />
+        <line x1="1010" y1="230" x2="1000" y2="260" stroke="#c2410c" stroke-width="1.5" opacity="0.4" />
+        <line x1="990" y1="240" x2="1000" y2="260" stroke="#c2410c" stroke-width="1.5" opacity="0.4" />
+        <line x1="1030" y1="250" x2="1020" y2="280" stroke="#c2410c" stroke-width="1.5" opacity="0.4" />
+        <!-- Links to Hubs -->
+        <line x1="980" y1="270" x2="960" y2="290" stroke="#c2410c" stroke-width="1.5" opacity="0.6" />
+        <line x1="990" y1="240" x2="960" y2="290" stroke="#c2410c" stroke-width="1.5" opacity="0.6" />
+        <line x1="1000" y1="260" x2="960" y2="290" stroke="#c2410c" stroke-width="1.5" opacity="0.6" />
+        <line x1="1020" y1="280" x2="1040" y2="290" stroke="#c2410c" stroke-width="1.5" opacity="0.6" />
+        <line x1="1030" y1="250" x2="1040" y2="290" stroke="#c2410c" stroke-width="1.5" opacity="0.6" />
+        <line x1="1000" y1="260" x2="1040" y2="290" stroke="#c2410c" stroke-width="1.5" opacity="0.6" />
+
+        <!-- NODES: ENCODING -->
+        <circle cx="890" cy="320" r="3" fill="#a8a29e" />
+        <circle cx="920" cy="300" r="3" fill="#a8a29e" />
+        <circle cx="910" cy="350" r="3" fill="#a8a29e" />
+        <circle cx="940" cy="340" r="3" fill="#a8a29e" />
+        <circle cx="880" cy="340" r="3" fill="#a8a29e" />
+
+        <!-- NODES: DECODING -->
+        <circle cx="1110" cy="320" r="3" fill="#a8a29e" />
+        <circle cx="1080" cy="300" r="3" fill="#a8a29e" />
+        <circle cx="1090" cy="350" r="3" fill="#a8a29e" />
+        <circle cx="1060" cy="340" r="3" fill="#a8a29e" />
+        <circle cx="1120" cy="340" r="3" fill="#a8a29e" />
+
+        <!-- NODES: REASONING CORE (Orange) -->
+        <circle cx="990" cy="240" r="4.5" fill="#c2410c" />
+        <circle cx="1010" cy="230" r="4.5" fill="#c2410c" />
+        <circle cx="1030" cy="250" r="4.5" fill="#c2410c" />
+        <circle cx="980" cy="270" r="4.5" fill="#c2410c" />
+        <circle cx="1020" cy="280" r="4.5" fill="#c2410c" />
+        <circle cx="1000" cy="260" r="4.5" fill="#c2410c" />
+
+        <!-- NODES: HUBS (High Centrality) -->
+        <circle cx="960" cy="290" r="7.5" fill="#fafaf9" stroke="#c2410c" stroke-width="2.5" />
+        <circle cx="1040" cy="290" r="7.5" fill="#fafaf9" stroke="#c2410c" stroke-width="2.5" />
+
+        <!-- Base Labels -->
+        <text x="1000" y="460" class="label-main" text-anchor="middle">functional connectome topology</text>
+        <text x="1000" y="480" class="math" text-anchor="middle">G = (V, E)</text>
+    </g>
+
+</svg>

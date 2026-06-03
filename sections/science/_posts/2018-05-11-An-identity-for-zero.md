@@ -6,7 +6,7 @@ published: true
 date: 2018-05-11
 categories:
   - science
-  - statistical-learning
+  - machine-learning
 ---
 This identity could result useful
 

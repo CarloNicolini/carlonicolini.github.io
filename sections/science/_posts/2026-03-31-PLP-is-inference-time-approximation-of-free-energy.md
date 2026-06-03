@@ -6,7 +6,7 @@ date: 2026-03-31
 published: true
 categories:
   - science
-  - language-physics
+  - deep-learning
 ---
 
 ## Approximate sampling and inference in LLMs
@@ -18,40 +18,40 @@ The sharper statement is simple and useful:
 
 The central object of [PLP is the fundamental equation]({% link sections/science/_posts/2026-03-01-Probabilistic-Language-Programming.md %}) that we reproduce via a programmatic scaffold building a trace $$\tau$$, arriving at the relation:
 
-\begin{equation}
+$$
 p_{\mathcal{D}}(\tau \mid x) \propto \pi_{\mathcal{D}}(\tau \mid x)\,\Phi(\tau,x).
-\end{equation}
+$$
 
 A scaffold is a way to first sample traces from a proposal distribution $$\pi_{\mathcal{D}}(\cdot \mid x)$$ induced by the deployed model, and then reshape that mass with potentials supplied by verifiers, judges, or heuristics.
 
 To make the rest precise, let us start from the basic PLP objects.
-Fix a deployment setup $\mathcal{D}$$ (model, decoding hyperparameters etc.), an input prompt $$x$$, and a complete execution trace $$\tau$.
+Fix a deployment setup $$\mathcal{D}$$ (model, decoding hyperparameters etc.), an input prompt $$x$$, and a complete execution trace $$\tau$$.
 In PLP, the forward execution of the workflow induces a proposal distribution $$\pi_{\mathcal{D}}(\tau \mid x)$$ and the verifier, judge, or preference specification induces a nonnegative potential $$\Phi(\tau,x)$$.
 When the prompt $$x$$ is fixed, I will often write $$\Phi(\tau)$$ instead of $$\Phi(\tau,x)$$ to shorten formulas.
 
 The semantic target is hence modeled as the product of two competing *forces*: the proposal force $$\pi_{\mathcal{D}}(\tau \mid x)$$ pushing the exploration of different trajectories in the semantic space, and the *verifier force* $$\Phi(\tau,x)$$ keeping the proposal on track with a warp signal:
 
-\begin{equation}
+$$
 p_{\mathcal{D}}(\tau \mid x) = \frac{\pi_{\mathcal{D}}(\tau \mid x)\Phi(\tau,x)}{Z_{\mathcal{D}}(x)} \quad Z_{\mathcal{D}}(x)=\sum_{\tau} \pi_{\mathcal{D}}(\tau \mid x)\Phi(\tau,x) \label{eq:fundamental}\tag{1}.
-\end{equation}
+$$
 
 The normalization factor $$Z_{\mathcal{D}}(x)$$ is the partition function, namely the total verifier-weighted mass over all traces at fixed input and deployment state.
 
-If we stick to the soft reinforcement learning literature we could now define the reference distribution (proposal) and the *global reward* $R$ as:
+If we stick to the soft reinforcement learning literature we could now define the reference distribution (proposal) and the *global reward* $$R$$ as:
 
-\begin{equation}
+$$
 p_{\mathrm{ref}}(\tau \mid x) := \pi_{\mathcal{D}}(\tau \mid x), \qquad R(\tau,x) := \log \Phi(\tau,x),
-\end{equation}
+$$
 
 with the usual convention $$R(\tau,x)=-\infty$$ when $$\Phi(\tau,x)=0$$.
 
 The same semantic target becomes a softargmax distribution over the reward weighted proposals, a convention that is already well defined in many soft reinforcement learning studies {% cite levine2018reinforcement blondel2025autoregressive %}:
 
-\begin{equation}
+$$
 p_{\mathcal{D}} (\tau \mid x) = \frac{p_{\mathrm{ref}}(\tau \mid x)\exp(R(\tau,x))} {\sum_{\tau'} p_{\mathrm{ref}}(\tau' \mid x)\exp(R(\tau',x))}.
-\end{equation}
+$$
 
-This is exactly the reference-measure energy-based form that appears in KL-regularized maximum-entropy reinforcement learning and in the recent ARM/EBM equivalence of Blondel et al. {% cite blondel2025autoregressive %} when instead of simply the answer $\mathbf{y}$$, we include the trace $$\tau$ that naturally includes the possible scaffold architectures.
+This is exactly the reference-measure energy-based form that appears in KL-regularized maximum-entropy reinforcement learning and in the recent ARM/EBM equivalence of Blondel et al. {% cite blondel2025autoregressive %} when instead of simply the answer $$\mathbf{y}$$, we include the trace $$\tau$$ that naturally includes the possible scaffold architectures.
 
 So the PLP proposal is the reference model used for proposal exploration in the sequences landscape (as in energy based models) and  the PLP potential is the exponentiated version of the additive energy correction, namely the feedback mechanism that could drive the exploration of better solutions toward the semantic target.
 
@@ -110,7 +110,7 @@ $$
 \text{change the weights so that } q_{\theta} \approx p_{\mathcal{D}}.
 $$
 
-Here $q_{\theta}$$ denotes a parametric model distribution over traces (or over answers) with parameters $$\theta$.
+Here $$q_{\theta}$$ denotes a parametric model distribution over traces (or over answers) with parameters $$\theta$$.
 
 The other is:
 
@@ -207,7 +207,7 @@ The comparison to active inference remains useful, but it is a step further away
     <tr style="border-bottom:1px solid #ddd;">
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;"><strong>path-integral control</strong></td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">uncontrolled diffusion or reference dynamics</td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">path cost $S$ with weight $e^{-S/\lambda}$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">path cost $$S$$ with weight $$e^{-S/\lambda}$$</td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">$$J(\xi,t)=-\lambda \log \Psi(\xi,t)$$</td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">stochastic cost-to-go under noise {% cite kappen2005path %}</td>
     </tr>
@@ -247,7 +247,7 @@ That is the level at which the analogy is strongest.
   </thead>
   <tbody>
     <tr style="border-top:1px solid #ddd; border-bottom:1px solid #ddd;">
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">PLP continuation values and Kappen's stochastic cost-to-go encode the same log-partition geometry under $\Phi=e^{-S/\lambda}$.</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">PLP continuation values and Kappen's stochastic cost-to-go encode the same log-partition geometry under $$\Phi=e^{-S/\lambda}$$.</td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;"><strong>solid</strong></td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 6px;">Both summarize verifier- or cost-weighted futures with a log-sum over continuations.</td>
     </tr>
@@ -273,7 +273,7 @@ That is the level at which the analogy is strongest.
 ## What the `factor` primitive is really estimating
 
 The new paper by Blondel et al. shows that local autoregressive logits must absorb a future-looking soft value term {% cite blondel2025autoregressive %}.
-To avoid colliding with the PLP proposal notation $\pi_{\mathcal{D}}$$, let me call that local quantity $$Q(s,y)$$ instead of $$q(s,y)$.
+To avoid colliding with the PLP proposal notation $$\pi_{\mathcal{D}}$$, let me call that local quantity $$Q(s,y)$$ instead of $$q(s,y)$$.
 Here $$s$$ is again a trace prefix and $$y$$ is the next token (or decoded action) that extends $$s$$ by one step.
 
 For a trace prefix or state $$s$$, the continuation partition is the $$Z(s)$$ introduced above:
@@ -333,7 +333,7 @@ If we repeatedly add the raw continuation value $$V(s_t)$$ at many intermediate 
 A long trace would then accumulate multiple copies of essentially the same downstream partition, and that would change the target in an uncontrolled way.
 
 The right object is not raw future value, but a **telescoping shaping term**.
-Let $$G(s)$$ be a heuristic **potential** on prefixes (I use $G$ here to avoid clashing with Kappen's partition notation $$\Psi(\xi,t)$$).
+Let $$G(s)$$ be a heuristic **potential** on prefixes (I use $$G$$ here to avoid clashing with Kappen's partition notation $$\Psi(\xi,t)$$).
 Then the semantics-preserving way to inject it is
 
 $$
@@ -396,7 +396,7 @@ That would tell us more directly when beam search, tree search, or verifier-guid
 ## Tempered targets, delayed choice, and symmetry breaking
 
 Another immediate consequence is that PLP admits a natural temperature family.
-Given the same proposal $\pi_{\mathcal{D}}$$ and potential $$\Phi$, define
+Given the same proposal $$\pi_{\mathcal{D}}$$ and potential $$\Phi$$, define
 
 $$
 p_\beta(\tau \mid x) \propto \pi_{\mathcal{D}}(\tau \mid x)\Phi(\tau,x)^\beta, \qquad 0 \le \beta \le 1.
@@ -406,7 +406,7 @@ At $$\beta=0$$ we recover the raw proposal.
 At $$\beta=1$$ we recover the original semantic target from the fundamental equation \eqref{eq:fundamental}.
 Intermediate $$\beta$$ values define softened bridges between exploration and strict verification.
 
-If we write the potential as $\Phi(\tau, x)=e^{R(\tau, x)}$, then
+If we write the potential as $$\Phi(\tau, x)=e^{R(\tau, x)}$$, then
 
 $$
 p_\beta(\tau \mid x) \propto \pi_{\mathcal{D}}(\tau \mid x)e^{\beta R(\tau, x)},
@@ -452,7 +452,7 @@ $$
 J_{\mathrm{OR}}(s)\approx -\lambda \log \sum_{b\in\mathcal{B}(s)} \exp\!\left(-\frac{J_b(s)}{\lambda}\right) + \Delta_{\mathrm{sel}}(s),
 $$
 
-where $$\mathcal{B}(s)$$ indexes disjoint **basins** of future traces (for example, distinct high-level plans), $$J_b(s)$$ is the cost-to-go if the scaffold commits to basin $$b$$, and $\Delta_{\mathrm{sel}}$ summarizes selection and verification costs.
+where $$\mathcal{B}(s)$$ indexes disjoint **basins** of future traces (for example, distinct high-level plans), $$J_b(s)$$ is the cost-to-go if the scaffold commits to basin $$b$$, and $$\Delta_{\mathrm{sel}}$$ summarizes selection and verification costs.
 The temperature $$\lambda$$ is the same scale as in $$\Phi(\tau)=\exp(-S(\tau)/\lambda)$$ whenever that representation is used.
 This is the option-value term.
 Several basins can coexist, and uncertainty can make delayed commitment rational.
@@ -463,7 +463,7 @@ $$
 J_{\mathrm{AND}}(s)\approx \sum_{i=1}^K J_i(s) + \Delta_{\mathrm{valid}}(s)+\Delta_{\mathrm{comp}}(s),
 $$
 
-where $K$ is the number of subtasks, $$J_i(s)$$ is the cost-to-go carried by the $$i$$th child interface after decomposition, and $\Delta_{\mathrm{valid}}$$ and $$\Delta_{\mathrm{comp}}$ summarize decomposition validity and composition risk.
+where $$K$$ is the number of subtasks, $$J_i(s)$$ is the cost-to-go carried by the $$i$$th child interface after decomposition, and $$\Delta_{\mathrm{valid}}$$ and $$\Delta_{\mathrm{comp}}$$ summarize decomposition validity and composition risk.
 This is the same essential-node tax that appeared in the reliability note, now written in cost language rather than failure-probability language.
 
 The practical consequence is simple.
@@ -484,15 +484,15 @@ Another useful consequence comes from the replica trick, a standard device in st
 
 For a token prefix $$s$$, the log partition function is again
 
-\begin{equation}
+$$
 V(s)=\log Z(s).
-\end{equation}
+$$
 
 It turns out that formally, one can rewrite it with the replica trick as
 
-\begin{equation}
+$$
 V(s) = \lim_{n\to 0}\frac{Z(s)^n-1}{n}.
-\end{equation}
+$$
 
 For integer $$n$$, the quantity $$Z(s)^n$$ is a sum over $$n$$ replicated future continuations.
 In PLP language, this looks almost natural: it is a `plate(n)` over future reasoning traces conditioned on the same prefix.
@@ -510,15 +510,15 @@ $$
 Suppose we draw two independent samples from $$p(\tau \mid s)$$.
 The probability that the two draws land on the same complete trace $$\tau$$ is
 
-\begin{equation}
+$$
 C_2(s) := \sum_{\tau \succ s} p(\tau \mid s)^2.
-\end{equation}
+$$
 
 and its inverse law
 
-\begin{equation}
+$$
 N_{\mathrm{basins}}(s):=\frac{1}{C_2(s)}
-\end{equation}
+$$
 
 can be read as an effective number of continuation basins.
 
@@ -535,7 +535,7 @@ If $$N_{\mathrm{basins}}(s)$$ is large, several qualitatively distinct reasoning
 </figure>
 
 This connects directly to the dependence analysis already present in PLP.
-In [Probabilistic Language Programming]({% link sections/science/_posts/2026-03-01-Probabilistic-Language-Programming.md %}), $$\rho$$ denotes a pairwise correlation between scaffold outputs and $K_{\mathrm{eff}}$ denotes an effective sample size that adjusts the nominal draw count for dependence.
+In [Probabilistic Language Programming]({% link sections/science/_posts/2026-03-01-Probabilistic-Language-Programming.md %}), $$\rho$$ denotes a pairwise correlation between scaffold outputs and $$K_{\mathrm{eff}}$$ denotes an effective sample size that adjusts the nominal draw count for dependence.
 Replica overlap suggests a more geometric, prefix-level version of the same story.
 
 One practical consequence follows:
@@ -598,7 +598,7 @@ This is mostly a toy-regime diagnostic, but it is conceptually important because
 1. **Replica collision estimator when we can sample approximately from the target.**
 
 Suppose the scaffold already produces approximate samples from the target continuation law $$p(\cdot \mid s)$$, for instance through rejection, resampling, tree search, or an SMC-style procedure.
-If we draw $M$ independent replicas $$\tau^{(1)},\ldots,\tau^{(M)} \sim p(\cdot \mid s)$$, then a natural estimator is the empirical collision rate
+If we draw $$M$$ independent replicas $$\tau^{(1)},\ldots,\tau^{(M)} \sim p(\cdot \mid s)$$, then a natural estimator is the empirical collision rate
 
 $$
 \widehat{C}_2^{\mathrm{coll}}(s)

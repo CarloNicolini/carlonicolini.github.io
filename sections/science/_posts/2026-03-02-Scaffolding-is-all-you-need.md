@@ -2,11 +2,11 @@
 layout: post
 title: Scaffolding is all you need
 description: "When recursive LLM scaffolds improve reliability—and when they cannot."
-date: 2026-03-25
+date: 2026-03-02
 published: true
 categories:
   - science
-  - language-physics
+  - deep-learning
 ---
 
 ## Toward a reliability theory of AI compound systems
@@ -21,20 +21,20 @@ This post sketches the setup: what a scaffold is, why it is a stochastic branchi
 
 ## What is a scaffold?
 
-Following the formulation of reasoning as a Markov Decision Process (MDP), let us fix a state space $\mathcal{S}$$ and an action space $$\mathcal{A}$$, where both can be represented as strings over an alphabet $$\Sigma$$. A reasoning task begins at an initial state $$s_0 \in \mathcal{S}$$ (the prompt or problem). A single LLM call implements a conditional transition policy $$\pi_{\mathrm{ref}}(a \mid s)$$ over valid next actions $$a \in \mathcal{A}$. A **scaffold** is everything you wrap around that kernel: prompts that decide whether to continue reasoning, procedures that sample candidate actions, search mechanisms (like backtracking from dead ends at the scaffold control level), verifiers, and compositors that evaluate if a goal state has been reached.
+Following the formulation of reasoning as a Markov Decision Process (MDP), let us fix a state space $$\mathcal{S}$$ and an action space $$\mathcal{A}$$, where both can be represented as strings over an alphabet $$\Sigma$$. A reasoning task begins at an initial state $$s_0 \in \mathcal{S}$$ (the prompt or problem). A single LLM call implements a conditional transition policy $$\pi_{\mathrm{ref}}(a \mid s)$$ over valid next actions $$a \in \mathcal{A}$$. A **scaffold** is everything you wrap around that kernel: prompts that decide whether to continue reasoning, procedures that sample candidate actions, search mechanisms (like backtracking from dead ends at the scaffold control level), verifiers, and compositors that evaluate if a goal state has been reached.
 
 The abstract object we study is a **node-local answer-or-decompose policy** $$\Pi$$.
-At each state $$s_u$$, you see a local control prompt $$Q_u$$ (system hints, tools, memory), and a binary mode $M_u \in \{\mathrm{ans},\mathrm{dec}\}$.
-If $M_u=\mathrm{ans}$$, you sample a sequence of terminal actions to form an answer $$y_u$$ from an answer kernel $$q_{\mathrm{ans}}(\cdot \mid s_u,Q_u)$, transitioning directly toward a goal.
-If $M_u=\mathrm{dec}$$, you sample a finite tuple of candidate actions $$(a_{u,1},\ldots,a_{u,K_u})$$ from an exploration kernel $$q_{\mathrm{dec}}(\cdot \mid s_u,Q_u)$$. Each action produces a new child state $$s_{u,i} = s_u \oplus a_{u,i}$$ (where $$\oplus$ denotes string concatenation), and then you recurse on each child with its own control prompt. This represents the usual plan-and-execute, tree search, or agent loop pattern, stripped to the control flow.
+At each state $$s_u$$, you see a local control prompt $$Q_u$$ (system hints, tools, memory), and a binary mode $$M_u \in \{\mathrm{ans},\mathrm{dec}\}$$.
+If $$M_u=\mathrm{ans}$$, you sample a sequence of terminal actions to form an answer $$y_u$$ from an answer kernel $$q_{\mathrm{ans}}(\cdot \mid s_u,Q_u)$$, transitioning directly toward a goal.
+If $$M_u=\mathrm{dec}$$, you sample a finite tuple of candidate actions $$(a_{u,1},\ldots,a_{u,K_u})$$ from an exploration kernel $$q_{\mathrm{dec}}(\cdot \mid s_u,Q_u)$$. Each action produces a new child state $$s_{u,i} = s_u \oplus a_{u,i}$$ (where $$\oplus$$ denotes string concatenation), and then you recurse on each child with its own control prompt. This represents the usual plan-and-execute, tree search, or agent loop pattern, stripped to the control flow.
 
-Correctness is defined against an MDP reward function acting as a ground-truth verifier $R^\star(x,y) \in \{0,1\}$$ and the correctness set $$\mathcal{S}^\star(x) = \{y : R^\star(x,y)=1\}$.
+Correctness is defined against an MDP reward function acting as a ground-truth verifier $$R^\star(x,y) \in \{0,1\}$$ and the correctness set $$\mathcal{S}^\star(x) = \{y : R^\star(x,y)=1\}$$.
 The object $$R^\star$$ is idealized and usually unavailable in full.
 It states whether the terminal trajectory or answer $$y$$ for task $$x$$ is correct.
 For open-ended tasks that object is clearly not observable without extra assumptions, which is exactly why deployed systems replace it with tests, theorem provers, preference models, or human judgments.
 The point of keeping $$R^\star$$ in the formalism is not realism but identifiability: it separates truth from the imperfect judges that a scaffold can actually use.
 
-The scaffold's kernels need not equal $\pi_{\mathrm{ref}}$ exactly; the theory only needs well-defined probabilities over the MDP transitions.
+The scaffold's kernels need not equal $$\pi_{\mathrm{ref}}$$ exactly; the theory only needs well-defined probabilities over the MDP transitions.
 
 ### Story of a random tree
 
@@ -46,7 +46,7 @@ So "recursive decomposition" in production is really **random recursive decompos
 
 ### Reliability and three separate success bits
 
-Write $Z_u \in \{0,1\}$$ for "node $$u$$ succeeded" under $$r^\star$. Root reliability is
+Write $$Z_u \in \{0,1\}$$ for "node $$u$$ succeeded" under $$r^\star$$. Root reliability is
 $$
 R_\Pi(x) := \mathbb{P}_\Pi(Z_\varnothing = 1 \mid x).
 $$
@@ -54,7 +54,7 @@ $$
 At a **decomposition** node, three things matter and should not be collapsed into "the model failed":
 
 1. **Decomposition validity** $$V_u$$: whether the child tasks are an admissible split of the parent task.
-2. **Child success** $Z_{u,i}$: whether each child subtree reaches a correct answer for its subtask.
+2. **Child success** $$Z_{u,i}$$: whether each child subtree reaches a correct answer for its subtask.
 3. **Composition** $$C_u$$: whether the merge or selector turns child outputs into a correct parent answer.
 
 The composer can be deterministic, another LLM, or a learned ranker; the theory summarizes it by an **effective rule** $$\Psi_u(z_1,\ldots,z_K) \in [0,1]$$: the probability that composition succeeds given validity and a vector of child success bits. On a decomposition node, $$Z_u$$ tracks $$V_u$$ and $$C_u$$ together with the children (see the note for the exact indicator).
@@ -68,7 +68,7 @@ The composer can be deterministic, another LLM, or a learned ranker; the theory 
 
 ### Local recursion
 
-Let $$p_u^{\mathrm{ans}} = \mathbb{P}(M_u=\mathrm{ans}\mid x_u,Q_u)$$ and $p_u^{\mathrm{dec}} = 1 - p_u^{\mathrm{ans}}$$. Let $$a_u$$ be the probability that a direct answer lands in $$\mathcal{S}^\star(x_u)$$, and let $$d_u$$ be the probability of success at $$u$ conditional on choosing to decompose.
+Let $$p_u^{\mathrm{ans}} = \mathbb{P}(M_u=\mathrm{ans}\mid x_u,Q_u)$$ and $$p_u^{\mathrm{dec}} = 1 - p_u^{\mathrm{ans}}$$. Let $$a_u$$ be the probability that a direct answer lands in $$\mathcal{S}^\star(x_u)$$, and let $$d_u$$ be the probability of success at $$u$$ conditional on choosing to decompose.
 
 Then reliability at node $$u$$ splits cleanly into modes:
 $$
@@ -77,11 +77,11 @@ $$
 
 So "answer vs decompose" is explicit: you pay $$a_u$$ on the answer branch and $$d_u$$ on the decomposition branch, weighted by the policy.
 
-**Conditional independence** (children solved in fresh interactions, dependence only through the decomposition draw) is the usual assumption: given child prompts and their local controls, $$(Z_{u,1},\ldots,Z_{u,K})$$ are independent Bernoullis with $\mathbb{P}(Z_{u,i}=1) = R_{u,i}$$. Then $$d_u$$ is determined by $$V_u$$, the $$\Psi_u$ rule, and those child reliabilities; exactly the place where AND vs OR semantics enter.
+**Conditional independence** (children solved in fresh interactions, dependence only through the decomposition draw) is the usual assumption: given child prompts and their local controls, $$(Z_{u,1},\ldots,Z_{u,K})$$ are independent Bernoullis with $$\mathbb{P}(Z_{u,i}=1) = R_{u,i}$$. Then $$d_u$$ is determined by $$V_u$$, the $$\Psi_u$$ rule, and those child reliabilities; exactly the place where AND vs OR semantics enter.
 
 ### AND semantics vs OR semantics
 
-Under **conjunctive** (AND-like) composition, only the all-success pattern survives: schematically $$\Psi_u(z) \propto \prod_i z_i$$. Then (ignoring random $K$ for the slogan) reliability along the decomposition branch scales like a **product** of child reliabilities. Extra width adds **mandatory** gates; it does not add alternatives.
+Under **conjunctive** (AND-like) composition, only the all-success pattern survives: schematically $$\Psi_u(z) \propto \prod_i z_i$$. Then (ignoring random $$K$$ for the slogan) reliability along the decomposition branch scales like a **product** of child reliabilities. Extra width adds **mandatory** gates; it does not add alternatives.
 
 Under **search/select** (OR-like) composition, success needs **at least one** successful child and a trustworthy selector. With independent children and homogeneous per-child reliability $$r$$,
 $$

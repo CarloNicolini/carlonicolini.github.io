@@ -9,7 +9,7 @@ published: true
 ---
 This is how you do:
 
-{% highlight cpp %}
+```cpp
 /*
 * Author: Ramon Casero <rcasero@gmail.com>
 * Copyright © 2011-2013 University of Oxford
@@ -151,4 +151,4 @@ if (utIsInterruptPending()) {                \
 
 
 #endif /* MEXINTERRUPT_H */
-{% endhighlight %}
+```

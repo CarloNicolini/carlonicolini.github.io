@@ -6,7 +6,7 @@ date: 2019-06-12
 published: false
 categories:
   - science
-  - statistical-learning
+  - machine-learning
 ---
 
 ## Visualization of classical sorting algorithms

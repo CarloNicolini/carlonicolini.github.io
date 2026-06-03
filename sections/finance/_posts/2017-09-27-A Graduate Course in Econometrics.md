@@ -1,7 +1,7 @@
 ---
 layout: post
 title: A Graduate Course in Econometrics
-categories: science
+categories: finance
 published: true
 use_math: true
 date: 2017-09-27

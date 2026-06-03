@@ -1,11 +1,12 @@
 ---
 layout: post
 date: 2025-12-26
-title: Intelligenza Artificial Neurosimbolica
+title: "Intelligenza Artificial Neurosimbolica"
+description: 'Come integrare sistemi simbolici e non simbolici in una AI ibrida può risolvere i problemi di entrambi i mondi'
 published: true
-category:
+categories:
   - science
-  - language_physics
+  - deep-learning
 ---
 
 # Verso l'integrazione fra AI simbolica e AI neurale

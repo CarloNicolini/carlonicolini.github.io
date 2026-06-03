@@ -7,7 +7,7 @@ date: 2018-05-11
 use_math: true
 categories:
   - science
-  - statistical-learning
+  - machine-learning
 ---
 Let us compute the following quantity:
 

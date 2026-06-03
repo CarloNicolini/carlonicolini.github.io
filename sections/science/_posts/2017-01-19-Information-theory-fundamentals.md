@@ -6,7 +6,7 @@ published: false
 date: 2017-01-19
 categories:
   - science
-  - statistical-learning
+  - machine-learning
 ---
 Some concepts are fundamental in information theory and here I write down a short summary with the most important definitions and results. These are my notes while studying the book from Cover and Thomas "Elements of Information theory". Together with notes about information theory I'll integrate some concepts of probability, for those who are not too familiar (me included) with them.
 
@@ -63,10 +63,10 @@ $$P(X=n) = p(1-p)^{n-1}$$
 
 Applying the definition of entropy and remembering that in this case the alphabet $$\mathcal{X}$$ has infinite elements (number of coin tosses), we obtain:
 
-$$\begin{align}
+$$$$
 H(X) &= - \sum_{n=1}^{\infty} p(1-p)^{n-1} \log\left(p(1-p)^{n-1}\right) = - \left[ \sum_{n=0}^{\infty} p(1-p)^n \log\left(p(1-p)^n\right)\right] \\
 & =-\frac{p \log p}{1-p} - \frac{p (1-p) \log (1-p)}{p^2} = \frac{(-p \log p - (1-p)\log(1-p))}{p} \\ &= \frac{H(p)}{p}= 2 \textrm{ bits}.
-\end{align}
+$$
 $$
 
 where we have used the following identities about the geometric series:
@@ -111,7 +111,7 @@ $$
 ## Venn Diagram for Information
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Entropy-mutual-information-relative-entropy-relation-diagram.svg/744px-Entropy-mutual-information-relative-entropy-relation-diagram.svg.png" >
 
-##  Jensen Inequality <a id="JensenInequality"></a>
+## Jensen Inequality <a id="JensenInequality"></a>
 
 ## Relative entropy
 

@@ -35,7 +35,7 @@ accorded higher probability in this model.
 The maximum entropy method
 --------------------------
 
-Let $G \in \mathcal{G}_{EWRG}$ be a graph in the set of graphs of the
+Let $$G \in \mathcal{G}_{EWRG}$$ be a graph in the set of graphs of the
 EWRG and let $$P(G)$$ be the probability of that graph within this
 ensemble. We would like to choose $$P(G)$$ so that the expectation value
 of each of the expected number of edges $$\langle L \rangle$$ and the
@@ -55,16 +55,16 @@ by our observations. Problems of this type however are commonplace in
 statistical physics. The best choice of probability distribution is the
 one that maximizes the Gibbs entropy $$S(G)$$:
 
-\begin{equation}
+$$
 S(G) = - \sum \limits_{G \in \mathcal{G}} P(G)\log\left( P(G) \right ),
-\end{equation}
+$$
 
 which must be subject to the above described constraints and to an
 obvious but necessary normalization condition:
 
-\begin{equation}
+$$
 \sum \limits_{G \in \mathcal{G}} P(G) = 1
-\end{equation}
+$$
 
 Here we have to introduce three Lagrangian multipliers
 $$\alpha,\beta_m,\beta_w$$ and solve a new minimization problem where the
@@ -82,32 +82,32 @@ L(w_{ij}) =& - \sum \limits_{\{ w_{ij} \}} P(w_{ij})\log\left( P(w_{ij}) \right)
 where $$\Theta(x)$$ is the Heaviside function, that has value $1$ for any
 $$x>0$$ and $0$ otherwise. This is needed to include the topology of the
 network and not only the information on the weights. The Lagrangian has
-to be extremized for all graphs $G$, which consists to set the
+to be extremized for all graphs $$G$$, which consists to set the
 derivatives with respect to the probability $$\nabla_{P(G)}=0$$. 
 Solving the corresponding system of equations, one gets:
 
-\begin{equation}
+$$
 \label{Eq:log_p}\log P(G) + 1 + \alpha + \beta_m m(G) + \beta_w w(G) = 0
-\end{equation}
+$$
 
 or equivalently:
 
-\begin{equation}
+$$
 \label{Eq:exp_log_p}P(G) = \frac{e^{-H(G)}}{Z(G)}
-\end{equation}
+$$
 
 where 
-\begin{equation}
+$$
 Z(G)=e^{\alpha+1} = \sum_{G \in \mathcal{G}} e^{-H(G)}
-\end{equation}
+$$
 is the partition function, and $$H(G)$$ is the problem hamiltonian. It is now clear the origin of the problem Hamiltonian, that reads:
 
-\begin{equation}\label{Eq:ewrg_hamiltonian}
+$$\label{Eq:ewrg_hamiltonian}
 H(G) := \sum_{ i< j}  \beta_m \Theta(w_{ij}) + \beta_w w_{ij}.
-\end{equation}
+$$
 
 Summing over all possible realizations of a graph in the EWRG ensemble, helps us
-to compute the partition function $Z$, which in this case is simple to
+to compute the partition function $$Z$$, which in this case is simple to
 write down explicitly:
 
 \begin{aligned}
@@ -117,21 +117,21 @@ Z(G) = &\sum \limits_{G \in \mathcal{G}} e^{-H(G)}  = \sum \limits_{G \in \mathc
 \end{aligned}
 
 We now introduce a smart variables substitution to help us with the
-calculations. We denote $p_m:=e^{-\beta_m}$$ and $$p_w:=e^{-\beta_w}$.
+calculations. We denote $$p_m:=e^{-\beta_m}$$ and $$p_w:=e^{-\beta_w}$$.
 With this change of variables we can rearrange the partition function
-$Z$ as:
+$$Z$$ as:
 
-\begin{equation}
+$$
 Z(G) =  \left( 1 + \frac{e^{-\beta_m}}{e^{\beta_w}-1} \right)^{\binom{n}{2}} = \left( \frac{ 1 - p_w + p_m p_w}{1-p_w} \right)^{\binom{n}{2}}
-\end{equation}
+$$
 
-which will become useful later on. The probability of a graph $G$ with
-weighted adjacency matrix $\mathbf{W}=\{ w_{ij}\}$ in the Enhanced
+which will become useful later on. The probability of a graph $$G$$ with
+weighted adjacency matrix $$\mathbf{W}=\{ w_{ij}\}$$ in the Enhanced
 Weighted Random graph model is then:
 
-\begin{equation}
+$$
 P(\mathbf{W}) = \frac{e^{-H(G)}}{Z(G)} = \prod \limits_{i < j} \frac{p_m^{\Theta(w_{ij})} p_w^{w_{ij}}}{Z(G)}
-\end{equation}
+$$
 
 As a first application of these calculations we can obtain the values of
 the observables by means of the derivatives of the free energy. The free
@@ -196,7 +196,7 @@ which, for simplicity, in the limit $$w^\textrm{max} \rightarrow +\infty$$
 becomes: $\label{Eq:qijewrg2}
 q(w) := \lim_{w^\textrm{max} \rightarrow +\infty} q_{ij}(w) = \frac{p_m^{\Theta(w)}p_w^w}{\sum_{w'=0}^{w^{\textrm{max}}} p_m^{\Theta(w')} p_w^{w'}} = \frac{p_m^{\Theta(w)}p_w^w(1-p_w)}{1 -p_w + p_m p_w}$
 Hence, the probability to observe a graph with a certain weighted
-adjacency matrix $\mathbf{W}^\star = \{ w_{ij}^\star\}$ is described by
+adjacency matrix $$\mathbf{W}^\star = \{ w_{ij}^\star\}$$ is described by
 the product of the probabilities over all undirected pairs of nodes,
 taking into account also the edge weight: $\label{eq:ewrg_probability}
 P(\mathbf{W}^\star) = \prod \limits_{i < j} q(w_{ij}).$ From we see that
@@ -216,7 +216,7 @@ is a particular case of a more general model described in
 [@Garlaschelli2009a], where the hidden variables are set as constants,
 in particular the variables $$x_i x_j=e^{-\beta_m}:=p_m$$ and
 $$y_i y_j=e^{-\beta_w}:=p_w$$. It is interesting to see that even if the
-edge picking probabilities $p_{ij}$$ and the weights probability $$q_{ij}$
+edge picking probabilities $$p_{ij}$$ and the weights probability $$q_{ij}$$
 are independent, the observables carry a dependence on both of them
 which can not be unentangled.
 
@@ -231,16 +231,16 @@ Even if multiple occupations are allowed, like for bosons, the first occupation 
 
 In order to get the probability that node $$i$$ and node $$j$$ are topologically connected (to with any possible weight), we need to calculate the complementary probability that an edge of weight $0$ exists:
 
-\begin{equation}
+$$
 \pi(w) := \lim \limits_{w^\textrm{max} \rightarrow \infty} p_{ij}(w) = \lim \limits_{w^\textrm{max} \rightarrow \infty} 1 - q_{ij}(0) = \frac{p_m p_w}{1-p_w+p_m p_w}
-\end{equation}
+$$
 
 
 Expected values of the observables
 ----------------------------------
 
-With the correct form of the null models for the topology $p_{ij}$ and
-the weights $q_{ij}$ we can derive the expected values of the
+With the correct form of the null models for the topology $$p_{ij}$$ and
+the weights $$q_{ij}$$ we can derive the expected values of the
 observables, namely the degree, the weight of any edge and the strength
 of the model (in the limit $$w^\textrm{max} \rightarrow \infty$$):
 
@@ -262,9 +262,9 @@ These estimates are very useful when evaluating the probability of a
 graph given the EWRG ensemble. It is possible to estimate the variance
 of the expected variables. The variance of the expected weight is:
 
-\begin{equation}
+$$
 \textrm{Var}(w) = \langle w_{ij}^2 \rangle - \langle w_{ij} \rangle^2 = \frac{p_m p_w (1 + p_w^2(p_m -1) )}{(1-p_w)^2 (1 - p_w + p_m p_w)^2}
-\end{equation}
+$$
 
 <!-- Including spatial informations in the EWRG model
 ================================================
@@ -273,12 +273,12 @@ If we change the Hamiltonian we can embed other informations to generate
 the ensemble of maximally exponential random graphs with fixed topology
 and total strength. The Hamiltonian becomes:
 
-$H(G) := H(w_{ij}) = \sum_{i < j}  \beta_m \Theta(w_{ij}) + \beta_w w_{ij} + z_{ij} d_{ij}$
+$$H(G) := H(w_{ij}) = \sum_{i < j}  \beta_m \Theta(w_{ij}) + \beta_w w_{ij} + z_{ij} d_{ij}$$
 
 where we have introduced a set of $$n(n-1)/2$$ additional Lagrangian
-multipliers $z_{ij}$ that constraint the ensemble of maximally random
-networks to the observed distance between nodes $d_{ij}$. The distance
-$d_{ij}$ can be modeled in a number of ways, each of this way can be
+multipliers $$z_{ij}$$ that constraint the ensemble of maximally random
+networks to the observed distance between nodes $$d_{ij}$$. The distance
+$$d_{ij}$$ can be modeled in a number of ways, each of this way can be
 tested, by looking at the likelihood of the model, to see whether this
 fits our observations. In this way we can generate the most random null
 model to compare with any empirical network, in a totally theoretically

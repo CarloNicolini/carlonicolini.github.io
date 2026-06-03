@@ -12,7 +12,7 @@ While the first are more similar to supervised learning, in the sense that once 
 
 HDBscan is largely a transductive method, and to make it able to generalize to new data we can wrap in a new class the `approximate_predict` method offered by the library.
 
-{% highlight python %}
+```python
 from hdbscan import HDBSCAN
 from hdbscan import approximate_predict
 
@@ -45,4 +45,4 @@ class HDBSCANPredict(HDBSCAN):
         super().fit(X, y)
         self.generate_prediction_data()
         return self
-{% endhighlight %}
+```

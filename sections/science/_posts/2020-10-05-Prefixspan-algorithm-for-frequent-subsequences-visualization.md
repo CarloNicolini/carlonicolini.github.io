@@ -6,7 +6,7 @@ layout: post
 published: true
 categories:
   - science
-  - statistical-learning
+  - machine-learning
 ---
 ## Sequential pattern mining and projections
 
@@ -23,21 +23,21 @@ A sequential miner does not answer from a single monolithic law.
 It first identifies frequent individual items, uses them as prefixes, and then reshapes the remaining search space by projecting the database relative to each prefix.
 
 To make the rest precise, let us start from the basic sequential objects.
-Fix a sequence database $\mathcal{D}$$, an alphabet of items $$\Sigma$$, and a minimum support threshold $$\theta$.
+Fix a sequence database $$\mathcal{D}$$, an alphabet of items $$\Sigma$$, and a minimum support threshold $$\theta$$.
 A sequence is defined as an ordered list of itemsets $$s = \langle e_1, e_2, \ldots, e_n \rangle$$, where each $$e_i \subseteq \Sigma$$.
 The semantic target is to find all frequent subsequences $$\alpha$$, such that
 
-\begin{equation}
+$$
 \mathrm{supp}(\alpha, \mathcal{D}) = \sum_{s \in \mathcal{D}} \mathbf{1}\{\alpha \sqsubseteq s\} \ge \theta.
-\end{equation}
+$$
 
 where $$\alpha \sqsubseteq s$$ denotes that $$\alpha$$ is a subsequence of $$s$$.
 
 Now we define the $$\alpha$$-projected database:
 
-\begin{equation}
+$$
 \mathcal{D}_\alpha := \{ s' \mid s \in \mathcal{D}, s = \alpha \cdot s' \}.
-\end{equation}
+$$
 
 Then the recursive step becomes
 
@@ -60,7 +60,7 @@ $$
 \mathcal{S} = \bigcup_{k=1}^\infty \Sigma^k,
 $$
 
-or, more precisely, the subset of $\mathcal{S}$ satisfying the support constraint.
+or, more precisely, the subset of $$\mathcal{S}$$ satisfying the support constraint.
 Any pattern-growth technique is trying to prune it efficiently.
 
 This is the core conceptual jump from Apriori-style candidate generation to pattern growth.
@@ -121,7 +121,7 @@ That framing immediately gives us something measurable, comparable, and optimiza
 
 To transform the frequent patterns into a visualization-ready format, we map the list of tuples `(frequency, sequence)` into a directed graph, and then export it.
 
-{% highlight python %}
+```python
 import networkx as nx
 import json
 import ast
@@ -220,7 +220,7 @@ if __name__ == '__main__':
                 (114, [10, 6, 6])]
 
     PatternVisualization(patterns).dump_json_tree_data('tree/tree2.json')
-{% endhighlight %}
+```
 
 ## The big picture
 

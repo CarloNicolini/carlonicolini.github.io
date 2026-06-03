@@ -10,11 +10,10 @@ published: true
 This is the command to do the stuff
 
 
-{% highlight ruby linenos %}
+```bash
 identify -verbose main.pdf | head -12
-{% endhighlight %}
-
-{% highlight c linenos%}
+```
+```c
 int main(char* argv[], int argc)
 {
 	return 0;
@@ -23,4 +22,4 @@ int main(char* argv[], int argc)
 		c=c++;
 	}
 }
-{% endhighlight %}
+```

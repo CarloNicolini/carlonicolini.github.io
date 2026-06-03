@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Chain-of-thought as grand-canonical inference in energy-based language models
+title: Statistical mechanics of decision making
 description: "Jaynes, Blondel's soft Bellman recursion, and a grand-canonical view of latent reasoning traces."
 date: 2026-04-05
 published: false
 categories:
   - science
-  - language-physics
+  - deep-learning
 ---
 
 ## From zero-shot decoding to grand-canonical reasoning
@@ -19,11 +19,11 @@ Two statements in this picture are rigorous. First, enlarging the latent family 
 
 ## Jaynes, Reference Measures, and Blondel's Soft Value
 
-Fix a prompt sequence $\mathbf{x}$$. Let $$\mathbf{u} = (u_1,\dots,u_T)$$ denote a complete continuation ending in $$\mathrm{EOS}$, and let the token-level state be the prefix
+Fix a prompt sequence $$\mathbf{x}$$. Let $$\mathbf{u} = (u_1,\dots,u_T)$$ denote a complete continuation ending in $$\mathrm{EOS}$$, and let the token-level state be the prefix
 $$
 s_t := \mathbf{x} \oplus \mathbf{u}_{<t}.
 $$
-All sums below are over admissible finite continuations ending in $\mathrm{EOS}$.
+All sums below are over admissible finite continuations ending in $$\mathrm{EOS}$$.
 
 Let $$p_0(\mathbf{u}\mid \mathbf{x})$$ be a reference autoregressive model. If $$R(\mathbf{x},\mathbf{u})$$ is a verifier reward or sequence score, then the KL-regularized maximum-entropy solution is the reference-measure Gibbs law
 $$
@@ -56,7 +56,7 @@ p_{\alpha}(\mathbf{u}\mid \mathbf{x})
 {\sum_{\mathbf{u}'}\exp\!\left(S(\mathbf{x},\mathbf{u}')/\alpha\right)}.
 $$
 
-When $S$ decomposes additively along the emitted sequence,
+When $$S$$ decomposes additively along the emitted sequence,
 $$
 S(\mathbf{x},\mathbf{u})
 =
@@ -79,7 +79,7 @@ The important point is not the notation but the meaning. The quantity $$V_q(s)$$
 
 ## Reasoning Traces as Ordered Latent Variables
 
-To talk about chain-of-thought, split the continuation $\mathbf{u}$$ into an ordered reasoning trace $$\mathbf{z}$$ and a final answer $$\mathbf{y}$:
+To talk about chain-of-thought, split the continuation $$\mathbf{u}$$ into an ordered reasoning trace $$\mathbf{z}$$ and a final answer $$\mathbf{y}$$:
 $$
 \mathbf{u} = \mathbf{z} \oplus \mathbf{y},
 \qquad
@@ -87,7 +87,7 @@ $$
 \qquad
 \mathbf{y}=(y_1,\dots,y_M).
 $$
-Here $$N=|\mathbf{z}|$$ is the number of reasoning tokens, while $\mathbf{y}$$ contains the final answer and its terminal $$\mathrm{EOS}$ token. The order of the reasoning tokens matters. In particular, the reference model factorizes autoregressively as
+Here $$N=|\mathbf{z}|$$ is the number of reasoning tokens, while $$\mathbf{y}$$ contains the final answer and its terminal $$\mathrm{EOS}$$ token. The order of the reasoning tokens matters. In particular, the reference model factorizes autoregressively as
 $$
 p_0(\mathbf{z},\mathbf{y}\mid \mathbf{x})
 =
@@ -97,7 +97,7 @@ $$
 
 This is why chain-of-thought should not be described as an unordered latent state. It is an ordered latent process.
 
-The grand-canonical extension appears because $N$ is not fixed. A model may emit zero reasoning tokens, a short trace, or a long trace before answering. Introduce a chemical potential $$\mu$$ penalizing each reasoning token, and the associated fugacity
+The grand-canonical extension appears because $$N$$ is not fixed. A model may emit zero reasoning tokens, a short trace, or a long trace before answering. Introduce a chemical potential $$\mu$$ penalizing each reasoning token, and the associated fugacity
 $$
 \zeta := \exp(-\mu/\alpha).
 $$
@@ -145,7 +145,7 @@ $$
 $$
 So fugacity is not itself "reasoning effort." Rather, it is the control parameter that governs the expected reasoning effort.
 
-For this grand-canonical picture to be well defined, the partition function must be finite. A sufficient condition is that for each fixed $\mathbf{x}$$ there exist constants $$C_{\mathbf{x}}>0$$ and $$\rho_{\mathbf{x}}>0$$ such that $$Z_N(\mathbf{x}) \le C_{\mathbf{x}}\rho_{\mathbf{x}}^N$$ for all $$N$$, with $$\zeta \rho_{\mathbf{x}} < 1$. If that fails, the formalism predicts a runaway long-trace phase rather than a proper normalized law. In language-model terms, that is the regime of uncontrolled looping.
+For this grand-canonical picture to be well defined, the partition function must be finite. A sufficient condition is that for each fixed $$\mathbf{x}$$ there exist constants $$C_{\mathbf{x}}>0$$ and $$\rho_{\mathbf{x}}>0$$ such that $$Z_N(\mathbf{x}) \le C_{\mathbf{x}}\rho_{\mathbf{x}}^N$$ for all $$N$$, with $$\zeta \rho_{\mathbf{x}} < 1$$. If that fails, the formalism predicts a runaway long-trace phase rather than a proper normalized law. In language-model terms, that is the regime of uncontrolled looping.
 
 ## The Variational Statement That Is Actually True
 
@@ -164,7 +164,7 @@ where the minimum is over all distributions $$q(\mathbf{z},\mathbf{y})$$ whose s
 
 This identity immediately gives the rigorous version of the claim that more latent states can reach lower free-energy minima.
 
-**Proposition 1.** Let $\mathcal{Q}_{0}$$ be the family of distributions supported on $$N=0$$ almost surely, and let $$\mathcal{Q}_{\mathrm{gc}}$$ be the family of all variable-length distributions over $$(\mathbf{z},\mathbf{y})$. Then
+**Proposition 1.** Let $$\mathcal{Q}_{0}$$ be the family of distributions supported on $$N=0$$ almost surely, and let $$\mathcal{Q}_{\mathrm{gc}}$$ be the family of all variable-length distributions over $$(\mathbf{z},\mathbf{y})$$. Then
 $$
 \min_{q \in \mathcal{Q}_{\mathrm{gc}}} \mathcal{F}_{\alpha,\mu}(q)
 \le
@@ -179,7 +179,7 @@ $$
 \alpha\,\mathrm{KL}\!\left(q(\mathbf{z},\mathbf{y}) \| p_0(\mathbf{z},\mathbf{y}\mid \mathbf{x})\right).
 $$
 
-**Proof.** The family $\mathcal{Q}_{0}$$ is a subset of $$\mathcal{Q}_{\mathrm{gc}}$. Therefore the infimum of the same functional over the larger family cannot exceed the infimum over the smaller family. By the Gibbs variational identity, these two infima are precisely the zero-shot and grand-canonical free energies. This proves the claim.
+**Proof.** The family $$\mathcal{Q}_{0}$$ is a subset of $$\mathcal{Q}_{\mathrm{gc}}$$. Therefore the infimum of the same functional over the larger family cannot exceed the infimum over the smaller family. By the Gibbs variational identity, these two infima are precisely the zero-shot and grand-canonical free energies. This proves the claim.
 
 This is the clean mathematical core. Enlarging the latent family can only improve the best achievable free energy. What it does *not* say is that every finite decoding heuristic will find that better minimum, or that every extra reasoning token is beneficial. Those are separate algorithmic and modeling questions.
 
@@ -287,7 +287,7 @@ So chain-of-thought helps only when it lowers the grand potential of the correct
 
 ## What "Think Step by Step" Can and Cannot Mean
 
-A prompt such as "think step by step" is not a theorem of the partition function. It is a perturbation of the reference model. If $\widetilde{\mathbf{x}}$$ denotes the prompt obtained by appending such an instruction to $$\mathbf{x}$$, then the relevant question is whether the new reference law $$p_0(\mathbf{z},\mathbf{y}\mid \widetilde{\mathbf{x}})$ reallocates more mass toward high net-reward traces for the correct answer than for incorrect ones.
+A prompt such as "think step by step" is not a theorem of the partition function. It is a perturbation of the reference model. If $$\widetilde{\mathbf{x}}$$ denotes the prompt obtained by appending such an instruction to $$\mathbf{x}$$, then the relevant question is whether the new reference law $$p_0(\mathbf{z},\mathbf{y}\mid \widetilde{\mathbf{x}})$$ reallocates more mass toward high net-reward traces for the correct answer than for incorrect ones.
 
 The clean odds criterion is
 $$
@@ -338,9 +338,9 @@ So self-consistency is a Monte Carlo estimator of the marginal answer law, with 
 
 Blondel's theorem already tells us that local next-token logits contain a soft value term summarizing future continuation mass {% cite blondel2025autoregressive %}. The grand-canonical extension does not replace that statement. It adds a second layer on top of it.
 
-For each fixed reasoning length $N$, the joint law over $\mathbf{u}=\mathbf{z}\oplus \mathbf{y}$$ is still a canonical reference-measure EBM, and Blondel's soft Bellman recursion applies token by token along that sequence. The grand-canonical model then sums these canonical slices over all admissible values of $$N$$ with weight $$\zeta^N$. In other words, Blondel explains how future mass is compressed into local logits *within* a fixed continuation, while the grand-canonical extension explains how explicit reasoning introduces an *outer* marginalization over how much latent computation the model is allowed to externalize.
+For each fixed reasoning length $$N$$, the joint law over $$\mathbf{u}=\mathbf{z}\oplus \mathbf{y}$$ is still a canonical reference-measure EBM, and Blondel's soft Bellman recursion applies token by token along that sequence. The grand-canonical model then sums these canonical slices over all admissible values of $$N$$ with weight $$\zeta^N$$. In other words, Blondel explains how future mass is compressed into local logits *within* a fixed continuation, while the grand-canonical extension explains how explicit reasoning introduces an *outer* marginalization over how much latent computation the model is allowed to externalize.
 
-This resolves an apparent tension. If next-token logits already look ahead, why can chain-of-thought still help? The answer is not that zero-shot decoding is purely myopic. The answer is that the model must approximate its continuation free energies with finite capacity. Hard problems can demand a sharper estimate of suffix mass than a single internal look-ahead pass can provide. Emitting intermediate reasoning tokens turns hidden future integration into an explicit sequence of state updates. Each emitted token moves the prefix from $$s_t$$ to $s_{t+1}$, and the model reevaluates a new local soft value on a refined state. Chain-of-thought therefore spends extra inference-time compute to sequentially refine the approximation of the same free-energy object that Blondel identifies inside the logits.
+This resolves an apparent tension. If next-token logits already look ahead, why can chain-of-thought still help? The answer is not that zero-shot decoding is purely myopic. The answer is that the model must approximate its continuation free energies with finite capacity. Hard problems can demand a sharper estimate of suffix mass than a single internal look-ahead pass can provide. Emitting intermediate reasoning tokens turns hidden future integration into an explicit sequence of state updates. Each emitted token moves the prefix from $$s_t$$ to $$s_{t+1}$$, and the model reevaluates a new local soft value on a refined state. Chain-of-thought therefore spends extra inference-time compute to sequentially refine the approximation of the same free-energy object that Blondel identifies inside the logits.
 
 That is also why the strongest defensible statement is modest but useful. Chain-of-thought does not magically create a new objective. It enlarges the latent phase space over which the model can represent and marginalize structured futures. When the pretrained prior and the verifier reward are aligned with the task, that larger phase space can lower the relevant grand-potential gaps and improve answer selection. When they are not aligned, longer reasoning can simply generate longer mistakes.
 
@@ -365,7 +365,7 @@ date: 2026-04-05
 published: false
 categories:
   - science
-  - language-physics
+  - deep-learning
 ---
 
 ## From zero-shot decoding to grand-canonical reasoning
@@ -378,11 +378,11 @@ Two statements in this picture are rigorous. First, enlarging the latent family 
 
 ## Jaynes, reference measures, and Blondel's soft value
 
-Fix a prompt sequence $\mathbf{x}$$. Let $$\mathbf{u} = (u_1,\dots,u_T)$$ denote a complete continuation ending in $$\mathrm{EOS}$, and let the token-level state be the prefix
+Fix a prompt sequence $$\mathbf{x}$$. Let $$\mathbf{u} = (u_1,\dots,u_T)$$ denote a complete continuation ending in $$\mathrm{EOS}$$, and let the token-level state be the prefix
 $$
 s_t := \mathbf{x} \oplus \mathbf{u}_{<t}.
 $$
-All sums below are over admissible finite continuations ending in $\mathrm{EOS}$.
+All sums below are over admissible finite continuations ending in $$\mathrm{EOS}$$.
 
 Let $$p_0(\mathbf{u}\mid \mathbf{x})$$ be a reference autoregressive model. If $$R(\mathbf{x},\mathbf{u})$$ is a verifier reward or sequence score, then the KL-regularized maximum-entropy solution is the reference-measure Gibbs law
 $$
@@ -415,7 +415,7 @@ p_{\alpha}(\mathbf{u}\mid \mathbf{x})
 {\sum_{\mathbf{u}'}\exp\!\left(S(\mathbf{x},\mathbf{u}')/\alpha\right)}.
 $$
 
-When $S$ decomposes additively along the emitted sequence,
+When $$S$$ decomposes additively along the emitted sequence,
 $$
 S(\mathbf{x},\mathbf{u})
 =
@@ -438,7 +438,7 @@ The important point is not the notation but the meaning. The quantity $$V_q(s)$$
 
 ## Reasoning traces as ordered latent variables
 
-To talk about chain-of-thought, split the continuation $\mathbf{u}$$ into an ordered reasoning trace $$\mathbf{z}$$ and a final answer $$\mathbf{y}$:
+To talk about chain-of-thought, split the continuation $$\mathbf{u}$$ into an ordered reasoning trace $$\mathbf{z}$$ and a final answer $$\mathbf{y}$$:
 $$
 \mathbf{u} = \mathbf{z} \oplus \mathbf{y},
 \qquad
@@ -446,7 +446,7 @@ $$
 \qquad
 \mathbf{y}=(y_1,\dots,y_M).
 $$
-Here $$N=|\mathbf{z}|$$ is the number of reasoning tokens, while $\mathbf{y}$$ contains the final answer and its terminal $$\mathrm{EOS}$ token. The order of the reasoning tokens matters. In particular, the reference model factorizes autoregressively as
+Here $$N=|\mathbf{z}|$$ is the number of reasoning tokens, while $$\mathbf{y}$$ contains the final answer and its terminal $$\mathrm{EOS}$$ token. The order of the reasoning tokens matters. In particular, the reference model factorizes autoregressively as
 $$
 p_0(\mathbf{z},\mathbf{y}\mid \mathbf{x})
 =
@@ -456,7 +456,7 @@ $$
 
 This is why chain-of-thought should not be described as an unordered latent state. It is an ordered latent process.
 
-The grand-canonical extension appears because $N$ is not fixed. A model may emit zero reasoning tokens, a short trace, or a long trace before answering. Introduce a chemical potential $$\mu$$ penalizing each reasoning token, and the associated fugacity
+The grand-canonical extension appears because $$N$$ is not fixed. A model may emit zero reasoning tokens, a short trace, or a long trace before answering. Introduce a chemical potential $$\mu$$ penalizing each reasoning token, and the associated fugacity
 $$
 \zeta := \exp(-\mu/\alpha).
 $$
@@ -504,7 +504,7 @@ $$
 $$
 So fugacity is not itself "reasoning effort." Rather, it is the control parameter that governs the expected reasoning effort.
 
-For this grand-canonical picture to be well defined, the partition function must be finite. A sufficient condition is that for each fixed $\mathbf{x}$$ there exist constants $$C_{\mathbf{x}}>0$$ and $$\rho_{\mathbf{x}}>0$$ such that $$Z_N(\mathbf{x}) \le C_{\mathbf{x}}\rho_{\mathbf{x}}^N$$ for all $$N$$, with $$\zeta \rho_{\mathbf{x}} < 1$. If that fails, the formalism predicts a runaway long-trace phase rather than a proper normalized law. In language-model terms, that is the regime of uncontrolled looping.
+For this grand-canonical picture to be well defined, the partition function must be finite. A sufficient condition is that for each fixed $$\mathbf{x}$$ there exist constants $$C_{\mathbf{x}}>0$$ and $$\rho_{\mathbf{x}}>0$$ such that $$Z_N(\mathbf{x}) \le C_{\mathbf{x}}\rho_{\mathbf{x}}^N$$ for all $$N$$, with $$\zeta \rho_{\mathbf{x}} < 1$$. If that fails, the formalism predicts a runaway long-trace phase rather than a proper normalized law. In language-model terms, that is the regime of uncontrolled looping.
 
 ## The variational statement that is actually true
 
@@ -523,7 +523,7 @@ where the minimum is over all distributions $$q(\mathbf{z},\mathbf{y})$$ whose s
 
 This identity immediately gives the rigorous version of the claim that more latent states can reach lower free-energy minima.
 
-**Proposition 1.** Let $\mathcal{Q}_{0}$$ be the family of distributions supported on $$N=0$$ almost surely, and let $$\mathcal{Q}_{\mathrm{gc}}$$ be the family of all variable-length distributions over $$(\mathbf{z},\mathbf{y})$. Then
+**Proposition 1.** Let $$\mathcal{Q}_{0}$$ be the family of distributions supported on $$N=0$$ almost surely, and let $$\mathcal{Q}_{\mathrm{gc}}$$ be the family of all variable-length distributions over $$(\mathbf{z},\mathbf{y})$$. Then
 $$
 \min_{q \in \mathcal{Q}_{\mathrm{gc}}} \mathcal{F}_{\alpha,\mu}(q)
 \le
@@ -538,7 +538,7 @@ $$
 \alpha\,\mathrm{KL}\!\left(q(\mathbf{z},\mathbf{y}) \| p_0(\mathbf{z},\mathbf{y}\mid \mathbf{x})\right).
 $$
 
-**Proof.** The family $\mathcal{Q}_{0}$$ is a subset of $$\mathcal{Q}_{\mathrm{gc}}$. Therefore the infimum of the same functional over the larger family cannot exceed the infimum over the smaller family. By the Gibbs variational identity, these two infima are precisely the zero-shot and grand-canonical free energies. This proves the claim.
+**Proof.** The family $$\mathcal{Q}_{0}$$ is a subset of $$\mathcal{Q}_{\mathrm{gc}}$$. Therefore the infimum of the same functional over the larger family cannot exceed the infimum over the smaller family. By the Gibbs variational identity, these two infima are precisely the zero-shot and grand-canonical free energies. This proves the claim.
 
 This is the clean mathematical core. Enlarging the latent family can only improve the best achievable free energy. What it does *not* say is that every finite decoding heuristic will find that better minimum, or that every extra reasoning token is beneficial. Those are separate algorithmic and modeling questions.
 
@@ -646,7 +646,7 @@ So chain-of-thought helps only when it lowers the grand potential of the correct
 
 ## What "think step by step" can and cannot mean
 
-A prompt such as "think step by step" is not a theorem of the partition function. It is a perturbation of the reference model. If $\widetilde{\mathbf{x}}$$ denotes the prompt obtained by appending such an instruction to $$\mathbf{x}$$, then the relevant question is whether the new reference law $$p_0(\mathbf{z},\mathbf{y}\mid \widetilde{\mathbf{x}})$ reallocates more mass toward high net-reward traces for the correct answer than for incorrect ones.
+A prompt such as "think step by step" is not a theorem of the partition function. It is a perturbation of the reference model. If $$\widetilde{\mathbf{x}}$$ denotes the prompt obtained by appending such an instruction to $$\mathbf{x}$$, then the relevant question is whether the new reference law $$p_0(\mathbf{z},\mathbf{y}\mid \widetilde{\mathbf{x}})$$ reallocates more mass toward high net-reward traces for the correct answer than for incorrect ones.
 
 The clean odds criterion is
 $$
@@ -697,9 +697,9 @@ So self-consistency is a Monte Carlo estimator of the marginal answer law, with 
 
 Blondel's theorem already tells us that local next-token logits contain a soft value term summarizing future continuation mass {% cite blondel2025autoregressive %}. The grand-canonical extension does not replace that statement. It adds a second layer on top of it.
 
-For each fixed reasoning length $N$, the joint law over $\mathbf{u}=\mathbf{z}\oplus \mathbf{y}$$ is still a canonical reference-measure EBM, and Blondel's soft Bellman recursion applies token by token along that sequence. The grand-canonical model then sums these canonical slices over all admissible values of $$N$$ with weight $$\zeta^N$. In other words, Blondel explains how future mass is compressed into local logits *within* a fixed continuation, while the grand-canonical extension explains how explicit reasoning introduces an *outer* marginalization over how much latent computation the model is allowed to externalize.
+For each fixed reasoning length $$N$$, the joint law over $$\mathbf{u}=\mathbf{z}\oplus \mathbf{y}$$ is still a canonical reference-measure EBM, and Blondel's soft Bellman recursion applies token by token along that sequence. The grand-canonical model then sums these canonical slices over all admissible values of $$N$$ with weight $$\zeta^N$$. In other words, Blondel explains how future mass is compressed into local logits *within* a fixed continuation, while the grand-canonical extension explains how explicit reasoning introduces an *outer* marginalization over how much latent computation the model is allowed to externalize.
 
-This resolves an apparent tension. If next-token logits already look ahead, why can chain-of-thought still help? The answer is not that zero-shot decoding is purely myopic. The answer is that the model must approximate its continuation free energies with finite capacity. Hard problems can demand a sharper estimate of suffix mass than a single internal look-ahead pass can provide. Emitting intermediate reasoning tokens turns hidden future integration into an explicit sequence of state updates. Each emitted token moves the prefix from $$s_t$$ to $s_{t+1}$, and the model reevaluates a new local soft value on a refined state. Chain-of-thought therefore spends extra inference-time compute to sequentially refine the approximation of the same free-energy object that Blondel identifies inside the logits.
+This resolves an apparent tension. If next-token logits already look ahead, why can chain-of-thought still help? The answer is not that zero-shot decoding is purely myopic. The answer is that the model must approximate its continuation free energies with finite capacity. Hard problems can demand a sharper estimate of suffix mass than a single internal look-ahead pass can provide. Emitting intermediate reasoning tokens turns hidden future integration into an explicit sequence of state updates. Each emitted token moves the prefix from $$s_t$$ to $$s_{t+1}$$, and the model reevaluates a new local soft value on a refined state. Chain-of-thought therefore spends extra inference-time compute to sequentially refine the approximation of the same free-energy object that Blondel identifies inside the logits.
 
 That is also why the strongest defensible statement is modest but useful. Chain-of-thought does not magically create a new objective. It enlarges the latent phase space over which the model can represent and marginalize structured futures. When the pretrained prior and the verifier reward are aligned with the task, that larger phase space can lower the relevant grand-potential gaps and improve answer selection. When they are not aligned, longer reasoning can simply generate longer mistakes.
 
@@ -724,7 +724,7 @@ date: 2026-04-05
 published: false
 categories:
   - science
-  - language-physics
+  - deep-learning
 ---
 
 ## Statistical Mechanics of Decision Making: A Derivation of Maximum Entropy Reinforcement Learning and the Soft Bellman Equation
@@ -740,27 +740,27 @@ By mapping sequential decision-making to a thermodynamic system, we cast the age
 In statistical mechanics, E. T. Jaynes introduced the Principle of Maximum Entropy (MaxEnt), stating that the least biased probability distribution representing the state of a system given specific testable constraints is the one that maximizes the Shannon (or differential) entropy. 
 
 Let us define a dynamic system interacting with an environment over discrete time steps $$t$$.
-- **State Space:** The system occupies a state $s_t \in \mathcal{S}$ representing the current configuration or observations.
-- **Action Space:** The system is perturbed by actions $a_t \in \mathcal{A}$.
+- **State Space:** The system occupies a state $$s_t \in \mathcal{S}$$ representing the current configuration or observations.
+- **Action Space:** The system is perturbed by actions $$a_t \in \mathcal{A}$$.
 - **Dynamics:** The environment evolves according to Markovian transition probabilities $$p(s_{t+1}\mid s_t, a_t)$$.
 
 
 A trajectory through spacetime is given by $$\tau = (s_0, a_0, s_1, a_1, \dots, s_T)$$. In the absence of any driving force or goal, the default trajectory distribution is defined purely by an initial state distribution $$\rho_0(s_0)$$ and a purely random (uniform) policy, defining the "unconstrained" base dynamics of the system:
 $$\bar{p}(\tau) = \rho_0(s_0) \prod_{t=0}^{T} \frac{1}{\mid \mathcal{A}\mid } p(s_{t+1}\mid s_t, a_t)$$
 
-Suppose we subject the system to a constraint: the expectation of an observable—specifically, the cumulative reward or return $$R(\tau) = \sum_{t=0}^T \gamma^t r(s_t, a_t)$$ (where $$\gamma \in (0, 1]$$ is a discount factor)—must equal a specific macroscopic value $\bar{R}$$. According to Jaynes, we must find a trajectory distribution $$p(\tau)$ that minimizes the Kullback-Leibler (KL) divergence to the base dynamics (equivalent to maximizing entropy) subject to this constraint:
+Suppose we subject the system to a constraint: the expectation of an observable—specifically, the cumulative reward or return $$R(\tau) = \sum_{t=0}^T \gamma^t r(s_t, a_t)$$ (where $$\gamma \in (0, 1]$$ is a discount factor)—must equal a specific macroscopic value $$\bar{R}$$. According to Jaynes, we must find a trajectory distribution $$p(\tau)$$ that minimizes the Kullback-Leibler (KL) divergence to the base dynamics (equivalent to maximizing entropy) subject to this constraint:
 $$\min_{p(\tau)} \mathcal{D}_{\text{KL}}(p(\tau) \\mid  \bar{p}(\tau)) \quad \text{s.t.} \quad \mathbb{E}_{p}[R(\tau)] = \bar{R}, \quad \int p(\tau) d\tau = 1$$
 
 ### II. Energy, Constraints, and the Exponential Family
 
-We introduce Lagrange multipliers $\beta = \frac{1}{\alpha}$$ (inverse temperature) for the reward constraint and $$\lambda$ for the normalization constraint. The unconstrained functional to optimize is:
+We introduce Lagrange multipliers $$\beta = \frac{1}{\alpha}$$ (inverse temperature) for the reward constraint and $$\lambda$$ for the normalization constraint. The unconstrained functional to optimize is:
 $$\mathcal{L}[p(\tau)] = \int p(\tau) \log \frac{p(\tau)}{\bar{p}(\tau)} d\tau - \beta \left( \int p(\tau) R(\tau) d\tau - \bar{R} \right) - \lambda \left( \int p(\tau) d\tau - 1 \right)$$
 
 Taking the functional derivative $$\frac{\delta \mathcal{L}}{\delta p(\tau)} = 0$$, we immediately recover an exponential family distribution:
 $$p^\star(\tau) = \frac{1}{Z} \bar{p}(\tau) \exp\left( \frac{1}{\alpha} R(\tau) \right)$$
 
 
-Here, $Z$ is the partition function of the trajectories. For a physicist, the analogy is exact: the return $$R(\tau)$$ acts as the **negative energy** of the trajectory ($$E(\tau) = -R(\tau)$$). The parameter $$\alpha$$ is the thermodynamic temperature. As $$\alpha \to 0$$ (zero temperature), the distribution collapses to the ground state—the single trajectory that strictly maximizes the return. As $$\alpha \to \infty$$ (infinite temperature), the system ignores the energy and behaves purely randomly according to the base dynamics $$\bar{p}(\tau)$$. 
+Here, $$Z$$ is the partition function of the trajectories. For a physicist, the analogy is exact: the return $$R(\tau)$$ acts as the **negative energy** of the trajectory ($$E(\tau) = -R(\tau)$$). The parameter $$\alpha$$ is the thermodynamic temperature. As $$\alpha \to 0$$ (zero temperature), the distribution collapses to the ground state—the single trajectory that strictly maximizes the return. As $$\alpha \to \infty$$ (infinite temperature), the system ignores the energy and behaves purely randomly according to the base dynamics $$\bar{p}(\tau)$$. 
 
 ### III. Derivation of the Soft Bellman Equation
 
@@ -784,7 +784,7 @@ This log-sum-exp form operates exactly as a localized Helmholtz free energy defi
 
 We can seamlessly map the mechanics of a Large Language Model onto this framework:
 1.  **State ($$s_t$$):** The sequence of generated tokens (the context window) up to time $$t$$. 
-2.  **Action ($$a_t$$):** The next token selected from the vocabulary $\mathcal{V}$.
+2.  **Action ($$a_t$$):** The next token selected from the vocabulary $$\mathcal{V}$$.
 3.  **Dynamics ($$p(s_{t+1}\mid s_t, a_t)$$):** Purely deterministic. The environment simply concatenates the new token to the sequence: $$s_{t+1} = s_t \oplus a_t$$.
 4.  **Base Measure / Prior ($$\pi_0$$):** Rather than a uniform distribution, the prior is the pretrained foundation model.
 
@@ -917,7 +917,7 @@ That is substantially more precise than “CoT is forward Euler.”
 
 #### 6) Toy example
 
-Let there be two rationales $z\in\{z_1,z_2\}$ for the same prompt x, and one correct answer y^\star.
+Let there be two rationales $$z\in\{z_1,z_2\}$$ for the same prompt x, and one correct answer y^\star.
 
 Assume
 $$
@@ -981,11 +981,11 @@ By reframing Chain-of-Thought (CoT) as variational inference and self-consistenc
 
 In statistical mechanics, E. T. Jaynes introduced the Principle of Maximum Entropy (MaxEnt), stating that the least biased probability distribution representing a system, subject to constraints, maximizes the Shannon entropy. 
 
-Consider an agent interacting with an environment. We subject the system to a constraint on the expected cumulative reward, $R$. Using Lagrange multipliers, where $$\alpha$$ acts as the thermodynamic temperature ($$\alpha = 1/\beta$$), optimizing the trajectory distribution $$p(\tau)$$ against a base prior $$\bar{p}(\tau)$$ yields an exponential family distribution:
+Consider an agent interacting with an environment. We subject the system to a constraint on the expected cumulative reward, $$R$$. Using Lagrange multipliers, where $$\alpha$$ acts as the thermodynamic temperature ($$\alpha = 1/\beta$$), optimizing the trajectory distribution $$p(\tau)$$ against a base prior $$\bar{p}(\tau)$$ yields an exponential family distribution:
 
 $$p^\star(\tau) = \frac{1}{Z} \bar{p}(\tau) \exp\left( \frac{1}{\alpha} R(\tau) \right)$$
 
-For a physicist, the analogy is exact: the reward $$R(\tau)$$ acts as the **negative energy** of the trajectory ($$E(\tau) = -R(\tau)$$). The partition function $Z$ normalizes the probabilities, and the system's behavior is governed by the minimization of the generalized Free Energy. 
+For a physicist, the analogy is exact: the reward $$R(\tau)$$ acts as the **negative energy** of the trajectory ($$E(\tau) = -R(\tau)$$). The partition function $$Z$$ normalizes the probabilities, and the system's behavior is governed by the minimization of the generalized Free Energy. 
 
 ### II. LLMs as Latent-Variable Thermodynamic Systems
 
@@ -1020,7 +1020,7 @@ If we approximate the optimal distribution $$p_\alpha(z,y \mid x)$$ using a vari
 
 $$\mathcal{F}(q) = \mathbb{E}_q[-R] + \alpha D_{\text{KL}}(q \parallel p_0)$$
 
-By introducing additional latent reasoning steps $$z$$, we enlarge the variational family $\mathcal{Q}$. Because the minimum of a functional over a richer space is bounded by the minimum over a restricted space, we obtain a rigorous guarantee:
+By introducing additional latent reasoning steps $$z$$, we enlarge the variational family $$\mathcal{Q}$$. Because the minimum of a functional over a richer space is bounded by the minimum over a restricted space, we obtain a rigorous guarantee:
 
 $$\min_{q \in \mathcal{Q}_{\text{rich}}} \mathcal{F}(q) \le \min_{q \in \mathcal{Q}_{\text{simple}}} \mathcal{F}(q), \quad \mathcal{Q}_{\text{simple}} \subseteq \mathcal{Q}_{\text{rich}}$$
 
@@ -1033,11 +1033,11 @@ To evaluate the marginal distribution $$p_\alpha(y \mid x)$$ in practice, summin
 **Proposition B: Stochastic Approximation of the Marginal**
 "Self-consistency" techniques involve sampling multiple reasoning paths $$z_1, \dots, z_N \sim p_\alpha(z \mid x)$$ and aggregating the final answers (e.g., via majority vote). Mathematically, this is not a discrete approximation of a continuous trajectory; it is standard **Monte Carlo Integration**.
 
-Just as high-dimensional phase space integrals in statistical mechanics rely on Monte Carlo methods to sample the partition function, self-consistency estimates the marginal answer distribution. Increasing the number of sampled latent paths $N$ reduces the estimator variance by $$\mathcal{O}(1/N)$$. Therefore, CoT is to latent-variable inference what Monte Carlo is to high-dimensional integration.
+Just as high-dimensional phase space integrals in statistical mechanics rely on Monte Carlo methods to sample the partition function, self-consistency estimates the marginal answer distribution. Increasing the number of sampled latent paths $$N$$ reduces the estimator variance by $$\mathcal{O}(1/N)$$. Therefore, CoT is to latent-variable inference what Monte Carlo is to high-dimensional integration.
 
 ### V. Thermodynamic Limitations: When Latent States Fail
 
-While expanding the latent space $\mathcal{Q}_{\text{rich}}$ bounds the *best achievable* Free Energy, it does not guarantee monotonic improvement for any single sampling trace. We define three structural limitations:
+While expanding the latent space $$\mathcal{Q}_{\text{rich}}$$ bounds the *best achievable* Free Energy, it does not guarantee monotonic improvement for any single sampling trace. We define three structural limitations:
 
 1.  **Prior Misspecification:** If the foundation model's base distribution $$p_0$$ assigns low probability to structurally sound rationales (i.e., the latent variables do not faithfully represent the task manifold), the extra tokens act as thermal noise rather than useful integration variables.
 2.  **Error Accumulation:** Generating long latent traces $$z$$ can cause the system to drift into regions of phase space that are locally highly probable under $$p_0$$ but globally disconnected from the high-reward final state $$y^\star$$. 
@@ -1064,7 +1064,7 @@ You are completely right to call this out. As a referee reading this manuscript,
 
 ### 1. The "Chemical Potential" of a Token and Grand Canonical Reasoning
 
-In our current setup, we assumed a sequence of latent states $$z$$. But LLMs decide when to stop reasoning by outputting an end-of-sequence token. Therefore, the number of "particles" (reasoning steps $N$) is not fixed; it fluctuates.
+In our current setup, we assumed a sequence of latent states $$z$$. But LLMs decide when to stop reasoning by outputting an end-of-sequence token. Therefore, the number of "particles" (reasoning steps $$N$$) is not fixed; it fluctuates.
 
 This means the system is not a Canonical Ensemble, but a **Grand Canonical Ensemble**. 
 We must introduce a chemical potential $$\mu$$ associated with the generation of each additional token. The grand partition function becomes:
@@ -1080,7 +1080,7 @@ Can we observe a phase transition in an LLM's reasoning capabilities?
 Consider the Free Energy $$F(x) = -\alpha \log Z(x)$$. If we look at the specific heat capacity analog (the variance of the reward):
 $$C_v = \frac{\partial^2 F}{\partial \alpha^2} = \frac{1}{\alpha^2} \text{Var}(R)$$
 
-**The Insight:** The sudden emergence of reasoning capabilities in LLMs at scale (often called "grokking" or emergent properties) might not be heuristic magic, but a rigorous, second-order phase transition in the latent variable space. As the model capacity (or reasoning length $N$) crosses a critical threshold, the partition function develops a singularity. This implies there is a mathematically definable **Critical Temperature $$\alpha_c$$**. If we fine-tune an LLM below $$\alpha_c$$, it undergoes "mode collapse" (freezing into a single, repetitive logic path). If we keep it near $$\alpha_c$$, it operates at the "edge of chaos," maximizing both logical coherence and creative path exploration.
+**The Insight:** The sudden emergence of reasoning capabilities in LLMs at scale (often called "grokking" or emergent properties) might not be heuristic magic, but a rigorous, second-order phase transition in the latent variable space. As the model capacity (or reasoning length $$N$$) crosses a critical threshold, the partition function develops a singularity. This implies there is a mathematically definable **Critical Temperature $$\alpha_c$$**. If we fine-tune an LLM below $$\alpha_c$$, it undergoes "mode collapse" (freezing into a single, repetitive logic path). If we keep it near $$\alpha_c$$, it operates at the "edge of chaos," maximizing both logical coherence and creative path exploration.
 
 ### 3. Instantons and "Aha!" Moments in the Semantic Path Integral
 
@@ -1098,7 +1098,7 @@ Autoregressive decoding is strictly causal; time flows strictly forward ($$t \to
 This means fine-tuning an LLM via RL (or verifier feedback) is a non-equilibrium driven process. We can apply non-equilibrium fluctuation theorems, like the **Jarzynski Equality**:
 $$\langle \exp(-\Delta F / \alpha) \rangle = \exp(-W / \alpha)$$
 
-**The Insight:** In this context, the "work" $W$ done on the system is the verifier's feedback altering the policy probabilities, and $$\Delta F$$ is the change in the model's free energy before and after the reasoning trace. This suggests a new metric: **Entropy Production of a Prompt**. If an LLM generates a chain-of-thought that requires massive "backward work" from a verifier to correct, that specific reasoning path is highly irreversible and dissipative (i.e., a hallucination). We could penalize the thermodynamic irreversibility of a reasoning path directly during training, forcing the model to favor "reversible" logical steps that are inherently easier to verify.
+**The Insight:** In this context, the "work" $$W$$ done on the system is the verifier's feedback altering the policy probabilities, and $$\Delta F$$ is the change in the model's free energy before and after the reasoning trace. This suggests a new metric: **Entropy Production of a Prompt**. If an LLM generates a chain-of-thought that requires massive "backward work" from a verifier to correct, that specific reasoning path is highly irreversible and dissipative (i.e., a hallucination). We could penalize the thermodynamic irreversibility of a reasoning path directly during training, forcing the model to favor "reversible" logical steps that are inherently easier to verify.
 
 ---
 
@@ -1116,15 +1116,15 @@ Try to produce a theorem or a sequence of logical steps leading to a provable th
 ---
 Here is a rigorous mathematical formulation demonstrating why Chain-of-Thought (CoT), induced by a prompt like "think step by step," systematically lowers the free energy of the answer landscape via Marginal Maximum A Posteriori (MAP) inference in a Grand Canonical framework.
 
-We will strictly use boldface for **sequences** (e.g., $\mathbf{z}$$) and subscripts for individual **tokens** (e.g., $$z_i$). 
+We will strictly use boldface for **sequences** (e.g., $$\mathbf{z}$$) and subscripts for individual **tokens** (e.g., $$z_i$$). 
 
 ---
 
 ### I. Mathematical Setup: State Space and Sequential Factorization
 
 **Definition 1 (Token and Sequence Sequences)**
-Let the vocabulary be $\mathcal{V}$. We define:
-* The prompt sequence: $\mathbf{x} = (x_1, \dots, x_{\mid \mathbf{x}\mid }) \in \mathcal{V}^{\mid \mathbf{x}\mid }$
+Let the vocabulary be $$\mathcal{V}$$. We define:
+* The prompt sequence: $$\mathbf{x} = (x_1, \dots, x_{\mid \mathbf{x}\mid }) \in \mathcal{V}^{\mid \mathbf{x}\mid }$$
 * The latent reasoning trace (CoT): $$\mathbf{z} = (z_1, \dots, z_N) \in \mathcal{V}^N$$
 * The final answer sequence: $$\mathbf{y} = (y_1, \dots, y_M) \in \mathcal{V}^M$$
 
@@ -1140,7 +1140,7 @@ Because the LLM dynamically decides when to stop reasoning, the length of the la
 **Definition 3 (Grand Canonical Partition Function for an Answer)**
 We embed the system in a Grand Canonical Ensemble. Let $$\mu > 0$$ be the **token chemical potential**—the intrinsic computational penalty or entropy cost of generating an additional token. Let $$R(\mathbf{x}, \mathbf{z}, \mathbf{y})$$ be the global semantic reward. 
 
-For a *specific* candidate answer $\mathbf{y}$, we sum over all possible reasoning paths of all possible lengths to define the marginal Answer-Specific Grand Partition Function:
+For a *specific* candidate answer $$\mathbf{y}$$, we sum over all possible reasoning paths of all possible lengths to define the marginal Answer-Specific Grand Partition Function:
 $$\mathcal{Z}(\mathbf{y} \mid \mathbf{x}) = \sum_{N=0}^{\infty} \sum_{\mathbf{z} \in \mathcal{V}^N} p_0(\mathbf{z}, \mathbf{y} \mid \mathbf{x}) \exp\left( \frac{R(\mathbf{x}, \mathbf{z}, \mathbf{y}) - \mu N}{\alpha} \right)$$
 
 The associated **Answer-Specific Grand Free Energy** is:
@@ -1150,7 +1150,7 @@ $$\Omega(\mathbf{y} \mid \mathbf{x}) = -\alpha \log \mathcal{Z}(\mathbf{y} \mid 
 * **Zero-Shot (MAP):** The system is constrained to $$N=0$$ (an empty trace $$\mathbf{z} = \emptyset$$). The model solves for the MAP answer directly:
     $$\mathbf{y}^\star_{\text{MAP}} = \arg\min_{\mathbf{y}} \Omega^{(0)}(\mathbf{y} \mid \mathbf{x})$$
     where $$\Omega^{(0)}(\mathbf{y} \mid \mathbf{x}) = -\alpha \log \left[ p_0(\emptyset, \mathbf{y} \mid \mathbf{x}) \exp\left( \frac{R(\mathbf{x}, \emptyset, \mathbf{y})}{\alpha} \right) \right]$$.
-* **Chain-of-Thought (Marginal MAP):** The system marginalizes over all intermediate latent sequences $\mathbf{z}$$ before maximizing over $$\mathbf{y}$:
+* **Chain-of-Thought (Marginal MAP):** The system marginalizes over all intermediate latent sequences $$\mathbf{z}$$ before maximizing over $$\mathbf{y}$$:
     $$\mathbf{y}^\star_{\text{Marginal}} = \arg\min_{\mathbf{y}} \Omega(\mathbf{y} \mid \mathbf{x})$$
 
 ---
@@ -1158,13 +1158,13 @@ $$\Omega(\mathbf{y} \mid \mathbf{x}) = -\alpha \log \mathcal{Z}(\mathbf{y} \mid 
 ### III. Theorem: Latent Expansion Strictly Lowers Free Energy
 
 **Theorem 1 (Free Energy Bound of Latent Marginalization)**
-*For any prompt $\mathbf{x}$$ and candidate answer $$\mathbf{y}$, admitting intermediate latent tokens (Marginal MAP) guarantees an Answer-Specific Grand Free Energy less than or equal to the zero-shot (MAP) Free Energy. Adding latent phase space strictly lowers the free energy barrier.*
+*For any prompt $$\mathbf{x}$$ and candidate answer $$\mathbf{y}$$, admitting intermediate latent tokens (Marginal MAP) guarantees an Answer-Specific Grand Free Energy less than or equal to the zero-shot (MAP) Free Energy. Adding latent phase space strictly lowers the free energy barrier.*
 
 **Proof:**
 By decomposing the Grand Partition Function $$\mathcal{Z}(\mathbf{y} \mid \mathbf{x})$$ into the zero-shot term ($$N=0$$) and the CoT terms ($$N \ge 1$$):
 $$\mathcal{Z}(\mathbf{y} \mid \mathbf{x}) = \mathcal{Z}^{(0)}(\mathbf{y} \mid \mathbf{x}) + \sum_{N=1}^{\infty} \sum_{\mathbf{z} \in \mathcal{V}^N} p_0(\mathbf{z}, \mathbf{y} \mid \mathbf{x}) \exp\left( \frac{R(\mathbf{x}, \mathbf{z}, \mathbf{y}) - \mu N}{\alpha} \right)$$
 
-Because $$p_0$$ is a valid probability measure ($$p_0 \ge 0$$) and the exponential function maps to $$(0, \infty)$$, the second term—which we denote as $\Delta\mathcal{Z}_{>0}$—must be strictly non-negative.
+Because $$p_0$$ is a valid probability measure ($$p_0 \ge 0$$) and the exponential function maps to $$(0, \infty)$$, the second term—which we denote as $$\Delta\mathcal{Z}_{>0}$$—must be strictly non-negative.
 $$\mathcal{Z}(\mathbf{y} \mid \mathbf{x}) = \mathcal{Z}^{(0)}(\mathbf{y} \mid \mathbf{x}) + \Delta\mathcal{Z}_{>0}$$
 $$\implies \mathcal{Z}(\mathbf{y} \mid \mathbf{x}) \ge \mathcal{Z}^{(0)}(\mathbf{y} \mid \mathbf{x})$$
 
@@ -1185,25 +1185,25 @@ Assume the global reward factorizes over sequential token-to-token logical steps
 $$R(\mathbf{x}, \mathbf{z}, \mathbf{y}) = \sum_{i=1}^N r(z_i, z_{i-1}) + R_{\text{final}}(\mathbf{z}, \mathbf{y})$$
 
 **Lemma 1 (The Chemical Potential Horizon)**
-For a sequence $\mathbf{z}$$ of length $$N$ to meaningfully contribute to the partition function (i.e., not be exponentially suppressed), the average local logical step reward must exceed the chemical potential of generating a token:
+For a sequence $$\mathbf{z}$$ of length $$N$$ to meaningfully contribute to the partition function (i.e., not be exponentially suppressed), the average local logical step reward must exceed the chemical potential of generating a token:
 $$\frac{1}{N} \sum_{i=1}^N r(z_i, z_{i-1}) > \mu$$
 If this inequality holds, the effective energy of the trace decreases, and the sequence enters a "thermodynamically favorable" phase. If it fails, the trace is damped.
 
 **Theorem 2 (Prompt-Induced Phase Shift)**
-*Let $\mathbf{x}_{\text{CoT}} = \mathbf{x} \oplus \text{"think step by step"}$$. The string acts as a boundary condition that concentrates the autoregressive prior $$p_0(z_i \mid \mathbf{x}_{\text{CoT}}, \mathbf{z}_{<i})$$ into highly correlated token subspaces where the local reward $$r(z_i, z_{i-1})$$ exceeds the chemical potential $$\mu$, dominating the partition sum.*
+*Let $$\mathbf{x}_{\text{CoT}} = \mathbf{x} \oplus \text{"think step by step"}$$. The string acts as a boundary condition that concentrates the autoregressive prior $$p_0(z_i \mid \mathbf{x}_{\text{CoT}}, \mathbf{z}_{<i})$$ into highly correlated token subspaces where the local reward $$r(z_i, z_{i-1})$$ exceeds the chemical potential $$\mu$$, dominating the partition sum.*
 
 **Proof:**
 Let $$\mathcal{Z}(\mathbf{y} \mid \mathbf{x})$$ be the partition sum. Upon substituting the local reward factorization:
 $$\mathcal{Z}(\mathbf{y} \mid \mathbf{x}) = \sum_{N=0}^{\infty} \sum_{\mathbf{z}} \left( \prod_{i=1}^N p_0(z_i \mid \mathbf{x}, \mathbf{z}_{<i}) \exp\left[ \frac{r(z_i, z_{i-1}) - \mu}{\alpha} \right] \right) p_0(\mathbf{y} \mid \dots) \exp(\dots)$$
 
-Consider a standard prompt $\mathbf{x}$$. In a standard language prior, transitions are highly stochastic. A semantic leap may have $$r(z_i, z_{i-1}) \ll \mu$$, causing the exponential weight $$\exp([r-\mu]/\alpha)$$ to decay toward zero. Long sequences ($$N \gg 1$$) are thus heavily penalized; the system prefers the zero-shot MAP ($$N=0$).
+Consider a standard prompt $$\mathbf{x}$$. In a standard language prior, transitions are highly stochastic. A semantic leap may have $$r(z_i, z_{i-1}) \ll \mu$$, causing the exponential weight $$\exp([r-\mu]/\alpha)$$ to decay toward zero. Long sequences ($$N \gg 1$$) are thus heavily penalized; the system prefers the zero-shot MAP ($$N=0$$).
 
-Now, define the operator $\mathcal{T}[\mathbf{x}] = \mathbf{x} \oplus \text{"think step by step"}$$. Pretraining ensures that conditioning on $$\mathcal{T}[\mathbf{x}]$$ collapses the token-level conditional prior $$p_0(z_i \mid \mathcal{T}[\mathbf{x}], \mathbf{z}_{<i})$ onto specific, highly correlated syntactic manifolds (e.g., formal logic, math notation). 
+Now, define the operator $$\mathcal{T}[\mathbf{x}] = \mathbf{x} \oplus \text{"think step by step"}$$. Pretraining ensures that conditioning on $$\mathcal{T}[\mathbf{x}]$$ collapses the token-level conditional prior $$p_0(z_i \mid \mathcal{T}[\mathbf{x}], \mathbf{z}_{<i})$$ onto specific, highly correlated syntactic manifolds (e.g., formal logic, math notation). 
 
 On this manifold, contiguous tokens are highly logically dependent, such that $$r(z_i, z_{i-1}) > \mu$$. Therefore, the local exponential transition operator:
 $$\exp\left( \frac{r(z_i, z_{i-1}) - \mu}{\alpha} \right) > 1$$
 
-As $N$ increases, the product of these operators $$\prod_{i=1}^N (\dots)$$ grows exponentially rather than decaying. This shifts the dominant term in the summation $$\sum_N^\infty$$ from $$N=0$$ to some optimal macroscopic length $$N^\star > 0$$. 
+As $$N$$ increases, the product of these operators $$\prod_{i=1}^N (\dots)$$ grows exponentially rather than decaying. This shifts the dominant term in the summation $$\sum_N^\infty$$ from $$N=0$$ to some optimal macroscopic length $$N^\star > 0$$. 
 
 Consequently, $$\mathcal{Z}(\mathbf{y}^\star \mid \mathcal{T}[\mathbf{x}]) \gg \mathcal{Z}(\mathbf{y}^\star \mid \mathbf{x})$$, resulting in:
 $$\Omega(\mathbf{y}^\star \mid \mathcal{T}[\mathbf{x}]) \ll \Omega(\mathbf{y}^\star \mid \mathbf{x})$$
@@ -1277,7 +1277,7 @@ For each fixed \mathbf y, marginalizing over latent traces cannot increase free 
 
 You hit the nail on the head. As any good referee should, you caught the exact point where the mathematical physics metaphor overstepped into an empirical claim. 
 
-You are entirely correct that "think step by step" inducing $$r > \mu$$ is a modeling hypothesis about the pretrained prior $$p_0$$, not a mathematical theorem of the partition function itself. Furthermore, your catch on the divergence of the Grand Canonical partition function is critical: if the aggregate growth rate remains strictly positive, the sum over sequence lengths $N$ blows up, rendering the free energy undefined.
+You are entirely correct that "think step by step" inducing $$r > \mu$$ is a modeling hypothesis about the pretrained prior $$p_0$$, not a mathematical theorem of the partition function itself. Furthermore, your catch on the divergence of the Grand Canonical partition function is critical: if the aggregate growth rate remains strictly positive, the sum over sequence lengths $$N$$ blows up, rendering the free energy undefined.
 
 Here is the rigorously corrected formulation, stripping away the empirical leaps and establishing exactly what can be mathematically proven, followed by the explicit physical hypothesis required for the CoT phase shift.
 
@@ -1288,10 +1288,10 @@ Here is the rigorously corrected formulation, stripping away the empirical leaps
 We begin with the mathematically rigorous claim regarding the introduction of latent reasoning traces, acknowledging the boundary conditions for strict improvement.
 
 **Theorem 1 (Free Energy Bound of Latent Marginalization)**
-*For any fixed prompt $\mathbf{x}$$ and candidate answer $$\mathbf{y}$$, marginalizing over latent reasoning traces $$\mathbf{z}$$ cannot increase the free energy relative to the zero-shot ($$N=0$) constrained model. Furthermore, this improvement is strict if and only if there exists at least one non-zero-weight latent trace.*
+*For any fixed prompt $$\mathbf{x}$$ and candidate answer $$\mathbf{y}$$, marginalizing over latent reasoning traces $$\mathbf{z}$$ cannot increase the free energy relative to the zero-shot ($$N=0$$) constrained model. Furthermore, this improvement is strict if and only if there exists at least one non-zero-weight latent trace.*
 
 **Proof:**
-Let the Grand Partition Function for a specific answer $\mathbf{y}$ be split into its zero-shot and latent components:
+Let the Grand Partition Function for a specific answer $$\mathbf{y}$$ be split into its zero-shot and latent components:
 
 $$Z(\mathbf{y} \mid \mathbf{x}) = \underbrace{p_0(\emptyset, \mathbf{y} \mid \mathbf{x}) \exp\left(\frac{R(\mathbf{x}, \emptyset, \mathbf{y})}{\alpha}\right)}_{Z_0(\mathbf{y} \mid \mathbf{x})} + \underbrace{\sum_{N \ge 1} \sum_{\mathbf{z} \in \mathcal{V}^N} p_0(\mathbf{z}, \mathbf{y} \mid \mathbf{x}) \exp\left(\frac{R(\mathbf{x}, \mathbf{z}, \mathbf{y}) - \mu N}{\alpha}\right)}_{Z_{>0}(\mathbf{y} \mid \mathbf{x})}$$
 
@@ -1305,14 +1305,14 @@ Because $$p_0$$ is a non-negative probability measure and the exponential functi
 
 $$F(\mathbf{y} \mid \mathbf{x}) \le \Omega^{(0)}(\mathbf{y} \mid \mathbf{x})$$
 
-The inequality is strict ($F < \Omega^{(0)}$$) if and only if $$Z_{>0}(\mathbf{y} \mid \mathbf{x}) > 0$$, meaning there is at least one valid reasoning path in the prior that connects $$\mathbf{x}$$ to $$\mathbf{y}$. *Q.E.D.*
+The inequality is strict ($$F < \Omega^{(0)}$$) if and only if $$Z_{>0}(\mathbf{y} \mid \mathbf{x}) > 0$$, meaning there is at least one valid reasoning path in the prior that connects $$\mathbf{x}$$ to $$\mathbf{y}$$. *Q.E.D.*
 
 ### II. The Divergence Constraint
 
 To ensure the grand canonical sum $$Z_{>0}(\mathbf{y} \mid \mathbf{x})$$ does not blow up, we must impose a thermodynamic stability condition. If the per-step reward consistently outweighs the chemical potential, the system favors infinitely long traces.
 
 **Stability Condition (Bounded Growth):**
-Let the total reward factorize as $$R = \sum_{i=1}^N r_i$$. For the partition sum $$\sum_{N=1}^\infty$$ to converge, the asymptotic aggregate growth rate must be bounded by the entropy of the stopping mechanism. Specifically, if $p_{\text{stop}}$ is the probability of emitting the End-Of-Sequence (EOS) token, the system must satisfy:
+Let the total reward factorize as $$R = \sum_{i=1}^N r_i$$. For the partition sum $$\sum_{N=1}^\infty$$ to converge, the asymptotic aggregate growth rate must be bounded by the entropy of the stopping mechanism. Specifically, if $$p_{\text{stop}}$$ is the probability of emitting the End-Of-Sequence (EOS) token, the system must satisfy:
 
 $$\limsup_{N \to \infty} \frac{1}{N} \sum_{i=1}^N \left( r_i - \mu \right) < \alpha \log \left( \frac{1}{1 - p_{\text{stop}}} \right)$$
 
@@ -1323,11 +1323,11 @@ If this condition is violated, the model undergoes a divergent phase transition 
 We now properly categorize the effect of "think step by step" not as a theorem, but as a testable empirical hypothesis regarding the deformation of the prior $$p_0$$.
 
 **Modeling Hypothesis (Prompt-Induced Prior Shift):**
-*Whether a prompt $\mathbf{x}_{\text{CoT}}$$ (e.g., adding "think step by step") makes a correct answer $$\mathbf{y}^\star$$ more probable than under the standard prompt $$\mathbf{x}$$ depends entirely on how it reshapes the latent prior $$p_0(\mathbf{z} \mid \mathbf{x})$ relative to the reward landscape.*
+*Whether a prompt $$\mathbf{x}_{\text{CoT}}$$ (e.g., adding "think step by step") makes a correct answer $$\mathbf{y}^\star$$ more probable than under the standard prompt $$\mathbf{x}$$ depends entirely on how it reshapes the latent prior $$p_0(\mathbf{z} \mid \mathbf{x})$$ relative to the reward landscape.*
 
-Specifically, for $\mathbf{x}_{\text{CoT}}$$ to successfully lower the relative free energy of the *correct* answer $$\mathbf{y}^\star$$ against an *incorrect* answer $$\mathbf{y}_{\text{bad}}$$, the prompt must act as a boundary condition that concentrates $$p_0$ into a subspace where two conditions hold:
+Specifically, for $$\mathbf{x}_{\text{CoT}}$$ to successfully lower the relative free energy of the *correct* answer $$\mathbf{y}^\star$$ against an *incorrect* answer $$\mathbf{y}_{\text{bad}}$$, the prompt must act as a boundary condition that concentrates $$p_0$$ into a subspace where two conditions hold:
 
-1.  **Aggregate Thermodynamic Favorability:** The sampled traces $\mathbf{z}$$ toward $$\mathbf{y}^\star$$ satisfy the aggregate condition $$\frac{1}{N} \sum_{i=1}^N (r_i - \mu) > 0$$ for finite $$N$, preventing the trace from being exponentially suppressed by the chemical potential.
+1.  **Aggregate Thermodynamic Favorability:** The sampled traces $$\mathbf{z}$$ toward $$\mathbf{y}^\star$$ satisfy the aggregate condition $$\frac{1}{N} \sum_{i=1}^N (r_i - \mu) > 0$$ for finite $$N$$, preventing the trace from being exponentially suppressed by the chemical potential.
 2.  **Differential Support:** The expansion of the partition function $$Z_{>0}(\mathbf{y}^\star \mid \mathbf{x}_{\text{CoT}})$$ is vastly larger than $$Z_{>0}(\mathbf{y}_{\text{bad}} \mid \mathbf{x}_{\text{CoT}})$$. 
 
 If the model is misspecified, "think step by step" might inadvertently increase the partition function of the incorrect answer (accumulating errors), thereby lowering $$F(\mathbf{y}_{\text{bad}} \mid \mathbf{x})$$ and worsening performance.
@@ -1347,7 +1347,7 @@ The soft Bellman equation is a central construct in entropy-regularized reinforc
 
 ## 1. Soft Bellman Equation in Markov Decision Processes
 
-Let a Markov decision process (MDP) be defined by state space $$\mathcal S$$, action space $$\mathcal A$$, transition kernel $P$, immediate reward $R$, and discount $$\gamma$$. The soft Bellman operator $$\mathcal T^{\mathrm{soft}}:\mathbb R^n\to \mathbb R^n$$ is
+Let a Markov decision process (MDP) be defined by state space $$\mathcal S$$, action space $$\mathcal A$$, transition kernel $$P$$, immediate reward $$R$$, and discount $$\gamma$$. The soft Bellman operator $$\mathcal T^{\mathrm{soft}}:\mathbb R^n\to \mathbb R^n$$ is
 
 
 $$
@@ -1355,7 +1355,7 @@ $$
 $$
 
 
-The soft Bellman equation seeks $V$ satisfying $$V=\mathcal T^{\mathrm{soft}}V$$, or equivalently,
+The soft Bellman equation seeks $$V$$ satisfying $$V=\mathcal T^{\mathrm{soft}}V$$, or equivalently,
 
 
 $$
@@ -1403,11 +1403,11 @@ $$
 $$
 
 
-where $$Y^i$$ is the discounted state-action frequency for player $$i$$, $$b^i$$ is a bias vector, and $C^{ij}$ are coupling matrices.
+where $$Y^i$$ is the discounted state-action frequency for player $$i$$, $$b^i$$ is a bias vector, and $$C^{ij}$$ are coupling matrices.
 
 A tuple of stationary policies $$\{\Pi^i\}_{i=1}^p$$ is a soft-Bellman equilibrium if, for each $$i$$,
 - the soft policy: $$\Pi^i_{sa} = \exp(Q^i_{sa} - v^i_s)$$,
-- the soft Q-update: $Q^i_{sa} = R^i_{sa} + \gamma\sum_{s'}P^i(s'\mid s,a) v^i_{s'}$,
+- the soft Q-update: $$Q^i_{sa} = R^i_{sa} + \gamma\sum_{s'}P^i(s'\mid s,a) v^i_{s'}$$,
 - the soft value: $$v^i_s = \log\Big(\sum_a \exp Q^i_{sa}\Big)$$.
 
 ## 4. Existence and Uniqueness of Equilibrium
@@ -1423,7 +1423,7 @@ H y = q,
 $$
 
 
-where $$y$$ collects all players’ state-action frequencies, $$v$$ are dual variables, $C$ encodes reward couplings, $K$ encodes normalizations, $H$ expresses flow constraints, and $$b$$ is the reward bias.
+where $$y$$ collects all players’ state-action frequencies, $$v$$ are dual variables, $$C$$ encodes reward couplings, $$K$$ encodes normalizations, $$H$$ expresses flow constraints, and $$b$$ is the reward bias.
 
 ## 5. Nonlinear Least-Squares Computation
 
@@ -1476,13 +1476,13 @@ Here is the formal translation of these concepts into a unified thermodynamic an
 
 Standard autoregressive generation in an LLM is not merely a forward pass; it is functionally identical to a policy executing a Soft Bellman backup. 
 
-Let the state $s_t = \mathbf{x} \oplus \mathbf{z}_{<t}$$ be the sequence generated thus far, and the action $$a_t = z_t$$ be the next token drawn from vocabulary $$\mathcal{V}$. If the model acts as an entropy-regularized agent, the optimal stochastic policy is exactly the log-softmax distribution:
+Let the state $$s_t = \mathbf{x} \oplus \mathbf{z}_{<t}$$ be the sequence generated thus far, and the action $$a_t = z_t$$ be the next token drawn from vocabulary $$\mathcal{V}$$. If the model acts as an entropy-regularized agent, the optimal stochastic policy is exactly the log-softmax distribution:
 $$\pi^\star(z_t \mid s_t) = \frac{\exp(Q(s_t, z_t)/\alpha)}{\sum_{z'} \exp(Q(s_t, z')/\alpha)}$$
 
-This maps directly to the Soft Bellman operator $\mathcal{T}^{\text{soft}}$$. The value function at state $$s_t$ is:
+This maps directly to the Soft Bellman operator $$\mathcal{T}^{\text{soft}}$$. The value function at state $$s_t$$ is:
 $$V(s_t) = \alpha \log \sum_{z_t \in \mathcal{V}} \exp \left( \frac{R(s_t, z_t) + \gamma \mathbb{E}[V(s_{t+1})]}{\alpha} \right)$$
 
-**The Insight:** In this formulation, $$V(s_t)$$ is precisely the negative local Free Energy ($$-F(s_t)$$) of the remaining sequence. The $$\log \sum \exp$$ operator smooths the hard maximization of classical search (like A* or greedy decoding). The LLM is, by definition, exhibiting **bounded rationality**: it trades off the absolute maximization of the reward $R$ against the entropy of its token distribution (its pre-trained prior). CoT is therefore a dynamic programming rollout seeking to resolve the Soft Bellman equation over the latent space.
+**The Insight:** In this formulation, $$V(s_t)$$ is precisely the negative local Free Energy ($$-F(s_t)$$) of the remaining sequence. The $$\log \sum \exp$$ operator smooths the hard maximization of classical search (like A* or greedy decoding). The LLM is, by definition, exhibiting **bounded rationality**: it trades off the absolute maximization of the reward $$R$$ against the entropy of its token distribution (its pre-trained prior). CoT is therefore a dynamic programming rollout seeking to resolve the Soft Bellman equation over the latent space.
 
 ### II. Fugacity as the "Reasoning Effort" Parameter
 
@@ -1490,10 +1490,10 @@ $$V(s_t) = \alpha \log \sum_{z_t \in \mathcal{V}} \exp \left( \frac{R(s_t, z_t) 
 
 Your proposal to equate fugacity with reasoning effort provides the missing mathematical engine for the Grand Canonical framework. 
 
-Recall that in the Grand Canonical Ensemble, the system can exchange "particles" (latent reasoning tokens $N$) with a reservoir. Let $$\mu$$ be the chemical potential (the intrinsic penalty for generating a token). The **fugacity** $$\zeta$$ is defined as:
+Recall that in the Grand Canonical Ensemble, the system can exchange "particles" (latent reasoning tokens $$N$$) with a reservoir. Let $$\mu$$ be the chemical potential (the intrinsic penalty for generating a token). The **fugacity** $$\zeta$$ is defined as:
 $$\zeta = \exp\left(-\frac{\mu}{\alpha}\right)$$
 
-We can rewrite the Answer-Specific Grand Partition Function entirely in terms of fugacity. Let $$Z_N(\mathbf{y} \mid \mathbf{x})$$ be the canonical partition function for a reasoning trace of exactly length $N$:
+We can rewrite the Answer-Specific Grand Partition Function entirely in terms of fugacity. Let $$Z_N(\mathbf{y} \mid \mathbf{x})$$ be the canonical partition function for a reasoning trace of exactly length $$N$$:
 $$\mathcal{Z}(\mathbf{y} \mid \mathbf{x}) = \sum_{N=0}^{\infty} \zeta^N Z_N(\mathbf{y} \mid \mathbf{x})$$
 
 By the laws of statistical mechanics, the expected number of reasoning tokens—which we directly define as the **Reasoning Effort** $$\langle N \rangle$$—is given by the logarithmic derivative of the grand partition function with respect to fugacity:
@@ -1503,7 +1503,7 @@ $$\langle N \rangle = \zeta \frac{\partial}{\partial \zeta} \log \mathcal{Z}(\ma
 A prompt like "think step by step" acts as a thermodynamic pump that artificially increases the fugacity $$\zeta$$ of the reasoning trace. 
 1. If $$\zeta \to 0$$ (high token penalty $$\mu$$), the system suppresses intermediate steps ($$\langle N \rangle \to 0$$), collapsing to the Zero-Shot MAP approximation.
 2. If $$\zeta$$ is elevated by the prompt, the reasoning effort $$\langle N \rangle$$ increases, allowing the system to explore deeper latent paths. 
-3. The Marginal MAP estimate of the final answer $\mathbf{y}$$ is thus dynamically tuned by the fugacity. The bounded rationality of the Soft Bellman equation ensures the model does not explore infinitely (unless $$\zeta \ge 1$, which triggers the divergent hallucination phase we established previously).
+3. The Marginal MAP estimate of the final answer $$\mathbf{y}$$ is thus dynamically tuned by the fugacity. The bounded rationality of the Soft Bellman equation ensures the model does not explore infinitely (unless $$\zeta \ge 1$$, which triggers the divergent hallucination phase we established previously).
 
 ### III. Multi-Path Self-Consistency as an Affine Markov Game
 
@@ -1515,7 +1515,7 @@ This is no longer a single-agent MDP; it is an **Affine Markov Game**.
 Let $$Y^j$$ be the state-action trajectory of reasoning path $$j$$. The reward for path $$i$$ is affinely coupled to the outputs of the other paths:
 $$R^i = b^i + \sum_{j \neq i} C^{ij} Y^j$$
 
-Here, the coupling matrix $C^{ij}$ represents the **cross-attention or verifier feedback** between reasoning streams. 
+Here, the coupling matrix $$C^{ij}$$ represents the **cross-attention or verifier feedback** between reasoning streams. 
 * If $$C^{ij} > 0$$, the paths act cooperatively (consensus building).
 * If $$C^{ij} < 0$$, the paths act antagonistically (debate/critique).
 
@@ -1530,7 +1530,7 @@ By weaving these mathematical structures together, we graduate from a static vie
 3. **The Architecture (Marginal MAP):** Chain-of-Thought with high fugacity generates the rich latent phase space required to accurately calculate the Marginal MAP over final answers.
 4. **The Interactivity (Markov Games):** When these latent paths are allowed to interact (via multi-agent debate or verifiers), the system solves a set of nonlinear KKT equations, settling into a **Soft-Bellman Equilibrium** that represents the globally optimal, logically verified answer distribution.
 
-This is a rigorously defensible framework that not only explains *why* CoT works, but provides the exact nonlinear equations required to compute optimal stopping times (via fugacity $$\zeta$$) and optimal debate topologies (via coupling matrices $C^{ij}$).
+This is a rigorously defensible framework that not only explains *why* CoT works, but provides the exact nonlinear equations required to compute optimal stopping times (via fugacity $$\zeta$$) and optimal debate topologies (via coupling matrices $$C^{ij}$$).
 
 ---
 Now connect the above thermodynamic quantities with the V(s) as defined in this paper 
@@ -1550,14 +1550,14 @@ By mapping this bijection onto our thermodynamic framework, we can construct an 
 
 
 ### Step 1: The Global Energy-Based Model (The Jaynesian Foundation)
-According to the Maximum Entropy Principle, the optimal sequence-level distribution of an answer $\mathbf{y}$$ given a prompt $$\mathbf{x}$$ is an Energy-Based Model (EBM). The global probability of a sequence is proportional to the exponentiated negative energy (cumulative reward) over temperature $$\alpha$:
+According to the Maximum Entropy Principle, the optimal sequence-level distribution of an answer $$\mathbf{y}$$ given a prompt $$\mathbf{x}$$ is an Energy-Based Model (EBM). The global probability of a sequence is proportional to the exponentiated negative energy (cumulative reward) over temperature $$\alpha$$:
 $$p_\alpha(\mathbf{y} \mid \mathbf{x}) = \frac{1}{Z(\mathbf{x})} \exp\left( \frac{R(\mathbf{x}, \mathbf{y})}{\alpha} \right)$$
 The partition function $$Z(\mathbf{x})$$ sums over all possible sequences, and the global Free Energy is $$F(\mathbf{x}) = -\alpha \log Z(\mathbf{x})$$. 
 
 ### Step 2: The ARM-EBM Bijection and the Soft Bellman Equation
 LLMs are Autoregressive Models (ARMs), generating one token at a time. The paradox historically was: *How can a myopic, next-token ARM optimize a global, sequence-level EBM?*
 
-Blondel et al. (2512.15605) rigorously prove that this bijection is resolved by the **Soft Bellman Equation**. Let $$s_t$$ be the state (context $\mathbf{x} \oplus \mathbf{z}_{<t}$$) and $$z_t$$ the next token. An ARM's next-token probabilities are defined by its raw, unnormalized **logits** $$q(s_t, z_t)$:
+Blondel et al. (2512.15605) rigorously prove that this bijection is resolved by the **Soft Bellman Equation**. Let $$s_t$$ be the state (context $$\mathbf{x} \oplus \mathbf{z}_{<t}$$) and $$z_t$$ the next token. An ARM's next-token probabilities are defined by its raw, unnormalized **logits** $$q(s_t, z_t)$$:
 $$\pi(z_t \mid s_t) = \frac{\exp(q(s_t, z_t))}{\sum_{z'} \exp(q(s_t, z'))}$$
 
 For the ARM to perfectly match the global EBM, the optimal logits $$q^\star$$ must satisfy the backward-propagating Soft Bellman equation:
@@ -1569,7 +1569,7 @@ $$V(s_{t+1}) = \log \sum_{z_{t+1}} \exp\left( q^\star(s_{t+1}, z_{t+1}) \right)$
 ### Step 3: Thermodynamic Identity of the Look-Ahead Logits
 
 
-What is the physical identity of $$V(s_{t+1})$$? If we recursively unroll the Soft Bellman sum to the end of the sequence, $$V(s_{t+1})$$ evaluates exactly to the log-partition function of all possible future suffixes branching from $s_{t+1}$. Therefore, by definition:
+What is the physical identity of $$V(s_{t+1})$$? If we recursively unroll the Soft Bellman sum to the end of the sequence, $$V(s_{t+1})$$ evaluates exactly to the log-partition function of all possible future suffixes branching from $$s_{t+1}$$. Therefore, by definition:
 $$V(s_{t+1}) \equiv -\frac{1}{\alpha} F_{\text{future}}(s_{t+1})$$
 
 **The crucial insight:** The optimal logit $$q^\star(s_t, z_t)$$ is *not* just a localized transition guess. It strictly contains $$V(s_{t+1})$$, meaning the logit encodes the exact negative Free Energy of the entire future generation. 

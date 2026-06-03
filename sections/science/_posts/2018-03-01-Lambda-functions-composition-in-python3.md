@@ -6,7 +6,7 @@ published: true
 date: 2018-03-01
 categories:
   - science
-  - statistical-learning
+  - machine-learning
 ---
 Introduction
 ==============
@@ -14,7 +14,7 @@ Introduction
 I'm facing a problem with automatic generation of network connectivity model that requires me to manually generate a number of them, written as combinations of various operations.
 To make this example concrete, suppose you have a number of functions in Python3 of the kind:
 
-{% highlight python %}
+```python
 def fun1(a,b):
     return a+b
 
@@ -23,7 +23,7 @@ def fun2(c,d,e):
 
 def fun3(x):
     return x*x
-{% endhighlight %}
+```
 
 
 and you want to automatically generate all the combinations of these functions with two arithmetical operators, let's say the multiplication `operator.mul` and the addition `operator.add`.
@@ -32,15 +32,15 @@ and you want to automatically generate all the combinations of these functions w
 
 A first attempt is to manually define a number of composed functions with one single argument in form of a list `x`:
 
-{% highlight python %}
+```python
 C1 = lambda x : fun1(x[0],x[1])*fun2(x[2],x[3],x[4])+fun3(x[5])
-{% endhighlight %}
+```
 
 and then call this anonymous function in your code with a 5 elements list of numbers:
 
-{% highlight python %}
+```python
 C1([1,2,3,4,5])
-{% endhighlight %}
+```
 
 to get the output you want. However this approach requires you to manually generate a number of combinations which may be very time-consuming and error-prone.
 Especially if you have 10 different functions to combine with multiplication and addition, this task gets almost impossible to do manually.
@@ -50,9 +50,9 @@ The field `fun1.__code__.co_varnames` will returns you the list of arguments of 
 
 With this in mind you can define an additional lambda function `multiplyf1f2` by exploiting list comprehension and unpacking with the help operator `*` in front of a list:
 
-{% highlight python %}
+```python
 multiplyf1f2 = lambda x : fun1(*[x[i] for i in range(0,len(fun1.__code__.co_varnames)]) * fun2(*[x[i] for i in range(len(fun1.__code__.co_varnames),len(fun1.__code__.co_varnames)+len(fun2.__code__.co_varnames)])
-{% endhighlight %}
+```
 
 This is a first solution, already a bit more general solution than before.
 

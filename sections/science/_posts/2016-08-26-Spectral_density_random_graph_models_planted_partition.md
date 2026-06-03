@@ -177,7 +177,7 @@ As density estimatore we use Gaussian Kernels where the bandwidth of the kernel 
 
 We now import all the Python libraries useful for this task:
 
-{% highlight python %}
+```python
 """
 See the book Mathias Dehmer,
 "Mathematical Foundations and Applications of Graph Entropy"
@@ -189,11 +189,11 @@ import matplotlib.pyplot as plt
 import seaborn as sbn
 from numpy.linalg import eigvals
 from scipy import stats
-{% endhighlight %}
+```
 
 Then we focus on the estimation of the spectral density of the ER model $$G(n,p)$$ that in some sense is the canonical ensemble version of the $$G(n,m)$$ random graph model (the microcanonical ensemble where number of links is an hard constraint). We use a $$p=0.007$$ and generate 1000 random graphs of $$n=50$$ nodes, computing then the average eigenvalues.
 
-{% highlight python %}
+```python
 # Generate 1000 ER random graphs with the Erdos-Renyi model 
 # and compute their eigenvalues mean
 n = 50
@@ -206,25 +206,25 @@ for i in range(0,nsamples):
     v = np.real(eigvals(A))
     vs = vs + v
 vs = vs/nsamples
-{% endhighlight %}
+```
 
 We must divide the average eigenvalue by $$\sqrt(n)$$ and then estimate the Gaussian Kernel Density.
 
-{% highlight python %}
+```python
 vs = vs/(np.sqrt(n))
 kde = stats.gaussian_kde(vs,bw_method='silverman')
 x = np.linspace(vs.min(), vs.max(), 100)
 rho = kde(x)
-{% endhighlight %}
+```
 
 Finally we plot the empirical data together with the theoretical analytical estimate:
 
-{% highlight python %}
+```python
 plt.plot(x,rho)
 plt.ylabel('Spectral density')
 plt.xlabel('Eigenvalues')
 plt.title('ER Model spectral density')
-{% endhighlight %}
+```
 
 with the following (nice) result about the ER spectral density:
 

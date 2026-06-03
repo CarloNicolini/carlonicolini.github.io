@@ -6,7 +6,7 @@ published: false
 date: 2017-02-23
 categories:
   - science
-  - statistical-learning
+  - machine-learning
 ---
 Here is a list of the properties of the trace of a matrix.
 

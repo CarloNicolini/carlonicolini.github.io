@@ -6,7 +6,7 @@ published: false
 date: 2019-06-17
 categories:
   - science
-  - statistical-learning
+  - machine-learning
 ---
 # 1. Floyd triangle
 Program the following thing, called Floyd triangle
@@ -18,14 +18,14 @@ Program the following thing, called Floyd triangle
 
 and so on..
 
-{% highlight python %}
+```python
 rows,k=10,1
 for i in range(rows):
     print('\n')
     for j in range(0,i):
         print(k," ",end='')
         k=k+1
-{% endhighlight %}
+```
 
 
 # 2. Find third largest element in a given array
@@ -33,16 +33,16 @@ Objective: given an array of integers, write an algorithm to find the third larg
 For example, given a={6,8,1,9,2,1,10}, return 8.
 
 This first approach can be considered cheating (moreover it is O(n log(N)) because of sorting)
-{% highlight python %}
+```python
 a={6,8,1,9,2,1,10}
 as=sorted(a)
 third_largest = as[-3]
-{% endhighlight %}
+```
 
 Otherwise this other approach that is based on 3 variables, initially set as -infinity, and evaluated within if-else sections.
 Iterating over the array we keep track of the values and compare with less operations.
 
-{% highlight python %}
+```python
 a = {6,8,1,9,2,1,10}
 def third_largest_element(a):
     min_value = -100000 # a large negative value
@@ -59,7 +59,7 @@ def third_largest_element(a):
             third = current
     return third
 print(third_largest_element(a))
-{% endhighlight %}
+```
 
 The logic here is that the third, second and first largest value are shifting up in the hierarchy, during the loop iteration.
 Any other problem involving the $$n$$-th largest or smallest element can be solved with this method.
@@ -70,7 +70,7 @@ Objective: Given a string, write an algorithm to find all the duplicate characte
 Possible solution:
 Collect the characters in a dictionary of integers. Iterate through the array. If the character is not in the dictionary, then set its value to one, otherwise and increase the value corresponding to the character
 
-{% highlight python %}
+```python
 a='hi my name is john'
 d={} 
 for x in a: 
@@ -80,7 +80,7 @@ for x in a:
       d[x]=1 
 # then filter all the characters such that d[x]>1
 duplicates = { k:v for k,v in d.items() if v>1}
-{% endhighlight %}
+```
 Ok this was very simple...
 
 # 4 The word break problem
@@ -104,7 +104,7 @@ This solution works by backtracking and recursion. The logic is the following, a
 
 The python code to solve the algorithm is the following:
 
-{% highlight python %}
+```python
 def word_break(string, dic):
     answer = []
     def word_break(string, dic,answer):
@@ -127,7 +127,7 @@ if __name__=='__main__':
     string = 'IamCarlo'
     result = word_break(string, words)
     print(result)
-{% endhighlight %}
+```
 Alternatively this problem can be solved by means of dynamic programming.
 Dynamic programming is a technique to solve the recursive problems in more efficient manner.
 Many times in recursion we solve the sub-problems repeatedly.
@@ -146,16 +146,16 @@ To solve our word break problem here we follow these ideas:
 - Whenever any recursive call returns false, store that string in dictionary.
 
 For example a way to compute the Fibonacci function faster is to use memoization based recursion
-{% highlight python %}
+```python
 def fib_basic(n):
     if n==0 or n==1:
         return 1
     else:
          return fib(n-1)+fib(n-2)
-{% endhighlight %}
+```
 
 What if we use a helper array with the values that have already been calculated?
-{% highlight python %}
+```python
 def fib_memoize(n, mem): 
     if n<=0: 
         return 0 
@@ -164,11 +164,11 @@ def fib_memoize(n, mem):
     elif n not in mem: 
         mem[n] = fib_memoize(n-1,mem) + fib_memoize(n-2,mem) 
     return mem[n] 
-{% endhighlight %}
+```
 
 When we apply the idea of memoization and recursion to the word-break-problem we obtain the following algorithm:
 
-{% highlight python %}
+```python
 def word_break_dynamic(string, dic):
     ans = []
     mem = []
@@ -195,4 +195,4 @@ def word_break_dynamic(string, dic):
 
     ans = word_break(string, dic, mem, ans)
     return ans
-{% endhighlight %}
+```

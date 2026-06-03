@@ -18,7 +18,7 @@ This short blog note is covering some aspects related to interesting calculation
 </figure>
 
 We want to study the properties of some random graph ensemble in terms of the spectral density of the eigenvalues of the Laplacian.
-We denote the adjacency matrix of a random graph as $$\mathbf{A}$$, its Laplacian of $\mathbf{L}$$. The parameters of the random graph model are indicated by the parameters $$\boldsymbol \theta$$, so we can imagine every single random graph is a collection of $$n(n-1)/2$$ random variables dependent on the parameters $$\boldsymbol \theta$.
+We denote the adjacency matrix of a random graph as $$\mathbf{A}$$, its Laplacian of $$\mathbf{L}$$. The parameters of the random graph model are indicated by the parameters $$\boldsymbol \theta$$, so we can imagine every single random graph is a collection of $$n(n-1)/2$$ random variables dependent on the parameters $$\boldsymbol \theta$$.
 
 We are interested in the limiting distribution of the ensemble eigenvalues, a quantity known as the average spectral density $$\mathbb{E}[{\varrho}]$$, where by the operator $$\mathbb{E}[\cdot]$$ we mean the ensemble average at constant parameters $$\boldsymbol \theta$$. This is also indicated in statistical physics with the triangular brackes $$\langle \cdot \rangle$$.
 
@@ -26,50 +26,50 @@ Numerically we could in principle compute a large number of random adjacency mat
 However we have more powerful tools to accomplish this task: the **matrix resolvent** and the **Stieltjes** transform.
 
 We can obviously write the spectral density $$\varrho$$ of a matrix $$\mathbf{L}$$ with the help of the Dirac delta function as:
-\begin{equation}
+$$
 \varrho(z) = \frac{1}{n}\sum_{i=1}^n \delta(z-\lambda_i)
-\end{equation}
+$$
 where $$\lambda_i$$ are the eigenvalues of the matrix.
 
 We can invoke to the so-called **Plemelij-Sokhotski** formula, to write the delta function as the limit in the complex plane approaching the real line of the imaginary part of the following quantity:
-\begin{equation}
+$$
 \delta(x) = -\frac{1}{\pi} \lim \limits_{\eta \to 0^+} \mathrm{Im} {\frac{1}{x + i \eta } }.
-\end{equation}
+$$
 
 Hence, for the spectral density we recover the following expression:
-\begin{equation}
+$$
 \varrho(x) = -\frac{1}{n \pi} \lim \limits_{\eta \to 0^+} \mathrm{Im} {\sum \limits_{i=1}^n \frac{1}{x + i \eta - \lambda_i} }.
-\end{equation}
+$$
 Now we identify the complex variable $$z=x+i \eta$$ and thanks to a change of basis and the properties of matrix functions, we can evaluate the sum in the argument of the imaginary function as:
-\begin{equation}
+$$
 \sum \limits_{i=1}^n \frac{1}{x + i \eta -\lambda_i } = \mathrm{Tr}{(z \mathbf{I} - \mathbf{L})^{-1}}
-\end{equation}
+$$
 The function $$R(z)=(z\mathbf{I} -\mathbf{L})^{-1}$$ is called the *resolvent matrix* of $$\mathbf{L}$$.
 By averaging over the resolvent we can get an expression for the expected spectral density over the ensemble of random matrices denoted by $$\mathbf{L}(\boldsymbol{\theta})$$:
-\begin{equation}
+$$
 \mathbb{E}[{\varrho(z)}] = -\frac{1}{n \pi} \lim \limits_{\eta \to 0^+} \mathrm{Im}{ \mathrm{Tr}{ \mathbb{E}{ (z I - \mathbf{L} )^{-1} } }}
-\end{equation}
+$$
 where the expectation is taken over the ensemble of networks $$\mathbf{L}$$ with parameters $$\boldsymbol{\theta}$$. The quantity $$\mathrm{Tr}{(z I - \mathbf{L} )^{-1}}/n$$  is called the Stieltjes transform.
 Importantly the resolvent is the generating function of the moments $$\mu_k=\mathbb{E}[{\mathrm{Tr}{\mathbf{L}^k}}]$$ of the spectral density:
-\begin{equation}
+$$
 \mathbb{E}\left \lbrack{ (z I - \mathbf{L} )^{-1} }\right \rbrack  = \int dx' \frac{\varrho(x')}{z-x'} = \frac{1}{z}\sum_{k=0}^{\infty} dx' \varrho(x') \left( \frac{x'}{z}^k \right) = \sum_{k=0}^{\infty} \frac{\mu_k}{z^{k+1}}
-\end{equation}
+$$
 where, by normalization of the density $$\mu_0=1$$. In general we can compute the average traces of a random matrix $$\mathbf{X}$$ by means of integrals over their spectral density:
-\begin{equation}\mathbb{E}[{\mathrm{Tr}{[\mathbf{X}^k]}}]= n \int d\lambda \lambda^k \varrho(\lambda | \mathbf{X}).
-\end{equation}
+$$\mathbb{E}[{\mathrm{Tr}{[\mathbf{X}^k]}}]= n \int d\lambda \lambda^k \varrho(\lambda | \mathbf{X}).
+$$
 In the rest of this document, to simplify notation we identify the average spectral density $$\mathbb{E}\lbrack{\varrho}\rbrack$$ simply as $$\varrho$$.
 This also apply in the case of matrix functions, thanks to the series expansion.
 Being the expression for the moments $$\mathbb{E}[\mathrm{Tr}[\mathbf{X}^k]]$$ always valid, thanks to series expansion of some generic matrix function $$f(\mathbf{X})$$ we can extend this result to general functions $$f$$. 
 
 If we choose the often encoutered statistical mechanical quantity $$f(\mathbf{X}):=e^{-\beta \mathbf{X}}$$ we obtain this nice expression for the calculation of the expected partition function of a random graph ensemble in the spectral entropies framework:
-\begin{equation}
+$$
 \mathbb{E}\left \lbrack{\mathrm{Tr}{e^{-\beta \mathbf{L}}}} \right \rbrack = n \int \limits_{0}^{\infty} e^{-\beta z} \varrho(z) dz
-\end{equation}
+$$
 
 We can then compute the average spectral density as:
-\begin{equation}
+$$
 \rho(x) = -\frac{1}{\pi n} \lim \limits_{\epsilon \to 0^+} \mathrm{Im} \left \langle \sum \limits_{i=1}^n \frac{1}{\lambda_i + j\epsilon - x} \right \rangle
-\end{equation}
+$$
 
 If you find this example useful, feel free to contact me.
 
@@ -81,7 +81,7 @@ With the function `LER` we define sample the Laplacian of a network with `n` nod
 
 Here is the Python code to compute the spectral density of a random matrix ensemble via the average resolvent.
 
-{% highlight python %}
+```python
 import numpy as np
 from scipy.linalg import eigvalsh
 import matplotlib.pyplot as plt
@@ -102,11 +102,11 @@ def spectral_density_laplacian_er(n,p,x,reps,eps=1E-1):
     def average_resolvent_trace(x):
         return np.mean([resolvent_trace(x, eigvalsh(LER(n,p)) ) for r in range(0,reps)])
     return [-1/(np.pi*n)*np.imag(average_resolvent_trace(z)) for z in x]
-{% endhighlight %}
+```
 
 Let us put our theory at work and generate the spectral density with a chosen level of detail:
 
-{% highlight python %}
+```python
 n=200
 p=0.25
 x=np.linspace(0,50,100)
@@ -118,7 +118,7 @@ plt.xlabel('$$\\lambda$$')
 plt.ylabel('$$\\varrho(\\lambda)$$')
 plt.title('Spectral density Erdos-Renyi Laplacian N=200 p=0.25')
 plt.show()
-{% endhighlight %}
+```
 
 <figure>
 <img src="/static/postfigures/density_histogram.png" alt="Density histogram">

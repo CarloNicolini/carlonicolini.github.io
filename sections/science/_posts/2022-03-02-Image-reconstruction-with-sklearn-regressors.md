@@ -6,9 +6,9 @@ date: 2022-03-02
 published: false
 categories:
   - science
-  - statistical-learning
+  - machine-learning
 ---
-A grayscale image is just a function $$f(x, y)$$ on a discrete grid: at each pixel coordinate you read an intensity. If you hide most of the pixels and keep only a small random subset, can you **fill the grid back in**? Framed that way, the task is plain **supervised regression**: train a model on pairs $(x, y) \mapsto \text{intensity}$, then predict intensity at every lattice point.
+A grayscale image is just a function $$f(x, y)$$ on a discrete grid: at each pixel coordinate you read an intensity. If you hide most of the pixels and keep only a small random subset, can you **fill the grid back in**? Framed that way, the task is plain **supervised regression**: train a model on pairs $$(x, y) \mapsto \text{intensity}$$, then predict intensity at every lattice point.
 
 This note follows the neat experiment by [Alex Rogozhnikov](https://arogozhnikov.github.io/2016/02/09/DrawingPictureWithML.html), implemented with scikit-learn regressors. The results are surprisingly good for such a simple pipeline.
 

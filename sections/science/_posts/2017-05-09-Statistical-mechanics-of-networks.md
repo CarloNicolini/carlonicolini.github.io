@@ -64,9 +64,9 @@ If we just know the average number of edges that a network should have (not a sp
 It is possible to evaluate this in an ensemble of simple undirected graphs.
 If the adjacency matrix $$A_{ij}$$ is one when one link is present and zero otherwise, then the number of edges in the graph $$m = \sum \limits_{i < j } A_{ij} $$ and the partition function $$ Z $$ can be written as:
 
-\begin{align}
+$$
 Z = \sum_G \exp{-H(G)} =& \sum \limits_{\{A_{ij}\}} \exp \left( {- \theta \sum \limits_{i < j} A_{ij}} \right ) \\ =& \prod \limits_{i< j} \sum \limits_{ A_{ij} =0 }^1 \exp \left({ \theta A_{ij} }\right) = \prod \limits_{i< j} \left( 1 + \exp({-\theta}) \right) = (1+ \exp(-\theta))^{\binom{n}{2}}
-\end{align}
+$$
 
 
 Starting from the partition function, one can define the free energy $$F = -\log(Z)$$

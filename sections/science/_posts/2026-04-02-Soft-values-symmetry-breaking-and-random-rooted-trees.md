@@ -6,7 +6,7 @@ date: 2026-04-02
 published: false
 categories:
   - science
-  - language-physics
+  - deep-learning
 ---
 
 ## A missing local law
@@ -30,7 +30,7 @@ This note outlines a useful theoretical template rather than a formal theorem.
 
 ## The global object
 
-Consider a deployment setup $\mathcal{D}$$, an input prompt $$x$$, a complete execution trace $$\tau$$, and a trace prefix $$s$.
+Consider a deployment setup $$\mathcal{D}$$, an input prompt $$x$$, a complete execution trace $$\tau$$, and a trace prefix $$s$$.
 The PLP target distribution is:
 
 $$
@@ -66,8 +66,8 @@ Given a prefix $$s$$, assume the scaffold can perform two types of local moves:
 - **Direct-answer:** A family $$\mathcal{Y}(s)$$ of terminal answers $$y$$.
 - **Decomposition:** A family $$\mathfrak{D}(s)$$ of admissible decompositions $$D=(s_1,\ldots,s_k)$$.
 
-A decomposition $D$ is a tuple of child prefixes.
-Selecting $D$ transforms the current node into an internal node with $$k=|D|$$ children.
+A decomposition $$D$$ is a tuple of child prefixes.
+Selecting $$D$$ transforms the current node into an internal node with $$k=|D|$$ children.
 
 Let $$q_{\mathrm{ans}}(y \mid s)$$ denote the local proposal weight for answering directly with $$y$$, and let $$w_{\mathrm{ans}}(y,s)\ge 0$$ denote the verifier weight attached to that answer.
 We define the direct-answer partition $$Z_{\mathrm{ans}}(s)$$ and its corresponding value $$V_{\mathrm{ans}}(s)$$:
@@ -86,9 +86,9 @@ Next, let $$q_{\mathrm{dec}}(D \mid s)$$ represent the proposal weight for a dec
 We introduce a local tax $$\Lambda(s,D)\ge 0$$ for decomposition.
 This tax absorbs costs not reflected in the child values, such as compute cost, decomposition invalidity, or composition fragility.
 
-Assuming the child subtrees are conditionally independent given $D$, we approximate the decomposition partition $$Z_{\mathrm{dec}}(s)$$ as:
+Assuming the child subtrees are conditionally independent given $$D$$, we approximate the decomposition partition $$Z_{\mathrm{dec}}(s)$$ as:
 
-\begin{equation}
+$$
 Z_{\mathrm{dec}}(s)
 :=
 \sum_{D\in \mathfrak{D}(s)}
@@ -97,7 +97,7 @@ q_{\mathrm{dec}}(D \mid s)\,
 \prod_{i=1}^{|D|} \exp \left(V(s_i)\right).
 \label{eq:dec_partition}
 \tag{1}
-\end{equation}
+$$
 
 Equivalently, we can write:
 
@@ -130,7 +130,7 @@ $$
 \mathbb{P}(M=\mathrm{ans}\mid s) \approx \frac{Z_{\mathrm{ans}}(s)}{Z_{\mathrm{ans}}(s)+Z_{\mathrm{dec}}(s)} = \exp \left(V_{\mathrm{ans}}(s)-V(s)\right).
 $$
 
-For a specific decomposition $D$, the probability is:
+For a specific decomposition $$D$$, the probability is:
 
 $$
 \mathbb{P}(M=\mathrm{dec},D \mid s) \approx \frac{q_{\mathrm{dec}}(D \mid s)\, \exp \left(\sum_{i=1}^{|D|}V(s_i)-\Lambda(s,D)\right)}{ \exp \left(V(s)\right)}.
@@ -196,7 +196,7 @@ where $$\alpha$$ indexes competing deterministic strategies, and $$S_{\alpha}(\x
 Symmetry breaks precisely when one strategy dominates the mixture.
 
 Equation \eqref{eq:local-dec-law} predicts identical behavior for scaffold trees.
-If several decomposition tuples $D$ yield similar scores,
+If several decomposition tuples $$D$$ yield similar scores,
 
 $$
 \sum_{i=1}^{|D|}V(s_i)-\Lambda(s,D),

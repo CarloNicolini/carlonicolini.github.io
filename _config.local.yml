@@ -25,6 +25,7 @@ plugins:
   - jekyll-include-cache
   - jekyll-relative-links
   - jekyll-scholar
+  - jekyll/footnotes
 
 exclude:
   - Gemfile
@@ -32,6 +33,8 @@ exclude:
   - .gstack/
   - '_site'
   - scripts
+  - CLAUDE.md
+  - DESIGN.md
 
 defaults:
   - scope:

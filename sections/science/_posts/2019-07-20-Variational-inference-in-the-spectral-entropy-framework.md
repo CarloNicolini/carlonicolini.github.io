@@ -13,7 +13,7 @@ categories:
 
 The ideas collected in the previous sections are collected in this code, which has then been developed in the package **networkqit**.
 
-{% highlight python %}
+```python
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -112,7 +112,7 @@ with tf.Session() as sess:
             all_steps += 1
             # Logging
             print('\rDone:%.1f%% \tStep:%d\tbeta: %.2g\tLoss: %.2g\tDeltaM: %.2g\tDensity: %.2f\tlearning_rate:%.2g' % (100*all_steps/(len(beta_range)*nepochs),epoch,res[0],res[1],res[2],res[3],res[4]), end='')
-            
+
     # Plotting part
     fig,ax = plt.subplots(ncols=2,nrows=1,figsize=(24,8))
     for i,b in enumerate(beta_range):
@@ -123,5 +123,4 @@ with tf.Session() as sess:
         ax[1].plot(np.linspace(i*nepochs,(i+1)*nepochs,nepochs),all_deltaM[i*nepochs:(i+1)*nepochs])
     ax[1].set_title('$$\\Delta m$$')
     ax[1].set_xlabel('Iteration')
-    
-{% endhighlight %}
+```

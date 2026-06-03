@@ -9,7 +9,7 @@ published: true
 ---
 This is a fast way to yield a subset of rows from multiple Pandas dataframes or Series, when one needs to work on a sliding window basis over a predefined minimum and maximum number of rows. This approach is among the fastest available and is based on the `.iloc` accessor of both series and dataframes.
 
-{%highlight scala %}
+```scala
 def rolling_expanding_window(seq, n_min, n_max):
     """
     Emits the elements over a rolling or expanding window of an iterable sequence
@@ -63,4 +63,4 @@ def sliding_dataframes(*arrays, n_min=0, n_max=None):
                 (a.iloc[index] if a is not None else None,) for a in arrays
             )
         )
-{%endhighlight%}
+```

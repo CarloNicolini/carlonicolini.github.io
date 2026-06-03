@@ -7,7 +7,7 @@ use_math: true
 date: 2019-06-12
 categories:
   - science
-  - language-physics
+  - deep-learning
 ---
 Reading the paper by Max Tegmark ["Why does deep and cheap learning work so well"](https://arxiv.org/pdf/1608.08225.pdf) is illuminating.
 
@@ -27,11 +27,11 @@ We prove various *no-flattening theorems* showing when efficient linear deep net
 
 | Physics                   | ML                                |
 |:--------------------------|----------------------------------:|
-| Hamiltonian $H$           | Surprisal $$-\log p$$               |
-| Simple $H$                | Cheap learning                    |
-| Quadratic $H$             | Gaussian $$p$$                      |
+| Hamiltonian $$H$$           | Surprisal $$-\log p$$               |
+| Simple $$H$$                | Cheap learning                    |
+| Quadratic $$H$$             | Gaussian $$p$$                      |
 | Locality                  | Sparsity                          |
-| Translation symmetric $H$ | Convolutional netw.               |
+| Translation symmetric $$H$$ | Convolutional netw.               |
 | Spin                      | Bit                               |
 | Free energy difference    | KL-divergence                     |
 | Effective theory          | Nearly lossles data distillation  |
@@ -46,7 +46,7 @@ And we continue with the link between statistical physics and Bayesian theory, h
 | Physical perspective                                                        | Statistical perspective                                                                                |
 |:----------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------:|
 | Potential $$\phi(\theta)$$                                                    | Negative log-joint $$\phi( \theta ) = - \log p(y, \theta \| m)$$                                         |
-| Boltzmann distribution $q(\theta)=\frac{1}{Z} \exp{-\beta \phi(\theta)}$$    | Posterior distribution. $$q(\theta)=\frac{1}{Z}\exp{-\log p(y,\theta \|m)}=\frac{1}{Z} p(y,\theta\|m)$  |
-| Partition function $Z=\int \exp{-\beta \phi(\theta)}$$                       | Model evidence $$Z=\int p(y,\theta \| m)$                                                               | 
+| Boltzmann distribution $$q(\theta)=\frac{1}{Z} \exp{-\beta \phi(\theta)}$$    | Posterior distribution. $$q(\theta)=\frac{1}{Z}\exp{-\log p(y,\theta \|m)}=\frac{1}{Z} p(y,\theta\|m)$$  |
+| Partition function $$Z=\int \exp{-\beta \phi(\theta)}$$                       | Model evidence $$Z=\int p(y,\theta \| m)$$                                                               | 
 | Internal energy $$U=\int q(\theta) \phi(\theta) d\theta$$                     | Expected log-joint $$U=\int p(\theta \| y,m) \log p(y,\theta \|m) d\theta$$                              |
 | Entropy $$S=-\int q(\theta) \log q(\theta) d\theta $$                         | Shannon Entropy $$S_{shannon} = -\int q(\theta) \log q(theta) d\theta$$                                  |

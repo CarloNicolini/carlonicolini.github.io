@@ -12,14 +12,14 @@ For those who struggle with frequent freezes of Unity, this is a short guide on 
 1. Open a terminal window (from Launcher or `CTRL+ALT+T`)
 2. Type the following
 
-	{% highlight sh linenos %}
-    sudo apt-get install dconf-tools
-    {% endhighlight %}
+```bash
+sudo apt-get install dconf-tools
+```
 
 3. Reset unity:
 
-	{% highlight sh linenos %}
-    dconf reset -f /org/compiz
-    setsid unity
-    unity --reset-icons
-    {% endhighlight %}
+```bash
+dconf reset -f /org/compiz
+setsid unity
+unity --reset-icons
+```

@@ -34,7 +34,7 @@ Then after you’ve installed cygwin, start it with administrator privileges and
 
 You will be prompted with a series of questions:
 
-	{% highlight sh %}
+```bash
     carlo@carlo-PC ~
 	$ ssh-host-config
 
@@ -96,15 +96,15 @@ You will be prompted with a series of questions:
 	*** Info: `cygrunsrv -S sshd'.  Otherwise, it will start automatically
 	*** Info: after the next reboot.
 	*** Info: Host configuration finished. Have fun!
-	{% endhighlight %}
+```
 
 Then start the sshd service:
 	
-	{% highlight sh %}
+```bash
 	$ net start sshd
 	The CYGWIN sshd service is starting.
 	The CYGWIN sshd service was started successfully.
-	{% endhighlight %}
+```
 
 If everything worked as you expected, you can try to login to yourself
 

@@ -6,7 +6,7 @@ date: 2026-04-05
 published: false
 categories:
   - science
-  - language-physics
+  - deep-learning
 ---
 
 ## Latent traces, not narrated ODEs
@@ -19,7 +19,7 @@ The question I want to push one step further is what happens when the number of 
 
 ## From Jaynes to Bellman
 
-Fix a prompt sequence $\mathbf{x}$$ and let $$\mathbf{u}$$ denote a complete continuation ending in `EOS`. Let $$p_0(\mathbf{u}\mid \mathbf{x})$$ be a reference autoregressive model and let $$R(\mathbf{x},\mathbf{u})$ be a verifier reward or sequence score. The usual Jaynesian, KL-regularized target is
+Fix a prompt sequence $$\mathbf{x}$$ and let $$\mathbf{u}$$ denote a complete continuation ending in `EOS`. Let $$p_0(\mathbf{u}\mid \mathbf{x})$$ be a reference autoregressive model and let $$R(\mathbf{x},\mathbf{u})$$ be a verifier reward or sequence score. The usual Jaynesian, KL-regularized target is
 
 $$
 p_{\alpha}(\mathbf{u}\mid \mathbf{x})
@@ -56,7 +56,7 @@ p_{\alpha}(\mathbf{u}\mid \mathbf{x})
 {\sum_{\mathbf{u}'} \exp\!\left(S(\mathbf{x},\mathbf{u}')/\alpha\right)}.
 $$
 
-Blondel et al. show that when this score decomposes along the emitted sequence, the local autoregressive logits obey a soft Bellman recursion. If $s_t := \mathbf{x} \oplus \mathbf{u}_{<t}$ is the current prefix and
+Blondel et al. show that when this score decomposes along the emitted sequence, the local autoregressive logits obey a soft Bellman recursion. If $$s_t := \mathbf{x} \oplus \mathbf{u}_{<t}$$ is the current prefix and
 
 $$
 S(\mathbf{x},\mathbf{u}) = \sum_{t=1}^{|\mathbf{u}|} r_{\mathrm{tot}}(s_t,u_t),
@@ -98,7 +98,7 @@ $$
 \mathbf{y}=(y_1,\dots,y_M).
 $$
 
-The key point is that $\mathbf{z}$ is ordered. Chain-of-thought is not an unordered hidden state. It is a sequential latent process.
+The key point is that $$\mathbf{z}$$ is ordered. Chain-of-thought is not an unordered hidden state. It is a sequential latent process.
 
 Under this factorization, the relevant answer law is the marginal
 
@@ -117,17 +117,17 @@ Self-consistency fits naturally into the same picture. It does not prove that an
 
 At this point one caveat becomes essential. A textual chain-of-thought is not guaranteed to be a faithful transcript of the model's internal computation. Lanham et al. showed that the faithfulness of chain-of-thought varies substantially across tasks and models, and Arcuschin et al. showed that unfaithful chain-of-thought also appears in more realistic settings {% cite lanham2023faithfulness arcuschin2025wildfaithful %}.
 
-This matters for the present note because it changes how $\mathbf{z}$ should be interpreted. The safest reading is not "the words the model prints are the real microscopic mechanism." The safer reading is "the model is using some latent reasoning state, and a printed chain is only one possible externalization of that state."
+This matters for the present note because it changes how $$\mathbf{z}$$ should be interpreted. The safest reading is not "the words the model prints are the real microscopic mechanism." The safer reading is "the model is using some latent reasoning state, and a printed chain is only one possible externalization of that state."
 
 Quiet-STaR pushes in exactly that direction. It introduces hidden or partially hidden thought tokens that help prediction without requiring the entire reasoning process to be exposed as ordinary output text {% cite zelikman2024quietstar %}. For my purposes this is useful evidence. It suggests that variable reasoning length is more naturally understood as a latent-compute quantity than as a purely verbal one.
 
-So from here on, $\mathbf{z}$ should be read as a latent reasoning trace first. In some settings it may be verbalized. In others it may remain partially or entirely hidden.
+So from here on, $$\mathbf{z}$$ should be read as a latent reasoning trace first. In some settings it may be verbalized. In others it may remain partially or entirely hidden.
 
 ## Grand-canonical extension
 
 Here the note leaves established literature and becomes conjectural.
 
-If the reasoning trace has variable length $N$, then the natural extension is to assign a chemical potential $$\mu$$ to each latent reasoning token and define the fugacity
+If the reasoning trace has variable length $$N$$, then the natural extension is to assign a chemical potential $$\mu$$ to each latent reasoning token and define the fugacity
 
 $$
 \zeta := \exp(-\mu/\alpha).
@@ -182,7 +182,7 @@ $$
 
 In this sense, fugacity is not reasoning effort itself. It is the control parameter that governs expected reasoning effort.
 
-Second, if I compare the variable-length family with the zero-shot slice $$N=0$$, then for any fixed answer $\mathbf{y}$,
+Second, if I compare the variable-length family with the zero-shot slice $$N=0$$, then for any fixed answer $$\mathbf{y}$$,
 
 $$
 \Xi_{\alpha,\mu}^{(0)}(\mathbf{y}\mid \mathbf{x})
@@ -241,7 +241,7 @@ Within this picture, a prompt such as "think step by step" should not be treated
 
 But that last step is an interpretation, not an identification theorem. The prompt does not literally reveal a physical reservoir parameter. It changes the deployed conditional distribution, and the grand-canonical language is a way of describing the resulting shift in an effective landscape.
 
-The same caution applies to convergence. The grand sum over $N$ is only meaningful if it is finite. In the present language, runaway looping corresponds to a regime in which longer and longer traces keep receiving enough net weight that the effective Landau free energy is no longer well defined. That is a useful implication of the model, but it also shows that the model needs an explicit stability assumption.
+The same caution applies to convergence. The grand sum over $$N$$ is only meaningful if it is finite. In the present language, runaway looping corresponds to a regime in which longer and longer traces keep receiving enough net weight that the effective Landau free energy is no longer well defined. That is a useful implication of the model, but it also shows that the model needs an explicit stability assumption.
 
 ## what this conjecture buys us
 

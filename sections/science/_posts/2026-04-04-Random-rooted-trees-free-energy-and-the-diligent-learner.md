@@ -6,7 +6,7 @@ date: 2026-04-04
 published: false
 categories:
   - science
-  - language-physics
+  - deep-learning
 ---
 
 ## Why these two theories should meet
@@ -23,7 +23,7 @@ These results do not show that real systems already estimate the relevant values
 
 I will work inside the PLP viewpoint introduced in [Probabilistic Language Programming]({% link sections/science/_posts/2026-03-01-Probabilistic-Language-Programming.md %}) and expanded in [Scaffolding is all you need]({% link sections/science/_posts/2026-03-02-Scaffolding-is-all-you-need.md %}), [PLP is inference-time approximation of free energy]({% link sections/science/_posts/2026-03-31-PLP-is-inference-time-approximation-of-free-energy.md %}), and [Soft values, symmetry breaking, and random rooted trees]({% link sections/science/_posts/2026-04-02-Soft-values-symmetry-breaking-and-random-rooted-trees.md %}).
 
-Let $$x$$ denote the root task, $$\tau$$ a complete execution trace, and $$s$$ a trace prefix. A deployed scaffold $\mathcal{D}$$ induces a proposal law $$\pi_{\mathcal{D}}(\tau \mid s)$$ over completions extending $$s$$. Let $$\Phi(\tau, x) \ge 0$$ be a verifier potential. For inverse temperature $$\beta > 0$, define the tempered continuation partition
+Let $$x$$ denote the root task, $$\tau$$ a complete execution trace, and $$s$$ a trace prefix. A deployed scaffold $$\mathcal{D}$$ induces a proposal law $$\pi_{\mathcal{D}}(\tau \mid s)$$ over completions extending $$s$$. Let $$\Phi(\tau, x) \ge 0$$ be a verifier potential. For inverse temperature $$\beta > 0$$, define the tempered continuation partition
 
 $$
 Z_\beta(s)
@@ -51,11 +51,11 @@ Maximizing $$V_\beta$$ is therefore the same as minimizing continuation free ene
 
 To keep the runtime finite, assume the scaffold has a depth or budget cap. Then each run produces a finite random rooted tree $$T_\beta(x)$$. Every internal node corresponds to a prefix $$s$$. At that node the scaffold may do one of three things. It may answer directly, it may abstain and gather extra information before deciding, or it may decompose the task into child prefixes.
 
-Let $$\mathcal{Y}(s)$$ be the set of terminal answer actions, $$\mathcal{W}(s)$$ the set of abstention or probing actions, and $$\mathfrak{D}(s)$$ the set of admissible decompositions. Let $q_{\mathrm{ans}}$$, $$q_{\mathrm{abs}}$$, and $$q_{\mathrm{dec}}$ be the proposal kernels over these action classes.
+Let $$\mathcal{Y}(s)$$ be the set of terminal answer actions, $$\mathcal{W}(s)$$ the set of abstention or probing actions, and $$\mathfrak{D}(s)$$ the set of admissible decompositions. Let $$q_{\mathrm{ans}}$$, $$q_{\mathrm{abs}}$$, and $$q_{\mathrm{dec}}$$ be the proposal kernels over these action classes.
 
 For a direct answer $$y \in \mathcal{Y}(s)$$, let $$r(y,s)$$ denote its terminal reward or log-potential contribution. For a probing action $$w \in \mathcal{W}(s)$$, let $$p(o \mid s,w)$$ be the distribution of revealed observations and let $$\lambda_{\mathrm{abs}}(s,w) \ge 0$$ be its tax. For a decomposition $$D=(s_1,\dots,s_k)\in\mathfrak{D}(s)$$, let $$\lambda_{\mathrm{dec}}(s,D) \ge 0$$ be its decomposition tax. This tax summarizes compute, latency, interface mismatch, dependence between children, and composition fragility.
 
-Under the usual conditional-independence approximation between child subtrees given $D$, the three local partition terms are
+Under the usual conditional-independence approximation between child subtrees given $$D$$, the three local partition terms are
 
 $$
 Z_{\beta}^{\mathrm{ans}}(s)
@@ -106,7 +106,7 @@ $$
 
 The first result is immediate once the partition is written in this way, but it is the structural statement on which the rest of the post depends.
 
-**Proposition 1.** The local control policy over the three modes $m \in \{\mathrm{ans},\mathrm{abs},\mathrm{dec}\}$ is
+**Proposition 1.** The local control policy over the three modes $$m \in \{\mathrm{ans},\mathrm{abs},\mathrm{dec}\}$$ is
 
 $$
 \pi_\beta(m\mid s)
@@ -116,7 +116,7 @@ $$
 \exp\!\Bigl(\beta\bigl(V_\beta^{m}(s)-V_\beta(s)\bigr)\Bigr),
 $$
 
-where $$V_\beta^{m}(s):=\beta^{-1}\log Z_\beta^{m}(s)$$. Conditioned on choosing decomposition, the law of a particular skeleton $D$ is
+where $$V_\beta^{m}(s):=\beta^{-1}\log Z_\beta^{m}(s)$$. Conditioned on choosing decomposition, the law of a particular skeleton $$D$$ is
 
 $$
 \pi_\beta(D\mid s,\mathrm{dec})
@@ -182,13 +182,13 @@ The bridge between the two theories is now explicit. In the Diligent Learner lan
 
 The theorem also gives an immediate sampling consequence.
 
-**Corollary 2.1.** If the scaffold can draw $B$ conditionally independent proposals from the same prefix $$s$$, the probability of seeing at least one good extension is
+**Corollary 2.1.** If the scaffold can draw $$B$$ conditionally independent proposals from the same prefix $$s$$, the probability of seeing at least one good extension is
 
 $$
 1-(1-\gamma_\beta(s))^B.
 $$
 
-If $$\gamma_\beta(s)\ge \underline{\gamma}>0$$ along a depth-$T$ correct trajectory and the proposal batches are conditionally independent across depths, then
+If $$\gamma_\beta(s)\ge \underline{\gamma}>0$$ along a depth-$$T$$ correct trajectory and the proposal batches are conditionally independent across depths, then
 
 $$
 \mathbb{P}(\text{reach depth }T)
@@ -196,7 +196,7 @@ $$
 \prod_{t=0}^{T-1}\Bigl(1-(1-\underline{\gamma})^{B_t}\Bigr).
 $$
 
-*Proof.* The first statement is the complement of failing $B$ times in a row. The second multiplies these lower bounds along the depth-indexed path. $$\square$$
+*Proof.* The first statement is the complement of failing $$B$$ times in a row. The second multiplies these lower bounds along the depth-indexed path. $$\square$$
 
 This corollary is weaker than the full search analysis in the Diligent Learner papers {% cite shalevshwartz2025reasoning koplow2026toolbuilding %}. It also relies on an idealized conditional-independence assumption. Even so, it makes the core mechanism transparent. Global success depends on keeping a positive free-energy gap between good and bad basins. Search only exposes that mass; it does not create it.
 
@@ -204,7 +204,7 @@ This corollary is weaker than the full search analysis in the Diligent Learner p
 
 The previous section handled the answer-versus-search split. The next step is to understand abstention. This is where Kappen's symmetry-breaking picture becomes directly useful {% cite kappen2005path %}.
 
-Suppose the node is not yet ready to commit because several continuation basins remain viable. If the scaffold abstains, it gathers one more piece of information and only then commits. Let the resulting post-reveal branch scores be $$U_1,\dots,U_m$$. I absorb any local observation probabilities or proposal weights into these scores so that each $$U_i$$ is already a full continuation value. Let the abstention tax be $\lambda_{\mathrm{abs}}$.
+Suppose the node is not yet ready to commit because several continuation basins remain viable. If the scaffold abstains, it gathers one more piece of information and only then commits. Let the resulting post-reveal branch scores be $$U_1,\dots,U_m$$. I absorb any local observation probabilities or proposal weights into these scores so that each $$U_i$$ is already a full continuation value. Let the abstention tax be $$\lambda_{\mathrm{abs}}$$.
 
 **Theorem 3.** The abstention branch has value
 
@@ -244,7 +244,7 @@ V_\beta^{\mathrm{abs}}=U-\lambda_{\mathrm{abs}}+\frac{1}{\beta}\log m,
 \Delta_{\mathrm{abs}}=-\lambda_{\mathrm{abs}}+\frac{1}{\beta}\log m.
 $$
 
-*Proof.* Insert the $$m$$ abstention continuations into the local partition and take $$\beta^{-1}\log$$. The comparison with immediate commitment is obtained by subtracting $U_{\max}$$. $$\square$
+*Proof.* Insert the $$m$$ abstention continuations into the local partition and take $$\beta^{-1}\log$$. The comparison with immediate commitment is obtained by subtracting $$U_{\max}$$. $$\square$$
 
 This result makes the value of delayed commitment precise. The term $$\beta^{-1}\log m$$ is an entropic symmetry bonus. It measures the value of keeping $$m$$ live basins available for one more step. In Kappen's language, delayed choice appears when several continuations remain competitive {% cite kappen2005path %}. In scaffolded inference the same effect appears as a local free-energy bonus for not collapsing the tree too early.
 
@@ -261,7 +261,7 @@ $$
 \qquad c(s,D)\ge 0,
 $$
 
-where $$\lambda$$ is a global trade-off parameter and $$c(s,D)$$ is the structural cost of skeleton $D$. Then
+where $$\lambda$$ is a global trade-off parameter and $$c(s,D)$$ is the structural cost of skeleton $$D$$. Then
 
 $$
 V_{\beta}^{\mathrm{dec}}(s;\lambda)
@@ -315,7 +315,7 @@ $$
 V_{\beta}^{\mathrm{dec}}(s;0)-V_{\beta}^{\mathrm{ans}}(s),
 $$
 
-and similarly against abstention by replacing $V_{\beta}^{\mathrm{ans}}$$ with $$V_{\beta}^{\mathrm{abs}}$. This is the discrete control-theoretic version of a symmetry-breaking transition. As the tax rises, the random rooted tree contracts from an expansive search object toward a leaf-like direct-answer regime.
+and similarly against abstention by replacing $$V_{\beta}^{\mathrm{ans}}$$ with $$V_{\beta}^{\mathrm{abs}}$$. This is the discrete control-theoretic version of a symmetry-breaking transition. As the tax rises, the random rooted tree contracts from an expansive search object toward a leaf-like direct-answer regime.
 
 ## A small arithmetic probe
 
@@ -398,7 +398,7 @@ The search-theoretic claim behind the Diligent Learner program is that long-hori
 
 The central object is not $$\gamma$$ alone. It is the local partition over answer, abstention, and decomposition, together with the decomposition and probing taxes that shape that partition. The Diligent Learner parameter $$\gamma$$ is the projection of this richer object onto a single binary question: how much mass reaches the good next-step basin? That projection is useful, but the underlying geometry matters. A system can lose $$\gamma$$ because the good basin itself is weak, because decomposition is too expensive, because abstention is unavailable when symmetry is high, or because the interface to tools is too noisy to deliver its bonus.
 
-This point changes how tool building should be interpreted. In a PLP scaffold, a tool is not just an API call. It is a runtime transformation that changes the local control law. A calculator, theorem prover, interpreter, or search engine can reduce execution uncertainty, shrink composition error, and convert a vague internal reasoning burden into an externally verifiable step. In the notation above, that means lowering $\lambda_{\mathrm{dec}}$$, raising the good-basin value $$V_\beta^{G}$, or both.
+This point changes how tool building should be interpreted. In a PLP scaffold, a tool is not just an API call. It is a runtime transformation that changes the local control law. A calculator, theorem prover, interpreter, or search engine can reduce execution uncertainty, shrink composition error, and convert a vague internal reasoning burden into an externally verifiable step. In the notation above, that means lowering $$\lambda_{\mathrm{dec}}$$, raising the good-basin value $$V_\beta^{G}$$, or both.
 
 Under this reading, "superintelligence through tool building" becomes a concrete claim about local geometry rather than a slogan. The claim is that tool use can help preserve a positive good-basin free-energy gap as depth increases. If tools add latency without changing that gap, they do not help. If they reduce the effective tax or raise the good-basin value enough to slow or stop the collapse of $$\gamma$$, they extend the horizon over which search remains effective.
 
@@ -406,7 +406,7 @@ The random rooted tree viewpoint adds one more nuance. Not all extra branching i
 
 ## Scope and limitations
 
-The results above are algebraic statements inside a stylized model. They do not by themselves establish that deployed LLM systems estimate $$V_\beta$$, $\lambda_{\mathrm{abs}}$$, or $$\lambda_{\mathrm{dec}}$ accurately. They also do not show that real tools provide a uniform additive bonus on the good basin while leaving the bad basin unchanged. Theorem 5 should therefore be read as a mechanism result, not as a full empirical model of tool use.
+The results above are algebraic statements inside a stylized model. They do not by themselves establish that deployed LLM systems estimate $$V_\beta$$, $$\lambda_{\mathrm{abs}}$$, or $$\lambda_{\mathrm{dec}}$$ accurately. They also do not show that real tools provide a uniform additive bonus on the good basin while leaving the bad basin unchanged. Theorem 5 should therefore be read as a mechanism result, not as a full empirical model of tool use.
 
 Several assumptions are strong. The decomposition branch uses a conditional-independence approximation between child subtrees. Corollary 2.1 assumes conditionally independent batches across depths. The abstention result absorbs observation probabilities into post-reveal branch values. Those assumptions are useful because they isolate the control logic cleanly, but they may fail in real scaffolded systems. In practice, hidden dependence between branches, miscalibrated verifiers, and poor estimates of continuation values can all weaken the predicted gains.
 

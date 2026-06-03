@@ -1,10 +1,12 @@
 ---
+layout: post
 title: Augmentation of documents for neural networks training
 description: 'Augmentation of documents for neural networks training.'
-published: true
 date: 2023-01-14
-layout: post
+published: true
+categories: tech
 ---
+
 ## Why augmentation of documents
 
 In training deep learning models it is often useful to perform data augmentation.

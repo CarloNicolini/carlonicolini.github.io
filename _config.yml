@@ -13,6 +13,8 @@ collections:
 
 exclude:
   - scripts
+  - CLAUDE.md
+  - DESIGN.md
 
 # Build settings
 markdown: kramdown
@@ -32,6 +34,7 @@ plugins:
   - jekyll-include-cache
   - jekyll-relative-links
   - jekyll-scholar
+  - jekyll/footnotes
 
 # Open Graph / Twitter: default card when a post has an image (see defaults below).
 twitter:

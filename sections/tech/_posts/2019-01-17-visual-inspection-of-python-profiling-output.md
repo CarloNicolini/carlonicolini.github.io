@@ -12,7 +12,7 @@ The solution is simple.
 
 Wrap the part of code you want to inspect (here a bogus function with name `my_super_slow_function()`) with the following call:
 
-{% highlight python %}
+```python
 def my_super_slow_function():
     return 1
 
@@ -24,26 +24,26 @@ my_super_slow_function()
 
 pr.disable()
 pr.dump_stats(file='profile.pstat')
-{% endhighlight %}
+```
 
 Then run your Python code as always. This result in a `"profile.stat"` file that you can analyze using graphviz and the wonderful tool `gprof2dot`.
 First install graphviz (on Ubuntu a simple thing):
 
-{% highlight bash %}
+```bash
 sudo apt-get install graphviz
-{% endhighlight %}
+```
 
 then install `gprof2dot` from the PyPi repositories:
 
-{% highlight bash %}
+```bash
 sudo pip3 install gprof2dot
-{% endhighlight %}
+```
 
 Finally you can convert the `profile.stat` file into a beatiful call graph.
 
-{% highlight bash %}
+```bash
 gprof2dot -f pstats profile.pstat | dot -Tpdf -o profile.pdf
-{% endhighlight %}
+```
 
 Take a look at the output file. Isn't it great?
 

@@ -9,7 +9,7 @@ published: true
 ---
 Well. Finally got around to making a better ``imagesc`` function in Matlab and Octave. I've named it ``imagesctxt`` and it has the same arguments as ``imagesc``.
 
-{% highlight matlab linenos %}
+```matlab
 function imagesctxt(mat)
 %IMAGESCTXT Scale data and display as image with text of values impressed.
 %   IMAGESCTXT(...) is the same as IMAGESC(...) except the values are
@@ -38,4 +38,4 @@ set(gca,'XTick',1:size(mat,2),...                         % Change the axes tick
         'YTick',1:size(mat,1),...
         'YTickLabel',num2cell(1:size(mat,1)),...
         'TickLength',[0 0]);
-{% endhighlight %}
+```

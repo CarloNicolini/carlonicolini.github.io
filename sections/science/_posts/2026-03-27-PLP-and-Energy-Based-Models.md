@@ -6,7 +6,7 @@ date: 2026-03-27
 published: false
 categories:
   - science
-  - language-physics
+  - deep-learning
 ---
 
 ## The link between autoregressive models, energy based models and probabilistic language programming
@@ -18,7 +18,7 @@ In the current landscape of AI engineering, many scaffolds—Chain-of-Thought, s
 The core argument in **PLP** is that we should stop viewing these workflows anthropomorphically {% cite meyerson2025position %}.
 Persona prompts, plan diversity, or tree search are better understood as probabilistic programs that induce and reweight distributions over execution traces.
 
-In PLP, the LLM supplies an implicit proposal distribution $$\pi_{\mathcal{D}}(\tau)$$ for a fixed deployment $\mathcal{D}$ containing the model, the decoder, the tools, and the rest of the runtime configuration.
+In PLP, the LLM supplies an implicit proposal distribution $$\pi_{\mathcal{D}}(\tau)$$ for a fixed deployment $$\mathcal{D}$$ containing the model, the decoder, the tools, and the rest of the runtime configuration.
 Programmatic verifiers are encoded by potentials $$\Phi(\tau)$$, which assign scores to generated trajectories.
 The goal of a scaffold is then to sample, as well as possible, from the resulting reweighted target distribution:
 
@@ -27,7 +27,7 @@ p_{\mathcal{D}}(\tau) \propto \pi_{\mathcal{D}}(\tau) \Phi(\tau)
 \tag{1}\label{eq:plp_fundamental}
 $$
 
-The above equation is fundamental in PLP and determines the relation between what we can sample from a prompt $X \in \mathcal{X}$$ and what we think a trace means to our final goal, encoded by $$\Phi(\tau)$.
+The above equation is fundamental in PLP and determines the relation between what we can sample from a prompt $$X \in \mathcal{X}$$ and what we think a trace means to our final goal, encoded by $$\Phi(\tau)$$.
 
 At that point I thought I had a neat, self-contained systems theory, admittedly still very embryonic: one equation, a few primitives, and a growing intuition that something deeper was hiding underneath.
 
@@ -56,7 +56,7 @@ But we rarely want the raw proposal.
 We usually apply verifiers, tests, or LLM-as-a-judge scorers to filter or rank these traces.
 These verifier-based potentials are at the core of sampling methods, like *rejection sampling* or weighted majority sampling: all of them are used a lot in probabilistic programming.
 I decided to formalize the verifiers as a nonnegative **potential function** $$\Phi(\tau)$$.
-As in \eqref{eq:plp_fundamental}, the actual goal of any AI compound system is the **semantic target**, namely the reweighted distribution $p_{\mathcal{D}}$:
+As in \eqref{eq:plp_fundamental}, the actual goal of any AI compound system is the **semantic target**, namely the reweighted distribution $$p_{\mathcal{D}}$$:
 
 $$ p_{\mathcal{D}}(\tau) \propto \pi_{\mathcal{D}}(\tau) \, \Phi(\tau) $$
 
@@ -67,7 +67,7 @@ Here $$R(x,y)$$ plays the role of a reward, typically a verifier or scoring func
 They note that the optimal solution to *MaxEnt reinforcement learning* (KL-regularized RL, the basis of RLHF and related alignment methods) takes the form:
 
 $$ p^\star(y|x) = \frac{p_{\text{ref}}(y|x) \exp(R(x, y))}{Z(x)} $$
-where the partition function sums over all possible responses $y' \in \mathcal{Y}$ and is therefore the intractable object that carries the lookahead.
+where the partition function sums over all possible responses $$y' \in \mathcal{Y}$$ and is therefore the intractable object that carries the lookahead.
 
 At that point the dictionary with PLP became impossible to miss.
 The scaffold proposal plays the role of the reference law, the verifier potential contributes the exponential reward term, and the normalized target becomes the corresponding reference-measure energy-based model.
@@ -123,7 +123,7 @@ And, more generally, why not introduce these factors through a temperature sched
 ## Statistical mechanics (again)
 
 In the paper, the soft-value function $$V_q(s_t)$$ is defined as the log-sum-exp over all possible next tokens. For anyone familiar with statistical physics, this expression is immediately recognizable.
-If we view the local scores as negative energies, $$V_q$$ is exactly the negative of the free energy, where the sum of exponentiated scores represents the partition function $Z$.
+If we view the local scores as negative energies, $$V_q$$ is exactly the negative of the free energy, where the sum of exponentiated scores represents the partition function $$Z$$.
 
 > What does the free energy actually represent here, and why does it matter for language models?
 
@@ -152,11 +152,11 @@ During pre-training on trillions of tokens, the objective forces the model to so
 By the time you run a single forward pass at inference time, the final linear layer's logits already cache the model's best guess of the future global energy.
 
 This is where chain-of-thought becomes especially interesting.
-In PLP, I framed it not as anthropomorphic "reasoning" (Lovelace effect {% cite riedl2014lovelace %}), but as the introduction of a latent state $Z$ that factorizes the proposal:
+In PLP, I framed it not as anthropomorphic "reasoning" (Lovelace effect {% cite riedl2014lovelace %}), but as the introduction of a latent state $$Z$$ that factorizes the proposal:
 
-\begin{equation}
+$$
 Z \sim \pi_\theta(\cdot\mid x), \qquad y \sim \pi_\theta(\cdot\mid x, Z)
-\end{equation}
+$$
 
 That interpretation now has explicit precedent in the literature.
 CoT has been formalized as latent-variable inference over rationales {% cite phan2023training %} and, more broadly, as an amortized inference problem over intractable posteriors in language models {% cite hu2024amortizing %}.
@@ -175,16 +175,16 @@ The system is no longer committing to one narrated path; it is trying to margina
 Self-consistency already states this almost verbatim, sampling multiple reasoning paths and selecting the answer by marginalizing them out at the answer level {% cite wang2022self %}.
 More recent methods such as Progressive-Hint Prompting and refined answer distributions can be seen as sequential ways of reshaping that empirical answer law over multiple rounds {% cite zheng2023progressive %} {% cite pal2024refining %}.
 
-Because an autoregressive model factorizes the probability of the output $\mathbf{y}$ token by token,
-\begin{equation}
+Because an autoregressive model factorizes the probability of the output $$\mathbf{y}$$ token by token,
+$$
 p(\mathbf{y} \mid \mathbf{x}) = \prod_{t=1}^{|\mathbf{y}|} \pi(y_t \mid \mathbf{x}, \mathbf{y}_{<t}),
-\end{equation}
+$$
 it is natural to ask whether a better approximation might come from explicitly marginalizing over latent reasoning traces rather than committing to one sampled derivation.
 In the discrete trace setting, that object is better written as a sum over all possible reasoning paths (a path integral basically):
 
-\begin{equation}
+$$
 p(\mathbf{y} \mid \mathbf{x}) = \sum_{\mathbf{z}'} p(\mathbf{y} \mid \mathbf{x}, \mathbf{z}') \, p(\mathbf{z}' \mid \mathbf{x}).
-\end{equation}
+$$
 
 This is much closer to a genuine partition-function calculation, because the relevant object is now a sum over many reasoning paths rather than one verbalized derivation.
 It also makes it easier to see why several basins of high reward may coexist, and why weighting or resampling them can improve the approximation of the continuation partition function.
@@ -214,7 +214,7 @@ We are all trying to solve Likelihood-Free Inference {% cite cranmer2020frontier
 </figcaption>
 </figure>
 
-1. **The alignment perspective (training-time):** Researchers use RLHF, DPO, and process-reward models to push the ARM's proposal $\pi_{\mathcal{D}}$$ as close to the target EBM $$p_{\mathcal{D}}$$ as possible. They want to distill $$V_q$ directly into the weights.
+1. **The alignment perspective (training-time):** Researchers use RLHF, DPO, and process-reward models to push the ARM's proposal $$\pi_{\mathcal{D}}$$ as close to the target EBM $$p_{\mathcal{D}}$$ as possible. They want to distill $$V_q$$ directly into the weights.
 2. **The PLP perspective (inference-time):** Because perfect distillation is impossible for long-horizon, high-variance tasks, we must use algorithms (scaffolds) to bridge the remaining gap. We use structural diversification (personas, decompositions) to fix **coverage failures**, and calibrated judges {% cite lee2025judge %} to fix **selection failures**.
 
 This realization brings immense clarity to AI engineering. You don't need a heavy agentic scaffold if the ARM has already successfully distilled the EBM for a specific task. But when the task is novel, or requires strict, logic-driven global constraints, the soft Bellman fixed point is too hard for the ARM to memorize. That is when you must drop down into Probabilistic Language Programming, instantiating the EBM at runtime through `plate`, `interact`, and `factor` primitives.

@@ -6,7 +6,7 @@ date: 2020-10-19
 published: false
 categories:
   - science
-  - statistical-learning
+  - machine-learning
 ---
 Decision trees recursively split the feature space into axis-aligned regions and fit a simple predictor in each region. The same greedy template covers both **classification** and **regression**; in scikit-learn this family is implemented as `DecisionTreeClassifier` and `DecisionTreeRegressor` (CART-style, binary splits).
 
@@ -26,7 +26,7 @@ Finding a globally optimal partition is computationally hard in general, so prac
 
 ## Choosing a split
 
-Let $\mathcal{D}$$ denote the indices of training points at the current node. For candidate feature $$j$$ and threshold $$t$, define the left and right child subsets
+Let $$\mathcal{D}$$ denote the indices of training points at the current node. For candidate feature $$j$$ and threshold $$t$$, define the left and right child subsets
 
 $$
 \mathcal{D}_L(j,t) = \{ i \in \mathcal{D} : x_{ij} \le t \}, \qquad
@@ -39,11 +39,11 @@ $$
 (j^\star, t^\star) \in \arg\min_{j,t} \Big[ \mathrm{cost}\big(\mathcal{D}_L(j,t)\big) + \mathrm{cost}\big(\mathcal{D}_R(j,t)\big) \Big],
 $$
 
-where $$\mathrm{cost}(\cdot)$$ is an impurity for classification or a squared-error objective for regression. Searches over $$t$$ are usually restricted to midpoints between sorted distinct values of $x_{ij}$$ on $$\mathcal{D}$.
+where $$\mathrm{cost}(\cdot)$$ is an impurity for classification or a squared-error objective for regression. Searches over $$t$$ are usually restricted to midpoints between sorted distinct values of $$x_{ij}$$ on $$\mathcal{D}$$.
 
 ### Regression (least squares)
 
-For a node with labels $\{y_i : i \in \mathcal{D}\}$$ and mean $$\bar{y}_{\mathcal{D}} = \frac{1}{|\mathcal{D}|}\sum_{i \in \mathcal{D}} y_i$, a common node cost is the within-node residual sum of squares:
+For a node with labels $$\{y_i : i \in \mathcal{D}\}$$ and mean $$\bar{y}_{\mathcal{D}} = \frac{1}{|\mathcal{D}|}\sum_{i \in \mathcal{D}} y_i$$, a common node cost is the within-node residual sum of squares:
 
 $$
 \mathrm{cost}(\mathcal{D}) = \sum_{i \in \mathcal{D}} (y_i - \bar{y}_{\mathcal{D}})^2.
@@ -53,7 +53,7 @@ Minimizing the sum of left and right costs after a split is equivalent to maximi
 
 ### Classification (empirical frequencies and impurity)
 
-Let $C$ be the number of classes. Empirical class probabilities at a node are
+Let $$C$$ be the number of classes. Empirical class probabilities at a node are
 
 $$
 \hat{\pi}_c = \frac{1}{|\mathcal{D}|} \sum_{i \in \mathcal{D}} \mathbb{I}(y_i = c), \qquad c = 1,\ldots,C.

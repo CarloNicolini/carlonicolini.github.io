@@ -71,15 +71,15 @@ Link at https://www.seas.upenn.edu/~jadbabai/ESE680/Laplacian_Thesis.pdf
 
 - Eigenvalue spectra of Laplacian matrix of a graph is invariant under vertex permutations. In other words, you can call the vertices with any names, but the graph remain the same. This is also true for the spectrum of the adjacecny matrix of a graph. You can get convinced with this following matlab code:
 
-	{% highlight matlab %}
-    N = 2000; % number of nodes
-    B = 4; % number of blocks
-    N1 = randperm(N); % random permutation of the nodes
-    O = randomModularGraphPinPout(N,B,0.5,0); % generate the graph with intracluster density 0.5, intercluster density 0
-    O1 = O(N1,N1); % permute the nodes randomly
-    % You can see that the spectra of eigenvalues are the same.
-    plot(1:N,eig(graph_laplacian(O)),'r',1:N,eig(graph_laplacian(O1)),'ob');
-    {% endhighlight %}
+```matlab
+N = 2000; % number of nodes
+B = 4; % number of blocks
+N1 = randperm(N); % random permutation of the nodes
+O = randomModularGraphPinPout(N,B,0.5,0); % generate the graph with intracluster density 0.5, intercluster density 0
+O1 = O(N1,N1); % permute the nodes randomly
+% You can see that the spectra of eigenvalues are the same.
+plot(1:N,eig(graph_laplacian(O)),'r',1:N,eig(graph_laplacian(O1)),'ob');
+```
 
 
 - The product of nonzero eigenvalues of $$L$$ is the number of vertices times the number of spanning trees of $$G$$.

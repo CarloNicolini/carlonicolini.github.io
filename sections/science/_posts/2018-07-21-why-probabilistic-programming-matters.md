@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Why probabilistic programming matters
-description: 'Why probabilistic programming matters.'
+description: 'Probabilistic programming as seen from the past (a paper appeared before 2014!)'
 published: true
 use_math: true
 date: 2018-05-21
 categories:
   - science
-  - language-physics
+  - deep-learning
 ---
 
 

@@ -1,11 +1,12 @@
 ---
 layout: post
-title: "The continuous Sheffer stroke is all you need"
+title: The continuous Sheffer stroke is all you need
+description: How we can use the EML operator in machine learning to study probabilistic logical learning
 date: 2026-04-13
-published: true
 categories:
-  - science
-  - statistical-learning
+- science
+- statistical-learning
+published: true
 ---
 
 ## All elementary functions from a single operator

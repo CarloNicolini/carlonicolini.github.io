@@ -10,7 +10,7 @@ published: true
 A code for the absolute orientation problem solved with Umeyama algorithm.
 Explanations, briefly.
 
-{% highlight python linenos %}
+```python
 """
 RALIGN - Rigid alignment of two sets of points in k-dimensional
         Euclidean space.  Given two sets of points in
@@ -77,4 +77,4 @@ B[2,:]=B[2,:]+10
 # Reconstruct the transformation with ralign.ralign
 R, c, t = ralign(A,B)
 print "Rotation matrix=\n",R,"\nScaling coefficient=",c,"\nTranslation vector=",t
-{% endhighlight %}
+```

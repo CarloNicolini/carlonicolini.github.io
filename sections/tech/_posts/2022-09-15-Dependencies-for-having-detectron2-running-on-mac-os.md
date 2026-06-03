@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Dependencies needed for detectron2 on mac os
 description: 'Detectron2 can be installed on MacOs on M1 apple silicon'
 date: 2022-09-15

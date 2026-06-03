@@ -6,7 +6,7 @@ published: true
 date: 2019-11-14
 categories:
   - science
-  - statistical-learning
+  - machine-learning
 ---
 ## Simple ideas can make good numerical algorithms
 
@@ -17,7 +17,7 @@ The paper is explained in detail in the following arxiv paper
 
 Here I provided a very simple and initial numpy implementation of this method, that is able to return the squared norm of the eigenvectors of any hermitian matrix
 
-{% highlight python%}
+```python
 import numpy as np
 def minor(A_,i):
 	"""
@@ -53,11 +53,11 @@ def norm_squared_eig(A : np.array):
             rhs = np.prod([lambdA[i] - lambdaMj[k] for k in range(0,n-1)])
             V2[i,j] = rhs/lhs
     return V2
-{% endhighlight %}
+```
 
 You can test this wonderful computational trick against the result of the eigenvectors from numpy
 
-{% highlight python %}
+```python
 import numpy as np
 
 # Creates an hermitian matrix
@@ -68,7 +68,7 @@ lambdX, Vx = np.linalg.eig(X)
 # Compute the absolute difference of the elements from the 
 # function norm_squared_eig
 np.abs(norm_squared_eig(X) - Vx.T**2).sum()
-{% endhighlight %}
+```
 
 You can check that the result is pretty good, with a nice numerical precision.
 

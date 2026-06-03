@@ -11,33 +11,33 @@ categories:
 I am illustrating some of the ideas that emerged before, during and after the conference.
 How to compute this quantity?
 
-\begin{equation}
+$$
 \mathbb{E}\lbrack S(\rho \| \sigma) \rbrack
-\end{equation}
+$$
 
 where the expectation is taken over the disorder induced by the random nature of the networks obtained from a model with some given parameters $$\theta$$.
 
 By linearity of trace and expectations, and thanks to the fact that for positive definite matrices the matrix logarithm of the matrix exponential is the matrix itself, we can simplify the above equation as:
 
-\begin{equation}
+$$
 \mathbb{E}\lbrack S(\rho \| \sigma) \rbrack = \mathrm{Tr}{\rho \log \rho} + \beta \mathbb{E}\lbrack L \rbrack + \mathbb{E}\lbrack \log Z \rbrack
-\end{equation}
+$$
 
 While computing the expectation over the random realizations of L is simple, computing $$\mathbb{E} \log Z$$ is more difficult.
 This quantity in statistical mechanics is called the quenched free energy (times a -1/beta factor), and can be written as:
 
-\begin{equation}
+$$
 \mathbb{E}[\log Z] = \mathbb{E} \log  \left(\sum_{i=1}^n e^{-\beta \lambda_i} \right)
-\end{equation}
+$$
 
 where $$\lambda_i$$ are the eigenvalues of some specific random realization of the model at parameters $$\theta$$.
 This problem is reminescent of calculations done in the context of the Ising model. 
 
 What I have observed, at least numerically, and also justified by some statistical mechanics texts, is that you can "replace" the quenched average which is very difficult to compute, with the annealed average, for which it is a lower bound. The annealed average consists in moving the expectation over the partition function rather than on the log-partition function.
 
-\begin{equation}
+$$
 \mathbb{E}[\log Z] \geq \log \mathbb{E}[Z]
-\end{equation}
+$$
 
 Moreover in the high temperature limit the two quantities get closer and closer, eventually becoming equal.
 The code showing the relation between these quantities is attached here ("quenched_free_energy.py"). In the script I also checked to what extent the approximation I did in my work is good, and as I supposed it works very well in the N>100 and beta < 1 domain.
@@ -54,14 +54,14 @@ My intuition is confirmed by numerical simulations where, using automatic differ
 A question whose solution is far from being trivial is in estimating the effect of a small perturbation of the parameters $$\theta + \delta\theta$$ on the quenched free energy. 
 What kind of mathematical tools are available to compute the effect of a perturbation of the parameters on the quenched log-partition function
 
-\begin{equation}
+$$
 \lim \limits_{\delta\theta \to  0}\mathbb{E}\lbrack \log Z(\theta +\delta\theta) \rbrack
-\end{equation}
+$$
 
 Take for example the Erdos-Renyi random graph model with the only parameter being the probability of link $$p$$. How can we estimate the variation of 
 $$\mathbb{E}\lbrack \log Z(p +\delta p) \rbrack$$?
 I believe we need to relyi on methods of random matrix theory and eigenvalues perturbation to quantify this effect.
-The problem can be stated as follows: given a random matrix $$L=D-A$$ with eigenvalues $$\lambda_i$$, where $A$ entries are iid Bernoulli random variables with parameter $$p$$, how do the eigenvalues change if I slightly increase the parameter $$p$$ by a small amount $$\delta p$$?
+The problem can be stated as follows: given a random matrix $$L=D-A$$ with eigenvalues $$\lambda_i$$, where $$A$$ entries are iid Bernoulli random variables with parameter $$p$$, how do the eigenvalues change if I slightly increase the parameter $$p$$ by a small amount $$\delta p$$?
 
 Numerical simulations, again with automatic differentiation tools helped me to calculate the effect of this perturbation but an analitical treatment would greatly help. For this reason I believe the Heims perturbation theory can be of help. For references about this, take a look at the book "Probability theory the logic of science" by E. Jaynes, where in the 30th chapter he formally analyzes this kind of problem in great detail.
 

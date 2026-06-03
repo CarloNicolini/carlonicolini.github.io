@@ -5,7 +5,7 @@ description: 'Computing hypergeometric probability efficiently in C++.'
 date: 2016-10-28
 categories:
   - science
-  - statistical-learning
+  - machine-learning
 published: true
 
 ---
@@ -33,7 +33,7 @@ As shown by the author, for any accuracy $$\epsilon \geq 0$$ the required number
 Here I provide the straight C++ implementation of the pseudocode the author provides in its paper, for real-wolrd uses.
 Please let me know if you find any bug.
 
-{% highlight cpp %}
+```cpp
 #include <cstdio>
 const double TOL=1E-9;
 double InvJm(int n, int x, int N, int m)
@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 
     printf("Hypergeometric probability(%d,%d,%d,%d)=%f\n", n,x,N,M, hyperquick(n,x,N,M));
 }
-{% endhighlight %}
+```
 
 The code is pretty self-explanatory and any porting in languages like Python is straightforwardly implementable.
 A full implementation of Hyperquick is available at:

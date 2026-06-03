@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "From hard to soft operators: between machine learning and statistical physics"
+description: "Computer scientists did not study statistical mechanics enough to recognize the strong similarities betweeen hard (combinatorics, microcanonical) and soft (slack-constraints, canonical, maximum entropy) ensembles."
 date: 2026-04-05
 published: true
 categories:

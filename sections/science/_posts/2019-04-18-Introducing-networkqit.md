@@ -46,7 +46,7 @@ plt.show()
 
 ![](/static/postfigures/spectral_entropy_karate.png)<!-- -->
 
-The spectral entropy is always in the range `[0, log(N)]`, so if we simply divide by `log N` where $N$ is the number
+The spectral entropy is always in the range `[0, log(N)]`, so if we simply divide by `log N` where $$N$$ is the number
 of nodes, we renormalize it in the `[0,1]` range.
 
 ## Generative network models

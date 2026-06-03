@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Markowitz optimal portfolio in Python
-categories: science
+categories: finance
 published: false
 use_math: true
 date: 2018-05-19
@@ -15,15 +15,15 @@ We make use of some famous Python packages, to prepare for the blog post we need
 # Preparation
 Let us install some data analysis Python packages first, here are the instructions to work out this thing in Ubuntu.
 
-{% highlight bash %}
+```bash
 pip install numpy pandas scikit-learn
-{% endhighlight %}
+```
 
 Fortunately, numerical routines of modern portfolio theory are already implemented in the nice `portfolioopt` package:
 
-{% highlight bash %}
+```bash
 pip install portfolioopt
-{% endhighlight %}
+```
 
 For the moment we don't need many other packages.
 

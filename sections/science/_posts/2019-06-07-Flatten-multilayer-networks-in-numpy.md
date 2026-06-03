@@ -12,7 +12,7 @@ categories:
 
 ## Dealing with a multilayer network via supra-adjacency matrix
 
-{% highlight python %}
+```python
 def flatten_multilayer(M):
     if len(M.shape) < 3:
         return M
@@ -33,4 +33,4 @@ def flatten_multilayer(M):
             for j in range(lb):
                 Mf[n*i:n*(i+1),n*j:n*(j+1),] = M[i,j,:,:]
         return Mf
-{% endhighlight %}
+```

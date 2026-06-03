@@ -1,15 +1,24 @@
 ---
 layout: home
 title: "AI Research Scientist"
-description: "AI research scientist: reliable AI, interpretability, skfolio, statistical physics."
+description: "Carlo Nicolini — AI research scientist & statistical physicist. Reliable AI reasoning, interpretability, inference-time methods, and quantitative portfolio optimization (skfolio maintainer)."
 sitemap:
   priority: 1.0
   changefreq: weekly
 ---
 
-## About Me
+## What I do
 
-I am Carlo Nicolini, a senior AI research scientist working at the intersection of artificial intelligence, statistical physics, computational neuroscience, and information theory.
+I'm Carlo Nicolini, an AI research scientist and statistical physicist. I help teams with two kinds of hard problem:
+
+- **Reliable AI reasoning** — interpretability, inference-time methods, evaluation, and probabilistic language programming for LLM and compound AI systems that need to be auditable and predictable, not just impressive on a demo.
+- **Quantitative portfolio optimization** — I maintain [skfolio](https://skfolio.org), the Python library for modern portfolio allocation, and build risk models and backtesting that hold up under real constraints.
+
+What ties them together is a habit from physics: turning a fragmented technical space into clear abstractions, operators with guarantees, and software others can rely on. If you're working on something in these areas, I'm always happy to talk about projects and collaborations — the best way to reach me is on [LinkedIn](https://www.linkedin.com/in/carlo-nicolini/).
+
+## About me
+
+I am a senior AI research scientist working at the intersection of artificial intelligence, statistical physics, computational neuroscience, and information theory.
 For over 15 years, my work has focused on problems that require both theoretical clarity and reliable execution: building models, abstractions, and scientific software that help researchers and engineers reason about complex systems with more rigor. Over time, this has evolved into a form of technical leadership grounded in framing hard problems well, creating reusable foundations, and helping collaborative work move with more clarity.
 
 <!-- My early research focused on brain functional connectivity and the modular organization of neural networks, with a strong emphasis on community detection, resolution limits, and entropy-based measures of structure.
@@ -70,7 +79,6 @@ I maintain a research blog where I develop ideas in public, document ongoing wor
 
 ## Contact
 
-If you are working on reliable AI systems, mechanistic interpretability, inference-time methods, or machine learning for finance, feel free to write me at [c.nicolini@ipazia.com](mailto:c.nicolini@ipazia.com).
-I am also available on LinkedIn for professional contact.
+If you are working on reliable AI systems, mechanistic interpretability, inference-time methods, or quantitative portfolio optimization, I'd be glad to hear about it.
 
-Connect on [LinkedIn](https://www.linkedin.com/in/carlo-nicolini).
+The best way to reach me is on [LinkedIn](https://www.linkedin.com/in/carlo-nicolini/).

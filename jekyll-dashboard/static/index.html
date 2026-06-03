@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jekyll Dashboard</title>
+  <style>
+    :root {
+      --border: #d6d9e0;
+      --bg: #f7f8fa;
+      --row-alt: #fbfcfd;
+      --accent: #2d6cdf;
+      --danger: #c0392b;
+      --ok: #2e8b57;
+      --muted: #7a8190;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0; background: var(--bg); color: #1c2230; font-size: 14px;
+    }
+    header {
+      position: sticky; top: 0; z-index: 5; background: #fff;
+      border-bottom: 1px solid var(--border); padding: 12px 18px;
+      display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+    }
+    header h1 { font-size: 16px; margin: 0; }
+    header .stats { color: var(--muted); }
+    input[type=search], select { padding: 6px 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 13px; }
+    .wrap { padding: 0 0 80px; }
+    table { border-collapse: collapse; width: 100%; background: #fff; }
+    th, td { border: 1px solid var(--border); padding: 6px 8px; vertical-align: top; text-align: left; }
+    th { position: sticky; top: 57px; background: #eef1f6; z-index: 3; font-size: 12px; cursor: pointer; user-select: none; }
+    tr:nth-child(even) td { background: var(--row-alt); }
+    tr.invalid td { background: #fdf3f2; }
+    td.col-title input, td.col-desc textarea { width: 100%; border: 1px solid transparent; background: transparent; font: inherit; padding: 4px; border-radius: 4px; resize: vertical; }
+    td.col-desc textarea { min-height: 34px; }
+    td input:focus, td textarea:focus { border-color: var(--accent); background: #fff; outline: none; }
+    td.col-pub { text-align: center; }
+    .dirty { box-shadow: inset 3px 0 0 var(--accent); }
+    .issues { color: var(--danger); font-size: 11px; }
+    .ok-badge { color: var(--ok); }
+    .section-tag { font-size: 11px; color: var(--muted); }
+    .tagbox { display: flex; flex-wrap: wrap; gap: 3px; }
+    .tag { background: #e8eefc; color: #234; border-radius: 10px; padding: 1px 7px; font-size: 11px; display: inline-flex; gap: 4px; align-items: center; }
+    .tag button { border: none; background: none; cursor: pointer; color: var(--muted); padding: 0; font-size: 12px; }
+    .addtag { font-size: 11px; border: 1px dashed var(--border); border-radius: 10px; padding: 1px 7px; cursor: pointer; background: #fff; }
+    .save-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid var(--border); padding: 10px 18px; display: flex; gap: 12px; align-items: center; }
+    button.primary { background: var(--accent); color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; }
+    button.primary:disabled { opacity: .4; cursor: default; }
+    .toast { color: var(--ok); }
+    .toast.err { color: var(--danger); }
+    datalist { display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Jekyll Dashboard</h1>
+    <span class="stats" id="stats"></span>
+    <input type="search" id="filter" placeholder="filtra per titolo / file…">
+    <select id="sectionFilter"><option value="">tutte le sezioni</option></select>
+    <select id="statusFilter">
+      <option value="">tutti</option>
+      <option value="published">pubblicati</option>
+      <option value="draft">bozze</option>
+      <option value="invalid">con errori</option>
+    </select>
+  </header>
+
+  <div class="wrap">
+    <table id="grid">
+      <thead>
+        <tr>
+          <th data-sort="section">Sezione</th>
+          <th data-sort="filename">File</th>
+          <th data-sort="title">Titolo</th>
+          <th data-sort="description">Descrizione</th>
+          <th data-sort="date">Data</th>
+          <th data-sort="published">Pub.</th>
+          <th>Tags</th>
+          <th data-sort="issues">Schema</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+
+  <div class="save-bar">
+    <button class="primary" id="saveBtn" disabled>Salva modifiche</button>
+    <span id="dirtyCount" class="stats"></span>
+    <span class="toast" id="toast"></span>
+  </div>
+
+  <datalist id="allTags"></datalist>
+  <script src="/static/app.js"></script>
+</body>
+</html>

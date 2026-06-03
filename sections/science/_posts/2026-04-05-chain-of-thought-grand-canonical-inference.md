@@ -6,7 +6,7 @@ date: 2026-04-05
 published: false
 categories:
   - science
-  - language-physics
+  - deep-learning
 ---
 
 ## From zero-shot decoding to grand-canonical reasoning
@@ -19,11 +19,11 @@ Two statements in this picture are rigorous. First, enlarging the latent family 
 
 ## Jaynes, Reference Measures, and Blondel's Soft Value
 
-Fix a prompt sequence $\mathbf{x}$$. Let $$\mathbf{u} = (u_1,\dots,u_T)$$ denote a complete continuation ending in $$\mathrm{EOS}$, and let the token-level state be the prefix
+Fix a prompt sequence $$\mathbf{x}$$. Let $$\mathbf{u} = (u_1,\dots,u_T)$$ denote a complete continuation ending in $$\mathrm{EOS}$$, and let the token-level state be the prefix
 $$
 s_t := \mathbf{x} \oplus \mathbf{u}_{<t}.
 $$
-All sums below are over admissible finite continuations ending in $\mathrm{EOS}$.
+All sums below are over admissible finite continuations ending in $$\mathrm{EOS}$$.
 
 Let $$p_0(\mathbf{u}\mid \mathbf{x})$$ be a reference autoregressive model. If $$R(\mathbf{x},\mathbf{u})$$ is a verifier reward or sequence score, then the KL-regularized maximum-entropy solution is the reference-measure Gibbs law
 $$
@@ -56,7 +56,7 @@ p_{\alpha}(\mathbf{u}\mid \mathbf{x})
 {\sum_{\mathbf{u}'}\exp\!\left(S(\mathbf{x},\mathbf{u}')/\alpha\right)}.
 $$
 
-When $S$ decomposes additively along the emitted sequence,
+When $$S$$ decomposes additively along the emitted sequence,
 $$
 S(\mathbf{x},\mathbf{u})
 =
@@ -100,7 +100,7 @@ $$
 This is why chain-of-thought should not be described as an unordered latent state.
 It is an ordered latent process.
 
-The grand-canonical extension appears because $N$ is not fixed. A model may emit zero reasoning tokens, a short trace, or a long trace before answering. Introduce a chemical potential $$\mu$$ penalizing each reasoning token, and the associated fugacity
+The grand-canonical extension appears because $$N$$ is not fixed. A model may emit zero reasoning tokens, a short trace, or a long trace before answering. Introduce a chemical potential $$\mu$$ penalizing each reasoning token, and the associated fugacity
 
 $$
 \zeta := \exp(-\mu/\alpha).
@@ -113,9 +113,7 @@ p_0(\mathbf{z},\mathbf{y}\mid \mathbf{x}) \exp\!\left(\frac{R(\mathbf{x},\mathbf
 $$
 
 Equivalently,
-$$
-\Xi_{\alpha,\mu}(\mathbf{x}) = \sum_{N=0}^{\infty} \zeta^N Z_N(\mathbf{x}),
-$$ with $$ Z_N(\mathbf{x}) := \sum_{\mathbf{y}} \sum_{\mathbf{z}\in \mathcal{V}^{N}} p_0(\mathbf{z},\mathbf{y}\mid \mathbf{x}) \exp\!\left(\frac{R(\mathbf{x},\mathbf{z},\mathbf{y})}{\alpha}\right).$$
+$$\Xi_{\alpha,\mu}(\mathbf{x}) = \sum_{N=0}^{\infty} \zeta^N Z_N(\mathbf{x}),$$ with $$Z_N(\mathbf{x}) := \sum_{\mathbf{y}} \sum_{\mathbf{z}\in \mathcal{V}^{N}} p_0(\mathbf{z},\mathbf{y}\mid \mathbf{x}) \exp\!\left(\frac{R(\mathbf{x},\mathbf{z},\mathbf{y})}{\alpha}\right).$$
 
 The induced grand-canonical law is
 $$
@@ -127,10 +125,12 @@ The conjugate observable to fugacity is the reasoning length. In particular,
 $$
 \mathbb{E}[N \mid \mathbf{x}] = \zeta \frac{\partial}{\partial \zeta} \log \Xi_{\alpha,\mu}(\mathbf{x}).
 $$
-So fugacity is not itself "reasoning effort." 
+So fugacity is not itself "reasoning effort."
 Rather, it is the control parameter that governs the expected reasoning effort.
 
-For this grand-canonical picture to be well defined, the partition function must be finite. A sufficient condition is that for each fixed $\mathbf{x}$$ there exist constants $$C_{\mathbf{x}}>0$$ and $$\rho_{\mathbf{x}}>0$$ such that $$Z_N(\mathbf{x}) \le C_{\mathbf{x}}\rho_{\mathbf{x}}^N$$ for all $$N$$, with $$\zeta \rho_{\mathbf{x}} < 1$. If that fails, the formalism predicts a runaway long-trace phase rather than a proper normalized law. In language-model terms, that is the regime of uncontrolled looping.
+For this grand-canonical picture to be well defined, the partition function must be finite.
+A sufficient condition is that for each fixed $$\mathbf{x}$$ there exist constants $$C_{\mathbf{x}}>0$$ and $$\rho_{\mathbf{x}}>0$$ such that $$Z_N(\mathbf{x}) \le C_{\mathbf{x}}\rho_{\mathbf{x}}^N$$ for all $$N$$, with $$\zeta \rho_{\mathbf{x}} < 1$$.
+If that fails, the formalism predicts a runaway long-trace phase rather than a proper normalized law. In language-model terms, that is the regime of uncontrolled looping.
 
 ## The Variational Statement That Is Actually True
 
@@ -141,7 +141,7 @@ where the minimum is over all distributions $$q(\mathbf{z},\mathbf{y})$$ whose s
 
 This identity immediately gives the rigorous version of the claim that more latent states can reach lower free-energy minima.
 
-**Proposition 1.** Let $\mathcal{Q}_{0}$$ be the family of distributions supported on $$N=0$$ almost surely, and let $$\mathcal{Q}_{\mathrm{gc}}$$ be the family of all variable-length distributions over $$(\mathbf{z},\mathbf{y})$.
+**Proposition 1.** Let $$\mathcal{Q}_{0}$$ be the family of distributions supported on $$N=0$$ almost surely, and let $$\mathcal{Q}_{\mathrm{gc}}$$ be the family of all variable-length distributions over $$(\mathbf{z},\mathbf{y})$$.
 Then
 $$
 \min_{q \in \mathcal{Q}_{\mathrm{gc}}} \mathcal{F}_{\alpha,\mu}(q)
@@ -157,7 +157,7 @@ $$
 \alpha\,\mathrm{KL}\!\left(q(\mathbf{z},\mathbf{y}) \| p_0(\mathbf{z},\mathbf{y}\mid \mathbf{x})\right).
 $$
 
-**Proof.** The family $\mathcal{Q}_{0}$$ is a subset of $$\mathcal{Q}_{\mathrm{gc}}$. Therefore the infimum of the same functional over the larger family cannot exceed the infimum over the smaller family. By the Gibbs variational identity, these two infima are precisely the zero-shot and grand-canonical free energies. This proves the claim.
+**Proof.** The family $$\mathcal{Q}_{0}$$ is a subset of $$\mathcal{Q}_{\mathrm{gc}}$$. Therefore the infimum of the same functional over the larger family cannot exceed the infimum over the smaller family. By the Gibbs variational identity, these two infima are precisely the zero-shot and grand-canonical free energies. This proves the claim.
 
 This is the clean mathematical core. Enlarging the latent family can only improve the best achievable free energy. What it does *not* say is that every finite decoding heuristic will find that better minimum, or that every extra reasoning token is beneficial. Those are separate algorithmic and modeling questions.
 
@@ -265,7 +265,7 @@ So chain-of-thought helps only when it lowers the grand potential of the correct
 
 ## What "Think Step by Step" Can and Cannot Mean
 
-A prompt such as "think step by step" is not a theorem of the partition function. It is a perturbation of the reference model. If $\widetilde{\mathbf{x}}$$ denotes the prompt obtained by appending such an instruction to $$\mathbf{x}$$, then the relevant question is whether the new reference law $$p_0(\mathbf{z},\mathbf{y}\mid \widetilde{\mathbf{x}})$ reallocates more mass toward high net-reward traces for the correct answer than for incorrect ones.
+A prompt such as "think step by step" is not a theorem of the partition function. It is a perturbation of the reference model. If $$\widetilde{\mathbf{x}}$$ denotes the prompt obtained by appending such an instruction to $$\mathbf{x}$$, then the relevant question is whether the new reference law $$p_0(\mathbf{z},\mathbf{y}\mid \widetilde{\mathbf{x}})$$ reallocates more mass toward high net-reward traces for the correct answer than for incorrect ones.
 
 The clean odds criterion is
 $$
@@ -316,9 +316,9 @@ So self-consistency is a Monte Carlo estimator of the marginal answer law, with 
 
 Blondel's theorem already tells us that local next-token logits contain a soft value term summarizing future continuation mass {% cite blondel2025autoregressive %}. The grand-canonical extension does not replace that statement. It adds a second layer on top of it.
 
-For each fixed reasoning length $N$, the joint law over $\mathbf{u}=\mathbf{z}\oplus \mathbf{y}$$ is still a canonical reference-measure EBM, and Blondel's soft Bellman recursion applies token by token along that sequence. The grand-canonical model then sums these canonical slices over all admissible values of $$N$$ with weight $$\zeta^N$. In other words, Blondel explains how future mass is compressed into local logits *within* a fixed continuation, while the grand-canonical extension explains how explicit reasoning introduces an *outer* marginalization over how much latent computation the model is allowed to externalize.
+For each fixed reasoning length $$N$$, the joint law over $$\mathbf{u}=\mathbf{z}\oplus \mathbf{y}$$ is still a canonical reference-measure EBM, and Blondel's soft Bellman recursion applies token by token along that sequence. The grand-canonical model then sums these canonical slices over all admissible values of $$N$$ with weight $$\zeta^N$$. In other words, Blondel explains how future mass is compressed into local logits *within* a fixed continuation, while the grand-canonical extension explains how explicit reasoning introduces an *outer* marginalization over how much latent computation the model is allowed to externalize.
 
-This resolves an apparent tension. If next-token logits already look ahead, why can chain-of-thought still help? The answer is not that zero-shot decoding is purely myopic. The answer is that the model must approximate its continuation free energies with finite capacity. Hard problems can demand a sharper estimate of suffix mass than a single internal look-ahead pass can provide. Emitting intermediate reasoning tokens turns hidden future integration into an explicit sequence of state updates. Each emitted token moves the prefix from $$s_t$$ to $s_{t+1}$, and the model reevaluates a new local soft value on a refined state. Chain-of-thought therefore spends extra inference-time compute to sequentially refine the approximation of the same free-energy object that Blondel identifies inside the logits.
+This resolves an apparent tension. If next-token logits already look ahead, why can chain-of-thought still help? The answer is not that zero-shot decoding is purely myopic. The answer is that the model must approximate its continuation free energies with finite capacity. Hard problems can demand a sharper estimate of suffix mass than a single internal look-ahead pass can provide. Emitting intermediate reasoning tokens turns hidden future integration into an explicit sequence of state updates. Each emitted token moves the prefix from $$s_t$$ to $$s_{t+1}$$, and the model reevaluates a new local soft value on a refined state. Chain-of-thought therefore spends extra inference-time compute to sequentially refine the approximation of the same free-energy object that Blondel identifies inside the logits.
 
 That is also why the strongest defensible statement is modest but useful. Chain-of-thought does not magically create a new objective. It enlarges the latent phase space over which the model can represent and marginalize structured futures. When the pretrained prior and the verifier reward are aligned with the task, that larger phase space can lower the relevant grand-potential gaps and improve answer selection. When they are not aligned, longer reasoning can simply generate longer mistakes.
 

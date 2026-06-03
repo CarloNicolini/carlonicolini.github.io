@@ -6,7 +6,7 @@ date: 2025-10-03
 published: true
 categories:
   - science
-  - statistical-learning
+  - machine-learning
 ---
 
 ## Bridging online convex optimization into skfolio
@@ -64,25 +64,25 @@ Here is a summary of some of the analytical gradients I implemented to make the 
 
 <table style="font-size:0.75em; width:100%; border-collapse: collapse;">
   <caption>
-    <strong>Notation:</strong> $\mathbf{w}$$ = portfolio weights, $$\mathbf{r}_t$$ = asset returns at time $$t$$, $$T$$ = number of periods, $$\Sigma$$ = covariance matrix, $$\mu$$ = target/mean return, $$\pi$$ = permutation sorting portfolio returns $$\mathbf{w}^\top\mathbf{r}_t$$ in ascending order, $$\omega_k$$ = OWA weights, $$k = (1-\beta)T$$ with $$\beta$$ = confidence level, $$\theta$$ = temperature parameter, $$p_t$ = entropic probabilities.
+    <strong>Notation:</strong> $$\mathbf{w}$$ = portfolio weights, $$\mathbf{r}_t$$ = asset returns at time $$t$$, $$T$$ = number of periods, $$\Sigma$$ = covariance matrix, $$\mu$$ = target/mean return, $$\pi$$ = permutation sorting portfolio returns $$\mathbf{w}^\top\mathbf{r}_t$$ in ascending order, $$\omega_k$$ = OWA weights, $$k = (1-\beta)T$$ with $$\beta$$ = confidence level, $$\theta$$ = temperature parameter, $$p_t$$ = entropic probabilities.
   </caption>
   <thead>
     <tr style="border-top: 2px solid #444; border-bottom: 2px solid #444;">
       <th style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px; text-align: left;">Risk Measure</th>
       <th style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px; text-align: left;">Formula</th>
-      <th style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px; text-align: left;">Gradient $\nabla_{\mathbf{w}}$</th>
+      <th style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px; text-align: left;">Gradient $$\nabla_{\mathbf{w}}$$</th>
     </tr>
   </thead>
   <tbody>
     <tr style="border-top:1px solid #ddd; border-bottom:1px solid #ddd;">
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;"><strong>Log-Wealth</strong></td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$$-\log(1 + \mathbf{w}^\top \mathbf{r}_t)$$</td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$\frac{-\mathbf{r}_t}{1 + \mathbf{w}^\top \mathbf{r}_t}$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$$\frac{-\mathbf{r}_t}{1 + \mathbf{w}^\top \mathbf{r}_t}$$</td>
     </tr>
     <tr style="border-bottom:1px solid #ddd;">
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;"><strong>Variance</strong></td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$\mathbf{w}^\top \Sigma \mathbf{w}$</td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$2\Sigma \mathbf{w}$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$$\mathbf{w}^\top \Sigma \mathbf{w}$$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$$2\Sigma \mathbf{w}$$</td>
     </tr>
     <tr style="border-bottom:1px solid #ddd;">
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;"><strong>Semi-Variance</strong></td>
@@ -97,7 +97,7 @@ Here is a summary of some of the analytical gradients I implemented to make the 
     <tr style="border-bottom:1px solid #ddd;">
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;"><strong>Worst Realization</strong></td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$$-\min_t (\mathbf{r}_t^\top \mathbf{w})$$</td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$-\mathbf{r}_{\text{worst}}$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$$-\mathbf{r}_{\text{worst}}$$</td>
     </tr>
     <tr style="border-bottom:1px solid #ddd;">
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;"><strong>Gini Mean Difference</strong></td>
@@ -106,12 +106,12 @@ Here is a summary of some of the analytical gradients I implemented to make the 
     </tr>
     <tr style="border-bottom:1px solid #ddd;">
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;"><strong>CVaR (Conditional Value at Risk)</strong></td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$-\frac{1}{k}\sum_{t=1}^{\lfloor k \rfloor} \mathbf{w}^\top\mathbf{r}_{\pi(t)}$$<br>$$+ \mathbf{w}^\top\mathbf{r}_{\pi(\lceil k \rceil)}\big(\frac{\lceil k \rceil}{k} - 1\big)$</td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$-\frac{1}{k}\sum_{t=1}^{\lfloor k \rfloor} \mathbf{r}_{\pi(t)}$$<br>$$+ \mathbf{r}_{\pi(\lceil k \rceil)}\big(\frac{\lceil k \rceil}{k} - 1\big)$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$$-\frac{1}{k}\sum_{t=1}^{\lfloor k \rfloor} \mathbf{w}^\top\mathbf{r}_{\pi(t)}$$<br>$$+ \mathbf{w}^\top\mathbf{r}_{\pi(\lceil k \rceil)}\big(\frac{\lceil k \rceil}{k} - 1\big)$$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$$-\frac{1}{k}\sum_{t=1}^{\lfloor k \rfloor} \mathbf{r}_{\pi(t)}$$<br>$$+ \mathbf{r}_{\pi(\lceil k \rceil)}\big(\frac{\lceil k \rceil}{k} - 1\big)$$</td>
     </tr>
     <tr style="border-bottom:2px solid #444;">
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;"><strong>EVaR (Entropic Value at Risk)</strong></td>
-      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$\inf_{\theta > 0} \Big\{ \theta \log \Big( \frac{1}{(1-\beta)T}$$<br>$$\times \sum_{t=1}^T \exp\big(\frac{-\mathbf{r}_t^\top \mathbf{w}}{\theta}\big) \Big) \Big\}$</td>
+      <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$$\inf_{\theta > 0} \Big\{ \theta \log \Big( \frac{1}{(1-\beta)T}$$<br>$$\times \sum_{t=1}^T \exp\big(\frac{-\mathbf{r}_t^\top \mathbf{w}}{\theta}\big) \Big) \Big\}$$</td>
       <td style="border-right:1px solid #bbb; border-left: 1px solid #bbb; padding: 4px;">$$-\sum_{t=1}^T p_t \mathbf{r}_t$$ <br><small>(where $$p_t \propto \exp(-\theta^* \mathbf{r}_t^\top \mathbf{w})$$)</small></td>
     </tr>
   </tbody>
@@ -257,7 +257,7 @@ $$
 \mathbf{m}_{t+1} = \frac{1}{K} \sum_{k=0}^{K-1} \mathbf{g}_{t-k}
 $$
 
-Instead of chasing daily noise, setting $K$ to average the last $60$ to $120$ days of gradients acts as a momentum lookback, which turns out to be one of the few first-order enhancements that genuinely improves follow-the-winner strategies.
+Instead of chasing daily noise, setting $$K$$ to average the last $60$ to $120$ days of gradients acts as a momentum lookback, which turns out to be one of the few first-order enhancements that genuinely improves follow-the-winner strategies.
 
 ### Hedging our bets: SWORD and meta-experts
 
@@ -279,7 +279,7 @@ When I tested follow-the-winner (**FTW**) methods like exponentiated gradient ag
 The FTW methods were practically indistinguishable from a naïve uniform constant rebalanced portfolio (holding an equal weight of all assets).
 
 The gradients were simply too small—what I call the "vanishing gradient exponent".
-Because typical daily equity returns are tiny (often around $\bar{r} \sim 10^{-4}$$), I proved that under the regret-optimal learning rate schedule, the maximum weight deviation from a uniform $$1/d$$ portfolio after $$T$ days is:
+Because typical daily equity returns are tiny (often around $$\bar{r} \sim 10^{-4}$$), I proved that under the regret-optimal learning rate schedule, the maximum weight deviation from a uniform $$1/d$$ portfolio after $$T$$ days is:
 
 $$
 \max_i |w_{T,i} - 1/d| \approx \frac{\sqrt{T \log d}}{d} \cdot |\bar{r}|_\infty \approx \mathcal{O}(10^{-2})
@@ -296,7 +296,7 @@ $$
 This forces the portfolio away from recent winners. At the daily level, FTL methods completely dominated.
 
 But then, I changed the rebalancing frequency to *monthly*. Suddenly, the roles reversed entirely. 
-Because returns aggregate multiplicatively, I derived a $\sqrt{\Delta}$$ scaling law for the FTW gradient exponent, where $$\Delta$$ is the rebalancing period in days. At a monthly horizon ($$\Delta=21$), the maximum weight deviation grows proportionally:
+Because returns aggregate multiplicatively, I derived a $$\sqrt{\Delta}$$ scaling law for the FTW gradient exponent, where $$\Delta$$ is the rebalancing period in days. At a monthly horizon ($$\Delta=21$$), the maximum weight deviation grows proportionally:
 
 $$
 \max_i |w_{T,i} - 1/d| \propto \sqrt{\Delta}

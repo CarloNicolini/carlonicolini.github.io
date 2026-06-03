@@ -10,7 +10,7 @@ published: true
 Here we describe a way to perform scalable changepoint detection on grouped time series data by using PySpark and the rupture library.
 
 
-{% highlight python %}
+```python
 from typing import List
 import numpy as np
 import pandas as pd
@@ -34,7 +34,7 @@ def changepoint_detection(
 ):
   """
   Performs a grouped changepoint detection on individual time series, denoted by the pair (time_col, value_col)
-  
+
   Runs the rupture off line changepoint detection algorithm
   df: SparkDatFrame
     The dataframe to work on
@@ -54,17 +54,17 @@ def changepoint_detection(
     Regularization penalty, the larger the penalty the less the number of breakpoints
   """
   schema = df.schema
-  
+
   new_schema = StructType(
     [field for field in schema ] + [StructField(name=breakpoint_col, dataType=IntegerType(), nullable=False)]
   )
-    
+
   @F.pandas_udf(returnType=new_schema, functionType=F.PandasUDFType.GROUPED_MAP)
   def changepoint_algorithm(pandas_dataframe: pd.DataFrame):
     A = pandas_dataframe[[time_col, value_col]].sort_values(by=time_col)
     a,b = A[time_col], A[value_col]
     y = pd.Series(data=breakpoint_default, index=a.index)
-    
+
     y.iloc[
       np.array(
         rpt.Pelt(model=kernel_model).fit(
@@ -74,7 +74,7 @@ def changepoint_detection(
     ) - 1 # because breakpoint indices are 1 to N
     ] = breakpoint_active
     return pandas_dataframe.assign(**{breakpoint_col: y})
-    
+
   return (
     df
     .groupBy(*group_cols)
@@ -95,4 +95,4 @@ def changepoint_detection(
   .orderBy("GROUP", "DATE")
   .display()
 )
-{% endhighlight %}
+```

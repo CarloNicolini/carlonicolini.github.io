@@ -6,7 +6,7 @@ date: 2021-01-18
 published: false
 categories:
   - science
-  - statistical-learning
+  - machine-learning
 ---
 # The problem
 
@@ -22,7 +22,7 @@ For the impatient reader here is the code, first two lines are required to insta
 	conda install pandas, numpy, typing
 
 This is instead the Python code:
-{% highlight python %}
+```python
 from typing import List, Union, Callable, Iterable, Dict
 import numpy as np
 import cvxopt
@@ -55,11 +55,11 @@ def optimize_combinations(
     ilp_G = cvxopt.matrix(np.vstack([df_grouped.values, -df_grouped.values]))
     h = cvxopt.matrix(np.array([[float(target_value + tolerance)], [float(-target_value + tolerance)]]))
     regularization = cvxopt.matrix(np.ones_like(values) * lambda_regu)
-    
+
     if weights is not None:
         # experimental: a way to insert some business knowledge to the process
         regularization += weights(values)
-        
+
     (status, sol) = cvxopt.glpk.ilp(
         c=-(ilp_c - regularization),  # to maximize
         G=ilp_G,
@@ -70,11 +70,11 @@ def optimize_combinations(
 
     if status != 'optimal':
         raise RuntimeError(status)
-    
+
     sol = np.array(sol,dtype='int').flatten()
     df_result = df_grouped[df_grouped.index[np.where(sol)]].to_frame()
     df_result['delta_sol'] = df_result[value_col].sum() - target_value
-    
+
     return {
         'sol': sol,
         'df_grouped': df_grouped,
@@ -86,4 +86,4 @@ def optimize_combinations(
         'index_diff': df_grouped.index.difference(df_grouped.index[np.where(sol)]),
         'result_diff': df_grouped.loc[df_grouped.index.difference(df_grouped.index[np.where(sol)])],
     }
-{% endhighlight %}
+```

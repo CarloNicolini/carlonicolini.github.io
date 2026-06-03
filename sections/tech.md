@@ -5,4 +5,5 @@ description: "Tech notes: devops, Python, Spark, LLMs, short how-tos."
 permalink: /sections/tech/
 inheader: true
 ---
-{% include tech-hub-content.html %}
+
+{% include post-list-compact.html category="tech" scope="tech" %}

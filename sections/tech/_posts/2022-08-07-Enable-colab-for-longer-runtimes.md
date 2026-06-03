@@ -2,7 +2,7 @@
 layout: post
 title: How to enable colab for longer runtimes by keeping it active
 description: 'How to enable colab for longer runtimes by keeping it active.'
-date: 2022-07-08
+date: 2022-08-07
 published: true
 categories: tech
 ---

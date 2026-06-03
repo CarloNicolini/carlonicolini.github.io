@@ -2,6 +2,7 @@
 layout: post
 date: 2026-04-09
 title: 'Interpretations for the Kullback-Leibler divergence, or relative entropy'
+description: 'Here we provide multiple intuitions about the meaning of the Kullback-Leibler divergence in many fields'
 published: true
 categories:
   - science

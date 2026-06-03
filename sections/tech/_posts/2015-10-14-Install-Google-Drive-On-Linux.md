@@ -12,21 +12,24 @@ Gsync is the rsync for Google Drive. If you like me, have unlimited storage spac
 
 1. Install the [GSync](www.https://github.com/iwonbigbro/gsync/blob/master/README.rst)
 
-  {% highlight sh %}
-  $> sudo apt-get install python-setuptools
-  $> sudo easy_install pip
-  $> sudo pip install gsync  {% endhighlight %}
+```bash
+$> sudo apt-get install python-setuptools
+$> sudo easy_install pip
+$> sudo pip install gsync  
+```
 
 
 2. If you already have **gsync** update it to the latest version, skip this step, otherwise:
 
-  {% highlight sh %}
-  sudo pip install --upgrade gsync  {% endhighlight %}
+```bash
+sudo pip install --upgrade gsync  
+```
 
 3. At this point you need to authenticate your **Google** account to use **Gsync**. To do that, try to copy some local folder that here we indicate with `~/MyTemporaryFolder/` to your main *GoogleDrive* folder, that here we indicate as `drive://` (the mountpoint of your GoogleDrive).
 
-    {% highlight sh %}
-    gsync -r -d -u -i -h --progress ~/MyTemporaryFolder drive://    {% endhighlight %}
+```bash
+gsync -r -d -u -i -h --progress ~/MyTemporaryFolder drive://    
+```
 
 With this command you are asking to copy the foilder `~/MyTemporaryFolder` recursively (`-r`), to transfer directories without recursing (`-r`), to skip files that are newer on the receiver (`-u`) and to print the output in human readable format (`-h`).
 
@@ -68,13 +71,15 @@ this is a problem with the source code of **gsync**. Here I post one solution th
 On Ubuntu, you have to look for the `/usr/local/lib/python2.7/dist-packages/libgsync/drive/__init__.py` file and modify line 644 where it starts like:
 
 
-    {% highlight python %}
-    for k, v in properties.iteritems():
-        body[k] = _Drive.utf8(v)    {% endhighlight %}
+```python
+for k, v in properties.iteritems():
+    body[k] = _Drive.utf8(v)    
+```
 
 and modify it to:
 
-    {% highlight python %}
-    for k, v in properties.iteritems():
-        if v is not None:
-            body[k] = _Drive.utf8(v)    {% endhighlight %}
+```python
+for k, v in properties.iteritems():
+    if v is not None:
+        body[k] = _Drive.utf8(v)    
+```

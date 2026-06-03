@@ -13,14 +13,16 @@ In this case I use the proxy of unitn on port 3128. Open a terminal and export t
 
 Then add the string `"deb http://cran.rstudio.com/bin/linux/ubuntu precise/"`  and `"deb http://cran.rstudio.com/bin/linux/ubuntu trusty/"` to your `/etc/apt/sources.list` file to enable `trusty` and `precise` repositories from the CRAN. We do this with the command:
 
-	{% highlight sh linenos %}	
-	sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu precise/" >> /etc/apt/sources.list'
-	sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list'
-	{% endhighlight %}
+```bash
+sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu precise/" >> /etc/apt/sources.list'
+sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list'
+```
 
 We then add to the keyserver the key from the CRAN repo:
 
-	sudo -E gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+```bash
+sudo -E gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+```
 
 It's important to do `sudo -E` so that the super-user environment variables are the same as the one set before (in particular the proxy variables).
 
@@ -28,16 +30,15 @@ It's important to do `sudo -E` so that the super-user environment variables are 
 
 This is the final list of commands to issue in a terminal.
 
-	{% highlight sh linenos %}	
-	export http_proxy=http://proxy.unitn.it:3128
-	export https_proxy=http://proxy.unitn.it:3128
-	export ftp_proxy=http://proxy.unitn.it:3128
-	export ftps_proxy=http://proxy.unitn.it:3128
-	sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu precise/" >> /etc/apt/sources.list'
-	sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list'
-	sudo -E gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
-	sudo -E gpg -a --export E084DAB9 | sudo apt-key add -
-	sudo apt-get update
-	sudo apt-get -y install r-base
-	{% endhighlight %}
-
+```bash
+export http_proxy=http://proxy.unitn.it:3128
+export https_proxy=http://proxy.unitn.it:3128
+export ftp_proxy=http://proxy.unitn.it:3128
+export ftps_proxy=http://proxy.unitn.it:3128
+sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu precise/" >> /etc/apt/sources.list'
+sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list'
+sudo -E gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+sudo -E gpg -a --export E084DAB9 | sudo apt-key add -
+sudo apt-get update
+sudo apt-get -y install r-base
+```

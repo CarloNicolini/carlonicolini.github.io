@@ -39,7 +39,7 @@ I've verified that as long as the communities are in the detectability threshold
 
 Here I plot the landscape of $$D_{KL}$$ as a function of $$p_{in},p_{out}$$ at $$\beta^*$$ as selected from MaxEnt principle.
 
-{% highlight matlab %}
+```matlab
 N=360;
 B=4;
 pinstar=0.25;
@@ -48,7 +48,7 @@ k_in_star = N*pinstar;
 k_out_star = N*poutstar;
 k_star = (k_out_star + k_in_star)/2;
 is_detectable = abs(k_in_star - k_out_star) > B*sqrt(k_star);
-{% endhighlight %}
+```
 
 
 
@@ -72,7 +72,7 @@ Never say "the likelihood of the data" but "the likelihood of the parameters". T
 ## Variational methods
 Interested in $$P(x)=\frac{1}{Z}P^*(\mathbf{x})=\frac{1}{Z}\exp{-E(\mathbf{x})}$$
 
-$$E(x)$$ is simple but not simple enough. Idea approximate $$P(x)$$ with another function $$Q(x)$$ such that the Kullback-Leibler divergence $$D_{KL}(P(x)\| Q(x)$$ is small. To do so it must be that $$Q(x)$$ closely follows $$P(x)$$ in the areas where $$P(x$)$$ is more concentrated, while maintaining zero in areas where $$P(x)$$ is zero, otherwise $$D_{KL}$$ incurs in a large penalty.
+$$E(x)$$ is simple but not simple enough. Idea approximate $$P(x)$$ with another function $$Q(x)$$ such that the Kullback-Leibler divergence $$D_{KL}(P(x)\| Q(x)$$ is small. To do so it must be that $$Q(x)$$ closely follows $$P(x)$$ in the areas where $$P(x$$)$$ is more concentrated, while maintaining zero in areas where $$P(x)$$ is zero, otherwise $$D_{KL}$$ incurs in a large penalty.
 
 ## Analogies between inference and physics
 | Probability | Physics |

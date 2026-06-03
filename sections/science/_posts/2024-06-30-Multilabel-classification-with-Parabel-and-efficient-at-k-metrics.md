@@ -6,7 +6,7 @@ date: 2024-06-30
 published: true
 categories:
   - science
-  - statistical-learning
+  - machine-learning
 ---
 
 ## The annoying gap in extreme multilabel classification
@@ -38,9 +38,9 @@ $$
 \hat{Y} \in \{0,1\}^{n \times L},
 $$
 
-where $L$ is the number of labels.
+where $$L$$ is the number of labels.
 
-But in extreme multilabel settings, $L$ is not ten, or twenty, or even a few hundred.
+But in extreme multilabel settings, $$L$$ is not ten, or twenty, or even a few hundred.
 It can be tens of thousands or hundreds of thousands.
 
 At that point, the actual user-facing question changes.
@@ -71,7 +71,7 @@ What I wanted was not to reinvent the algorithm, but to make it feel native insi
 
 So the central object in `scikit-omikuji` is deliberately simple:
 
-{% highlight python %}
+```python
 from skomikuji import OmikujiClassifier
 
 classifier = OmikujiClassifier(
@@ -81,7 +81,7 @@ classifier = OmikujiClassifier(
     linear_c=1.0,
     top_k=5,
 )
-{% endhighlight %}
+```
 
 That may look trivial, but it is exactly the point.
 I wanted Parabel training to feel like instantiating any other estimator, not like entering a special-purpose side universe with custom file formats and one-off scripts.
@@ -96,11 +96,11 @@ Under the hood, the wrapper exposes the hyperparameters that matter most for the
 
 The estimator API is conventional on purpose:
 
-{% highlight python %}
+```python
 classifier.fit(X_train, y_train)
 y_score = classifier.predict_proba(X_test)
 y_pred = classifier.predict(X_test, proba_threshold=0.5)
-{% endhighlight %}
+```
 
 That means the model can participate in the rest of a Python workflow without ceremony.
 
@@ -121,7 +121,7 @@ This keeps the memory layout predictable and lets the Python layer pass data int
 
 The minimal workflow therefore looks like this:
 
-{% highlight python %}
+```python
 import numpy as np
 from sklearn.datasets import make_multilabel_classification
 from skomikuji import OmikujiClassifier
@@ -158,7 +158,7 @@ model = OmikujiClassifier(
     top_k=10,
 )
 model.fit(X_train, y_train)
-{% endhighlight %}
+```
 
 I like this example because it shows the contract very clearly.
 The user does not have to care how the tree is represented internally, but they do need to hand the estimator a sparse representation that matches the backend.
@@ -199,7 +199,7 @@ but rather:
 
 That is the logic behind Precision@k and Recall@k.
 
-If $$T_i$$ is the true label set for sample $$i$$ and $\hat{T}_i^{(k)}$$ is the set of the top-$$k$ predicted labels, then:
+If $$T_i$$ is the true label set for sample $$i$$ and $$\hat{T}_i^{(k)}$$ is the set of the top-$$k$$ predicted labels, then:
 
 $$
 \mathrm{Precision@}k
@@ -223,14 +223,14 @@ That is why I extracted them into `skxml`.
 
 The public API is intentionally flat:
 
-{% highlight python %}
+```python
 from skxml import precision_at_k, recall_at_k, map_at_k, ndcg_at_k
 
 p_at_5 = precision_at_k(y_true, y_score, k=5)
 r_at_5 = recall_at_k(y_true, y_score, k=5)
 map_at_5 = map_at_k(y_true, y_score, k=5)
 ndcg_at_5 = ndcg_at_k(y_true, y_score, k=5)
-{% endhighlight %}
+```
 
 That is the entire idea.
 The model should focus on producing ranked candidates.
@@ -244,7 +244,7 @@ I wanted these ranking metrics to be usable not only as standalone functions, bu
 
 That is why `skxml` exports scorer factories such as:
 
-{% highlight python %}
+```python
 from skxml import precision_at_k_scorer
 from sklearn.model_selection import cross_validate
 
@@ -254,7 +254,7 @@ scores = cross_validate(
     y_train,
     scoring={"precision@5": precision_at_k_scorer(k=5)},
 )
-{% endhighlight %}
+```
 
 This is a small feature, but it changes how the library feels.
 
@@ -267,7 +267,7 @@ Once both layers exist, the workflow becomes much cleaner.
 
 Train with `scikit-omikuji`:
 
-{% highlight python %}
+```python
 from skomikuji import OmikujiClassifier
 
 model = OmikujiClassifier(
@@ -282,11 +282,11 @@ model.fit(X_train, y_train)
 
 y_score = model.predict_proba(X_test)
 y_pred = model.predict(X_test, proba_threshold=0.3)
-{% endhighlight %}
+```
 
 Then evaluate with `skxml`:
 
-{% highlight python %}
+```python
 from skxml import compute_metrics
 
 metrics = compute_metrics(
@@ -299,7 +299,7 @@ metrics = compute_metrics(
 
 for name, value in metrics.items():
     print(f"{name}: {value:.4f}")
-{% endhighlight %}
+```
 
 This separation ended up matching the problem much better than a single monolithic library would have.
 
