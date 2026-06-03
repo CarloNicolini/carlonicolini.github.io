@@ -3,7 +3,7 @@ layout: post
 title: Latent traces and Landau free energy
 description: "Chain-of-thought as latent-variable inference, with a conjectural grand-canonical extension."
 date: 2026-04-05
-published: false
+published: true
 categories:
   - science
   - deep-learning

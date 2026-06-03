@@ -3,7 +3,7 @@ layout: post
 title: Recursive decomposition with a continuation policy
 description: "Adding an abstain action to a recursive scaffold shows how delayed commitment can help, but only in a narrow ambiguity regime."
 date: 2026-04-03
-published: false
+published: true
 categories:
   - science
   - deep-learning

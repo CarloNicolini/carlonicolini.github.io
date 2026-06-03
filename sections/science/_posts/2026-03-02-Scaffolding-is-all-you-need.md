@@ -1,4 +1,4 @@
----
++---
 layout: post
 title: Scaffolding is all you need
 description: "When recursive LLM scaffolds improve reliability—and when they cannot."

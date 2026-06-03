@@ -3,7 +3,7 @@ layout: post
 title: "Amortized structural variational inference for probabilistic language programming"
 description: "How replacing linear agent loops with chain graphs over NAND gates leads to a principled ELBO formulation of amortized structured variational inference and why that matters for building powerful AI systems."
 date: 2026-04-14
-published: false
+published: true
 categories:
   - science
   - deep-learning

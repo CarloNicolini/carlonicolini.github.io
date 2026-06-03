@@ -5,7 +5,7 @@ subtitle: Reducing learned parameters by trading computation for structure
 description: "We test two brain-inspired architectures — Hippocampal Scaffold Network (HSN) and Cerebellar Expansion Network (CEN) — that trade a tiny number of learned parameters for a large, fixed recurrent or expanded scaffold, comparing them against a standard dense MLP on four synthetic benchmarks."
 date:   2026-05-15
 categories: science
-published: false
+published: true
 usemathjax: true
 ---
 

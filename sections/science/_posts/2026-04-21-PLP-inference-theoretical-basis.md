@@ -6,7 +6,7 @@ date: 2026-04-21
 categories:
   - science
   - deep-learning
-published: false
+published: true
 ---
 
 Kevin Murphy's treatment of inference on pp. 435-471 of *Probabilistic Machine Learning: Advanced Topics* gives us a clean gold standard for what exact and approximate inference algorithms are supposed to mean. Those pages cover the forwards-backwards algorithm for hidden Markov models, sum-product and max-product message passing on trees, factor-graph belief propagation, loopy belief propagation and its caveats, variable elimination, and the junction-tree viewpoint. They do **not** present these methods as vague metaphors. They present them as specific operators with specific mathematical guarantees.

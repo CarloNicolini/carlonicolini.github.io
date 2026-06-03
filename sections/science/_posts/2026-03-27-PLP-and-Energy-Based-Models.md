@@ -3,7 +3,7 @@ layout: post
 title: Test-time inference, language models and energy based models
 description: "PLP, energy-based models, and test-time inference over LLM traces."
 date: 2026-03-27
-published: false
+published: true
 categories:
   - science
   - deep-learning

@@ -6,7 +6,7 @@ description: "How we can link transformers way of processing information to biol
 categories:
   - science
   - deep-learning
-published: false
+published: true
 ---
 
 ## Connections to network neuroscience

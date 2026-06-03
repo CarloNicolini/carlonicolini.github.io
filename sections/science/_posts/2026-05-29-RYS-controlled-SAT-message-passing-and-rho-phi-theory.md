@@ -3,7 +3,7 @@ layout: post
 title: 'A controlled testbed for Repeat-Your-Self — SAT solving, message passing, and a predictive rho/phi theory'
 description: 'Experiments involving the extension of the RYS approach to simpler transformers and neural networks with a supporting correlation based theory'
 date: 2026-05-29
-published: false
+published: true
 categories:
   - science
   - deep-learning

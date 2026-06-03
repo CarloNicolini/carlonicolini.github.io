@@ -6,7 +6,7 @@ date: 2026-05-18
 categories:
 - science
 - deep-learning
-published: false
+published: true
 ---
 
 In the last two posts I tried to put David Ng's Repeat-Your-Self construction into a geometric language. In [How skip connections define graphs in deep networks]({% link sections/science/_posts/2026-04-28-Skip-connections-and-graph-analysis.md %}) I started from the residual recursion

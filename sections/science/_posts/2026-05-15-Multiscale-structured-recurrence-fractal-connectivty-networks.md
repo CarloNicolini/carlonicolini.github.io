@@ -7,7 +7,7 @@ date:   2026-05-15
 categories: 
   - science
   - deep-learning
-published: false
+published: true
 usemathjax: true
 ---
 

@@ -6,7 +6,7 @@ date: 2026-04-29
 categories:
 - science
 - deep-learning
-published: false
+published: true
 ---
 
 In yesterday's post on [How skip connections define graphs in deep networks]({% link sections/science/_posts/2026-04-28-Skip-connections-and-graph-analysis.md %}) I built an $$L\times L$$ functional connectome of a Transformer by taking pairwise *cosine* similarities of layer activations. That edge had a clean closed form in the cumulative residual force $$\rho_{i,j}$$ and the residual-vs-identity angle $$\phi_{i,j}$$, and the same closed form predicted that David Ng's *Repeat Your Self* (RYS) construction {% cite ng2026rys %} amplifies the off-plateau deviation in the central reasoning block by a factor of four.
