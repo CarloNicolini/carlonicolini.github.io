@@ -2,8 +2,8 @@
 layout: page
 title: Bio
 permalink: /sections/cv/
+categories: []
 ---
-
 I work across AI research, statistical physics, neuroscience, and scientific software. Over the years this has meant moving between incomplete data, mathematical models, research code, institutional constraints, and people who do not naturally speak the same language: physicists, neuroscientists, software developers, finance stakeholders, experimental researchers.
 
 I tend to work where an idea has to survive contact with data, code, collaborators, and deadlines. A model is only part of that work. The assumptions have to become visible enough for a group to trust the result, question it, or decide that it should not be used.
@@ -24,9 +24,9 @@ Thesis title: "Community detection in the modular structure of brain functional 
 ## Seminars and conferences (main)
 
 - November 2024 ICAIF conference on AI in finance, Brooklyn, NY (USA).
-- July 2019 Lipari Workshop on Complex Systems: Scale resolved analysis of complex networks [Download](/static/pdf/presentation_lipari.pdf)
-- June 2018 Netsci2018, Paris. Thermodynamics of network model fitting with spectral entropies. [Download](/static/pdf/presentation_netsci2018.pdf)
-- May 2016 CCS2016 Amsterdam, Community detection in brain functional networks beyond the resolution limit. [Download](/static/pdf/presentation_amsterdam_final.pdf)
+- July 2019 Lipari Workshop on Complex Systems: Scale resolved analysis of complex networks [Download](/assets/media/pdf/presentation_lipari.pdf)
+- June 2018 Netsci2018, Paris. Thermodynamics of network model fitting with spectral entropies. [Download](/assets/media/pdf/presentation_netsci2018.pdf)
+- May 2016 CCS2016 Amsterdam, Community detection in brain functional networks beyond the resolution limit. [Download](/assets/media/pdf/presentation_amsterdam_final.pdf)
 
 ### Experience
 

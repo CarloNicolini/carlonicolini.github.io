@@ -2,8 +2,9 @@
 layout: page
 title: GraphInsight Python API
 permalink: /sections/GIAPI/
+categories:
+  - engineering
 ---
-
 ## Visualization and control methods
 
 	void setBatchMode(bool batchMode);

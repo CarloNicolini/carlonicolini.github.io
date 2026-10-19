@@ -1,0 +1,48 @@
+<div class="wrap">
+  <section class="hero personal-hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Personal homepage</p>
+      <h1>Carlo Nicolini</h1>
+      <p class="hero-role">Physicist & AI research scientist</p>
+      <p class="hero-description">I work on machine learning and statistical physics, with a background in computational neuroscience. I’m interested in how complex systems organize information, from networks of brain regions to the internal representations of language models.</p>
+      <p class="hero-description">I’m currently a Senior AI Research Scientist at Ipazia and a core maintainer of <a href="https://skfolio.org">skfolio</a>, a Python library for portfolio optimization. This is where I collect my papers, software, and research notes.</p>
+      <div class="hero-actions"><a class="text-link" href="{{ '/curriculum/' | relative_url }}">About me & curriculum →</a><a class="text-link" href="{{ '/publications/' | relative_url }}">Publications →</a></div>
+    </div>
+    <figure class="hero-portrait">
+      <img src="{{ '/assets/media/img/foto_nicolini.jpeg' | relative_url }}" alt="Carlo Nicolini in front of his bookshelves" width="3024" height="4032" fetchpriority="high">
+      <figcaption>Based in Milan / Rovereto, Italy.</figcaption>
+    </figure>
+  </section>
+
+  <section class="neuroscience-section" aria-labelledby="neuroscience-title">
+    <div><p class="eyebrow">My background</p><h2 id="neuroscience-title">Computational neuroscience</h2><p class="neuro-period">Ph.D. research and postdoctoral work at IIT</p></div>
+    <div class="neuro-story"><p>Much of my early research took place at the Istituto Italiano di Tecnologia in Rovereto. During my Ph.D. in Applied Physics at the University of Verona, and later as a postdoctoral researcher at IIT, I studied the organization of brain functional connectivity networks.</p><p>I worked on community detection and its resolution limits, then on spectral entropy as a way to study network structure at different scales. That work brought together neuroscience, graph theory, and statistical mechanics. It still informs how I approach questions about representations and information in AI.</p><div class="resource-links"><a href="{{ '/writing/?topic=neuroscience' | relative_url }}">Neuroscience research notes ↗</a><a href="{{ '/software/?q=network' | relative_url }}">Network analysis software ↗</a></div></div>
+  </section>
+
+  <section class="home-section">
+    <div class="section-heading"><div><p class="eyebrow">Research</p><h2>What I work on</h2></div></div>
+    <div class="research-grid personal-research">
+      <article><h3>Language models</h3><p>I study how language models encode knowledge and how we can inspect their representations. My recent work also looks at planning, reasoning, and the evaluation of AI systems.</p><a href="{{ '/publications/?q=language' | relative_url }}">Related publications ↗</a></article>
+      <article><h3>Statistical physics & networks</h3><p>Entropy and statistical mechanics provide much of the language I use to think about complex systems. I work on network models, spectral methods, and information theory.</p><a href="{{ '/writing/?topic=physics' | relative_url }}">Research notes ↗</a></article>
+      <article><h3>Portfolio optimization</h3><p>Through skfolio, I work on optimization and risk modeling in Python. I’m particularly interested in how portfolio methods are estimated, compared, and tested on data they have not seen.</p><a href="{{ '/software/?q=skfolio' | relative_url }}">skfolio and related projects ↗</a></article>
+      <article><h3>Scientific computing</h3><p>Writing software has been part of my research since my work on stereoscopic tracking and computational psychophysics. I maintain tools that other researchers can inspect and reuse.</p><a href="{{ '/software/' | relative_url }}">Software archive ↗</a></article>
+    </div>
+  </section>
+
+  <section class="home-section">
+    <div class="section-heading"><div><p class="eyebrow">Papers</p><h2>Selected publications</h2></div><a class="text-link" href="{{ '/publications/' | relative_url }}">Full publication list →</a></div>
+    {% for paper in site.data.publications %}{% if paper.title contains 'Sokobench' or paper.title contains 'Hyperdimensional Probe' or paper.title contains 'Scale-resolved analysis' or paper.title contains 'Modular structure of brain functional connectivity:' %}{% include publication.html paper=paper %}{% endif %}{% endfor %}
+  </section>
+
+  <section class="home-section">
+    <div class="section-heading"><div><p class="eyebrow">Writing</p><h2>Recent notes</h2></div><a class="text-link" href="{{ '/writing/' | relative_url }}">Browse the archive →</a></div>
+    <div class="writing-grid">{% for post in site.posts limit: 3 %}<a class="writing-card" href="{{ post.url | relative_url }}"><span class="meta">{{ post.date | date: '%d %b %Y' }} / {% for category in post.categories %}{% unless category == 'science' %}{{ site.data.taxonomy[category].label }}{% unless forloop.last %} · {% endunless %}{% endunless %}{% endfor %}</span><h3>{{ post.title }}</h3><p>{{ post.description | default: post.excerpt | strip_html | truncate: 155 }}</p><span class="read-link">Read →</span></a>{% endfor %}</div>
+  </section>
+
+  <section class="academy-home" aria-labelledby="academy-home-title">
+    <div><p class="eyebrow">Teaching / Proposed programme</p><h2 id="academy-home-title">AI Academy</h2></div>
+    <div><p>I’m putting together a programme of individual lessons for people getting started with AI or portfolio optimization. The idea is to work through the concepts together, then apply them in small Python experiments, with the pace adjusted to your background.</p><p>The proposed plans include optional preparation for people new to programming, followed by a choice of two learning routes.</p><a class="text-link" href="{{ '/academy/' | relative_url }}">See the lesson plans →</a></div>
+  </section>
+
+  <section class="contact-band"><h2>Contact</h2><p>For research questions, software discussions, or an enquiry about individual lessons, you can contact me on LinkedIn:</p><a href="{{ site.linkedin_url }}">Carlo Nicolini on LinkedIn ↗</a></section>
+</div>

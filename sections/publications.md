@@ -3,6 +3,7 @@ layout: page
 title: Publications
 permalink: /sections/publications/
 page_class: page--wide
+categories: []
 ---
 <p class="section-description">
   Here is a short list of some of my major publications. From 2020 onward I moved from neuroscience to artificial intelligence.

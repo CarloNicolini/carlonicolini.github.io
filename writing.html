@@ -1,0 +1,35 @@
+---
+layout: page
+title: Research notes
+eyebrow: Writing / Ideas in progress
+description: Research and essays on AI, physics, mathematics, finance, neuroscience, and philosophy, alongside practical computing notes.
+permalink: /writing/
+---
+<div class="toolbar">
+  <label for="writing-search">Explore the archive</label>
+  <input id="writing-search" type="search" data-search placeholder="Search titles, headings, or subjects…">
+  <select aria-label="Filter articles by topic" data-topic>
+    <option value="all">All topics</option>
+    <optgroup label="Science">
+      <option value="science">Science · All subfields</option>
+      {% for category in site.data.taxonomy.science.children %}<option value="{{ category }}">Science · {{ site.data.taxonomy[category].label }}</option>{% endfor %}
+    </optgroup>
+    <option value="philosophy">Philosophy</option>
+    <option value="engineering">Engineering</option>
+  </select>
+</div>
+<p class="archive-count" aria-live="polite"><span data-result-count>{{ site.posts | size }}</span> <span data-result-label>articles</span></p>
+<div class="archive-list" data-search-list>
+{% for post in site.posts %}
+  {% capture search_text %}{{ post.title }} {{ post.description }} {{ post.search_headings }} {{ post.search_subjects }}{% endcapture %}
+  <article class="archive-row" data-search-item data-search-text="{{ search_text | strip_html | escape }}" data-category="{{ post.categories | join: ' ' }}">
+    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%d %b %Y' }}</time>
+    <div>
+      <div class="eyebrow post-categories">{% include post-categories.html post=post %}</div>
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      {% if post.description %}<p>{{ post.description | strip_html | truncate: 180 }}</p>{% endif %}
+    </div><span aria-hidden="true">↗</span>
+  </article>
+{% endfor %}
+</div>
+<p class="empty-state" hidden>No articles match your search and selected topic.</p>

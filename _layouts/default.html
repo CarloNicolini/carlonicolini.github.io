@@ -1,38 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-  {% include head.html %}
-  {% seo %}
-  {% include mathjax_support.html %}
-  </head>
-  <body>
-    {% include header.html %}
-    <main class="main-content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-    </main>
-    {% include footer.html %}
-  {% include code-block-tools.html %}
-  {% include mermaid.html %}
-  <script id="dsq-count-scr" src="//carlonicolini-github-io.disqus.com/count.js" async></script>
-  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      mediumZoom('.post-content img, .main-content img, .post img', {
-        margin: 24,
-        background: '#fff',
-        scrollOffset: 0
-      });
-
-      const tables = document.querySelectorAll('table');
-      tables.forEach(table => {
-        const wrapper = document.createElement('div');
-        wrapper.className = 'table-wrapper';
-        table.parentNode.insertBefore(wrapper, table);
-        wrapper.appendChild(table);
-      });
-    });
-  </script>
-  </body>
-</html>
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{const t=localStorage.getItem('theme');document.documentElement.dataset.theme=t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}</script>
+{% seo %}{% feed_meta %}
+<link rel="icon" href="{{ '/assets/icons/favicon.ico' | relative_url }}">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/vendor/prism/line-numbers.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+{% if page.preview_style or page.style_gallery %}<link rel="stylesheet" href="{{ '/assets/css/style-lab.css' | relative_url }}">{% endif %}
+<script>window.Prism={manual:true};</script>
+<script defer src="{{ '/assets/vendor/prism/prism.bundle.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/code-blocks.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/site.js' | relative_url }}"></script>
+{% if page.layout == 'post' or page.math %}
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']],processEscapes:true},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+{% endif %}
+</head>
+<body{% if page.preview_style %} data-style="{{ page.preview_style }}"{% endif %}><a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header wrap"><a class="brand" href="{{ '/' | relative_url }}">cn<span>·</span><span class="brand-name">Carlo Nicolini</span></a>
+<nav aria-label="Main navigation">{% assign links = 'Writing,Publications,Software,Curriculum,Academy' | split: ',' %}{% for label in links %}{% assign slug = label | downcase %}<a href="{{ '/' | append: slug | append: '/' | relative_url }}" {% if page.url contains slug %}aria-current="page"{% endif %}>{{ label | replace: 'Academy', 'AI Academy' }}</a>{% endfor %}</nav>
+<button class="theme-toggle" aria-label="Switch to dark theme" title="Switch color theme"><span aria-hidden="true">◐</span></button></header>
+{% if page.preview_style %}<aside class="style-switcher" aria-label="Design previews"><a href="{{ '/styles/' | relative_url }}">← All styles</a><span>Preview</span>{% for option in site.data.style_options %}<a href="{{ '/styles/' | append: option.slug | append: '/' | relative_url }}" {% if page.preview_style == option.slug %}aria-current="page"{% endif %}>{{ option.name }}</a>{% endfor %}<a href="{{ '/' | relative_url }}">Original ↗</a></aside>{% endif %}
+<main id="main">{{ content }}</main>
+<footer class="site-footer wrap"><div><a class="footer-name" href="{{ '/' | relative_url }}">Carlo Nicolini<span> · </span></a><p>Research notes, publications, and scientific software.</p></div><div class="footer-links"><a href="{{ site.linkedin_url }}">LinkedIn ↗</a><a href="https://github.com/carlonicolini">GitHub ↗</a><a href="https://scholar.google.com/citations?user=jnpIfCwAAAAJ">Scholar ↗</a><a href="{{ '/feed.xml' | relative_url }}">RSS ↗</a></div><small>© {{ 'now' | date: '%Y' }} · Built with Jekyll</small></footer>
+</body></html>

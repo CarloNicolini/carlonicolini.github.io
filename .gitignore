@@ -1,4 +1,6 @@
 _site/
-_sass-cache/
-screenshots/
-.gstack/
+.jekyll-cache/
+.jekyll-metadata
+.bundle/
+vendor/
+.DS_Store

@@ -1,0 +1,1 @@
+{% for category in include.post.categories %}{% unless category == 'science' and include.post.categories.size > 1 %}{% assign subject = site.data.taxonomy[category] %}<a class="category-link" href="{{ '/writing/?topic=' | append: category | relative_url }}">{{ subject.label }}</a>{% endunless %}{% endfor %}

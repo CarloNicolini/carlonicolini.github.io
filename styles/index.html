@@ -1,0 +1,8 @@
+---
+layout: default
+title: Four directions
+permalink: /styles/
+style_gallery: true
+sitemap: false
+---
+<div class="wrap style-gallery"><p class="eyebrow">Design exploration / October 2026</p><h1>One person.<br>Four perspectives.</h1><p class="gallery-intro">Four possible homes for the same research, writing and software. Open a direction to explore the full homepage, then use the preview bar to compare.</p><a class="text-link" href="{{ '/' | relative_url }}">View the existing design ↗</a><div class="style-cards">{% for option in site.data.style_options %}<a class="style-card" href="{{ '/styles/' | append: option.slug | append: '/' | relative_url }}"><div class="style-sample sample-{{ option.slug }}" aria-hidden="true"><span>{{ option.number }} / {{ option.palette }}</span><strong>Carlo<br>Nicolini<span>·</span></strong><small>Physics. Learning. Complex systems.</small><i></i></div><div class="style-caption"><p class="eyebrow">{{ option.number }} / {{ option.name }}</p><h2>{{ option.subtitle }}</h2><p>{{ option.description }}</p><span class="text-link">Explore {{ option.name }} →</span></div></a>{% endfor %}</div><p class="gallery-intro">These are local design studies. The existing homepage remains the default. Each preview uses the same content; navigation to other sections returns to the existing site design.</p></div>

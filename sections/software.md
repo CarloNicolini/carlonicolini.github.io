@@ -3,6 +3,8 @@ layout: page
 title: Software
 permalink: /sections/software/
 page_class: page--wide
+categories:
+  - engineering
 ---
 <p class="section-description">
   Here is a list of ready-to-use software that I have developed over the course of these last years, both as scientific programmer, as PhD student and now as postdoc.

@@ -1,0 +1,4215 @@
+[
+  {
+    "path": "sections/GI_API.md",
+    "title": "GraphInsight Python API",
+    "description": null,
+    "categories": [
+      "engineering"
+    ],
+    "post": false,
+    "headings": [
+      "Visualization and control methods",
+      "Graph related methods",
+      "Methods callable from Node class"
+    ],
+    "previous_categories": null,
+    "body_sha256": "28e559f65fd36ccee2976e886c3534e4b650f2297664d29e8fd0ba16882928f2"
+  },
+  {
+    "path": "sections/contact.md",
+    "title": "Contacts",
+    "description": null,
+    "categories": [],
+    "post": false,
+    "headings": [],
+    "previous_categories": null,
+    "body_sha256": "b2bbe2361e3532a3b36e7f2734149952beb8f8a35384d3325f348ea439f5e66a"
+  },
+  {
+    "path": "sections/cv/cv.md",
+    "title": "Bio",
+    "description": null,
+    "categories": [],
+    "post": false,
+    "headings": [
+      "Seminars and conferences (main)",
+      "Experience"
+    ],
+    "previous_categories": null,
+    "body_sha256": "3d47674ce88d5bf2aca060953680bab7c620d2991058056de40e02e442024998"
+  },
+  {
+    "path": "sections/downloads.md",
+    "title": "Download area",
+    "description": null,
+    "categories": [
+      "engineering"
+    ],
+    "post": false,
+    "headings": [
+      "Code for community detection on networks",
+      "GraphInsight"
+    ],
+    "previous_categories": null,
+    "body_sha256": "a6bc13ebea7f8244c88138e6abadb81e375426ca4228fad310bd08e65e476074"
+  },
+  {
+    "path": "sections/finance.md",
+    "title": "Quantitative finance and economics",
+    "description": null,
+    "categories": [
+      "science",
+      "finance"
+    ],
+    "post": false,
+    "headings": [],
+    "previous_categories": null,
+    "body_sha256": "7d7b04e55315f83f4bc0e946e53dd513119731f3439b7932ad5ab943029175c0"
+  },
+  {
+    "path": "_posts/2017-09-22-A-Full-Undegraduate-Course-In-Econometrics.md",
+    "title": "A Full Undergraduate Course in Econometrics",
+    "description": "Notes taken from the online course by Ben Lambert about econometrics and statistics",
+    "categories": [
+      "science",
+      "finance",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Populations and samples in econometrics",
+      "[Estimators - the basics]",
+      "Estimators properties",
+      "Unbiasedness and consistency",
+      "Unbiasedness vs consistency of estimators - an example",
+      "Efficiency of estimators",
+      "Good estimator properties summary",
+      "Lines of best fit in econometrics",
+      "The mathematics behind drawing a line of best fit",
+      "Least squares estimators as BLUE",
+      "Deriving least squares estimators - part 1",
+      "Deriving least squares estimators - part 2",
+      "Deriving least squares estimators - part 3",
+      "Deriving Least Squares Estimators - part 4",
+      "Deriving Least Squares Estimators - part 5",
+      "Least Squares Estimators - in summary",
+      "Taking expectations of a random variable",
+      "Moments of a random variable",
+      "Central moments of a random variable",
+      "Kurtosis",
+      "Skewness",
+      "Expectations and Variance properties",
+      "Covariance and correlation",
+      "Population vs sample quantiles",
+      "The Population regression function",
+      "Gauss-Markov assumptions - part 1",
+      "Gauss-Markov assumptions - part 2",
+      "Zero conditional mean of errors",
+      "Omitted variable bias",
+      "Detailed analysis of the OVB",
+      "Reverse causality",
+      "41 - Measurement error in independent variables",
+      "42 - Measurement error in independent variables",
+      "43 - Functional misspecification",
+      "46 - Random sample summary",
+      "48 Serial correlation summary",
+      "52 - Serial correlation biased standard error"
+    ],
+    "previous_categories": [
+      "finance"
+    ],
+    "body_sha256": "dd43ac762a0a56ff10d60a7ae4af4a632ea89091f6832c289cb27e4bce67d249"
+  },
+  {
+    "path": "_posts/2017-09-27-A Graduate Course in Econometrics.md",
+    "title": "A Graduate Course in Econometrics",
+    "description": null,
+    "categories": [
+      "science",
+      "finance",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Introduction to matrix econometrics",
+      "Variance of random vector times a matrix",
+      "Geometric interpretation of OLS"
+    ],
+    "previous_categories": "finance",
+    "body_sha256": "79df5381ba7030b416ea3bceb216076e76a307c284a08c87502adcd506beb219"
+  },
+  {
+    "path": "_posts/2018-05-19-Optimal-Portfolio-for-Cryptocurrencies.md",
+    "title": "Markowitz optimal portfolio in Python",
+    "description": null,
+    "categories": [
+      "science",
+      "finance"
+    ],
+    "post": true,
+    "headings": [
+      "Preparation",
+      "Modern Portfolio Theory",
+      "Code and simulations"
+    ],
+    "previous_categories": "finance",
+    "body_sha256": "442aa9e7593337e4a175918910193390bcc7d538aae3c2bbc96d51a188a1077b"
+  },
+  {
+    "path": "_posts/2019-02-04-Exercises-for-quant-interviews.md",
+    "title": "Exercises for quantitative interviews",
+    "description": "prepare for a quant interview, if it still matters in 2026!",
+    "categories": [
+      "science",
+      "finance",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Exercise 1",
+      "Solution",
+      "Exercise 2",
+      "Solution",
+      "Exercise 3",
+      "Solution",
+      "Exercise 4",
+      "Solution"
+    ],
+    "previous_categories": "finance",
+    "body_sha256": "b80a9ec3bf369c607d8b254ed9daa631987bce4b5dbd54b0c3eb0813458f488b"
+  },
+  {
+    "path": "_posts/2019-03-04-Matrix-factorization.md",
+    "title": "Matrix factorization things",
+    "description": "some quick notes about the singular value decomposition and matrix factorization methods",
+    "categories": [
+      "science",
+      "math",
+      "ai"
+    ],
+    "post": true,
+    "headings": [
+      "Singular value decomposition"
+    ],
+    "previous_categories": [
+      "finance"
+    ],
+    "body_sha256": "01c3495dda5f947abb721cbf7e4a744b84f6cbd5aefa81bf6dc951dbcef3131d"
+  },
+  {
+    "path": "_posts/2021-05-19-ARPM-notes.md",
+    "title": "Notes of ARPM models",
+    "description": null,
+    "categories": [
+      "science",
+      "finance"
+    ],
+    "post": true,
+    "headings": [
+      "Definitions",
+      "Conditioning risk divers",
+      "Structural risk drivers \\mathbf{X}_t^{\\textrm{struct}}",
+      "Dimension reduction",
+      "Aggregate risk divers",
+      "Pricing at the horizon: credit",
+      "Market and credit value"
+    ],
+    "previous_categories": [
+      "finance"
+    ],
+    "body_sha256": "236f12cc9069eac8ba85acf843f4dc38f9a2e4989439358b1630e38612d8d555"
+  },
+  {
+    "path": "sections/publications.md",
+    "title": "Publications",
+    "description": null,
+    "categories": [],
+    "post": false,
+    "headings": [],
+    "previous_categories": null,
+    "body_sha256": "eb8159cc3c6b29a73dea396d11b2dfcd9894871830bcd9db1dc43c37e04fb143"
+  },
+  {
+    "path": "sections/science.md",
+    "title": "Science and math",
+    "description": "Science and math posts: ML, networks, statistical physics, tutorials.",
+    "categories": [
+      "science"
+    ],
+    "post": false,
+    "headings": [],
+    "previous_categories": null,
+    "body_sha256": "de78cab817fc8fc8caa54d436019af8e9a93f17430cc9b615494535e6d0b1988"
+  },
+  {
+    "path": "_posts/2015-10-14-Detecting-the-consensus-communities-in-graphs.md",
+    "title": "Detecting the consensus communities in graphs",
+    "description": "Detecting the consensus communities in graphs.",
+    "categories": [
+      "science",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Stochastic optimization methods",
+      "Measures for replica correlation",
+      "Consensus clustering",
+      "Comparing community structure in graphs",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "19eca54ef8312c0a1bb067b19cba03d956850600475628e121f80703b3d1c31d"
+  },
+  {
+    "path": "_posts/2016-03-11-Quantum-information-theory-and-complex-networks.md",
+    "title": "Quantum information theory and complex networks",
+    "description": "Quantum information theory and complex networks.",
+    "categories": [
+      "science",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Laplace",
+      "Von Neumann entropy of a complex network",
+      "Von Neumann Entropy of random graph models"
+    ],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "d85f79e28f40486b483dbe8082f40fff2dbafd889cae4fa255f8c463c2863411"
+  },
+  {
+    "path": "_posts/2016-08-26-Spectral_density_random_graph_models_planted_partition.md",
+    "title": "Comparing spectral densities of random graph models.",
+    "description": "Comparing spectral densities of random graph models.",
+    "categories": [
+      "science",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Notation",
+      "Random graph models",
+      "Spectral density",
+      "From spectrum of a single graph to the spectrum of a graph model",
+      "Spectral entropy",
+      "Model selection in graphs?",
+      "Kullback-Leibler divergence",
+      "Practical implementation and code",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "6cd963573f3161f82457355b04fb92639a09a0f3dd07c9abb200b2a487747f46"
+  },
+  {
+    "path": "_posts/2016-09-26-Extending_Surprise.md",
+    "title": "Extending Surprise to support the configuration model",
+    "description": "Extending Surprise to support the configuration model.",
+    "categories": [
+      "science",
+      "math"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "6f7eceebeeb8e441c482472d136e50b2534a44417aeb47b5c90ff1f45d079257"
+  },
+  {
+    "path": "_posts/2016-10-14-MultiSurprise.md",
+    "title": "Extending Surprise to multivariate hypergeometric",
+    "description": "Extending Surprise to multivariate hypergeometric.",
+    "categories": [
+      "science",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Notes on asymptotical surprise",
+      "MAIL GARLASCHELLI",
+      "Referenze"
+    ],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "b653e25fd08f2aa0e0ae3a35a4fa550cc41c281b6b4e3cba08626e280efcc55d"
+  },
+  {
+    "path": "_posts/2016-10-18-Gilbert-Model-for-loopy-multigraphs.md",
+    "title": "Gilbert model for loopy multigraphs",
+    "description": "Gilbert model for loopy multigraphs.",
+    "categories": [
+      "science",
+      "math"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "e77f75b662f47a0dd0bc95becefca269b0161c522de733671e3fcb31a85ab23d"
+  },
+  {
+    "path": "_posts/2016-10-28-Computing_hypergeometric_probability_efficiently_in_C++.md",
+    "title": "Computing hypergeometric probability efficiently in C++",
+    "description": "Computing hypergeometric probability efficiently in C++.",
+    "categories": [
+      "science",
+      "math",
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "8bdd33a646b4eaf44de1eb64275f1a053cb012c6171e5a8b07e548253dc976c5"
+  },
+  {
+    "path": "_posts/2016-12-24-Computing-Euler-Angles.md",
+    "title": "Computing Euler angles from 3x3 rotation matrix in Matlab",
+    "description": "Computing Euler angles from 3x3 rotation matrix in Matlab.",
+    "categories": [
+      "science",
+      "math",
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "3766cb0dfd0441747f731286ad6277d2942c6943bc4c23959cd826f7f864441d"
+  },
+  {
+    "path": "_posts/2017-01-19-Information-theory-fundamentals.md",
+    "title": "Information theory fundamentals",
+    "description": "Information theory fundamentals.",
+    "categories": [
+      "science",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Random variable",
+      "Entropy (Shannon)",
+      "Examples",
+      "Joint entropy",
+      "Conditional entropy",
+      "Venn Diagram for Information",
+      "Jensen Inequality ",
+      "Relative entropy",
+      "Fisher information"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "37d220b131f666b5ab6f749781760face6309a11682df466004661562b63a875"
+  },
+  {
+    "path": "_posts/2017-02-12-Community-detection-in-the-modular-structure-of-brain-functional-connectivity-networks.md",
+    "title": "Community detection in the modular structure of brain functional connectivity networks",
+    "description": "Community detection in the modular structure of brain functional…",
+    "categories": [
+      "science",
+      "neuroscience"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "1b582938e14156bd3d4b060124e3d705687d7075e0f6465028dcfd687a6ad26c"
+  },
+  {
+    "path": "_posts/2017-02-22-Eigenvalue-spectra-of-modular-matrix-techniques.md",
+    "title": "Eigenvalue spectra of modular matrix techniques and calculations",
+    "description": "Eigenvalue spectra of modular matrix techniques and calculations.",
+    "categories": [
+      "science",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "RANDOM NOTES ABOUT RANDOM GRAPHS AND EIGENVALUES, NOT TO BE TAKEN SERIOUSLY",
+      "1",
+      "2",
+      "Notes about Von Neumann entropy",
+      "Facts about eigenvalues of Laplacian"
+    ],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "5167bfc1fa840a67f406b07d4e95ad27dc47985803b915ed799d98bf8f4da4a0"
+  },
+  {
+    "path": "_posts/2017-02-23-Properties-of-the-trace-of-a-matrix.md",
+    "title": "Properties of the trace of a matrix",
+    "description": "Properties of the trace of a matrix.",
+    "categories": [
+      "science",
+      "math"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "c25450e81de8daf6b04c650e8ad03b993c95b444583c05587a539a5b87fd199d"
+  },
+  {
+    "path": "_posts/2017-03-10-Detectability_of_communities_quantum_density_matrix_and_nonbacktracking_operator.md",
+    "title": "Detectability of communities and the quantum density matrix.",
+    "description": "Detectability of communities and the quantum density matrix.",
+    "categories": [
+      "science",
+      "physics",
+      "ai",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Some observations about the spectra of random modular networks and the Stochastic Block model",
+      "Planted structure detectable",
+      "Paralleling inference, learning, optimization, statistical mechanics",
+      "Notes",
+      "Variational methods",
+      "Analogies between inference and physics",
+      "References:"
+    ],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "64c3ef5e95a86055f1715e17b61276f594e2636e5e3dd887974e10a5ea0069c8"
+  },
+  {
+    "path": "_posts/2017-05-08-Surprise-to-support-configuration-model.md",
+    "title": "Surprise to support configuration model",
+    "description": "Surprise to support configuration model.",
+    "categories": [
+      "science",
+      "math"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "82c81af0df29b8abcd7b97d9e8e3c6062b292d08484f4f85c89049fe1e6ad2e6"
+  },
+  {
+    "path": "_posts/2017-05-09-Statistical-mechanics-of-networks.md",
+    "title": "Statistical mechanics of networks - Park and Newman model of hidden variables",
+    "description": "Statistical mechanics of networks - Park and Newman model of hidden…",
+    "categories": [
+      "science",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Introduction",
+      "Exponential random graph as ER generalization",
+      "Maximum entropy model for multilayer networks"
+    ],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "55ddf456f95fb89a9003edb66dfbf46ad38ed3006c2a47d25ab25895a8f7a450"
+  },
+  {
+    "path": "_posts/2017-05-10-Surprise-to-support-weighted-random-graph.md",
+    "title": "Plugging the weighted random graph into Surprise",
+    "description": "Plugging the weighted random graph into Surprise.",
+    "categories": [
+      "science",
+      "math"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "cd73c491f79b4851215221ff29198da08366232502a5fd1db8bc529e977b81f1"
+  },
+  {
+    "path": "_posts/2017-05-12-Enhanced-weighted-random-graph-model-(EWRG).md",
+    "title": "The Enhanced weighted random graph model (EWRG)",
+    "description": "The Enhanced weighted random graph model (EWRG).",
+    "categories": [
+      "science",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Introduction",
+      "The maximum entropy method",
+      "Graph probability in the EWRG model",
+      "Expected values of the observables"
+    ],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "dbe126fe499fe58a8836f4f26a47b6a0fc3cd7abc87f6aacaab5ab07dacd7358"
+  },
+  {
+    "path": "_posts/2018-03-01-Lambda-functions-composition-in-python3.md",
+    "title": "Lambda functions composition in Python 3",
+    "description": "Lambda functions composition in Python 3.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "Introduction",
+      "First attempt using functions",
+      "A more powerful approach using functors"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "684a2aff8396223f04d291c064eb188312f709c627c0f54c38cc8dce9e653455"
+  },
+  {
+    "path": "_posts/2018-03-12-Distance-matrix-of-the-air500-complex-network.md",
+    "title": "Distance matrix of the air500 complex network",
+    "description": "Distance matrix of the air500 complex network.",
+    "categories": [
+      "science",
+      "math"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "32da69a97ba4e0079819621afad3e31b146798b27faeb6f260b5dd38baf43017"
+  },
+  {
+    "path": "_posts/2018-05-11-An-identity-for-zero.md",
+    "title": "An identity for zero",
+    "description": "An identity for zero.",
+    "categories": [
+      "science",
+      "math"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "fc6b6c0f4ae9ebff35464a3cd14a277dc027740cd39b6d3b22273d3055652585"
+  },
+  {
+    "path": "_posts/2018-05-11-Inequalities-traces-densities-matrices.md",
+    "title": "Inequalities, traces, densities, matrices",
+    "description": "Inequalities, traces, densities, matrices.",
+    "categories": [
+      "science",
+      "math"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "2204345692c43e975487a00c966bdab98624d9a7b87f1905b7a119ccc8f53db9"
+  },
+  {
+    "path": "_posts/2018-06-24-some-considerations-about-spectral-entropies-framework.md",
+    "title": "Some considerations about the spectral entropies framework",
+    "description": "Some considerations about the spectral entropies framework.",
+    "categories": [
+      "science",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Gradients and optimization",
+      "Open questions"
+    ],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "a7b5cd0039c4b03c2b3bc7f49e176cb064fd193081e213cac4641f4d3fbc1b40"
+  },
+  {
+    "path": "_posts/2018-06-25-spectral-density-via-average-resolvent.md",
+    "title": "Random matrix ensemble spectral density and the average resolvent",
+    "description": "Random matrix ensemble spectral density and the average resolvent.",
+    "categories": [
+      "science",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Numerical implementation",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "6a03fe1bbe1c686847277331166ad9c869e697e43e9c3e3a664d0a40e17b662c"
+  },
+  {
+    "path": "_posts/2018-07-21-why-probabilistic-programming-matters.md",
+    "title": "Why probabilistic programming matters",
+    "description": "Probabilistic programming as seen from the past (a paper appeared before 2014!)",
+    "categories": [
+      "science",
+      "ai"
+    ],
+    "post": true,
+    "headings": [
+      "Why Probabilistic Programming Matters"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "39a4f8130cad334371eab10173bf80604590b79df1ee075e946523c921ebd42e"
+  },
+  {
+    "path": "_posts/2018-07-23-Variational-inference-spectral-entropy.md",
+    "title": "Variational inference and model fitting of complex networks",
+    "description": "Variational inference and model fitting of complex networks.",
+    "categories": [
+      "science",
+      "physics",
+      "ai",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Spectral maximum likelihood framework",
+      "Replica trick, quenched and annealed free energies",
+      "Annealed computations",
+      "Model optimization as variational inference",
+      "Practical model optimization",
+      "Perturbation expansion for the partition function",
+      "Appendix: calculation of ensemble average spectral density",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "bc05b30dbf854aebd0cdf9f2ec3a7e51124a96a0aaf4044a939652ed72631d95"
+  },
+  {
+    "path": "_posts/2018-09-05-Dataset-of-biologically-derived-graphs.md",
+    "title": "Dataset of biologically derived graphs",
+    "description": "Dataset of biologically derived graphs.",
+    "categories": [
+      "science",
+      "neuroscience"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "da137709d81ed0a13199ee1f92645ceee9ca23c43feed0515a7faa8ce13c6066"
+  },
+  {
+    "path": "_posts/2018-09-12-weighted-graph-from-adjacency-matrix-in-graph-tool.md",
+    "title": "Weighted graphs from adjacency matrix in graph-tool",
+    "description": "Weighted graphs from adjacency matrix in graph-tool.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "b809e86f4a01e5fea693e5eee0355dc5e13ff72eaa72a83c3e8c67044d322a29"
+  },
+  {
+    "path": "_posts/2018-11-27-Plotting-custom-brain-parcellation-beautifully-in-python-with-nilearn.md",
+    "title": "Showing brain parcellation in Python with nilearn and some hacking",
+    "description": "Nilearn surface plots for brain parcellation and ROI visualization.",
+    "categories": [
+      "science",
+      "neuroscience",
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "What do I need to make this beatiful plots?",
+      "Why is this visualization useful?",
+      "The problems we address",
+      "Loading the mesh and computing normals",
+      "Definining a decent colormap",
+      "Mapping the membership vector to mesh vertices"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "ad420d0b33ed8b46d2a6cbcd7f56fce56e97d2bdbd92fb16e2c81f68e8d7b656"
+  },
+  {
+    "path": "_posts/2018-11-28-enhanced-weighted-random-graph-continuos-weights.md",
+    "title": "The Enhanced Weighted Random Graph Model with continuous weights",
+    "description": "The Enhanced Weighted Random Graph Model with continuous weights.",
+    "categories": [
+      "science",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Introduction",
+      "Continuous Weighted Random graph model (cWRG)",
+      "Continuous Weighted Configuration Model (cUWCM)",
+      "Continuous Enhanced Weighted Configuration Model (cEWCM)",
+      "Introducing the threshold parameter (cEWCMt)",
+      "Ratio \\langle w_{ij} \\rangle/p_{ij}",
+      "Likelihood optimization",
+      "Higher order properties",
+      "Numerical approach to the problem",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "96e651090677bba962f1ef78034048ea052be4c75a2e4155955b9be0893cfe62"
+  },
+  {
+    "path": "_posts/2018-12-19-Thresholded-maximum-entropy-weighted-configuration-model.md",
+    "title": "Thresholded maximum entropy weighted configuration model",
+    "description": "Thresholded maximum entropy weighted configuration model.",
+    "categories": [
+      "science",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Adding the threshold parameter in the strength weights",
+      "Generic solution",
+      "Convince your self"
+    ],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "e26d174ed8d13a664709fcb5fc88cea2916840dd369eb5953fb51877202e419d"
+  },
+  {
+    "path": "_posts/2019-01-14-Complex-networks-with-complex-weights.md",
+    "title": "Complex networks with complex weights",
+    "description": "Complex networks with complex weights.",
+    "categories": [
+      "science",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Graphs with complex adjacency matrix elements"
+    ],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "532853dc9fdc14ad84fa17563829fb13e01e2077e9e55c1adaace4ec540034f4"
+  },
+  {
+    "path": "_posts/2019-01-16-Einstein-summation-in-numpy-and-tensorflow.md",
+    "title": "Einstein summation in Numpy",
+    "description": "Einstein summation in Numpy.",
+    "categories": [
+      "science",
+      "math",
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "Batched matrix operations via np.einsum",
+      "Batched outer products",
+      "Batched graph matrices"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "8458aa0d245ba3246ec7d3baa4f90ab34df14b4bbf5c0895d347df4020579805"
+  },
+  {
+    "path": "_posts/2019-01-25-Smooth-approximation-to-the-floor-function.md",
+    "title": "Smooth approximation to the floor function",
+    "description": "Smooth approximation to the floor function.",
+    "categories": [
+      "science",
+      "math"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "3871dde94183d97e4f396db0463c3d648d6d1362c1414ccb819ac10e37c787ac"
+  },
+  {
+    "path": "_posts/2019-03-12-Dealing-with-negative-probabilities-Feynman-notes.md",
+    "title": "Richard Feynam dealing with negative probabilities",
+    "description": "Richard Feynam dealing with negative probabilities.",
+    "categories": [
+      "science",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "c2ccda16923e81af889193b1cc6fd2b3f5de59b617ce1b224b41d53d73a9f701"
+  },
+  {
+    "path": "_posts/2019-03-13-Rank-1-matrix-estimation.md",
+    "title": "Low rank estimation of sparse observed ratios",
+    "description": "Low rank estimation of sparse observed ratios.",
+    "categories": [
+      "science",
+      "math",
+      "ai"
+    ],
+    "post": true,
+    "headings": [
+      "Why this problem is interesting",
+      "Code"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "f54e8611bf75225c0473b0902e0871c6ec0e4abe74228274d0b973264e1b1842"
+  },
+  {
+    "path": "_posts/2019-03-18-Basic-properties-of-measures.md",
+    "title": "Short introduction to measure theory",
+    "description": "Short introduction to measure theory.",
+    "categories": [
+      "science",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Introduction to Banach-Tarski paradox",
+      "Measure theory",
+      "Measure theory: basic properties of measures",
+      "Examples of \\sigma-algebras",
+      "More properties of probability measures",
+      "Facts",
+      "References for Probability and Measure theory",
+      "Conditional probability and independence"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "91e822d4edf634a20bf9f88be9a5c66ad47eacd99bed528e86ccf3ae839b8e58"
+  },
+  {
+    "path": "_posts/2019-04-18-Introducing-networkqit.md",
+    "title": "Quantum statistical mechanics of complex networks in networkqit",
+    "description": "Quantum statistical mechanics of complex networks in networkqit.",
+    "categories": [
+      "science",
+      "physics",
+      "math",
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "Computing the spectral entropy of a network",
+      "Generative network models",
+      "Classical optimization of spectral entropies",
+      "Stochastic optimization of spectral entropy",
+      "Classical maximum likelihood estimation",
+      "Citing"
+    ],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "350df721da44dc64c0999e668c6581d6e09fc9db230d5258177f1cc8fe08329c"
+  },
+  {
+    "path": "_posts/2019-05-27-Improving-statistical-inference.md",
+    "title": "Improving statistical inference",
+    "description": "Improving statistical inference.",
+    "categories": [
+      "science",
+      "math",
+      "ai"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "66afe16cfbc33d5db2cde73abd1eb51651042c8a0d9907ff434f6bb1cc33970a"
+  },
+  {
+    "path": "_posts/2019-06-07-Flatten-multilayer-networks-in-numpy.md",
+    "title": "How to flatten multilayer networks in Python",
+    "description": "How to flatten multilayer networks in Python.",
+    "categories": [
+      "science",
+      "math",
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "Dealing with a multilayer network via supra-adjacency matrix"
+    ],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "10a12b931ada7a207272b5ca0d0b8178dda419dc04b9c9ec6ddb88636e58e2bc"
+  },
+  {
+    "path": "_posts/2019-06-12-Sorting-algorithm-visualized.md",
+    "title": "Visualization of classical sorting algorithms",
+    "description": "How to visualize sorting algorithms simply",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "Visualization of classical sorting algorithms"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "d6a4cd6f4b1726e029811954a98b7afb47fed497488cf6bf2476ee1af23e2eb8"
+  },
+  {
+    "path": "_posts/2019-06-12-The-link-between-machine-learning-and-statistical-physics.md",
+    "title": "The link between machine learning and statistical physics",
+    "description": "The link between machine learning and statistical physics.",
+    "categories": [
+      "science",
+      "ai",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "The abstract:"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "865f9e350c24385160ce4e25458b721cd01d29a89f4127be10091209635fba14"
+  },
+  {
+    "path": "_posts/2019-06-17-Coding-puzzles.md",
+    "title": "Coding puzzles",
+    "description": "Coding puzzles.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "1. Floyd triangle",
+      "2. Find third largest element in a given array",
+      "3. Find duplicate characters in a given string",
+      "4 The word break problem"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "d28df93d9b919ff4be529cd0c2f764a178fa0222a8528fe2153ee6ed699706f3"
+  },
+  {
+    "path": "_posts/2019-07-05-Vasicek-model.md",
+    "title": "Vasicek model in Python",
+    "description": "Vasicek model in Python.",
+    "categories": [
+      "science",
+      "finance",
+      "math"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "8e7fdeda7e11197a2d3e31c607a3891d5aa520bafbd55c393744948e9712ab23"
+  },
+  {
+    "path": "_posts/2019-07-20-Variational-inference-in-the-spectral-entropy-framework.md",
+    "title": "Variational inference in Tensorflow in the spectral entropies framework",
+    "description": "Variational inference in Tensorflow in the spectral entropies framework.",
+    "categories": [
+      "science",
+      "physics",
+      "ai",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Code"
+    ],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "e3982a7154f7f751adf204a18070df94a69f8c1098c7a4813e9321bff6503343"
+  },
+  {
+    "path": "_posts/2019-09-03-Sampling-uniform-random-spanning-forests-with-Wilson-algorithm.md",
+    "title": "Sampling uniform spanning forests with Wilson algorithm in Python",
+    "description": "Sampling uniform spanning forests with Wilson algorithm in Python.",
+    "categories": [
+      "science",
+      "physics",
+      "math",
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "Stochastic ways to determine the laplacian spectrum",
+      "Wilson algorithm in Python",
+      "From approximation to exact relation: inverse Laplace transform",
+      "Network Observables from Forest Statistics",
+      "Numerical Inverse Laplace Transform via Stieltjes Spectral Density",
+      "Code",
+      "References",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "364575f7b08090560de24b47f0bbe88e3a16195475458e597fe93d3fd02b9928"
+  },
+  {
+    "path": "_posts/2019-10-23-Structures-within-topological-graph-theory.md",
+    "title": "Structures within topological graph theory",
+    "description": "Structures within topological graph theory.",
+    "categories": [
+      "science",
+      "math"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "bb9ce302ac083f10a46a374c571c776ca4c063dbbd0dfafe77b6188cf196f630"
+  },
+  {
+    "path": "_posts/2019-12-09-Euler-characteristic-of-complex-networks.md",
+    "title": "Euler characteristic of complex networks",
+    "description": "Euler characteristic of complex networks.",
+    "categories": [
+      "science",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Dimension of graphs",
+      "Forms on graphs",
+      "Graphs and curvature",
+      "Dirac operator on graphs"
+    ],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "dba2a3ad9014f5decc63c1f7adbfe4299a6db96f48e57a6a3a5f77accc50d631"
+  },
+  {
+    "path": "_posts/2019-14-11-Eigenvectors-from-eigenvalues-A-numpy-implementation.md",
+    "title": "Eigenvectors from eigenvalues a numpy implementation",
+    "description": "Eigenvectors from eigenvalues a numpy implementation.",
+    "categories": [
+      "science",
+      "math",
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "Simple ideas can make good numerical algorithms"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "ce05d2a1a260eafbd2b16b5bbcc48ec000c6a5bcdd2339269cb0c4ebf0909c90"
+  },
+  {
+    "path": "_posts/2019-21-03-Hidden-markov-models.md",
+    "title": "Hidden Markov Models or HMM",
+    "description": "How a simple recurrent model explains many phenomena",
+    "categories": [
+      "science",
+      "ai",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Hidden Markov Models are at the core of many machine learning techniques",
+      "Example 1",
+      "Forward backward algorithm",
+      "Forward algorithm"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "e646204d0d21ca56d6677c44642af2feb5b39e0982b62936174b4d4c9e03b55a"
+  },
+  {
+    "path": "_posts/2020-01-27-Sequence_models.md",
+    "title": "Sequence models and recurrent networks",
+    "description": "Sequence models and recurrent networks.",
+    "categories": [
+      "science",
+      "ai"
+    ],
+    "post": true,
+    "headings": [
+      "At the core of modern NLP",
+      "Notation",
+      "Example: named entity recognition",
+      "Discrete tokens: vocabulary and one-hot vectors",
+      "Why a plain feedforward stack is awkward",
+      "Recurrent neural networks",
+      "Forward pass (summary)",
+      "Loss and backpropagation through time",
+      "Conclusion"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "e82bf457809fc0a5a4104d04bf4cb73c767a9b1fd9efe912ca5a63745ae81b4b"
+  },
+  {
+    "path": "_posts/2020-09-29-Shapley-and-the-SHAP-Python-package.md",
+    "title": "Shapley additive explanations and the SHAP Python package",
+    "description": "Shapley additive explanations and the SHAP Python package.",
+    "categories": [
+      "science",
+      "ai"
+    ],
+    "post": true,
+    "headings": [
+      "Why interpretability matters?"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "73efa1687c8beba59196aa23b46949861ee59d34a522a893d5d170d94301b6aa"
+  },
+  {
+    "path": "_posts/2020-10-05-Prefixspan-algorithm-for-frequent-subsequences-visualization.md",
+    "title": "Prefixspan algorithm for frequent subsequences visualization",
+    "description": "Prefixspan algorithm for frequent subsequences visualization.",
+    "categories": [
+      "science",
+      "ai",
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "Sequential pattern mining and projections",
+      "The prefix is the reference measure",
+      "Visualizing the Prefix Tree",
+      "The code implementation",
+      "The big picture"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "43a2edc00d00406ac06ea4c10157277d4ea81af3ccc232d2dcb384ca0116666a"
+  },
+  {
+    "path": "_posts/2020-10-19-Decision-trees-tutorial.md",
+    "title": "Decision trees (CART) — a short tutorial",
+    "description": "Decision trees (CART) — a short tutorial.",
+    "categories": [
+      "science",
+      "ai"
+    ],
+    "post": true,
+    "headings": [
+      "Piecewise prediction on recursive partitions",
+      "Choosing a split",
+      "Regression (least squares)",
+      "Classification (empirical frequencies and impurity)",
+      "When to stop (and what to do about depth)",
+      "Minimal scikit-learn usage",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "5f0fa5cfc95c9b973023d51956b337b1b659c57c296e3f79fafe4ed605878534"
+  },
+  {
+    "path": "_posts/2020-10-23-Cryptography-introduction-for-bitcoin.md",
+    "title": "Cryptography introduction for bitcoin",
+    "description": "Cryptography introduction for bitcoin.",
+    "categories": [
+      "science",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Discrete logarithm problem on finite fields and elliptic curves",
+      "Sets and binary operator",
+      "Discrete logarithm problem.",
+      "Additive or multiplicative notation",
+      "Modular arithmetic",
+      "Congruence and remainders",
+      "Fermat little theorem",
+      "Field operations in F_p",
+      "Elliptic curves over real nubmers",
+      "Point addition P+Q=R",
+      "Point doubling Q+Q = R",
+      "Infinity point (aka group identity or neutral element)",
+      "Scalar multiplication R = mQ",
+      "Bitcoin curve: Koblitz curve secp256k1",
+      "Hash function",
+      "Notebook",
+      "Digital signature scheme",
+      "SSA",
+      "ECBMS",
+      "Diffie-Hellman key exchange",
+      "Advanced encryption standard (AES)",
+      "Counter Mode (CTR) 1/2"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "49127384b87b25506f2969c4f93134c8f955c93ebcd048fde46292ff5e281bb7"
+  },
+  {
+    "path": "_posts/2020-10-23-The-Woodbury-matrix-identity.md",
+    "title": "The Woodbury matrix identity",
+    "description": "The Woodbury matrix identity.",
+    "categories": [
+      "science",
+      "math"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "d9da68db8db2af0c1338e4e968d9496c734d3bed3ed1a5aba2723495b8a21577"
+  },
+  {
+    "path": "_posts/2021-01-18-Optimization-of-groupby-combinations.md",
+    "title": "Optimization of groupby combinations",
+    "description": "Optimization of groupby combinations.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "The problem"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "f5289dc9b8d074124b41712b03f3636cdfd29805cfcb2f8f27cadf7f06c2eabb"
+  },
+  {
+    "path": "_posts/2022-03-02-Image-reconstruction-with-sklearn-regressors.md",
+    "title": "Image reconstruction with sklearn regressors",
+    "description": "Image reconstruction with sklearn regressors.",
+    "categories": [
+      "science",
+      "ai",
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "Setup",
+      "Code",
+      "Conclusion"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "e48d6d61f644dfeae5300345903b178c2f56caeefd40f1d381fd8d5c4260bcda"
+  },
+  {
+    "path": "_posts/2024-06-30-Multilabel-classification-with-Parabel-and-efficient-at-k-metrics.md",
+    "title": "Multilabel classification with Parabel and efficient at-k metrics",
+    "description": "Parabel multilabel classification, scikit-learn API, Precision@k / Recall@k.",
+    "categories": [
+      "science",
+      "ai",
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "The annoying gap in extreme multilabel classification",
+      "Why ordinary multilabel tooling starts to feel wrong",
+      "Why I wanted Parabel behind a scikit-learn interface",
+      "The small detail that matters: sparse arrays and dtypes",
+      "Why prediction should stay ranked",
+      "Why at-k metrics deserve their own library",
+      "The part I particularly wanted: scikit-learn scorers",
+      "Using the two libraries together",
+      "Why propensity-scored metrics matter",
+      "The architectural point",
+      "Final thought"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "2e315acb9b7fc5f61ec24ac5179761dc5293c9c0f7f585758ec64508116a11b1"
+  },
+  {
+    "path": "_posts/2025-03-30-Configuration-model-surprise-for-community-detection.md",
+    "title": "Configuration-model Surprise for community detection",
+    "description": "Surprise vs configuration null for community detection; stubs and pairings.",
+    "categories": [
+      "science",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "From vertex pairs to stubs",
+      "Ordinary Surprise revisited",
+      "What degree correction should mean",
+      "Exact counting at the block level",
+      "Marginalizing back to communities only",
+      "The expected internal mass under the configuration model",
+      "Asymptotic configuration-model Surprise",
+      "G-test interpretation",
+      "Relation to the degree-corrected SBM",
+      "Comparison with Tiago Peixoto’s approach",
+      "Final formula",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "complex-networks"
+    ],
+    "body_sha256": "263d211c62e9e09ab3ce62afc7e2c9255d3a6010101f6b659bcb4a2de7c3524a"
+  },
+  {
+    "path": "_posts/2025-06-01-Hard-soft-analogies-machine-learning.md",
+    "title": "Hard and soft analogies in machine learning",
+    "description": "Jumping from hard to soft constraints defines a jump from pure combinatorial to boltzmann statistics",
+    "categories": [
+      "science",
+      "ai",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "The Analogy: Hard Constraints vs. Soft Probabilities",
+      "Deep Dive into the “Soft” Bridge",
+      "1. Max vs. LogSumExp",
+      "2. The Entropy Connection",
+      "3. ReLU vs. Softplus",
+      "Why this matters",
+      "The Comprehensive Hard-to-Soft Analogy Table",
+      "Understanding the Control Parameter (T or \\beta)",
+      "The Deepest Link: Free Energy vs. Loss",
+      "Why “Hard” is Microcanonical",
+      "The Grand Unified Table of Hard vs. Soft Analogies",
+      "Why \\ln Z is the “Potential”",
+      "The “Volume” of States",
+      "Expanded Table: Advanced Hard-Soft Analogies",
+      "The Breaking of Ensemble Equivalence",
+      "1. Non-Convexity (The Entropy Surface)",
+      "2. Small N (Finite Size Effects)",
+      "3. Long-Range Correlations (Attention Mechanisms)",
+      "Why does this matter?",
+      "Category theory to rescue",
+      "The Rosetta Stone Functor",
+      "The Control Knob: A Natural Transformation",
+      "The Universal Property of \\ln Z",
+      "Free Energy vs. Loss: The Deep Isomorphism",
+      "When the Functor Breaks: The Failure of Ensemble Equivalence",
+      "Why This Changes How We Code"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "0b85927574474b36f3f343d50315c1d714086d1f595f321c536e325ffb40d3b7"
+  },
+  {
+    "path": "_posts/2025-10-03-Introducing-skfolio-online-convex-optimization.md",
+    "title": "Introducing skfolio new online convex optimization module",
+    "description": "skfolio online convex optimization and sequential portfolio allocation.",
+    "categories": [
+      "science",
+      "finance",
+      "math",
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "Bridging online convex optimization into skfolio",
+      "Descending a (convex) rabbit hole",
+      "Engineering math for the best API",
+      "The challenge",
+      "The solution: decoupling the architecture",
+      "The interplay of mirror maps",
+      "Adaptive learning rates: AdaGrad",
+      "Optimism as a predictor",
+      "Hedging our bets: SWORD and meta-experts",
+      "Empirical check: daily mean reversion vs. monthly momentum",
+      "The result",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "4740c9d383ca91a9a4f75861079ea5d11c49fac044eeaba6700720ecdf97a640"
+  },
+  {
+    "path": "_posts/2025-12-01-Actor-critic-and-soft-bellman.md",
+    "title": "Energy-based models, free energy, and chain-of-thought (notes)",
+    "description": "The soft-bellman equation is strongly connected to the actor-critic model as well as in the Jaynes maximum entropy model",
+    "categories": [
+      "science",
+      "ai",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "1. The Free Energy Principle and Active Inference",
+      "2. Autoregressive Models (ARMs) as Energy-Based Models (EBMs)",
+      "3. The Connection: Chain of Thought as Exploration Toward Optima",
+      "Summary",
+      "In short, the paper proves that language models are not just blindly stacking words; they are navigating a global sequence-level energy landscape. When you look at this through the lens of Karl Friston’s FEP, Chain of Thought is not just text generation—it is a cognitive search strategy. The intermediate tokens are epistemic actions (active inference) that systematically reduce the model’s internal uncertainty (variational free energy), allowing it to explore the probability space and safely converge on the most logically consistent, lowest-energy final answer.",
+      "1. Definizione Matematica",
+      "2. Differenza tra Trasporto Ottimale (OT) e SBP",
+      "3. Applicazione al Chain-of-Thought (CoT)",
+      "Perché è meglio del CoT standard?",
+      "4. Come si tradurrebbe in pratica nel design di un modello?",
+      "In sintesi",
+      "1. Value-Guided Decoding (Guida tramite Potenziale)",
+      "2. Sequential Monte Carlo (SMC) o Particle Filtering",
+      "3. Iterative Refinement (Self-Correction tramite Ponte di Schrödinger)",
+      "Quale scegliere?",
+      "Il vantaggio tecnico",
+      "1. Il Critic come Funzione dell’Energia Libera (Log-Partition Function)",
+      "2. L’Actor come Distribuzione di Boltzmann (Gibbs)",
+      "3. Bert Kappen e il Path Integral Control",
+      "4. La Sintesi: Inferenza Variazionale",
+      "Perché questo migliora il Chain-of-Thought?",
+      "Tree of Thought Scaffolding as Sequential Monte Carlo in Semantic Path Integral Control",
+      "1. Introduction",
+      "2. Theoretical Framework and Methods",
+      "2.1 The Soft Bellman Equation and Path Integrals",
+      "2.2 Formalizing Tree of Thought as SMC",
+      "3. Results",
+      "3.1 Scaffolds as Boundary Conditions",
+      "3.2 Free Energy Minimization",
+      "4. Discussion",
+      "5. Conclusions"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "cb12f2358342205d4858f6fe7827099aec827e447fa358ac7f258495d2ce0ad9"
+  },
+  {
+    "path": "_posts/2025-12-26-Neurosymbolic-AI-at-rescue.md",
+    "title": "Intelligenza Artificial Neurosimbolica",
+    "description": "Come integrare sistemi simbolici e non simbolici in una AI ibrida può risolvere i problemi di entrambi i mondi",
+    "categories": [
+      "science",
+      "ai"
+    ],
+    "post": true,
+    "headings": [
+      "Verso l’integrazione fra AI simbolica e AI neurale",
+      "NARS, Hyperon e la frontiera",
+      "Una proposta",
+      "Implementazione in MCP",
+      "Linguaggi logici",
+      "Possibile prompt di sistema",
+      "Cos’è l’AtomSpace",
+      "1. Tutto è un Atomo (logico)",
+      "2. Oltre il Vero e il Falso: I Truth Values",
+      "3. La Dinamica degli Agenti (Il Sistema 1 e 2)",
+      "Perché è diverso da un database normale?",
+      "Verso un’implementazione pratica",
+      "MeTTa MCP server",
+      "Primo Esempio: La Mappatura della Realtà (Ontologia Dinamica)",
+      "Secondo Esempio: La Definizione delle Leggi (Vincoli e W-Maxing)",
+      "Terzo Esempio: La Query di Verifica (L’Esecuzione del Ragionamento)",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "05c97b0ba025de31f3da2a1688d2f1c605a0adc3a76649fe04aecba62d4e30d7"
+  },
+  {
+    "path": "_posts/2026-03-01-Probabilistic-Language-Programming.md",
+    "title": "Probabilistic Language Programming, turning craft into solid science",
+    "description": "PLP: semantics for LLM scaffolds—traces, proposals, verifiers, branching.",
+    "categories": [
+      "science",
+      "ai",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Assigning semantic meaning to probabilistic programs",
+      "The scaffold is the unit",
+      "Setup",
+      "Support before selection",
+      "Judges are measurements, not oracles",
+      "Dependence is the hidden tax",
+      "Trees are not magic",
+      "The four failure modes of AI scaffolds",
+      "Practical checklist",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "9575491c60975a336706416266319d082d637ae5b762aec8efe0cc87df6ac02f"
+  },
+  {
+    "path": "_posts/2026-03-27-PLP-and-Energy-Based-Models.md",
+    "title": "Test-time inference, language models and energy based models",
+    "description": "PLP, energy-based models, and test-time inference over LLM traces.",
+    "categories": [
+      "science",
+      "ai",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "The link between autoregressive models, energy based models and probabilistic language programming",
+      "Connecting the dots: proposals, targets, and energies",
+      "The Secret of the factor Primitive",
+      "Statistical mechanics (again)",
+      "Chain-of-thought and the partition function",
+      "Unifying training and inference into one single perspective",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "a2b4a609863766648cd4af8cd63dd1d33ba3559de48846baeb4ebaa0ea814ee4"
+  },
+  {
+    "path": "_posts/2026-03-31-PLP-is-inference-time-approximation-of-free-energy.md",
+    "title": "PLP is inference-time approximation of free energy",
+    "description": "PLP as inference-time free energy / log-partition over traces.",
+    "categories": [
+      "science",
+      "ai",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Approximate sampling and inference in LLMs",
+      "The proposal is the reference measure",
+      "The closer bridge is path-integral control",
+      "What the factor primitive is really estimating",
+      "Why raw free energy should not be factored at every step",
+      "A Bellman-style support gap",
+      "Tempered targets, delayed choice, and symmetry breaking",
+      "From free energy to a decomposition policy",
+      "Replica thinking and the geometry of reasoning paths",
+      "Implications for prompting",
+      "Conclusions",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "cc7f06fcfcf058433963c9f30ac19c1159989403fdcfce6545b7fc9df9e208da"
+  },
+  {
+    "path": "_posts/2026-04-01-Inference-time-steering-Schrodinger-Bridge.md",
+    "title": "Inference-Time Steering as a Discrete Schrödinger Bridge",
+    "description": "Formalizing LLM self-correction, Doob's h-transform, and Wasserstein gradient flow.",
+    "categories": [
+      "science",
+      "ai",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "The limits of passive filtering",
+      "The Schrödinger Bridge formulation",
+      "Doob’s h-transform and continuation values",
+      "Reflexion and self-correction as Wasserstein Gradient Flow",
+      "Dealing with tokens is a blessing and a curse",
+      "The path forward: latent space steering",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "28204be05287b674d5e9d68e80bb8f5eede3a3bb71975b5e3ed38293e9e0a076"
+  },
+  {
+    "path": "_posts/2026-04-02-Soft-values-symmetry-breaking-and-random-rooted-trees.md",
+    "title": "Soft values, symmetry breaking, and random rooted trees",
+    "description": "A conjectural branching law for scaffolds from Blondel's soft values and Kappen's path-integral control.",
+    "categories": [
+      "science",
+      "ai",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "A missing local law",
+      "The global object",
+      "A soft Bellman branching process",
+      "Tree geometry from soft values",
+      "Symmetry breaking and delayed commitment",
+      "Temperature, horizon, and phase transitions",
+      "Estimating probabilities in practice",
+      "Testable predictions",
+      "Limitations",
+      "Conclusion",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "80ee2fa9f037fb790fa2c59f18d0a863bad78df907cf161ab77cb854831a9935"
+  },
+  {
+    "path": "_posts/2026-04-03-Mellowmax-doob-and-agentic-tool-use.md",
+    "title": "MellowMax, Doob's h-transform, and the intensive geometry of tool-use agents",
+    "description": "A theoretical framework for optimal tool selection in Large Reasoning Models using intensive soft values and dynamic programming.",
+    "categories": [
+      "science",
+      "ai",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Abstract",
+      "Introduction",
+      "How Blondel’s soft value is computed in practice",
+      "Forward inference vs. backward training",
+      "Difference from perplexity",
+      "The extensive trap: Why log-sum-exp fails for agents",
+      "MellowMax: Intensive soft values",
+      "Integrating soft values into Monte Carlo Tree Search (MCTS)",
+      "Doob’s h-transform and tool selection",
+      "The action space: Tools as discrete sequences",
+      "8. Delayed commitment in agents",
+      "9. Conclusions",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "5fc7e9ea6e800d5ff05644eb79d4a2e144dedfa52c0bc9c73ca0888a2067bc9d"
+  },
+  {
+    "path": "_posts/2026-04-03-Recursive-decomposition-with-continuation-policy.md",
+    "title": "Recursive decomposition with a continuation policy",
+    "description": "Adding an abstain action to a recursive scaffold shows how delayed commitment can help, but only in a narrow ambiguity regime.",
+    "categories": [
+      "science",
+      "ai"
+    ],
+    "post": true,
+    "headings": [
+      "Abstract",
+      "1. Where this note sits",
+      "2. The policy",
+      "3. What the abstain action actually does",
+      "4. The symmetry-breaking pilot still matters",
+      "5. Qualitative results from the recursive scaffold",
+      "5.1 A broad curriculum task",
+      "5.2 A bounded startup memo",
+      "6. What I think this means",
+      "7. Relation to the null result",
+      "8. Limitations",
+      "Conclusion",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "f886132543057582f38ef0fb56e600baca17ee7d30c3fcdc6105818b2fcc49a8"
+  },
+  {
+    "path": "_posts/2026-04-04-Random-rooted-trees-free-energy-and-the-diligent-learner.md",
+    "title": "Random rooted trees, continuation free energy, and the Diligent Learner",
+    "description": "A unified theory of delayed commitment, decomposition tax, and tool building in scaffolded inference.",
+    "categories": [
+      "science",
+      "ai",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Why these two theories should meet",
+      "Setup and notation",
+      "A three-way local control law",
+      "The Diligent Learner as a free-energy statement",
+      "Delayed commitment and the value of symmetry",
+      "Free-energy minimization under decomposition tax",
+      "A small arithmetic probe",
+      "Tool building as \\gamma amplification",
+      "What this says about superintelligence through tool building",
+      "Scope and limitations",
+      "Conclusion",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "1a0a9a14e64c30e3211325a69cd1f6793afbb8a93483eb2008c16fc670b1344c"
+  },
+  {
+    "path": "_posts/2026-04-04-Short-prefix-soft-values-a-null-result.md",
+    "title": "Short-prefix soft values: a null result",
+    "description": "A small experiment shows that easy tasks saturate too quickly to test the predictive power of short-prefix soft values.",
+    "categories": [
+      "science",
+      "ai"
+    ],
+    "post": true,
+    "headings": [
+      "Abstract",
+      "1. Why I ran this experiment",
+      "2. Experimental setup",
+      "3. Main result",
+      "4. What the JSON output actually shows",
+      "5. Interpretation",
+      "6. What would count as a real test",
+      "6.1 Harder tasks",
+      "6.2 Earlier evaluation",
+      "6.3 Structured actions instead of free text prefixes",
+      "6.4 Nontrivial verifier geometry",
+      "7. Why this still supports the overall theory",
+      "8. The next experimental step",
+      "Conclusion",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "e82131008964c4e712430efc161aa6bccf2cedf94c8d2fb5139f91d0ee77450f"
+  },
+  {
+    "path": "_posts/2026-04-05-From-hard-to-soft-operators-machine-learning-and-physics.md",
+    "title": "From hard to soft operators: between machine learning and statistical physics",
+    "description": "Computer scientists did not study statistical mechanics enough to recognize the strong similarities betweeen hard (combinatorics, microcanonical) and soft (slack-constraints, canonical, maximum entropy) ensembles.",
+    "categories": [
+      "science",
+      "ai",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "An academic exploration of deep learning, statistical mechanics, and category theory",
+      "The microcanonical and the canonical",
+      "The Rosetta Stone functor",
+      "The universal property of the log-partition function",
+      "Deep structural analogies: from sorting to attention",
+      "Free energy vs. loss: a functional parallel",
+      "When ensemble equivalence fails",
+      "Conclusion: engineering thermodynamics"
+    ],
+    "previous_categories": [
+      "science",
+      "language-physics"
+    ],
+    "body_sha256": "005db4ddc334950ab46b5d7a8a44395c1108b6c542161f8f5c77df331191c595"
+  },
+  {
+    "path": "_posts/2026-04-05-Statistical-mechanics-decision-making.md",
+    "title": "Statistical mechanics of decision making",
+    "description": "From Jaynes and the soft Bellman equation to a grand-canonical reading of chain-of-thought, with fugacity as reasoning effort.",
+    "categories": [
+      "science",
+      "ai",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Decisions as a maximum-entropy ensemble",
+      "Next-token prediction already looks ahead",
+      "Reasoning as an ordered latent process",
+      "What is actually provable",
+      "What “think step by step” can and cannot mean",
+      "Self-consistency is Monte Carlo",
+      "Where this leaves the question, and where it could go",
+      "Closing",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "804655959e37be59b29f2169f60cfb589dd9c97cd54ef40277726e046796a3d3"
+  },
+  {
+    "path": "_posts/2026-04-05-chain-of-thought-grand-canonical-inference.md",
+    "title": "Chain-of-thought as grand-canonical inference in energy-based language models",
+    "description": "Jaynes, Blondel's soft Bellman recursion, and a grand-canonical view of latent reasoning traces.",
+    "categories": [
+      "science",
+      "ai",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "From zero-shot decoding to grand-canonical reasoning",
+      "Jaynes, Reference Measures, and Blondel’s Soft Value",
+      "Reasoning Traces as Ordered Latent Variables",
+      "The Variational Statement That Is Actually True",
+      "Answer-Specific Grand Potentials and Marginal MAP",
+      "What “Think Step by Step” Can and Cannot Mean",
+      "Self-Consistency Is Monte Carlo Marginalization",
+      "How the Grand-Canonical Picture Sits on Top of Blondel’s Result",
+      "Conclusion",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "f06c54825a87ad5952b7701b1114d83d12aca4ec85e8dae96c9d7d567e07adca"
+  },
+  {
+    "path": "_posts/2026-04-05-latent-traces-and-landau-free-energy.md",
+    "title": "Latent traces and Landau free energy",
+    "description": "Chain-of-thought as latent-variable inference, with a conjectural grand-canonical extension.",
+    "categories": [
+      "science",
+      "ai",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Latent traces, not narrated ODEs",
+      "From Jaynes to Bellman",
+      "Chain-of-thought as latent-variable marginalization",
+      "Why faithfulness matters",
+      "Grand-canonical extension",
+      "what prompts can and cannot do",
+      "what this conjecture buys us",
+      "conclusion",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "232c75483ea5cad72bc27ec70ecedfd11901d9e3d2dc17a252694ea8f134f8c6"
+  },
+  {
+    "path": "_posts/2026-04-13-Continuous-Sheffer-stroke-all-you-need.md",
+    "title": "The continuous Sheffer stroke is all you need",
+    "description": "How we can use the EML operator in machine learning to study probabilistic logical learning",
+    "categories": [
+      "science",
+      "math",
+      "ai",
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "All elementary functions from a single operator",
+      "Meet the EML operator",
+      "Why does this actually matter?",
+      "Visualizing EML trees",
+      "Python code",
+      "Backpropagation: issues",
+      "Interesting Follow-ups in Hardware (FPGA/ASIC)"
+    ],
+    "previous_categories": [
+      "science",
+      "statistical-learning"
+    ],
+    "body_sha256": "3dc9df62c1fd08e67618aeac64680db320ea2f9304fd7e59c3786116fc3ec3b8"
+  },
+  {
+    "path": "_posts/2026-04-14-Agentic-soft-logical-circuits-amortized-structured-VI.md",
+    "title": "Amortized structural variational inference for probabilistic language programming",
+    "description": "How replacing linear agent loops with chain graphs over NAND gates leads to a principled ELBO formulation of amortized structured variational inference and why that matters for building powerful AI systems.",
+    "categories": [
+      "science",
+      "ai",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Where my idea sits",
+      "Why NAND: universality, sufficiency and differentiable gates",
+      "A chain graph over sample sites",
+      "Connecting to PLP: the circuit as a structured decomposition of \\Phi(\\tau)",
+      "The ELBO formulation: amortized structured variational inference",
+      "The controller loop and LBP evidence estimation",
+      "PLP integration sketch: controller prompt → CircuitSpec → ChainGraph",
+      "The Controller as a recursive architecture",
+      "Why this is not a ReAct agent",
+      "Results: arithmetic, algebra, and factual questions",
+      "What comes next",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "2c373294af45d61481778fccbb0acc39534a498f052ef8ebd9a42fc3a0451696"
+  },
+  {
+    "path": "_posts/2026-04-14-Kolmogorov-Arnold-Theorem-And-EML-operator.md",
+    "title": "Kolmogorov-Arnold theorem, KANs, and the `eml` operator",
+    "description": "A single exp-minus-log gate looks like a frozen Kolmogorov-Arnold layer. KANs learn the one-dimensional functions, while EML composes one fixed binary primitive.",
+    "categories": [
+      "science",
+      "math",
+      "ai"
+    ],
+    "post": true,
+    "headings": [
+      "A strange echo",
+      "Kolmogorov-Arnold in one equation",
+      "EML as a frozen KA-style gate",
+      "KANs learn the edge functions",
+      "Where the expressivity lives",
+      "A neuro-symbolic interpretation",
+      "A small experiment: KANs as EML basin finders",
+      "Why this matters",
+      "References"
+    ],
+    "previous_categories": [
+      "science"
+    ],
+    "body_sha256": "ea7570cdc8a8fed3c46de0f3b7ab6cad1fa715760fe5fabc1e9508787b159fd9"
+  },
+  {
+    "path": "_posts/2026-04-16-Transformers-Mimic-Nature-Equations.md",
+    "title": "The Master Equation of a Messy World",
+    "description": "hysics progressed by compressing the universe into elegant, predictive equations, anticipating phenomena long before they could be measured. But domains like human language and perception firmly resist such radical simplification. Enter the Transformer: a neural architecture that functions as a new kind of master equation for irreducible complexity. By scaling these massive models, modern AI practitioners have inadvertently reversed the traditional scientific method, empirically discovering emergent capabilities that leave a new generation of theorists racing to reverse-engineer the “laws of physics” governing artificial minds.",
+    "categories": [
+      "science",
+      "ai",
+      "physics"
+    ],
+    "post": true,
+    "headings": [
+      "Transformers mimic nature equations",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "7852f668479e9df98daf0bf6635fcc97f36c6e3dbc2298920f185b202fdf7d86"
+  },
+  {
+    "path": "_posts/2026-04-21-PLP-inference-theoretical-basis.md",
+    "title": "PLP Inference Audited Against Murphy",
+    "description": "How the current implementation of PLP covers the Kevin Murphy's book",
+    "categories": [
+      "science",
+      "ai",
+      "math",
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "The textbook baseline",
+      "What PLP has done right",
+      "The PLP target distribution",
+      "Engine-by-engine audit",
+      "Forward: right as ancestral sampling, wrong as posterior inference",
+      "ImportanceSampling: coherent Monte Carlo, but not exact tree inference",
+      "SMC: a reasonable particle method, but outside the scope of these Murphy pages",
+      "LoopyParticleBP: the biggest naming error in the module",
+      "MaxProduct: useful best-of-K, but not Murphy’s max-product",
+      "What Murphy’s theory says PLP is currently missing",
+      "Missing exact chain inference",
+      "Missing exact tree inference",
+      "Missing variable elimination and junction tree",
+      "A precise summary of what is right, wrong, and improvable",
+      "The most important implementation snippets",
+      "What PLP should do next to become the gold standard",
+      "1. Rename the current stochastic engines honestly",
+      "2. Add an exact discrete-inference layer",
+      "3. Introduce a two-tier API: black-box sites vs explicit sites",
+      "4. If keeping a loopy particle engine, define its invariant distribution",
+      "5. Add exact-vs-approximate tests on small closed-form models",
+      "6. Move choose_engine from topology-only to capability-aware",
+      "The deeper opportunity for PLP",
+      "Final verdict"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "a595f3dc6444f3325c265beb05197654d2909a89aeecaf03003811bc04b8e9ef"
+  },
+  {
+    "path": "_posts/2026-04-28-Functional-synthetic-llm-connectome-analysis.md",
+    "title": "Functional synthetic LLM connectome analysis",
+    "description": "How we can link transformers way of processing information to biological brains",
+    "categories": [
+      "science",
+      "ai",
+      "neuroscience"
+    ],
+    "post": true,
+    "headings": [
+      "Connections to network neuroscience",
+      "Research questions",
+      "Does community detection analyses correlate with domain-specific reasoning?",
+      "Betweenness centrality and the “Sapir-Whorf” translation bottleneck",
+      "Network diameter and efficiency and chain-of-thought",
+      "Edge weight variance and model confidence"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "d4c816e7a17b19a6cc2895cab498f0e1b1560c9b53947e7bdfd1ffe70f06299b"
+  },
+  {
+    "path": "_posts/2026-04-28-Skip-connections-and-graph-analysis.md",
+    "title": "How skip connections define graphs in deep networks",
+    "description": "How to extend the RYS (repeat-your-self) approach of repeating LLM layers with a centered-kernel-alignment metric and predict structural blocks to repeat",
+    "categories": [
+      "science",
+      "ai",
+      "math",
+      "neuroscience"
+    ],
+    "post": true,
+    "headings": [
+      "The hidden graphs behind residual connections",
+      "Unrolling the recursion",
+      "Complex networks view: layers are nodes",
+      "Layer activations and their similarity matrix",
+      "Functional connectivity matrix of a Transformer",
+      "From skip-connection forces to cosine similarity",
+      "Relation to RYS framework",
+      "RYS as edge augmentation in the skip-connection graph",
+      "What this does to the functional cosine connectome",
+      "What this does to the structural edge graph",
+      "Why single-layer duplication tend to fail",
+      "From mechanism to testable connectomics",
+      "1. Residual-field stationarity",
+      "2. Distribution-mismatch at the loop junction",
+      "3. Jacobian stability of the duplicated block",
+      "4. Centered functional connectivity instead of raw cosine",
+      "5. Causal edges, not only similarity edges",
+      "Companion graph-theoretic analysis",
+      "References"
+    ],
+    "previous_categories": [
+      "science"
+    ],
+    "body_sha256": "ae8d8c3b0c268546d71961fab5fe1e3bbe6ff4b2a8e3ec13f829f5517d82340c"
+  },
+  {
+    "path": "_posts/2026-04-29-Similarity-of-neural-networks-representations.md",
+    "title": "Similarity of neural networks representations",
+    "description": "We develop a general theory for describing the connectivity among layers in neural networks inspired from the RYS (repeat-your-self) approach to improve neural networks increasing their abilities yet having the same memory requirements",
+    "categories": [
+      "science",
+      "ai",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Why linear CKA is the right edge",
+      "The CKA edge in the residual recursion",
+      "The plateau formula",
+      "Validating the plateau formula",
+      "The CKA functional connectome of an LLM",
+      "RYS doubling on the CKA edge",
+      "Why single-layer duplication still fails",
+      "Empirical validation on Qwen3.6-27B",
+      "From CKA to causal connectomes",
+      "Are we looking at something profound?",
+      "Where the theory is still loose",
+      "Five experiments that would close the loop",
+      "Closing teaser",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "bb7d7711685f9576c70f34d6d6059b51214d18a28715a562ac06a9b2bc328b49"
+  },
+  {
+    "path": "_posts/2026-05-06-Apprendista-diligente-un-modo-per-migliorare-i-sistemi-ai-e-istruzione.md",
+    "title": "Apprendista diligente: una pedagogia per intelligenze umane e sintetiche",
+    "description": "Dal Diligent Learner di Shalev-Shwartz e Shashua a una scuola montessoriana del pensiero, passando per Vygotskij e l'idea che bambini e modelli stiano imparando, in fondo, lo stesso mestiere.",
+    "categories": [
+      "philosophy",
+      "science",
+      "ai"
+    ],
+    "post": true,
+    "headings": [
+      "Due apprendisti nel bosco",
+      "Il sistema dell’apprendista diligente",
+      "La macchina, il bambino e il controllo dell’errore",
+      "L’asimmetria del libro di testo",
+      "Validatori interni, zone prossimali e segnale per gradi",
+      "Quando \\gamma collassa, e perché gli strumenti la salvano",
+      "Verso una pedagogia del pensiero sintetico",
+      "Bambini e intelligenze aliene",
+      "Riferimenti bibliografici"
+    ],
+    "previous_categories": [
+      "science"
+    ],
+    "body_sha256": "c4bc8ae028238685d11faf5f22a5b74a1a878da242693a991e792173e96a08ba"
+  },
+  {
+    "path": "_posts/2026-05-06-Pensiero-gianusiano-e-intelligenza-artificiale.md",
+    "title": "Pensiero gianusiano e intelligenza artificiale: usare i modelli contro la loro stessa accondiscendenza",
+    "description": "Come usare il pensiero gianusiano per superare il problema dell'accondiscendenza nei moderni sistemi di intelligenza artificiale generativa",
+    "categories": [
+      "philosophy",
+      "science",
+      "ai"
+    ],
+    "post": true,
+    "headings": [
+      "Cos’è il pensiero gianusiano?",
+      "Il problema: un assistente troppo d’accordo",
+      "L’IA come macchina per generare opposizioni",
+      "Un piccolo protocollo gianusiano",
+      "Dalla accondiscendenza alla creatività assistita"
+    ],
+    "previous_categories": [
+      "science",
+      "philosophy"
+    ],
+    "body_sha256": "5f1a28757fb3e296b66abf63028c67ea24260c97eecb491cfb54bd1641327966"
+  },
+  {
+    "path": "_posts/2026-05-08-BCT-graph-analysis-CKA-connectomes.md",
+    "title": "Graph metrics on task-evoked CKA connectomes: GSM8K vs MMLU philosophy",
+    "description": "Can we build small world and hub structures in the functional connectome of a LLM when solving problems? \nThis post is a short empirical companion to two threads on this blog: the **CKA functional connectome** viewpoint in [Similarity of neural networks representations]({% link _posts/2026-04-29-Similarity-of-neural-networks-representations.md %}), and the **network-neuroscience dictionary** for LLMs sketched in [Functional synthetic LLM connectome analysis]({% link _posts/2026-04-28-Functional-synthetic-llm-connectome-analysis.md %}).",
+    "categories": [
+      "science",
+      "ai",
+      "math",
+      "neuroscience"
+    ],
+    "post": true,
+    "headings": [
+      "Setup",
+      "Why BCT, and one preprocessing choice",
+      "Global summaries (\\gamma = 1 Louvain, fixed seed)",
+      "Task alignment at the level of individual layers",
+      "\\Delta W: where philosophy strengthens or weakens CKA",
+      "Resolution sweep (Louvain \\gamma)",
+      "Reproducibility",
+      "What I would do next",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "00855506f623d4132faf2116fbe1748ad8117c6637f52ae9dd9881e133472adb"
+  },
+  {
+    "path": "_posts/2026-05-12-LLM-neuroanatomy-from-pre-norm-residuals-Qwen3.6-27B.md",
+    "title": "LLM neuroanatomy from pre-norm residuals — Qwen3.6-27B as a brain analog",
+    "description": "An experiment to study the statistics of layers activations of Qwen 3.6 27B",
+    "categories": [
+      "science",
+      "ai",
+      "math",
+      "neuroscience"
+    ],
+    "post": true,
+    "headings": [
+      "1. The pre-norm recursion, made architecture-explicit",
+      "2. Qwen3.6-27B as a hybrid linear / full attention stack",
+      "3. Closed-form Gaussian prior on F_k",
+      "Validation: single-block Monte Carlo on Apple Silicon",
+      "4. Norm growth and the structural plateau",
+      "5. Bounded prior vs empirical CKA on GSM8K",
+      "5.1 The bounded prior is sensible, but still only a null model",
+      "5.2 The deviation is the training-induced functional anatomy",
+      "5.3 A-priori RYS forecast from the structural prior alone",
+      "5.4 Betweenness centrality of empirical CKA junctions",
+      "6. RYS doubling under RMSNorm — a refinement",
+      "7. Brain-inspired hypotheses",
+      "Hypothesis 1 — Cortical hierarchy",
+      "Hypothesis 2 — Thalamus as cross-cortical relay",
+      "Hypothesis 3 — Tononi-Sporns integration-segregation balance",
+      "Hypothesis 4 — Default Mode Network and the middle CKA clade",
+      "Hypothesis 5 — Cortical thickness expansion in domain experts",
+      "Hypothesis 6 — Sparse coding and grandmother cells",
+      "Hypothesis 7 — Stroke lesion studies",
+      "Hypothesis 8 — Resting state vs task-evoked connectivity",
+      "Hypothesis 9 — Structural plasticity vs synaptic plasticity",
+      "Hypothesis 10 — Small-world brain networks",
+      "8. Closing observations",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "b295b482439c8ca038b58e41ff73701f35e8626ba019d3305297a18f7675313d"
+  },
+  {
+    "path": "_posts/2026-05-13-Statistics-of-hidden-activations-in-deep-transformer-networks.md",
+    "title": "The Statistical Lives of Hidden Activations in Deep Transformers",
+    "description": "We analyze the statistical properties of hidden activations in deep Transformer networks, including variance growth, massive activation outliers, token embedding clustering, and heavy-tailed singular value spectra, comparing empirical results against an analytical prior computed from the model's config file.",
+    "categories": [
+      "science",
+      "ai",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "The basic setup: Pre-LN and its consequences",
+      "An analytical prior from architecture alone",
+      "Experiment 1 — Variance growth",
+      "Experiment 2 — Massive activations",
+      "Experiment 3 — Representation anisotropy",
+      "Experiment 4 — CKA layer-similarity heatmaps",
+      "Experiment 5 — Spectral power-law exponents (HT-SR)",
+      "The four phenomena together",
+      "Why it matters for quantization",
+      "Architectural responses",
+      "Connecting to the broader picture",
+      "Full experiment code",
+      "References"
+    ],
+    "previous_categories": [
+      "science"
+    ],
+    "body_sha256": "33f602cdb98e0fd6debed1f99f116a0a6cb6b7a6fa27a9f3c57ef49efaef5871"
+  },
+  {
+    "path": "_posts/2026-05-15-Multiscale-structured-recurrence-fractal-connectivty-networks.md",
+    "title": "Multiscale structured recurrence with fractal connectivity networks",
+    "description": "Can we exploit multiscale fractal connectivty structures and echo-state networks to devise a new low-parameters alternative to the MLP in large neural networks?",
+    "categories": [
+      "science",
+      "ai",
+      "math",
+      "neuroscience"
+    ],
+    "post": true,
+    "headings": [
+      "1. Introduction",
+      "2. Roadmap and design rationale",
+      "3. Methods",
+      "3.1 Kronecker graph construction",
+      "3.2 Spectral properties",
+      "3.3 Fractal Attention Transformer",
+      "3.4 Iterative Circulation Architecture",
+      "3.5 Baselines and training protocol",
+      "4. Stage I: Spectral structure and dynamical properties",
+      "4.1 Experiment 1 — Spectral fingerprints",
+      "4.2 Experiment 2 — Kronecker structure as factored attention",
+      "4.3 Experiment 3 — Multiscale diffusion timescales",
+      "4.4 Experiment 4 — Hierarchical signal recovery",
+      "4.5 Experiment 5 — Recurrent dynamics: memory and edge-of-chaos",
+      "5. Stage II: Attention factorization",
+      "5.1 Experiment 6 — Fractal Attention Transformer",
+      "5.2 Experiment 7 — Scaling laws",
+      "6. Stage III: Iterative circulation",
+      "6.1 Experiment 8 — Iterative circulation: expand-reduce cycles",
+      "7. Stage IV: Systematic benchmarks and honest comparison",
+      "7.1 Experiment 9 — Standard synthetic benchmarks",
+      "7.2 Experiment 10 — Pushing sparsity to the limit: brain-inspired architectures",
+      "7.3 Experiment 11 — Regularization and parameter-matched dropouts",
+      "8. Discussion: are the parameters really reduced, and is the accuracy comparable?",
+      "9. Related work",
+      "10. Limitations and future work",
+      "11. Conclusion",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "892f0c8aebd91659b04b6f196c0f0ee9e4b197739370f59f9d2608b52b72e993"
+  },
+  {
+    "path": "_posts/2026-05-16-Fractal-connectivity-scaffold-networks.md",
+    "title": "Fractal Connectivity Scaffold Networks",
+    "description": "A running note to keep track of experiments about fractal connectivity networks hypothesis",
+    "categories": [
+      "science",
+      "ai",
+      "math",
+      "neuroscience"
+    ],
+    "post": true,
+    "headings": [
+      "1. Question",
+      "2. Why Brain-Inspired Recurrence?",
+      "3. Graphs And Connectivity",
+      "4. Experimental Protocol",
+      "5. Regression Frontiers",
+      "Friedman1",
+      "Sine Regression",
+      "Multiscale Fourier Regression",
+      "6. Binary Classification Frontiers",
+      "7. Multiclass Frontiers",
+      "8. Aggregate View",
+      "9. What Is Actually New Here?",
+      "10. Next Architecture Steps",
+      "11. References"
+    ],
+    "previous_categories": [
+      "science"
+    ],
+    "body_sha256": "3ca240f8f3271f95c024a2182155eb196946eb9a581f4637d3959920f628240b"
+  },
+  {
+    "path": "_posts/2026-05-16-Hippocampal-scaffold-networks.md",
+    "title": "Hippocampal scaffold networks",
+    "description": "We test two brain-inspired architectures — Hippocampal Scaffold Network (HSN) and Cerebellar Expansion Network (CEN) — that trade a tiny number of learned parameters for a large, fixed recurrent or expanded scaffold, comparing them against a standard dense MLP on four synthetic benchmarks.",
+    "categories": [
+      "science",
+      "ai",
+      "neuroscience"
+    ],
+    "post": true,
+    "headings": [
+      "The tradeoff",
+      "1. Two architectures",
+      "1.1 Cerebellar Expansion Network (CEN)",
+      "1.2 Hippocampal Scaffold Network (HSN)",
+      "2. Benchmark results",
+      "2.1 Raw scores",
+      "2.2 Learned parameter counts",
+      "3. Interpretation",
+      "3.1 HSN matches dense accuracy at one-fifth the parameters",
+      "3.2 CEN partially succeeds on classification, fails on regression",
+      "3.3 Where the parameter savings come from",
+      "4. Related work",
+      "5. Limitations and open questions",
+      "6. Takeaway"
+    ],
+    "previous_categories": "science",
+    "body_sha256": "e12015cf0a7809a764ed15fbaee4eacd669673ce8547cec67ca1533dd1562237"
+  },
+  {
+    "path": "_posts/2026-05-18-Deep-Equilibrium-Models-As-A-Model-For-RYS.md",
+    "title": "Deep Equilibrium Models as a model for RYS",
+    "description": "Using deep-equilibrium-models can be a way to improve the theory behind the CKA-based prediction about which are the best sequences of layers to repeat",
+    "categories": [
+      "science",
+      "ai",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "From a Layer Window to an Iterated Operator",
+      "The Goldilocks Window",
+      "Mathematical Prediction 1: Quadratic Amplification with Repeat Count",
+      "Mathematical Prediction 2: Contraction of Successive Updates",
+      "Mathematical Prediction 3: Decoder Tolerance Bounds the Benefit",
+      "A Pre-Benchmark RYS Score",
+      "Empirical Prediction 1: Three Classes of High-CKA Blocks",
+      "Empirical Prediction 2: Repeat Count Should Be Unimodal",
+      "Empirical Prediction 3: The Best Blocks Should Be Task-Stable",
+      "Experiments to Run Next",
+      "1. Iterated-block probes without benchmarks",
+      "2. Quadratic CKA amplification test",
+      "3. Jacobian stability by JVP/VJP",
+      "4. Blinded benchmark validation",
+      "5. Cross-model replication",
+      "What Would Falsify This?",
+      "Why This Matters",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "8bbd880ecc6ba090b4b4c1fb90bfc17071128077c4d85fcc0a03d400ff018711"
+  },
+  {
+    "path": "_posts/2026-05-25-Modalita-di-cognizione-e-LLM-traduzione-da-antikythera.md",
+    "title": "Modalità cognitive e la loro relazione con i modelli di linguaggio di grandi dimensioni (LLMs)",
+    "description": "Traduzione dell'articolo di Katherine Hayles presente su antikythera.org",
+    "categories": [
+      "philosophy",
+      "science",
+      "ai",
+      "neuroscience"
+    ],
+    "post": true,
+    "headings": [
+      "Modalità di Cognizione: Implicazioni per i Modelli di Linguaggio di Grandi Dimensioni.",
+      "Verso una definizione di cognizione",
+      "Criteri per la Cognizione: SIRAL",
+      "Modellare il Mondo: Cosa consente SIRAL",
+      "Perché i modelli sono importanti",
+      "Anticipazione e Apprendimento in Organismi Minimamente Cognitivi",
+      "Un esempio non SIRAL: Rane Senza Cervello",
+      "Cognizione negli organismi microscopici non neuronali",
+      "Cognizione nei Modelli di Linguaggio di Grandi Dimensioni",
+      "Le Strutture Neurali dei LLM e delle Architetture Transformer",
+      "Limitazioni dei LLM",
+      "Selvaggi umani e sistemi cognitivi artificiali",
+      "Un’analogia si profila",
+      "Conversare con ChatGPT",
+      "Più della sola probabilità",
+      "Cosa ci aspetta",
+      "Bibliografia"
+    ],
+    "previous_categories": [
+      "science"
+    ],
+    "body_sha256": "80386aab5f8fcff32fdf6b12432cc87e30b84995f6d0d3ffe5155a550aeb0d3b"
+  },
+  {
+    "path": "_posts/2026-05-29-RYS-controlled-SAT-message-passing-and-rho-phi-theory.md",
+    "title": "A controlled testbed for Repeat-Your-Self — SAT solving, message passing, and a predictive rho/phi theory",
+    "description": "Experiments involving the extension of the RYS approach to simpler transformers and neural networks with a supporting correlation based theory",
+    "categories": [
+      "science",
+      "ai",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "RYS Controlled SAT message passing",
+      "Why a controlled task at all",
+      "The problem: 3-SAT assignment generation",
+      "The verifier and the right metric",
+      "Architectures, and the lesson they taught",
+      "From rounds to an iterated operator",
+      "The rho/phi decomposition and the closed-form CKA",
+      "What RYS does to rho, phi, and CKA",
+      "Three dynamical-systems diagnostics",
+      "The experiments",
+      "Binary SAT classification (the plateau, and why it is a poor laboratory)",
+      "Message-passing solver and the validity-vs-rounds curve",
+      "Cycle 6: testing the rho/phi predictions directly",
+      "What this buys us",
+      "Relation to recursive-reasoning models",
+      "Cycle 7: stochastic transitions, depth and width",
+      "Open directions and other datasets",
+      "Reproducibility",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "bb8503957e5c53d6e4045c8212c95b6ecbad5a35f761b4c4701888d1d1e34b38"
+  },
+  {
+    "path": "_posts/2026-06-01-La-Copia-e-il-pipistrello.md",
+    "title": "I confini dell'Io artificiale",
+    "description": null,
+    "categories": [
+      "philosophy",
+      "science",
+      "ai",
+      "neuroscience"
+    ],
+    "post": true,
+    "headings": [
+      "1. Un esperimento mentale diventato hardware",
+      "2. Cognizioni senza coscienza: l’eredità di Hayles e i criteri SIRAL",
+      "3. La Copia di Durham come modello formale del tempo",
+      "4. Il transformer come realizzazione della Teoria della Polvere",
+      "5. Il confine dell’Umwelt: perché la permutazione “funziona”, e perché ciò è sospetto",
+      "6. Hayles contro Egan (e contro se stessa)",
+      "7. La vertigine condivisa, ricollocata",
+      "8. Implicazioni",
+      "9. Conclusione: chi conta, e in quale tempo",
+      "Bibliografia"
+    ],
+    "previous_categories": [
+      "science"
+    ],
+    "body_sha256": "7cd2debd8c4fcf8640b51fc45d7d5f8ff5ec9189bdbf80ae72cd57ba1023756e"
+  },
+  {
+    "path": "_posts/2026-06-01-The-mind-that-counts-to-ten.md",
+    "title": "La mente che conta fino a dieci",
+    "description": "Permutation City, i transformer e la fenomenologia del tempo: perché la cognizione costa poco, ma un sé che vive nel tempo resta legato a un corpo.",
+    "categories": [
+      "philosophy",
+      "science",
+      "ai",
+      "neuroscience"
+    ],
+    "post": true,
+    "headings": [
+      "La cognizione costa poco",
+      "La macchina che vive fuori dal tempo",
+      "Il tempo non sta nei dati",
+      "Il cerchio aperto",
+      "Uno specchio fatto di lingua",
+      "Chi conta"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "d5eae9852b04ec27500d1b4c0db4641633d30704f724a602dd5078727a1761db"
+  },
+  {
+    "path": "_posts/2026-06-11-Message-Passing-NeuroSAT-Solver.md",
+    "title": "SAT solver tramite una rete neurale",
+    "description": "Introduzione  ad una variante del modello NeuroSAT usato nel progetto RYS: letterali, clausole, matrici di incidenza, stati latenti, output e rumore stocastico",
+    "categories": [
+      "science",
+      "ai",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "La notazione di NeuroSAT",
+      "La variante nel codice RYS",
+      "Padding: clausole che esistono solo per il batch",
+      "Lo stato iniziale",
+      "Primo mezzo round: da variabili a clausole",
+      "Secondo mezzo round: da clausole a variabili",
+      "Differenza rispetto a NeuroSAT",
+      "Pre-norm e traiettoria residua",
+      "Dallo stato latente all’assegnamento",
+      "Il rumore GRAM-style",
+      "Il filo logico",
+      "Riferimenti"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "08af3814102077ede5c81ac1dc4e36616cad60b699028201e3d8bb6b1d5a30b7"
+  },
+  {
+    "path": "_posts/2026-06-17-Feynman_Kac_Landau_Reasoning_Models.md",
+    "title": "Feynman-Kac theory of reasoning models",
+    "description": "A research programme for measuring commitment transitions, gauge-invariant observables, and universality in the free-energy landscape of autoregressive generation.",
+    "categories": [
+      "science",
+      "ai",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Motivation: what is the free energy of a language model?",
+      "Theory I: the bijection between ARMs and EBMs",
+      "Energy-based models as the optimal policy",
+      "The bijection",
+      "The dual task of the autoregressive model",
+      "Theory II: the gauge problem",
+      "The one-step proxy vs. the lookahead value",
+      "Why the gauge is free for base models",
+      "Theory III: the Feynman–Kac tilted value and the bridge",
+      "The reference-measure bridge",
+      "The Feynman–Kac tilt family",
+      "What “rollouts” means concretely",
+      "Effective-temperature calibration",
+      "Theory IV: the arrow of time",
+      "Gauge-invariant irreversibility",
+      "Theory V: the Landau commitment transition",
+      "The order parameter",
+      "The Landau free energy",
+      "Universality",
+      "What did not survive scrutiny",
+      "The base-model strategy",
+      "Why base models",
+      "Model roster",
+      "Datasets and a logits-based correctness protocol",
+      "Multiple-choice datasets",
+      "Two correctness scorings",
+      "Central hypotheses",
+      "Experiments",
+      "Session A: foundation and sanity",
+      "Session B: Feynman–Kac value done correctly",
+      "Session C: bridge on matched pairs",
+      "Session D: Landau fit and barrier–confidence link",
+      "Session E: universality",
+      "Session F: mechanism (optional)",
+      "Engineering discipline",
+      "Confounder-control checklist",
+      "Criticisms and limitations",
+      "Connection to the post-training landscape",
+      "What this programme buys",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "167135170d91dde888c0d838e12c68c145191c97cb07cd920b226e879df8e167"
+  },
+  {
+    "path": "_posts/2026-06-24-Learned-vector-field-dynamics.md",
+    "title": "Learned vector field dynamics for RYS",
+    "description": "Mathematics of dynamical systems behind the RYS effect",
+    "categories": [
+      "science",
+      "ai",
+      "physics",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Dynamical systems view of learned vector fields in residual networks",
+      "1. Reframe the discrete update as a flow, not just a map",
+      "2. The catalogue of dynamical-systems properties you asked for",
+      "(a) Contractivity vs. expansivity — the central one",
+      "(b) Fixed points and attractors",
+      "(c) Limit cycles",
+      "(d) Volume change: dissipative vs. conservative",
+      "(e) Splitting into dissipative + conservative + gradient parts (Helmholtz–Weyl decomposition)",
+      "(f) Spectral properties of the flow map, not the field",
+      "3. Stability of the band as a refinement operator — the precise question",
+      "3.1 Banach fixed-point / contraction mapping (strongest, simplest)",
+      "3.2 Monotone operator theory (most operational)",
+      "3.3 Input-to-state stability (ISS) and incremental stability",
+      "4. Connecting to learning theory and representation refinement",
+      "4.1 The band as a denoising / proximal operator",
+      "4.2 Partial / incremental updates and Kaczmarz/Strohmer-Vershynin",
+      "4.3 Reasoning blocks, iterative inference, and amortization",
+      "4.4 Physics: Onsager / fluctuation-dissipation and the antisymmetric part",
+      "5. A concrete diagnostic battery for a band",
+      "6. Honest caveats",
+      "TL;DR"
+    ],
+    "previous_categories": null,
+    "body_sha256": "7d5c86e8441bc964b00f042c9035817ff98d3942ff24c30d582f1b633e09090e"
+  },
+  {
+    "path": "_posts/2026-07-02-Portafoglio-gestito-o-conto-trading-di-etf.md",
+    "title": "Portafoglio gestito con tassazione annuale o buy and hold? Simulazione Montecarlo",
+    "description": "Confronto matematico e Monte Carlo tra la Gestione Patrimoniale Moneyfarm (tassazione annuale sul risultato di gestione) e un conto trading buy-and-hold che replica lo stesso profilo di rischio, con aliquota del 26% sulle plusvalenze.",
+    "categories": [
+      "science",
+      "finance"
+    ],
+    "post": true,
+    "headings": [
+      "La domanda",
+      "I due regimi in pratica: Moneyfarm e il conto trading",
+      "Gestione Patrimoniale Moneyfarm",
+      "Conto Trading: replicare il portafoglio in buy and hold",
+      "Il modello matematico",
+      "Portafoglio A — tassazione annuale con riporto perdite",
+      "Portafoglio B — tassazione differita",
+      "Caso deterministico: rendimento costante r > 0",
+      "Dove la tassazione annuale può recuperare terreno",
+      "Simulazioni Monte Carlo",
+      "Modello stocastico",
+      "Distribuzione del patrimonio finale",
+      "Traiettorie nel tempo",
+      "Griglia di scenari: volatilità × orizzonte",
+      "Cosa significa per la scelta tra GP e Conto Trading",
+      "Limiti del modello",
+      "Conclusione"
+    ],
+    "previous_categories": [
+      "science",
+      "finance"
+    ],
+    "body_sha256": "9edb1371d40b5f83090999b0a7658cea57b0aecf3c3eedb2ada373413a4e3709"
+  },
+  {
+    "path": "_posts/2026-07-20-when-test-time-compute-stops-helping.md",
+    "title": "When test-time compute stops helping: common-mode error, verifier limits, and selective reliability",
+    "description": "A reliability theory for adaptive inference when samples are dependent, verification is imperfect, and abstention is allowed.",
+    "categories": [
+      "science",
+      "ai",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Abstract",
+      "From scaffolding to stopping",
+      "Formal setting and estimands",
+      "Theory I: local failures on fixed and random trees",
+      "A fixed-tree union bound",
+      "An adaptive random-tree bound with nonreturn",
+      "Adaptive frontier drift",
+      "Theory II: verifiers, dependence, and ceilings",
+      "Sound verification and probabilistic completeness",
+      "Common-mode saturation through a latent difficulty",
+      "The imperfect-verifier ceiling",
+      "Fréchet bounds when dependence is unknown",
+      "Theory III: distributional risk, calibration, and abstention",
+      "Held-out distributional risk",
+      "Fixed-bin calibration",
+      "Selective abstention",
+      "The universal boundary",
+      "Methods: three evidence layers that must not be mixed",
+      "Seeded deterministic simulations",
+      "One-request live OpenAI engineering smoke test",
+      "Reproducibility and analysis discipline",
+      "Limitations",
+      "Discussion",
+      "Data and code availability",
+      "Conflicts of interest",
+      "Funding",
+      "Author contributions",
+      "AI-use disclosure",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "a7a7dd490ba6c99967ec3b42a9316744152dde536e5f81be6634fca90d7d1b24"
+  },
+  {
+    "path": "_posts/2026-07-27-Una-discussione-sulla-coscienza-intelligenza-artificiale.md",
+    "title": "Un agente non è un modello: self-agency, ambiente e strange loop negli LLM",
+    "description": "La coscienza artificiale non si decide dai discorsi in prima persona. Una proposta di ricerca: studiare la self-agency nel circuito ricorsivo fra agenti, ambiente, memoria e modello di sé.",
+    "categories": [
+      "philosophy",
+      "science",
+      "ai",
+      "neuroscience"
+    ],
+    "post": true,
+    "headings": [
+      "Un agente non è un modello: self-agency, ambiente e strange loop negli LLM",
+      "In breve",
+      "Il problema: il modello parla, l’agente agisce",
+      "Agente = agenti + ambiente",
+      "Hofstadter: il sé come rientro nel proprio mondo",
+      "Self-agency: una definizione più stretta di autonomia",
+      "Che cosa mostrano le ricerche sugli LLM",
+      "Un programma di ricerca",
+      "Come misurare l’ipotesi",
+      "Il problema del substrato rimane aperto",
+      "Perché la proposta conta",
+      "Riferimenti"
+    ],
+    "previous_categories": "science",
+    "body_sha256": "0f9bc642c07bb04bd7211a1c681b40fafdbd5e7156ec3da6955e2973dafafc19"
+  },
+  {
+    "path": "_posts/2026-08-29-from-solving-to-tracking-convex-programs.md",
+    "title": "From solving convex programs to tracking them",
+    "description": "A four-regime map from batch MeanRisk through skfolio-accelerate and 1.0 streaming MVO to true OLPS, written as study notes for a skfolio 1.0 PR.",
+    "categories": [
+      "science",
+      "finance",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "A running example",
+      "Four regimes, not three",
+      "What the notes get right",
+      "Where they overreach",
+      "Three execution levels, restated so they stay useful",
+      "What I am studying toward",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "58e9076ff0ee1012408406aaecb1ef67ec0450927320e1eb15cf47e234cdcae2"
+  },
+  {
+    "path": "_posts/2026-08-30-meanrisk-as-parametric-convex-optimization.md",
+    "title": "MeanRisk as a parametric convex program",
+    "description": "What skfolio 1.0 MeanRisk actually solves, why every fit rebuilds a CVXPY graph, and why WalkForward is a trajectory through θ rather than T unrelated estimators.",
+    "categories": [
+      "science",
+      "finance",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "The parameter \\theta",
+      "Four objectives",
+      "Risk measures as convex atoms",
+      "Costs, turnover, previous weights",
+      "The feasible set K",
+      "Every fit allocates a new problem",
+      "sklearn contract, which a PR must not break",
+      "Implication for the 1.0 PR",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "9d01bae9d484422fb4043accdb56f71e4e63a59e385b27380e7b5695e83f1e77"
+  },
+  {
+    "path": "_posts/2026-08-31-skfolio-accelerate-compiled-trajectories.md",
+    "title": "Binding cross-validation to solver structure",
+    "description": "How skfolio-accelerate compiles a CV plan once, slides empirical Grams, and reuses OSQP/Clarabel topology without changing the MeanRisk investment problem.",
+    "categories": [
+      "science",
+      "finance",
+      "math",
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "The call, classified",
+      "Amortization 1: the CV plan",
+      "Amortization 2: sufficient statistics",
+      "Amortization 3: frozen topology",
+      "What the 20-year table actually says",
+      "Economic state versus numerical state",
+      "Assembly even when the solver is native",
+      "Implication for the 1.0 PR",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "2c404d19c70f06be018a2a6d8a322b2f44919f0cce3b10b412f8f1509c554373"
+  },
+  {
+    "path": "_posts/2026-09-01-streaming-meanrisk-is-not-oco.md",
+    "title": "Incremental moments, full solves",
+    "description": "skfolio 1.0 online_predict and MeanRisk.partial_fit carry exponentially weighted moments and still rebuild the convex program. That is streaming Markowitz, not online convex optimization.",
+    "categories": [
+      "science",
+      "finance",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "The stateful walk",
+      "What MeanRisk.partial_fit does",
+      "Online search is expanding-window model selection",
+      "Two meanings of partial_fit",
+      "What OLPS should reuse",
+      "Implication for the 1.0 PR",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "b6d1e4aecaf80bfc6b68c77cdcff6b76db33f2e8d75c876ab199e10448bb7d40"
+  },
+  {
+    "path": "_posts/2026-09-02-first-order-oco-and-olps-in-skfolio.md",
+    "title": "First-order OCO as a portfolio estimator",
+    "description": "How the universal_portfolio branch implements COMID, EG/OGD, follow-the-loser PA, BCRP as a MeanRisk comparator, and which pieces belong in a first skfolio 1.0 PR.",
+    "categories": [
+      "science",
+      "finance",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "The engine",
+      "Geometries the first PR can defend",
+      "Chronology, or why costs are not previous_weights",
+      "Follow-the-loser is a different proximal problem",
+      "BCRP is the code bridge",
+      "Projection",
+      "Empirical caution, not a PR claim",
+      "Export cut (repeated in post 6)",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "b5ae20ff6242bde95d820cdf2c1eab9568054bb8dcf6dfe505e4f5d58f80d3c3"
+  },
+  {
+    "path": "_posts/2026-09-03-landing-olps-on-skfolio-1.md",
+    "title": "What a research PR to skfolio 1.0.0 actually contains",
+    "description": "A maintainer-facing cut: rebase universal_portfolio onto v1.0.0, the in-list and out-list, tests, gallery, naming, and the follow-up issues that must not ride along.",
+    "categories": [
+      "science",
+      "finance",
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "Rebase, then cut",
+      "Issue body (paste-ready outline)",
+      "In the first PR",
+      "Out of the first PR",
+      "Naming",
+      "Reviewer script",
+      "Follow-up issues (named, not in the diff)",
+      "What success looks like",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "machine-learning"
+    ],
+    "body_sha256": "1df12a13c2d2c74e5c3eaab6a86079f6c0df67abfa08b39bb1f2dcfad9e6e126"
+  },
+  {
+    "path": "_posts/2026-09-04-Explanations-for-KL-divergence.md",
+    "title": "Interpretations for the Kullback-Leibler divergence, or relative entropy",
+    "description": "Here we provide multiple intuitions about the meaning of the Kullback-Leibler divergence in many fields",
+    "categories": [
+      "science",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "Summary",
+      "1. Expected Surprise",
+      "2. Hypothesis Testing",
+      "3. MLEs",
+      "4. Suboptimal Coding",
+      "5A. Gambling Games - Beating the House",
+      "5B. Gambling Games - Gaming the Lottery",
+      "6. Bregman Divergence",
+      "Final Thoughts"
+    ],
+    "previous_categories": [
+      "science",
+      "statistical-learning"
+    ],
+    "body_sha256": "946849d63fce8f5b31d8947cbaa7760b3e7eda8132f78e182f92f8d3fec34d5d"
+  },
+  {
+    "path": "_posts/2026-09-24-Emotional-selfsteering.md",
+    "title": "Emotional self-steering with a frozen LLM",
+    "description": "A small activation-steering harness that reads the residual stream during decoding and edits a frozen Qwen3-0.6B only when it drifts from a calm and uncertainty axis.",
+    "categories": [
+      "science",
+      "ai"
+    ],
+    "post": true,
+    "headings": [
+      "Step 1: load a frozen model",
+      "Step 2: read one layer during decoding",
+      "Step 3: build the axis, then centre it",
+      "Step 4: sense the drift, do not just trigger on words",
+      "Step 5: gate with a deadband, not a constant",
+      "Step 6: edit toward the axis, then clip",
+      "Step 7: fork the generation to prove the edit did it",
+      "What I borrow from Engram",
+      "Closing"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "0a0ea084432b68981fda705ea519b4995191378de7b450211060fa6649e97cf2"
+  },
+  {
+    "path": "_posts/2026-09-28-K-SAT-and-Survey-propagation.md",
+    "title": "K-SAT, survey propagation, and the search for a second level of clusters",
+    "description": "Why physicists care about random satisfiability, how belief propagation and survey propagation work, and what we found when we pushed survey propagation to two levels of replica symmetry breaking.",
+    "categories": [
+      "science",
+      "physics",
+      "ai",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "1. What K-SAT is",
+      "2. Random formulas and a sharp threshold",
+      "3. The physicist’s view: energy and spin glasses",
+      "4. Belief propagation",
+      "5. Clusters and the thresholds of random 3-SAT",
+      "6. Replica symmetry breaking and survey propagation",
+      "Replica symmetry breaking in one sentence",
+      "From beliefs to surveys",
+      "Survey propagation as an algorithm",
+      "7. Where 1RSB breaks",
+      "8. What we set out to do",
+      "Part 1: a solvable dense limit",
+      "Part 2: two-step survey propagation at zero temperature",
+      "9. What we found",
+      "An exact algorithm at x = 1, and a trap in the usual one",
+      "Two directions of instability",
+      "At zero energy, no genuine second level",
+      "Above the Gardner point: a real second level",
+      "What the second level changes",
+      "10. Why this matters, and what is new",
+      "11. How we made sure that the results hold",
+      "12. What is still open",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "statistical-physics"
+    ],
+    "body_sha256": "7eb9808e169aa8602786d30103072c71d42dd1eba073834b2792c06c9741d576"
+  },
+  {
+    "path": "_posts/2026-10-12-Branch-and-bound-with-large-decision-models.md",
+    "title": "Merging branch-and-bound with large decision models",
+    "description": "Walking ESCO with a Choice-only oracle: classical branch-and-bound, path-product bounds, and why you should ignore shallow leaves.",
+    "categories": [
+      "science",
+      "ai",
+      "math"
+    ],
+    "post": true,
+    "headings": [
+      "The score is a product, on purpose",
+      "Greedy is a trap; beam is a softer trap",
+      "Branch and bound, with Jev on the edges",
+      "The depth footgun",
+      "What I am actually after"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ],
+    "body_sha256": "7742701b3fc3369910da22b091cc4209f992e6c94625277f358e0603e8270d41"
+  },
+  {
+    "path": "sections/software.md",
+    "title": "Software",
+    "description": null,
+    "categories": [
+      "engineering"
+    ],
+    "post": false,
+    "headings": [],
+    "previous_categories": null,
+    "body_sha256": "26e443e97c238a20b273cd2c20bd01dfe66a0f7f5602609597603015c13c3204"
+  },
+  {
+    "path": "sections/tech.md",
+    "title": "Technical stuff",
+    "description": "Tech notes: devops, Python, Spark, LLMs, short how-tos.",
+    "categories": [
+      "engineering"
+    ],
+    "post": false,
+    "headings": [],
+    "previous_categories": null,
+    "body_sha256": "a605ba94e0e913ea75c8185d55f0a299fb1b81b6b557ae837070fb468c103b29"
+  },
+  {
+    "path": "_posts/2015-09-24-imagesc-with-text-values.md",
+    "title": "Matlab imagesc with text values",
+    "description": "Matlab imagesc with text values.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "e47b9254ab813f9aae913d09474e8989cc92156da01f8cdb8f432f406a608ea4"
+  },
+  {
+    "path": "_posts/2015-10-05-How-to-reset-unity-in-Ubuntu-14.04.md",
+    "title": "How to reset unity in Ubuntu 14.04",
+    "description": "How to reset unity in Ubuntu 14.04.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "5f450a466ab061ca5f7976ecc8aac6c9aeef65f50908fa3d560ed3d7b282d155"
+  },
+  {
+    "path": "_posts/2015-10-07-How-to-install-Octave-on-OSX-Yosemite.md",
+    "title": "How to install Octave on OSX Yosemite",
+    "description": "How to install Octave on OSX Yosemite.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "3383bd3ac4a005ab36ae0e2768df6e651ac2b036411a16c5939d827e98672440"
+  },
+  {
+    "path": "_posts/2015-10-14-Install-Google-Drive-On-Linux.md",
+    "title": "Install Google Drive for Linux",
+    "description": "Install Google Drive for Linux.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "FAQ:"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "c51bd5dcdc256b423fac6410592b53f27af7809a43b5bbff87c6091d6deac84b"
+  },
+  {
+    "path": "_posts/2016-06-10-A-code-for-absolute-orientation-problem-with-Umeyama-algorithm-in-Python.md",
+    "title": "A code for the absolute orientation problem with Umeyama algorithm in Python",
+    "description": "A code for the absolute orientation problem with Umeyama algorithm in…",
+    "categories": [
+      "engineering",
+      "science",
+      "math"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "1288392b0667b050dfcca32ad7e8e00ce2e40b9c2fdc89948e7cc7803dc2a47c"
+  },
+  {
+    "path": "_posts/2016-06-10-How-to-upgrade-R-to-the-latest-version-on-Ubuntu-14.04.md",
+    "title": "How to upgrade R to the latest version on Ubuntu 14.04",
+    "description": "How to upgrade R to the latest version on Ubuntu 14.04.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "aa9895b0c65da5e000a32339d3796ce84cf740b3ef7cfe2abf5ea2591901c6bf"
+  },
+  {
+    "path": "_posts/2016-06-16-Forwarding-X11-maintaining-connection-with-xpra.md",
+    "title": "Forwarding-X11-maintaining-connection-with-xpra",
+    "description": "Forwarding-X11-maintaining-connection-with-xpra.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "Installation",
+      "Practical example on Linux",
+      "Sharing sessions",
+      "Closing sessions",
+      "Using XPRA on other platforms",
+      "Windows"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "41ad8979f7584783a56faa031013a4418cd7ee0a09bcaf7dbbe6c6bd44715be2"
+  },
+  {
+    "path": "_posts/2016-06-16-Get-Exact-Size-pdf-inches.md",
+    "title": "Get the exact print size of a PDF in inches",
+    "description": "Get the exact print size of a PDF in inches.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "795c0dfc48e3b9b17c86e60ac9fd4c92ea93e158d09653ae1e3821d33eeb512d"
+  },
+  {
+    "path": "_posts/2016-06-27-How-to-install-latest-R-on-servers-under-proxy.md",
+    "title": "How to install latest R on servers under proxy",
+    "description": "How to install latest R on servers under proxy.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "How to install latest R on servers under proxy"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "d88195645aacec4a360aed823f5b99929493419e6785fa236bccd73d861bcd6f"
+  },
+  {
+    "path": "_posts/2016-07-16-Launching-matlab-in-background-correctly-in-linux.md",
+    "title": "Launching-matlab-in-background-correctly-in-linux",
+    "description": "Launching-matlab-in-background-correctly-in-linux.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "e178f5ea1b2c9d929b363b7f70f710d749588ccb34bf9e95724a792d60aba55c"
+  },
+  {
+    "path": "_posts/2016-08-01-Setting-up-VNC-sessions-in-Linux.md",
+    "title": "Setting up VNC sessions in Linux",
+    "description": "Setting up VNC sessions in Linux.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "Server side",
+      "Ubuntu 16.04",
+      "Step 1 — Installing the Desktop Environment and VNC Server",
+      "Step 2 — Configuring the VNC Server",
+      "Step 3 — Creating a VNC Service File",
+      "Ubuntu 14.04",
+      "This tutorial works",
+      "This doesn’t work",
+      "Step One — Install Desktop Environment and VNC Server",
+      "Step Two — Configure VNC Server",
+      "Step Three — Create a VNC Service File",
+      "Ubuntu 12.04",
+      "Step 1: Install Desktop Environment and VNC Server",
+      "Step 2: Setup TightVNC as a service"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "16e4759e4d7a9d783b21e85147353f352e3f790ef7b36e9e199890e96753d106"
+  },
+  {
+    "path": "_posts/2016-08-02-Using-VNC-persistent-sessions.md",
+    "title": "Using-VNC-persistent-sessions",
+    "description": "Using-VNC-persistent-sessions.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "Windows:",
+      "Download and install TightVNC",
+      "EXAMPLE",
+      "Linux",
+      "Mac OSX"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "606e42dd9cd29cac77dbf67ddac98f0d0e30941de8170a1b3eb604904d69c33f"
+  },
+  {
+    "path": "_posts/2016-08-10-Fix-black-screen-after-upgrade-from-ubuntu-14-04-to-ubuntu-16-04.md",
+    "title": "Fix black screen after upgrade from Ubuntu 14.04 to Ubuntu 16.04",
+    "description": "Fix black screen after upgrade from Ubuntu 14.04 to Ubuntu 16.04.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "52dfe61e5f52306b8f1ed76b39d9c178deb3993f4630911eb1c03c48b51ba623"
+  },
+  {
+    "path": "_posts/2016-08-10-How-to-start-a-SSH-daemon-on-Windows-without-agonizing-pain.md",
+    "title": "How to start a SSH daemon on Windows without agonizing pain",
+    "description": "How to start a SSH daemon on Windows without agonizing pain.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "c1a4e3900fbd704f6334ecf9e90a699f00e81e5c71d7765bf6ee4cd4990ca11c"
+  },
+  {
+    "path": "_posts/2016-08-17-Matlab-R2016a-crashes-on-Ubuntu-16.04-with-NVidia-361-drivers.md",
+    "title": "Matlab R2016a crashes on Ubuntu 16.04 with NVidia 361 drivers",
+    "description": "Matlab R2016a crashes on Ubuntu 16.04 with NVidia 361 drivers.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "8bb2f56c70076922dc0d443098ee6fefcc3b80ec5335d8805e317c04ee59b2b7"
+  },
+  {
+    "path": "_posts/2016-09-13-Delaunay-triangulation-and-beautiful-visual-effects-in-Latex.md",
+    "title": "Delaunay triangulation and beautiful visual effects in Latex",
+    "description": "Delaunay triangulation and beautiful visual effects in Latex.",
+    "categories": [
+      "engineering",
+      "science",
+      "math"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "bdba807bfa597eb18e1555608c0a0e571f199d4b116127efffcb8cda3dfd5120"
+  },
+  {
+    "path": "_posts/2017-01-16-Matlab-and-CUDA-gpudevice-freezes-on-Ubuntu-with-GTX1070.md",
+    "title": "Matlab and CUDA gpudevice freezes on Ubuntu 14.04 with GTX 1070",
+    "description": "Matlab and CUDA gpudevice freezes on Ubuntu 14.04 with GTX 1070.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "ecfb553daec250c4b0b5eff6ebe6df5e95092091bee31f4bac3a4eeb021a8689"
+  },
+  {
+    "path": "_posts/2017-01-17-TAB-not-working-in-xfce4-with-remote-desktop-after-ubuntu-installation.md",
+    "title": "TAB is not working with XFCE4 after installation from Ubuntu for use with remote desktop",
+    "description": "TAB is not working with XFCE4 after installation from Ubuntu for use…",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "0ea677bbb2dfaef25b10bbe8d5f8a03f8ab3fd0da625c915be199bf816793bce"
+  },
+  {
+    "path": "_posts/2017-01-18-Create-a-large-swap-file-in-ubuntu.md",
+    "title": "How to create a large swap file in Ubuntu if system runs out of memory.",
+    "description": "How to create a large swap file in Ubuntu if system runs out of memory.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "Introduction",
+      "Note",
+      "Check the System for Swap Information",
+      "Check Available Space on the Hard Drive Partition",
+      "Create a Swap File",
+      "The Traditional, Slow Way",
+      "The Faster Way",
+      "Enabling the Swap File",
+      "Make the Swap File Permanent",
+      "Tweak your Swap Settings",
+      "Conclusion"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "f22492fb888b7f3745be78dacb08116945009b1b32b6f0aa4f8c7d3dd672a253"
+  },
+  {
+    "path": "_posts/2017-01-20-Assigning-XRDP-to-different-users.md",
+    "title": "Assigning XRDP to different users",
+    "description": "Assigning XRDP to different users.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "How to find disconnected xrdp sessions"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "017a1e808401c4ce8c34cb6c94c5365f957a4ee7e154f59ec4c9071ab1dc9ab7"
+  },
+  {
+    "path": "_posts/2017-01-27-How-to-grant-specific-directory-access-to-users-in-linux.md",
+    "title": "How to grant specific directory access to users in linux",
+    "description": "How to grant specific directory access to users in linux.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "Negative ACLs",
+      "Chroot"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "58d24089b01daf004566d9f29487f9723ae8afd72ca99ac35186f78dd5b5daca"
+  },
+  {
+    "path": "_posts/2017-02-12-How-to-stop-with-ctrlc-a-running-mex-file-in-matlab.md",
+    "title": "How to stop with CTRL C a running mex file in Matlab",
+    "description": "How to stop with CTRL C a running mex file in Matlab.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "7cfa6ed95cd31eb5e08c254ca209f80800816287a9e8f3397ba2ee21f06d3827"
+  },
+  {
+    "path": "_posts/2017-02-17-How-to-mount-samba-with-mount-bind-large-file-systems.md",
+    "title": "How to mount samba with mount bind in large file systems",
+    "description": "How to mount samba with mount bind in large file systems.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "364665928eb976d33b667b41b2e5de672738ffd8fad53d47397e318329c8a36f"
+  },
+  {
+    "path": "_posts/2018-07-10-How-to-find-all-tensorflow-devices.md",
+    "title": "How to list all tensorflow devices",
+    "description": "How to list all tensorflow devices.",
+    "categories": [
+      "engineering",
+      "science",
+      "ai"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "44879eb22039d4015fb5f6eace8cf38556ffbe2f401826f884953a7ec3ef8504"
+  },
+  {
+    "path": "_posts/2018-10-23-Install-igraph-for-python3-on-ubuntu.md",
+    "title": "Install latest igraph 0.7.1 for Python3 on Ubuntu",
+    "description": "Install latest igraph 0.7.1 for Python3 on Ubuntu.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "484e9306e43c636f5f5ac1f7bf6bc90b7503e00e73b5bb0c1bca573379d60dff"
+  },
+  {
+    "path": "_posts/2018-11-12-Faceting-images-with-matplotlib-and-seaborn.md",
+    "title": "Faceting images or generic plots with Seaborn and Python matplotlib",
+    "description": "Faceting images or generic plots with Seaborn and Python matplotlib.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "The case of faceting plots",
+      "The case of faceting images"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "0d1778af856af242db79c3250aa9ee3d0ab975f3d55ef7a1649d2ceee08f4400"
+  },
+  {
+    "path": "_posts/2019-01-17-visual-inspection-of-python-profiling-output.md",
+    "title": "Visual inspection of python profiler output with gprof2dot",
+    "description": "Visual inspection of python profiler output with gprof2dot.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "0bfdba4b638acf0f1d4ae9857ddff756c0f9f9332edb12c578ef3066fe985de4"
+  },
+  {
+    "path": "_posts/2019-05-03-increasing-loopback-device-space-when-used-as-dropbox-ext4-filesystem.md",
+    "title": "How to expand the loopback device size",
+    "description": "How to expand the loopback device size.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "42baabf719fad95689643fa2cbf236978a5968e9f8a3dc6d82215dfda9d7794d"
+  },
+  {
+    "path": "_posts/2020-03-27-How-to-remove-all-logging-information-in-spark-scala.md",
+    "title": "How to remove all logging information in scala spark",
+    "description": "How to remove all logging information in scala spark.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "f41a0782d3afbcd7ea6b7c28861c62fc2e13b276cb25c663591c36f48ddcff9c"
+  },
+  {
+    "path": "_posts/2020-04-01-Installing-Jupyter-with-scala-kernel.md",
+    "title": "Installing Jupyter with a Scala + Spark kernel",
+    "description": "Installing Jupyter with a Scala + Spark kernel.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "Installazione SCALA + SPARK + Jupyter"
+    ],
+    "previous_categories": [
+      "tech"
+    ],
+    "body_sha256": "16814c29afecf4dbd93cfac205e4710974d8f58e6aa0a196bb88d29658174759"
+  },
+  {
+    "path": "_posts/2020-04-20-Some-scala-functions-as-exercise.md",
+    "title": "Some scala functions as exercise",
+    "description": "Some scala functions as exercise.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "1. Find the last element of a list",
+      "2. Find the first element of a list",
+      "3. Find the last but one",
+      "4. Find the k-th element of a list",
+      "5. Find the number of elements of a List",
+      "6. Reverse a list",
+      "Simple solution:",
+      "Procedural solution:",
+      "7. Find out wheter a list is palindrome",
+      "8. Flatten a nested list structure",
+      "9. Eliminate consecutive duplicates of list elements",
+      "10. Pack consecutive duplicates of list elements into sublists"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "c2b0eb0722902ea3f4e22ef8fb7f3cf852767f3bfd8809837d5e7b2b315e9c32"
+  },
+  {
+    "path": "_posts/2020-05-18-merge_dataframes_in_spark_as_in_pandas.md",
+    "title": "How to merge Dataframes in spark as in Pandas",
+    "description": "How to merge Dataframes in spark as in Pandas.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "12654fea09f600b73708237dfed750dbe2c674d706603248489099371aea290a"
+  },
+  {
+    "path": "_posts/2020-05-22-Extracting-text-from-MS-Word-doc-files-using-pytesseract-and-antiword-on-osx.md",
+    "title": "Extracting text from MS-Word doc files using pytesseract and antiword on OSX",
+    "description": "Extracting text from MS-Word doc files using pytesseract and antiword…",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": null,
+    "body_sha256": "8b00e2c1806a8a6716e6693e50147fc7061538e55ee9c624f77a99964dd6867c"
+  },
+  {
+    "path": "_posts/2020-07-21-Better-Jupyterlab-theme-and-extensions.md",
+    "title": "Better Jupyterlab with git and Darcula theme",
+    "description": "Better Jupyterlab with git and Darcula theme.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": [
+      "tech"
+    ],
+    "body_sha256": "61e7b9f96e2c7b61f385edd91746817ae8e1f59a208459691b35058725a3216d"
+  },
+  {
+    "path": "_posts/2020-09-04-Code-indentation-in-Python-with-black.md",
+    "title": "Code indentation in Python with Black",
+    "description": "Code indentation in Python with Black.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "f0e3be14efe32535adbd42ab525fd378fedd350955778d46f599f581f7365544"
+  },
+  {
+    "path": "_posts/2020-10-01-How-to-force-prefixes-to-dataframe-join.md",
+    "title": "How to force adding prefixes when merging two dataframes in Pandas",
+    "description": "How to force adding prefixes when merging two dataframes in Pandas.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "95810e56547c56f56321f2c89983b3bf835ce62880388213f2a8ce56ac7382cc"
+  },
+  {
+    "path": "_posts/2020-10-09-Versioning-data-files-for-machine-learning-projects.md",
+    "title": "Versioning data files for machine learning projects with DVC",
+    "description": "Versioning data files for machine learning projects with DVC.",
+    "categories": [
+      "engineering",
+      "science",
+      "ai"
+    ],
+    "post": true,
+    "headings": [
+      "DVC Tutorial",
+      "Clone this repository",
+      "Initialize DVC repository",
+      "Splitting the dataset:",
+      "compiling and training the model. also validating the performance.",
+      "storing the model matrix also",
+      "loading the model and testing the model performance with exxternal testing dataset"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "5c6b903b1043e9739528fdd93ac1a970352e6395c0ea0aba5673ad02c7638490"
+  },
+  {
+    "path": "_posts/2020-10-16-Calling-Scala-from-python-pyspark.md",
+    "title": "Spark - Calling Scala code from PySpark",
+    "description": "Spark - Calling Scala code from PySpark.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "Basic method call through Py4J",
+      "Real-life method call",
+      "Conclusion"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "88a7e4fab3a6e9ac2295f0198b9b13950de112d1b3c967d0c6fe7154067ba483"
+  },
+  {
+    "path": "_posts/2020-11-27-Download-audio-from-youtube.md",
+    "title": "Download audio from youtube with youtube-dl",
+    "description": "Download audio from youtube from command line in batch",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "How to download audio from youtube"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "f902e33865b569e51a83755a7e99e7ad98fc633444da3ae64e685f491eafd1b1"
+  },
+  {
+    "path": "_posts/2021-05-18-Plotly-and-JupyterLab.md",
+    "title": "Plotly and Jupyterlab issues",
+    "description": "Plotly-and-JupyterLab issues resolution",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "How to install jupyterlab utilities"
+    ],
+    "previous_categories": [
+      "tech"
+    ],
+    "body_sha256": "d1ea94286e82ab29100b4d78f260a6114263030a555886942e772feccf3d8b69"
+  },
+  {
+    "path": "_posts/2021-06-11-Finding-and-deleting-memory-hungry-temporary-variables-in-jupyter-notebooks.md",
+    "title": "Finding and deleting memory hungry temporary variables in jupyter notebooks",
+    "description": "Finding and deleting memory hungry temporary variables in jupyter…",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "68167361c19d6a2a01de2ac3ff0a7cacb36c1e6500f13ff0108e6700fa0ba3a3"
+  },
+  {
+    "path": "_posts/2021-07-28-How-to-convert-networkx-graphs-to-graph-tool.md",
+    "title": "How to convert networkx graphs to graph-tool",
+    "description": "How to convert networkx graphs to graph-tool.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "How to convert networkx graphs to graph-tool"
+    ],
+    "previous_categories": [
+      "tech"
+    ],
+    "body_sha256": "1f33501a9b7aef90715afbb80a79dcc4c4050c96ca8a0f8f8fa29e06da8f0279"
+  },
+  {
+    "path": "_posts/2021-07-28-How-to-extend-hdbscan-to-make-it-an-inductive-clustering-method.md",
+    "title": "How to make HDBScan an inductive clustering method",
+    "description": "How to make HDBScan an inductive clustering method.",
+    "categories": [
+      "science",
+      "ai"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "23be10c73437ce2274371473583946df3845c4cd04cc9ded257d69af1584ba0e"
+  },
+  {
+    "path": "_posts/2021-09-28-Docker-on-Mac-OS.md",
+    "title": "Docker on MacOS",
+    "description": "Using Docker on MacOS.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "How to install Docker on MacOs"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "c81fe54e81e8dc98c83d8df087df85d08681cc59271df16d0d79567e3baf16f9"
+  },
+  {
+    "path": "_posts/2021-10-25-Sampling_10_rows_per_group_in_pyspark.md",
+    "title": "Sampling 10 rows per groupb in PySpark",
+    "description": "Sampling 10 rows per groupb in PySpark.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "0f1554b846b48b58607edaad7e0f9d6ecfe105f477d93fa16012fdbca63263be"
+  },
+  {
+    "path": "_posts/2021-12-03-Rolling-operations-in-PySpark.md",
+    "title": "Rolling operations in PySpark",
+    "description": "Rolling operations in PySpark.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "Rolling window operations are possible"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "8907649f4c0017fed9e6320de320519ea5cc729341075061ceba44c1bd5c596d"
+  },
+  {
+    "path": "_posts/2021-12-03-Scalable-changepoint-detection-on-huge-dataframes-with-ruptures-and-pyspark.md",
+    "title": "Changepoint detection on huge grouped dataframes with ruptures and PySpark",
+    "description": "Changepoint detection on huge grouped dataframes with ruptures and…",
+    "categories": [
+      "engineering",
+      "science",
+      "ai"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "3b2c218b01cb1712eeb137cff527b2e835959df2a2723cc1ecb3dcee220a447e"
+  },
+  {
+    "path": "_posts/2022-05-03-Matplotlib-better-graphics.md",
+    "title": "Better graphics with matplotlib and seaborn",
+    "description": "Matplotlib and seaborn defaults for publication figures: SVG, Helvetica, tight layout.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "Good settings for professional-looking figures in scientific papers",
+      "Increase font sizes",
+      "Additional Practical Recommendations"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "558aa651daad1641c3870e97afbea4ab04da7619aaaf83321b0ce0eeb28dc08a"
+  },
+  {
+    "path": "_posts/2022-06-15-Downloading-Google-sheet-tables-to-pandas.md",
+    "title": "How to download google sheet data to Pandas",
+    "description": "How to download google sheet data to Pandas.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "Option One — if you have multiple sheets",
+      "Option Two — if your file only has one sheet"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "2f5c3768ffb77804d05db0d974145e7f1846c4d9ddbbb09e8322e2b212629ca8"
+  },
+  {
+    "path": "_posts/2022-08-07-Enable-colab-for-longer-runtimes.md",
+    "title": "How to enable colab for longer runtimes by keeping it active",
+    "description": "How to enable colab for longer runtimes by keeping it active.",
+    "categories": [
+      "engineering",
+      "science",
+      "ai"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "73966d8d4210e7e5ccbd3759533e968673c0759627a7dd0e0612409de6c0b4d5"
+  },
+  {
+    "path": "_posts/2022-09-15-Dependencies-for-having-detectron2-running-on-mac-os.md",
+    "title": "Dependencies needed for detectron2 on mac os",
+    "description": "Detectron2 can be installed on MacOs on M1 apple silicon",
+    "categories": [
+      "engineering",
+      "science",
+      "ai"
+    ],
+    "post": true,
+    "headings": [
+      "Python dependencies for having detectron2 running on Mac OS"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "42d2e741e725a2f96f5c70ad812dcb70b1bdcd0d58e67f834b06268d97c8bba5"
+  },
+  {
+    "path": "_posts/2022-11-23-slicing-rolling-expanding-windows-over-multiple-pandas-objects.md",
+    "title": "Slicing rolling expanding windows over multiple pandas objects",
+    "description": "Slicing rolling expanding windows over multiple pandas objects.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "7b2f238ec411d2ceeb208e80182ac64f87df4186e5839e6bed368a4aa4335fd3"
+  },
+  {
+    "path": "_posts/2023-01-14-Augmentation-of-documents-for-neural-networks-training.md",
+    "title": "Augmentation of documents for neural networks training",
+    "description": "Augmentation of documents for neural networks training.",
+    "categories": [
+      "science",
+      "ai",
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "Why augmentation of documents"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "71e77c164c46def5985f7541c72ce44f4fbe017f4484b166e7a8cb7c79ab54b5"
+  },
+  {
+    "path": "_posts/2023-01-14-Calculate-file-hash-in-python.md",
+    "title": "Calculate a file hash in Python",
+    "description": "Calculate a file hash in Python.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "10e8a6e26cb4db7ed8025280face5e424b67b95388b4b67d4ae92176e90f68fd"
+  },
+  {
+    "path": "_posts/2023-05-06-My-VSCode-settings.md",
+    "title": "My VSCode settings",
+    "description": "My VSCode settings.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "6ed102ef081d143d72ceee1a278af44b7c34c67f76d0543185f3918f939d4b32"
+  },
+  {
+    "path": "_posts/2024-02-26-Installing-XFormers-on-Mac-M1.md",
+    "title": "Installing XFormers on Mac M1/M2",
+    "description": "Build XFormers on Apple Silicon: Homebrew libomp/llvm and clang flags.",
+    "categories": [
+      "engineering",
+      "science",
+      "ai"
+    ],
+    "post": true,
+    "headings": [
+      "XFormers"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "a4fb57b6286c3cec5467283eccbf7ba8d67001b1d8e72281cf43996b3de84754"
+  },
+  {
+    "path": "_posts/2024-03-04-Initializing-Spark-with-findspark.md",
+    "title": "PySpark initialization outside the Pyspark shell",
+    "description": "PySpark with findspark: SparkSession without the pyspark shell.",
+    "categories": [
+      "engineering"
+    ],
+    "post": true,
+    "headings": [],
+    "previous_categories": "tech",
+    "body_sha256": "3c2c0259df30b1a104a02b686e9ac3ac1fdb41bc94f8d46c3c1aab4cd8b88c97"
+  },
+  {
+    "path": "_posts/2025-01-15-How2-terminal-command.md",
+    "title": "Creating the How2 Function for Natural Language Bash Commands with LLM",
+    "description": "Bash how2: natural language to shell commands via llm CLI.",
+    "categories": [
+      "science",
+      "ai",
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "The Concept",
+      "The Implementation",
+      "Breaking Down the Function",
+      "Argument Handling",
+      "Concatenating the Query",
+      "Constructing the System Prompt",
+      "Querying the LLM",
+      "Examples",
+      "Extracting the Bash Command",
+      "Output Formatting",
+      "Conclusion"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "741b746d0341bdeb7fef24ae7761965f64b992481f085e57afe5ac13ba24727c"
+  },
+  {
+    "path": "_posts/2025-01-16-Prompt-chaining-with-foundational-models.md",
+    "title": "Prompt Chaining with Foundational models",
+    "description": "Prompt chaining: multi-step LLM workflows and handoff patterns.",
+    "categories": [
+      "science",
+      "ai",
+      "engineering"
+    ],
+    "post": true,
+    "headings": [
+      "What is Prompt Chaining?",
+      "Use Cases",
+      "Implementing Prompt Chaining",
+      "Beyond Prompt Chaining: Advanced Workflows",
+      "Conclusion"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "da0369999d303d53023af8ef54829799af75abb66a715ab6d704b9e924ec7af9"
+  },
+  {
+    "path": "_posts/2025-01-30-Calling-deepseek-r1-from-cli.md",
+    "title": "Unlocking the Power of DeepSeek R1 via HuggingFace's TogetherAI",
+    "description": "DeepSeek R1 from the CLI via Together AI and Hugging Face.",
+    "categories": [
+      "engineering",
+      "science",
+      "ai"
+    ],
+    "post": true,
+    "headings": [
+      "The Potential of DeepSeek R1",
+      "Getting Started with TogetherAI",
+      "Setting Up Your Environment",
+      "Interacting with the Model",
+      "The chat Command",
+      "Why Choose DeepSeek R1 with TogetherAI?",
+      "Conclusion"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "bf228b2ef873c06ddbf3bb098f8387efec5f0b42aa238a31b71b83ea01dd4e7b"
+  },
+  {
+    "path": "_posts/2025-03-12-Running-LMStudio-As-Local-Inference-Server.md",
+    "title": "Running LM-Studio headlessly on Ubuntu 24.04 with CUDA",
+    "description": "Headless LM Studio on Ubuntu 24 + CUDA + systemd.",
+    "categories": [
+      "engineering",
+      "science",
+      "ai"
+    ],
+    "post": true,
+    "headings": [
+      "Running LM-Studio Headlessly on Ubuntu 24.04 with CUDA and Systemd",
+      "🛠️ Prerequisites",
+      "📦 Download LM-Studio AppImage",
+      "🧾 Create systemd Unit Files",
+      "📁 Environment File",
+      "🚀 Start & Enable Services",
+      "🧠 Bootstrap the LMS CLI Tool",
+      "🧪 Start LM-Studio Server",
+      "🌐 Allow Remote Access (Optional)"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "eb639345052425e0d3661920bc2ca77c0e5b1b56a8c45ac3b4baf70e30862bc5"
+  },
+  {
+    "path": "_posts/2026-03-15-Free-Claude-Code.md",
+    "title": "Unleash Claude Code CLI with OpenRouter: Free AI Coding Power!",
+    "description": "Claude Code with OpenRouter and free models; env and auth notes.",
+    "categories": [
+      "engineering",
+      "science",
+      "ai"
+    ],
+    "post": true,
+    "headings": [
+      "Claude Code CLI with OpenRouter",
+      "Why OpenRouter + Claude Code?",
+      "Step 1: Get Your OpenRouter API Key",
+      "Step 2: Install Claude Code CLI",
+      "Step 3: Configuration of API keys",
+      "Step 4: Enjoy"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "6ef2b9053ef07c50b69983ebaf7bfaed3a0a97726f3b384815bf3848d8df6ba3"
+  },
+  {
+    "path": "_posts/2026-03-16-Claude-code-inside-docker-container-with-openrouter.md",
+    "title": "Running Claude Code via OpenRouter in Docker",
+    "description": "Claude Code in Docker + OpenRouter; Debian-slim, keys at runtime.",
+    "categories": [
+      "engineering",
+      "science",
+      "ai"
+    ],
+    "post": true,
+    "headings": [
+      "The Challenges",
+      "The Solution: A Better Dockerfile",
+      "Running the Sandbox",
+      "The Magic Command",
+      "Why This Works"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "4d8b24c5082ba93973a678b56aa76068c9cb7274a0e198cbcf141b80587c7857"
+  },
+  {
+    "path": "_posts/2026-04-11-voice-activated-second-brain.md",
+    "title": "From brain to disk: how I built a voice-activated second brain for $0",
+    "description": "Some ideas to build a voice activate second brain as an LLM-wiki in Andrej Karpathy style",
+    "categories": [
+      "engineering",
+      "science",
+      "ai"
+    ],
+    "post": true,
+    "headings": [
+      "The goal: Making it effortless",
+      "The “zero dollar” stack",
+      "Telegram as the doorway",
+      "Groq for the transcription",
+      "Gemini for the logic",
+      "How to actually set it up",
+      "Why this matters"
+    ],
+    "previous_categories": "tech, productivity",
+    "body_sha256": "8d6de398cb1e5d0cf1a6e2617c3bbb43caedb9c3bf65faddc764b822c2d58010"
+  },
+  {
+    "path": "_posts/2026-07-30-Agent-memory-survery.md",
+    "title": "Memory in the age of AI agents: forms, functions, and dynamics",
+    "description": "A readable tour of the Hu et al. survey on agent memory—formalization, the forms/functions/dynamics taxonomy, and the methods that matter most.",
+    "categories": [
+      "science",
+      "ai"
+    ],
+    "post": true,
+    "headings": [
+      "Why a new taxonomy",
+      "A compact formalization",
+      "Not RAG, not KV tricks, not context packing",
+      "Forms: what carries memory?",
+      "Token-level memory",
+      "Parametric memory",
+      "Latent memory",
+      "Functions: why the agent needs memory",
+      "Factual memory — what does the agent know?",
+      "Experiential memory — how does the agent improve?",
+      "Working memory — what is the agent thinking about now?",
+      "Dynamics: how memory moves",
+      "What to take away",
+      "References"
+    ],
+    "previous_categories": "tech",
+    "body_sha256": "a929d8db3cf26d7a00e9af5e78f0a5551d2ad12fde5025d656f48938cb43486a"
+  },
+  {
+    "path": "_posts/2026-03-02-Scaffolding-is-all-you-need.md",
+    "title": "Scaffolding is all you need",
+    "categories": [
+      "science",
+      "ai",
+      "math"
+    ],
+    "post": true,
+    "body_sha256": "efe8da15328fc3a80c37e207b6e1a733075817eb4c4bf863b42b835393de19e9",
+    "headings": [
+      "Toward a reliability theory of AI compound systems",
+      "What is a scaffold?",
+      "Story of a random tree",
+      "Reliability and three separate success bits",
+      "Local recursion",
+      "AND semantics vs OR semantics",
+      "Verifiers and the Youden index",
+      "Global picture: essential nodes",
+      "Delayed commitment is a control action",
+      "An optimal-control decomposition policy",
+      "References"
+    ],
+    "previous_categories": [
+      "science",
+      "deep-learning"
+    ]
+  }
+]

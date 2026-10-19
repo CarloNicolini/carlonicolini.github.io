@@ -1,0 +1,8 @@
+---
+layout: page
+title: Publications
+eyebrow: Research / Papers & collaborations
+description: Machine learning, statistical physics, information theory, and complex networks.
+permalink: /publications/
+---
+<div class="toolbar"><label for="publication-search">Find a publication</label><input type="search" id="publication-search" data-search placeholder="Search by title, author, or venue…"><a href="https://scholar.google.com/citations?user=jnpIfCwAAAAJ">Google Scholar ↗</a></div><div data-search-list>{% for paper in site.data.publications %}{% include publication.html paper=paper %}{% endfor %}</div><p class="empty-state" hidden>No publications match your search.</p>

@@ -1,52 +1,18 @@
-# Design System — Carlo Nicolini
+# Carlo Nicolini — design system
 
-## Product Context
+Personal academic homepage. Introduce Carlo by name and portrait; use concrete biographical prose rather than promotional slogans. Give computational neuroscience visible space alongside current AI research. Warm white and deep orange; stone black and bright orange in dark mode. Instrument Serif for display, Instrument Sans for body, JetBrains Mono for metadata and code, with system fallbacks. Spacious typography and fine rules. Base reading size is 19px on desktop and 18px on mobile; article text is 20px on desktop. Keep metadata secondary without shrinking explanatory prose. No decorative stock imagery.
 
-- **What this is:** Personal blog and professional portfolio.
-- **Who it's for:** Researchers, software engineers, and curious readers.
-- **Space/industry:** Academic, Data Science, Scientific Computing.
-- **Project type:** Editorial / Personal Blog.
+Navigation: Writing, Publications, Software, Curriculum, AI Academy. Long-form content uses a narrow reading column; archives use searchable rows. Respect reduced motion, keyboard focus, semantic headings, and responsive layouts.
 
-## Aesthetic Direction
+AI Academy presents a proposed programme of one-to-one lessons, with optional beginner preparation and AI/portfolio routes. Each lesson has a focus, an exercise, and an outcome. Avoid invented availability, prices, endorsements, or promises of financial performance.
 
-- **Direction:** Modern Academic.
-- **Decoration level:** Minimal.
-- **Mood:** Clean, high-legibility, professional yet approachable. Focus on content.
+Code blocks use locally bundled Prism toolbar plugins. Show the language on the left, with Copy and a keyboard-accessible line-number toggle on the upper right; use theme-aware syntax colors and horizontal scrolling inside the box.
 
-## Typography
+## Local style exploration
 
-- **Display/Hero:** `Instrument Serif` — Elegant, classical yet modern geometry. Great for scientific headings.
-- **Body:** `Instrument Sans` — Refined, high-legibility sans-serif for long-form reading.
-- **UI/Labels/Metadata:** `Instrument Sans`.
-- **Data/Tables:** `JetBrains Mono`.
-- **Code:** `JetBrains Mono`.
-- **Loading:** Google Fonts.
-- **Scale:** Modular scale (base 20px, ratio 1.25).
-
-## Color
-
-- **Approach:** Restrained & Accessible.
-- **Primary:** `#c2410c` (Deep Orange) — High contrast alternative to original brand color.
-- **Secondary:** `#ffedd5` (Very Light Orange) — For backgrounds and code highlight.
-- **Neutrals:** Stone palette: `#fafaf9` (bg), `#e7e5e4` (border), `#525252` (muted), `#171717` (text).
-- **Dark mode:** Surfaces: `#0c0a09` (bg), `#1c1917` (card), `#fb923c` (accent).
-
-## Spacing
-
-- **Base unit:** 8px.
-- **Density:** Comfortable.
-- **Scale:** 2xs(4px), xs(8px), sm(16px), md(24px), lg(32px), xl(48px), 2xl(64px).
-
-## Layout
-
-- **Approach:** Hybrid.
-- **Grid:** Single column centered for posts (max 68ch), grid for list pages.
-- **Max content width:** 1000px wrapper.
-- **Border radius:** 6px (sm), 12px (md).
-
-## Decisions Log
-
-| Date | Decision | Rationale |
-|------|----------|-----------|
-| 2026-03-26 | Initial design system created | Modern Academic focus using Instrument family for better legibility and higher contrast accessibility. |
-| 2026-03-26 | Simplified typography stack | Reduced visual noise by keeping metadata and UI labels in Instrument Sans alongside body text. |
+Compare four homepage directions at `/styles/`: Swiss Index, Field Journal,
+Observatory, and Cobalt Studio. Each renders `_includes/home.html`, shared with
+the original homepage, and applies isolated rules in `assets/css/style-lab.css`.
+The preview bar switches between studies and links to the original. Other site
+sections retain the existing design pending a choice. No style is persisted or
+applied to the default homepage. Preview pages are excluded from the sitemap.

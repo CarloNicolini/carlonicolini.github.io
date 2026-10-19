@@ -1,0 +1,13 @@
+<article class="publication" data-search-item>
+  <div class="pub-year">{{ include.paper.year | default: '—' }}</div>
+  <div class="publication-content{% if include.paper.image %} publication-content--illustrated{% endif %}">
+    {% if include.paper.image %}<a class="publication-image" href="{{ include.paper.url | default: include.paper.pdf }}"><img src="{{ include.paper.image | relative_url }}" alt="{{ include.paper.caption | default: include.paper.title | escape }}" loading="lazy" decoding="async"></a>{% endif %}
+    <div class="publication-details">
+      <h3><a href="{{ include.paper.url | default: include.paper.pdf }}">{{ include.paper.title }}</a></h3>
+      <p class="authors">{{ include.paper.authors }}</p>
+      {% if include.paper.journal contains 'https://' %}<p class="venue"><a href="{{ include.paper.journal }}">Transactions on Machine Learning Research</a></p>{% else %}<p class="venue">{{ include.paper.journal }}</p>{% endif %}
+      <div class="resource-links">{% if include.paper.pdf %}<a href="{{ include.paper.pdf }}">Paper ↗</a>{% endif %}{% if include.paper.code %}<a href="{{ include.paper.code }}">Code ↗</a>{% endif %}{% if include.paper.doi %}<a href="https://doi.org/{{ include.paper.doi }}">DOI ↗</a>{% endif %}</div>
+      {% if include.paper.abstract %}<details><summary>Abstract</summary><p>{{ include.paper.abstract }}</p></details>{% endif %}
+    </div>
+  </div>
+</article>

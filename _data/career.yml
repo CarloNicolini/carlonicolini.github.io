@@ -1,0 +1,39 @@
+experience:
+  - role: Senior AI Research Scientist
+    organization: Ipazia SpA
+    period: 2022 — Present
+    location: Milan, Italy · Remote
+    description: Research on language model interpretability, long-horizon planning, and compound AI systems. Work includes Hyperdimensional Probe, SokoBench, and auditable information extraction architectures.
+  - role: Co-author & core maintainer · Board member
+    organization: skfolio & skfolio Labs
+    period: 2022 — Present
+    location: Open source
+    description: Scientific software for portfolio optimization and risk modeling, online convex optimization, compiled solver acceleration, and research strategy.
+  - role: Senior Quantitative Data Scientist & Data Engineer
+    organization: Prometeia
+    period: 2020 — 2022
+    location: Milan, Italy
+    description: Quantitative modeling, distributed analytics, systemic financial risk, and graph-based anti-money laundering pipelines.
+  - role: Postdoctoral Research Fellow
+    organization: Istituto Italiano di Tecnologia
+    period: 2017 — 2020
+    location: Rovereto, Italy
+    description: Statistical mechanics and spectral entropy approaches to complex networks and brain functional connectivity. Open-source scientific software in Python and C++.
+  - role: Scientific Programmer & Research Assistant
+    organization: IIT & University of Trento
+    period: 2009 — 2017
+    location: Rovereto & Trento, Italy
+    description: Real-time stereoscopic tracking, computational psychophysics, machine learning optimization, and scientific computing.
+education:
+  - degree: Ph.D. in Applied Physics
+    institution: University of Verona
+    period: 2014 — 2017
+    description: Nanoscience and complex systems. Dissertation on the modular structure of brain functional connectivity networks, conducted at IIT.
+  - degree: M.Sc. in Physics and Biomedical Technologies
+    institution: University of Trento
+    period: 2006 — 2008
+    description: 110/110 cum laude. Monte Carlo simulations and stochastic optimization for inverse radiation treatment planning.
+  - degree: B.Sc. in Physics
+    institution: University of Trento
+    period: 2003 — 2006
+    description: Nonlinear dynamics and feedback systems in cardiovascular pressure regulation.

@@ -1,0 +1,24 @@
+- slug: swiss
+  name: Swiss Index
+  number: '01'
+  subtitle: Structure as a visual language.
+  description: Oversized sans-serif type, vermilion accents, crisp rules and numbered research fields. Direct, systematic, confident.
+  palette: 'Paper / Ink / Vermilion'
+- slug: journal
+  name: Field Journal
+  number: '02'
+  subtitle: A quieter place to think.
+  description: Warm paper, forest green, generous serif typography and a framed portrait. An intimate reading room for research and essays.
+  palette: 'Parchment / Forest / Ochre'
+- slug: observatory
+  name: Observatory
+  number: '03'
+  subtitle: A view into the machinery.
+  description: Midnight blue, luminous mint, a coordinate grid and monospace details. A technical notebook with the atmosphere of a research instrument.
+  palette: 'Midnight / Mist / Mint'
+- slug: cobalt
+  name: Cobalt Studio
+  number: '04'
+  subtitle: Research with a public face.
+  description: Electric blue, oversized lettering, a circular portrait and playful rounded panels. A more expressive home for a scientist who builds.
+  palette: 'Cobalt / Cream / Acid yellow'
