@@ -1,0 +1,98 @@
+[
+  {
+    "kind": "software",
+    "name": "xyz",
+    "image": "https://raw.githubusercontent.com/CarloNicolini/xyz/refs/heads/main/docs/logo.png",
+    "local": "/assets/media/img/software/xyz.png",
+    "bytes": 316875,
+    "sha256": "19f42b7b9af77bb839172d35007beed8293cc03c4540e7c6ad9aded4eded8316"
+  },
+  {
+    "kind": "software",
+    "name": "scikit-portfolio",
+    "image": "https://scikit-portfolio.github.io/scikit-portfolio/imgs/scikit_portfolio.png",
+    "local": "/assets/media/img/software/scikit-portfolio.png",
+    "bytes": 14705,
+    "sha256": "d4423c3009683fec2cbd5ab6bb9ebcf75dd303cb044a65fbc15e0c5da8679f1f"
+  },
+  {
+    "kind": "software",
+    "name": "skfolio-online",
+    "image": "https://skfolio.org/_static/expo.webp",
+    "local": "/assets/media/img/software/skfolio-online.webp",
+    "bytes": 125550,
+    "sha256": "3a18ddd626c29ceb805c78a6cd240db4be25f72200b8003065122290c1aee5ab"
+  },
+  {
+    "kind": "software",
+    "name": "autoresearch-skfolio",
+    "image": "https://github.com/CarloNicolini/autoresearch-skfolio/raw/main/autoresearch-skfolio-image.png",
+    "local": "/assets/media/img/software/autoresearch-skfolio.png",
+    "bytes": 1751691,
+    "sha256": "9df10324c60b5481d72133eda3ef998f328365016f1a3a1724474e71a948bfdb"
+  },
+  {
+    "kind": "software",
+    "name": "scikit-xml",
+    "image": "https://github.com/CarloNicolini/scikit-xml/raw/main/skxml-logo.png",
+    "local": "/assets/media/img/software/scikit-xml.png",
+    "bytes": 682166,
+    "sha256": "1836c0f68d2955f2b0b5dcc073648b147a8b7901ac6ed2e3ff9322597db8e03a"
+  },
+  {
+    "kind": "software",
+    "name": "scikit-omikuji",
+    "image": "https://github.com/CarloNicolini/scikit-omikuji/raw/master/docs/skomikuji.png",
+    "local": "/assets/media/img/software/scikit-omikuji.png",
+    "bytes": 451461,
+    "sha256": "98fdea67ebcc816de1c171ca859959e6682922c9d78d8ec3129b5660dbc35592"
+  },
+  {
+    "kind": "software",
+    "name": "loop-erased-thermodynamics",
+    "image": "https://github.com/CarloNicolini/loop-erased-thermodynamics/raw/main/docs/thermowilson.png",
+    "local": "/assets/media/img/software/loop-erased-thermodynamics.png",
+    "bytes": 287329,
+    "sha256": "3f88bbf34c3dce6daef2ce8b42287bfe8d2b8f72fc439ad789233a925ef58883"
+  },
+  {
+    "kind": "software",
+    "name": "hyperdimensional-probe",
+    "image": "https://github.com/Ipazia-AI/hyperprobe/raw/main/images/header.png",
+    "local": "/assets/media/img/software/hyperdimensional-probe.png",
+    "bytes": 278665,
+    "sha256": "69a0cfdf58bff98f77da054642d1d404f86e519c1a8707eb9e0eda32acda553f"
+  },
+  {
+    "kind": "software",
+    "name": "Networkqit",
+    "image": "https://raw.githubusercontent.com/CarloNicolini/networkqit/master/doc/images/animation_ising_batchsize_128_eta1E-3_refresh_10_maxiter_5000_beta_5E-1.gif",
+    "local": "/assets/media/img/software/networkqit.gif",
+    "bytes": 1071823,
+    "sha256": "21bbbf37d9a3df618e584c1a06d8731fc078363c29ef4a1cf15ffd2d98458bd7"
+  },
+  {
+    "kind": "software",
+    "name": "Hyperquick",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c1/HypergeometricPDF.png",
+    "local": "/assets/media/img/software/hyperquick.png",
+    "bytes": 7270,
+    "sha256": "0126254d7ca81bc95d745c327ca65c688ab9961381a4cc06eb3b35ce7451ea05"
+  },
+  {
+    "kind": "publications",
+    "name": "Spectral Entropy of Random Spanning Forests",
+    "image": "https://github.com/CarloNicolini/loop-erased-thermodynamics/raw/main/docs/thermowilson.png",
+    "local": "/assets/media/img/software/loop-erased-thermodynamics.png",
+    "bytes": 287329,
+    "sha256": "3f88bbf34c3dce6daef2ce8b42287bfe8d2b8f72fc439ad789233a925ef58883"
+  },
+  {
+    "kind": "publications",
+    "name": "Scale-resolved analysis of brain functional connectivity networks with spectral entropy",
+    "image": "https://ars.els-cdn.com/content/image/1-s2.0-S1053811920300902-gr2_lrg.jpg",
+    "local": "/assets/media/img/pub/scale-resolved-brain-connectivity.jpg",
+    "bytes": 703465,
+    "sha256": "3e07d84cd00533559ccba04ca326bd0b5ea0dc8fea4e7df9d2caae690dd70816"
+  }
+]

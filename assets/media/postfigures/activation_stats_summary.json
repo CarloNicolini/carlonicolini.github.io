@@ -1,0 +1,20 @@
+[
+  {
+    "model": "Llama-1B",
+    "L": 16,
+    "max_var_ratio": 11102.05354961697,
+    "max_outlier_ratio": 1230.0916748046875,
+    "massive_frac_last": 0.0,
+    "mean_anisotropy": 0.31070568806984844,
+    "prior_var_final": 86.9045888
+  },
+  {
+    "model": "Qwen2.5-1.5B",
+    "L": 28,
+    "max_var_ratio": 43881.986927250924,
+    "max_outlier_ratio": 755.54345703125,
+    "massive_frac_last": 0.0,
+    "mean_anisotropy": 0.45001141996733074,
+    "prior_var_final": 180.83766528000004
+  }
+]

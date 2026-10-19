@@ -1,0 +1,138 @@
+/* Prism tokens use the site's palette in both color themes. */
+:root {
+  --code-string:#397449;
+  --code-number:#7950a1;
+  --code-function:#245e93;
+}
+:root[data-theme=dark] {
+  --code-string:#a3ce98;
+  --code-number:#d6a6ee;
+  --code-function:#8ebddd;
+}
+.code-toolbar {
+  position:relative;
+  margin:25px 0;
+  min-width:0;
+  max-width:100%;
+}
+main .code-toolbar > pre {
+  margin:0;
+  padding:62px 22px 22px;
+  border:1px solid var(--line);
+  border-radius:4px;
+  background:var(--surface);
+  color:var(--text);
+  overflow:auto;
+  font:14px/1.8 'JetBrains Mono',monospace;
+  tab-size:4;
+  white-space:pre;
+}
+main .code-toolbar > pre > code {
+  position:relative;
+  display:block;
+  padding:0;
+  background:none;
+  color:inherit;
+  font:inherit;
+  text-shadow:none;
+  white-space:inherit;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+main .code-toolbar > pre.line-numbers { padding-left:4.3em; }
+.code-toolbar > .toolbar {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  display:flex;
+  flex-wrap:nowrap;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  margin:0;
+  padding:9px 12px;
+  border:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  border-radius:4px 4px 0 0;
+  background:var(--surface);
+  min-height:45px;
+  font:12px 'Instrument Sans',sans-serif;
+}
+.code-toolbar .toolbar-item:first-child { margin-right:auto; color:var(--muted); }
+.code-toolbar .toolbar-item > button {
+  background:var(--bg);
+  color:var(--text);
+  border:1px solid var(--line);
+  border-radius:3px;
+  padding:5px 10px;
+  min-height:28px;
+  font:12px 'Instrument Sans',sans-serif;
+}
+.code-toolbar .toolbar-item > button:hover,
+.code-toolbar .toolbar-item > button[aria-pressed=true],
+.code-toolbar .copy-to-clipboard-button[data-copy-state=copy-success] {
+  color:var(--accent);
+  border-color:var(--accent);
+}
+.code-toolbar .line-numbers-rows { border-right:1px solid var(--line); }
+.code-toolbar .line-numbers-rows > span:before { color:var(--muted); }
+.code-toolbar .token.comment,
+.code-toolbar .token.prolog,
+.code-toolbar .token.doctype,
+.code-toolbar .token.cdata { color:var(--muted); font-style:italic; }
+.code-toolbar .token.punctuation { color:var(--muted); }
+.code-toolbar .token.keyword,
+.code-toolbar .token.tag,
+.code-toolbar .token.operator,
+.code-toolbar .token.atrule { color:var(--accent); }
+.code-toolbar .token.string,
+.code-toolbar .token.char,
+.code-toolbar .token.attr-value,
+.code-toolbar .token.builtin { color:var(--code-string); }
+.code-toolbar .token.number,
+.code-toolbar .token.boolean,
+.code-toolbar .token.constant,
+.code-toolbar .token.symbol { color:var(--code-number); }
+.code-toolbar .token.function,
+.code-toolbar .token.class-name,
+.code-toolbar .token.attr-name { color:var(--code-function); }
+.code-toolbar .token.bold { font-weight:700; }
+.code-toolbar .token.italic { font-style:italic; }
+/* A focused horizontal scrollbar stays inside the code box on small screens. */
+@media(max-width:640px) {
+  main .code-toolbar > pre { font-size:13px; padding:60px 15px 18px; }
+  main .code-toolbar > pre.line-numbers { padding-left:4.3em; }
+  .code-toolbar > .toolbar { padding:8px; gap:6px; }
+}
+@media print {
+  .code-toolbar > .toolbar { display:none; }
+  main .code-toolbar > pre { padding-top:15px; white-space:pre-wrap; }
+}
+
+/* Icon-only controls retain their accessible names and native tooltips. */
+.code-toolbar .toolbar-item > button {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:34px;
+  height:32px;
+  padding:6px;
+}
+.code-toolbar .copy-to-clipboard-button > span {
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip-path:inset(50%);
+  white-space:nowrap;
+}
+.code-toolbar .code-icon { flex:none; }
+.code-toolbar .code-icon-check,
+.code-toolbar .code-icon-error { display:none; }
+.code-toolbar [data-copy-state=copy-success] .code-icon-copy,
+.code-toolbar [data-copy-state=copy-error] .code-icon-copy { display:none; }
+.code-toolbar [data-copy-state=copy-success] .code-icon-check,
+.code-toolbar [data-copy-state=copy-error] .code-icon-error { display:block; }

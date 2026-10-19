@@ -1,0 +1,42 @@
+science:
+  label: Science
+  description: Research notes and scientific methods, grouped by their substantive subject.
+  children:
+    - ai
+    - physics
+    - math
+    - finance
+    - neuroscience
+ai:
+  label: AI
+  parent: science
+  aliases: artificial intelligence machine learning ML deep learning LLM
+  description: Learning, inference, language models, reasoning, interpretability, and AI systems.
+physics:
+  label: Physics
+  parent: science
+  aliases: statistical mechanics thermodynamics quantum entropy spin glasses
+  description: Statistical mechanics, thermodynamics, spectral entropy, and physical models of complex systems.
+math:
+  label: Math
+  parent: science
+  aliases: mathematics probability statistics algebra geometry optimization
+  description: Probability, statistics, linear algebra, graph theory, and mathematical derivations.
+finance:
+  label: Finance
+  parent: science
+  aliases: portfolio optimization econometrics quantitative finance investment risk
+  description: Portfolio methods, econometrics, financial models, and quantitative risk analysis.
+neuroscience:
+  label: Neuroscience
+  parent: science
+  aliases: computational neuroscience brain functional connectivity cognition neuroimaging
+  description: Brain networks, neuroimaging, and substantial uses of neuroscience or brain-inspired analysis.
+philosophy:
+  label: Philosophy
+  aliases: philosophy of mind consciousness epistemology self agency identity pedagogy
+  description: Cognition, consciousness, identity, agency, and conceptual questions about human and artificial intelligence.
+engineering:
+  label: Engineering
+  aliases: tech software programming scientific computing systems infrastructure
+  description: Programming, scientific software, data pipelines, tooling, and practical system administration.

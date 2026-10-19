@@ -1,0 +1,15 @@
+---
+layout: page
+title: Scientific software
+eyebrow: Software / Open source
+description: Scientific software for portfolio optimization, information theory, networks, and machine learning.
+permalink: /software/
+---
+<article class="featured-software"><div><p class="eyebrow">Core maintainer & co-author</p><h2>skfolio</h2><p>I am a co-author and core maintainer of skfolio. It provides portfolio optimization and risk modeling in Python, with an API compatible with scikit-learn.</p><div class="resource-links"><a href="https://skfolio.org">Documentation ↗</a><a href="https://github.com/skfolio/skfolio">GitHub ↗</a></div></div><div class="code-illustration"><span># research → reproducible tools</span><pre><code class="language-python">from skfolio.optimization import MeanRisk
+from skfolio import RiskMeasure
+
+model = MeanRisk(
+    risk_measure=RiskMeasure.CVAR
+)
+model.fit(returns)</code></pre></div></article>
+<div class="toolbar"><label for="software-search">Find a project</label><input id="software-search" type="search" data-search placeholder="Search projects…"></div><div class="software-grid" data-search-list>{% for project in site.data.software %}{% if project.name %}<article class="software-card" data-search-item><span class="index">OPEN SOURCE / {{ forloop.index | prepend: '00' | slice: -2, 2 }}</span>{% if project.image %}<div class="software-image"><img src="{{ project.image | relative_url }}" alt="{{ project.name | escape }} project illustration" loading="lazy" decoding="async"></div>{% endif %}<h2>{{ project.name }}</h2><p>{{ project.description | strip_html }}</p>{% if project.fulldescription %}<details><summary>About the project</summary><div>{{ project.fulldescription | markdownify }}</div></details>{% endif %}<div class="resource-links">{% if project.github %}<a href="{{ project.github }}">GitHub ↗</a>{% endif %}{% assign has_docs = project.documentation | available_resource %}{% if has_docs %}<a href="{{ project.documentation | relative_url }}">Docs ↗</a>{% endif %}{% if project.pdf %}<a href="{{ project.pdf }}">Paper ↗</a>{% endif %}</div></article>{% endif %}{% endfor %}</div><p class="empty-state" hidden>No projects match your search.</p>

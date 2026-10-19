@@ -1,0 +1,40 @@
+---
+layout: page
+title: AI Academy
+eyebrow: Individual lessons / Proposed programme
+description: A personal learning plan for getting started with AI or portfolio optimization, one lesson at a time.
+permalink: /academy/
+---
+<div class="academy-intro">
+  <div><p>I’m developing a programme of individual lessons for newcomers who would like to understand the ideas behind AI and quantitative portfolio methods, and learn to work with them in Python.</p><p>The plans below are a starting point. We would agree on a goal, work out what you already know, and adjust the order and pace. You can follow a complete route or focus on a particular lesson.</p></div>
+  <aside class="lesson-format" aria-label="Proposed lesson format"><h2>How I propose to teach</h2><dl><div><dt>Format</dt><dd>One-to-one, online</dd></div><div><dt>A lesson</dt><dd>60–90 minutes, adjusted to the topic</dd></div><div><dt>Between lessons</dt><dd>A small exercise to discuss next time</dd></div></dl><p>Each meeting combines an explanation, a worked example, and time for your questions.</p></aside>
+</div>
+
+<section class="academy-planner" aria-labelledby="planner-title">
+  <div><p class="eyebrow">Where to begin</p><h2 id="planner-title">Find a starting plan</h2><p>Choose the subject you want to study and your current experience with Python.</p></div>
+  <div class="planner-controls">
+    <label for="academy-goal">I’d like to learn<select id="academy-goal" data-academy-goal>{% for track in site.data.academy.tracks %}<option value="{{ track.id }}">{{ track.title }}</option>{% endfor %}</select></label>
+    <label for="academy-background">My Python experience<select id="academy-background" data-academy-background><option value="new">I’m new to programming</option><option value="some">I’ve used Python a little</option><option value="confident">I’m comfortable with Python</option></select></label>
+    <div class="suggested-plan" data-academy-plan aria-live="polite"></div>
+  </div>
+</section>
+
+<nav class="academy-contents" aria-label="Lesson plans"><a href="#preparation">Optional preparation ↓</a>{% for track in site.data.academy.tracks %}<a href="#{{ track.id }}">{{ track.title }} ↓</a>{% endfor %}</nav>
+
+<section class="academy-track preparation-track" id="preparation">
+  <header class="track-heading"><p class="eyebrow">If you are starting from scratch</p><h2>Optional preparation</h2><p>Take one or both of these lessons before either route. We can also revisit these ideas as needed along the way.</p></header>
+  <div class="lesson-list">{% for lesson in site.data.academy.preparation %}<details class="lesson" id="{{ lesson.id }}"><summary><span class="lesson-number">{{ lesson.number }}</span><span><strong>{{ lesson.title }}</strong><span class="lesson-teaser">{{ lesson.outcome }}</span></span><span class="lesson-expand" aria-hidden="true">+</span></summary><div class="lesson-body"><dl><dt>In the lesson</dt><dd>{{ lesson.focus }}</dd><dt>Practice</dt><dd>{{ lesson.practice }}</dd><dt>What you take away</dt><dd>{{ lesson.outcome }}</dd></dl></div></details>{% endfor %}</div>
+</section>
+
+{% for track in site.data.academy.tracks %}
+<section class="academy-track" id="{{ track.id }}" data-academy-track data-track-title="{{ track.title }}" data-track-lessons="{{ track.lessons | size }}">
+  <header class="track-heading"><p class="eyebrow">{{ track.lessons | size }} individual lessons / Suggested sequence</p><h2>{{ track.title }}</h2><p>{{ track.subtitle }}</p></header>
+  <div class="track-overview"><p><strong>Starting point</strong> {{ track.entry }}</p><p><strong>Project to work towards</strong> {{ track.project }}</p></div>
+  <div class="lesson-list">{% for lesson in track.lessons %}<details class="lesson" id="{{ track.id }}-lesson-{{ forloop.index }}"><summary><span class="lesson-number">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span><span><strong>{{ lesson.title }}</strong><span class="lesson-teaser">{{ lesson.outcome }}</span></span><span class="lesson-expand" aria-hidden="true">+</span></summary><div class="lesson-body"><dl><dt>In the lesson</dt><dd>{{ lesson.focus }}</dd><dt>Practice</dt><dd>{{ lesson.practice }}</dd><dt>What you take away</dt><dd>{{ lesson.outcome }}</dd></dl></div></details>{% endfor %}</div>
+</section>
+{% endfor %}
+
+<section class="academy-reading"><h2>Reading alongside the lessons</h2><p>The exercises would use public datasets and openly documented tools. These are useful references to return to as we introduce the concepts.</p><div class="resource-links"><a href="https://www.python.org/about/gettingstarted/">Python for beginners ↗</a><a href="https://scikit-learn.org/stable/getting_started.html">scikit-learn guide ↗</a><a href="https://skfolio.org/">skfolio documentation ↗</a><a href="{{ '/writing/' | relative_url }}">My research notes ↗</a></div></section>
+
+<section class="academy-contact" id="lesson-enquiry"><h2>Discuss a learning plan</h2><p>Tell me what you would like to learn, any programming or mathematical background, and how much time you can set aside for practice in a message on LinkedIn. We can use that to discuss a suitable starting point and lesson format.</p><a class="text-link" href="{{ site.linkedin_url }}">Discuss individual lessons on LinkedIn ↗</a><p class="academy-status">This programme is a proposal. Timing and practical arrangements would be agreed individually.</p></section>
+<noscript><p>Use the lesson outlines above to choose your route, then contact me on LinkedIn to discuss a plan.</p></noscript>

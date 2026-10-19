@@ -1,0 +1,48 @@
+\documentclass[12pt]{article}
+\usepackage[margin=0.6cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[ruled,vlined,linesnumbered,noline]{algorithm2e}
+\SetAlgoLined
+\SetKwInOut{Input}{Input}
+\SetKwInOut{Output}{Output}
+\SetKwFunction{AskJev}{AskJev}
+\SetKwFunction{Children}{Children}
+\SetKwFunction{IsGroup}{IsGroup}
+\SetKwFunction{Softmax}{Softmax}
+\DontPrintSemicolon
+\pagestyle{empty}
+\begin{document}
+\begin{algorithm}[H]
+\caption{Best-first branch-and-bound over a taxonomy with a Choice oracle}
+\Input{document $x$, tree $T=(V,E)$, width $W$, budget $B$, depth floor $d_{\min}$, integer $k$}
+\Output{top-$k$ leaves under path-product score (optionally softmax-renormalised)}
+$Q \leftarrow$ max-priority queue\;
+$\textsc{Push}(Q,\langle \mathrm{root},\, 0,\, 0\rangle)$\;
+$L \leftarrow$ min-heap of size at most $k$\;
+\While{$Q \neq \emptyset$ \textbf{and} requests $< B$}{
+  $c \leftarrow$ $k$-th best $\log$-score in $L$, or $-\infty$ if $|L|<k$\;
+  $S \leftarrow \emptyset$\;
+  \While{$|S|<W$ \textbf{and} $Q\neq\emptyset$ \textbf{and} $\mathrm{bound}(\textsc{Peek}(Q)) > c$}{
+    $S \leftarrow S \cup \{\textsc{Pop}(Q)\}$\;
+  }
+  \If{$S=\emptyset$}{
+    \textbf{break}\;
+  }
+  \ForEach{$\langle u,\, \ell,\, d\rangle \in S$}{
+    $P \leftarrow \AskJev(x,\, \Children(u))$\;
+    \ForEach{child $v$ with probability $p_v \in P$}{
+      $\ell' \leftarrow \ell + \log p_v$\;
+      $d' \leftarrow d+1$\;
+      \eIf{\IsGroup$(v)$}{
+        $\textsc{Push}(Q,\langle v,\, \ell',\, d'\rangle)$\;
+      }{
+        \If{$d' \ge d_{\min}$}{
+          insert $(v,\ell')$ into $L$, keeping only the $k$ best\;
+        }
+      }
+    }
+  }
+}
+\Return $\Softmax(\{e^{\ell}: (v,\ell)\in L\})$\;
+\end{algorithm}
+\end{document}

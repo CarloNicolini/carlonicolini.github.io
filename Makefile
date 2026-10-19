@@ -1,33 +1,26 @@
-# Jekyll site Makefile
-# Run 'make install' once to install Jekyll and plugins, then 'make serve' or 'make build'
+BUNDLE ?= bundle
+JEKYLL := $(BUNDLE) exec jekyll
+HOST ?= 127.0.0.1
+PORT ?= 4003
+LIVERELOAD_PORT ?= 35743
+CONFIG := _config.yml,_config.local.yml
 
-CONFIG := _config.local.yml
-JEKYLL := bundle exec jekyll
-# Avoid collisions when another Jekyll (or tool) already uses the default LiveReload port (35729).
-LIVERELOAD_PORT := 35742
-DASHBOARD_PORT := 8765
-
-.PHONY: install serve build clean lint
-
-# Knowledge-base lint (sections/); agent-friendly diagnostics
-lint:
-	uv run --with rich scripts/lint_kb.py
-
-# Fix math delimiters for kramdown ($, \(...\), \[...\]); writes post.md.backup
-lint-fix-math:
-	uv run --with rich scripts/lint_kb.py --fix-math
-
+.PHONY: help install build serve preview clean check drafts
+help:
+	@echo "make install  Install Ruby dependencies"
+	@echo "make serve    Live preview at http://$(HOST):$(PORT)"
+	@echo "make drafts   Preview unpublished and future articles"
+	@echo "make build    Build published content into _site"
+	@echo "make check    Build and check internal links/assets"
 install:
-	bundle install
-
-serve:
-	$(JEKYLL) serve --unpublished -w --host 0.0.0.0 --port 4002 --livereload --livereload-port $(LIVERELOAD_PORT) --config $(CONFIG) --incremental
-
+	$(BUNDLE) install
 build:
-	$(JEKYLL) build --unpublished --config $(CONFIG) --incremental
-
-dashboard:
-	cd jekyll-dashboard && JEKYLL_SITE=${PWD} uv run uvicorn app:app --host 127.0.0.1 --port $(DASHBOARD_PORT) --reload
-
+	$(JEKYLL) build --config $(CONFIG)
+serve preview:
+	$(JEKYLL) serve --config $(CONFIG) --host $(HOST) --port $(PORT) --unpublished --future --livereload --livereload-port $(LIVERELOAD_PORT)
+drafts:
+	$(JEKYLL) serve --config $(CONFIG) --host $(HOST) --port $(PORT) --unpublished --future --drafts --livereload --livereload-port $(LIVERELOAD_PORT)
+check: build
+	python3 scripts/check_site.py
 clean:
-	rm -rf _site
+	$(JEKYLL) clean

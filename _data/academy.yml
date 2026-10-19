@@ -1,0 +1,90 @@
+preparation:
+  - id: preparation-python
+    number: P1
+    title: Getting comfortable with Python
+    focus: Variables, functions, a notebook, and reading error messages. No previous programming experience assumed.
+    practice: Run a small notebook, change its inputs, and write a function that computes an average.
+    outcome: A notebook you can run and explain without copying each step.
+  - id: preparation-data
+    number: P2
+    title: Working with data and uncertainty
+    focus: Tables, plots, averages, variation, and the difference between a sample and a population. Introduce mathematical notation through examples.
+    practice: Load a small dataset, plot its values, and compare two groups without hiding their spread.
+    outcome: A short exploratory notebook and an explanation of what the data can and cannot tell you.
+tracks:
+  - id: ai
+    title: AI foundations
+    subtitle: For people who want to understand AI and start building small experiments.
+    entry: Basic Python is useful from lesson 2 onward; take the preparation lessons first if it is new to you.
+    project: A reproducible machine learning notebook, plus a small document-question-answering experiment with an explicit evaluation set.
+    lessons:
+      - title: What does an AI model learn?
+        focus: Distinguish rules, learning from examples, and generation. Introduce features, targets, training, and prediction with familiar examples.
+        practice: Frame a small prediction task and compare it with a simple rule-based baseline.
+        outcome: A problem statement that identifies the data, the target, and how success will be checked.
+      - title: Your first machine learning model
+        focus: Load a dataset, separate training and test data, fit a model, and read its predictions using scikit-learn.
+        practice: Build a regression or classification notebook and compare its test results with the baseline.
+        outcome: A first model with a held-out test result and a plot of its errors.
+      - title: How to tell whether a model works
+        focus: Overfitting, data leakage, suitable metrics, cross-validation, and the role of preprocessing pipelines.
+        practice: Compare two models on identical splits and inspect several failed predictions.
+        outcome: An evaluation table and a short explanation of the model’s limitations.
+      - title: Neural networks, one step at a time
+        focus: Neurons, weights, activations, loss, and gradient descent. Work through the intuition before adding notation.
+        practice: Train a small network and inspect what changes when its capacity or learning rate changes.
+        outcome: Learning curves you can interpret, including a case of overfitting.
+      - title: How language models generate text
+        focus: Tokens, embeddings, attention, and next-token prediction. Discuss why fluent output can still be incorrect.
+        practice: Compare outputs on a fixed set of prompts and record factual errors and variations.
+        outcome: A small prompt-evaluation notebook with documented failure cases.
+      - title: Giving a model useful context
+        focus: Instructions, structured outputs, document retrieval, and the separation between retrieved evidence and generated answers.
+        practice: Prototype question answering over a small public document collection and check the supporting passages.
+        outcome: A document-based prototype with traceable sources for its answers.
+      - title: Evaluating an AI application
+        focus: Test cases, missing answers, unsupported claims, latency, and the cost of a model call. Decide what needs human review.
+        practice: Write a fixed evaluation set, then compare the prototype before and after one change.
+        outcome: A repeatable evaluation report that explains both improvements and regressions.
+      - title: Review a small project together
+        focus: Revisit the assumptions, explain the implementation, and make the experiment reproducible.
+        practice: Present your notebook and document prototype; rerun them from a clean starting point.
+        outcome: A compact project with a README, results, and a clear account of what remains unresolved.
+  - id: portfolio
+    title: Portfolio optimization
+    subtitle: For people new to quantitative portfolio methods, with examples in Python and skfolio.
+    entry: No finance background is required. Basic Python and the preparation lesson on data are useful before lesson 2.
+    project: A portfolio research notebook comparing simple allocations with optimized portfolios on later, unseen observations.
+    lessons:
+      - title: From investments to a portfolio model
+        focus: Prices, returns, weights, compounding, and why a portfolio is more than a list of assets.
+        practice: Calculate returns and the value of an equal-weight portfolio on a small example.
+        outcome: A notebook with explicit assumptions about weights and rebalancing.
+      - title: Measuring risk and diversification
+        focus: Volatility, correlation, covariance, and drawdown. Introduce the limits of describing risk with one number.
+        practice: Compare two allocations and plot how their returns and drawdowns differ.
+        outcome: A risk summary that explains what each measure captures.
+      - title: What optimization actually solves
+        focus: Objectives, constraints, the efficient frontier, and the sensitivity of solutions to estimated inputs.
+        practice: Solve a small allocation problem and observe how weights change when the estimates change.
+        outcome: A clear formulation of an optimization problem and a sensitivity plot.
+      - title: Building portfolios with skfolio
+        focus: Estimators, fit and predict, weight constraints, and the comparison with an equal-weight baseline.
+        practice: Fit a minimum-risk model on training data and evaluate its portfolio on later observations.
+        outcome: A baseline comparison with a chronological train/test split.
+      - title: Estimation and alternative allocations
+        focus: Covariance estimation, shrinkage, concentration, risk budgeting, and hierarchical methods.
+        practice: Compare a small set of methods using the same data and constraints.
+        outcome: An allocation comparison with an explanation of why the methods differ.
+      - title: Backtesting without looking ahead
+        focus: Walk-forward evaluation, rebalancing, transaction costs, turnover, and how information can leak from the future.
+        practice: Build a chronological backtest with documented trading assumptions and an unchanged baseline.
+        outcome: An out-of-sample report including costs and turnover.
+      - title: Checking sensitivity and uncertainty
+        focus: Different market periods, parameter sensitivity, estimation noise, and the limits of selecting a strategy from one backtest.
+        practice: Change the estimation window and costs, then check whether the conclusion survives.
+        outcome: A sensitivity report that identifies unstable conclusions.
+      - title: Review a portfolio research notebook
+        focus: Reproducibility, comparison design, interpretation, and communicating the assumptions behind a result.
+        practice: Present a comparison of simple and optimized allocations and rerun it from the original data.
+        outcome: A documented research notebook with an honest account of its limitations.

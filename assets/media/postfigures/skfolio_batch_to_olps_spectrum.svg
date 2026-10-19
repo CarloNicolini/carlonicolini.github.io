@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 380" width="100%" height="100%">
+  <defs>
+    <marker id="arr-gray" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#3b3b3d" />
+    </marker>
+    <marker id="arr-orange" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#c2410c" />
+    </marker>
+  </defs>
+  <rect width="100%" height="100%" fill="#fafaf9" />
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; fill: #3b3b3d; }
+    .kicker { font-size: 11px; font-weight: 500; letter-spacing: 1.4px; fill: #c2410c; }
+    .title { font-size: 13px; font-weight: 600; }
+    .body { font-size: 11px; font-weight: 400; fill: #52525b; }
+    .rule { font-size: 11px; font-weight: 500; }
+    .eval { font-size: 10px; fill: #737373; }
+  </style>
+
+  <text x="560" y="28" text-anchor="middle" class="kicker">FOUR REGIMES ON THE SAME SIMPLEX</text>
+  <text x="560" y="50" text-anchor="middle" class="body">long-only, fully invested  ∑  sequential dates  ∑  different decision rules</text>
+
+  <!-- box 1 -->
+  <rect x="24" y="78" width="240" height="232" rx="6" fill="#ffffff" stroke="#3b3b3d" stroke-width="1.5" />
+  <text x="144" y="104" text-anchor="middle" class="title">Batch MeanRisk</text>
+  <text x="144" y="124" text-anchor="middle" class="body">WalkForward clone per fold</text>
+  <line x1="48" y1="138" x2="240" y2="138" stroke="#e7e5e4" />
+  <text x="144" y="164" text-anchor="middle" class="rule">w* = argmin f(w; ∏(X_train))</text>
+  <text x="144" y="192" text-anchor="middle" class="body">new CVXPY graph each fit</text>
+  <text x="144" y="210" text-anchor="middle" class="body">moments rebuilt from the window</text>
+  <text x="144" y="228" text-anchor="middle" class="body">no solver state across folds</text>
+  <text x="144" y="268" text-anchor="middle" class="eval">eval: cross_val_predict</text>
+  <text x="144" y="286" text-anchor="middle" class="eval">skfolio 1.0 MeanRisk</text>
+
+  <line x1="264" y1="194" x2="292" y2="194" stroke="#3b3b3d" stroke-width="1.5" marker-end="url(#arr-gray)" />
+
+  <!-- box 2 -->
+  <rect x="300" y="78" width="240" height="232" rx="6" fill="#ffffff" stroke="#3b3b3d" stroke-width="1.5" />
+  <text x="420" y="104" text-anchor="middle" class="title">Compiled trajectory</text>
+  <text x="420" y="124" text-anchor="middle" class="body">skfolio-accelerate</text>
+  <line x1="324" y1="138" x2="516" y2="138" stroke="#e7e5e4" />
+  <text x="420" y="164" text-anchor="middle" class="rule">same w*, cheaper ∏ and P</text>
+  <text x="420" y="192" text-anchor="middle" class="body">Gram slides of (n, s, G)</text>
+  <text x="420" y="210" text-anchor="middle" class="body">frozen OSQP / Clarabel shape</text>
+  <text x="420" y="228" text-anchor="middle" class="body">warm-start x, y  (local to call)</text>
+  <text x="420" y="268" text-anchor="middle" class="eval">eval: same MultiPeriodPortfolio</text>
+  <text x="420" y="286" text-anchor="middle" class="eval">6077◊ on variance WalkForward</text>
+
+  <line x1="540" y1="194" x2="568" y2="194" stroke="#3b3b3d" stroke-width="1.5" marker-end="url(#arr-gray)" />
+
+  <!-- box 3 -->
+  <rect x="576" y="78" width="240" height="232" rx="6" fill="#ffffff" stroke="#3b3b3d" stroke-width="1.5" />
+  <text x="696" y="104" text-anchor="middle" class="title">Streaming MeanRisk</text>
+  <text x="696" y="124" text-anchor="middle" class="body">1.0 partial_fit</text>
+  <line x1="600" y1="138" x2="792" y2="138" stroke="#e7e5e4" />
+  <text x="696" y="164" text-anchor="middle" class="rule">∏_t ê U(∏_{t-1}, r_t)</text>
+  <text x="696" y="192" text-anchor="middle" class="body">EW moments carry state</text>
+  <text x="696" y="210" text-anchor="middle" class="body">full convex program still solved</text>
+  <text x="696" y="228" text-anchor="middle" class="body">new cp.Problem every step</text>
+  <text x="696" y="268" text-anchor="middle" class="eval">eval: online_predict</text>
+  <text x="696" y="286" text-anchor="middle" class="eval">streaming batch MVO</text>
+
+  <line x1="816" y1="194" x2="844" y2="194" stroke="#c2410c" stroke-width="1.5" marker-end="url(#arr-orange)" />
+
+  <!-- box 4 -->
+  <rect x="852" y="78" width="240" height="232" rx="6" fill="#fff7ed" stroke="#c2410c" stroke-width="1.5" />
+  <text x="972" y="104" text-anchor="middle" class="title">OLPS / FirstOrderOCO</text>
+  <text x="972" y="124" text-anchor="middle" class="body">universal_portfolio branch</text>
+  <line x1="876" y1="138" x2="1068" y2="138" stroke="#fed7aa" />
+  <text x="972" y="164" text-anchor="middle" class="rule">w_{t+1} = A(w_t, _t)</text>
+  <text x="972" y="192" text-anchor="middle" class="body">no empirical program P_t</text>
+  <text x="972" y="210" text-anchor="middle" class="body">one proximal / FTRL step</text>
+  <text x="972" y="228" text-anchor="middle" class="body">regret vs BCRP, not Sharpe CV</text>
+  <text x="972" y="268" text-anchor="middle" class="eval">eval: fit_predict / regret</text>
+  <text x="972" y="286" text-anchor="middle" class="eval">the first skfolio 1.0 PR</text>
+
+  <text x="560" y="348" text-anchor="middle" class="body">economic state (holdings, costs) stays outside the solver  ∑  numerical state (x, y, factorizations) is optional reuse</text>
+</svg>

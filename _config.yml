@@ -1,72 +1,60 @@
-# Site settings
-title: 'Carlo Nicolini'
+title: Carlo Nicolini
+tagline: Physics, machine learning & AI engineering
+description: Research on learning, reasoning and complex systems. Scientific software and writing by Carlo Nicolini.
+url: https://carlonicolini.github.io
+baseurl: ""
+linkedin_url: https://www.linkedin.com/in/carlo-nicolini/
 author:
   name: Carlo Nicolini
-email: "c.nicolini@ipazia.com"
-description: "Personal blog about artificial intelligence, coding, statistical physics, network theory and science in general"
-logo: "/static/img/foto_nicolini.jpeg"
-baseurl: ""
-url: "https://carlonicolini.github.io"
-github_username:  carlonicolini
-collections:
-- well-known
-
-exclude:
-  - scripts
-  - CLAUDE.md
-  - DESIGN.md
-
-# Build settings
+  url: https://carlonicolini.github.io
+logo: /assets/media/img/foto_nicolini.jpeg
 markdown: kramdown
+highlighter: rouge
 kramdown:
-  auto_ids: true
-  toc_levels: 1..6
+  input: GFM
+  math_engine: mathjax
+  syntax_highlighter: rouge
   parse_block_html: true
-keep_files: [MathJax]
-enable_disqus: true 
+permalink: /writing/:year/:month/:day/:title:output_ext
 plugins:
   - jekyll-seo-tag
-  - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-gist
   - jekyll-feed
+  - jekyll-gist
   - jemoji
   - jekyll-include-cache
   - jekyll-relative-links
   - jekyll-scholar
   - jekyll/footnotes
-
-# Open Graph / Twitter: default card when a post has an image (see defaults below).
-twitter:
-  card: summary_large_image
-
-# Per-post `description` in front matter is best for SERP snippets; jekyll-seo-tag falls
-# back to `excerpt`, then site.description, when `description` is omitted.
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      image: /static/img/foto_nicolini.jpeg
-  - scope:
-      path: "sections/science/_posts"
-    values:
-      permalink: "/sections/science/:year/:month/:day/:title:output_ext"
-
 scholar:
   style: apa
   locale: en
-  sort_by: none
-  order: ascending
-  group_by: none
-  bibliography_list_tag: ul
-  bibliography_item_tag: li
   bibliography: biblio.bib
-  bibliography_dir: '_bibliography'
-  analytics_id: ~
-  
+  bibliography_dir: _bibliography
+  bibliography_list_tag: ol
+  bibliography_item_tag: li
+  sort_by: none
+  group_by: none
+sass:
+  style: compressed
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - Makefile
+  - README.md
+  - DESIGN.md
+  - LICENSE
+  - scripts
+  - vendor
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      image: /assets/media/img/foto_nicolini.jpeg
 social:
   name: Carlo Nicolini
   links:
-    - https://www.linkedin.com/in/carlo-nicolini
     - https://github.com/carlonicolini
+    - https://www.linkedin.com/in/carlo-nicolini
