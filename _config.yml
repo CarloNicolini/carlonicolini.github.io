@@ -46,15 +46,6 @@ exclude:
   - LICENSE
   - scripts
   - vendor
-  - sections/GI_API.md
-  - sections/contact.md
-  - sections/cv/cv.md
-  - sections/downloads.md
-  - sections/software.md
-  - sections/publications.md
-  - sections/science.md
-  - sections/tech.md
-  - sections/finance.md
 defaults:
   - scope:
       path: ""

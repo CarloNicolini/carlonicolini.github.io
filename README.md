@@ -28,8 +28,7 @@ content; `make check` checks internal links/assets. Override `PORT=4003` if need
 - `_layouts/`, `_includes/`: new presentation templates.
 - `assets/media/full_cv.tex`: the supplied CV source (no independently verified metrics).
 
-The old section landing pages remain as source material but are excluded from rendering;
-new pages replace them. Migration changes asset paths, not article prose. Compatibility
+New pages replace the old section landing-page sources, which have been removed. Migration changes asset paths, not article prose. Compatibility
 URLs for old `/static/` links and section pages are generated at build time.
 The dashboard and old styles are not imported. `_data` is retained in full.
 
