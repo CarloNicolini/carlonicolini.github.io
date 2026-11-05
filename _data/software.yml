@@ -1,3 +1,12 @@
+- name: BSP.rs
+  description: Rust implementation of backtracking survey propagation for random SAT problems
+  fulldescription: >
+    BSP.rs provides a Rust SAT solver with a Python API and CPU and GPU backends.
+    Its documentation covers installation, formulas, solver parameters, and the
+    experimental implicit Feistel generators.
+  github: 'https://github.com/CarloNicolini/BSP.rs'
+  documentation: 'https://carlonicolini.github.io/BSP.rs/'
+
 - name: pybsp
   image: '/assets/media/img/software/pybsp-parisi-replica-hierarchy.png'
   description: Native Python bindings for a backtracking survey-propagation SAT solver
